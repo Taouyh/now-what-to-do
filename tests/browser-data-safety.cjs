@@ -110,6 +110,12 @@ async function main() {
         console.log('PASS ' + name);
       } finally { await send('Target.disposeBrowserContext', { browserContextId }); }
     }
+    // Additional browser suites share the same isolated profile/context runner.
+    if (process.argv[2]) {
+      await require(path.resolve(process.argv[2]))(scenario, fixture);
+      await send('Browser.close');
+      return;
+    }
     const initial = { whatToDoData: JSON.stringify(fixture()) };
     await scenario('first use', {}, {}, async run => {
       assert.equal(await run("return JSON.parse(__rawGet('whatToDoData')).tasks.length"), 3);

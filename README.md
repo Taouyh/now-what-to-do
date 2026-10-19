@@ -29,8 +29,11 @@
 ```powershell
 node --test tests/data-safety.test.cjs
 node tests/browser-data-safety.cjs
+node tests/browser-data-safety.cjs tests/browser-html-safety.cjs
 ```
 
 第二条命令使用本机 Chrome 无头模式、新建临时配置和独立浏览器上下文，不访问日常浏览器配置。Chrome 不在默认位置时，可通过 `CHROME_PATH` 指定可执行文件。
 
 测试范围、实际结果和剩余限制见 [数据安全验证记录](docs/data-safety-validation.md)。
+
+任务、目标和历史记录中的用户文本按普通文本显示，包含的 HTML 标签不会被解析。原有字符、实体字面值和描述换行保持原样，不修改存储数据。渲染审计及浏览器安全测试见 [HTML 渲染安全验证记录](docs/html-safety-validation.md)；上述第三条命令运行该安全测试。
