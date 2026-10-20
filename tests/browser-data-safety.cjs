@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const http = require('node:http');
 const os = require('node:os');
 const path = require('node:path');
+const { pathToFileURL } = require('node:url');
 const { spawn } = require('node:child_process');
 const { once } = require('node:events');
 const { fixture } = require('./helpers/app-harness.cjs');
@@ -95,7 +96,8 @@ async function main() {
           HTMLAnchorElement.prototype.click=function(){__downloads.push({name:this.download,blob:urls.get(this.href)})};
         ` }, sessionId);
         const loaded = event('Page.loadEventFired', sessionId);
-        await send('Page.navigate', { url: 'http://127.0.0.1:' + server.address().port + '/' }, sessionId);
+        const entryUrl = process.argv.includes('--file') ? pathToFileURL(path.join(root, 'index.html')).href : 'http://127.0.0.1:' + server.address().port + '/';
+        await send('Page.navigate', { url: entryUrl }, sessionId);
         await loaded;
         const importData = async data => {
           await evaluate(`const dt=new DataTransfer();dt.items.add(new File([${JSON.stringify(typeof data === 'string' ? data : JSON.stringify(data))}],'backup.json',{type:'application/json'}));$('file').files=dt.files;$('file').dispatchEvent(new Event('change',{bubbles:true}));`);
@@ -111,6 +113,7 @@ async function main() {
       } finally { await send('Target.disposeBrowserContext', { browserContextId }); }
     }
     // Additional browser suites share the same isolated profile/context runner.
+    console.log('Browser entry mode: ' + (process.argv.includes('--file') ? 'local file' : 'local HTTP'));
     if (process.argv[2]) {
       await require(path.resolve(process.argv[2]))(scenario, fixture);
       await send('Browser.close');

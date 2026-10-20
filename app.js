@@ -109,7 +109,7 @@ function save(candidate=d){
 let d=loadData(),time=Number(d.preferences.time),env=d.preferences.env,computerReady=!!d.preferences.computerReady,cur=null;
 let dataSnapshot=JSON.stringify(d);
 if(firstUse&&!storageBlocked)save();
-function persistPreferences(){d.preferences={...d.preferences,time,env,computerReady};return save()}
+function persistPreferences(){d.preferences={...d.preferences,time,env,computerReady};if(!save())return false;random({keepCurrent:true});return true}
 // User strings are text, option values are data, and event handlers are functions.
 // Tags, classes and button IDs passed to these helpers are fixed application code.
 function textElement(tag,text='',className=''){
@@ -127,18 +127,35 @@ function renderGoalOptions(select,includeAll=false){
 function page(id){if(id==='home'){cur=null;$('rec').classList.add('hide');$('rec').replaceChildren();random()}document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='tasks')tasks();if(id==='goals')goals();if(id==='today')today();location.hash=id}
 document.querySelectorAll('[data-page]').forEach(x=>x.onclick=()=>page(x.dataset.page));$('browse').onclick=()=>page('tasks');document.querySelectorAll('#times button').forEach(x=>x.onclick=()=>{time=+x.dataset.v;if(!persistPreferences())return;document.querySelectorAll('#times button').forEach(y=>y.classList.toggle('on',y===x))});document.querySelectorAll('#envs button').forEach(x=>x.onclick=()=>{env=x.dataset.v;if(!persistPreferences())return;document.querySelectorAll('#envs button').forEach(y=>y.classList.toggle('on',y===x))});
 function ok(t){return t.enabled!==false&&t.minutes<=time&&(!t.goalId||!!gn(t.goalId))&&(!t.computer||computerReady)&&(env==='class'?!t.computer&&t.env==='class':env==='noisy'?t.env==='noisy':t.env==='quiet')}
-function random(){let doneRecently=new Set(d.completed.filter(c=>Date.now()-new Date(c.completedAt||c.date||0).getTime()<7*86400000).map(c=>c.taskId)),all=d.tasks.filter(ok),a=all.filter(t=>!doneRecently.has(t.id));if(!a.length)a=all;cur=a.length?a[Math.floor(Math.random()*a.length)]:null;let b=$('rec');
+function startRecommendation(id){
+  let task=d.tasks.find(t=>t.id===id);
+  if(!task||cur?.id!==id||!ok(task)){random();return}
+  run(task);
+}
+function random({keepCurrent=false}={}){
+  let previousId=cur?.id,all=d.tasks.filter(ok),current=all.find(t=>t.id===previousId);
+  if(keepCurrent&&current)cur=current;
+  else{
+    // An explicit new recommendation prefers another hard-eligible activity.
+    let pool=all.length>1?all.filter(t=>t.id!==previousId):all;
+    let doneRecently=new Set(d.completed.filter(c=>Date.now()-new Date(c.completedAt||c.date||0).getTime()<7*86400000).map(c=>c.taskId)),preferred=pool.filter(t=>!doneRecently.has(t.id));
+    if(!preferred.length)preferred=pool;
+    cur=preferred.length?preferred[Math.floor(Math.random()*preferred.length)]:null;
+  }
+  let b=$('rec');
   if(!cur){
-    b.replaceChildren(textElement('p','没有完全符合当前时间、环境和设备条件的启用任务。请调整条件或添加任务。'),actionButton('去任务库',()=>page('tasks'),'secondary','openTasks'));
+    b.replaceChildren(textElement('p','没有符合当前条件的任务。请调整可用时间、环境或电脑使用条件，或添加任务。'),actionButton('去任务库',()=>page('tasks'),'secondary','openTasks'));
     b.classList.remove('hide');return;
   }
   let intro=textElement('p'),meta=textElement('div','','meta'),actions=textElement('div','','actions');
   intro.append(textElement('small','为你挑好了'));
   meta.append(textElement('span','⏱ '+cur.minutes+' 分钟'),textElement('span',en(cur.env)),textElement('span',cur.computer?'💻 需要电脑':'📱 手机即可'));
-  actions.append(actionButton('开始任务',()=>run(cur),'primary','start'),actionButton('换一个',random,'secondary','again'));
+  let recommendedId=cur.id;
+  actions.append(actionButton('开始任务',()=>startRecommendation(recommendedId),'primary','start'),actionButton('换一个',()=>random(),'secondary','again'));
   b.replaceChildren(intro,textElement('h2',cur.name,'user-text'),textElement('p',cur.description||'','muted user-text'),meta,actions);
+  if(all.length===1){let hint=textElement('p','当前条件下只有这一项符合要求的任务','muted');hint.id='recommendationHint';hint.setAttribute('role','status');b.append(hint)}
   b.classList.remove('hide');
-}$('random').onclick=random;
+}$('random').onclick=()=>random();
 function run(t){cur=t;startTimer(t)}
 function startTimer(t){if(timerState()){renderTimer();return}if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;primeTimerAudio();let now=Date.now(),plannedMs=Math.max(1,Number(t.minutes)||0)*60000,x={completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:{...t},taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'已删除目标',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};if(!setTimerState(x))return;renderTimer();startTimerLoop()}
 let timerTick=null,timerAudio=null;
