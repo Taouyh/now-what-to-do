@@ -12,7 +12,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
   let count = 0;
   const check = async (name, data, fn) => {
     try {
-      await scenario(name, { whatToDoData: JSON.stringify(data) }, {}, fn);
+      await scenario(name, { whatToDoData: JSON.stringify(data) }, {}, fn, {chooseConditions:true});
       count++;
     } catch (error) { failures.push(error); console.error('FAIL ' + name + ': ' + error.message.slice(0, 180)); }
   };
@@ -24,7 +24,6 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
   await check('normal Chinese names and descriptions', fixture(), async run => {
     assert.deepEqual(await run("return [$('rec').querySelector('h2').textContent,$('rec').querySelector('p.muted').textContent]"), ['个人任务', '保留']);
     assert.deepEqual(await run("page('tasks');return [$('taskList').querySelector('h3').textContent,$('taskList').querySelector('p').textContent]"), ['个人任务', '保留']);
-    assert.deepEqual(await run("page('goals');return [$('goalList').querySelector('h3').textContent,$('goalList').querySelector('p').textContent]"), ['🎯 个人目标', '保留']);
   });
 
   const characters = fixture(); characters.tasks[0].name = special; characters.tasks[0].description = description;
@@ -33,7 +32,6 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     assert.deepEqual(await run("return [$('rec').querySelector('h2').textContent,$('rec').querySelector('p.muted').textContent]"), [special, description]);
     assert.equal(await run("return getComputedStyle($('rec').querySelector('p.muted')).whiteSpace"), 'pre-wrap');
     assert.deepEqual(await run("page('tasks');return [$('taskList').querySelector('h3').textContent,$('taskList').querySelector('p').textContent]"), [special, description]);
-    assert.deepEqual(await run("page('goals');return [$('goalList').querySelector('h3').textContent,$('goalList').querySelector('p').textContent]"), ['🎯 ' + special, description]);
     await noInjection(run);
   });
 
@@ -46,35 +44,18 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     assert.equal(await run("return __rawGet('whatToDoData')"), JSON.stringify(taskAttack));
   });
 
-  const goalAttack = fixture(); goalAttack.goals[0].name = image; goalAttack.goals[0].description = svg; goalAttack.goals[0].icon = image;
-  await check('goal names, descriptions and imported icons are inert', goalAttack, async run => {
-    await run("page('tasks');page('goals');newTask();");
-    await noInjection(run);
-    assert.deepEqual(await run("return [$('goalList').querySelector('h3').textContent,$('goalList').querySelector('p').textContent,$('goal').options[0].textContent]"), [image + ' ' + image, svg, image + ' ' + image]);
-  });
-
-  const identifier = 'goal");window.__htmlSafetyExecuted=(window.__htmlSafetyExecuted||0)+1;//';
-  const idAttack = fixture(); idAttack.goals[0].id = identifier; idAttack.tasks[0].goalId = identifier;
-  await check('goal IDs stay data instead of inline JavaScript', idAttack, async run => {
-    await run("page('goals');$('goalList').querySelector('button').click();");
-    await noInjection(run);
-    assert.equal(await run("return $('goal').value"), identifier);
-    assert.equal(await run("return $('goalList').querySelectorAll('[onclick]').length"), 0);
-    assert.equal(await run("$('close').click();$('goalList').querySelectorAll('button')[1].click();return $('goalEditorId').value"), identifier);
-  });
-
   const optionId = 'id\'"<>&' + image;
-  const optionAttack = fixture(); optionAttack.goals[0].id = optionId; optionAttack.tasks[0].goalId = optionId;
-  await check('goal option values and labels cannot escape HTML attributes', optionAttack, async run => {
-    assert.equal(await run("page('tasks');return $('fg').options[1].value"), optionId);
-    assert.equal(await run("newTask();return $('goal').options[0].value"), optionId);
-    assert.equal(await run("return $('goal').value"), optionId);
+  await check('legacy goal metadata is preserved without management or category controls', fixture(), async (run, importData) => {
+    const legacy=fixture();legacy.goals[0].name=image;legacy.goals[0].description=svg;legacy.goals[0].icon=image;legacy.goals[0].id=optionId;legacy.tasks[0].goalId=optionId;
+    await importData(legacy);await run("$('confirmAccept').click();page('tasks');newTask();");
+    assert.deepEqual(await run("return [$('goal'),$('fg'),$('goals'),$('goalEditor')]"),[null,null,null,null]);
+    assert.deepEqual(await run("return d.goals"),legacy.goals);
     await noInjection(run);
   });
 
   const taskIdAttack = fixture(); taskIdAttack.tasks[0].id = optionId;
   await check('imported task IDs keep filtering and delegated controls working', taskIdAttack, async run => {
-    assert.equal(await run("page('tasks');$('fg').value='mine';$('fg').dispatchEvent(new Event('change'));return $('fg').value"), 'mine');
+    assert.equal(await run("page('tasks');$('ft').value='10';$('ft').dispatchEvent(new Event('change'));return $('ft').value"), '10');
     assert.equal(await run("$('taskList').querySelector('[data-task-action=edit]').click();return $('tid').value"), optionId);
     await run(`$('name').value=${JSON.stringify(special)};${submit('form')}`);
     assert.equal(await run("$('taskList').querySelector('[data-task-action=start]').click();return timerState().taskId"), optionId);
@@ -85,14 +66,15 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
 
   const history = fixture(); history.completed = [{ ...history.completed[0], completedAt: new Date().toISOString(), taskName: image, goalName: svg }];
   await check('today record snapshots are plain text', history, async run => {
-    assert.deepEqual(await run("page('today');return [$('todayBox').querySelector('h3').textContent,$('todayBox').querySelector('.history-item p').textContent]"), [image, '目标：' + svg]);
+    assert.deepEqual(await run("page('today');return [$('todayBox').querySelector('h3').textContent,d.completed[0].goalName||gn(d.completed[0].goalId)?.name]"), [image, svg]);
     await noInjection(run);
   });
 
   const fallback = fixture(); fallback.tasks[0].name = image; fallback.goals[0].name = svg;
   fallback.completed = [{ taskId: fallback.tasks[0].id, goalId: fallback.goals[0].id, date: new Date().toISOString(), minutes: 5 }];
   await check('legacy record name fallbacks are plain text', fallback, async run => {
-    assert.deepEqual(await run("page('today');return [$('todayBox').querySelector('h3').textContent,$('todayBox').querySelector('.history-item p').textContent]"), [image, '目标：' + svg]);
+    assert.equal(await run("page('today');return $('todayBox').querySelector('h3').textContent"), image);
+    assert.equal(await run("return d.goals[0].name"), svg);
     await noInjection(run);
   });
 
@@ -100,9 +82,9 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     const incoming = fixture(); incoming.goals[0] = { ...incoming.goals[0], id: optionId, name: special, description: svg, icon: image };
     incoming.tasks[0] = { ...incoming.tasks[0], goalId: optionId, name: image, description };
     incoming.completed[0] = { ...incoming.completed[0], completedAt: new Date().toISOString(), taskName: image, goalName: svg };
-    await importData(incoming); await run("$('confirmAccept').click();page('tasks');page('goals');page('today');newTask();");
+    await importData(incoming); await run("$('confirmAccept').click();page('tasks');page('today');newTask();");
     await noInjection(run);
-    assert.equal(await run("return $('goal').value"), optionId);
+    assert.equal(await run("return $('goal')"), null);
     assert.deepEqual(await run("const saved=JSON.parse(__rawGet('whatToDoData'));return [saved.version,saved.tasks[0].name,saved.tasks[0].description,saved.goals[0].id,saved.goals[0].icon,saved.completed[0].taskName]"), [2, image, description, optionId, image, image]);
   });
 
@@ -129,18 +111,6 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     await noInjection(run);
   });
 
-  await check('goal form create, edit, add-task and delete controls', fixture(), async run => {
-    await run(`$('newGoal').click();$('goalEditorName').value=${JSON.stringify(special)};$('goalEditorDesc').value=${JSON.stringify(description)};${submit('goalEditorForm')}`);
-    const id = await run('return d.goals.at(-1).id');
-    assert.equal(await run("return $('goalList').lastElementChild.querySelector('h3').textContent"), '🎯 ' + special);
-    assert.equal(await run("$('goalList').lastElementChild.querySelectorAll('button')[0].click();return $('goal').value"), id);
-    await run(`$('close').click();$('goalList').lastElementChild.querySelectorAll('button')[1].click();$('goalEditorName').value=${JSON.stringify(image)};${submit('goalEditorForm')}`);
-    assert.equal(await run(`return d.goals.find(g=>g.id===${JSON.stringify(id)}).name`), image);
-    await run("$('goalList').lastElementChild.querySelectorAll('button')[2].click();$('confirmAccept').click();");
-    assert.equal(await run(`return d.goals.some(g=>g.id===${JSON.stringify(id)})`), false);
-    await noInjection(run);
-  });
-
   await check('notices, confirmation dialogs, timer snapshots and empty states stay safe', fixture(), async run => {
     await run(`notify(${JSON.stringify(image)});openConfirm('delete','mine-task');`);
     assert.equal(await run("return $('appNotice').textContent"), image);
@@ -148,8 +118,8 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     assert.deepEqual(await run("return [$('confirmTaskName').textContent,$('confirmTaskDesc').textContent]"), [image, svg]);
     await run("closeConfirm();startTimer(d.tasks[0]);d.tasks=[];renderTimer();");
     assert.deepEqual(await run("return [$('timerName').textContent,$('timerDesc').textContent]"), [image, svg]);
-    await run("giveUpTimer();$('confirmAccept').click();page('tasks');page('goals');page('today');");
-    assert.ok(await run("return $('taskList').textContent.includes('没有符合条件的任务')"));
+    await run("giveUpTimer();$('confirmAccept').click();page('tasks');page('today');");
+    assert.ok(await run("return $('taskList').textContent.includes('添加一件你想经常做的事')"));
     await noInjection(run);
   });
 

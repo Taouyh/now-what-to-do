@@ -48,6 +48,8 @@ function boot(initial = {}, faults = {}) {
       else this.dispatch('click');
     }
     focus() {}
+    getBoundingClientRect() { return { left: 12, top: 12, width: 280, height: 190 }; }
+    hasPointerCapture() { return false; }
     reset() {}
     insertAdjacentHTML(_, html) { parse(html); }
     contains(el) { return this.children.includes(el); }
@@ -68,9 +70,9 @@ function boot(initial = {}, faults = {}) {
     if (on) el.classList.add('on');
     return el;
   };
-  const times = [5, 10, 15, 30, 60].map(x => choice(x, x === 10));
+  const times = [5, 10, 15, 30, 60, 'custom'].map(x => choice(x, x === 10));
   const envs = ['quiet', 'noisy', 'class'].map(x => choice(x, x === 'noisy'));
-  const pages = ['home', 'today', 'tasks', 'goals'].map(id => elements.get(id));
+  const pages = ['home', 'today', 'tasks'].map(id => elements.get(id));
   const nav = pages.map(p => { const e = new Element('button'); e.dataset.page = p.id; return e; });
   const body = new Element('body');
   const document = {
@@ -79,7 +81,7 @@ function boot(initial = {}, faults = {}) {
     createElement: tag => new Element(tag),
     querySelector: selector => selector.startsWith('#') ? elements.get(selector.slice(1)) : null,
     querySelectorAll: selector => ({ '#times button': times, '#envs button': envs, '.page': pages, '[data-page]': nav,
-      'header, main, footer, #timer, #modal, #goalEditor, #confirmLayer': [...pages, ...nav],
+      'header, main, footer, #timer, #floatingTimer, #modal, #confirmLayer': [...pages, ...nav, elements.get('floatingTimer')],
     }[selector] || []),
     addEventListener() {},
   };
@@ -102,6 +104,7 @@ function boot(initial = {}, faults = {}) {
   const blobs = new Map(), readers = [];
   const context = vm.createContext({
     document, location: { hash: '', reload() {} }, localStorage, console, Blob,
+    innerWidth: 1024, innerHeight: 768, addEventListener() {},
     URL: { createObjectURL(blob) { const id = 'blob:test-' + blobs.size; blobs.set(id, blob); return id; }, revokeObjectURL() {} },
     setTimeout: () => ++nextTimer, clearTimeout() {},
     setInterval(fn) { const id = ++nextTimer; intervals.set(id, fn); return id; },
@@ -124,6 +127,11 @@ function boot(initial = {}, faults = {}) {
     error, values, writes, elements, downloads, intervals, times, envs, document, faults, readers,
     run: code => vm.runInContext(code, context),
     json: code => JSON.parse(vm.runInContext('JSON.stringify(' + code + ')', context)),
+    chooseConditions() {
+      const [minutes, environment] = this.json('[time,env]');
+      times.find(button => Number(button.dataset.v) === minutes).click();
+      envs.find(button => button.dataset.v === environment).click();
+    },
     import(data) {
       const file = elements.get('file');
       file.files = [{ text: typeof data === 'string' ? data : JSON.stringify(data) }];

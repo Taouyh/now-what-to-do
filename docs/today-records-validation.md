@@ -1,0 +1,60 @@
+# 今天页紧凑记录卡片验证
+
+日期：2026-10-21。基线 HEAD：`739715fe07d3110dc854c8dfe8ca4271eefb3141`；开始时的空库、目标移除、悬浮计时等未提交修改继续保留。本轮仅调整今天页展示，没有修改真实用户数据，没有提交、推送或部署。未发现适用的 AGENTS.md。
+
+## 最小实现
+
+- `app.js` 的 `today()` 使用原生 `details/summary` 卡片。默认收起，第一行任务名与箭头，第二行本地时间范围、实际有效用时及可选追加标记。任务名过长时收起省略，展开后完整显示。浏览器原生支持键盘和无障碍展开状态；只有摘要区域切换，详情仅用于阅读和选择文字，各条记录独立。
+- 新增纯展示函数 `recordTimeRange()`。同本地日且属于今天时只显示时分；跨日期、非今天的时间或仅有一端时间时显示日期，跨年包含年份。不使用 `date` 或 `completedAt` 推算未保存的开始/结束时间，明确标记“未记录”。
+- 展开后保留完整开始、结束时间、原始计划、累计追加、实际有效用时，并在有字段时展示暂停时长。空计划字段显示“未知”；旧记录追加字段缺失显示“未记录”，不会把未知信息显示成0。兼容已有追加分钟字段和合法数字字符串。
+- 今日有效学习时间与完成次数移到列表上方。日期筛选 `recordsForLocalDay()`、有效时长计算 `recordDurationMs()`、总时长格式、原数组顺序保持不变，没有新增排序、写入或迁移。
+- `style.css` 只调整今天页汇总和记录卡片规则，包含折叠箭头、键盘焦点、长文本和窄屏布局。`index.html` 仅更新两处资源版本参数。
+
+展开状态只属于 DOM，不写入学习记录或 localStorage；重新渲染或刷新后恢复默认收起。用户文本仍以 `textContent` 显示，任务名提示使用 DOM 属性赋值，没有新增动态 HTML 解析。
+
+## 初版验证记录
+
+Node.js v24.18.0、Chrome 无头浏览器。全部使用合成记录、内存 Storage 或全新临时浏览器配置，不访问日常浏览器数据。
+
+```powershell
+node --check app.js
+node --check tests/browser-today-records.cjs
+node --test tests/data-safety.test.cjs tests/recommendation.test.cjs tests/repeatable-tasks.test.cjs tests/personal-activities.test.cjs tests/floating-timer.test.cjs tests/today-records.test.cjs
+node tests/browser-data-safety.cjs tests/browser-today-records.cjs --file
+node tests/browser-data-safety.cjs tests/browser-today-records.cjs
+node tests/browser-data-safety.cjs tests/browser-html-safety.cjs --file
+node tests/browser-data-safety.cjs tests/browser-repeatable-tasks.cjs --file
+node tests/browser-data-safety.cjs tests/browser-recommendation.cjs --file
+node tests/browser-data-safety.cjs tests/browser-floating-timer.cjs --file
+node tests/browser-data-safety.cjs
+git diff --check
+```
+
+| 检查 | 实际结果 |
+| --- | --- |
+| Node 新增今天页测试 | 2/2 通过 |
+| 既有 Node 回归 | 69/69 通过 |
+| 新增今天页浏览器场景，本地文件 | 7/7 通过 |
+| 同组浏览器场景，HTTP | 7/7 通过 |
+| HTML 安全、重复执行、推荐、悬浮、数据安全浏览器回归 | 11 + 10 + 11 + 10 + 11，全部通过 |
+| 语法、Git 空白检查 | 通过 |
+
+新增测试真实检查1、5、10条记录；收起卡片在桌面测试视口下不超过100px；任务标题顺序和原数组一致；顶部汇总与原有效时长求和一致。初版包含“点击详情收起”的交互验证，该要求已在本轮取消，最新结果见文末。Enter/空格操作、箭头状态及多条独立展开通过；Chrome Accessibility 树的 `expanded` 属性与真实展开状态一致。测试还验证交互链接点击不导致收起。
+
+375、320、240px窄屏上检查长中文/特殊字符标题、展开详情和箭头边界，无横向溢出或重叠；跨午夜和跨年范围包含明确日期；旧记录缺失一端或两端时间时不推算。导入含恶意 HTML 的合法记录后，标签按文本显示，未生成探针元素或执行事件。反复展开、导航、重新渲染和真实刷新后，记录、存储原文及写入次数保持不变。最后补充旧可空计划、旧追加分钟与字符串暂停时长后，两个入口的新场景再次通过。
+
+通过 `TODAY_SCREENSHOT_DIR` 保存了仓库外的合成页面截图，并查看5条记录桌面页及320px窄屏长任务名页面。计时器、推荐和持久化不在本轮修改范围。
+
+## 限制
+
+尚未在用户日常配置、实体移动设备、多浏览器或独立屏幕阅读器软件中验收；浏览器可访问树检查不等于所有辅助技术已验收。很窄屏、跨日范围或缺失时间的摘要允许换行，避免为强制两行而隐藏关键信息。汇总及筛选继续沿用原口径，不调整已有记录的真实性或时间归属。
+
+## 详情阅读交互修复
+
+2026-10-21，按最新要求将切换范围限定为分割线上方摘要。DOM 原本正确：`summary` 与详情 `dl` 为同级，详情没有包含在摘要中。实际根因是额外绑定的整卡 `onclick`：除摘要及交互元素外，其他点击均执行 `card.open=!card.open`。修改测试预期后，在修复前的隔离 Chrome 中成功复现详情单击错误收起。
+
+最小修复仅从 `today()` 删除这4行整卡监听，由原生 `summary` 负责切换。没有新增事件拦截、延时、手动键盘处理或新状态；样式、箭头、记录、汇总、计时、推荐及存储保持不变。`index.html` 只更新 JS 资源版本，样式版本不变。
+
+本轮真实结果：71/71 Node 测试通过；更新后的今天页浏览器测试在本地文件及 HTTP 入口分别8/8通过；HTML 安全浏览器回归11/11通过，无未捕获异常。语法及 Git 空白检查通过。使用上述原命令，未接触真实浏览器数据。
+
+新增回归通过 DevTools 输入协议在浏览器中实际单击开始时间、双击结束时间、拖选结束时间（断言选中了文字）、点击详情空白、点击卡片外部、滚轮滚动及触摸滑动。两种滚动均断言页面确实发生位移，记录仍保持展开。再次点击摘要才收起，多条记录互不干扰；Enter/Space、原生 Accessibility `expanded` 状态和箭头继续通过。全过程断言历史数组及原始 JSON 不变、存储写入次数为0、今日有效学习时间相同。其他未提交文件保持原样，没有提交、推送或部署。实体触屏与独立屏幕阅读器软件仍未验收。

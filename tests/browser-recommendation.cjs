@@ -9,7 +9,7 @@ module.exports = async function recommendationSuite(scenario, fixture) {
     return data;
   };
   const check = async (name, data, fn) => {
-    await scenario(name, { whatToDoData: JSON.stringify(data) }, {}, fn); count++;
+    await scenario(name, { whatToDoData: JSON.stringify(data) }, {}, fn, {chooseConditions:true}); count++;
   };
 
   const bounds = dataWithTasks([{ minutes: 10 }, { minutes: 30 }, { minutes: 60 }, { env: 'noisy' }, { computer: true }, { enabled: false }]);

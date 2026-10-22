@@ -11,10 +11,10 @@ function activeTimer(paused = false) {
     paused, finished: false, soundPlayed: false, pauseStartedAt: paused ? now : 0, pausedDurationMs: 0 };
 }
 
-test('first use initializes defaults', () => {
+test('first use initializes an empty personal library', () => {
   const app = boot(); started(app);
   assert.equal(JSON.parse(app.values.get('whatToDoData')).version, 2);
-  assert.equal(app.json('d.tasks').length, 3);
+  assert.equal(app.json('d.tasks').length, 0);
 });
 
 test('valid existing data and unknown fields survive loading', () => {
@@ -74,7 +74,7 @@ test('failed task save keeps old data, open editor and no success message', () =
   const before = app.values.get('whatToDoData');
   app.faults.write = true;
   app.run('newTask("mine")');
-  for (const [id, value] of Object.entries({ name: '未保存的任务', mins: '5', goal: 'mine', environment: 'noisy' })) app.elements.get(id).value = value;
+  for (const [id, value] of Object.entries({ name: '未保存的任务', mins: '5', environment: 'noisy' })) app.elements.get(id).value = value;
   app.elements.get('form').dispatch('submit');
   assert.equal(app.values.get('whatToDoData'), before);
   assert.equal(app.run('d.tasks.some(t=>t.name==="未保存的任务")'), false);
@@ -84,7 +84,7 @@ test('failed task save keeps old data, open editor and no success message', () =
 });
 
 test('valid import waits for confirmation and synchronizes preferences and theme', () => {
-  const app = boot(stored(fixture())); started(app);
+  const app = boot(stored(fixture())); started(app); app.chooseConditions();
   const before = app.values.get('whatToDoData');
   const incoming = fixture(); incoming.preferences = { time: 30, env: 'quiet', computerReady: true }; incoming.theme = 'dark';
   app.import(incoming);
@@ -127,7 +127,7 @@ test('failed import retains old runtime, storage, preferences and theme', () => 
 
 test('empty string storage is first use, but future versions are protected', () => {
   const empty = boot({ whatToDoData: '' }); started(empty);
-  assert.equal(empty.json('d.tasks').length, 3);
+  assert.equal(empty.json('d.tasks').length, 0);
   const raw = JSON.stringify({ ...fixture(), version: 3 });
   const newer = boot({ whatToDoData: raw }); started(newer);
   assert.equal(newer.values.get('whatToDoData'), raw);
@@ -142,7 +142,7 @@ test('existing data is migrated in memory without startup writes', () => {
   assert.equal(app.values.get('whatToDoData'), raw);
   assert.equal(app.writes.length, 0);
   assert.equal(app.run('d.tasks.some(t=>t.id==="s99")'), true);
-  assert.equal(app.run('d.tasks.filter(t=>t.id.startsWith("default-")).length'), 3);
+  assert.equal(app.run('d.tasks.filter(t=>t.id.startsWith("default-")).length'), 0);
   app.run('persistPreferences()');
   const reload = boot(Object.fromEntries(app.values)); started(reload);
   assert.equal(reload.json('d.tasks').length, app.json('d.tasks').length);
@@ -212,7 +212,7 @@ test('missing timer task and failed removal do not recurse or delete the timer',
 });
 
 test('failed preference and theme writes restore selected controls', () => {
-  const app = boot(stored(fixture())); started(app);
+  const app = boot(stored(fixture())); started(app); app.chooseConditions();
   app.faults.write = true;
   app.times.find(x => x.dataset.v === '30').click();
   app.envs.find(x => x.dataset.v === 'quiet').click();
@@ -231,7 +231,7 @@ test('strict import validation rejects invalid fields and never mutates the cand
   const invalid = [
     x => { x.version = 99; }, x => { delete x.completed; }, x => { x.preferences = []; },
     x => { x.goals.push(x.goals[0]); }, x => { x.tasks[0].minutes = 0; },
-    x => { x.tasks[0].goalId = 'missing'; }, x => { x.tasks[0].computer = 1; },
+    x => { x.tasks[0].goalId = 123; }, x => { x.tasks[0].computer = 1; },
     x => { x.preferences.time = 20; }, x => { x.preferences.env = 'invalid'; },
     x => { x.completed[0].minutes = -1; }, x => { x.completed[0].minutes = ''; },
     x => { x.completed[0].completedAt = 'invalid'; }, x => { x.completed[0].taskName = {}; },

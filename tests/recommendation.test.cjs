@@ -9,7 +9,7 @@ function dataWithTasks(specs, preferences = {}) {
   return data;
 }
 function start(data, faults) {
-  const app = boot({ whatToDoData: JSON.stringify(data) }, faults); assert.ifError(app.error); return app;
+  const app = boot({ whatToDoData: JSON.stringify(data) }, faults); assert.ifError(app.error); app.chooseConditions(); return app;
 }
 function chooseTime(app, value) { app.times.find(b => b.dataset.v === String(value)).click(); }
 function chooseEnv(app, value) { app.envs.find(b => b.dataset.v === value).click(); }
@@ -90,7 +90,7 @@ test('turning computer availability off invalidates a computer task', () => {
 });
 
 test('start recommendation rechecks task existence and eligibility', () => {
-  for (const mutation of ['d.tasks[0].enabled=false', 'd.tasks[0].minutes=60', 'd.tasks[0].env="noisy"', 'd.tasks[0].computer=true', 'd.goals=[]', 'd.tasks=[]']) {
+  for (const mutation of ['d.tasks[0].enabled=false', 'd.tasks[0].minutes=60', 'd.tasks[0].env="noisy"', 'd.tasks[0].computer=true', 'd.tasks=[]']) {
     const app = start(dataWithTasks([{}]));
     const button = app.elements.get('start'); app.run(mutation); button.click();
     assert.equal(app.values.has('activeTimer'), false, mutation);

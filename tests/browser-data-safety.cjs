@@ -71,7 +71,7 @@ async function main() {
         events.set(key, value => { clearTimeout(timeout); resolve(value); });
       });
     }
-    async function scenario(name, initial, faults, check) {
+    async function scenario(name, initial, faults, check, options = {}) {
       const { browserContextId } = await send('Target.createBrowserContext');
       try {
         const { targetId } = await send('Target.createTarget', { url: 'about:blank', browserContextId });
@@ -82,10 +82,14 @@ async function main() {
           return result.result.value;
         };
         await send('Runtime.enable', {}, sessionId); await send('Page.enable', {}, sessionId);
+        if (options.timezone) await send('Emulation.setTimezoneOverride', { timezoneId: options.timezone }, sessionId);
         await send('Page.addScriptToEvaluateOnNewDocument', { source: `
           const rawStorage=window.localStorage;
           window.__rawGet=key=>Storage.prototype.getItem.call(rawStorage,key);
-          for(const [key,value] of Object.entries(${JSON.stringify(initial)}))rawStorage.setItem(key,value);
+          if(!sessionStorage.getItem('__appTestSeeded')){
+            for(const [key,value] of Object.entries(${JSON.stringify(initial)}))rawStorage.setItem(key,value);
+            sessionStorage.setItem('__appTestSeeded','1');
+          }
           const get=Storage.prototype.getItem,set=Storage.prototype.setItem,remove=Storage.prototype.removeItem;
           window.__rawGet=key=>get.call(rawStorage,key);window.__faults=${JSON.stringify(faults)};window.__writes=[];
           Storage.prototype.getItem=function(key){if(__faults.read)throw new DOMException('test read failure','SecurityError');return get.call(this,key)};
@@ -99,6 +103,8 @@ async function main() {
         const entryUrl = process.argv.includes('--file') ? pathToFileURL(path.join(root, 'index.html')).href : 'http://127.0.0.1:' + server.address().port + '/';
         await send('Page.navigate', { url: entryUrl }, sessionId);
         await loaded;
+        const chooseConditions = () => evaluate("[...document.querySelectorAll('#times button')].find(b=>Number(b.dataset.v)===time).click();[...document.querySelectorAll('#envs button')].find(b=>b.dataset.v===env).click()");
+        if(options.chooseConditions)await chooseConditions();
         const importData = async data => {
           await evaluate(`const dt=new DataTransfer();dt.items.add(new File([${JSON.stringify(typeof data === 'string' ? data : JSON.stringify(data))}],'backup.json',{type:'application/json'}));$('file').files=dt.files;$('file').dispatchEvent(new Event('change',{bubbles:true}));`);
           for (let i = 0; i < 100; i++) {
@@ -107,7 +113,31 @@ async function main() {
           }
           throw Error('Import reader timed out');
         };
-        await check(evaluate, importData);
+        const reload = async () => {
+          const loaded = event('Page.loadEventFired', sessionId);
+          await send('Page.reload', {}, sessionId); await loaded;
+          if(options.chooseConditions)await chooseConditions();
+        };
+        const navigateEntry = async mode => {
+          assert.ok(['file','http'].includes(mode));
+          const loaded = event('Page.loadEventFired', sessionId);
+          const url = mode==='file' ? pathToFileURL(path.join(root,'index.html')).href : 'http://127.0.0.1:'+server.address().port+'/';
+          await send('Page.navigate', { url }, sessionId); await loaded;
+          if(options.chooseConditions)await chooseConditions();
+        };
+        const protocol = (method, params = {}) => send(method, params, sessionId);
+        const background = async ms => {
+          const other = await send('Target.createTarget', { url: 'about:blank', browserContextId });
+          try {
+            await send('Target.activateTarget', { targetId: other.targetId });
+            const hidden = await evaluate('return document.hidden');
+            await new Promise(resolve => setTimeout(resolve, ms));
+            await send('Target.activateTarget', { targetId });
+            await send('Page.bringToFront', {}, sessionId);
+            return hidden;
+          } finally { await send('Target.closeTarget', { targetId: other.targetId }); }
+        };
+        await check(evaluate, importData, { reload, navigateEntry, protocol, background, chooseConditions });
         assert.deepEqual(errors.get(sessionId) || [], [], name + ': browser exceptions');
         console.log('PASS ' + name);
       } finally { await send('Target.disposeBrowserContext', { browserContextId }); }
@@ -121,7 +151,7 @@ async function main() {
     }
     const initial = { whatToDoData: JSON.stringify(fixture()) };
     await scenario('first use', {}, {}, async run => {
-      assert.equal(await run("return JSON.parse(__rawGet('whatToDoData')).tasks.length"), 3);
+      assert.equal(await run("return JSON.parse(__rawGet('whatToDoData')).tasks.length"), 0);
     });
     await scenario('normal data stays unchanged on load', initial, {}, async run => {
       assert.equal(await run("return __rawGet('whatToDoData')"), initial.whatToDoData);
@@ -144,7 +174,8 @@ async function main() {
       assert.deepEqual(await run('return d.completed[0]'), { ...legacy.completed[0], recordId: 'legacy-record-1', completionId: 'legacy-record-1' });
       assert.equal(await run('return __writes.length'), 0);
     });
-    await scenario('valid import synchronizes actual DOM', initial, {}, async (run, importData) => {
+    await scenario('valid import synchronizes actual DOM', initial, {}, async (run, importData, {chooseConditions}) => {
+      await chooseConditions();
       const data = fixture(); data.preferences = { time: 30, env: 'quiet', computerReady: true }; data.theme = 'dark';
       await importData(data);
       assert.equal(await run("return __rawGet('whatToDoData')"), initial.whatToDoData);

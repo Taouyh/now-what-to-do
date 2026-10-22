@@ -1,2 +1,40 @@
+# Personal data belongs in these local-only directories, never in source/tests.
+/private-data/
+/personal-backups/
+/personal-diaries/
+
+# Application downloads, including browser-generated duplicate filenames.
+what-to-do-backup*.json
+what-to-do-original*.txt
+what-to-do-timer-original*.txt
+localStorage-export*.json
+localstorage-export*.json
+whatToDoData*.json
+activeTimer*.json
+
+# Local credentials; keep safe example configuration available to Git.
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Dependencies, generated output and local test artifacts.
+node_modules/
+/dist/
+/build/
+/coverage/
+/test-results/
+/playwright-report/
+/test-artifacts/
+.cache/
+.tmp/
+*.log
+*.log.*
+
+# Editor temporary files and operating system metadata.
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
+Desktop.ini
