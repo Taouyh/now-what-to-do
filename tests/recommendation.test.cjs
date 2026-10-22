@@ -40,7 +40,7 @@ test('no eligible task produces a visible empty state without starting a timer',
   const app = start(dataWithTasks([{ minutes: 60 }, { env: 'noisy' }, { computer: true }]));
   assert.equal(app.run('cur'), null);
   assert.equal(app.elements.get('rec').classList.contains('hide'), false);
-  assert.match(app.elements.get('rec').children[0].textContent, /没有符合当前条件的任务/);
+  assert.match(app.elements.get('rec').children[0].textContent, /没有符合当前条件的活动/);
   assert.equal(app.values.has('activeTimer'), false);
 });
 
@@ -100,7 +100,7 @@ test('start recommendation rechecks task existence and eligibility', () => {
 
 test('a detached start button cannot start a different recommendation', () => {
   const app = start(dataWithTasks([{}, {}]));
-  app.run('Math.random=()=>0;page("home")');
+  app.run('Math.random=()=>0;cur=null;page("home")');
   const oldStart = app.elements.get('start');
   app.run('Math.random=()=>0.999999;random()');
   assert.equal(app.run('cur.id'), 'task-1');
@@ -128,7 +128,7 @@ test('recent-completion fallback never relaxes hard restrictions', () => {
 
 test('returning home after completion refreshes recommendation without duplicate history', () => {
   const app = start(dataWithTasks([{}, {}]));
-  app.run('Math.random=()=>0;page("home")'); app.elements.get('start').click();
+  app.run('Math.random=()=>0;cur=null;page("home")'); app.elements.get('start').click();
   app.run('finishTimer();page("home")');
   assert.equal(app.run('cur?.id'), 'task-1');
   for (let i=0;i<4;i++) app.run('random();page("home");finishTimer()');

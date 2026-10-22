@@ -10,14 +10,15 @@ const select=(app,value)=>app.times.find(b=>b.dataset.v===String(value)).click()
 function input(app,value){app.elements.get('customMinutes').value=value;app.elements.get('customMinutes').dispatch('input');}
 const environment=app=>app.envs.find(b=>b.dataset.v==='noisy').click();
 
-test('custom starts blank and only valid input plus an explicit environment enable recommendation',()=>{
+test('custom starts blank and valid input uses the already visible saved environment',()=>{
   const app=setup(),before=app.values.get('whatToDoData');
-  assert.equal(app.times.some(b=>b.classList.contains('on')),false);
+  assert.equal(app.times.some(b=>b.classList.contains('on')),true);
   select(app,'custom');assert.equal(app.elements.get('customMinutes').value,'');
   assert.equal(app.elements.get('customTimeField').classList.contains('hide'),false);
   assert.equal(app.times.find(b=>b.dataset.v==='custom')['aria-pressed'],'true');
   assert.equal(app.run('selectionReady()'),false);assert.match(app.elements.get('customTimeError').textContent,/1–1440/);
-  input(app,'25');assert.equal(app.run('cur'),null);assert.equal(app.elements.get('random').disabled,true);
+  assert.equal(app.elements.get('customMinutes')['aria-invalid'],'false');
+  input(app,'25');assert.equal(app.run('ok(cur)'),true);assert.equal(app.elements.get('random').disabled,false);
   environment(app);assert.equal(app.run('selectionReady()'),true);assert.equal(app.run('ok(cur)'),true);
   assert.equal(app.values.get('whatToDoData'),before);assert.equal(app.writes.length,0);
 });
@@ -38,7 +39,7 @@ test('invalid custom inputs immediately remove recommendations and stale start b
   for(const value of ['', ' ', '0','-5','1.5','abc','1441','9999999999999999999','1e2','NaN','Infinity']){
     input(app,'25');const oldStart=app.elements.get('start');input(app,value);
     assert.equal(app.run('cur'),null,value);assert.equal(app.elements.get('random').disabled,true,value);
-    assert.equal(app.elements.get('customMinutes')['aria-invalid'],'true');assert.match(app.elements.get('customTimeError').textContent,/正整数/);
+    assert.equal(app.elements.get('customMinutes')['aria-invalid'],String(value.trim()!==''));assert.match(app.elements.get('customTimeError').textContent,/1–1440/);
     app.elements.get('random').click();oldStart.click();assert.equal(app.values.has('activeTimer'),false);
   }
 });
@@ -70,8 +71,9 @@ test('custom budgets stay out of backups and refresh; runtime sync and failed pr
   assert.equal(app.run('time'),25);assert.equal(app.run('d.preferences.time'),10);assert.equal(app.run('validateData(d)===d'),true);
   assert.deepEqual(app.json('d.tasks'),JSON.parse(before).tasks);assert.deepEqual(app.json('d.completed'),JSON.parse(before).completed);
   const reloaded=boot(Object.fromEntries(app.values));assert.ifError(reloaded.error);
-  assert.deepEqual(reloaded.json('[customTime,customTimeDraft,timeChosen,envChosen,cur]'),[false,'',false,false,null]);
-  assert.equal(reloaded.elements.get('customMinutes').value,'');assert.equal(reloaded.elements.get('random').disabled,true);
+  assert.deepEqual(reloaded.json('[customTime,customTimeDraft,timeChosen,envChosen,time]'),[false,'',true,true,10]);
+  assert.equal(reloaded.run('ok(cur)'),true);
+  assert.equal(reloaded.elements.get('customMinutes').value,'');assert.equal(reloaded.elements.get('random').disabled,false);
 });
 
 test('manual start uses the original task duration and budget edits leave the active timer unchanged',()=>{

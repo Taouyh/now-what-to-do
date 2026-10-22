@@ -54,7 +54,7 @@ test('single candidate is retained with an explicit explanation', () => {
   const app = start(dataSet(1));
   for (let i = 0; i < 3; i++) app.elements.get('random').click();
   assert.equal(app.run('cur.id'), 'task-0');
-  assert.match(visibleText(app.elements.get('rec')), /当前条件下只有这一项符合要求的任务/);
+  assert.match(visibleText(app.elements.get('rec')), /当前条件下只有这一项活动/);
 });
 
 test('no candidate clears old task and prevents its detached start action', () => {
@@ -62,7 +62,7 @@ test('no candidate clears old task and prevents its detached start action', () =
   const app = start(data), oldStart = app.elements.get('start');
   app.times.find(b => b.dataset.v === '5').click();
   assert.equal(app.run('cur'), null);
-  assert.match(visibleText(app.elements.get('rec')), /没有符合当前条件的任务/);
+  assert.match(visibleText(app.elements.get('rec')), /没有符合当前条件的活动/);
   oldStart.click(); assert.equal(app.values.has('activeTimer'), false);
 });
 

@@ -41,7 +41,7 @@ test('end cancellation leaves running and paused storage byte-for-byte intact', 
     const raw = app.values.get('activeTimer'), writes = app.writes.length;
     app.elements.get('floatingEnd').click();
     assert.equal(hidden(app, 'confirmAbandon'), false);
-    assert.equal(app.elements.get('confirmAccept').textContent, '完成任务');
+    assert.equal(app.elements.get('confirmAccept').textContent, '结束');
     assert.equal(app.elements.get('confirmCancel').textContent, '取消');
     app.cancel(); assert.equal(app.values.get('activeTimer'), raw); assert.equal(app.writes.length, writes);
     assert.equal(app.json('d.completed').length, 0);

@@ -45,7 +45,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
   });
 
   const optionId = 'id\'"<>&' + image;
-  await check('legacy goal metadata is preserved without management or category controls', fixture(), async (run, importData) => {
+  await check('legacy goal metadata is preserved without old goal management controls', fixture(), async (run, importData) => {
     const legacy=fixture();legacy.goals[0].name=image;legacy.goals[0].description=svg;legacy.goals[0].icon=image;legacy.goals[0].id=optionId;legacy.tasks[0].goalId=optionId;
     await importData(legacy);await run("$('confirmAccept').click();page('tasks');newTask();");
     assert.deepEqual(await run("return [$('goal'),$('fg'),$('goals'),$('goalEditor')]"),[null,null,null,null]);
@@ -56,10 +56,10 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
   const taskIdAttack = fixture(); taskIdAttack.tasks[0].id = optionId;
   await check('imported task IDs keep filtering and delegated controls working', taskIdAttack, async run => {
     assert.equal(await run("page('tasks');$('ft').value='10';$('ft').dispatchEvent(new Event('change'));return $('ft').value"), '10');
-    assert.equal(await run("$('taskList').querySelector('[data-task-action=edit]').click();return $('tid').value"), optionId);
+    assert.equal(await run("$('taskList').querySelector('[data-task-action=more]').click();$('activityMenuEdit').click();return $('tid').value"), optionId);
     await run(`$('name').value=${JSON.stringify(special)};${submit('form')}`);
     assert.equal(await run("$('taskList').querySelector('[data-task-action=start]').click();return timerState().taskId"), optionId);
-    await run("giveUpTimer();$('confirmAccept').click();page('tasks');$('taskList').querySelector('[data-task-action=delete]').click();$('confirmAccept').click();");
+    await run("giveUpTimer();$('confirmAccept').click();page('tasks');$('taskList').querySelector('[data-task-action=more]').click();$('activityMenuDelete').click();$('confirmAccept').click();");
     assert.equal(await run('return d.tasks.length'), 0);
     await noInjection(run);
   });
@@ -93,7 +93,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     const id = await run('return d.tasks.at(-1).id');
     const position = await run(`return d.tasks.findIndex(t=>t.id===${JSON.stringify(id)})`);
     assert.equal(await run(`return $('taskList').querySelectorAll('h3')[${position}].textContent`), special);
-    await run(`$('taskList').querySelectorAll('article')[${position}].querySelector('[data-task-action="edit"]').click();$('name').value=${JSON.stringify(image)};${submit('form')}`);
+    await run(`$('taskList').querySelectorAll('.activity-item')[${position}].querySelector('[data-task-action=more]').click();$('activityMenuEdit').click();$('name').value=${JSON.stringify(image)};${submit('form')}`);
     assert.equal(await run(`return d.tasks.find(t=>t.id===${JSON.stringify(id)}).name`), image);
     // Choose the newly edited task through the existing recommendation path.
     await run(`const savedRandom=Math.random;Math.random=()=>0.999999;page('home');Math.random=savedRandom;$('start').click();`);
@@ -104,9 +104,9 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     assert.equal(await run("return $('todayBox').querySelector('h3').textContent"), image);
     assert.equal(await run("return d.completed.at(-1).taskName"), image);
     assert.equal(await run("return __rawGet('activeTimer')"), null);
-    await run(`page('tasks');$('taskList').querySelectorAll('article')[${position}].querySelector('[data-task-action="delete"]').click();$('confirmCancel').click();`);
+    await run(`page('tasks');$('taskList').querySelectorAll('.activity-item')[${position}].querySelector('[data-task-action=more]').click();$('activityMenuDelete').click();$('confirmCancel').click();`);
     assert.equal(await run(`return d.tasks.some(t=>t.id===${JSON.stringify(id)})`), true);
-    await run(`$('taskList').querySelectorAll('article')[${position}].querySelector('[data-task-action="delete"]').click();$('confirmAccept').click();`);
+    await run(`$('taskList').querySelectorAll('.activity-item')[${position}].querySelector('[data-task-action=more]').click();$('activityMenuDelete').click();$('confirmAccept').click();`);
     assert.equal(await run(`return d.tasks.some(t=>t.id===${JSON.stringify(id)})`), false);
     await noInjection(run);
   });
@@ -125,11 +125,10 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
 
   await check('legacy finished timer buttons preserve labels and event handlers', fixture(), async run => {
     await run("startTimer(d.tasks[0]);let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();");
-    assert.equal(await run("return $('extendTimer').textContent"), '再给我 5 分钟');
+    assert.equal(await run("return $('extendTimer').textContent"), '继续 5 分钟');
     assert.equal(await run("$('extendTimer').click();return timerState().extensionDurationMs"), 300000);
-    await run("let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();$('notDoneTimer').click();");
-    assert.deepEqual(await run("return [timerState().paused,$('pauseTimer').textContent]"), [true, '继续']);
-    await run("$('pauseTimer').click();giveUpTimer();$('confirmAccept').click();");
+    await run("let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();$('finishTimer').click();$('confirmAccept').click();");
+    assert.equal(await run('return d.completed.at(-1).actualDurationMs'),900000);
     assert.equal(await run("return __rawGet('activeTimer')"), null);
     await noInjection(run);
   });

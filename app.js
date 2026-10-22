@@ -9,7 +9,14 @@ const $=id=>document.getElementById(id),gn=id=>d.goals.find(g=>g.id===id),en=e=>
   });
 }
 function toTimestamp(value){let n=typeof value==='number'?value:Date.parse(value);return Number.isFinite(n)?n:null}function formatDateTime(value){let n=toTimestamp(value);if(n===null)return'该记录没有保存时间';let z=new Date(n),p=x=>String(x).padStart(2,'0');return z.getFullYear()+'-'+p(z.getMonth()+1)+'-'+p(z.getDate())+' '+p(z.getHours())+':'+p(z.getMinutes())+':'+p(z.getSeconds())}function formatDuration(ms){if(!Number.isFinite(ms)||ms<0)return'未知';let total=Math.round(ms/1000),m=Math.floor(total/60),s=total%60;return m?(m+' 分钟'+(s?' '+s+' 秒':'')):s+' 秒'}function recordDurationMs(c){if(!c||typeof c!=='object')return null;if(Number.isFinite(c.actualDurationMs))return c.actualDurationMs;let m=Number(c.actualDuration);if(!Number.isFinite(m))m=Number(c.minutes);return Number.isFinite(m)?m*60000:null}
-function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:10,env:'noisy',computerReady:false},theme:'light'}}
+const ACTIVITY_CATEGORIES=[['study','学习'],['work','工作'],['life','生活'],['exercise','运动'],['other','其他']];
+let activityMenuContext=null;
+function activityCategoryOf(task){
+  if(typeof task.activityCategory==='string')return ACTIVITY_CATEGORIES.some(([id])=>id===task.activityCategory)?task.activityCategory:'';
+  // Older optional category fields remain intact, including object metadata.
+  return ACTIVITY_CATEGORIES.find(([id,label])=>task.category===id||task.category===label)?.[0]||'';
+}
+function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,env:'quiet',computerReady:false},theme:'light'}}
 
 // Keep the v2 keys and unknown user fields. Never seed examples during migration.
 function validateData(x){
@@ -25,6 +32,7 @@ function validateData(x){
   for(let t of x.tasks){
     if(!object(t)||!text(t.id)||taskIds.has(t.id)||!text(t.name)||!Number.isFinite(t.minutes)||t.minutes<1||t.minutes>1440||!['quiet','noisy','class'].includes(t.env)||typeof t.computer!=='boolean'||t.goalId!=null&&typeof t.goalId!=='string')throw Error('任务数据无效：请检查 ID、名称、时长、环境及旧目标关联字段。');
     if(t.description!==undefined&&typeof t.description!=='string'||t.enabled!==undefined&&typeof t.enabled!=='boolean')throw Error('任务说明或启用状态无效。');
+    if(t.activityCategory!==undefined&&t.activityCategory!==''&&!ACTIVITY_CATEGORIES.some(([id])=>id===t.activityCategory))throw Error('活动分类无效。');
     taskIds.add(t.id);
   }
   if(x.preferences!==undefined&&!object(x.preferences)||x.version===2&&!object(x.preferences))throw Error('偏好数据无效。');
@@ -58,6 +66,7 @@ function downloadText(content,name,type='application/json'){
   try{let a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(e){notify('导出失败，请检查浏览器下载权限后重试。')}
 }
 function protectData(message){
+  closeActivityMenu();
   storageBlocked=true;
   let layer=$('dataRecovery');
   if(!layer){
@@ -94,6 +103,9 @@ function clearStorageFailure(key){storageFailures.delete(key);if($('storageWarni
 function syncRuntimePreferences(){
   time=customTime?customMinutes():Number(d.preferences.time);env=d.preferences.env;computerReady=!!d.preferences.computerReady;
   document.documentElement.dataset.theme=d.theme;
+  $('theme').setAttribute('aria-pressed',String(d.theme==='dark'));
+  $('lightTheme').setAttribute('aria-pressed',String(d.theme==='light'));
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',d.theme==='dark'?'#1e201c':'#f7f5f0');
   syncHomeControls();
   if($('computerReady'))$('computerReady').checked=computerReady;
 }
@@ -103,7 +115,9 @@ function save(candidate=d){
   catch(e){d=JSON.parse(dataSnapshot);syncRuntimePreferences();storageFailure('whatToDoData',e);return false}
 }
 let d=loadData(),time=Number(d.preferences.time),env=d.preferences.env,computerReady=!!d.preferences.computerReady,cur=null;
-let timeChosen=false,envChosen=false,customTime=false,customTimeDraft='';
+let timeChosen=true,envChosen=true,customTime=false,customTimeDraft='';
+let settingsReturnPage='home';
+let activeCategory='';
 let dataSnapshot=JSON.stringify(d);
 if(firstUse&&!storageBlocked)save();
 function customMinutes(){
@@ -121,10 +135,13 @@ function syncHomeControls(){
   $('customTimeField').classList.toggle('hide',!customTime);
   if($('customMinutes').value!==customTimeDraft)$('customMinutes').value=customTimeDraft;
   const invalid=customTime&&customMinutes()===null;
-  $('customMinutes').setAttribute('aria-invalid',String(invalid));
-  $('customTimeError').textContent=invalid?'请输入 1–1440 之间的正整数分钟（不支持小数）。':'';
+  const showError=invalid&&customTimeDraft.trim()!=='';
+  $('customMinutes').setAttribute('aria-invalid',String(showError));
+  $('customTimeError').textContent=customTime?(showError?'请输入 1–1440 的整数':'1–1440 分钟，整数'):'';
   $('random').disabled=!selectionReady();
-  $('selectionHint').textContent=selectionReady()?'条件已选好，可以推荐或自己选择。':'先选择可用时间和环境，也可以直接自己选择任务。';
+  $('timeSummary').textContent=customTime?(customMinutes()===null?'自定义时间':customMinutes()+' 分钟'):time+' 分钟';
+  $('environmentSummary').textContent=en(env)+' · '+(computerReady?'有电脑':'无电脑');
+  $('quickOptions').textContent='每次 '+quickActivityMinutes()+' 分钟 · '+en(env)+' · 无需电脑 ›';
 }
 function persistPreferences(){
   // Custom availability is session-only; keep the existing preset preference format.
@@ -138,6 +155,7 @@ function selectHomeCondition(key,value){
   if(key==='time'){customTime=value==='custom';time=customTime?customMinutes():value;timeChosen=time!==null}else{env=value;envChosen=true}
   if(!persistPreferences()){timeChosen=previous.timeChosen;envChosen=previous.envChosen;customTime=previous.customTime;syncRuntimePreferences()}
   if(key==='time'&&customTime)$('customMinutes').focus({preventScroll:true});
+  else if(key==='time'){$('timePicker').open=false;document.querySelector('#timePicker > summary')?.focus({preventScroll:true})}
 }
 // User strings are text, option values are data, and event handlers are functions.
 // Tags, classes and button IDs passed to these helpers are fixed application code.
@@ -147,7 +165,20 @@ function textElement(tag,text='',className=''){
 function actionButton(label,action,className,id){
   let button=textElement('button',label,className);button.type='button';button.onclick=action;if(id)button.id=id;return button;
 }
-function page(id,{keepTimerView=false}={}){if(!['home','today','tasks'].includes(id))id='home';if(id==='home'){cur=null;$('rec').classList.add('hide');$('rec').replaceChildren();random()}document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='tasks')tasks();if(id==='today')today();location.hash=id;if(!keepTimerView&&timerState()){timerView='floating';renderTimer()}}
+function page(id,{keepTimerView=false}={}){
+  closeActivityMenu();
+  if(!['home','today','tasks','settings'].includes(id))id='home';
+  if(id==='settings'&&!$('settings').classList.contains('active'))settingsReturnPage=['home','tasks','today'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
+  if(id==='home')random({keepCurrent:true});
+  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));
+  document.querySelectorAll('[data-page]').forEach(x=>{x.classList.toggle('active',x.dataset.page===id);x.setAttribute('aria-current',x.dataset.page===id?'page':'false')});
+  for(const key of ['timePicker','environmentPicker','libraryFilters'])$(key).open=false;
+  if(id==='tasks')tasks();if(id==='today')today();
+  // Push routes without the browser scrolling the section underneath the header.
+  if(window.history?.pushState){if(location.hash!=='#'+id)window.history.pushState(null,'','#'+id)}else location.hash=id;
+  if(!keepTimerView&&timerState()){timerView='floating';renderTimer()}
+  window.scrollTo?.({top:0,left:0,behavior:'instant'});
+}
 document.querySelectorAll('[data-page]').forEach(x=>x.onclick=()=>page(x.dataset.page));$('browse').onclick=()=>page('tasks');
 document.querySelectorAll('#times button').forEach(x=>x.onclick=()=>selectHomeCondition('time',x.dataset.v==='custom'?'custom':+x.dataset.v));
 $('customMinutes').oninput=()=>{
@@ -197,6 +228,10 @@ function revealRecommendation(){
 function recommendAndReveal(){random();revealRecommendation()}
 function random({keepCurrent=false}={}){
   cancelRecommendationReveal?.();
+  const empty=!d.tasks.length;
+  $('onboarding').classList.toggle('hide',!empty);
+  $('homeWorkspace').classList.toggle('hide',empty);
+  if(empty){cur=null;$('rec').replaceChildren();$('rec').classList.add('hide');return}
   if(!selectionReady()){
     cur=null;
     if(!d.tasks.length){$('rec').replaceChildren(...emptyTaskGuide('addFirstTask'));$('rec').classList.remove('hide')}
@@ -215,21 +250,23 @@ function random({keepCurrent=false}={}){
   let b=$('rec');
   if(!cur){
     if(!d.tasks.length)b.replaceChildren(...emptyTaskGuide('addFirstTask'));
-    else b.replaceChildren(textElement('p','没有符合当前条件的任务。请调整可用时间、环境或电脑使用条件，或添加任务。'),actionButton('去任务库',()=>page('tasks'),'secondary','openTasks'));
+    else b.replaceChildren(textElement('p','没有符合当前条件的活动。'),actionButton('调整条件',()=>{$('environmentPicker').open=false;$('timePicker').open=true;document.querySelector('#timePicker > summary')?.focus()},'primary'),actionButton('自己选择',()=>page('tasks'),'quiet-link','openTasks'));
     b.classList.remove('hide');return;
   }
   let meta=textElement('div','','meta'),actions=textElement('div','','actions');
-  meta.append(textElement('span','⏱ '+cur.minutes+' 分钟'),textElement('span',en(cur.env)),textElement('span',cur.computer?'💻 需要电脑':'📱 手机即可'));
+  meta.append(textElement('span',cur.minutes+' 分钟'));
   let recommendedId=cur.id;
   actions.id='recommendationActions';
-  actions.append(actionButton('开始任务',()=>startRecommendation(recommendedId),'primary','start'),actionButton('换一个',recommendAndReveal,'secondary','again'));
+  const start=actionButton('开始',()=>startRecommendation(recommendedId),'primary','start'),play=textElement('span','','play-icon');play.setAttribute('aria-hidden','true');
+  start.replaceChildren(play,textElement('span','开始'));
+  actions.append(start,actionButton('换一件',recommendAndReveal,'quiet-link','again'));
   const name=textElement('h2',cur.name,'user-text');name.title=cur.name;name.id='recommendedTaskName';
   b.replaceChildren(name,meta,actions);
-  if(cur.description){const description=textElement('details','','recommendation-details');description.append(textElement('summary','任务说明'),textElement('p',cur.description,'muted user-text'));b.append(description)}
-  if(all.length===1){let hint=textElement('p','当前条件下只有这一项符合要求的任务','muted');hint.id='recommendationHint';hint.setAttribute('role','status');b.append(hint)}
+  if(cur.description){const description=textElement('details','','recommendation-details');description.append(textElement('summary','活动说明'),textElement('p',cur.description,'muted user-text'));b.append(description)}
+  if(all.length===1){let hint=textElement('p','当前条件下只有这一项活动','muted');hint.id='recommendationHint';hint.setAttribute('role','status');$('again').disabled=true;$('again').setAttribute('aria-describedby','recommendationHint');b.append(hint)}
   b.classList.remove('hide');
 }$('random').onclick=recommendAndReveal;
-function run(t){cur=t;startTimer(t)}
+function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
 function startTimer(t){if(timerState()){showFullTimer();return}if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;primeTimerAudio();let now=Date.now(),plannedMs=Math.max(1,Number(t.minutes)||0)*60000,x={completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:{...t},taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};if(!setTimerState(x))return;timerView='full';renderTimer();startTimerLoop()}
 let timerTick=null,timerAudio=null;
 let timerView='full',floatingPosition=null,floatingDrag=null;
@@ -260,9 +297,37 @@ function elapsedMs(x,now=Date.now()){return x.paused||x.finished?x.elapsed:Math.
 function remainingMs(x,now=Date.now()){return Math.max(0,x.durationMs-elapsedMs(x,now))}
 function formatClock(ms){let n=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(n/60),s=n%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function timerTask(x){return x&&(d.tasks.find(t=>t.id===x.taskId)||x.task)}
-function renderTimer(){let x=timerState();if(!x||d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){$('timer').classList.add('hide');$('floatingTimer').classList.add('hide');cancelFloatingDrag();$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();return}let t=timerTask(x);if(!t){protectData('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。');return}let now=Date.now(),left=remainingMs(x,now),plannedMs=plannedDurationMs(x),extensionMs=Number.isFinite(x.extensionDurationMs)?x.extensionDurationMs:0;$('timerName').textContent=t.name;$('timerDesc').textContent=t.description||'';$('timerClock').textContent=formatClock(left);$('timerProgress').style.width=Math.min(100,elapsedMs(x,now)/x.durationMs*100)+'%';$('timerMeta').textContent='本轮计划时长 '+formatDuration(plannedMs)+' · 已追加时长 '+formatDuration(extensionMs)+' · 当前剩余时间 '+formatDuration(left);$('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');$('floatingClock').textContent=$('timerClock').textContent;$('floatingName').textContent=t.name;$('floatingStatus').textContent=x.finished?'时间到了':x.paused?'已暂停':'正在专注';$('floatingPause').textContent=x.finished||x.paused?'继续':'暂停';if(timerView==='floating')clampFloatingTimer();else cancelFloatingDrag();$('timerStatus').textContent=x.finished?'🎉 时间到了！':x.paused?'已暂停':'正在专注';let mode=x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions');if(actions.dataset.mode!==mode){actions.dataset.mode=mode;if(mode==='finished'){actions.innerHTML='<button type="button" class="primary" id="finishTimer">✓ 完成任务</button><button type="button" class="primary" id="extendTimer">追加时间</button><button type="button" class="outline" id="notDoneTimer">还没完成</button>';$('extendTimer').textContent='再给我 '+Math.round(extensionStepMs(x)/60000)+' 分钟';$('finishTimer').onclick=finishTimer;$('extendTimer').onclick=extendTimer;$('notDoneTimer').onclick=()=>{let y=timerState();if(!y)return;y.finished=false;y.paused=true;y.elapsed=y.durationMs;y.lastStarted=0;setTimerState(y);renderTimer()}}else{actions.innerHTML='<button type="button" class="primary" id="pauseTimer">暂停</button><button type="button" class="primary" id="earlyTimer">✓ 提前完成</button><button type="button" class="danger" id="giveUpTimer">放弃任务</button>';$('pauseTimer').textContent=x.paused?'继续':'暂停';$('pauseTimer').onclick=()=>{let y=timerState();if(!y)return;y.paused?resumeTimer():pauseTimer()};$('earlyTimer').onclick=confirmEarly;$('giveUpTimer').onclick=giveUpTimer}}else if(mode==='paused'){$('pauseTimer').textContent='继续'}}
+function renderTimer(){
+  let x=timerState();
+  if(!x||d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){
+    $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');cancelFloatingDrag();$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();syncDialogState();return;
+  }
+  let t=timerTask(x);if(!t){protectData('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。');return}
+  let now=Date.now(),left=remainingMs(x,now),plannedMs=plannedDurationMs(x),extensionMs=Number.isFinite(x.extensionDurationMs)?x.extensionDurationMs:0;
+  $('timerName').textContent=t.name;$('timerDesc').textContent=t.description||'';$('timerDescription').classList.toggle('hide',!t.description);
+  $('timerClock').textContent=formatClock(left);$('timerProgress').style.width=Math.min(100,elapsedMs(x,now)/x.durationMs*100)+'%';
+  $('timerMeta').textContent='计划 '+formatDuration(plannedMs)+(extensionMs?' · 已追加 '+formatDuration(extensionMs):'');
+  $('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');
+  $('floatingClock').textContent=$('timerClock').textContent;$('floatingName').textContent=t.name;
+  $('floatingStatus').textContent=x.finished?'时间到了':x.paused?'已暂停':'正在专注';$('floatingPause').textContent=x.finished||x.paused?'继续':'暂停';
+  if(timerView==='floating')clampFloatingTimer();else cancelFloatingDrag();
+  $('timerStatus').textContent=x.finished?'时间到了':x.paused?'已暂停':'正在专注';
+  let mode=x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions'),focusId=document.activeElement?.id;
+  if(actions.dataset.mode!==mode){
+    actions.dataset.mode=mode;
+    if(mode==='finished'){
+      actions.innerHTML='<button type="button" class="primary" id="extendTimer">继续</button><button type="button" class="outline" id="finishTimer">结束</button>';
+      $('extendTimer').textContent='继续 '+Math.round(extensionStepMs(x)/60000)+' 分钟';$('extendTimer').onclick=extendTimer;$('finishTimer').onclick=openTimerEnd;
+    }else{
+      actions.innerHTML='<button type="button" class="primary" id="pauseTimer">暂停</button><button type="button" class="outline" id="earlyTimer">结束</button>';
+      $('pauseTimer').textContent=x.paused?'继续':'暂停';$('pauseTimer').onclick=()=>{let y=timerState();if(!y)return;y.paused?resumeTimer():pauseTimer()};$('earlyTimer').onclick=openTimerEnd;
+    }
+    if(['pauseTimer','earlyTimer','finishTimer','extendTimer'].includes(focusId))$(focusId)?.focus({preventScroll:true});
+  }
+  syncDialogState();
+}
 
-function showFullTimer(){timerView='full';cancelFloatingDrag();renderTimer()}
+function showFullTimer(){timerView='full';cancelFloatingDrag();renderTimer();($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
 function clampFloatingTimer(position=floatingPosition){
   const box=$('floatingTimer');if(box.classList.contains('hide'))return;
   const viewport=window.visualViewport||{width:window.innerWidth,height:window.innerHeight,offsetLeft:0,offsetTop:0};
@@ -322,17 +387,18 @@ function openTimerEnd(){
   const session=timerState();if(!session)return;
   openConfirm('early');
   const current=()=>{if(timerState()?.completionId===session.completionId)return true;closeConfirm();renderTimer();return false};
-  $('confirmKicker').textContent='结束本次执行';$('confirmTitle').textContent='如何结束本次执行？';
-  $('confirmText').textContent='完成任务会保存一次执行记录；放弃任务不会新增记录。取消后保持原有计时或暂停状态，任务本身继续保留。';
-  $('confirmCancel').textContent='取消';$('confirmAccept').textContent='完成任务';
+  $('confirmKicker').textContent='本次活动';$('confirmTitle').textContent='结束并保存这次记录？';
+  $('confirmText').textContent='记录实际投入的时间，活动仍保留，下次可以继续。选择放弃则不保存记录。';
+  $('confirmCancel').textContent='取消';$('confirmAccept').textContent='结束';
   $('confirmAccept').onclick=()=>{if(!current())return;finishTimer();if(d.completed.some(c=>(c.completionId||c.recordId)===session.completionId))closeConfirm()};
   $('confirmAbandon').classList.remove('hide');$('confirmAbandon').onclick=()=>{if(current())discardTimer()};
 }
 function pauseTimer(){let x=timerState();if(!x||x.finished)return;if(!x.paused){let now=Date.now();advanceTimerIfNeeded(x,now);x=timerState();if(!x||x.finished)return;x.elapsed=elapsedMs(x,now);x.paused=true;x.pauseStartedAt=now;x.lastStarted=0;if(!setTimerState(x))return;stopTimerLoop();renderTimer()}}
 function resumeTimer(){let x=timerState();if(!x||x.finished)return;if(!x.paused)return;let now=Date.now();if(Number.isFinite(x.pauseStartedAt))x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-x.pauseStartedAt);x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;if(!setTimerState(x))return;renderTimer();startTimerLoop()}
-function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide')}
+function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide');syncDialogState();restoreDialogFocus('confirmLayer')}
 function giveUpTimer(){openConfirm('giveup')}
 function openConfirm(type,id){
+  rememberDialogFocus('confirmLayer');
   $('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;
   let isDelete=type==='delete',task=isDelete?d.tasks.find(t=>t.id===id):(timerState()?timerTask(timerState()):null);
   $('confirmKicker').textContent=isDelete?'删除任务？':type==='early'?'结束本次执行？':type==='import'?'导入备份？':'放弃本次执行？';
@@ -344,7 +410,7 @@ function openConfirm(type,id){
   $('confirmAccept').textContent=isDelete?'删除任务':type==='early'?'✓ 完成本次执行':type==='import'?'确认导入':'放弃本次执行';
   $('confirmAccept').className=isDelete||type==='giveup'?'danger':'primary';
   $('confirmAccept').onclick=isDelete?()=>{d.tasks=d.tasks.filter(t=>t.id!==id);if(!save())return;closeConfirm();tasks();random({keepCurrent:true})}:type==='early'?()=>{closeConfirm();finishTimer()}:type==='import'?applyImport:discardTimer;
-  $('confirmCancel').onclick=closeConfirm;$('confirmLayer').classList.remove('hide');
+  $('confirmCancel').onclick=closeConfirm;$('confirmLayer').classList.remove('hide');syncDialogState();$('confirmCancel').focus();
 }
 function confirmEarly(){openConfirm('early')}
 function finishTimer(){let x=timerState();if(!x)return;let t=timerTask(x);if(!t){protectData('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。');return}if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);renderTimer();return}let endedAt=Date.now(),actualMs=elapsedMs(x,endedAt),pausedMs=(x.pausedDurationMs||0)+(x.paused&&Number.isFinite(x.pauseStartedAt)?Math.max(0,endedAt-x.pauseStartedAt):0),plannedMs=Number.isFinite(x.plannedDurationMs)?x.plannedDurationMs:Math.max(0,x.durationMs-(x.extensionDurationMs||0)),extensionMs=Number.isFinite(x.extensionDurationMs)?x.extensionDurationMs:0,taskName=x.taskName||x.task?.name||t.name,goalId=x.goalId||x.task?.goalId||t.goalId,goalName=x.goalName||gn(goalId)?.name||'',actual=Math.round(actualMs/600)/100,now=new Date(endedAt).toISOString();d.completed.push({recordId:x.completionId,completionId:x.completionId,taskId:x.taskId,taskName,goalId,goalName,startedAt:Number.isFinite(x.startedAt)?x.startedAt:null,endedAt,completedAt:now,date:now,plannedDuration:plannedMs/60000,actualDurationMs:actualMs,actualDuration:actual,minutes:actual,pausedDurationMs:pausedMs,extensionDurationMs:extensionMs,extensionDuration:extensionMs/60000});if(!save())return;stopTimerLoop();setTimerState(null);cur=null;$('rec').replaceChildren();$('rec').classList.add('hide');renderTimer();page('today')}
@@ -385,21 +451,104 @@ $('file').addEventListener('change',e=>{
   }catch(err){fail('无法读取文件，现有数据未更改。')}
 },true);
 $('computerReady').checked=computerReady;$('computerReady').onchange=()=>{computerReady=$('computerReady').checked;persistPreferences()};
-$('form').addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();let id=$('tid').value,name=$('name').value.trim(),minutes=+$('mins').value;if(!name||!Number.isFinite(minutes)||minutes<1||minutes>1440){notify('请填写任务名称和 1–1440 分钟时长。');return}let old=d.tasks.find(t=>t.id===id),now=new Date().toISOString(),t={...old,id:id||'t'+Date.now(),name,minutes,env:$('environment').value,computer:$('computer').checked,description:$('desc').value.trim(),createdAt:old?.createdAt||now,updatedAt:now,enabled:old?.enabled!==false};if(id)d.tasks=d.tasks.map(x=>x.id===id?t:x);else d.tasks.push(t);if(!save())return;$('modal').classList.add('hide');tasks();random();notify('任务已保存。')},true);
+function saveActivity({id='',name,minutes,environment='quiet',computer=false,description='',category}){
+  name=name.trim();
+  if(!name||!Number.isFinite(minutes)||minutes<1||minutes>1440||!['quiet','noisy','class'].includes(environment)){notify('请填写活动名称和 1–1440 分钟时长。');return false}
+  if(category!==undefined&&category!==''&&!ACTIVITY_CATEGORIES.some(([id])=>id===category)){notify('请选择有效的活动分类。');return false}
+  let old=d.tasks.find(t=>t.id===id),now=new Date().toISOString();
+  if(id&&!old){notify('这项活动已不存在，请重新选择。');return false}
+  let t={...old,id:id||'t'+Date.now()+Math.random().toString(36).slice(2,8),name,minutes,env:environment,computer,description:description.trim(),createdAt:old?.createdAt||now,updatedAt:now,enabled:old?.enabled!==false};
+  if(category!==undefined)t.activityCategory=category;
+  if(id)d.tasks=d.tasks.map(x=>x.id===id?t:x);else d.tasks.push(t);
+  if(!save())return false;
+  closeActivity();tasks();
+  if(!old&&ok(t))cur=t;
+  random({keepCurrent:true});notify('活动已保存。');return true;
+}
+$('form').addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();saveActivity({id:$('tid').value,name:$('name').value,minutes:+$('mins').value,environment:$('environment').value,computer:$('computer').checked,description:$('desc').value,category:$('activityCategory').value})},true);
+function quickActivityMinutes(){return Math.min(10,time||Number(d.preferences.time))}
+$('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivity({name:$('quickName').value,minutes:quickActivityMinutes(),environment:env})){$('quickName').value='';$('start')?.focus({preventScroll:true})}});
+$('quickOptions').onclick=()=>{newTask();$('name').value=$('quickName').value;$('mins').value=quickActivityMinutes();$('environment').value=env;syncDescriptionToggle()};
+$('restoreWelcome').onclick=()=>$('file').click();
 function restoreTimer(){let x=timerState();if(!x)return;if(!timerTask(x)){protectData('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。');return}if(x.completionId&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return}if(!x.completionId)x.completionId='legacy-'+x.taskId+'-'+x.lastStarted;if(!Number.isFinite(x.extensionDurationMs))x.extensionDurationMs=0;if(!Number.isFinite(x.plannedDurationMs))x.plannedDurationMs=Math.max(0,x.durationMs-x.extensionDurationMs);if(JSON.stringify(x)!==originalTimer&&!setTimerState(x)){renderTimer();return}if(!x.finished&&!x.paused)advanceTimerIfNeeded(x);renderTimer();if(!x.finished&&!x.paused)startTimerLoop()}document.addEventListener('visibilitychange',()=>{if(!document.hidden){let x=timerState();if(x&&!x.paused&&!x.finished)advanceTimerIfNeeded(x);renderTimer()}});
 function tasks(){
-  let a=d.tasks.filter(t=>t.enabled!==false&&(!$('ft').value||($('ft').value==='60'?t.minutes>=60:t.minutes<=+$('ft').value))&&(!$('fe').value||t.env===$('fe').value)&&(!$('fc').checked||t.computer));
+  closeActivityMenu();
+  const query=$('taskSearch').value.trim().toLocaleLowerCase();
+  const hasUncategorized=d.tasks.some(t=>t.enabled!==false&&!activityCategoryOf(t));
+  if(activeCategory==='uncategorized'&&!hasUncategorized)activeCategory='';
+  $('categoryTabs').classList.toggle('hide',!d.tasks.length);
+  for(const button of document.querySelectorAll('#categoryTabs button')){
+    const selected=button.dataset.category===activeCategory;
+    button.classList.toggle('on',selected);button.setAttribute('aria-pressed',String(selected));
+    if(button.dataset.category==='uncategorized')button.classList.toggle('hide',!hasUncategorized);
+  }
+  const filters=[$('ft').value,$('fe').value,$('fc').checked].filter(Boolean).length;
+  $('filterCount').textContent=filters?' · '+filters:'';
+  let a=d.tasks.filter(t=>t.enabled!==false&&(!activeCategory||(activeCategory==='uncategorized'?!activityCategoryOf(t):activityCategoryOf(t)===activeCategory))&&(!query||(t.name+' '+(t.description||'')).toLocaleLowerCase().includes(query))&&(!$('ft').value||($('ft').value==='60'?t.minutes>=60:t.minutes<=+$('ft').value))&&(!$('fe').value||t.env===$('fe').value)&&(!$('fc').checked||t.computer));
+  const expanded=new Set([...document.querySelectorAll('#taskList details[open]')].map(el=>el.dataset.taskId));
   let cards=a.map((t,i)=>{
-    let card=textElement('article','','card'),meta=textElement('div','','meta'),actions=textElement('div','','actions');
-    meta.append(textElement('span','⏱ '+t.minutes+' 分钟'));
-    for(let [action,label] of [['start','开始'],['edit','编辑'],['delete','删除']]){
-      let button=textElement('button',label,'small');button.type='button';button.dataset.taskAction=action;button.dataset.taskIndex=String(i);actions.append(button);
+    let card=textElement('details','','activity-item'),summary=document.createElement('summary'),content=textElement('div','','activity-content'),meta=textElement('div','','meta');
+    card.dataset.taskId=t.id;card.open=expanded.has(t.id);
+    const arrow=textElement('span','›','row-arrow');arrow.setAttribute('aria-hidden','true');
+    const name=textElement('h3',t.name,'user-text');name.title=t.name;
+    const label=textElement('div','','activity-label');label.append(name);
+    summary.append(arrow,label,textElement('span',t.minutes+' 分钟','activity-duration'));
+    meta.append(textElement('span',en(t.env)),textElement('span',t.computer?'需要电脑':'无需电脑'));
+    for(let [action,title] of [['start','开始'],['more','⋯']]){
+      let button=textElement('button','','activity-action activity-action-'+action);button.type='button';button.dataset.taskAction=action;button.dataset.taskIndex=String(i);
+      if(action==='start'){const play=textElement('span','▶','activity-play');play.setAttribute('aria-hidden','true');button.append(play,textElement('span',title));button.setAttribute('aria-label','开始：'+t.name)}
+      else{button.textContent=title;button.setAttribute('aria-label',t.name+'，更多操作');button.setAttribute('aria-haspopup','menu');button.setAttribute('aria-controls','activityMenu');button.setAttribute('aria-expanded','false')}
+      summary.append(button);
     }
-    card.append(textElement('h3',t.name,'user-text'),textElement('p',t.description,'user-text'),meta,actions);return card;
+    content.append(meta);if(t.description)content.append(textElement('p',t.description,'user-text'));card.append(summary,content);return card;
   });
-  $('taskList').replaceChildren(...(cards.length?cards:d.tasks.length?[textElement('p','没有符合条件的任务。','muted')]:emptyTaskGuide('addLibraryTask')));
-  $('taskList').onclick=e=>{let button=e.target.closest?.('button[data-task-action]');if(!button||!$('taskList').contains(button))return;e.preventDefault();let t=a[Number(button.dataset.taskIndex)];if(!t)return;let action=button.dataset.taskAction;if(action==='start')run(t);else if(action==='edit')edit(t);else delTask(t.id)};
+  if(cards.length)$('taskList').replaceChildren(...cards);
+  else{const empty=textElement('div','','empty-state');empty.append(...(d.tasks.length?[textElement('p','没有符合条件的活动。','muted'),actionButton('清除搜索与筛选',clearActivityFilters,'secondary'),actionButton('添加活动',()=>newTask(),'primary')]:emptyTaskGuide('addLibraryTask')));$('taskList').replaceChildren(empty)}
+  $('taskList').onclick=e=>{let button=e.target.closest?.('button[data-task-action]');if(!button||!$('taskList').contains(button))return;e.preventDefault();let t=a[Number(button.dataset.taskIndex)];if(!t)return;if(button.dataset.taskAction==='start'){closeActivityMenu();run(t)}else toggleActivityMenu(t,button)};
 }['ft','fe','fc'].forEach(x=>$(x).onchange=tasks);
+function closeActivityMenu({restoreFocus=false}={}){
+  const anchor=activityMenuContext?.anchor;activityMenuContext=null;
+  $('activityMenu').classList.add('hide');anchor?.setAttribute('aria-expanded','false');
+  if(restoreFocus&&anchor?.isConnected)anchor.focus({preventScroll:true});
+}
+function toggleActivityMenu(task,anchor){
+  if(activityMenuContext?.anchor===anchor){closeActivityMenu({restoreFocus:true});return}
+  closeActivityMenu();activityMenuContext={id:task.id,anchor};
+  anchor.setAttribute('aria-expanded','true');$('activityMenu').classList.remove('hide');
+  placeActivityMenu();
+  $('activityMenuEdit').focus({preventScroll:true});
+}
+function placeActivityMenu(){
+  if(!activityMenuContext)return;
+  const {anchor}=activityMenuContext,menu=$('activityMenu'),r=anchor.getBoundingClientRect(),view=window.visualViewport;
+  const left=view?.offsetLeft||0,top=view?.offsetTop||0,right=left+(view?.width||window.innerWidth),bottom=top+(view?.height||window.innerHeight);
+  if(!anchor.isConnected||r.bottom<top||r.top>bottom){closeActivityMenu();return}
+  // Clear a previous position before measuring, including after a viewport change.
+  menu.style.left=left+'px';menu.style.top=top+'px';const box=menu.getBoundingClientRect();
+  menu.style.left=Math.max(left+8,Math.min(right-box.width-8,r.right-box.width))+'px';
+  menu.style.top=Math.max(top+8,Math.min(bottom-box.height-8,r.bottom+6+box.height>bottom-8?r.top-box.height-6:r.bottom+6))+'px';
+}
+function activityMenuAction(action){
+  const task=d.tasks.find(t=>t.id===activityMenuContext?.id&&t.enabled!==false);
+  closeActivityMenu({restoreFocus:true});if(!task)return;
+  if(action==='edit')edit(task);else delTask(task.id);
+}
+$('activityMenuEdit').onclick=()=>activityMenuAction('edit');
+$('activityMenuDelete').onclick=()=>activityMenuAction('delete');
+$('activityMenu').addEventListener('keydown',e=>{
+  if(['ArrowDown','ArrowUp','Home','End'].includes(e.key)){
+    e.preventDefault();const items=[$('activityMenuEdit'),$('activityMenuDelete')],index=items.indexOf(document.activeElement);
+    items[e.key==='Home'?0:e.key==='End'?1:(index+1)%2].focus();
+  }else if(e.key==='Tab'){
+    // Continue the normal tab order from the originating row.
+    closeActivityMenu({restoreFocus:true});
+  }
+});
+$('taskSearch').oninput=tasks;
+function clearActivityFilters(){activeCategory='';$('taskSearch').value='';$('ft').value='';$('fe').value='';$('fc').checked=false;tasks()}
+function selectActivityCategory(category){if(category!==''&&category!=='uncategorized'&&!ACTIVITY_CATEGORIES.some(([id])=>id===category))return;activeCategory=category;tasks()}
+document.querySelectorAll('#categoryTabs button').forEach(button=>button.onclick=()=>selectActivityCategory(button.dataset.category));
+$('clearFilters').onclick=clearActivityFilters;
 // Classify execution records by the browser's local calendar day.
 function recordsForLocalDay(records=d.completed,reference=new Date()){
   let day=new Date(reference).toDateString();
@@ -418,14 +567,18 @@ function recordTimeRange(record,reference=new Date()){
   return(start===null?'开始时间未记录':clock(start))+'–'+(end===null?'结束时间未记录':clock(end));
 }
 function today(){
-  let now=new Date(),a=recordsForLocalDay(d.completed,now),totalMs=a.reduce((s,c)=>s+(recordDurationMs(c)||0),0);
+  const orderTime=c=>toTimestamp(c.startedAt??c.endedAt??c.completedAt??c.date)??0;
+  let now=new Date(),a=recordsForLocalDay(d.completed,now).sort((a,b)=>orderTime(a)-orderTime(b)),totalMs=a.reduce((s,c)=>s+(recordDurationMs(c)||0),0);
   $('date').textContent=new Intl.DateTimeFormat('zh-CN',{month:'numeric',day:'numeric'}).format(now);
   let list=a.map(c=>{
     let taskName=c.taskName||d.tasks.find(t=>t.id===c.taskId)?.name||'已删除任务',actualMs=recordDurationMs(c),planned=c.plannedDuration!=null&&c.plannedDuration!==''&&Number.isFinite(Number(c.plannedDuration))?Number(c.plannedDuration)+' 分钟':c.plannedDurationMs!=null&&c.plannedDurationMs!==''&&Number.isFinite(Number(c.plannedDurationMs))?formatDuration(Number(c.plannedDurationMs)):'未知',extensionMs=c.extensionDurationMs!=null&&c.extensionDurationMs!==''&&Number.isFinite(Number(c.extensionDurationMs))?Number(c.extensionDurationMs):c.extensionDuration!=null&&c.extensionDuration!==''&&Number.isFinite(Number(c.extensionDuration))?Number(c.extensionDuration)*60000:0;
-    let card=textElement('details','','card history-item'),summary=document.createElement('summary'),title=textElement('div','','history-title'),meta=textElement('div','','history-meta'),details=document.createElement('dl');
+    let card=textElement('details','','history-item'),summary=document.createElement('summary'),title=textElement('div','','history-title'),meta=textElement('div','','history-meta'),details=document.createElement('dl');
     const arrow=textElement('span','›','history-arrow');arrow.setAttribute('aria-hidden','true');
-    const name=textElement('h3',taskName,'user-text');name.title=taskName;title.append(name,arrow);
-    meta.append(textElement('span',recordTimeRange(c,now),'history-range'),textElement('span','有效 '+formatDuration(actualMs).replace(' 分钟',' 分'),'history-duration'));
+    const name=textElement('h3',taskName,'user-text');name.title=taskName;
+    const stamp=c.startedAt??c.endedAt??c.completedAt??c.date,stampMs=stamp==null?null:toTimestamp(stamp);
+    const clock=stampMs===null?'—':new Intl.DateTimeFormat('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(stampMs));
+    title.append(textElement('span',clock,'history-time'),name,textElement('span',formatDuration(actualMs),'history-duration'),arrow);
+    meta.append(textElement('span',recordTimeRange(c,now),'history-range'));
     if(extensionMs>0)meta.append(textElement('span','+'+formatDuration(extensionMs).replace(' 分钟',' 分'),'history-extension'));
     summary.append(title,meta);
     const detail=(label,value)=>{let row=document.createElement('div');row.append(textElement('dt',label),textElement('dd',value));details.append(row)};
@@ -436,27 +589,87 @@ function today(){
     card.append(summary,details);
     return card;
   });
-  let card=textElement('div','','card'),heading=document.createElement('p'),totalHeading=document.createElement('p'),total=textElement('strong',formatDuration(totalMs));
-  heading.append(textElement('b','今日完成 · '+a.length+' 次执行'));totalHeading.append(textElement('b','今日有效学习时间'));total.style.fontSize='32px';
-  card.classList.add('today-overview');card.append(totalHeading,total,heading);
-  if(list.length){let history=textElement('div','','history-list');history.append(...list);$('todayBox').replaceChildren(card,history)}else{card.append(textElement('p','还没有记录，挑一件轻松的小事开始吧。','muted'));$('todayBox').replaceChildren(card)}
+  let card=textElement('div','','today-overview');card.append(textElement('p','做了 '+a.length+' 次，共 '+formatDuration(totalMs)));
+  if(list.length){let history=textElement('div','','history-list');history.append(...list);$('todayBox').replaceChildren(card,history)}else{const empty=textElement('div','','empty-state');empty.append(textElement('p','今天还没开始。'),actionButton('去开始',()=>page('home'),'primary'));$('todayBox').replaceChildren(card,empty)}
 }
-function emptyTaskGuide(buttonId){return[textElement('p','添加一件你想经常做的事，有空时让我帮你选。','muted'),actionButton('添加任务',()=>newTask(),'primary',buttonId)]}
+function emptyTaskGuide(buttonId){return[textElement('p','添加一件你想经常做的事。','muted'),actionButton('添加活动',()=>newTask(),'primary',buttonId)]}
 function newTask(){
-  $('modal').classList.remove('hide');$('modalTitle').textContent='添加任务';$('form').reset();$('tid').value='';
+  closeActivityMenu();
+  rememberDialogFocus('modal');$('modal').classList.remove('hide');$('modalTitle').textContent='添加活动';$('form').reset();$('tid').value='';
   $('name').value='';$('desc').value='';$('mins').value=10;$('environment').value='quiet';$('computer').checked=false;
+  $('desc').style.height='44px';
+  $('activityCategory').value=$('tasks').classList.contains('active')&&ACTIVITY_CATEGORIES.some(([id])=>id===activeCategory)?activeCategory:'';
+  $('saveActivity').textContent='添加';
+  $('activityOptions').open=false;syncDescriptionToggle();syncDialogState();$('name').focus();
 }
-function edit(t){newTask();$('modalTitle').textContent='编辑任务';$('tid').value=t.id;$('name').value=t.name;$('mins').value=t.minutes;$('environment').value=t.env;$('computer').checked=t.computer;$('desc').value=t.description||''}
+function edit(t){newTask();$('modalTitle').textContent='编辑活动';$('saveActivity').textContent='保存';$('tid').value=t.id;$('name').value=t.name;$('mins').value=t.minutes;$('environment').value=t.env;$('computer').checked=t.computer;$('desc').value=t.description||'';$('activityCategory').value=activityCategoryOf(t);$('activityOptions').open=!!t.description;syncDescriptionToggle()}
 function delTask(id){openConfirm('delete',id)}
-$('newTask').onclick=()=>newTask();$('close').onclick=()=>$('modal').classList.add('hide');
-setupFloatingTimer();
-function setupDataMenu(){
-  const menu=$('dataMenu'),toggle=$('dataMenuToggle');
-  const close=(restoreFocus=false)=>{if(!menu.open)return;menu.open=false;if(restoreFocus)toggle.focus()};
-  document.addEventListener('pointerdown',e=>{if(!menu.contains(e.target))close()});
-  menu.addEventListener('focusout',e=>{if(e.relatedTarget&&!menu.contains(e.relatedTarget))close()});
-  menu.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){e.preventDefault();close(true)}});
-  for(const id of ['export','import'])$(id).addEventListener('click',()=>close(true));
+function resizeActivityDescription(){
+  const input=$('desc');if(!input.getClientRects?.().length)return;
+  input.style.height='auto';input.style.height=Math.max(44,input.scrollHeight+2)+'px';
 }
-setupDataMenu();
-$('theme').onclick=()=>{d.theme=d.theme==='dark'?'light':'dark';if(save())syncRuntimePreferences()};$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home',{keepTimerView:true})}else protectData($('dataRecoveryMessage').textContent);
+function syncDescriptionToggle(){$('descriptionToggle').textContent=$('activityOptions').open?'活动说明':$('desc').value?'查看说明':'＋ 添加说明'}
+function closeActivity(){$('modal').classList.add('hide');syncDialogState();restoreDialogFocus('modal')}
+
+$('desc').oninput=()=>{resizeActivityDescription();syncDescriptionToggle()};
+$('activityOptions').addEventListener('toggle',()=>{syncDescriptionToggle();resizeActivityDescription()});
+window.addEventListener('resize',resizeActivityDescription);
+$('newTask').onclick=()=>newTask();$('close').onclick=closeActivity;
+const dialogFocus=new Map();
+function rememberDialogFocus(id){if($(id).classList.contains('hide'))dialogFocus.set(id,document.activeElement)}
+function restoreDialogFocus(id){const target=dialogFocus.get(id);dialogFocus.delete(id);if(target?.isConnected&&!target.closest('.hide,[inert]'))target.focus({preventScroll:true})}
+function syncDialogState(){
+  if(storageBlocked)return;
+  const confirmOpen=!$('confirmLayer').classList.contains('hide'),modalOpen=!$('modal').classList.contains('hide');
+  const timerFull=!$('timer').classList.contains('hide');
+  if(confirmOpen||modalOpen||timerFull)closeActivityMenu();
+  document.querySelectorAll('header, main, #timer, #floatingTimer').forEach(el=>el.inert=confirmOpen||modalOpen||(timerFull&&el.tagName==='MAIN'));
+  $('modal').inert=confirmOpen;
+}
+function setupMinimalInteractions(){
+  const pickers=['timePicker','environmentPicker','libraryFilters'];
+  const placeConditions=id=>{
+    const panel=document.querySelector('#'+id+' .condition-panel'),summary=document.querySelector('#'+id+' > summary');
+    if(!panel||!summary||!$(id).open)return;
+    const r=summary.getBoundingClientRect(),header=document.querySelector('header').getBoundingClientRect();
+    const width=Math.min(310,window.innerWidth-32),top=Math.max(header.bottom+8,Math.min(r.bottom+8,window.innerHeight-230));
+    panel.style.left=Math.max(16,Math.min(window.innerWidth-width-16,r.left+r.width/2-width/2))+'px';
+    panel.style.top=top+'px';panel.style.width=width+'px';panel.style.maxHeight=Math.max(90,window.innerHeight-top-16)+'px';
+  };
+  for(const id of pickers){
+    $(id).addEventListener('toggle',()=>{if($(id).open){for(const other of pickers)if(other!==id)$(other).open=false;placeConditions(id)}});
+  }
+  window.addEventListener('resize',()=>pickers.forEach(placeConditions));
+  window.addEventListener('scroll',()=>pickers.forEach(placeConditions),{passive:true});
+  document.addEventListener('pointerdown',e=>{for(const id of pickers)if(!$(id).contains(e.target))$(id).open=false});
+  document.addEventListener('pointerdown',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&!activityMenuContext.anchor.contains(e.target))closeActivityMenu()});
+  document.addEventListener('focusin',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&e.target!==activityMenuContext.anchor)closeActivityMenu()});
+  window.addEventListener('resize',placeActivityMenu);
+  window.addEventListener('scroll',placeActivityMenu,{passive:true});
+  window.visualViewport?.addEventListener('resize',placeActivityMenu);
+  window.visualViewport?.addEventListener('scroll',placeActivityMenu);
+  document.addEventListener('keydown',e=>{
+    const active=!$('confirmLayer').classList.contains('hide')?'confirmLayer':!$('modal').classList.contains('hide')?'modal':null;
+    if(e.key==='Escape'){
+      if(active){e.preventDefault();active==='modal'?closeActivity():closeConfirm();return}
+      if(activityMenuContext){e.preventDefault();closeActivityMenu({restoreFocus:true});return}
+      for(const id of pickers)if($(id).open){e.preventDefault();$(id).open=false;document.querySelector('#'+id+' > summary')?.focus()}
+    }
+    if(active&&e.key==='Tab'){
+      const elements=[...$(active).querySelectorAll('button,input,select,textarea,summary,a[href],[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
+      if(!elements.length)return;
+      const first=elements[0],last=elements[elements.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+  document.querySelector('.brand')?.addEventListener('click',e=>{e.preventDefault();page('home')});
+  const restorePage=()=>{const id=['home','tasks','today','settings'].includes(location.hash.slice(1))?location.hash.slice(1):'home';if(!$(id).classList.contains('active'))page(id)};
+  window.addEventListener('hashchange',restorePage);window.addEventListener('popstate',restorePage);
+}
+setupMinimalInteractions();
+setupFloatingTimer();
+$('closeSettings').onclick=()=>{page(settingsReturnPage);$('dataMenuToggle').focus({preventScroll:true})};
+function setTheme(theme){if(d.theme===theme)return;d.theme=theme;if(save())syncRuntimePreferences()}
+$('theme').onclick=()=>setTheme('dark');$('lightTheme').onclick=()=>setTheme('light');
+$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home',{keepTimerView:true})}else protectData($('dataRecoveryMessage').textContent);

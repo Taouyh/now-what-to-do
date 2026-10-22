@@ -79,7 +79,7 @@ test('failed task save keeps old data, open editor and no success message', () =
   assert.equal(app.values.get('whatToDoData'), before);
   assert.equal(app.run('d.tasks.some(t=>t.name==="未保存的任务")'), false);
   assert.equal(app.elements.get('modal').classList.contains('hide'), false);
-  assert.notEqual(app.elements.get('appNotice')?.textContent, '任务已保存。');
+  assert.notEqual(app.elements.get('appNotice')?.textContent, '活动已保存。');
   assert.ok(app.elements.get('storageWarning'));
 });
 
