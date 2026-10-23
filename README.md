@@ -1,49 +1,33 @@
-# 现在做什么（now-what-to-do）
+**English** | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-根据当前条件，从你长期想做的活动中选出一项，按这次可用时间立即开始。活动无需设置固定时长，结束的是本次执行，活动可以反复进行。
+# Now What? · 现在做什么
 
-## 在线体验
+Got a little free time? Pick something you've been meaning to do, and start now.
 
-体验地址：[https://taouyh.github.io/now-what-to-do/](https://taouyh.github.io/now-what-to-do/)
+## Try it
 
-## 复制到自己的 GitHub 并上线
+[Open Now What?](https://taouyh.github.io/now-what-to-do/)
 
-1. 登录 GitHub，打开 [项目仓库](https://github.com/Taouyh/now-what-to-do)，点击右上角 **Fork**。
-2. 将 **Owner** 选为自己的账号，保留仓库名 `now-what-to-do`，点击 **Create fork**，即可得到自己的项目副本。
-3. 在自己的仓库打开 **Settings → Pages**，将 **Source** 设为 **Deploy from a branch**。
-4. 选择包含 `index.html` 的主分支（本项目为 `master`），目录选择 **/ (root)**，点击 **Save**。
-5. 等待发布完成，点击 Pages 设置中的 **Visit site** 打开网页。保留原仓库名时，网址为：
+## How it works
 
-   ```text
-   https://你的GitHub用户名.github.io/now-what-to-do/
-   ```
+1. Add something you want to do, like reading, drawing or learning a language. A name is enough.
+2. Choose how much time you have and what you can do right now, such as using a computer or listening to audio.
+3. Start the suggested activity, try another, or choose one yourself.
 
-如果修改了仓库名，网址最后一段也会相应改变，以 Pages 页面显示的地址为准。发布设置可参考 [GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
+## Use it on your computer
 
-## 本地运行
+Open the [repository](https://github.com/Taouyh/now-what-to-do), choose **Code → Download ZIP**, and unzip it. Double-click `index.html` to open the app. Nothing to install.
 
-1. 在 [项目仓库](https://github.com/Taouyh/now-what-to-do) 点击 **Code → Download ZIP**，下载并解压；也可以使用 Git 克隆：
+## Publish your own copy
 
-   ```bash
-   git clone https://github.com/Taouyh/now-what-to-do.git
-   ```
+1. Open the [repository](https://github.com/Taouyh/now-what-to-do) and click **Fork → Create fork**.
+2. In your copy, open **Settings → Pages**.
+3. Set **Source** to **Deploy from a branch**. Select the branch containing `index.html` and **/ (root)**, then click **Save**.
+4. Once publishing finishes, click **Visit site** to open your app.
 
-2. 打开项目文件夹，直接双击 `index.html`，使用浏览器运行。
+## Good to know
 
-项目使用原生 HTML、CSS 和 JavaScript，无需安装依赖、Node.js 或后端服务，也不需要启动本地 HTTP 服务器。
-
-## 注意事项
-
-- 使用支持 JavaScript 和 `localStorage` 的现代浏览器，并允许网页使用本地存储。
-- 设置页支持「简体中文 / English / 日本語」即时切换，页面、计时、提示和确认弹窗随之翻译，用户填写的活动名称与说明保留原文。首次使用按浏览器语言列表匹配，不支持的语言回退为英文；手动选择会保存在本地偏好和导出的备份中。旧数据未保存语言时跟随浏览器，加载时不自动写回。
-- 设置卡片最大宽度为 520px，依次提供语言、外观、备份与恢复；窄屏时语言选项换到下一行。语言切换不会改变当前计时与历史记录。
-- 首次使用活动库为空，引导页只保留「有什么事，你一直想做？」、名称输入框和添加按钮。恢复备份仍可从右上角设置进入。
-- 已有活动时，开始页只展示本次可用时间、当前条件和一项推荐。当前条件为「方便使用电脑」「方便听音频」「方便出声」，可以组合选择；「可能随时被打断」会优先推荐易暂停的活动，不会把其他活动永久排除。只有一个候选时隐藏「换一件」，也可自行选择活动。
-- 可用时间决定本次计划投入，不再按活动的旧时长筛选。推荐开始和活动列表里的直接开始，都使用当前选择的可用时间；无效的自定义时间需要先修正。修改时间或条件不会改变已开始的计时。
-- 有正在执行或暂停的活动时，点击「开始」返回当前完整计时页；进入「我的活动」「今天」「设置」时，右下角仅显示一个小倒计时，暂停时带「Ⅱ」标记。点击倒计时返回开始页，暂停、继续、结束统一在完整计时页操作。刷新或浏览器返回也沿用该规则，不会重新开始计时。
-- 「我的活动」直接展示活动列表，每行可直接开始；点击活动名称查看说明，在「⋯」中编辑或删除。右上角的搜索图标可展开名称／说明搜索，关闭搜索或按 Esc 恢复全部活动。「今天」记录每次实际投入的时间。计时页的「结束」经确认后保存一次执行记录，提前结束也只记录实际有效用时，活动仍可再次执行。
-- 添加／编辑活动只需填写名称；「需要的条件」按需展开，可标注必须用电脑、必须听音频、需要出声和不便中断，说明也按需展开。活动列表与推荐卡片不显示固定时长。
-- 兼容旧版备份：旧活动的分钟数、环境、分类和其他元数据原样保留，但旧时长和安静／嘈杂／听课标签不再参与推荐。旧「需要电脑」仍可识别；编辑保存后的新条件优先生效。新的活动与偏好仍使用 v2 备份结构，旧版应用可能无法读取新增条件，应使用本版恢复。
-- 数据仅保存在当前浏览器本地，不会自动跨浏览器、设备或网址同步。清除浏览器数据可能导致任务和学习记录丢失。
-- 建议通过右上角「设置 → 备份数据 → 导出」定期保存 JSON 备份。更换访问地址前先备份，再通过「恢复备份 → 导入」恢复；恢复会在确认后替换当前主数据，进行中的计时不包含在备份中。
-- 个人备份请保存在项目仓库外，不要随源码公开上传。
+- Your activities and history stay in this browser. They do not sync to other devices. Clearing browser data can erase them.
+- Back up your data in **Settings → Back up data → Export**. Restoring a backup replaces your current activities, history and settings. The current timer is not included in the backup.
+- You can switch between English, Chinese and Japanese in **Settings**. The app follows your browser language at first, then remembers your choice. Activity names and notes stay as you wrote them.
+- Activities have no fixed length. Choose a time for each session. Ending a session saves the time you spent and keeps the activity for next time.
