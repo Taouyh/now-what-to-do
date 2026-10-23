@@ -17,7 +17,7 @@ async function main() {
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'now-what-to-do-test-'));
   const server = http.createServer((req, res) => {
     const name = new URL(req.url, 'http://localhost').pathname.slice(1) || 'index.html';
-    if (!['index.html', 'app.js', 'style.css'].includes(name)) { res.writeHead(404).end(); return; }
+    if (!['index.html', 'app.js', 'i18n.js', 'style.css'].includes(name)) { res.writeHead(404).end(); return; }
     res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript;charset=utf-8' : name.endsWith('.css') ? 'text/css;charset=utf-8' : 'text/html;charset=utf-8');
     res.end(fs.readFileSync(path.join(root, name), 'utf8'));
   });
@@ -84,6 +84,8 @@ async function main() {
         await send('Runtime.enable', {}, sessionId); await send('Page.enable', {}, sessionId);
         if (options.timezone) await send('Emulation.setTimezoneOverride', { timezoneId: options.timezone }, sessionId);
         await send('Page.addScriptToEvaluateOnNewDocument', { source: `
+          Object.defineProperty(navigator,'languages',{get:()=>${JSON.stringify(options.languages || ['zh-CN'])}});
+          Object.defineProperty(navigator,'language',{get:()=>${JSON.stringify((options.languages || ['zh-CN'])[0])}});
           const rawStorage=window.localStorage;
           window.__rawGet=key=>Storage.prototype.getItem.call(rawStorage,key);
           if(!sessionStorage.getItem('__appTestSeeded')){
@@ -103,7 +105,7 @@ async function main() {
         const entryUrl = process.argv.includes('--file') ? pathToFileURL(path.join(root, 'index.html')).href : 'http://127.0.0.1:' + server.address().port + '/';
         await send('Page.navigate', { url: entryUrl }, sessionId);
         await loaded;
-        const chooseConditions = () => evaluate("[...document.querySelectorAll('#times button')].find(b=>Number(b.dataset.v)===time).click();[...document.querySelectorAll('#envs button')].find(b=>b.dataset.v===env).click()");
+        const chooseConditions = () => evaluate("[...document.querySelectorAll('#times button')].find(b=>Number(b.dataset.v)===time)?.click()");
         if(options.chooseConditions)await chooseConditions();
         const importData = async data => {
           await evaluate(`const dt=new DataTransfer();dt.items.add(new File([${JSON.stringify(typeof data === 'string' ? data : JSON.stringify(data))}],'backup.json',{type:'application/json'}));$('file').files=dt.files;$('file').dispatchEvent(new Event('change',{bubbles:true}));`);
@@ -179,7 +181,7 @@ async function main() {
       const data = fixture(); data.preferences = { time: 30, env: 'quiet', computerReady: true }; data.theme = 'dark';
       await importData(data);
       assert.equal(await run("return __rawGet('whatToDoData')"), initial.whatToDoData);
-      assert.deepEqual(await run("$('confirmAccept').click();return [time,env,computerReady,document.documentElement.dataset.theme,$('computerReady').checked,document.querySelector('#times .on').dataset.v,document.querySelector('#envs .on').dataset.v]"), [30, 'quiet', true, 'dark', true, '30', 'quiet']);
+      assert.deepEqual(await run("$('confirmAccept').click();return [time,conditions.computer,conditions.audio,document.documentElement.dataset.theme,$('computerReady').checked,document.querySelector('#times .on').dataset.v]"), [30, true, false, 'dark', true, '30']);
     });
     await scenario('invalid import rejected', initial, {}, async (run, importData) => {
       await importData({ ...fixture(), theme: 'invalid' });
@@ -199,7 +201,7 @@ async function main() {
       assert.equal(await run("return document.documentElement.dataset.theme==='light'&&!!$('storageWarning')"), true);
     });
     await scenario('failed task save keeps editor open', initial, {}, async run => {
-      assert.equal(await run("newTask('mine');$('name').value='new task';$('mins').value='5';$('environment').value='noisy';__faults.write=true;$('form').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));return !$('modal').classList.contains('hide')&&!d.tasks.some(t=>t.name==='new task')&&!!$('storageWarning')"), true);
+      assert.equal(await run("newTask('mine');$('name').value='new task';__faults.write=true;$('form').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));return !$('modal').classList.contains('hide')&&!d.tasks.some(t=>t.name==='new task')&&!!$('storageWarning')"), true);
       assert.equal(await run("return __rawGet('whatToDoData')"), initial.whatToDoData);
     });
     console.log('11 real-Chrome scenarios passed; isolated profile only.');

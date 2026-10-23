@@ -1,63 +1,42 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const {boot,fixture} = require('./helpers/app-harness.cjs');
-const start = () => {const data=fixture();data.completed=[];const app=boot({whatToDoData:JSON.stringify(data)});assert.ifError(app.error);return app;};
-
-test('saved conditions immediately produce a valid recommendation without startup writes', () => {
-  const app=start(),before=app.values.get('whatToDoData');
-  assert.equal(app.run('selectionReady()'),true);
-  assert.equal(app.run('cur.id'),'mine-task');
-  assert.equal(app.elements.get('random').disabled,false);
-  assert.equal(app.times.filter(b=>b.classList.contains('on')).length,1);
-  assert.equal(app.envs.filter(b=>b.classList.contains('on')).length,1);
-  assert.equal(app.elements.get('timeSummary').textContent,'10 分钟');
-  assert.equal(app.elements.get('environmentSummary').textContent,'有人/嘈杂 · 无电脑');
-  assert.equal(app.values.get('whatToDoData'),before);assert.equal(app.writes.length,0);
-  assert.equal(app.values.has('activeTimer'),false);
+const test=require('node:test'),assert=require('node:assert/strict');
+const {boot,fixture}=require('./helpers/app-harness.cjs');
+const start=()=>{const a=boot({whatToDoData:JSON.stringify(fixture())});assert.ifError(a.error);return a;};
+test('legacy saved conditions show a recommendation without startup writes',()=>{
+ const a=start();assert.equal(a.run('selectionReady()'),true);assert.equal(a.run('cur.id'),'mine-task');
+ assert.equal(a.elements.get('timeSummary').textContent,'10 分钟');assert.equal(a.elements.get('conditionsSummary').textContent,'当前条件');
+ assert.equal(a.writes.length,0);assert.equal(a.values.has('activeTimer'),false);
 });
-
-test('fresh library shows onboarding and defaults without seeding sample activities', () => {
-  const app=boot();assert.ifError(app.error);
-  assert.equal(app.run('cur'),null);
-  assert.equal(app.elements.get('onboarding').classList.contains('hide'),false);
-  assert.equal(app.elements.get('homeWorkspace').classList.contains('hide'),true);
-  assert.deepEqual(app.json('[d.tasks,d.completed,d.preferences]'),[[],[],{time:15,env:'quiet',computerReady:false}]);
+test('fresh one-field onboarding creates an activity without a duration or environment',()=>{
+ const a=boot();assert.ifError(a.error);assert.equal(a.elements.get('onboarding').classList.contains('hide'),false);
+ assert.equal(a.elements.has('mins'),false);assert.equal(a.elements.has('environment'),false);assert.equal(a.elements.has('quickOptions'),false);assert.equal(a.elements.has('restoreWelcome'),false);
+ a.elements.get('quickName').value='读书';a.elements.get('quickAddForm').dispatch('submit');
+ assert.equal(a.run('cur.name'),'读书');assert.equal(a.run('Object.hasOwn(cur,"minutes")'),false);assert.equal(a.run('Object.hasOwn(cur,"env")'),false);
+ assert.equal(a.run('validateData(d)===d'),true);assert.equal(a.values.has('activeTimer'),false);
+ const b=boot(Object.fromEntries(a.values));assert.ifError(b.error);assert.equal(b.run('cur.name'),'读书');assert.equal(b.writes.length,0);
 });
-
-test('page changes and reload keep saved conditions and an eligible activity', () => {
-  const app=start(),before=app.values.get('whatToDoData');
-  const id=app.run('cur.id');app.run('page("tasks");page("home")');
-  assert.equal(app.run('cur.id'),id);
-  const again=boot(Object.fromEntries(app.values));assert.ifError(again.error);
-  assert.equal(again.run('selectionReady()'),true);assert.equal(again.run('ok(cur)'),true);
-  assert.deepEqual(again.json('d.preferences'),app.json('d.preferences'));
-  assert.equal(again.values.get('whatToDoData'),before);assert.equal(again.writes.length,0);
+test('single candidate hides change and never shows a redundant explanation',()=>{
+ const a=start();assert.equal(a.elements.get('random').classList.contains('hide'),true);assert.equal(a.elements.has('recommendationHint'),false);
+ assert.equal(a.elements.get('rec').children.some(c=>c.classList.contains('meta')),false);
 });
-
-test('failed condition writes retain the previous valid conditions and recommendation', () => {
-  const app=start();app.faults.write=true;
-  app.times.find(b=>b.dataset.v==='30').click();
-  assert.deepEqual(app.json('[timeChosen,envChosen,time,cur.id]'),[true,true,10,'mine-task']);
-  delete app.faults.write;app.times.find(b=>b.dataset.v==='30').click();app.faults.write=true;
-  app.envs.find(b=>b.dataset.v==='quiet').click();
-  assert.deepEqual(app.json('[timeChosen,envChosen,time,env,cur.id]'),[true,true,30,'noisy','mine-task']);
-  assert.equal(app.run('ok(cur)'),true);
+test('failed preset and condition writes retain the current recommendation',()=>{
+ const a=start();a.faults.write=true;a.times.find(b=>b.dataset.v==='30').click();
+ a.elements.get('speechReady').checked=true;a.elements.get('speechReady').dispatch('change');
+ assert.deepEqual(a.json('[timeChosen,time,conditions.speech,cur.id]'),[true,10,false,'mine-task']);
 });
-
-test('import updates visible conditions and clears a recommendation incompatible with the new environment', () => {
-  const app=start();
-  const incoming=fixture();incoming.preferences={time:30,env:'quiet',computerReady:true};incoming.theme='dark';
-  app.import(incoming);app.confirm();
-  assert.deepEqual(app.json('[time,env,computerReady]'),[30,'quiet',true]);
-  assert.equal(app.document.documentElement.dataset.theme,'dark');
-  assert.equal(app.elements.get('timeSummary').textContent,'30 分钟');
-  assert.equal(app.elements.get('environmentSummary').textContent,'安静 · 有电脑');
-  assert.equal(app.run('selectionReady()'),true);assert.equal(app.run('cur'),null);
+test('import updates current conditions, theme, and excludes incompatible activities',()=>{
+ const a=start(),d=fixture();d.tasks[0].requirements={audio:true};d.preferences={time:30,conditions:{computer:true,audio:false,speech:true,interrupted:true}};d.theme='dark';
+ a.import(d);a.confirm();assert.deepEqual(a.json('[time,conditions]'),[30,d.preferences.conditions]);
+ assert.equal(a.run('cur'),null);assert.equal(a.document.documentElement.dataset.theme,'dark');assert.equal(a.elements.get('speechReady').checked,true);
 });
-
-test('manual selection can start an activity outside recommendation conditions', () => {
-  const app=start();app.elements.get('browse').click();assert.equal(app.run('location.hash'),'tasks');
-  app.run('d.tasks[0].minutes=60;d.tasks[0].env="quiet";d.tasks[0].computer=true;run(d.tasks[0])');
-  assert.equal(app.run('timerState().taskId'),'mine-task');assert.equal(app.run('timerState().plannedDurationMs'),3600000);
-  assert.equal(app.json('d.completed').length,0);
+test('editing legacy conditions preserves old fields and enables future backup reloads',()=>{
+ const a=start(),old=a.json('d.tasks[0]');a.run('edit(d.tasks[0])');
+ a.elements.get('requiresAudio').checked=true;a.elements.get('name').value='接着读';a.elements.get('form').dispatch('submit');
+ assert.equal(a.run('d.tasks[0].minutes'),old.minutes);assert.equal(a.run('d.tasks[0].env'),old.env);assert.equal(a.run('d.tasks[0].requirements.audio'),true);
+ assert.equal(a.run('cur'),null);const b=boot(Object.fromEntries(a.values));assert.ifError(b.error);assert.equal(b.run('d.tasks[0].requirements.audio'),true);
+});
+test('a v1 backup without preferences remains valid after its first save and reload',()=>{
+ const d=fixture();delete d.version;delete d.preferences;
+ const a=boot({whatToDoData:JSON.stringify(d)});assert.ifError(a.error);
+ a.elements.get('theme').click();assert.equal(a.run('validateData(d)===d'),true);
+ const b=boot(Object.fromEntries(a.values));assert.ifError(b.error);assert.equal(b.run('storageBlocked'),false);assert.equal(b.run('d.tasks.length'),1);
 });

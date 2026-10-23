@@ -55,10 +55,10 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
 
   const taskIdAttack = fixture(); taskIdAttack.tasks[0].id = optionId;
   await check('imported task IDs keep filtering and delegated controls working', taskIdAttack, async run => {
-    assert.equal(await run("page('tasks');$('ft').value='10';$('ft').dispatchEvent(new Event('change'));return $('ft').value"), '10');
+    assert.equal(await run("page('tasks');setActivitySearch(true);$('taskSearch').value=d.tasks[0].name;$('taskSearch').dispatchEvent(new Event('input'));return $('taskList').querySelectorAll('.activity-item').length"), 1);
     assert.equal(await run("$('taskList').querySelector('[data-task-action=more]').click();$('activityMenuEdit').click();return $('tid').value"), optionId);
     await run(`$('name').value=${JSON.stringify(special)};${submit('form')}`);
-    assert.equal(await run("$('taskList').querySelector('[data-task-action=start]').click();return timerState().taskId"), optionId);
+    assert.equal(await run("setActivitySearch(false);$('taskList').querySelector('[data-task-action=start]').click();return timerState().taskId"), optionId);
     await run("giveUpTimer();$('confirmAccept').click();page('tasks');$('taskList').querySelector('[data-task-action=more]').click();$('activityMenuDelete').click();$('confirmAccept').click();");
     assert.equal(await run('return d.tasks.length'), 0);
     await noInjection(run);
@@ -89,7 +89,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
   });
 
   await check('task form create, edit, recommend, pause, resume, finish and delete', fixture(), async run => {
-    await run(`newTask('mine');$('name').value=${JSON.stringify(special)};$('desc').value=${JSON.stringify(description)};$('mins').value='5';$('environment').value='noisy';${submit('form')}`);
+    await run(`newTask('mine');$('name').value=${JSON.stringify(special)};$('desc').value=${JSON.stringify(description)};${submit('form')}`);
     const id = await run('return d.tasks.at(-1).id');
     const position = await run(`return d.tasks.findIndex(t=>t.id===${JSON.stringify(id)})`);
     assert.equal(await run(`return $('taskList').querySelectorAll('h3')[${position}].textContent`), special);

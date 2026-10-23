@@ -19,14 +19,17 @@ module.exports = async (scenario, fixture) => {
     return d;
   };
   const check = async (name, data, fn, faults = {}) => {
-    await scenario(name, data === null ? {} : { whatToDoData: JSON.stringify(data) }, faults, fn, { timezone: 'Asia/Shanghai' });
+    await scenario(name, data === null ? {} : { whatToDoData: JSON.stringify(data) }, faults, async (...args) => {
+      await size(args[2].protocol,1440,900);
+      await fn(...args);
+    }, { timezone: 'Asia/Shanghai' });
     count++;
   };
   const click = async (run, protocol, selector) => {
-    const p = await run(`const el=document.querySelector(${JSON.stringify(selector)});if(!el)throw Error('missing '+${JSON.stringify(selector)});el.scrollIntoView({block:'nearest'});const r=el.getBoundingClientRect();if(!r.width||!r.height)throw Error('not visible '+${JSON.stringify(selector)});return {x:r.left+r.width/2,y:r.top+r.height/2}`);
+    const p = await run(`const el=document.querySelector(${JSON.stringify(selector)});if(!el)throw Error('missing '+${JSON.stringify(selector)});el.scrollIntoView({block:'center'});await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);const r=el.getBoundingClientRect();if(!r.width||!r.height)throw Error('not visible '+${JSON.stringify(selector)});return {x:r.left+r.width/2,y:r.top+r.height/2}`);
     await protocol('Input.dispatchMouseEvent', { type:'mousePressed', ...p, button:'left', buttons:1, clickCount:1 });
     await protocol('Input.dispatchMouseEvent', { type:'mouseReleased', ...p, button:'left', buttons:0, clickCount:1 });
-    await run('await new Promise(requestAnimationFrame)');
+    await run('await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);await new Promise(resolve=>setTimeout(resolve,80))');
   };
   const key = async (protocol, key, code, keyCode, shiftKey = false) => {
     const params = {key,code,windowsVirtualKeyCode:keyCode,modifiers:shiftKey?8:0};
@@ -47,7 +50,7 @@ module.exports = async (scenario, fixture) => {
     await shot(run,protocol,'06-onboarding-light');
     await run("$('quickName').value='读书'");
     await click(run,protocol,'#addFirstTask');
-    assert.deepEqual(await run("return [d.tasks.length,cur.name,cur.minutes,$('onboarding').classList.contains('hide'),!!$('start')]"),[1,'读书',10,true,true]);
+    assert.deepEqual(await run("return [d.tasks.length,cur.name,Object.hasOwn(cur,'minutes'),$('onboarding').classList.contains('hide'),!!$('start')]"),[1,'读书',false,true,true]);
     assert.equal(await run("return __rawGet('activeTimer')"),null);
     await reload();
     assert.deepEqual(await run('return [d.tasks.length,cur.name,__writes.length]'),[1,'读书',0]);
@@ -72,7 +75,7 @@ module.exports = async (scenario, fixture) => {
     await run("cur=d.tasks[0];random({keepCurrent:true})");
     await shot(run,protocol,'01-home-light');
     const before = await run('return cur.id');
-    await click(run,protocol,'#again');
+    await click(run,protocol,'#random');
     assert.notEqual(await run('return cur.id'),before);
     await click(run,protocol,'[data-page=tasks]');
     await click(run,protocol,'[data-page=home]');
@@ -90,20 +93,20 @@ module.exports = async (scenario, fixture) => {
     await click(run,protocol,'#times [data-v=custom]');
     assert.equal(await run('return document.activeElement.id'),'customMinutes');
     await run("$('customMinutes').value='8';$('customMinutes').dispatchEvent(new Event('input'))");
-    assert.equal(await run('return cur.name'),'拉伸');
+    assert.equal(await run('return ok(cur)'),true);
     await run("window.__stale=$('start');$('customMinutes').value='bad';$('customMinutes').dispatchEvent(new Event('input'));__stale.click()");
     assert.deepEqual(await run("return [cur,__rawGet('activeTimer'),$('customMinutes').getAttribute('aria-invalid')]"),[null,null,'true']);
     await key(protocol,'Escape','Escape',27);
     assert.equal(await run("return $('timePicker').open"),false);
     await click(run,protocol,'#timePicker > summary');
     await click(run,protocol,'#times [data-v="15"]');
-    await click(run,protocol,'#environmentPicker > summary');
-    await click(run,protocol,'#envs [data-v=class]');
+    await run('d.tasks.forEach(t=>t.requirements={audio:true});random({keepCurrent:true})');
+    await click(run,protocol,'#conditionsPicker > summary');
     assert.equal(await run('return cur'),null);
-    await click(run,protocol,'#home .hero');
-    assert.equal(await run("return $('environmentPicker').open"),false);
+    await click(run,protocol,'.brand');
+    assert.equal(await run("return $('conditionsPicker').open"),false);
     await click(run,protocol,'#rec .primary');
-    assert.equal(await run("return $('timePicker').open"),true);
+    assert.equal(await run("return $('conditionsPicker').open"),true);
   });
 
   await check('short and narrow screens keep condition popovers above content and custom input reachable', dataset(), async (run,_imp,{protocol}) => {
@@ -121,7 +124,7 @@ module.exports = async (scenario, fixture) => {
     }
   });
 
-  await check('activity list supports disclosure, search, filters, edit defaults and modal keyboard focus', dataset(), async (run,_imp,{protocol}) => {
+  await check('activity list supports disclosure, search, edit defaults and modal keyboard focus', dataset(), async (run,_imp,{protocol}) => {
     await size(protocol,1440);
     await click(run,protocol,'[data-page=tasks]');
     await shot(run,protocol,'02-activities-light');
@@ -129,19 +132,17 @@ module.exports = async (scenario, fixture) => {
     await click(run,protocol,'.activity-item summary');
     await click(run,protocol,'.activity-item [data-task-action=more]');
     await click(run,protocol,'#activityMenuEdit');
-    assert.deepEqual(await run("return [$('name').value,$('activityOptions').open,$('activityCategory').value,document.activeElement.id]"),['读书',true,'','name']);
+    assert.deepEqual(await run("return [$('name').value,$('activityOptions').open,document.activeElement.id]"),['读书',true,'name']);
     await shot(run,protocol,'04-edit-light');
     await run("document.querySelector('#form [type=submit]').focus()");
     await key(protocol,'Tab','Tab',9);
     assert.equal(await run('return document.activeElement.id'),'close');
     await key(protocol,'Escape','Escape',27);
     assert.ok(await run("return $('modal').classList.contains('hide')&&!document.querySelector('main').inert"));
+    await click(run,protocol,'#toggleActivitySearch');
     await run("$('taskSearch').value='Python';$('taskSearch').dispatchEvent(new Event('input'))");
     assert.equal(await run("return $('taskList').querySelectorAll('.activity-item').length"),1);
-    await run("clearActivityFilters();$('ft').value='5';$('ft').dispatchEvent(new Event('change'))");
-    assert.equal(await run("return $('taskList').querySelector('h3').textContent"),'拉伸');
-    assert.equal(await run("return $('filterCount').textContent"),' · 1');
-    await run('clearActivityFilters()');
+    await click(run,protocol,'#closeActivitySearch');
     assert.equal(await run("return $('taskList').querySelectorAll('.activity-item').length"),5);
   });
 
@@ -186,7 +187,7 @@ module.exports = async (scenario, fixture) => {
     assert.ok(await run("return $('activityMenu').classList.contains('hide')"));
     assert.equal(await run("return __rawGet('whatToDoData')"),original);
     await click(run,protocol,'.activity-item:last-child [data-task-action=more]');
-    await run("$('taskSearch').value='读书';$('taskSearch').dispatchEvent(new Event('input'));$('activityMenuDelete').click()");
+    await run("setActivitySearch(true);$('taskSearch').value='读书';$('taskSearch').dispatchEvent(new Event('input'));$('activityMenuDelete').click()");
     assert.equal(await run('return d.tasks.length'),5);
     assert.ok(await run("return $('confirmLayer').classList.contains('hide')"));
     await click(run,protocol,'.activity-item [data-task-action=more]');
@@ -258,8 +259,70 @@ module.exports = async (scenario, fixture) => {
     await run("window.__finish=$('confirmAccept').onclick");
     await click(run,protocol,'#confirmAccept');
     await run('__finish()');
-    assert.deepEqual(await run('return [d.completed.length,d.completed[0].actualDurationMs,d.completed[0].plannedDuration,d.tasks.length]'),[1,360000,10,5]);
+    assert.deepEqual(await run('return [d.completed.length,d.completed[0].actualDurationMs,d.completed[0].plannedDuration,d.tasks.length]'),[1,360000,15,5]);
     assert.equal(await run("return document.querySelector('.page.active').id"),'today');
+  });
+
+  await check('minimal floating countdown fits desktop, mobile, dark mode and paused long durations', dataset(), async (run,_imp,{protocol}) => {
+    await run("time=30;run(d.tasks[0]);let s=timerState();s.lastStarted=Date.now()-296000;setTimerState(s);page('tasks')");
+    const raw=await run("return __rawGet('activeTimer')");
+    for(const [width,height,theme] of [[1440,1000,'light'],[375,667,'light'],[375,667,'dark'],[240,600,'dark']]){
+      await size(protocol,width,height);await run('setTheme('+JSON.stringify(theme)+');renderTimer()');
+      assert.ok(await run("const b=$('floatingTimer').getBoundingClientRect(),v=visualViewport;return b.width<170&&b.height>=44&&b.height<=60&&b.left>=v.offsetLeft&&b.right<=v.offsetLeft+v.width&&b.bottom<=v.offsetTop+v.height"));
+      assert.equal(await run("return $('floatingTimer').innerText.trim()"),await run("return $('timerClock').textContent"));await noOverflow(run);
+      if(width===1440)await shot(run,protocol,'16-countdown-badge-desktop');
+      if(width===375)await shot(run,protocol,'16-countdown-badge-mobile-'+theme);
+    }
+    assert.equal(await run("return __rawGet('activeTimer')"),raw);
+    await click(run,protocol,'#floatingTimer');await click(run,protocol,'#pauseTimer');await click(run,protocol,'[data-page=tasks]');
+    assert.ok(await run("return !$('floatingPaused').classList.contains('hide')&&timerState().paused"));
+    await size(protocol,375,667);await shot(run,protocol,'16-countdown-badge-paused');
+    await run("let s=timerState();s.durationMs=s.plannedDurationMs=1440*60000;s.elapsed=0;setTimerState(s);renderTimer()");
+    await size(protocol,240,600);await run('renderTimer()');
+    assert.equal(await run("return $('floatingClock').textContent"),'1440:00');
+    assert.ok(await run("const r=$('floatingTimer').getBoundingClientRect();return r.right<=innerWidth&&r.left>=0&&r.height<=60"));await noOverflow(run);
+  });
+
+  await check('Start and the brand restore the full running or paused timer while other pages float', dataset(), async (run,_imp,{protocol}) => {
+    await run("cur=d.tasks[0];random({keepCurrent:true})");await click(run,protocol,'#start');
+    for(const paused of [false,true]){
+      if(paused)await click(run,protocol,'#pauseTimer');
+      const raw=await run("return __rawGet('activeTimer')"),writes=await run('return __writes.length');
+      for(const width of [1440,375]){
+        await size(protocol,width,width===375?812:1000);
+        for(const destination of ['[data-page=tasks]','[data-page=today]','#dataMenuToggle']){
+          await click(run,protocol,destination);
+          assert.deepEqual(await run("return [$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide'),document.querySelector('main').inert]"),[true,false,false]);
+          await click(run,protocol,'[data-page=home]');
+          assert.deepEqual(await run("return [$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide'),document.querySelector('main').inert,$('timerName').textContent,timerState().paused,document.activeElement.id]"),[false,true,true,'读书',paused,'pauseTimer']);
+          assert.equal(await run("return document.querySelector('[data-page=home]').getAttribute('aria-current')"),'page');
+          assert.equal(await run("return __rawGet('activeTimer')"),raw);
+        }
+        if(!paused)await shot(run,protocol,width===375?'15-home-active-timer-mobile':'15-home-active-timer-desktop');
+      }
+      await click(run,protocol,'[data-page=tasks]');await click(run,protocol,'.brand');
+      assert.deepEqual(await run("return [location.hash,$('floatingTimer').classList.contains('hide'),d.completed.length,__writes.length]"),['#home',true,0,writes]);
+      assert.equal(await run("return __rawGet('activeTimer')"),raw);
+    }
+    await click(run,protocol,'#earlyTimer');await click(run,protocol,'#confirmAccept');await click(run,protocol,'[data-page=home]');
+    assert.deepEqual(await run("return [timerState(),$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide'),document.querySelector('main').inert,d.completed.length,!!$('start')?.getClientRects().length]"),[null,true,true,false,1,true]);
+  });
+
+  await check('reload, settings return, history and hash navigation keep the timer view aligned with the route', dataset(), async (run,_imp,{protocol,reload}) => {
+    await run("cur=d.tasks[0];random({keepCurrent:true})");await click(run,protocol,'#start');await click(run,protocol,'#pauseTimer');
+    const raw=await run("return __rawGet('activeTimer')");
+    const view=async(full)=>assert.deepEqual(await run("return [location.hash,$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide')]"),[full?'#home':'#tasks',!full,full]);
+    await click(run,protocol,'[data-page=tasks]');await reload();await view(false);
+    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return __writes.length'),0);
+    await click(run,protocol,'[data-page=home]');await reload();await view(true);
+    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return __writes.length'),0);
+    await click(run,protocol,'#dataMenuToggle');await click(run,protocol,'#closeSettings');await view(true);
+    await click(run,protocol,'[data-page=tasks]');await click(run,protocol,'[data-page=today]');
+    await run('history.back();await new Promise(resolve=>setTimeout(resolve,80))');await view(false);
+    await run('history.back();await new Promise(resolve=>setTimeout(resolve,80))');await view(true);
+    await run('history.forward();await new Promise(resolve=>setTimeout(resolve,80))');await view(false);
+    await run("location.hash='#home';await new Promise(resolve=>setTimeout(resolve,80))");await view(true);
+    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return d.completed.length'),0);
   });
 
   await check('today shows sessions in increasing displayed time with expandable details and no storage mutation', dataset(), async (run,_imp,{protocol}) => {
@@ -300,16 +363,21 @@ module.exports = async (scenario, fixture) => {
     }
   });
 
-  await check('dark onboarding and quick-edit option use the same palette and preserve typed text', null, async (run,_imp,{protocol}) => {
+  await check('dark onboarding stays minimal and optional requirements are editable later', null, async (run,_imp,{protocol}) => {
     await size(protocol,1440);
     await run("setTheme('dark');$('quickName').value=''");
     await shot(run,protocol,'10-onboarding-dark');
     await run("$('quickName').value='练字'");
-    await click(run,protocol,'#quickOptions');
+    await click(run,protocol,'#addFirstTask');
+    await click(run,protocol,'[data-page=tasks]');
+    await click(run,protocol,'.activity-item summary');
+    await click(run,protocol,'.activity-item [data-task-action=more]');
+    await click(run,protocol,'#activityMenuEdit');
     assert.equal(await run("return $('name').value"),'练字');
-    await run("$('mins').value='20';$('environment').value='noisy';syncDescriptionToggle()");
+    await click(run,protocol,'#requirementsOptions > summary');
+    await click(run,protocol,'#requiresAudio');
     await click(run,protocol,'#form [type=submit]');
-    assert.deepEqual(await run('return [d.tasks[0].name,d.tasks[0].minutes,d.tasks[0].env]'),['练字',20,'noisy']);
+    assert.deepEqual(await run("return [d.tasks[0].name,Object.hasOwn(d.tasks[0],'minutes'),Object.hasOwn(d.tasks[0],'env'),d.tasks[0].requirements.audio]"),['练字',false,false,true]);
   });
 
   await check('hostile names and descriptions remain inert in new list, recommendation and timer views', dataset(), async (run,_imp,{protocol}) => {
@@ -335,7 +403,7 @@ module.exports = async (scenario, fixture) => {
           const after=await run(`return ${JSON.stringify(selectors)}.map(s=>{const r=document.querySelector(s).getBoundingClientRect();return {left:r.left,width:r.width}})`);
           after.forEach((r,i)=>{assert.ok(Math.abs(r.left-positions[i].left)<0.5,JSON.stringify({width,theme,selector,positions,after}));assert.equal(r.width,positions[i].width)});
           assert.ok(await run('return scrollY<1'));
-          assert.ok(await run("const heading=[...document.querySelectorAll('.page.active h1')].find(e=>e.getClientRects().length).getBoundingClientRect(),header=document.querySelector('header').getBoundingClientRect();return heading.top>=header.bottom"));
+          assert.ok(await run("const heading=[...document.querySelectorAll('.page.active h1,.page.active .home-controls')].find(e=>e.getClientRects().length).getBoundingClientRect(),header=document.querySelector('header').getBoundingClientRect();return heading.top>=header.bottom"));
           await noOverflow(run);
         }
       }
@@ -366,9 +434,9 @@ module.exports = async (scenario, fixture) => {
     for(const [width,height] of [[1440,1000],[375,667],[320,568],[700,400]]){
       await size(protocol,width,height);await run("page('tasks')");
       await click(run,protocol,'#newTask');
-      assert.deepEqual(await run("return [$('activityOptions').open,$('saveActivity').textContent,$('activityCategory').value]"),[false,'添加','']);
+      assert.deepEqual(await run("return [$('activityOptions').open,$('saveActivity').textContent,$('activityCategory')]"),[false,'添加',null]);
       assert.ok(await run("const r=document.querySelector('.activity-dialog').getBoundingClientRect();return r.height<400&&r.top>=0&&r.bottom<=innerHeight"));
-      if(width>=375)assert.ok(await run("const controls=[...document.querySelectorAll('.activity-conditions>label')].map(e=>e.getBoundingClientRect());return Math.max(...controls.map(r=>r.top))-Math.min(...controls.map(r=>r.top))<3"));
+      assert.deepEqual(await run("return [$('requirementsOptions').open,$('mins'),$('environment')]"),[false,null,null]);
       await noOverflow(run);
       if(width===1440){await run("$('name').value='读书';document.activeElement.blur()");await shot(run,protocol,'11-add-compact-light')}
       if(width===375)await shot(run,protocol,'11-add-compact-mobile');
@@ -380,34 +448,57 @@ module.exports = async (scenario, fixture) => {
     }
   });
 
-  await check('optional categories filter the library and survive creation, editing, export and reload', dataset(), async (run,_imp,{protocol,reload}) => {
-    await size(protocol,1440);
-    await run("['study','study','life','exercise','work'].forEach((category,i)=>d.tasks[i].activityCategory=category);save();page('tasks')");
-    await shot(run,protocol,'12-categories-light');
-    const before=await run("return __rawGet('whatToDoData')");
-    await click(run,protocol,'#categoryTabs [data-category=study]');
-    assert.deepEqual(await run("return [...document.querySelectorAll('.activity-item h3')].map(e=>e.textContent)"),['读书','复习单词']);
-    await run("$('taskSearch').value='读';$('taskSearch').dispatchEvent(new Event('input'))");
-    assert.equal(await run("return document.querySelectorAll('.activity-item').length"),1);
-    assert.equal(await run("return __rawGet('whatToDoData')"),before);
-    await run("$('taskSearch').value='';$('taskSearch').dispatchEvent(new Event('input'))");
-    await click(run,protocol,'#newTask');
-    assert.equal(await run("return $('activityCategory').value"),'study');
-    await run("$('name').value='新学习活动'");await click(run,protocol,'#saveActivity');
-    const id=await run('return d.tasks.at(-1).id');
-    assert.equal(await run('return d.tasks.at(-1).activityCategory'),'study');
-    await click(run,protocol,'.activity-item:last-child summary');
-    await click(run,protocol,'.activity-item:last-child [data-task-action=more]');
+  const earlierCategories=dataset();
+  ['study','study','life','exercise','work'].forEach((category,i)=>earlierCategories.tasks[i].activityCategory=category);
+  earlierCategories.tasks[0].category={custom:'保留旧分类数据'};
+  await check('library has no category controls and preserves earlier metadata through edits and backups', earlierCategories, async (run,_imp,{protocol,reload}) => {
+    await size(protocol,1440);await run("page('tasks')");
+    assert.deepEqual(await run("return [$('categoryTabs'),$('activityCategory'),$('libraryFilters'),document.querySelectorAll('.activity-item').length]"),[null,null,null,5]);
+    assert.equal(await run('return __writes.length'),0);
+    await shot(run,protocol,'14-simple-library-light');
+    await click(run,protocol,'.activity-item:first-child [data-task-action=more]');
     await click(run,protocol,'#activityMenuEdit');
-    await run("$('activityCategory').value='work'");await click(run,protocol,'#saveActivity');
-    assert.equal(await run(`return d.tasks.find(t=>t.id===${JSON.stringify(id)}).activityCategory`),'work');
-    await click(run,protocol,'#categoryTabs [data-category=work]');
-    assert.ok(await run(`return [...document.querySelectorAll('.activity-item')].some(e=>e.dataset.taskId===${JSON.stringify(id)})`));
+    await run("$('name').value='读下一章'");await click(run,protocol,'#saveActivity');
+    assert.deepEqual(await run("return [d.tasks[0].activityCategory,d.tasks[0].category]"),['study',{custom:'保留旧分类数据'}]);
+    await click(run,protocol,'#newTask');await run("$('name').value='新活动'");await click(run,protocol,'#saveActivity');
+    assert.equal(await run("return Object.hasOwn(d.tasks.at(-1),'activityCategory')"),false);
     await run("page('settings');$('export').click()");
-    assert.equal(await run(`return JSON.parse(await __downloads.at(-1).blob.text()).tasks.find(t=>t.id===${JSON.stringify(id)}).activityCategory`),'work');
-    await reload();await run("page('tasks');selectActivityCategory('work')");
-    assert.equal(await run(`return d.tasks.find(t=>t.id===${JSON.stringify(id)}).activityCategory`),'work');
-    await size(protocol,375,667);await run("clearActivityFilters()");await noOverflow(run);await shot(run,protocol,'12-categories-mobile');
+    assert.deepEqual(await run("const backup=JSON.parse(await __downloads.at(-1).blob.text());return [backup.tasks[0].activityCategory,backup.tasks[0].category,backup.tasks.length]"),['study',{custom:'保留旧分类数据'},6]);
+    await reload();await run("page('tasks')");
+    assert.deepEqual(await run("return [d.tasks[0].activityCategory,d.tasks[0].name,d.tasks.length]"),['study','读下一章',6]);
+    await size(protocol,375,667);await noOverflow(run);await shot(run,protocol,'14-simple-library-mobile');
+    await run("setTheme('dark')");await shot(run,protocol,'14-simple-library-dark-mobile');
+  });
+
+  await check('collapsed search supports focus, Escape, no results and navigation without hidden filters or writes', dataset(), async (run,_imp,{protocol}) => {
+    await run("page('tasks')");const before=await run("return __rawGet('whatToDoData')");
+    for(const [width,height] of [[1440,1000],[375,667],[320,568],[240,600]]){
+      await size(protocol,width,height);
+      assert.ok(await run("return $('librarySearch').classList.contains('hide')&&$('toggleActivitySearch').getAttribute('aria-expanded')==='false'"));
+      await click(run,protocol,'#toggleActivitySearch');assert.equal(await run('return document.activeElement.id'),'taskSearch');
+      await run("$('taskSearch').value='接着上次';$('taskSearch').dispatchEvent(new Event('input'))");
+      assert.equal(await run("return document.querySelector('.activity-item h3').textContent"),'读书');
+      await click(run,protocol,'.activity-item [data-task-action=more]');
+      await key(protocol,'Escape','Escape',27);
+      assert.ok(await run("return !$('librarySearch').classList.contains('hide')&&$('taskSearch').value==='接着上次'"));
+      await key(protocol,'Escape','Escape',27);
+      assert.deepEqual(await run("return [document.activeElement.id,$('taskSearch').value,document.querySelectorAll('.activity-item').length]"),['toggleActivitySearch','',5]);
+      await click(run,protocol,'#toggleActivitySearch');await run("$('taskSearch').value='找不到';$('taskSearch').dispatchEvent(new Event('input'))");
+      await click(run,protocol,'#taskList .empty-state .secondary');
+      assert.ok(await run("return $('librarySearch').classList.contains('hide')&&document.querySelectorAll('.activity-item').length===5"));
+      await click(run,protocol,'#toggleActivitySearch');await run("$('taskSearch').value='Python';$('taskSearch').dispatchEvent(new Event('input'))");
+      await click(run,protocol,'#closeActivitySearch');
+      await click(run,protocol,'#toggleActivitySearch');await run("$('taskSearch').value='读';$('taskSearch').dispatchEvent(new Event('input'))");
+      await click(run,protocol,'[data-page=home]');await click(run,protocol,'[data-page=tasks]');
+      assert.deepEqual(await run("return [$('librarySearch').classList.contains('hide'),$('taskSearch').value,document.querySelectorAll('.activity-item').length]"),[true,'',5]);
+      await noOverflow(run);
+    }
+    assert.equal(await run("return __rawGet('whatToDoData')"),before);assert.equal(await run('return __writes.length'),0);
+    await run("d.tasks=d.tasks.slice(0,1);tasks()");
+    await click(run,protocol,'#toggleActivitySearch');
+    await click(run,protocol,'.activity-item [data-task-action=more]');await click(run,protocol,'#activityMenuDelete');
+    await click(run,protocol,'#confirmAccept');
+    assert.deepEqual(await run("return [d.tasks.length,$('librarySearch').classList.contains('hide'),$('toggleActivitySearch').classList.contains('hide')]"),[0,true,true]);
   });
 
   console.log(count+' minimal UI browser scenarios passed. Screenshots: '+out);

@@ -4,7 +4,7 @@ const vm = require('node:vm');
 
 // Runs the real app script with an in-memory Storage and a small DOM substitute.
 // No browser profile, network, dependency install, or user data is involved.
-function boot(initial = {}, faults = {}) {
+function boot(initial = {}, faults = {}, options = {}) {
   const values = new Map(Object.entries(initial));
   const writes = [];
   const downloads = [];
@@ -53,6 +53,7 @@ function boot(initial = {}, faults = {}) {
     reset() {}
     insertAdjacentHTML(_, html) { parse(html); }
     contains(el) { return this.children.includes(el); }
+    querySelectorAll() { return []; }
   }
   function parse(html) {
     for (const match of html.matchAll(/<([\w-]+)\b([^>]*\bid="([^"]+)"[^>]*)>/g)) {
@@ -104,6 +105,7 @@ function boot(initial = {}, faults = {}) {
   const blobs = new Map(), readers = [];
   const context = vm.createContext({
     document, location: { hash: '', reload() {} }, localStorage, console, Blob,
+    navigator: {languages: options.languages || ['zh-CN']},
     innerWidth: 1024, innerHeight: 768, addEventListener() {},
     URL: { createObjectURL(blob) { const id = 'blob:test-' + blobs.size; blobs.set(id, blob); return id; }, revokeObjectURL() {} },
     setTimeout: () => ++nextTimer, clearTimeout() {},
@@ -121,16 +123,18 @@ function boot(initial = {}, faults = {}) {
   context.window = context;
   if (faults.access) Object.defineProperty(context, 'localStorage', { get() { throw storageError('SecurityError'); } });
   let error;
-  try { vm.runInContext(fs.readFileSync(path.join(__dirname, '../../app.js'), 'utf8'), context, { filename: 'app.js' }); }
+  try {
+    vm.runInContext(fs.readFileSync(path.join(__dirname, '../../i18n.js'), 'utf8'), context, { filename: 'i18n.js' });
+    vm.runInContext(fs.readFileSync(path.join(__dirname, '../../app.js'), 'utf8'), context, { filename: 'app.js' });
+  }
   catch (e) { error = e; }
   return {
     error, values, writes, elements, downloads, intervals, times, envs, document, faults, readers,
     run: code => vm.runInContext(code, context),
     json: code => JSON.parse(vm.runInContext('JSON.stringify(' + code + ')', context)),
     chooseConditions() {
-      const [minutes, environment] = this.json('[time,env]');
-      times.find(button => Number(button.dataset.v) === minutes).click();
-      envs.find(button => button.dataset.v === environment).click();
+      const minutes = this.run('time');
+      times.find(button => Number(button.dataset.v) === minutes)?.click();
     },
     import(data) {
       const file = elements.get('file');

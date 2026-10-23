@@ -34,11 +34,11 @@ test('condition changes preserve an eligible current recommendation', () => {
   assert.equal(app.json('timerState().taskId'), id);
 });
 
-test('both recommendation buttons avoid consecutive repeats when alternatives exist', () => {
+test('the single change button avoids consecutive repeats when alternatives exist', () => {
   const app = start(dataSet()); app.run('Math.random=()=>0');
   let previous = app.run('cur.id');
   for (let i = 0; i < 8; i++) {
-    app.elements.get(i % 2 ? 'again' : 'random').click();
+    app.elements.get('random').click();
     assert.notEqual(app.run('cur.id'), previous); previous = app.run('cur.id');
   }
   assert.equal(app.json('d.completed').length, 0);
@@ -47,20 +47,21 @@ test('both recommendation buttons avoid consecutive repeats when alternatives ex
 test('explicit change can choose another hard-eligible task even if it was recently practiced', () => {
   const data = dataSet(); data.completed = [record('old', 'task-1', new Date().toISOString())];
   const app = start(data); assert.equal(app.run('cur.id'), 'task-0');
-  app.elements.get('again').click(); assert.equal(app.run('cur.id'), 'task-1');
+  app.elements.get('random').click(); assert.equal(app.run('cur.id'), 'task-1');
 });
 
-test('single candidate is retained with an explicit explanation', () => {
+test('single candidate hides the change button without explanatory copy', () => {
   const app = start(dataSet(1));
   for (let i = 0; i < 3; i++) app.elements.get('random').click();
   assert.equal(app.run('cur.id'), 'task-0');
-  assert.match(visibleText(app.elements.get('rec')), /当前条件下只有这一项活动/);
+  assert.equal(app.elements.get('random').classList.contains('hide'),true);
+  assert.doesNotMatch(visibleText(app.elements.get('rec')), /当前条件下只有这一项活动/);
 });
 
 test('no candidate clears old task and prevents its detached start action', () => {
   const data = dataSet(1); data.tasks[0].minutes = 30;
   const app = start(data), oldStart = app.elements.get('start');
-  app.times.find(b => b.dataset.v === '5').click();
+  app.run('d.tasks[0].computer=true;random({keepCurrent:true})');
   assert.equal(app.run('cur'), null);
   assert.match(visibleText(app.elements.get('rec')), /没有符合当前条件的活动/);
   oldStart.click(); assert.equal(app.values.has('activeTimer'), false);
@@ -71,7 +72,7 @@ test('changing recommendation conditions does not change a running or paused tim
     const app = start(dataSet()); app.elements.get('start').click();
     if (paused) app.run('pauseTimer()');
     const before = app.values.get('activeTimer');
-    app.times.find(b => b.dataset.v === '5').click(); app.envs.find(b => b.dataset.v === 'class').click();
+    app.times.find(b => b.dataset.v === '5').click(); app.elements.get('audioReady').checked=true;app.elements.get('audioReady').dispatch('change');
     app.elements.get('random').click();
     assert.equal(app.values.get('activeTimer'), before);
     assert.equal(app.json('d.completed').length, 0);

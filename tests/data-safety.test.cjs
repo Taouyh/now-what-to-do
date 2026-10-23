@@ -74,7 +74,7 @@ test('failed task save keeps old data, open editor and no success message', () =
   const before = app.values.get('whatToDoData');
   app.faults.write = true;
   app.run('newTask("mine")');
-  for (const [id, value] of Object.entries({ name: '未保存的任务', mins: '5', environment: 'noisy' })) app.elements.get(id).value = value;
+  app.elements.get('name').value = '未保存的任务';
   app.elements.get('form').dispatch('submit');
   assert.equal(app.values.get('whatToDoData'), before);
   assert.equal(app.run('d.tasks.some(t=>t.name==="未保存的任务")'), false);
@@ -92,11 +92,11 @@ test('valid import waits for confirmation and synchronizes preferences and theme
   assert.equal(app.elements.get('confirmLayer').classList.contains('hide'), false);
   app.confirm();
   assert.deepEqual(JSON.parse(app.values.get('whatToDoData')).preferences, incoming.preferences);
-  assert.deepEqual(app.json('[time,env,computerReady]'), [30, 'quiet', true]);
+  assert.deepEqual(app.json('[time,conditions.computer,conditions.audio,conditions.speech]'), [30, true, false, false]);
   assert.equal(app.document.documentElement.dataset.theme, 'dark');
   assert.equal(app.elements.get('computerReady').checked, true);
   assert.ok(app.times.find(x => x.dataset.v === '30').classList.contains('on'));
-  assert.ok(app.envs.find(x => x.dataset.v === 'quiet').classList.contains('on'));
+  assert.equal(app.elements.get('audioReady').checked, false);
 });
 
 test('invalid imports and cancellation do not touch stored or runtime data', () => {
@@ -121,7 +121,7 @@ test('failed import retains old runtime, storage, preferences and theme', () => 
   app.confirm();
   assert.equal(app.values.get('whatToDoData'), before);
   assert.deepEqual(app.json('d'), runtime);
-  assert.deepEqual(app.json('[time,env,computerReady]'), [10, 'noisy', false]);
+  assert.deepEqual(app.json('[time,conditions.computer]'), [10, false]);
   assert.equal(app.document.documentElement.dataset.theme, 'light');
 });
 
@@ -215,14 +215,14 @@ test('failed preference and theme writes restore selected controls', () => {
   const app = boot(stored(fixture())); started(app); app.chooseConditions();
   app.faults.write = true;
   app.times.find(x => x.dataset.v === '30').click();
-  app.envs.find(x => x.dataset.v === 'quiet').click();
+  app.elements.get('audioReady').checked = true;app.elements.get('audioReady').dispatch('change');
   app.elements.get('computerReady').checked = true;
   app.elements.get('computerReady').dispatch('change');
   app.elements.get('theme').click();
-  assert.deepEqual(app.json('[time,env,computerReady]'), [10, 'noisy', false]);
+  assert.deepEqual(app.json('[time,conditions.computer,conditions.audio]'), [10, false, false]);
   assert.equal(app.document.documentElement.dataset.theme, 'light');
   assert.ok(app.times.find(x => x.dataset.v === '10').classList.contains('on'));
-  assert.ok(app.envs.find(x => x.dataset.v === 'noisy').classList.contains('on'));
+  assert.equal(app.elements.get('audioReady').checked, false);
   assert.equal(app.elements.get('computerReady').checked, false);
 });
 
@@ -288,7 +288,7 @@ test('interface failure during import rolls back storage and runtime', () => {
   app.confirm();
   assert.equal(app.values.get('whatToDoData'), before);
   assert.deepEqual(app.json('d'), runtime);
-  assert.deepEqual(app.json('[time,env,computerReady]'), [10, 'noisy', false]);
+  assert.deepEqual(app.json('[time,conditions.computer]'), [10, false]);
   assert.equal(app.document.documentElement.dataset.theme, 'light');
   assert.notEqual(app.elements.get('appNotice').textContent, '备份数据已导入。');
 });
