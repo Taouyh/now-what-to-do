@@ -8,6 +8,13 @@ Got a little free time? Pick something you've been meaning to do, and start now.
 
 [Open Now What?](https://taouyh.github.io/now-what-to-do/)
 
+## Install
+
+- [Windows installer (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) — Windows 10/11, 64-bit. Choose where to install.
+- [Android installer (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) — Android 7.0 or newer with an up-to-date WebView.
+
+Both apps work offline and open in English on first use. Switch languages in **Settings**. See [Releases](https://github.com/Taouyh/now-what-to-do/releases) for all downloads. Windows may show an unknown-publisher notice. Android has not yet been tested on a phone.
+
 ## How it works
 
 1. Add something you want to do, like reading, drawing or learning a language. A name is enough.
@@ -27,7 +34,7 @@ Open the [repository](https://github.com/Taouyh/now-what-to-do), choose **Code �
 
 ## Good to know
 
-- Your activities and history stay in this browser. They do not sync to other devices. Clearing browser data can erase them.
+- Your activities and history stay on this device, in the app or browser you use. They do not sync automatically. Clearing app or browser data can erase them.
 - Back up your data in **Settings → Back up data → Export**. Restoring a backup replaces your current activities, history and settings. The current timer is not included in the backup.
-- You can switch between English, Chinese and Japanese in **Settings**. The app follows your browser language at first, then remembers your choice. Activity names and notes stay as you wrote them.
+- Switch between English, Chinese and Japanese in **Settings**. Installed apps start in English; the website follows your browser language. Your choice is remembered. Activity names and notes stay as you wrote them.
 - Activities have no fixed length. Choose a time for each session. Ending a session saves the time you spent and keeps the activity for next time.

@@ -20,7 +20,7 @@ function toTimestamp(value){let n=typeof value==='number'?value:Date.parse(value
 // Retain validation of category metadata from earlier v2 backups.
 const LEGACY_ACTIVITY_CATEGORIES=['study','work','life','exercise','other'];
 let activityMenuContext=null;
-function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:browserLanguage,conditions:{computer:false,audio:false,speech:false,interrupted:false}},theme:'light'}}
+function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:defaultLanguage,conditions:{computer:false,audio:false,speech:false,interrupted:false}},theme:'light'}}
 
 // Keep the v2 keys and unknown user fields. Never seed examples during migration.
 function validateData(x){
@@ -74,6 +74,7 @@ function migrateData(x){
 let storageBlocked=false,firstUse=false,originalMain=null,originalTimer=null,pendingImport=null;
 const storageFailures=new Map();
 function downloadText(content,name,type='application/json'){
+  if(window.nativeApp?.exportText){Promise.resolve().then(()=>window.nativeApp.exportText(content,name)).catch(()=>notify(tr('导出失败，请检查浏览器下载权限后重试。')));return}
   try{let a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(e){notify(tr('导出失败，请检查浏览器下载权限后重试。'))}
 }
 function protectData(message){

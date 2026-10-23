@@ -1,6 +1,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path');
+const vm=require('node:vm');
 const {boot,fixture}=require('./helpers/app-harness.cjs');
 
 test('browser language negotiation supports regional tags, priority and English fallback',()=>{
@@ -8,6 +9,28 @@ test('browser language negotiation supports regional tags, priority and English 
     const a=boot({}, {}, {languages});assert.equal(a.error,undefined);assert.equal(a.run('language'),expected);
     assert.equal(a.json('d.preferences.language'),expected);
   }
+});
+test('installable apps start in English on Chinese and Japanese systems and retain saved choices',()=>{
+  for(const languages of [['zh-CN'],['ja-JP']]){
+    const options={languages,nativeApp:{defaultLanguage:'en'}};
+    const a=boot({}, {},options);assert.equal(a.error,undefined);
+    assert.equal(a.run('language'),'en');assert.equal(a.json('d.preferences.language'),'en');
+    const legacy=boot({whatToDoData:JSON.stringify(fixture())},{},options);
+    assert.equal(legacy.run('language'),'en');assert.equal(legacy.writes.length,0);
+    a.run("setLanguage('ja')");
+    const b=boot(Object.fromEntries(a.values),{},options);
+    assert.equal(b.run('language'),'ja');assert.equal(b.writes.length,0);
+    const saved=fixture();saved.preferences.language='zh-CN';
+    assert.equal(boot({whatToDoData:JSON.stringify(saved)},{},options).run('language'),'zh-CN');
+  }
+});
+test('the Android adapter supplies the installed-app default before language initialization',()=>{
+  const context={MutationObserver:class{observe(){}},document:{documentElement:{}},addEventListener(){}};
+  context.window=context;vm.createContext(context);
+  vm.runInContext(fs.readFileSync(path.join(__dirname,'../android/native-android.js'),'utf8'),context);
+  assert.equal(context.nativeApp.defaultLanguage,'en');
+  const a=boot({}, {},{languages:['ja-JP'],nativeApp:context.nativeApp});
+  assert.equal(a.error,undefined);assert.equal(a.run('language'),'en');
 });
 test('manual language choice persists without modifying user content or unknown fields',()=>{
   const data=fixture(),a=boot({whatToDoData:JSON.stringify(data)},{},{languages:['ja-JP']});

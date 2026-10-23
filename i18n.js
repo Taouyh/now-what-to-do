@@ -750,7 +750,8 @@ function detectLanguage(languages){
   return 'en';
 }
 const browserLanguage=detectLanguage(globalThis.navigator?.languages?.length?navigator.languages:[globalThis.navigator?.language||'zh-CN']);
-let language=browserLanguage,appliedLanguage=null;
+const defaultLanguage=SUPPORTED_LANGUAGES.includes(globalThis.nativeApp?.defaultLanguage)?globalThis.nativeApp.defaultLanguage:browserLanguage;
+let language=defaultLanguage,appliedLanguage=null;
 function tr(key,values={}){
   const message=language==='zh-CN'?key:MESSAGES[key]?.[language]??key;
   return message.replace(/\{(\w+)\}/g,(match,name)=>Object.hasOwn(values,name)?String(values[name]):match);
@@ -760,7 +761,7 @@ function translateStatic(root=document){
   for(const attr of ['placeholder','aria-label','title'])root.querySelectorAll('[data-i18n-'+attr+']').forEach(el=>el.setAttribute(attr,tr(el.getAttribute('data-i18n-'+attr))));
 }
 function applyLanguage(preferred){
-  language=SUPPORTED_LANGUAGES.includes(preferred)?preferred:browserLanguage;
+  language=SUPPORTED_LANGUAGES.includes(preferred)?preferred:defaultLanguage;
   if(appliedLanguage!==language){translateStatic();document.documentElement.lang=language;document.title=tr('现在做什么');appliedLanguage=language;return true}
   return false;
 }

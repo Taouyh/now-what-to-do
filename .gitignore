@@ -38,3 +38,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Local Android SDK, intermediates and private APK signing identity.
+/android/.build/
+/android/.signing/
+/android/local.properties
+*.jks
+*.keystore

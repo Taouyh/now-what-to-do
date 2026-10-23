@@ -121,6 +121,7 @@ function boot(initial = {}, faults = {}, options = {}) {
     },
   });
   context.window = context;
+  if(options.nativeApp)context.nativeApp=options.nativeApp;
   if (faults.access) Object.defineProperty(context, 'localStorage', { get() { throw storageError('SecurityError'); } });
   let error;
   try {

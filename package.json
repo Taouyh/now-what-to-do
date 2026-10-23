@@ -1,0 +1,26 @@
+{
+  "name": "now-what-to-do",
+  "version": "1.0.0",
+  "description": "Got a little free time? Pick something you've been meaning to do, and start now.",
+  "private": true,
+  "author": "Taouyh",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "build:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-windows.ps1",
+    "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-android.ps1"
+  },
+  "devDependencies": {"electron": "45.0.0", "electron-builder": "26.15.3"},
+  "build": {
+    "appId": "io.github.taouyh.nowwhat",
+    "productName": "Now What",
+    "artifactName": "Now-What-${version}-Windows-${arch}-Setup.${ext}",
+    "directories": {"output": "dist/windows", "buildResources": "packaging"},
+    "electronDist": "node_modules/electron/dist",
+    "toolsets": {"nsis": "1.2.1", "winCodeSign": "1.1.0"},
+    "files": ["index.html", "app.js", "i18n.js", "style.css", "desktop/**", "packaging/icon.png"],
+    "win": {"target": "nsis", "icon": "packaging/icon.ico", "signAndEditExecutable": true},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true, "perMachine": false, "deleteAppDataOnUninstall": false, "createDesktopShortcut": true, "createStartMenuShortcut": true, "shortcutName": "Now What", "installerLanguages": ["en_US", "zh_CN", "ja_JP"]}
+  }
+}
