@@ -753,7 +753,11 @@ const browserLanguage=detectLanguage(globalThis.navigator?.languages?.length?nav
 const defaultLanguage=SUPPORTED_LANGUAGES.includes(globalThis.nativeApp?.defaultLanguage)?globalThis.nativeApp.defaultLanguage:browserLanguage;
 let language=defaultLanguage,appliedLanguage=null;
 function tr(key,values={}){
-  const message=language==='zh-CN'?key:MESSAGES[key]?.[language]??key;
+  let message=language==='zh-CN'?key:MESSAGES[key]?.[language]??key;
+  if(globalThis.nativeApp?.productName&&(key==='现在做什么'||key==='现在做什么，返回开始')){
+    const translatedName=language==='zh-CN'?'现在做什么':MESSAGES['现在做什么'][language];
+    message=message.replace(translatedName,globalThis.nativeApp.productName);
+  }
   return message.replace(/\{(\w+)\}/g,(match,name)=>Object.hasOwn(values,name)?String(values[name]):match);
 }
 function translateStatic(root=document){

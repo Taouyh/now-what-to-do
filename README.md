@@ -1,40 +1,56 @@
-**English** | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a></p>
 
-# Now What? · 现在做什么
+<h1 align="center">Now What</h1>
+<p align="center">Got a little free time? Pick something you've been meaning to do, and start now.</p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/">Website</a> · <a href="https://taouyh.github.io/now-what-to-do/">Try it online</a> · <a href="https://github.com/Taouyh/now-what-to-do/releases">Download</a> · <a href="#see-it-work">Demo</a> · <a href="LICENSE">MIT License</a></p>
+<p align="center">Windows · Android · Web &nbsp; / &nbsp; Free · No account · <a href="LICENSE">MIT</a></p>
 
-Got a little free time? Pick something you've been meaning to do, and start now.
-
-## Try it
-
-[Open Now What?](https://taouyh.github.io/now-what-to-do/)
-
-## Install
-
-- [Windows installer (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) — Windows 10/11, 64-bit. Choose where to install.
-- [Android installer (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) — Android 7.0 or newer with an up-to-date WebView.
-
-Both apps work offline and open in English on first use. Switch languages in **Settings**. See [Releases](https://github.com/Taouyh/now-what-to-do/releases) for all downloads. Windows may show an unknown-publisher notice. Android has not yet been tested on a phone.
+[![Now What: add an activity, choose your time and conditions, then start.](about/assets/windows-demo.gif)](https://taouyh.github.io/now-what-to-do/about/#demo)
 
 ## How it works
 
-1. Add something you want to do, like reading, drawing or learning a language. A name is enough.
-2. Choose how much time you have and what you can do right now, such as using a computer or listening to audio.
-3. Start the suggested activity, try another, or choose one yourself.
+Too many things you want to do, and no idea where to start when you're finally free? Keep them here. When a little time opens up, pick one that fits your current conditions and begin.
 
-## Use it on your computer
+1. **Add your things.** Reading, drawing, learning a language. A name is enough.
+2. **Set the moment.** Choose how much time you have and whether you can use a computer, listen, speak or may be interrupted.
+3. **Begin one.** Start the suggested activity, try another, or choose one yourself.
 
-Open the [repository](https://github.com/Taouyh/now-what-to-do), choose **Code → Download ZIP**, and unzip it. Double-click `index.html` to open the app. Nothing to install.
+Activities have no fixed length. Set the time for each session. Ending a session saves the time you spent and keeps the activity for next time.
 
-## Publish your own copy
+## See it work
 
-1. Open the [repository](https://github.com/Taouyh/now-what-to-do) and click **Fork → Create fork**.
-2. In your copy, open **Settings → Pages**.
-3. Set **Source** to **Deploy from a branch**. Select the branch containing `index.html` and **/ (root)**, then click **Save**.
-4. Once publishing finishes, click **Visit site** to open your app.
+[Watch Windows demo](about/assets/windows-demo.mp4) · [Watch mobile demo](about/assets/mobile-demo.mp4) · [Watch on the website](https://taouyh.github.io/now-what-to-do/about/#demo)
 
-## Good to know
+Both demos are 14 seconds, from an empty activity list to starting a session. English interface, original gentle music, no voice.
 
-- Your activities and history stay on this device, in the app or browser you use. They do not sync automatically. Clearing app or browser data can erase them.
-- Back up your data in **Settings → Back up data → Export**. Restoring a backup replaces your current activities, history and settings. The current timer is not included in the backup.
-- Switch between English, Chinese and Japanese in **Settings**. Installed apps start in English; the website follows your browser language. Your choice is remembered. Activity names and notes stay as you wrote them.
-- Activities have no fixed length. Choose a time for each session. Ending a session saves the time you spent and keeps the activity for next time.
+<details>
+<summary>Mobile demo — tap to expand the animation</summary>
+<p align="center"><a href="about/assets/mobile-demo.mp4"><img src="about/assets/mobile-demo.gif" width="280" alt="Mobile demo: add an activity, choose ten minutes and start."></a></p>
+</details>
+
+## Get Now What
+
+| Platform | Download | What you need |
+| --- | --- | --- |
+| Windows | [Installer (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11, 64-bit. Choose where to install. |
+| Android | [Installer (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0+ and an up-to-date WebView. |
+| Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install. |
+
+Installed apps work offline and start in **English**. Switch to Chinese or Japanese in **Settings**. The web app starts with your browser language. Your choice is remembered; your activity names and notes aren't translated.
+
+Windows may show an unknown-publisher notice. The Android package has not yet been tested on a real phone. See [Releases](https://github.com/Taouyh/now-what-to-do/releases) for all versions; if a download isn't available, use the web app.
+
+## Keep your data
+
+- Activities and history stay in this app or browser on this device. No automatic sync. Clearing its data can erase them.
+- Save a copy in **Settings → Back up data → Export**. Restoring a backup replaces current activities, history and settings. The running timer isn't included.
+
+## Run or publish your own copy
+
+Choose **Code → Download ZIP**, unzip it, and open `index.html`. No setup needed.
+
+To publish on GitHub Pages, fork this repository and select the branch and **/ (root)** in **Settings → Pages**. The tool stays at the main address, and the introduction is at `/about/`. [Publishing details](docs/site-and-readme.md) · [Build Windows / Android](docs/installable-builds.md).
+
+## License
+
+[MIT](LICENSE) © 2026 Taouyh. You're welcome to use, change and share it. Keep the license notice with your copy.

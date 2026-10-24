@@ -4,6 +4,7 @@
   "description": "Got a little free time? Pick something you've been meaning to do, and start now.",
   "private": true,
   "author": "Taouyh",
+  "license": "MIT",
   "main": "desktop/main.cjs",
   "scripts": {
     "start": "electron .",

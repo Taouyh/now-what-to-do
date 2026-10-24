@@ -29,8 +29,21 @@ test('the Android adapter supplies the installed-app default before language ini
   context.window=context;vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(__dirname,'../android/native-android.js'),'utf8'),context);
   assert.equal(context.nativeApp.defaultLanguage,'en');
+  assert.equal(context.nativeApp.productName,'Now What');
   const a=boot({}, {},{languages:['ja-JP'],nativeApp:context.nativeApp});
   assert.equal(a.error,undefined);assert.equal(a.run('language'),'en');
+});
+test('installed product names stay English when interface languages change',()=>{
+  const a=boot({}, {},{nativeApp:{defaultLanguage:'en',productName:'Now What'}});
+  for(const locale of ['zh-CN','en','ja']){
+    a.run(`setLanguage('${locale}')`);
+    assert.equal(a.document.title,'Now What');
+    assert.equal(a.run("tr('现在做什么')"),'Now What');
+    assert.ok(a.run("tr('现在做什么，返回开始')").startsWith('Now What'));
+    assert.equal(a.run("tr('设置')"),{'zh-CN':'设置',en:'Settings',ja:'設定'}[locale]);
+  }
+  const web=boot({}, {},{languages:['ja-JP']});
+  assert.equal(web.document.title,'今、何する？');
 });
 test('manual language choice persists without modifying user content or unknown fields',()=>{
   const data=fixture(),a=boot({whatToDoData:JSON.stringify(data)},{},{languages:['ja-JP']});

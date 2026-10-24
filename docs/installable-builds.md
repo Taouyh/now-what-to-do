@@ -18,6 +18,7 @@ Android 将 APK 传到手机后打开安装，按手机提示允许该来源安�
 ## 数据和计时
 
 - 两个版本都自带页面，离线可用，支持中文、英文、日文。首次打开固定为英语，与系统语言无关；在设置里切换后记住选择。更新或导入备份时保留已保存的语言。网页版首次仍跟随浏览器语言。
+- 安装后的应用名统一为 **Now What**。Windows 快捷方式、应用信息、窗口标题，以及安卓桌面和应用信息中的名称都保持英文；应用内的品牌文字也保持英文，其他界面文字仍可切换三种语言。
 - 安装版、网页版和其他设备各自保存数据，不会自动同步。迁移时先在原来的版本中导出备份，再在新版本中导入。
 - 导入前仍需确认；导出使用系统文件保存窗口。Android 无需申请整个存储空间的读写权限。
 - 计时和暂停状态会保存，重新打开后继续读取。Android 锁屏或切到后台时可能暂停页面运行，不能当作可靠的后台闹钟；返回应用后会按已保存的时间重新计算。
@@ -41,7 +42,7 @@ npm run build:android
 
 如果 GitHub 下载不可达，Electron 准备脚本可加 `-UseMirror`，Windows 构建可用 `npm run build:windows -- -UseMirror`。下载文件仍按固定校验值验证。现有本地 NSIS、rcedit 和 7zip 缓存存在时，Windows 构建脚本会自动使用。
 
-如果旧的输出文件被占用，可以构建到新目录：`npm run build:windows -- -OutputDirectory dist/windows-release`。测试这次的程序时，将 `NOWWHAT_PACKAGED_DIR` 环境变量设为该目录里的 `win-unpacked`。本次已使用这个目录生成程序，并把最新 EXE 复制到上表的下载位置。
+如果旧的输出文件被占用，可以构建到新目录：`npm run build:windows -- -OutputDirectory dist/windows-english-name`。测试这次的程序时，将 `NOWWHAT_PACKAGED_DIR` 环境变量设为该目录里的 `win-unpacked`。本次已使用这个目录生成程序，并把最新 EXE 复制到上表的下载位置。
 
 Android 使用官方 Build Tools 35.0.0、Android 35 API 和 Java 编译器直接构建，没有引入额外的 Gradle 依赖。SDK 包从 Google 官方仓库下载，并按其元数据中的摘要校验。若已有 SDK，可直接向 `scripts/build-android.ps1` 传入 `-SdkRoot` 和 `-JavaHome`。
 
@@ -66,7 +67,7 @@ node tests/package-contents.cjs
 
 APK 构建结束会自动执行 `apksigner verify` 和 `aapt2 dump badging`。包内容检查比对当前网页代码与原生适配文件，并确认没有混入签名私钥、研究资料或测试数据。安装包 SHA-256 校验值另存于 `dist/SHA256SUMS.txt`。
 
-本次验证：98 项自动测试通过；Windows 打包程序首次默认英语、切换后重启记忆、备份导出及记录保存通过；APK 签名与内容检查通过。另以隐藏窗口打开真实 EXE 安装器，确认目录输入框可编辑、可接受带空格的自选路径，然后退出，未执行安装。
+本次验证：99 项自动测试通过；Windows 打包程序首次默认英语、切换后重启记忆、三语界面下英文产品名、备份导出及记录保存通过；APK 签名与内容检查通过，并核对编译后的各语言应用名均为 Now What。另以隐藏窗口打开真实 EXE 安装器，确认目录输入框可编辑、可接受带空格的自选路径，然后退出，未执行安装。
 
 ## 发布到 GitHub Releases
 
@@ -74,8 +75,8 @@ GitHub 插件目前没有上传 Release 附件的接口。可用官方 GitHub CL
 
 ```powershell
 gh auth login --hostname github.com --git-protocol https --web
-# 本次打包目录为 dist/windows-release，因此检查对应的程序
-$env:NOWWHAT_PACKAGED_DIR = "$PWD/dist/windows-release/win-unpacked"
+# 本次打包目录为 dist/windows-english-name，因此检查对应的程序
+$env:NOWWHAT_PACKAGED_DIR = "$PWD/dist/windows-english-name/win-unpacked"
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-release.ps1
 ```
 

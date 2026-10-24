@@ -1,40 +1,56 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | **日本語**
+<p align="center"><a href="README.md">English</a> · <a href="README.zh-CN.md">简体中文</a> · <strong>日本語</strong></p>
 
-# 今、何する？ · Now What?
+<h1 align="center">Now What</h1>
+<p align="center">少し時間が空いた？ ずっとやりたかったことをひとつ選んで、今はじめよう。</p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/?lang=ja">紹介ページ</a> · <a href="https://taouyh.github.io/now-what-to-do/">オンラインで試す</a> · <a href="https://github.com/Taouyh/now-what-to-do/releases">ダウンロード</a> · <a href="#使い方を見る">デモ</a> · <a href="LICENSE">MIT ライセンス</a></p>
+<p align="center">Windows · Android · Web &nbsp; / &nbsp; 無料 · 登録不要 · <a href="LICENSE">MIT</a></p>
 
-少し時間が空いた？ ずっとやりたかったことをひとつ選んで、今はじめよう。
-
-## 使ってみる
-
-[「今、何する？」を開く](https://taouyh.github.io/now-what-to-do/)
-
-## インストール
-
-- [Windows 版（EXE）](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe)：Windows 10/11、64 ビット対応。インストール先を選べます。
-- [Android 版（APK）](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk)：Android 7.0 以降と新しい WebView が必要です。
-
-どちらもオフラインで使えます。初回は英語で開き、「Settings」で言語を変更できます。すべてのダウンロードは [Releases](https://github.com/Taouyh/now-what-to-do/releases) にあります。Windows では発行元不明の表示が出る場合があります。Android 実機での動作確認はまだ行っていません。
+[![Now What の操作デモ：やりたいことを追加し、時間と今の状況を選んで開始。](about/assets/windows-demo.gif)](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo)
 
 ## 使い方
 
-1. 読書、絵を描く、語学の勉強など、やりたいことを追加します。名前だけで大丈夫です。
-2. 今使える時間と、パソコンや音声を使えるかなどを選びます。
-3. おすすめの活動をはじめます。気が乗らなければ別の候補に変えたり、自分で選んだりできます。
+やりたいことはたくさん。でも、時間ができると何からはじめるか迷ってしまう。ここに書き留めておけば、今の状況に合うことをひとつ選んで、すぐにはじめられます。
 
-## 自分のパソコンで使う
+1. **やりたいことを書く。** 読書、絵、語学。まずは名前だけで大丈夫。
+2. **今の状況を選ぶ。** 空いている時間、パソコンや音声の利用、声を出せるか、中断されそうかを選びます。
+3. **ひとつ、はじめる。** 提案から開始するか、別のことを選べます。自分で選んでも大丈夫。
 
-[リポジトリ](https://github.com/Taouyh/now-what-to-do)で **Code → Download ZIP** を選び、ダウンロードして展開します。中の `index.html` をダブルクリックすれば使えます。インストールは不要です。
+活動ごとに時間を決める必要はありません。毎回、今ある時間を選びます。終了すると使った時間が記録され、活動は次回も残ります。
 
-## 自分のコピーを公開する
+## 使い方を見る
 
-1. [リポジトリ](https://github.com/Taouyh/now-what-to-do)で **Fork → Create fork** を選び、自分のアカウントにコピーします。
-2. コピーしたリポジトリで **Settings → Pages** を開きます。
-3. **Source** を **Deploy from a branch** にし、`index.html` があるブランチと **/ (root)** を選んで **Save** を押します。
-4. 公開が終わったら、**Visit site** から自分のページを開けます。
+[Windows のデモ](about/assets/windows-demo.mp4) · [モバイルのデモ](about/assets/mobile-demo.mp4) · [紹介ページで見る](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo)
 
-## 知っておくこと
+どちらも14秒。活動がない状態から開始までを紹介します。英語の画面、オリジナルの穏やかな音楽、音声なし。
 
-- 活動や記録は、今使っている端末のアプリやブラウザに保存されます。自動同期されません。アプリやブラウザのデータを消すと、活動や記録も消えることがあります。
-- 「設定 → バックアップ → 書き出す」でバックアップを保存できます。復元すると、今ある活動・記録・設定が置き換わります。実行中のタイマーはバックアップに含まれません。
-- 設定で日本語・英語・中国語を切り替えられます。インストール版は初回に英語で開き、Web 版はブラウザの言語に合わせます。その後は選んだ言語を覚えます。自分で書いた活動名やメモは翻訳されません。
-- 活動ごとに時間を決める必要はありません。はじめるときに使える時間を選びます。終了すると実際に取り組んだ時間が記録され、活動は次回のために残ります。
+<details>
+<summary>モバイル版のデモ — クリックでアニメーションを表示</summary>
+<p align="center"><a href="about/assets/mobile-demo.mp4"><img src="about/assets/mobile-demo.gif" width="280" alt="モバイル版のデモ：活動を追加し、10分を選んで開始。"></a></p>
+</details>
+
+## ダウンロード
+
+| プラットフォーム | ダウンロード | 必要な環境 |
+| --- | --- | --- |
+| Windows | [インストーラー (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11、64ビット。インストール先を選べます。 |
+| Android | [インストーラー (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0以降、最新の WebView。 |
+| Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要。 |
+
+インストール版はオフラインで使え、初回は**英語**です。**設定**で英語・中国語・日本語を切り替えられます。Web 版はブラウザの言語に合わせます。選択は保存されますが、自分で書いた活動名やメモは翻訳されません。
+
+Windows では「不明な発行元」と表示される場合があります。Android は実機では未検証です。全バージョンは [Releases](https://github.com/Taouyh/now-what-to-do/releases) にあります。ダウンロードできない場合は Web 版をご利用ください。
+
+## データの保存
+
+- 活動と履歴は、今の端末のアプリやブラウザだけに保存されます。自動同期はしません。データを消去すると、一緒に消えることがあります。
+- **設定 → データをバックアップ → エクスポート**からコピーを保存できます。復元すると現在の活動・履歴・設定が置き換わります。実行中のタイマーは含まれません。
+
+## 自分で実行・公開する
+
+**Code → Download ZIP** からダウンロードし、解凍して `index.html` を開くだけです。
+
+GitHub Pages で公開するには、Fork 後に **Settings → Pages** でブランチと **/ (root)** を選びます。元のホームはアプリのままで、紹介ページは `/about/` です。[公開の案内](docs/site-and-readme.md) · [Windows / Android 版のビルド](docs/installable-builds.md)。
+
+## ライセンス
+
+[MIT](LICENSE) © 2026 Taouyh。利用・変更・共有できます。ライセンス表示を残してください。

@@ -25,6 +25,7 @@ else{
     });
     Menu.setApplicationMenu(null);
     mainWindow=new BrowserWindow({width:1100,height:820,minWidth:360,minHeight:480,backgroundColor:'#f7f5f0',title:'Now What',icon:path.join(ROOT,'packaging/icon.png'),show:false,webPreferences:{preload:path.join(__dirname,'preload.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true,backgroundThrottling:false}});
+    mainWindow.on('page-title-updated',event=>event.preventDefault());
     mainWindow.webContents.session.setPermissionRequestHandler((_contents,_permission,callback)=>callback(false));
     mainWindow.webContents.setWindowOpenHandler(()=>({action:'deny'}));
     mainWindow.webContents.on('will-navigate',(event,url)=>{if(!localPage(url))event.preventDefault()});

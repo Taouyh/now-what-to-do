@@ -1,7 +1,7 @@
 // Only the packaged Android page includes this adapter; browser behavior is unchanged.
 (()=>{
   const pending=new Map();let serial=0;
-  window.nativeApp=Object.freeze({defaultLanguage:'en',exportText:(content,name)=>new Promise((resolve,reject)=>{
+  window.nativeApp=Object.freeze({defaultLanguage:'en',productName:'Now What',exportText:(content,name)=>new Promise((resolve,reject)=>{
     const id=String(++serial);pending.set(id,{resolve,reject});
     try{NowWhatAndroid.exportText(id,content,name)}catch(error){pending.delete(id);reject(error)}
   })});

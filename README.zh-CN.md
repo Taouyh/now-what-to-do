@@ -1,40 +1,56 @@
-[English](README.md) | **简体中文** | [日本語](README.ja.md)
+<p align="center"><a href="README.md">English</a> · <strong>简体中文</strong> · <a href="README.ja.md">日本語</a></p>
 
-# 现在做什么 · Now What?
+<h1 align="center">Now What</h1>
+<p align="center">有点空闲？选一件一直想做的事，现在就开始。</p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN">宣传页</a> · <a href="https://taouyh.github.io/now-what-to-do/">在线体验</a> · <a href="https://github.com/Taouyh/now-what-to-do/releases">下载安装</a> · <a href="#看看怎么用">操作演示</a> · <a href="LICENSE">MIT 许可</a></p>
+<p align="center">Windows · 安卓 · 网页 &nbsp; / &nbsp; 免费 · 不用注册 · <a href="LICENSE">MIT 开源</a></p>
 
-有点空闲？选一件一直想做的事，现在就开始。
-
-## 在线体验
-
-[打开「现在做什么」](https://taouyh.github.io/now-what-to-do/)
-
-## 下载安装
-
-- [Windows 安装版（EXE）](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe)：适用于 Windows 10/11，64 位，可以自己选安装位置。
-- [安卓安装版（APK）](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk)：适用于 Android 7.0 及以上，需要较新的 WebView。
-
-两个安装版都能离线使用，首次打开默认英语，可在设置里切换语言。全部下载见 [Releases](https://github.com/Taouyh/now-what-to-do/releases)。Windows 可能提示未知发布者；安卓尚未经过手机实测。
+[![Now What 操作演示：添加活动，选择时间和当前条件，然后开始。](about/assets/windows-demo.gif)](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo)
 
 ## 怎么用
 
-1. 添加你想做的事，比如读书、画画、学英语，只填名字就行。
-2. 选一下现在有多少时间，以及能不能用电脑、听音频等。
-3. 按推荐开始，不想做就换一件，也可以自己选。
+想做的事情很多，空下来却不知道先做哪个？先把它们放在这里。有空时，选一件符合当前条件的事，直接开始。
 
-## 在自己电脑上使用
+1. **写下想做的事。** 读书、画画、学语言，先写一个名字就好。
+2. **看看现在的条件。** 有多少时间，能不能用电脑、听音频、出声，会不会被打断。
+3. **选一件，开始。** 可以接受推荐，换一件，或者自己选。
 
-打开[项目仓库](https://github.com/Taouyh/now-what-to-do)，点击 **Code → Download ZIP**，下载并解压。双击里面的 `index.html` 就能使用，不用安装其他东西。
+不用给每项活动规定时长，每次开始时再选。结束后会记下这次花了多少时间，活动还在，下次继续做。
 
-## 发布自己的版本
+## 看看怎么用
 
-1. 打开[项目仓库](https://github.com/Taouyh/now-what-to-do)，点击 **Fork → Create fork**，复制到自己的账号。
-2. 在自己的仓库里打开 **Settings → Pages**。
-3. 将 **Source** 设为 **Deploy from a branch**，选择放着 `index.html` 的分支和 **/ (root)**，点击 **Save**。
-4. 等发布完成，点击 **Visit site** 就能打开自己的网页。
+[Windows 演示](about/assets/windows-demo.mp4) · [手机演示](about/assets/mobile-demo.mp4) · [在介绍页观看](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo)
 
-## 注意事项
+两段演示都是 14 秒，从没有活动到开始计时。英语界面，原创轻柔配乐，没有人声。
 
-- 活动和记录只存在当前设备使用的应用或浏览器里，不会自动同步。清理应用或浏览器数据可能会把它们删掉。
-- 在「设置 → 备份数据 → 导出」保存备份。恢复备份会替换现有活动、记录和设置，正在进行的计时不在备份里。
-- 在设置里可以切换中文、英文、日文。安装版首次默认英语，网页版首次跟随浏览器语言，之后记住你的选择。自己写的活动名称和说明不会被翻译。
-- 不用给每件事规定时长，每次开始前选一下有多少时间就行。结束时记录实际花的时间，活动留着，下次还能再做。
+<details>
+<summary>手机演示 · 点击展开动图</summary>
+<p align="center"><a href="about/assets/mobile-demo.mp4"><img src="about/assets/mobile-demo.gif" width="280" alt="手机版演示：添加活动，选择十分钟，然后开始。"></a></p>
+</details>
+
+## 下载安装
+
+| 平台 | 下载 | 使用要求 |
+| --- | --- | --- |
+| Windows | [安装包 (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11，64 位。支持自己选安装位置。 |
+| 安卓 | [安装包 (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0 及以上，需要较新的 WebView。 |
+| 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装。 |
+
+安装版可离线使用，第一次打开是**英语**，可以在**设置**里切换中文、英语和日语。网页版默认跟随浏览器语言。选过会记住，自己写的活动名和说明不会被翻译。
+
+Windows 可能提示「未知发布者」。安卓版目前还没有在真机上测试。全部版本在 [Releases](https://github.com/Taouyh/now-what-to-do/releases)；如果暂时下载不了，先用网页版。
+
+## 数据自己留一份
+
+- 活动和记录只存在当前设备的这个应用或浏览器里，不会自动同步。清理应用或浏览器数据，可能会一起删掉它们。
+- 在**设置 → 备份数据 → 导出**里留一份备份。恢复备份会替换现有活动、记录和设置，不包含正在进行的计时。
+
+## 自己运行或发布
+
+点 **Code → Download ZIP**，解压后打开 `index.html`，就能使用。
+
+想发布到 GitHub Pages：先 Fork 仓库，在 **Settings → Pages** 里选分支和 **/ (root)**。原首页还是工具，介绍页在 `/about/`。[发布说明](docs/site-and-readme.md) · [制作 Windows / 安卓安装包](docs/installable-builds.md)。
+
+## 开源许可
+
+[MIT](LICENSE) © 2026 Taouyh。可以使用、修改和分享，记得保留许可声明。

@@ -6,6 +6,7 @@ const packagedDir=process.env.NOWWHAT_PACKAGED_DIR||path.join(root,'dist/windows
 const executable=mode==='packaged'?path.join(packagedDir,'Now What.exe'):path.join(root,'node_modules/electron/dist/electron.exe');
 let child,socket,serial=0;const pending=new Map();
 async function run(){
+ await fs.mkdir(path.join(root,'test-artifacts'),{recursive:true});
  const profile=await fs.mkdtemp(path.join(root,'test-artifacts/desktop-profile-'));const output=path.join(root,'test-artifacts/desktop');await fs.mkdir(output,{recursive:true});
  async function launch(){
   child=spawn(executable,[...(mode==='development'?[root]:[]),'--lang=zh-CN','--remote-debugging-port=0'],{cwd:root,env:{...process.env,NOWWHAT_E2E:'1',NOWWHAT_E2E_PROFILE:profile,NOWWHAT_E2E_SAVE_DIR:output},windowsHide:true,stdio:['ignore','ignore','pipe']});
@@ -23,6 +24,13 @@ async function run(){
  let {evaluate:runPage,sessionId}=await launch();
  assert.deepEqual(await runPage("return [location.origin,typeof require,typeof process,typeof nativeApp.exportText,document.querySelector('main').inert]"),['nowwhat://app','undefined','undefined','function',false]);console.log('PASS isolated sandboxed local application');
  assert.deepEqual(await runPage("return [language,d.preferences.language,nativeApp.defaultLanguage,document.documentElement.lang]"),['en','en','en','en']);console.log('PASS first launch defaults to English regardless of system language');
+ for(const locale of ['zh-CN','en','ja']){
+  await runPage(`setLanguage('${locale}')`);
+  assert.deepEqual(await runPage("return [document.title,document.querySelector('.brand').textContent.trim(),nativeApp.productName]"),['Now What','Now What','Now What']);
+  const {targetInfos}=await send('Target.getTargets');
+  assert.equal(targetInfos.find(t=>t.type==='page'&&t.url.startsWith('nowwhat://app/')).title,'Now What');
+ }
+ console.log('PASS English product name, title and header in all three interface languages');
  const memory=await send('SystemInfo.getProcessInfo');
  const usage=spawnSync('powershell.exe',['-NoProfile','-Command',`Get-Process -Id ${memory.processInfo.map(p=>Number(p.id)).join(',')} -ErrorAction SilentlyContinue | Select-Object Id,WorkingSet64,PrivateMemorySize64 | ConvertTo-Json -Compress`],{windowsHide:true,encoding:'utf8'});
  if(usage.status===0&&usage.stdout.trim()){

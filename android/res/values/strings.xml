@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">Now What</string>
+  <string name="app_name" translatable="false">Now What</string>
   <string name="save_failed">Could not save the backup. Please try again.</string>
   <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
     <item name="android:fontFamily">sans</item>
