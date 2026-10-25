@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>今天 · 活动汇总方案预览</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+body{background:#171a16}main.board{max-width:1600px;padding:36px 46px 28px;margin:0 auto}.board-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:30px}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--p);margin:0 0 10px}.board-head h1{font-size:32px;margin:0;letter-spacing:.02em}.board-head>p{font-size:13px;color:var(--m);margin:0 0 5px}.comparisons{display:grid;grid-template-columns:1fr 1fr;gap:28px}.state-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:14px;color:var(--m)}.state-label b{color:var(--p);font-weight:500;font-size:12px;border:1px solid var(--l);border-radius:50%;width:25px;height:25px;text-align:center;line-height:23px}.window{background:var(--bg);border:1px solid var(--l);border-radius:18px;min-height:900px;overflow:hidden}.app-header{height:78px;padding:0 28px;display:flex;align-items:center;gap:24px;border-bottom:1px solid #41463b75}.app-brand{font-size:16px;margin-right:auto}.app-nav{display:flex;align-items:center;gap:22px;font-size:13px;color:var(--m)}.app-nav .active{color:var(--p);border-bottom:2px solid var(--p);padding:27px 0 25px}.gear{font-size:20px;color:var(--m)}.content{padding:38px 30px}.content h2{font-size:32px;margin:0;line-height:1.4}.date-heading{display:flex;gap:18px;align-items:baseline}.date-heading span{font-size:13px;color:var(--m)}.overview{margin:8px 0 26px;color:var(--m);font-size:14px}.view-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px;gap:10px}.segments{display:flex;padding:3px;background:var(--input);border:1px solid var(--l);border-radius:9px}.segments button{font-size:12px;padding:6px 12px;border-radius:6px;min-height:32px;color:var(--m)}.segments button[aria-pressed=true]{background:var(--ps);color:var(--p)}.sort{font-size:11px;color:var(--m)}.records{border:1px solid var(--l);border-radius:13px;overflow:hidden;background:var(--s)}.entry+.entry{border-top:1px solid var(--l)}.entry>summary{padding:24px 20px}.entry-title{display:grid;grid-template-columns:44px minmax(0,1fr) auto 10px;gap:14px;align-items:center}.entry-title h3{font-size:17px;font-weight:450;margin:0;overflow-wrap:anywhere}.time,.duration{color:var(--m);font-size:12px;font-variant-numeric:tabular-nums}.duration{white-space:nowrap}.badge{font-size:10px;border:1px solid var(--l);border-radius:5px;display:inline-block;padding:0 6px;color:var(--p);margin-left:8px;vertical-align:2px}.arrow{width:7px;height:7px;border-right:1px solid var(--m);border-bottom:1px solid var(--m);transform:rotate(-45deg);transition:transform .15s}.entry[open]>summary .arrow{transform:rotate(45deg)}.entry-meta{margin:5px 0 0 58px;font-size:11px;color:var(--m)}.group-content{border-top:1px solid var(--l);margin:0 20px;padding:18px 0 12px}.group-label{display:flex;justify-content:space-between;gap:8px;color:var(--m);font-size:11px;margin:0 0 12px}.auto{color:var(--p)}.session{border:1px solid var(--l);border-radius:9px;background:var(--input);margin-bottom:9px}.session>summary{display:grid;grid-template-columns:20px minmax(0,1fr) auto 8px;gap:10px;align-items:center;padding:13px 14px;font-size:12px}.session-index{color:var(--m);font-size:11px}.session .arrow{width:6px;height:6px}.session[open]>summary .arrow{transform:rotate(45deg)}.session[open]>summary{border-bottom:1px solid var(--l)}.session dl{display:grid;grid-template-columns:1fr 1fr;gap:13px 18px;margin:0;padding:16px 14px;font-size:12px}.session dt{color:var(--m);font-size:10px}.session dd{margin:3px 0 0}.panel-note{margin:18px 0 0;font-size:11px;color:var(--m)}.proposal-note{border-top:1px solid var(--l);padding-top:20px;display:flex;justify-content:space-between;gap:20px;margin-top:26px;font-size:13px;color:var(--m)}.proposal-note strong{color:var(--p);font-weight:500}.panel-context{margin:44px 8px 0;padding-left:18px;border-left:2px solid var(--l)}.panel-context h3{font-size:14px;font-weight:500;margin:0 0 9px;color:var(--p)}.panel-context p{font-size:12px;color:var(--m);margin:6px 0}.single-time{padding:18px 20px;border-bottom:1px solid var(--l);display:flex;gap:18px;font-size:13px}.single-time:last-child{border:0}.single-time .duration{margin-left:auto}
+@media(max-width:1000px){.comparisons{grid-template-columns:1fr}.board-head{display:block}.board-head>p{margin-top:14px}main.board{padding:24px 16px}.window{min-height:0}.content{padding:28px 20px}.proposal-note{display:block}.sort{font-size:10px}.entry-title{gap:10px;grid-template-columns:38px minmax(0,1fr) auto 8px}.badge{display:block;margin:4px 0 0;width:max-content}}
+</style>
+</head>
+<body>
+<main class="board">
+  <div class="board-head"><div><p class="eyebrow">NOW WHAT / PRODUCT PREVIEW</p><h1>今天，把同一件事放在一起</h1></div><p>活动汇总方案 · 深色外观 · 示例数据</p></div>
+  <div class="comparisons">
+    <section><div class="state-label"><b>01</b>默认收起 · 先看到今天做了什么</div><div class="window" id="collapsed"></div></section>
+    <section><div class="state-label"><b>02</b>展开明细 · 每一次执行都能回看</div><div class="window" id="expanded"></div></section>
+  </div>
+</main>
+<script>
+const capture=new URLSearchParams(location.search).has('capture');
+// Synthetic examples; this preview never reads or writes application storage.
+const records=[
+ {taskId:'coding',name:'Vibe Coding',start:'11:10:19',end:'11:10:22',duration:3},
+ {taskId:'coding',name:'Vibe Coding',start:'11:10:43',end:'11:11:44',duration:62},
+ {taskId:'reading',name:'读书',start:'12:00:00',end:'12:15:00',duration:900},
+ {taskId:'coding',name:'Vibe Coding',start:'14:20:00',end:'14:50:00',duration:1800},
+ {taskId:'stretch',name:'伸展一下',start:'16:00:00',end:'16:05:00',duration:300}
+];
+const duration=seconds=>{const m=Math.floor(seconds/60),s=seconds%60;return m?m+' 分钟'+(s?' '+s+' 秒':''):s+' 秒'};
+const grouped=[...Map.groupBy(records,r=>r.taskId).values()];
+const arrow='<span class="arrow" aria-hidden="true"></span>';
+function groupHTML(group,expanded){const first=group[0],total=group.reduce((s,r)=>s+r.duration,0);return `<details class="entry" ${expanded?'open':''}><summary><div class="entry-title"><span class="time">${first.start.slice(0,5)}</span><h3>${first.name}${group.length>1?`<span class="badge">${group.length} 次</span>`:''}</h3><span class="duration">${duration(total)}</span>${arrow}</div>${group.length>1?`<p class="entry-meta">首次开始 · 最近一次 ${group.at(-1).start.slice(0,5)}</p>`:''}</summary><div class="group-content"><div class="group-label"><span>${group.length} 次记录 · 按开始时间升序</span><span class="auto">详情 10 秒后收起</span></div>${group.map((r,i)=>`<details class="session" ${expanded&&i===0?'open':''}><summary><span class="session-index">${String(i+1).padStart(2,'0')}</span><span>${r.start} – ${r.end}</span><span class="duration">${duration(r.duration)}</span>${arrow}</summary><dl><div><dt>开始时间</dt><dd>2026-10-25 ${r.start}</dd></div><div><dt>结束时间</dt><dd>2026-10-25 ${r.end}</dd></div><div><dt>原始计划时长</dt><dd>30 分钟</dd></div><div><dt>累计追加时长</dt><dd>0 秒</dd></div><div><dt>实际有效用时</dt><dd>${duration(r.duration)}</dd></div><div><dt>累计暂停时长</dt><dd>0 秒</dd></div></dl></details>`).join('')}</div></details>`}
+function render(target,expanded=false){
+ target.innerHTML=`<div class="app-header"><span class="app-brand">现在做什么</span><div class="app-nav"><span>开始</span><span>我的活动</span><span class="active">今天</span></div><span class="gear" aria-hidden="true">⚙</span></div><div class="content"><div class="date-heading"><h2>今天</h2><span>10月25日</span></div><p class="overview">做了 5 次，共 51 分钟 5 秒</p><div class="records">${grouped.map((g,i)=>groupHTML(g,expanded&&i===0)).join('')}</div></div>`;
+ target.querySelectorAll('details').forEach(card=>{let timeout;card.addEventListener('toggle',()=>{clearTimeout(timeout);if(card.open&&!capture)timeout=setTimeout(()=>{card.open=false},10000)})});
+}
+render(document.getElementById('collapsed'));render(document.getElementById('expanded'),true);
+</script>
+</body>
+</html>

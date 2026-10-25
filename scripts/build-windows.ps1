@@ -5,6 +5,8 @@ $version=(Get-Content (Join-Path $root 'package.json') -Raw | ConvertFrom-Json).
 $sdk=Join-Path $root '.cache/webview2/sdk'
 $bootstrap=Join-Path $root '.cache/webview2/MicrosoftEdgeWebview2Setup.exe'
 if(!(Test-Path "$sdk/build/native/include/WebView2.h")){throw 'Run scripts/setup-webview2.ps1 first.'}
+# Import this PowerShell edition's built-in module when launched from PowerShell 7.
+Import-Module (Join-Path $PSHOME 'Modules/Microsoft.PowerShell.Security/Microsoft.PowerShell.Security.psd1') -ErrorAction Stop
 $signature=Get-AuthenticodeSignature $bootstrap
 if($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch '^CN=Microsoft Corporation,'){throw 'Invalid Microsoft WebView2 installer signature.'}
 if(!$NsisPath){

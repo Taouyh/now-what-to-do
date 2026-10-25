@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>今天 · 简化记录预览</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+.history-item[open] .history-arrow{transform:none}
+.history-item[open]>summary .history-arrow{transform:rotate(90deg)}
+.simple-records{margin:0 26px 12px;padding-top:5px;border-top:1px solid var(--l)}
+.simple-record{position:relative}
+.simple-record+.simple-record{border-top:1px solid color-mix(in srgb,var(--l) 65%,transparent)}
+.simple-row{display:grid;grid-template-columns:minmax(0,1fr) auto 36px;align-items:center;gap:22px;min-height:68px;padding:6px 4px 6px 0}
+.simple-time{color:var(--m);font-size:14px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.simple-duration{font-size:15px;font-variant-numeric:tabular-nums}
+.record-more{width:36px;height:36px;padding:0;border-radius:8px;color:var(--m);display:grid;place-items:center}
+.record-more:hover,.record-more[aria-expanded=true]{background:var(--ps);color:var(--p)}
+.record-more svg{width:20px;height:20px}
+.more-panel{border:1px solid var(--l);border-radius:9px;background:var(--input);padding:15px 18px;margin:0 4px 16px 0;font-size:12px;color:var(--m)}
+.more-panel p{margin:0;line-height:1.8}
+.more-panel p+p{margin-top:5px}
+.more-panel time{color:var(--t);font-variant-numeric:tabular-nums}
+.history-name{gap:9px}
+.history-count{font-size:11px}
+.history-title{grid-template-columns:68px minmax(0,1fr) auto 14px}
+@media(max-width:600px){
+ .simple-records{margin:0 18px 8px}
+ .simple-row{grid-template-columns:minmax(0,1fr) auto 32px;gap:10px;min-height:60px}
+ .simple-time{font-size:12px}.simple-duration{font-size:13px}
+ .history-title{grid-template-columns:45px minmax(0,1fr) auto 10px}
+ .record-more{width:32px;height:36px}
+ .more-panel{padding:12px;font-size:11px}
+}
+</style>
+</head>
+<body>
+<header>
+ <a class="brand" href="#today">现在做什么</a>
+ <nav aria-label="主导航"><button type="button">开始</button><button type="button">我的活动</button><button type="button" class="active" aria-current="page">今天</button></nav>
+ <button type="button" class="settings-toggle" aria-label="设置"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m9 3-.6 2.2-2 .9-2.1-.6-2 3.5 1.6 1.6v2.3L2.3 14l2 3.5 2.1-.6 2 .9L9 20h4l.6-2.2 2-.9 2.1.6 2-3.5-1.6-1.6v-2.3L19.7 9l-2-3.5-2.1.6-2-.9L13 3Z"/><circle cx="11" cy="11.5" r="3"/></svg></button>
+</header>
+<main><section class="page active collection-page" id="today">
+ <div class="today-heading"><h1>今天</h1><span>10/25</span></div>
+ <div class="today-overview"><p>做了 5 次，共 69 分钟 44 秒</p></div>
+ <div class="history-list">
+  <details class="history-item" open>
+   <summary><div class="history-title"><span class="history-time">19:00</span><div class="history-name"><h3>Vibe Coding</h3><span class="history-count">3 次</span></div><span class="history-duration">49 分钟 44 秒</span><span class="history-arrow" aria-hidden="true">›</span></div><p class="history-meta">最近一次 20:04</p></summary>
+   <div class="simple-records" id="sessions"></div>
+  </details>
+  <details class="history-item"><summary><div class="history-title"><span class="history-time">19:45</span><div class="history-name"><h3>读书</h3></div><span class="history-duration">15 分钟</span><span class="history-arrow" aria-hidden="true">›</span></div></summary><div class="simple-records" id="reading"></div></details>
+  <details class="history-item"><summary><div class="history-title"><span class="history-time">20:30</span><div class="history-name"><h3>伸展一下</h3></div><span class="history-duration">5 分钟</span><span class="history-arrow" aria-hidden="true">›</span></div></summary><div class="simple-records" id="stretch"></div></details>
+ </div>
+</section></main>
+<script>
+// Isolated proposal with synthetic records, without application data or storage.
+const capture=new URLSearchParams(location.search).has('capture');
+const examples=[
+ {start:'19:00:00',end:'19:25:00',time:'19:00 – 19:25',duration:'25 分钟',planned:'25 分钟',added:null},
+ {start:'19:30:00',end:'19:40:00',time:'19:30 – 19:40',duration:'10 分钟',planned:'10 分钟',added:null},
+ {start:'20:04:48',end:'20:19:33',time:'20:04 – 20:19',duration:'14 分钟 44 秒',planned:'10 分钟',added:'5 分钟'},
+ {start:'19:45:00',end:'20:00:00',time:'19:45 – 20:00',duration:'15 分钟',planned:'15 分钟',added:null},
+ {start:'20:30:00',end:'20:35:00',time:'20:30 – 20:35',duration:'5 分钟',planned:'5 分钟',added:null}
+];
+function record(r,i){return `<div class="simple-record"><div class="simple-row"><span class="simple-time">${r.time}</span><span class="simple-duration">${r.duration}</span><button type="button" class="record-more" aria-label="${r.time}，更多信息" aria-expanded="false" aria-controls="more-${i}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></div><div class="more-panel" id="more-${i}" hidden><p><time>2026-10-25 ${r.start} – ${r.end}</time></p><p>计划 ${r.planned}${r.added?' · 追加 '+r.added:''}</p></div></div>`}
+document.getElementById('sessions').innerHTML=examples.slice(0,3).map(record).join('');
+document.getElementById('reading').innerHTML=record(examples[3],3);
+document.getElementById('stretch').innerHTML=record(examples[4],4);
+document.querySelectorAll('.history-item').forEach(card=>{
+ let timer;
+ const closeMore=()=>card.querySelectorAll('.record-more').forEach(b=>{b.setAttribute('aria-expanded','false');document.getElementById(b.getAttribute('aria-controls')).hidden=true});
+ const restart=()=>{clearTimeout(timer);if(card.open&&!capture)timer=setTimeout(()=>{card.open=false;closeMore()},10000)};
+ card.addEventListener('toggle',()=>{restart();if(!card.open)closeMore()});
+ card.querySelectorAll('.record-more').forEach(b=>b.onclick=()=>{const open=b.getAttribute('aria-expanded')!=='true';closeMore();b.setAttribute('aria-expanded',String(open));document.getElementById(b.getAttribute('aria-controls')).hidden=!open;restart()});
+ restart();
+});
+</script>
+</body>
+</html>

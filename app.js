@@ -191,6 +191,7 @@ function actionButton(label,action,className,id){
 }
 function page(id,{avoidActivityId=null}={}){
   closeActivityMenu();
+  clearTodayRecordTimers();
   if(!['home','today','tasks','settings'].includes(id))id='home';
   const session=timerState();
   if(id==='settings'&&!$('settings').classList.contains('active'))settingsReturnPage=['home','tasks','today'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
@@ -564,7 +565,7 @@ function recordsForLocalDay(records=d.completed,reference=new Date()){
   let day=new Date(reference).toDateString();
   return records.filter(c=>c&&new Date(c.completedAt||c.date||0).toDateString()===day);
 }
-function recordTimeRange(record,reference=new Date()){
+function recordTimeRange(record,reference=new Date(),{seconds=false}={}){
   const timestamp=value=>value==null||value===''?null:toTimestamp(value);
   const start=timestamp(record.startedAt),end=timestamp(record.endedAt);
   const day=value=>new Date(value).toDateString();
@@ -572,31 +573,89 @@ function recordTimeRange(record,reference=new Date()){
   const clock=value=>{
     const date=new Date(value),pad=n=>String(n).padStart(2,'0');
     const datePart=showDate?date.getFullYear()+'-'+pad(date.getMonth()+1)+'-'+pad(date.getDate())+' ':'';
-    return datePart+pad(date.getHours())+':'+pad(date.getMinutes());
+    return datePart+pad(date.getHours())+':'+pad(date.getMinutes())+(seconds?':'+pad(date.getSeconds()):'');
   };
   return(start===null?tr('开始时间未记录'):clock(start))+'–'+(end===null?tr('结束时间未记录'):clock(end));
 }
-function today(){
+function recordCompactTimeRange(record,reference=new Date()){
+  const start=toTimestamp(record.startedAt),end=toTimestamp(record.endedAt);
+  const short=start!==null&&end!==null&&end>=start&&end-start<60000;
+  return recordTimeRange(record,reference,{seconds:short});
+}
+const todayRecordTimers=new Map();
+function clearTodayRecordTimers(){
+  for(const timeout of todayRecordTimers.values())clearTimeout(timeout);
+  todayRecordTimers.clear();
+}
+function todayRecordGroups(records=recordsForLocalDay()){
   const orderTime=c=>toTimestamp(c.startedAt??c.endedAt??c.completedAt??c.date)??0;
-  let now=new Date(),a=recordsForLocalDay(d.completed,now).sort((a,b)=>orderTime(a)-orderTime(b)),totalMs=a.reduce((s,c)=>s+(recordDurationMs(c)||0),0);
+  const groups=new Map();
+  for(const record of [...records].sort((a,b)=>orderTime(a)-orderTime(b))){
+    if(!groups.has(record.taskId))groups.set(record.taskId,{taskId:record.taskId,records:[],totalMs:0});
+    const group=groups.get(record.taskId);group.records.push(record);group.totalMs+=recordDurationMs(record)||0;
+  }
+  return [...groups.values()];
+}
+function setupTodayDisclosure(card,onClose=()=>{}){
+  const clear=element=>{clearTimeout(todayRecordTimers.get(element));todayRecordTimers.delete(element)};
+  const close=()=>{
+    clear(card);card.open=false;
+    onClose();
+  };
+  const restart=()=>{
+    clear(card);
+    if(card.open&&card.isConnected)todayRecordTimers.set(card,setTimeout(close,10000));
+  };
+  card.addEventListener('toggle',()=>{if(card.open)restart();else close()});
+  return restart;
+}
+function today(){
+  clearTodayRecordTimers();
+  let now=new Date(),a=recordsForLocalDay(d.completed,now),groups=todayRecordGroups(a),totalMs=groups.reduce((s,g)=>s+g.totalMs,0);
   $('date').textContent=new Intl.DateTimeFormat(language,{month:'numeric',day:'numeric'}).format(now);
-  let list=a.map(c=>{
-    let taskName=c.taskName||d.tasks.find(t=>t.id===c.taskId)?.name||tr('已删除任务'),actualMs=recordDurationMs(c),planned=c.plannedDuration!=null&&c.plannedDuration!==''&&Number.isFinite(Number(c.plannedDuration))?tr('{n} 分钟',{n:Number(c.plannedDuration)}):c.plannedDurationMs!=null&&c.plannedDurationMs!==''&&Number.isFinite(Number(c.plannedDurationMs))?formatDuration(Number(c.plannedDurationMs)):tr('未知'),extensionMs=c.extensionDurationMs!=null&&c.extensionDurationMs!==''&&Number.isFinite(Number(c.extensionDurationMs))?Number(c.extensionDurationMs):c.extensionDuration!=null&&c.extensionDuration!==''&&Number.isFinite(Number(c.extensionDuration))?Number(c.extensionDuration)*60000:0;
-    let card=textElement('details','','history-item'),summary=document.createElement('summary'),title=textElement('div','','history-title'),meta=textElement('div','','history-meta'),details=document.createElement('dl');
-    const arrow=textElement('span','›','history-arrow');arrow.setAttribute('aria-hidden','true');
+  const clock=c=>{
+    const stamp=c.startedAt??c.endedAt??c.completedAt??c.date,ms=stamp==null?null:toTimestamp(stamp);
+    return ms===null?'—':new Intl.DateTimeFormat(language,{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(ms));
+  };
+  const disclosureArrow=()=>{const arrow=textElement('span','›','history-arrow');arrow.setAttribute('aria-hidden','true');return arrow};
+  let recordIndex=0,list=groups.map(group=>{
+    const first=group.records[0],taskName=first.taskName||d.tasks.find(t=>t.id===group.taskId)?.name||tr('已删除任务');
+    let card=textElement('details','','history-item'),summary=document.createElement('summary'),title=textElement('div','','history-title'),nameBox=textElement('div','','history-name');
     const name=textElement('h3',taskName,'user-text');name.title=taskName;
-    const stamp=c.startedAt??c.endedAt??c.completedAt??c.date,stampMs=stamp==null?null:toTimestamp(stamp);
-    const clock=stampMs===null?'—':new Intl.DateTimeFormat(language,{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(stampMs));
-    title.append(textElement('span',clock,'history-time'),name,textElement('span',formatDuration(actualMs),'history-duration'),arrow);
-    meta.append(textElement('span',recordTimeRange(c,now),'history-range'));
-    if(extensionMs>0)meta.append(textElement('span','+'+formatDuration(extensionMs),'history-extension'));
-    summary.append(title,meta);
-    const detail=(label,value)=>{let row=document.createElement('div');row.append(textElement('dt',label),textElement('dd',value));details.append(row)};
-    detail(tr('开始时间'),formatDateTime(c.startedAt));detail(tr('结束时间'),formatDateTime(c.endedAt));detail(tr('原始计划时长'),planned);
-    const hasExtension=[c.extensionDurationMs,c.extensionDuration].some(v=>v!=null&&v!==''&&Number.isFinite(Number(v)));
-    detail(tr('累计追加时长'),hasExtension?formatDuration(extensionMs):tr('未记录'));detail(tr('实际有效用时'),formatDuration(actualMs));
-    if(c.pausedDurationMs!=null)detail(tr('累计暂停时长'),formatDuration(Number(c.pausedDurationMs)));
-    card.append(summary,details);
+    nameBox.append(name);
+    if(group.records.length>1)nameBox.append(textElement('span',tr('{count} 次',{count:group.records.length}),'history-count'));
+    title.append(textElement('span',clock(first),'history-time'),nameBox,textElement('span',formatDuration(group.totalMs),'history-duration'),disclosureArrow());
+    summary.append(title);
+    if(group.records.length>1)summary.append(textElement('p',tr('最近一次 {time}',{time:clock(group.records.at(-1))}),'history-meta'));
+    const content=textElement('div','','history-group-content'),morePanels=[];
+    const closeMore=()=>{for(const {button,panel} of morePanels){button.setAttribute('aria-expanded','false');panel.hidden=true}};
+    const restartGroup=setupTodayDisclosure(card,()=>{
+      if(content.contains(document.activeElement))summary.focus({preventScroll:true});
+      closeMore();
+    });
+    const sessions=group.records.map(c=>{
+      const actualMs=recordDurationMs(c),planned=c.plannedDuration!=null&&c.plannedDuration!==''&&Number.isFinite(Number(c.plannedDuration))?tr('{n} 分钟',{n:Number(c.plannedDuration)}):c.plannedDurationMs!=null&&c.plannedDurationMs!==''&&Number.isFinite(Number(c.plannedDurationMs))?formatDuration(Number(c.plannedDurationMs)):tr('未知'),extensionMs=c.extensionDurationMs!=null&&c.extensionDurationMs!==''&&Number.isFinite(Number(c.extensionDurationMs))?Number(c.extensionDurationMs):c.extensionDuration!=null&&c.extensionDuration!==''&&Number.isFinite(Number(c.extensionDuration))?Number(c.extensionDuration)*60000:0;
+      const session=textElement('div','','history-session'),row=textElement('div','','history-session-row'),panel=textElement('div','','history-more-panel'),range=recordCompactTimeRange(c,now);
+      panel.id='history-record-details-'+(++recordIndex);panel.hidden=true;
+      panel.append(textElement('p',formatDateTime(c.startedAt)+' – '+formatDateTime(c.endedAt),'history-exact-time'));
+      const metrics=[tr('计划 {duration}',{duration:planned})];
+      const hasExtension=[c.extensionDurationMs,c.extensionDuration].some(v=>v!=null&&v!==''&&Number.isFinite(Number(v)));
+      if(!hasExtension||extensionMs>0)metrics.push(tr('追加 {duration}',{duration:hasExtension?formatDuration(extensionMs):tr('未记录')}));
+      if(c.pausedDurationMs!=null&&Number(c.pausedDurationMs)>0)metrics.push(tr('暂停 {duration}',{duration:formatDuration(Number(c.pausedDurationMs))}));
+      panel.append(textElement('p',metrics.join(' · '),'history-record-metrics'));
+      const more=actionButton('⋯',()=>{
+        if(!card.isConnected||!card.open)return;
+        const open=panel.hidden;closeMore();panel.hidden=!open;more.setAttribute('aria-expanded',String(open));restartGroup();
+      },'history-more');
+      more.setAttribute('aria-label',tr('更多信息：{time}',{time:range}));more.setAttribute('aria-expanded','false');more.setAttribute('aria-controls',panel.id);
+      session.addEventListener('keydown',event=>{
+        if(event.key==='Escape'&&!panel.hidden){closeMore();more.focus({preventScroll:true});event.preventDefault();event.stopPropagation()}
+      });
+      morePanels.push({button:more,panel});
+      row.append(textElement('span',range,'history-range'),textElement('span',formatDuration(actualMs),'history-session-duration'),more);
+      session.append(row,panel);return session;
+    });
+    content.append(...sessions);card.append(summary,content);
     return card;
   });
   let card=textElement('div','','today-overview');card.append(textElement('p',tr(a.length===1?'做了 1 次，共 {duration}':'做了 {count} 次，共 {duration}',{count:a.length,duration:formatDuration(totalMs)})));

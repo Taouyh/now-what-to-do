@@ -1,22 +1,24 @@
 # Windows 和 Android 安装版
 
-当前版本：**1.1.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.1.0)，变更见 [发布说明](releases/v1.1.0.md)。两个安装包都包含当前简约界面：结束直接保存实际用时，回到开始页，并优先推荐另一件符合当前条件的活动。
+当前版本：**1.2.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.2.0)，变更见 [发布说明](releases/v1.2.0.md)。两个安装包包含活动汇总、单行执行记录、按需更多信息与 10 秒自动收起；结束仍直接保存实际用时，回到开始页并优先推荐另一件符合当前条件的活动。
+
+从 1.1 更新到 1.2 可直接覆盖安装，数据目录、来源和存储格式保持不变，安卓使用原签名及 versionCode 3。
 
 ## 下载与安装
 
 | 系统 | 文件 | 环境 |
 | --- | --- | --- |
-| Windows | `dist/windows/Now-What-1.1.0-Windows-x64-Setup.exe`，约 2 MiB | Windows 10 / 11，x64，Microsoft Edge WebView2 Runtime |
-| Android | `dist/android/Now-What-1.1.0-Android.apk` | Android 7.0+，较新的 Android System WebView |
+| Windows | `dist/windows/Now-What-1.2.0-Windows-x64-Setup.exe`，约 2 MiB | Windows 10 / 11，x64，Microsoft Edge WebView2 Runtime |
+| Android | `dist/android/Now-What-1.2.0-Android.apk` | Android 7.0+，较新的 Android System WebView |
 
 Windows 采用 **C++ / Win32 + 系统 WebView2 + NSIS**，不再附带 Electron、Node.js、完整 Chromium 或 .NET。安装器允许选择目录，默认只安装到当前用户。如果电脑缺少 WebView2，安装器会运行随包提供、经微软签名的 Evergreen 引导程序并联网下载运行时；已有运行时则不必下载。安装后应用页面可离线使用。首次打开为英语，设置里可切换中文、日语并记住选择。
 
 Windows 安装包目前没有发布者签名，可能显示「未知发布者」。安卓版可直接覆盖安装，沿用原包名和原签名；不要先卸载。APK 不含原生 CPU 库。已检查签名、版本和包内容，尚未在安卓真机或模拟器上验证安装和运行。
 
-## Windows 1.0 升级到 1.1
+## Windows 1.0 升级到 1.2
 
 1. 在旧版结束正在运行的计时，在 **设置 → 备份数据 → 导出** 保存 JSON 备份。
-2. 安装 1.1，打开设置并导入刚才的备份。导入确认后会替换新版当前数据，正在运行的计时不包含在备份里。
+2. 安装 1.2，打开设置并导入刚才的备份。导入确认后会替换新版当前数据，正在运行的计时不包含在备份里。
 3. 核对活动、记录和语言后再决定是否卸载旧版。不要手动清理旧数据目录。
 
 新外壳使用独立的 `%LOCALAPPDATA%\\NowWhat\\WebView2` 配置目录，以及 `https://nowwhat.local` 本地来源；1.0 使用 Electron 的配置目录和 `nowwhat://app` 来源。因此不会自动读取旧记录。安装、卸载新版均不删除旧版配置；新版卸载也保留自己的配置。需要再次导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍然保留。旧版与新版快捷方式名称相同，旧版卸载后可重装新版恢复快捷方式。
@@ -55,7 +57,7 @@ npm run build:android
 
 WebView2 SDK 固定为 1.0.4314.35，下载后按脚本内 SHA-256 校验。微软引导程序从官方链接下载，构建前验证微软 Authenticode 签名。C++ 使用静态 CRT 和静态 WebView2 Loader，用户无需安装 .NET 或 Visual C++ Redistributable。SDK 许可及声明随安装包提供。构建输出在 `dist/windows/webview2-unpacked`，自选输出目录可用 `-OutputDirectory`。Electron 依赖保留用于现有浏览器测试及基准比较，不会出现在新安装包里。
 
-安卓使用 Java 与原生 WebView，直接调用官方 SDK 工具构建。请备份 **`android/.signing/`** 中的私有签名身份，切勿上传。APK 更新必须沿用原密钥，并递增 manifest 的 versionCode。当前版本为 versionName 1.1.0 / versionCode 2。
+安卓使用 Java 与原生 WebView，直接调用官方 SDK 工具构建。请备份 **`android/.signing/`** 中的私有签名身份，切勿上传。APK 更新必须沿用原密钥，并递增 manifest 的 versionCode。当前版本为 versionName 1.2.0 / versionCode 3。
 
 ## 验证与发布
 
@@ -69,7 +71,7 @@ node_modules/electron/dist/electron.exe tests/about-browser.cjs --force-device-s
 
 这些测试使用隐藏窗口、独立目录和合成数据；不读取正常安装的个人资料。覆盖默认英语、三语切换、没有 Node 的本地页面、原生导出、非法文件名拒绝、文件导入确认、最小化时计时、重启恢复，以及结束后推荐另一件活动。真实安装与卸载测试会关闭快捷方式和注册表写入，验证带空格的安装目录、包内文件一致性及保留非程序文件。已有 WebView2 的安装路径已实测；缺失运行时的联网安装尚未在干净虚拟机验证。
 
-104 项 Node 单元测试通过。APK 构建会验证签名及编译后的各语言应用名；包内容检查确保网页与当前源代码相同，不包含密钥、用户数据或研究资料。浏览器交互与宣传页另行检查。发布附带 `SHA256SUMS.txt`。
+109 项 Node 单元测试通过。APK 构建会验证签名及编译后的各语言应用名；包内容检查确保网页与当前源代码相同，不包含密钥、用户数据或研究资料。浏览器交互与宣传页另行检查。发布附带 `SHA256SUMS.txt`。
 
 GitHub 插件没有 Release 附件上传能力，发布脚本使用官方 GitHub CLI。登录后，先提交并推送构建所对应的源码，再运行：
 

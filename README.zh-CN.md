@@ -19,6 +19,12 @@
 
 点击「结束」直接保存实际用时并回到开始页；当前条件下有其他可选活动时，优先推荐另一件。无需再次确认或添加新活动，只用轻提示告知已记录的时间。
 
+## 一眼回看今天
+
+**1.2 新增：**「今天」把同一活动的多次执行放在一起，汇总次数和有效用时。展开后，每次只显示时间段和实际用时；精确时间、计划、追加和暂停收到 **⋯** 里，零追加、零暂停不占位置。卡片 10 秒后自动收起，打开更多信息会重新计时，原始记录完整保留。
+
+![今天页按活动汇总，展开后用简洁单行展示每次执行的时间段和实际用时。](about/assets/today-zh-CN.png)
+
 ## 看看怎么用
 
 [Windows 演示](about/assets/windows-demo.mp4) · [手机演示](about/assets/mobile-demo.mp4) · [在介绍页观看](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo)
@@ -34,8 +40,8 @@
 
 | 平台 | 下载 | 使用要求 |
 | --- | --- | --- |
-| Windows | [安装包 (.exe，约 2 MiB)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Windows-x64-Setup.exe) | Windows 10 / 11，64 位；Microsoft WebView2。 |
-| 安卓 | [安装包 (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Android.apk) | Android 7.0 及以上，需要较新的 WebView。 |
+| Windows | [安装包 (.exe，约 2 MiB)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.0/Now-What-1.2.0-Windows-x64-Setup.exe) | Windows 10 / 11，64 位；Microsoft WebView2。 |
+| 安卓 | [安装包 (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.0/Now-What-1.2.0-Android.apk) | Android 7.0 及以上，需要较新的 WebView。 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装。 |
 
 安装版可离线使用，第一次打开是**英语**，可以在**设置**里切换中文、英语和日语。网页版默认跟随浏览器语言。选过会记住，自己写的活动名和说明不会被翻译。
@@ -44,7 +50,9 @@ Windows 可能提示「未知发布者」。安卓版目前还没有在真机上
 
 **Windows 1.1 改用 C++ 原生窗口和系统 WebView2，不再随包附带 Electron。** 缺少 WebView2 时，安装器会下载微软运行时，因此首次安装可能需要联网，之后应用可离线使用。本机同条件实测合计私有内存约 188 → 124 MiB，实际占用随设备和运行时变化，见[实测对比与构建说明](docs/installable-builds.md#windows-memory)。
 
-**从 Windows 1.0 升级：**先结束正在计时的活动，在旧版设置里导出备份，再安装 1.1 并导入。新外壳使用独立的数据目录，不会自动读取旧数据，也不会删除旧数据。需要重新打开旧版导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍保留。安卓沿用包名和签名，直接覆盖安装，不要先卸载。
+**从 Windows 1.0 升级：**先结束正在计时的活动，在旧版设置里导出备份，再安装 1.2 并导入。新外壳使用独立的数据目录，不会自动读取旧数据，也不会删除旧数据。需要重新打开旧版导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍保留。安卓沿用包名和签名，直接覆盖安装，不要先卸载。
+
+从 **1.1 更新到 1.2** 可直接覆盖安装，数据位置和格式不变，安卓继续沿用原签名。
 
 ## 数据自己留一份
 

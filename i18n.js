@@ -1,5 +1,13 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "计划 {duration}": {"en":"Planned {duration}","ja":"予定 {duration}"},
+  "追加 {duration}": {"en":"Added {duration}","ja":"追加 {duration}"},
+  "暂停 {duration}": {"en":"Paused {duration}","ja":"一時停止 {duration}"},
+  "更多信息：{time}": {"en":"More information: {time}","ja":"詳細：{time}"},
+  "{count} 次": {"en":"{count} sessions","ja":"{count}回"},
+  "{count} 次记录": {"en":"{count} session records","ja":"{count}回の記録"},
+  "最近一次 {time}": {"en":"Latest {time}","ja":"直近 {time}"},
+  "详情 10 秒后收起": {"en":"Details close after 10 sec","ja":"詳細は10秒後に閉じます"},
   "已记录 {duration}": {"en":"Recorded {duration}","ja":"{duration}を記録しました"},
   "做了 1 次，共 {duration}": {"en":"1 session · {duration} total","ja":"1回、合計{duration}"},
   "返回当前计时": {"en":"Return to the current timer","ja":"現在のタイマーに戻る"},

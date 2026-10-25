@@ -50,7 +50,12 @@ app.whenReady().then(async()=>{
       assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,`${language} ${width} no horizontal overflow`);
       assert.equal(await evaluate('[...document.querySelectorAll("h1>span")].every(e=>e.getClientRects().length===1)'),true,`${language} ${width} headline keeps its intended two lines`);
       assert.equal(await evaluate('[...document.querySelectorAll("[data-copy]")].every(e=>e.textContent.trim()!==""&&e.textContent!=="undefined")'),true,'all visible copy translated');
-      if(width===1440||width===390)await screenshot(`hero-${language}-${width}`);
+      if(width===1440||width===390){
+        await screenshot(`hero-${language}-${width}`);
+        await evaluate('document.querySelector("#today-review").scrollIntoView();document.querySelector("#historyShot").decode()');
+        assert.equal(await evaluate('document.querySelector("#historyShot").src.includes("today-"+document.documentElement.lang+".png")'),true,'current screenshot follows the selected language');
+        await screenshot(`today-${language}-${width}`,'#today-review');
+      }
     }
   }
   const reloaded=new Promise(resolve=>window.webContents.once('did-finish-load',resolve));window.webContents.reload();await reloaded;await settled();

@@ -334,7 +334,10 @@ module.exports = async (scenario, fixture) => {
     await shot(run,protocol,'07-today-light');
     await click(run,protocol,'.history-item summary');
     assert.ok(await run("return document.querySelector('.history-item').open"));
-    assert.match(await run("return document.querySelector('.history-item dl').textContent"),/实际有效用时15 分钟/);
+    assert.equal(await run("return document.querySelector('.history-session-duration').textContent"),'15 分钟');
+    await click(run,protocol,'.history-more');
+    assert.ok(await run("return !document.querySelector('.history-more-panel').hidden"));
+    assert.match(await run("return document.querySelector('.history-exact-time').textContent"),/09:30:00/);
     assert.equal(await run("return __rawGet('whatToDoData')"),before);
   });
 
