@@ -21,8 +21,11 @@ Push-Location $root
 $originalToken=$env:GH_TOKEN
 try{
   # Reuse the user's existing Git credential only in this process; never persist or print it.
-  & $GitHubCli auth status --hostname github.com *> $null
-  if($LASTEXITCODE -ne 0 -and !$env:GH_TOKEN -and !$env:GITHUB_TOKEN){
+  # Windows PowerShell turns native stderr into terminating errors under Stop,
+  # even for an expected "not logged in" probe. Capture that probe without aborting.
+  $savedPreference=$ErrorActionPreference
+  try{$ErrorActionPreference='Continue';& $GitHubCli auth status --hostname github.com *> $null;$signedIn=($LASTEXITCODE -eq 0)}finally{$ErrorActionPreference=$savedPreference}
+  if(!$signedIn -and !$env:GH_TOKEN -and !$env:GITHUB_TOKEN){
     $credential=("protocol=https`nhost=github.com`n`n" | & git -c credential.interactive=never credential fill 2>$null)
     if($LASTEXITCODE -eq 0){
       $secretLine=$credential | Where-Object { $_.StartsWith('password=') } | Select-Object -First 1
