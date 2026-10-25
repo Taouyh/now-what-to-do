@@ -17,6 +17,8 @@
 
 活動ごとに時間を決める必要はありません。毎回、今ある時間を選びます。終了すると使った時間が記録され、活動は次回も残ります。
 
+「終了」を押すと実際に使った時間を保存し、ホームに戻ります。今の状況に合う別の活動があれば、そちらを提案します。確認や新規追加は求めず、記録した時間を短い通知でお知らせします。
+
 ## 使い方を見る
 
 [Windows のデモ](about/assets/windows-demo.mp4) · [モバイルのデモ](about/assets/mobile-demo.mp4) · [紹介ページで見る](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo)
@@ -32,13 +34,17 @@
 
 | プラットフォーム | ダウンロード | 必要な環境 |
 | --- | --- | --- |
-| Windows | [インストーラー (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11、64ビット。インストール先を選べます。 |
-| Android | [インストーラー (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0以降、最新の WebView。 |
+| Windows | [インストーラー (.exe、約2 MiB)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Windows-x64-Setup.exe) | Windows 10 / 11、64ビット。Microsoft WebView2。 |
+| Android | [インストーラー (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Android.apk) | Android 7.0以降、最新の WebView。 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要。 |
 
 インストール版はオフラインで使え、初回は**英語**です。**設定**で英語・中国語・日本語を切り替えられます。Web 版はブラウザの言語に合わせます。選択は保存されますが、自分で書いた活動名やメモは翻訳されません。
 
 Windows では「不明な発行元」と表示される場合があります。Android は実機では未検証です。全バージョンは [Releases](https://github.com/Taouyh/now-what-to-do/releases) にあります。ダウンロードできない場合は Web 版をご利用ください。
+
+**Windows 1.1 は C++ のネイティブウィンドウとシステムの WebView2 を使い、Electron を同梱しません。** 未導入の場合のみ、セットアップが Microsoft のランタイムをダウンロードします。その後はオフラインで使えます。同一端末・同条件での合計プライベートメモリは約 188 → 124 MiB でした。端末とランタイムにより結果は異なります。[実測とビルドの説明](docs/installable-builds.md#windows-memory)をご覧ください。
+
+**Windows 1.0 から更新する場合：**実行中のタイマーを終了し、旧版の設定からバックアップを保存してください。1.1 をインストールしたら設定から復元します。保存場所が異なるため自動移行はされません。旧データは削除しません。[1.0 のインストーラー](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)も引き続き利用できます。Android は同じパッケージ名と署名を使います。旧版を削除せずに上書きインストールしてください。
 
 ## データの保存
 

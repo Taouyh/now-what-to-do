@@ -1,13 +1,14 @@
 {
   "name": "now-what-to-do",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Got a little free time? Pick something you've been meaning to do, and start now.",
   "private": true,
   "author": "Taouyh",
   "license": "MIT",
   "main": "desktop/main.cjs",
   "scripts": {
-    "start": "electron .",
+    "start": "powershell -NoProfile -Command \"& './dist/windows/webview2-unpacked/Now What.exe'\"",
+    "start:legacy": "electron .",
     "test": "node --test tests/*.test.cjs",
     "build:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-windows.ps1",
     "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-android.ps1"

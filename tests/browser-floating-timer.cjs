@@ -58,28 +58,25 @@ module.exports = async (scenario, fixture) => {
     assert.deepEqual(await run("return [timerState().paused,$('floatingPaused').classList.contains('hide')]"),[false,true]);
   });
 
-  await check('cancellation, failed save and stale completion clicks remain safe after countdown return',async(run,_imp,{protocol,reload})=>{
-    await run("$('start').click()");
-    for(const paused of [false,true]){
-      if(paused)await click(run,protocol,'pauseTimer');await run("page('today')");
-      const raw=await run("return __rawGet('activeTimer')");await end(run,protocol);await click(run,protocol,'confirmCancel');await full(run);
-      assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return d.completed.length'),0);
-    }
-    await run("page('tasks')");await end(run,protocol);const session=await run('return timerState()');
-    await run('__faults.writeKey="whatToDoData"');await click(run,protocol,'confirmAccept');
-    assert.equal(await run('return d.completed.length'),0);assert.equal(await run('return timerState().completionId'),session.completionId);
-    await run("delete __faults.writeKey;window.__oldAccept=$('confirmAccept').onclick");await click(run,protocol,'confirmAccept');await run('__oldAccept()');
+  await check('direct End retries failed saves and ignores stale completion clicks after countdown return',async(run,_imp,{protocol,reload})=>{
+    await run("$('start').click();page('tasks')");
+    const session=await run('return timerState()'),raw=await run("return __rawGet('activeTimer')");
+    await run('__faults.writeKey="whatToDoData"');await end(run,protocol);await full(run);
+    assert.equal(await run('return d.completed.length'),0);assert.equal(await run("return __rawGet('activeTimer')"),raw);
+    assert.equal(await run("return $('confirmLayer').classList.contains('hide')"),true);
+    await run("delete __faults.writeKey;window.__oldEnd=$('earlyTimer').onclick");await click(run,protocol,'earlyTimer');await run('__oldEnd()');
     const records=await run('return d.completed');assert.equal(records.length,1);assert.equal(records[0].completionId,session.completionId);
     assert.equal(records[0].startedAt,session.startedAt);assert.ok(Number.isFinite(records[0].actualDurationMs));
-    assert.equal(await run("return __rawGet('activeTimer')"),null);await reload();assert.equal(await run('return d.completed.length'),1);
+    assert.equal(await run("return __rawGet('activeTimer')"),null);
+    assert.deepEqual(await run("return [location.hash,$('modal').classList.contains('hide'),$('confirmLayer').classList.contains('hide')]"),['#home',true,true]);
+    await reload();assert.equal(await run('return d.completed.length'),1);
   });
 
-  await check('discard saves no record and its old completion handler cannot affect a new session',async(run,_imp,{protocol})=>{
-    await run("$('start').click();page('today')");await end(run,protocol);
-    await run("window.__oldFinish=$('confirmAccept').onclick");await click(run,protocol,'confirmAbandon');
-    assert.equal(await run('return d.completed.length'),0);assert.equal(await run("return __rawGet('activeTimer')"),null);
-    await run("$('start').click()");const raw=await run("return __rawGet('activeTimer')");await run('__oldFinish()');
-    assert.equal(await run("return __rawGet('activeTimer')"),raw);await full(run);
+  await check('the old End handler cannot complete the next running session',async(run,_imp,{protocol})=>{
+    await run("$('start').click();window.__oldEnd=$('earlyTimer').onclick;page('today')");await end(run,protocol);
+    assert.equal(await run('return d.completed.length'),1);assert.equal(await run("return __rawGet('activeTimer')"),null);
+    await run("$('start').click()");const raw=await run("return __rawGet('activeTimer')");await run('__oldEnd()');
+    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return d.completed.length'),1);await full(run);
   });
 
   await check('badge fits narrow screens and becomes inert behind editing and confirmation dialogs',async(run,_imp,{protocol})=>{
@@ -113,12 +110,12 @@ module.exports = async (scenario, fixture) => {
     assert.equal(await run("return $('floatingClock').textContent"),await run("return $('timerClock').textContent"));
   });
 
-  await check('hostile activity text stays out of the badge and remains inert in full timer and confirmation',async(run,_imp,{protocol})=>{
+  await check('hostile activity text stays out of the badge and remains inert in full timer and saved records',async(run,_imp,{protocol})=>{
     await run("$('start').click();page('today')");
     assert.match(await run("return $('floatingTimer').innerText.trim()"),/^\d+:\d{2}$/);
     await click(run,protocol,'floatingTimer');await click(run,protocol,'earlyTimer');
     assert.deepEqual(await run("return [document.querySelectorAll('[data-float-probe]').length,window.__floatExecuted||0]"),[0,0]);
-    assert.match(await run("return $('confirmTaskName').textContent"),/data-float-probe/);
+    assert.match(await run("return d.completed[0].taskName"),/data-float-probe/);
   },data=>{data.tasks[0].name='<img data-float-probe src=x onerror="window.__floatExecuted=1"> 中文 &'});
   console.log(count+' countdown-badge Chrome scenarios passed.');
 };

@@ -17,6 +17,8 @@ Too many things you want to do, and no idea where to start when you're finally f
 
 Activities have no fixed length. Set the time for each session. Ending a session saves the time you spent and keeps the activity for next time.
 
+Click **End** to save your actual time and return Home, with another activity suggested whenever one fits your current conditions. No confirmation or new-activity form interrupts the flow; a brief notice confirms the time recorded.
+
 ## See it work
 
 [Watch Windows demo](about/assets/windows-demo.mp4) · [Watch mobile demo](about/assets/mobile-demo.mp4) · [Watch on the website](https://taouyh.github.io/now-what-to-do/about/#demo)
@@ -32,13 +34,17 @@ Both demos are 14 seconds, from an empty activity list to starting a session. En
 
 | Platform | Download | What you need |
 | --- | --- | --- |
-| Windows | [Installer (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11, 64-bit. Choose where to install. |
-| Android | [Installer (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0+ and an up-to-date WebView. |
+| Windows | [Installer (.exe, ~2 MiB)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Windows-x64-Setup.exe) | Windows 10 / 11, 64-bit; Microsoft WebView2. |
+| Android | [Installer (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Android.apk) | Android 7.0+ and an up-to-date WebView. |
 | Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install. |
 
 Installed apps work offline and start in **English**. Switch to Chinese or Japanese in **Settings**. The web app starts with your browser language. Your choice is remembered; your activity names and notes aren't translated.
 
 Windows may show an unknown-publisher notice. The Android package has not yet been tested on a real phone. See [Releases](https://github.com/Taouyh/now-what-to-do/releases) for all versions; if a download isn't available, use the web app.
+
+**Windows 1.1 uses a C++ native shell and the system WebView2 instead of bundling Electron.** Setup downloads the Microsoft runtime only if it is missing, so the first installation may need internet. The app then works offline. A same-machine test measured about 188 → 124 MiB total private memory; results vary by device and runtime. See the [comparison and build details](docs/installable-builds.md#windows-memory).
+
+**Upgrading from Windows 1.0:** finish any running session, export a backup in the old app, then install 1.1 and restore the backup in Settings. The new shell uses a separate data store; it cannot automatically read the old one. Old data is preserved. The [1.0 installer](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0) remains available if you need to reopen it and export. Android keeps its package identity and signing key; install the APK over the old version without uninstalling first.
 
 ## Keep your data
 

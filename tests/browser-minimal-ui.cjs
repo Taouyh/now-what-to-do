@@ -242,7 +242,7 @@ module.exports = async (scenario, fixture) => {
     assert.equal(await run('return __restoreCount'),1);
   });
 
-  await check('timer exposes pause and end, records actual early duration once and keeps the activity', dataset(), async (run,_imp,{protocol}) => {
+  await check('End directly records actual time once and returns Home with another activity and no dialog', dataset(), async (run,_imp,{protocol}) => {
     await size(protocol,1440);
     await run('cur=d.tasks[0];random({keepCurrent:true})');
     await click(run,protocol,'#start');
@@ -251,16 +251,15 @@ module.exports = async (scenario, fixture) => {
     await shot(run,protocol,'03-timer-light');
     await click(run,protocol,'#pauseTimer');
     assert.equal(await run('return timerState().paused'),true);
-    await click(run,protocol,'#earlyTimer');
-    await click(run,protocol,'#confirmCancel');
-    assert.equal(await run('return timerState().paused'),true);
     await run('let s=timerState();s.elapsed=360000;setTimerState(s);renderTimer()');
+    await run("window.__finish=$('earlyTimer').onclick");
     await click(run,protocol,'#earlyTimer');
-    await run("window.__finish=$('confirmAccept').onclick");
-    await click(run,protocol,'#confirmAccept');
     await run('__finish()');
     assert.deepEqual(await run('return [d.completed.length,d.completed[0].actualDurationMs,d.completed[0].plannedDuration,d.tasks.length]'),[1,360000,15,5]);
-    assert.equal(await run("return document.querySelector('.page.active').id"),'today');
+    assert.deepEqual(await run("return [document.querySelector('.page.active').id,$('confirmLayer').classList.contains('hide'),$('modal').classList.contains('hide'),document.activeElement.id]"),['home',true,true,'start']);
+    assert.notEqual(await run('return cur.id'),'activity-0');assert.equal(await run('return ok(cur)'),true);
+    assert.match(await run("return $('appNotice').textContent"),/已记录/);
+    await shot(run,protocol,'17-end-next-home');
   });
 
   await check('minimal floating countdown fits desktop, mobile, dark mode and paused long durations', dataset(), async (run,_imp,{protocol}) => {
@@ -304,7 +303,7 @@ module.exports = async (scenario, fixture) => {
       assert.deepEqual(await run("return [location.hash,$('floatingTimer').classList.contains('hide'),d.completed.length,__writes.length]"),['#home',true,0,writes]);
       assert.equal(await run("return __rawGet('activeTimer')"),raw);
     }
-    await click(run,protocol,'#earlyTimer');await click(run,protocol,'#confirmAccept');await click(run,protocol,'[data-page=home]');
+    await click(run,protocol,'#earlyTimer');await click(run,protocol,'[data-page=home]');
     assert.deepEqual(await run("return [timerState(),$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide'),document.querySelector('main').inert,d.completed.length,!!$('start')?.getClientRects().length]"),[null,true,true,false,1,true]);
   });
 

@@ -18,10 +18,21 @@ $notes=Join-Path $root "docs/releases/$tag.md"
 foreach($file in ($assets+@($notes))){if(!(Test-Path -LiteralPath $file)){throw "Missing release file: $file"}}
 function Invoke-Gh([string[]]$cliArgs){& $GitHubCli @cliArgs;if($LASTEXITCODE -ne 0){throw 'GitHub command failed. No further release steps were run.'}}
 Push-Location $root
+$originalToken=$env:GH_TOKEN
 try{
+  # Reuse the user's existing Git credential only in this process; never persist or print it.
+  & $GitHubCli auth status --hostname github.com *> $null
+  if($LASTEXITCODE -ne 0 -and !$env:GH_TOKEN -and !$env:GITHUB_TOKEN){
+    $credential=("protocol=https`nhost=github.com`n`n" | & git -c credential.interactive=never credential fill 2>$null)
+    if($LASTEXITCODE -eq 0){
+      $secretLine=$credential | Where-Object { $_.StartsWith('password=') } | Select-Object -First 1
+      if($secretLine){$env:GH_TOKEN=$secretLine.Substring(9)}
+    }
+    $credential=$null;$secretLine=$null
+  }
   Invoke-Gh -cliArgs @('auth','status','--hostname','github.com')
   # Tag the exact source commit corresponding to these local builds.
-  $sourcePaths=@('.gitignore','README.md','README.zh-CN.md','README.ja.md','index.html','app.js','i18n.js','style.css','package.json','package-lock.json','desktop','android','packaging','scripts','tests','docs/installable-builds.md','docs/releases')
+  $sourcePaths=@('.gitignore','LICENSE','README.md','README.zh-CN.md','README.ja.md','about','index.html','app.js','i18n.js','style.css','package.json','package-lock.json','desktop','android','packaging','scripts','tests','docs/installable-builds.md','docs/site-and-readme.md','docs/minimal-ui-validation.md','docs/releases')
   $changes=& git status --porcelain --untracked-files=all -- @sourcePaths
   if($LASTEXITCODE -ne 0 -or $changes){throw 'Commit the release source and documentation before publishing.'}
   $head=(& git rev-parse HEAD).Trim()
@@ -42,7 +53,7 @@ try{
   # Never replace a previous release or its assets automatically.
   $existingTags=Invoke-Gh -cliArgs @('api',"repos/$repo/releases?per_page=100",'--jq','.[].tag_name')
   if($existingTags -contains $tag){throw "$tag already exists. Review it before adding or replacing any downloads."}
-  Invoke-Gh -cliArgs (@('release','create',$tag,'--repo',$repo,'--target',$head,'--title',"Now What? $version",'--notes-file',$notes,'--draft')+$assets)
+  Invoke-Gh -cliArgs (@('release','create',$tag,'--repo',$repo,'--target',$head,'--title',"Now What $version",'--notes-file',$notes,'--draft')+$assets)
   if(!$Draft){Invoke-Gh -cliArgs @('release','edit',$tag,'--repo',$repo,'--draft=false','--latest')}
   Invoke-Gh -cliArgs @('release','view',$tag,'--repo',$repo,'--json','url,assets,isDraft,tagName')
-}finally{Pop-Location}
+}finally{$env:GH_TOKEN=$originalToken;Pop-Location}

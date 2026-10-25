@@ -39,9 +39,10 @@ module.exports=async(scenario,fixture)=>{
   assert.equal(await run("return $('timerMeta').textContent"),'Planned 7 min');await click(run,protocol,'#pauseTimer');
   const raw=await run("return __rawGet('activeTimer')");await click(run,protocol,'#dataMenuToggle');await click(run,protocol,'[data-language=ja]');assert.equal(await run("return __rawGet('activeTimer')"),raw);
   await click(run,protocol,'[data-page=home]');assert.equal(await run("return $('pauseTimer').textContent"),'再開');
-  await click(run,protocol,'#earlyTimer');assert.equal(await run("return $('confirmTitle').textContent"),'終了して今回の記録を保存しますか？');await click(run,protocol,'#confirmCancel');assert.equal(await run("return __rawGet('activeTimer')"),raw);
-  await click(run,protocol,'#earlyTimer');await click(run,protocol,'#confirmAccept');assert.equal(await run("return d.completed.length"),1);
-  await run("setLanguage('en')");await noChinese(run);assert.match(await run("return $('todayBox').textContent"),/1 session/);
+  await click(run,protocol,'#earlyTimer');assert.equal(await run("return d.completed.length"),1);
+  assert.deepEqual(await run("return [location.hash,$('confirmLayer').classList.contains('hide'),$('modal').classList.contains('hide')]"),['#home',true,true]);
+  assert.match(await run("return $('appNotice').textContent"),/を記録しました/);
+  await run("setLanguage('en');page('today')");await noChinese(run);assert.match(await run("return $('todayBox').textContent"),/1 session/);
  });
  await check('backup exports language and confirmed restore updates the interface without touching active timing',seed(),async(run,imp,{reload})=>{
   await run("setLanguage('en');run(d.tasks[0]);pauseTimer()");const timer=await run("return __rawGet('activeTimer')");

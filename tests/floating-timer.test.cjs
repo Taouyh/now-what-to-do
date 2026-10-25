@@ -61,53 +61,49 @@ test('ending a session restores the normal home recommendation without a floatin
   assert.equal(app.run('d.completed.length'),1);assert.equal(app.run('cur.id'),app.run('d.tasks[0].id'));
 });
 
-test('end cancellation leaves running and paused storage byte-for-byte intact', () => {
-  for (const paused of [false, true]) {
-    const app = start(); if (paused) app.run('pauseTimer()'); app.run('page("today")');
-    const raw = app.values.get('activeTimer'), writes = app.writes.length;
-    app.elements.get('floatingTimer').click(); app.elements.get('earlyTimer').click();
-    assert.equal(hidden(app, 'confirmAbandon'), false);
-    assert.equal(app.elements.get('confirmAccept').textContent, '结束');
-    assert.equal(app.elements.get('confirmCancel').textContent, '取消');
-    app.cancel(); assert.equal(app.values.get('activeTimer'), raw); assert.equal(app.writes.length, writes);
-    assert.equal(app.json('d.completed').length, 0);
+test('ending running or paused timing saves immediately and returns home without a dialog', () => {
+  for(const paused of [false,true]){
+    const app=start();if(paused)app.run('pauseTimer()');app.run('page("today")');
+    const session=app.json('timerState()');
+    app.elements.get('floatingTimer').click();app.elements.get('earlyTimer').click();
+    assert.equal(hidden(app,'confirmLayer'),true);assert.equal(hidden(app,'modal'),true);
+    assert.equal(hidden(app,'timer'),true);assert.equal(hidden(app,'floatingTimer'),true);
+    assert.equal(app.run('location.hash.replace(/^#/,"")'),'home');
+    assert.equal(app.run('d.completed.length'),1);assert.equal(app.run('d.completed[0].completionId'),session.completionId);
+    assert.equal(app.values.has('activeTimer'),false);
   }
 });
 
-test('completion after countdown return records one session with existing timing and goal fields', () => {
-  const app = start(); app.run('page("tasks")'); const session = app.json('timerState()');
-  app.elements.get('floatingTimer').click(); app.elements.get('earlyTimer').click(); const accept = app.elements.get('confirmAccept').onclick;
-  accept(); accept();
-  const records = app.json('d.completed'); assert.equal(records.length, 1);
-  assert.equal(records[0].completionId, session.completionId);
-  assert.equal(records[0].startedAt, session.startedAt); assert.ok(records[0].endedAt >= session.startedAt);
-  assert.equal(records[0].goalId, session.goalId); assert.equal(records[0].goalName, session.goalName);
-  assert.ok(Number.isFinite(records[0].actualDurationMs));
-  assert.equal(app.json('d.tasks').length, 1); assert.equal(app.values.has('activeTimer'), false);
-  assert.equal(hidden(app, 'timer'), true); assert.equal(hidden(app, 'floatingTimer'), true);
+test('completion after countdown return saves actual timing and goal fields exactly once', () => {
+  const app=start();app.run('page("tasks")');const session=app.json('timerState()');
+  app.elements.get('floatingTimer').click();const end=app.elements.get('earlyTimer').onclick;end();end();
+  const records=app.json('d.completed');assert.equal(records.length,1);
+  assert.equal(records[0].completionId,session.completionId);assert.equal(records[0].startedAt,session.startedAt);
+  assert.ok(records[0].endedAt>=session.startedAt);assert.equal(records[0].goalId,session.goalId);assert.equal(records[0].goalName,session.goalName);
+  assert.ok(Number.isFinite(records[0].actualDurationMs));assert.equal(app.run('d.tasks.length'),1);
+  assert.equal(app.values.has('activeTimer'),false);assert.equal(hidden(app,'timer'),true);assert.equal(hidden(app,'floatingTimer'),true);
 });
 
-test('discard creates no records and a stale confirmation cannot finish a new session', () => {
-  const app = start(); app.run('page("tasks")'); app.elements.get('floatingTimer').click(); app.elements.get('earlyTimer').click();
-  const stale = app.elements.get('confirmAccept').onclick;
-  app.elements.get('confirmAbandon').click(); assert.equal(app.values.has('activeTimer'), false);
-  assert.equal(app.json('d.completed').length, 0); assert.equal(app.json('d.tasks').length, 1);
-  app.run('startTimer(d.tasks[0])'); const raw = app.values.get('activeTimer'); stale();
-  assert.equal(app.values.get('activeTimer'), raw); assert.equal(app.json('d.completed').length, 0);
+test('an old end button cannot complete a newer session', () => {
+  const app=start(),end=app.elements.get('earlyTimer').onclick;end();
+  app.run('startTimer(d.tasks[0])');const raw=app.values.get('activeTimer');end();
+  assert.equal(app.values.get('activeTimer'),raw);assert.equal(app.run('d.completed.length'),1);
 });
 
-test('failed persistence in the full timer keeps prior state and allows completion to be retried once', () => {
-  const app = start(); app.run('page("tasks")'); const raw = app.values.get('activeTimer');
-  app.faults.writeKey = 'activeTimer'; app.elements.get('floatingTimer').click(); app.elements.get('pauseTimer').click();
-  assert.equal(app.values.get('activeTimer'), raw); delete app.faults.writeKey;
-  app.elements.get('floatingTimer').click(); app.elements.get('earlyTimer').click(); app.faults.writeKey = 'whatToDoData'; app.confirm();
-  assert.equal(app.json('d.completed').length, 0); assert.equal(app.values.get('activeTimer'), raw);
-  assert.equal(hidden(app, 'confirmLayer'), false); delete app.faults.writeKey;
-  app.confirm(); app.confirm(); assert.equal(app.json('d.completed').length, 1);
-  const other = start(); other.run('page("tasks")'); other.elements.get('floatingTimer').click(); other.elements.get('earlyTimer').click();
-  const before = other.values.get('activeTimer'); other.faults.removeKey = 'activeTimer';
-  other.elements.get('confirmAbandon').click(); assert.equal(other.values.get('activeTimer'), before);
-  assert.equal(other.json('d.completed').length, 0); assert.equal(hidden(other, 'confirmLayer'), false);
+test('failed direct completion preserves timing and retry records once before choosing the next activity', () => {
+  const app=start();app.run('page("tasks")');const raw=app.values.get('activeTimer');
+  app.faults.writeKey='activeTimer';app.elements.get('floatingTimer').click();app.elements.get('pauseTimer').click();
+  assert.equal(app.values.get('activeTimer'),raw);delete app.faults.writeKey;
+  const end=app.elements.get('earlyTimer').onclick;app.faults.writeKey='whatToDoData';end();
+  assert.equal(app.run('d.completed.length'),0);assert.equal(app.values.get('activeTimer'),raw);
+  assert.equal(hidden(app,'timer'),false);assert.equal(hidden(app,'confirmLayer'),true);
+  delete app.faults.writeKey;end();end();assert.equal(app.run('d.completed.length'),1);
+  assert.equal(app.values.has('activeTimer'),false);
+  const other=start(),finish=other.elements.get('earlyTimer').onclick;other.faults.removeKey='activeTimer';finish();
+  assert.equal(other.run('d.completed.length'),1);assert.equal(other.values.has('activeTimer'),true);
+  const recorded=other.json('d.completed[0]');delete other.faults.removeKey;finish();
+  assert.equal(other.values.has('activeTimer'),false);assert.deepEqual(other.json('d.completed'),[recorded]);
+  assert.equal(other.run('location.hash.replace(/^#/,"")'),'home');
 });
 
 test('floating redraws do not repeat automatic extensions or create records', () => {

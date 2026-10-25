@@ -17,6 +17,8 @@
 
 不用给每项活动规定时长，每次开始时再选。结束后会记下这次花了多少时间，活动还在，下次继续做。
 
+点击「结束」直接保存实际用时并回到开始页；当前条件下有其他可选活动时，优先推荐另一件。无需再次确认或添加新活动，只用轻提示告知已记录的时间。
+
 ## 看看怎么用
 
 [Windows 演示](about/assets/windows-demo.mp4) · [手机演示](about/assets/mobile-demo.mp4) · [在介绍页观看](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo)
@@ -32,13 +34,17 @@
 
 | 平台 | 下载 | 使用要求 |
 | --- | --- | --- |
-| Windows | [安装包 (.exe)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Windows-x64-Setup.exe) | Windows 10 / 11，64 位。支持自己选安装位置。 |
-| 安卓 | [安装包 (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.0.0/Now-What-1.0.0-Android.apk) | Android 7.0 及以上，需要较新的 WebView。 |
+| Windows | [安装包 (.exe，约 2 MiB)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Windows-x64-Setup.exe) | Windows 10 / 11，64 位；Microsoft WebView2。 |
+| 安卓 | [安装包 (.apk)](https://github.com/Taouyh/now-what-to-do/releases/download/v1.1.0/Now-What-1.1.0-Android.apk) | Android 7.0 及以上，需要较新的 WebView。 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装。 |
 
 安装版可离线使用，第一次打开是**英语**，可以在**设置**里切换中文、英语和日语。网页版默认跟随浏览器语言。选过会记住，自己写的活动名和说明不会被翻译。
 
 Windows 可能提示「未知发布者」。安卓版目前还没有在真机上测试。全部版本在 [Releases](https://github.com/Taouyh/now-what-to-do/releases)；如果暂时下载不了，先用网页版。
+
+**Windows 1.1 改用 C++ 原生窗口和系统 WebView2，不再随包附带 Electron。** 缺少 WebView2 时，安装器会下载微软运行时，因此首次安装可能需要联网，之后应用可离线使用。本机同条件实测合计私有内存约 188 → 124 MiB，实际占用随设备和运行时变化，见[实测对比与构建说明](docs/installable-builds.md#windows-memory)。
+
+**从 Windows 1.0 升级：**先结束正在计时的活动，在旧版设置里导出备份，再安装 1.1 并导入。新外壳使用独立的数据目录，不会自动读取旧数据，也不会删除旧数据。需要重新打开旧版导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍保留。安卓沿用包名和签名，直接覆盖安装，不要先卸载。
 
 ## 数据自己留一份
 

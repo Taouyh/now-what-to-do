@@ -100,7 +100,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     assert.deepEqual(await run("return [$('timerName').textContent,$('timerDesc').textContent]"), [image, description]);
     assert.equal(await run("$('pauseTimer').click();return timerState().paused"), true);
     assert.equal(await run("$('pauseTimer').click();return timerState().paused"), false);
-    await run("$('earlyTimer').click();$('confirmAccept').click();");
+    await run("$('earlyTimer').click();page('today');");
     assert.equal(await run("return $('todayBox').querySelector('h3').textContent"), image);
     assert.equal(await run("return d.completed.at(-1).taskName"), image);
     assert.equal(await run("return __rawGet('activeTimer')"), null);
@@ -127,7 +127,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     await run("startTimer(d.tasks[0]);let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();");
     assert.equal(await run("return $('extendTimer').textContent"), '继续 5 分钟');
     assert.equal(await run("$('extendTimer').click();return timerState().extensionDurationMs"), 300000);
-    await run("let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();$('finishTimer').click();$('confirmAccept').click();");
+    await run("let state=timerState();state.finished=true;state.elapsed=state.durationMs;setTimerState(state);renderTimer();$('finishTimer').click();");
     assert.equal(await run('return d.completed.at(-1).actualDurationMs'),900000);
     assert.equal(await run("return __rawGet('activeTimer')"), null);
     await noInjection(run);

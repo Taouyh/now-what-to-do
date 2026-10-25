@@ -17,7 +17,7 @@
 
 不要只上传 `about/index.html`：它还需要同目录里的样式、语言脚本和 `assets/`。
 
-下载按钮指向 `v1.0.0` 的 Windows EXE 和安卓 APK。发布 Release 时，安装包名字必须与链接一致；以后版本或文件名变了，要一起更新宣传页和三份 README。上传 Release 安装包和发布网页是两件事。
+下载按钮指向 `v1.1.0` 的 Windows EXE 和安卓 APK。发布 Release 时，安装包名字必须与链接一致；以后版本或文件名变了，要一起更新宣传页和三份 README。上传 Release 安装包和发布网页是两件事。
 
 ## 演示
 

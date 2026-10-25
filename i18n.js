@@ -1,5 +1,6 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "已记录 {duration}": {"en":"Recorded {duration}","ja":"{duration}を記録しました"},
   "做了 1 次，共 {duration}": {"en":"1 session · {duration} total","ja":"1回、合計{duration}"},
   "返回当前计时": {"en":"Return to the current timer","ja":"現在のタイマーに戻る"},
   "现在做什么": {

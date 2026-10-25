@@ -1,95 +1,81 @@
 # Windows 和 Android 安装版
 
-首次打包版本：1.0.0。安装包位于本地 `dist/`，公开下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)。尚未上传应用商店。
-
-本次重新构建已将两个安装版的首次语言设为英语，并为 Windows 加入安装目录选择。发布说明见 `docs/releases/v1.0.0.md`，三语 README 均提供直接下载地址。
+当前版本：**1.1.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.1.0)，变更见 [发布说明](releases/v1.1.0.md)。两个安装包都包含当前简约界面：结束直接保存实际用时，回到开始页，并优先推荐另一件符合当前条件的活动。
 
 ## 下载与安装
 
-| 系统 | 文件 |
-| --- | --- |
-| Windows 10/11，64 位 | `dist/windows/Now-What-1.0.0-Windows-x64-Setup.exe` |
-| Android 7.0 及以上 | `dist/android/Now-What-1.0.0-Android.apk` |
+| 系统 | 文件 | 环境 |
+| --- | --- | --- |
+| Windows | `dist/windows/Now-What-1.1.0-Windows-x64-Setup.exe`，约 2 MiB | Windows 10 / 11，x64，Microsoft Edge WebView2 Runtime |
+| Android | `dist/android/Now-What-1.1.0-Android.apk` | Android 7.0+，较新的 Android System WebView |
 
-Windows 双击安装程序，按步骤选择安装目录，例如 D 盘的应用文件夹，可从桌面或开始菜单打开。默认安装到当前用户；选择所有用户或受保护的目录时，可能需要管理员权限。当前 EXE 没有发布者代码签名证书，Windows 可能显示未知发布者。自选安装目录只改变程序位置，个人数据仍保存在系统的用户应用数据目录。
+Windows 采用 **C++ / Win32 + 系统 WebView2 + NSIS**，不再附带 Electron、Node.js、完整 Chromium 或 .NET。安装器允许选择目录，默认只安装到当前用户。如果电脑缺少 WebView2，安装器会运行随包提供、经微软签名的 Evergreen 引导程序并联网下载运行时；已有运行时则不必下载。安装后应用页面可离线使用。首次打开为英语，设置里可切换中文、日语并记住选择。
 
-Android 将 APK 传到手机后打开安装，按手机提示允许该来源安装。需要较新的 Android System WebView；老设备如果无法正常显示，需要先更新 WebView。APK 不包含原生 CPU 库，可用于常见的 ARM 和 x86 设备。已验证 APK 签名及安装包结构，尚未在安卓真机或模拟器上验证安装和运行。
+Windows 安装包目前没有发布者签名，可能显示「未知发布者」。安卓版可直接覆盖安装，沿用原包名和原签名；不要先卸载。APK 不含原生 CPU 库。已检查签名、版本和包内容，尚未在安卓真机或模拟器上验证安装和运行。
 
-## 数据和计时
+## Windows 1.0 升级到 1.1
 
-- 两个版本都自带页面，离线可用，支持中文、英文、日文。首次打开固定为英语，与系统语言无关；在设置里切换后记住选择。更新或导入备份时保留已保存的语言。网页版首次仍跟随浏览器语言。
-- 安装后的应用名统一为 **Now What**。Windows 快捷方式、应用信息、窗口标题，以及安卓桌面和应用信息中的名称都保持英文；应用内的品牌文字也保持英文，其他界面文字仍可切换三种语言。
-- 安装版、网页版和其他设备各自保存数据，不会自动同步。迁移时先在原来的版本中导出备份，再在新版本中导入。
-- 导入前仍需确认；导出使用系统文件保存窗口。Android 无需申请整个存储空间的读写权限。
-- 计时和暂停状态会保存，重新打开后继续读取。Android 锁屏或切到后台时可能暂停页面运行，不能当作可靠的后台闹钟；返回应用后会按已保存的时间重新计算。
-- 卸载或清理应用数据之前，先导出备份。Windows 安装器设置为卸载时保留应用数据；安卓卸载通常会删除应用数据。
+1. 在旧版结束正在运行的计时，在 **设置 → 备份数据 → 导出** 保存 JSON 备份。
+2. 安装 1.1，打开设置并导入刚才的备份。导入确认后会替换新版当前数据，正在运行的计时不包含在备份里。
+3. 核对活动、记录和语言后再决定是否卸载旧版。不要手动清理旧数据目录。
 
-## 本地重新打包
+新外壳使用独立的 `%LOCALAPPDATA%\\NowWhat\\WebView2` 配置目录，以及 `https://nowwhat.local` 本地来源；1.0 使用 Electron 的配置目录和 `nowwhat://app` 来源。因此不会自动读取旧记录。安装、卸载新版均不删除旧版配置；新版卸载也保留自己的配置。需要再次导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍然保留。旧版与新版快捷方式名称相同，旧版卸载后可重装新版恢复快捷方式。
 
-需要 Node.js 22.12 或更新版本，以及 JDK 17 或更新版本。首次需联网下载工具，之后可复用项目 `.cache/`。网页本身仍可直接打开，不依赖这些构建工具。
+网页版、Windows、安卓、不同设备之间不自动同步，迁移请用导出和导入。Android 卸载一般会删除其数据；清理应用数据前务必先备份。安卓后台运行受系统限制，不能作为可靠的后台闹钟；回到应用时会依据保存的时间重算。
+
+<a id="windows-memory"></a>
+## Windows 内存与体积实测
+
+2026-10-25，同一台 Windows 机器、相同网页代码、独立空资料目录，首次打开后切换三种语言，静置约 5 秒再采样。统计 CDP 返回的浏览器进程，并将原生宿主 PID 去重后加入，**包含 WebView2 子进程**，不是只看 344 KiB 的窗口程序。
+
+| 指标 | Electron 45 基准 | C++ / WebView2 候选 |
+| --- | ---: | ---: |
+| 安装包 | 106.93 MiB | 约 1.95 MiB |
+| 私有内存合计 | 188 MiB | 124 MiB |
+| 工作集合计 | 348 MiB | 316 MiB |
+| 进程数 | 4 | 6 |
+
+该次私有内存快照降低约 34%。工作集会重复统计共享页；调试连接、运行时版本、音频、系统、数据量和启动时间都会影响结果。这不是所有设备的保证，也不是内存上限。WebView2 在该机使用已安装的 155 系列 Evergreen 运行时。安装包大小不包含系统共享运行时占用。
+
+窗口不活动或最小化时会请求 WebView2 的低内存目标，不暂停 JavaScript 或计时。它属于尽力而为的提示，不能据此承诺额外降低内存。已验证最小化一段时间后计时继续，重启能恢复暂停状态。参考：[微软 WebView2 内存说明](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/performance)、[MemoryUsageTargetLevel](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2.memoryusagetargetlevel)。
+
+## 本地构建
+
+网页无需构建，直接打开 `index.html`。打包需要 Node.js 22.12+；Windows 原生编译另需 Visual Studio 2022 / Build Tools 的「使用 C++ 的桌面开发」、Windows SDK，以及 [NSIS 3](https://nsis.sourceforge.io/Download)。将 `makensis.exe` 加入 PATH，或给脚本传入 `-NsisPath`。已有项目 NSIS 缓存时会自动使用。
 
 ```powershell
 npm ci --no-audit --no-fund
-
-# Windows：准备 Electron，生成安装程序
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-electron.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-webview2.ps1
 npm run build:windows
 
-# Android：准备 SDK，编译并签名 APK
+# Android：JDK 17+，官方下载并校验 Android Build Tools 35 与 Android 35 API
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-android.ps1
 npm run build:android
 ```
 
-如果 GitHub 下载不可达，Electron 准备脚本可加 `-UseMirror`，Windows 构建可用 `npm run build:windows -- -UseMirror`。下载文件仍按固定校验值验证。现有本地 NSIS、rcedit 和 7zip 缓存存在时，Windows 构建脚本会自动使用。
+WebView2 SDK 固定为 1.0.4314.35，下载后按脚本内 SHA-256 校验。微软引导程序从官方链接下载，构建前验证微软 Authenticode 签名。C++ 使用静态 CRT 和静态 WebView2 Loader，用户无需安装 .NET 或 Visual C++ Redistributable。SDK 许可及声明随安装包提供。构建输出在 `dist/windows/webview2-unpacked`，自选输出目录可用 `-OutputDirectory`。Electron 依赖保留用于现有浏览器测试及基准比较，不会出现在新安装包里。
 
-如果旧的输出文件被占用，可以构建到新目录：`npm run build:windows -- -OutputDirectory dist/windows-english-name`。测试这次的程序时，将 `NOWWHAT_PACKAGED_DIR` 环境变量设为该目录里的 `win-unpacked`。本次已使用这个目录生成程序，并把最新 EXE 复制到上表的下载位置。
+安卓使用 Java 与原生 WebView，直接调用官方 SDK 工具构建。请备份 **`android/.signing/`** 中的私有签名身份，切勿上传。APK 更新必须沿用原密钥，并递增 manifest 的 versionCode。当前版本为 versionName 1.1.0 / versionCode 2。
 
-Android 使用官方 Build Tools 35.0.0、Android 35 API 和 Java 编译器直接构建，没有引入额外的 Gradle 依赖。SDK 包从 Google 官方仓库下载，并按其元数据中的摘要校验。若已有 SDK，可直接向 `scripts/build-android.ps1` 传入 `-SdkRoot` 和 `-JavaHome`。
-
-Windows 使用 Electron 45.0.0、electron-builder 26.15.3 和 NSIS 3.12。Electron、NSIS 及其他编译工具的镜像文件均与对应包内公布的摘要核对。
-
-## 安卓签名：请保管
-
-首次构建会在 **`android/.signing/`** 创建签名密钥和密码文件。该目录已排除出 Git，也不会打入 APK 或 EXE。请将整个目录另外备份到安全的私人位置，不要公开上传。
-
-以后的 APK 更新必须沿用同一把密钥。密钥丢失后，原安装版本无法直接覆盖升级。发布新版本时，同时更新 `package.json` 的版本号，以及 `android/AndroidManifest.xml` 中的 `versionName` 和递增的 `versionCode`。
-
-## 验证方式
+## 验证与发布
 
 ```powershell
 npm test
-node tests/desktop-packaging.cjs
-node tests/desktop-packaging.cjs --packaged
+node tests/desktop-packaging.cjs --webview2
+node tests/windows-installer.cjs
 node tests/package-contents.cjs
+node_modules/electron/dist/electron.exe tests/about-browser.cjs --force-device-scale-factor=1
 ```
 
-桌面测试使用隐藏窗口、独立配置目录和合成数据，覆盖本地页面、渲染进程隔离、三语切换、原生导出、非法文件名拒绝、重启恢复及结束记录。不会读取正常安装版的个人数据。
+这些测试使用隐藏窗口、独立目录和合成数据；不读取正常安装的个人资料。覆盖默认英语、三语切换、没有 Node 的本地页面、原生导出、非法文件名拒绝、文件导入确认、最小化时计时、重启恢复，以及结束后推荐另一件活动。真实安装与卸载测试会关闭快捷方式和注册表写入，验证带空格的安装目录、包内文件一致性及保留非程序文件。已有 WebView2 的安装路径已实测；缺失运行时的联网安装尚未在干净虚拟机验证。
 
-APK 构建结束会自动执行 `apksigner verify` 和 `aapt2 dump badging`。包内容检查比对当前网页代码与原生适配文件，并确认没有混入签名私钥、研究资料或测试数据。安装包 SHA-256 校验值另存于 `dist/SHA256SUMS.txt`。
+104 项 Node 单元测试通过。APK 构建会验证签名及编译后的各语言应用名；包内容检查确保网页与当前源代码相同，不包含密钥、用户数据或研究资料。浏览器交互与宣传页另行检查。发布附带 `SHA256SUMS.txt`。
 
-本次验证：99 项自动测试通过；Windows 打包程序首次默认英语、切换后重启记忆、三语界面下英文产品名、备份导出及记录保存通过；APK 签名与内容检查通过，并核对编译后的各语言应用名均为 Now What。另以隐藏窗口打开真实 EXE 安装器，确认目录输入框可编辑、可接受带空格的自选路径，然后退出，未执行安装。
-
-## 发布到 GitHub Releases
-
-GitHub 插件目前没有上传 Release 附件的接口。可用官方 GitHub CLI 登录后，提交并推送本次源码，再运行：
+GitHub 插件没有 Release 附件上传能力，发布脚本使用官方 GitHub CLI。登录后，先提交并推送构建所对应的源码，再运行：
 
 ```powershell
 gh auth login --hostname github.com --git-protocol https --web
-# 本次打包目录为 dist/windows-english-name，因此检查对应的程序
-$env:NOWWHAT_PACKAGED_DIR = "$PWD/dist/windows-english-name/win-unpacked"
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-release.ps1
 ```
 
-脚本会核对源码提交、远程分支、安装包内容和校验值，先创建草稿并上传 EXE、APK 和校验文件，全部成功后再公开发布。加 `-Draft` 可保留为草稿。若已有同名 Release，脚本会停止，不自动覆盖。也可以在 GitHub 新建 `v1.0.0` Release，选择本次源码提交，粘贴 `docs/releases/v1.0.0.md`，附加两个安装包和 `dist/SHA256SUMS.txt` 后发布。
-
-## Windows 的体积与内存
-
-当前使用 Electron，自带 Chromium 和 Node.js。安装包约 107 MiB，安装器显示程序文件约 357 MiB；二者都不是运行内存。
-
-本机隔离测试中，首次打开空库页面，浏览器列出的 4 个进程合计约 164 MiB 私有内存，工作集约 322 MiB。工作集可能重复计算共享页面；开发工具连接、窗口状态、系统和运行时间都会影响结果。这是一次运行快照，不能当作所有电脑上的固定占用。
-
-若优先缩小下载和磁盘占用，建议保留现有 HTML/CSS/JavaScript，用 Tauri 2（Rust）和系统 WebView2 重做 Windows 外壳。它可以省去随包附带的 Chromium 和 Node.js，但仍有浏览器进程，运行内存需要迁移后在同一台电脑上对比，不能承诺降到某个数值。缺少 WebView2 的电脑需要安装运行时；把完整运行时放入离线安装包会削弱体积收益。本次尚未迁移技术栈。
-
-参考：[Tauri 的 WebView](https://v2.tauri.app/reference/webview-versions/)、[WebView2 性能与内存说明](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/performance)。
-
-构建方式参考：[Electron 隔离与沙箱](https://www.electronjs.org/docs/latest/tutorial/sandbox)、[NSIS 安装选项](https://www.electron.build/docs/nsis/)、[Android 构建工具](https://developer.android.com/tools)、[WebView 文件选择接口](https://developer.android.com/reference/android/webkit/WebChromeClient#onShowFileChooser(android.webkit.WebView,%20android.webkit.ValueCallback%3Candroid.net.Uri[]%3E,%20android.webkit.WebChromeClient.FileChooserParams))。
+脚本核对远程分支、源码提交、包内容及校验值，先上传草稿，全部成功后公开发布；已有同版本会停止，不覆盖。加 `-Draft` 可保留草稿。GitHub Pages 继续使用 `design/minimal-ui` 的根目录，工具和宣传页网址均不变。
