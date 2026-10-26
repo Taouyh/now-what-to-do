@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5f0"><title>现在做什么</title>
-<link rel="stylesheet" href="style.css?v=20261025-today-simple">
+<link rel="stylesheet" href="style.css?v=20261026-picker-hover">
 </head>
 <body>
 <header>
@@ -16,7 +16,7 @@
 <div id="homeWorkspace" class="home-workspace">
 <div class="home-controls">
 <details id="timePicker" class="condition-picker"><summary><span id="timeSummary">15 分钟</span><span class="chevron" aria-hidden="true"></span></summary><div class="condition-panel"><h2 id="timeLabel"><span data-i18n="可用时间">可用时间</span></h2><div id="times" class="choices" role="group" aria-labelledby="timeLabel"><button type="button" data-v="5" aria-pressed="false">5 分钟</button><button type="button" data-v="10" aria-pressed="false">10 分钟</button><button type="button" data-v="15" aria-pressed="false">15 分钟</button><button type="button" data-v="30" aria-pressed="false">30 分钟</button><button type="button" data-v="60" aria-pressed="false">60 分钟</button><button type="button" data-v="custom" aria-pressed="false" aria-controls="customTimeField"><span data-i18n="自定义">自定义</span></button></div><div id="customTimeField" class="custom-time hide"><label for="customMinutes" class="sr-only"><span data-i18n="自定义可用时间（分钟）">自定义可用时间（分钟）</span></label><div class="custom-minutes-control"><input id="customMinutes" type="text" inputmode="numeric" autocomplete="off" aria-describedby="customTimeError" placeholder="例如 25" data-i18n-placeholder="例如 25"><span aria-hidden="true"><span data-i18n="分钟">分钟</span></span></div><p id="customTimeError" role="status"></p></div></div></details>
-<details id="conditionsPicker" class="condition-picker"><summary><span id="conditionsSummary"><span data-i18n="当前条件">当前条件</span></span><span class="chevron" aria-hidden="true"></span></summary><div class="condition-panel current-conditions"><h2><span data-i18n="当前条件">当前条件</span></h2><label class="condition-toggle"><span><span data-i18n="方便使用电脑">方便使用电脑</span></span><input type="checkbox" id="computerReady" role="switch"></label><label class="condition-toggle"><span><span data-i18n="方便听音频">方便听音频</span></span><input type="checkbox" id="audioReady" role="switch"></label><label class="condition-toggle"><span><span data-i18n="方便出声">方便出声</span></span><input type="checkbox" id="speechReady" role="switch"></label><label class="condition-interruption"><input type="checkbox" id="interruptionsLikely"><span><span data-i18n="可能随时被打断">可能随时被打断</span></span></label></div></details>
+<details id="conditionsPicker" class="condition-picker"><summary><span id="conditionsSummary"><span data-i18n="当前条件">当前条件</span></span><span class="chevron" aria-hidden="true"></span></summary><div id="conditionsPanel" class="condition-panel current-conditions" role="group" aria-label="当前条件" data-i18n-aria-label="当前条件"><label class="condition-toggle"><span><span data-i18n="方便使用电脑">方便使用电脑</span></span><input type="checkbox" id="computerReady"></label><label class="condition-toggle"><span><span data-i18n="方便听音频">方便听音频</span></span><input type="checkbox" id="audioReady"></label><label class="condition-toggle"><span><span data-i18n="方便出声">方便出声</span></span><input type="checkbox" id="speechReady"></label><label class="condition-toggle"><span><span data-i18n="可能随时被打断">可能随时被打断</span></span><input type="checkbox" id="interruptionsLikely"></label></div></details>
 </div>
 <div id="rec" class="rec hide" role="region" aria-label="推荐活动" data-i18n-aria-label="推荐活动"></div><div class="home-entries"><button type="button" id="random" class="quiet-link"><span data-i18n="换一件">换一件</span></button><button type="button" id="browse" class="quiet-link"><span data-i18n="自己选择活动">自己选择活动</span></button></div>
 </div></section>
@@ -54,6 +54,6 @@
     </form>
   </div>
 </div>
-<input type="file" id="file" hidden accept="application/json"><script src="i18n.js?v=20261025-today-simple"></script><script src="app.js?v=20261025-today-simple"></script>
+<input type="file" id="file" hidden accept="application/json"><script src="i18n.js?v=20261025-today-simple"></script><script src="app.js?v=20261026-picker-hover"></script>
 </body>
 </html>

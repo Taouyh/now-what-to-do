@@ -700,13 +700,35 @@ function setupMinimalInteractions(){
   const pickers=['timePicker','conditionsPicker'];
   const placeConditions=id=>{
     const panel=document.querySelector('#'+id+' .condition-panel'),summary=document.querySelector('#'+id+' > summary');
-    if(!panel||!summary||!$(id).open)return;
+    if(!panel||!summary)return;
     const r=summary.getBoundingClientRect(),header=document.querySelector('header').getBoundingClientRect();
     const width=Math.min(310,window.innerWidth-32),top=Math.max(header.bottom+8,Math.min(r.bottom+8,window.innerHeight-230));
     panel.style.left=Math.max(16,Math.min(window.innerWidth-width-16,r.left+r.width/2-width/2))+'px';
     panel.style.top=top+'px';panel.style.width=width+'px';panel.style.maxHeight=Math.max(90,window.innerHeight-top-16)+'px';
   };
   for(const id of pickers){
+    const summary=document.querySelector('#'+id+' > summary'),panel=document.querySelector('#'+id+' .condition-panel');
+    let exitTimer;
+    const cancelExit=()=>clearTimeout(exitTimer);
+    summary?.addEventListener('pointerenter',event=>{
+      if(event.pointerType!=='mouse')return;
+      cancelExit();placeConditions(id);
+      for(const other of pickers)if(other!==id)$(other).open=false;
+      $(id).open=true;
+    });
+    summary?.addEventListener('click',event=>{
+      placeConditions(id);
+      if(event.pointerType==='mouse'&&$(id).open)event.preventDefault();
+    });
+    summary?.addEventListener('pointerleave',event=>{
+      if(event.pointerType!=='mouse'||panel?.contains(event.relatedTarget))return;
+      cancelExit();
+      exitTimer=setTimeout(()=>{if(!panel.matches(':hover')&&!summary.matches(':hover'))$(id).open=false},160);
+    });
+    panel?.addEventListener('pointerenter',cancelExit);
+    panel?.addEventListener('pointerleave',event=>{
+      if(event.pointerType==='mouse'){cancelExit();$(id).open=false}
+    });
     $(id).addEventListener('toggle',()=>{if($(id).open){for(const other of pickers)if(other!==id)$(other).open=false;placeConditions(id)}});
   }
   window.addEventListener('resize',()=>pickers.forEach(placeConditions));

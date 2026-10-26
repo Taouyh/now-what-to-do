@@ -52,6 +52,12 @@ app.whenReady().then(async()=>{
       assert.equal(await evaluate('[...document.querySelectorAll("[data-copy]")].every(e=>e.textContent.trim()!==""&&e.textContent!=="undefined")'),true,'all visible copy translated');
       if(width===1440||width===390){
         await screenshot(`hero-${language}-${width}`);
+        await evaluate('document.getElementById("conditionsShot").scrollIntoView()');
+        for(const [id,asset] of [['startShot','start'],['conditionsShot','conditions']]){
+          await evaluate(`document.getElementById('${id}').decode()`);
+          assert.equal(await evaluate(`document.getElementById('${id}').src.includes('${asset}-'+document.documentElement.lang+'.png')`),true,'product screenshot matches language');
+        }
+        await screenshot(`conditions-${language}-${width}`,'#current-moment');
         await evaluate('document.querySelector("#today-review").scrollIntoView();document.querySelector("#historyShot").decode()');
         assert.equal(await evaluate('document.querySelector("#historyShot").src.includes("today-"+document.documentElement.lang+".png")'),true,'current screenshot follows the selected language');
         await screenshot(`today-${language}-${width}`,'#today-review');

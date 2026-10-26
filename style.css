@@ -113,13 +113,9 @@ html{scrollbar-gutter:stable}
 .home-entries{margin-top:20px}
 .home-entries #browse{color:var(--m)}
 .welcome-card{padding-bottom:42px}
+.current-conditions{padding:20px 24px}
 .condition-toggle{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:46px;font-size:14px;cursor:pointer}
-.condition-toggle input[role=switch]{appearance:none;position:relative;width:36px;height:22px;border:0;border-radius:20px;background:var(--l);padding:0;margin:0;flex-shrink:0;cursor:pointer;transition:background .15s}
-.condition-toggle input[role=switch]::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--on-p);transition:transform .15s}
-.condition-toggle input[role=switch]:checked{background:var(--p)}
-.condition-toggle input[role=switch]:checked::after{transform:translateX(14px)}
-.condition-interruption{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:16px;border-top:1px solid var(--l);font-size:13px;min-height:46px;cursor:pointer}
-.condition-interruption input{margin:0;flex-shrink:0}
+.condition-toggle input{width:18px;height:18px;min-height:0;padding:0;margin:0;flex-shrink:0;cursor:pointer}
 .requirements-options{margin-top:12px}
 .requirements-options>summary{font-size:13px;color:var(--m);min-height:40px;padding:8px 0}
 .requirements-options>summary:hover{color:var(--p)}
