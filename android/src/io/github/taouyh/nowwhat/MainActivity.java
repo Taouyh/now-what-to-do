@@ -107,7 +107,13 @@ public final class MainActivity extends Activity {
     @Override public void onBackPressed(){
         web.evaluateJavascript("(function(){if(typeof page!=='function')return 'background';if(!$('confirmLayer').classList.contains('hide')||!$('modal').classList.contains('hide')||$('timePicker').open||$('conditionsPicker').open||!$('librarySearch').classList.contains('hide')){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));}else if(location.hash!=='#home'){page('home');}else{return 'background';}return 'handled';})()",value->{if("\"background\"".equals(value))moveTaskToBack(true);});
     }
-    @Override protected void onPause(){super.onPause();web.onPause();}
-    @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.evaluateJavascript("document.dispatchEvent(new Event('visibilitychange'))",null);}}
+    @Override protected void onPause(){
+        android.os.PowerManager power=(android.os.PowerManager)getSystemService(POWER_SERVICE);
+        String lifecycle=power!=null&&!power.isInteractive()?"sleep":"background";
+        web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('"+lifecycle+"')",null);
+        super.onPause();web.onPause();
+    }
+    @Override protected void onStop(){if(web!=null)web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('checkpoint')",null);super.onStop();}
+    @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.evaluateJavascript("typeof nativeTimerLifecycle==='function' ? nativeTimerLifecycle('resume') : document.dispatchEvent(new Event('visibilitychange'))",null);}}
     @Override protected void onDestroy(){if(fileCallback!=null)fileCallback.onReceiveValue(null);web.removeJavascriptInterface("NowWhatAndroid");web.destroy();super.onDestroy();}
 }

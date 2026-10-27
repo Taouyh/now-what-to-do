@@ -94,13 +94,13 @@ module.exports = async (scenario, fixture) => {
 
   await check('paused refresh keeps the countdown state and route, and clicking restores the full timer',async(run,_imp,{protocol,reload})=>{
     await run("$('start').click();pauseTimer();page('tasks')");const raw=await run("return __rawGet('activeTimer')");
-    await reload();await floating(run);assert.equal(await run("return __rawGet('activeTimer')"),raw);
+    await reload();await floating(run);assert.equal(await run('return timerState().elapsed'),JSON.parse(raw).elapsed);assert.equal(await run('return timerState().recoveryReason'),'reopen');const recovered=await run("return __rawGet('activeTimer')");
     assert.equal(await run("return !$('floatingPaused').classList.contains('hide')"),true);
     await click(run,protocol,'floatingTimer');await full(run);await reload();await full(run);
-    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return __writes.length'),0);
+    assert.equal(await run("return __rawGet('activeTimer')"),recovered);assert.equal(await run('return __writes.length'),0);
   });
 
-  await check('background return advances time and countdown redraws do not duplicate extensions',async(run,_imp,{background})=>{
+  await check('background return advances bounded time and redraws never add time',async(run,_imp,{background})=>{
     await run("$('start').click();page('tasks')");const before=await run('return remainingMs(timerState())');
     assert.equal(await background(1400),true);assert.ok(before-await run('return remainingMs(timerState())')>=1300);
     await run("let x=timerState();x.lastStarted=Date.now()-x.durationMs-1000;setTimerState(x);advanceTimerIfNeeded(timerState());renderTimer()");

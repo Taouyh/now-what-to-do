@@ -17,13 +17,15 @@
 
 不要只上传 `about/index.html`：它还需要同目录里的样式、语言脚本和 `assets/`。
 
-下载按钮指向 `v1.2.1` 的 Windows EXE 和安卓 APK。发布 Release 时，安装包名字必须与链接一致；以后版本或文件名变了，要一起更新宣传页和三份 README。上传 Release 安装包和发布网页是两件事。
+下载按钮指向 `v1.3.0` 的 Windows EXE 和安卓 APK。发布 Release 时，安装包名字必须与链接一致；以后版本或文件名变了，要一起更新宣传页和三份 README。上传 Release 安装包和发布网页是两件事。
 
 1.2 宣传页新增今天页截图与活动汇总介绍。`about/assets/today-en.png`、`today-zh-CN.png`、`today-ja.png` 由当前应用使用合成数据生成，随宣传页语言切换；三份 README 各引用对应截图。原有视频仍展示从添加活动到开始计时的流程。重新截图可运行 `node tests/browser-data-safety.cjs scripts/capture-today-marketing.cjs --file`。
 
 1.2.1 三份 README 改为图标、产品名、一句话介绍、导航与徽章，再说明功能、安装、使用和隐私。宣传页新增悬停选择说明，开始页和条件截图随语言切换。
 
 `about/assets/start-{language}.png` 和 `conditions-{language}.png` 来自实际应用与合成活动；运行 `node tests/browser-data-safety.cjs scripts/capture-start-marketing.cjs --file` 可重新生成。首次条件全部未选，不展示或读取用户真实记录。
+
+1.3 三语介绍新增下一步、本轮不重复选择和计时恢复。首页截图包含下一步，恢复截图来自实际应用，使用合成计时而非个人记录。重新生成恢复截图可运行 `node tests/browser-data-safety.cjs scripts/capture-recovery-marketing.cjs --file`。
 
 ## 演示
 

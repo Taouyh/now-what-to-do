@@ -62,7 +62,7 @@ test('recommendations do not rewrite activities or invent history',()=>{
  const a=setup([{},{}]),raw=a.values.get('whatToDoData');
  for(let i=0;i<6;i++)a.elements.get('random').click();
  assert.equal(a.values.get('whatToDoData'),raw);assert.equal(a.run('d.completed.length'),0);
- a.elements.get('start').click();a.run('finishTimer();page("home");random();finishTimer()');assert.equal(a.run('d.completed.length'),1);
+ a.run('restartRecommendations()');a.elements.get('start').click();a.run('finishTimer();page("home");random();finishTimer()');assert.equal(a.run('d.completed.length'),1);
 });
 test('manual selection uses current budget while allowing a deliberate resource override',()=>{
  const a=setup([{requirements:{computer:true}}]);assert.equal(a.run('cur'),null);

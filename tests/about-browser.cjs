@@ -58,6 +58,9 @@ app.whenReady().then(async()=>{
           assert.equal(await evaluate(`document.getElementById('${id}').src.includes('${asset}-'+document.documentElement.lang+'.png')`),true,'product screenshot matches language');
         }
         await screenshot(`conditions-${language}-${width}`,'#current-moment');
+        await evaluate('document.querySelector("#timer-recovery").scrollIntoView();document.querySelector("#recoveryShot").decode()');
+        assert.equal(await evaluate('document.querySelector("#recoveryShot").src.includes("recovery-"+document.documentElement.lang+".png")'),true,'recovery screenshot follows the selected language');
+        await screenshot(`recovery-${language}-${width}`,'#timer-recovery');
         await evaluate('document.querySelector("#today-review").scrollIntoView();document.querySelector("#historyShot").decode()');
         assert.equal(await evaluate('document.querySelector("#historyShot").src.includes("today-"+document.documentElement.lang+".png")'),true,'current screenshot follows the selected language');
         await screenshot(`today-${language}-${width}`,'#today-review');
@@ -94,8 +97,11 @@ app.whenReady().then(async()=>{
   await window.loadURL(base);await settled();
   await evaluate(`document.querySelector('#quickName').value='Read a book';document.querySelector('#quickAddForm').requestSubmit();document.querySelector('#start').click();pauseTimer()`);
   const before=await evaluate('[localStorage.getItem("whatToDoData"),localStorage.getItem("activeTimer")]');assert.ok(before.every(Boolean));
-  await window.loadURL(base+'about/');await evaluate(`document.querySelector('[data-lang="zh-CN"]').click();document.querySelector('[data-lang="ja"]').click()`);
-  assert.deepEqual(await evaluate('[localStorage.getItem("whatToDoData"),localStorage.getItem("activeTimer")]'),before,'promotion page leaves activities and timer untouched');
+  await window.loadURL(base+'about/');
+  const frozen=await evaluate('[localStorage.getItem("whatToDoData"),localStorage.getItem("activeTimer")]');
+  assert.equal(frozen[0],before[0]);assert.equal(JSON.parse(frozen[1]).elapsed,JSON.parse(before[1]).elapsed);assert.equal(JSON.parse(frozen[1]).recoveryReason,'reopen','leaving the app saves stopped recovery state');
+  await evaluate(`document.querySelector('[data-lang="zh-CN"]').click();document.querySelector('[data-lang="ja"]').click()`);
+  assert.deepEqual(await evaluate('[localStorage.getItem("whatToDoData"),localStorage.getItem("activeTimer")]'),frozen,'promotion page leaves activities and saved recovery untouched');
   const appLink=await evaluate('document.querySelector(".hero .button").href');assert.equal(appLink,base+'index.html');
   await window.loadURL(appLink);await settled();
   assert.equal(await evaluate('d.tasks[0].name'),'Read a book');assert.equal(await evaluate('document.querySelector("#timer").classList.contains("hide")'),false,'returning to the tool restores the existing timer');

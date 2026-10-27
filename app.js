@@ -20,6 +20,8 @@ function toTimestamp(value){let n=typeof value==='number'?value:Date.parse(value
 // Retain validation of category metadata from earlier v2 backups.
 const LEGACY_ACTIVITY_CATEGORIES=['study','work','life','exercise','other'];
 let activityMenuContext=null;
+let recommendationMenuContext=null,nextStepEditor=null;
+const recommendationSkipped=new Set(),menuCloseTimers=new Map();
 function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:defaultLanguage,conditions:{computer:false,audio:false,speech:false,interrupted:false}},theme:'light'}}
 
 // Keep the v2 keys and unknown user fields. Never seed examples during migration.
@@ -40,6 +42,7 @@ function validateData(x){
     else if(!object(t.requirements)||REQUIREMENT_KEYS.some(k=>t.requirements[k]!==undefined&&typeof t.requirements[k]!=='boolean'))throw Error(tr('活动条件必须为布尔值。'));
     if(t.minutes!==undefined&&(!Number.isFinite(t.minutes)||t.minutes<1||t.minutes>1440)||t.env!==undefined&&!['quiet','noisy','class'].includes(t.env)||t.computer!==undefined&&typeof t.computer!=='boolean')throw Error(tr('旧活动字段无效。'));
     if(t.description!==undefined&&typeof t.description!=='string'||t.enabled!==undefined&&typeof t.enabled!=='boolean')throw Error(tr('任务说明或启用状态无效。'));
+    if(t.nextStep!==undefined&&(typeof t.nextStep!=='string'||t.nextStep.length>200))throw Error(tr('活动下一步无效。'));
     if(t.activityCategory!==undefined&&t.activityCategory!==''&&!LEGACY_ACTIVITY_CATEGORIES.includes(t.activityCategory))throw Error(tr('活动分类无效。'));
     taskIds.add(t.id);
   }
@@ -79,6 +82,7 @@ function downloadText(content,name,type='application/json'){
 }
 function protectData(message){
   closeActivityMenu();
+  closeRecommendationMenu();
   storageBlocked=true;
   let layer=$('dataRecovery');
   if(!layer){
@@ -170,7 +174,7 @@ function persistPreferences(){
   // Custom availability is session-only; keep the existing preset preference format.
   const savedTime=customTime?d.preferences.time:time;
   const changed=Number(d.preferences.time)!==Number(savedTime)||CONDITION_KEYS.some(k=>currentConditions(d.preferences)[k]!==conditions[k]);
-  if(changed){d.preferences={...d.preferences,time:savedTime,conditions:{...conditions}};if(!save())return false}
+  if(changed){d.preferences={...d.preferences,time:savedTime,conditions:{...conditions}};if(!save())return false;recommendationSkipped.clear()}
   syncHomeControls();random({keepCurrent:true});return true;
 }
 function selectHomeCondition(key,value){
@@ -191,6 +195,7 @@ function actionButton(label,action,className,id){
 }
 function page(id,{avoidActivityId=null}={}){
   closeActivityMenu();
+  closeRecommendationMenu();
   clearTodayRecordTimers();
   if(!['home','today','tasks','settings'].includes(id))id='home';
   const session=timerState();
@@ -219,7 +224,7 @@ for(const key of CONDITION_KEYS)$(CONDITION_INPUTS[key]).onchange=()=>selectHome
 function ok(t){const r=activityRequirements(t);return t.enabled!==false&&['computer','audio','speech'].every(k=>!r[k]||conditions[k])}
 function startRecommendation(id){
   let task=d.tasks.find(t=>t.id===id);
-  if(!selectionReady()||!task||cur?.id!==id||!ok(task)){random();return}
+  if(!selectionReady()||!task||cur?.id!==id||!ok(task)||recommendationSkipped.has(id)){random();return}
   run(task);
 }
 let cancelRecommendationReveal=null;
@@ -253,61 +258,113 @@ function revealRecommendation(){
   window.addEventListener('scrollend',ended);timeout=setTimeout(cleanup,1200);cancelRecommendationReveal=cancel;
   window.scrollTo({top:target,left:window.scrollX,behavior:'smooth'});
 }
-function recommendAndReveal(){random();revealRecommendation()}
+function recommendAndReveal(){if(cur&&d.tasks.filter(ok).length<2)return;if(cur)recommendationSkipped.add(cur.id);nextStepEditor=null;random();revealRecommendation()}
+function restartRecommendations(){recommendationSkipped.clear();nextStepEditor=null;random()}
 function random({keepCurrent=false,avoidId=null}={}){
-  cancelRecommendationReveal?.();
+  cancelRecommendationReveal?.();closeRecommendationMenu();
   const empty=!d.tasks.length;
   $('onboarding').classList.toggle('hide',!empty);
   $('homeWorkspace').classList.toggle('hide',empty);
   if(empty){cur=null;$('rec').replaceChildren();$('rec').classList.add('hide');return}
-  if(!selectionReady()){
-    cur=null;
-    if(!d.tasks.length){$('rec').replaceChildren(...emptyTaskGuide('addFirstTask'));$('rec').classList.remove('hide')}
-    else{$('rec').replaceChildren();$('rec').classList.add('hide')}
-    return;
-  }
-  let previousId=avoidId??cur?.id,all=d.tasks.filter(ok);
-  const easyToPause=conditions.interrupted?all.filter(t=>!activityRequirements(t).uninterrupted):[];
-  const candidates=easyToPause.length?easyToPause:all,current=candidates.find(t=>t.id===previousId);
+  if(!selectionReady()){cur=null;$('rec').replaceChildren();$('rec').classList.add('hide');return}
+  const available=d.tasks.filter(ok),eligible=available.filter(t=>!recommendationSkipped.has(t.id));
+  const previousId=avoidId??cur?.id,easy=eligible.filter(t=>!activityRequirements(t).uninterrupted);
+  const candidates=conditions.interrupted&&easy.length?easy:eligible,current=candidates.find(t=>t.id===previousId);
   if(keepCurrent&&current)cur=current;
   else{
-    // An explicit new recommendation prefers another hard-eligible activity.
-    // Interruption is a preference, not a permanent exclusion. An explicit
-    // change can still reach a less interruptible activity after the easy ones.
-    let alternatives=all.length>1?all.filter(t=>t.id!==previousId):all;
-    let easier=conditions.interrupted?alternatives.filter(t=>!activityRequirements(t).uninterrupted):[];
-    let pool=easier.length?easier:alternatives;
-    let doneRecently=new Set(d.completed.filter(c=>Date.now()-new Date(c.completedAt||c.date||0).getTime()<7*86400000).map(c=>c.taskId)),preferred=pool.filter(t=>!doneRecently.has(t.id));
-    if(!preferred.length)preferred=pool;
-    cur=preferred.length?preferred[Math.floor(Math.random()*preferred.length)]:null;
+    const alternatives=eligible.length>1?eligible.filter(t=>t.id!==previousId):eligible;
+    const easier=conditions.interrupted?alternatives.filter(t=>!activityRequirements(t).uninterrupted):[];
+    const pool=easier.length?easier:alternatives;
+    cur=pool.length?pool[Math.floor(Math.random()*pool.length)]:null;
   }
-  let b=$('rec');
+  const b=$('rec');b.classList.remove('is-editing');
   if(!cur){
-    if(!d.tasks.length)b.replaceChildren(...emptyTaskGuide('addFirstTask'));
-    else b.replaceChildren(textElement('p',tr('没有符合当前条件的活动。')),actionButton(tr('调整条件'),()=>{$('timePicker').open=false;$('conditionsPicker').open=true;document.querySelector('#conditionsPicker > summary')?.focus()},'primary'));
-    b.classList.remove('hide');return;
+    nextStepEditor=null;const content=textElement('div','','recommendation-empty');
+    if(available.length){
+      content.append(textElement('h2',tr('这轮先到这里')),textElement('p',tr('暂时没有想做的，也没关系。')),
+        actionButton(tr('自己选一件'),()=>page('tasks'),'primary'),actionButton(tr('重新看看'),restartRecommendations,'quiet-link'));
+    }else{b.replaceChildren(textElement('p',tr('没有符合当前条件的活动。')),actionButton(tr('调整条件'),()=>{$('timePicker').open=false;$('conditionsPicker').open=true;document.querySelector('#conditionsPicker > summary')?.focus()},'primary'));b.classList.remove('hide');return}
+    b.replaceChildren(content);b.classList.remove('hide');return;
   }
-  let actions=textElement('div','','actions');
-  let recommendedId=cur.id;
-  actions.id='recommendationActions';
-  const start=actionButton(tr('开始'),()=>startRecommendation(recommendedId),'primary','start'),play=textElement('span','','play-icon');play.setAttribute('aria-hidden','true');
-  start.replaceChildren(play,textElement('span',tr('开始')));
-  recommendationChange.classList.toggle('hide',all.length<2);
-  actions.append(start,recommendationChange);
+  if(nextStepEditor&&nextStepEditor.taskId!==cur.id)nextStepEditor=null;
+  const id=cur.id,editing=nextStepEditor?.taskId===id;
   const name=textElement('h2',cur.name,'user-text');name.title=cur.name;name.id='recommendedTaskName';
-  b.replaceChildren(name,actions);
-  if(cur.description){const description=textElement('details','','recommendation-details');description.append(textElement('summary',tr('活动说明')),textElement('p',cur.description,'muted user-text'));b.append(description)}
+  const more=actionButton('⋯',null,'recommendation-more','recommendationMore');
+  more.setAttribute('aria-label',tr('{name}，更多操作',{name:cur.name}));more.setAttribute('aria-haspopup','menu');more.setAttribute('aria-controls','recommendationMenu');more.setAttribute('aria-expanded','false');
+  more.onclick=event=>toggleRecommendationMenu(id,more,event?.pointerType==='mouse');
+  bindMenuHover(more,'recommendationMenu',()=>openRecommendationMenu(id,more,false),()=>closeRecommendationMenu(),()=>recommendationMenuContext?.anchor===more);
+  b.replaceChildren(more,name);
+  if(editing){
+    b.classList.add('is-editing');const form=document.createElement('form');form.id='nextStepForm';form.className='next-step-editor';
+    const label=textElement('label',tr('下一步（可选）'));label.setAttribute('for','nextStepInput');
+    const input=document.createElement('input');input.id='nextStepInput';input.type='text';input.maxLength=200;input.value=nextStepEditor.draft;input.placeholder=tr('从哪一小步开始？');input.autocomplete='off';
+    input.oninput=()=>{if(nextStepEditor?.taskId===id)nextStepEditor.draft=input.value};
+    const controls=textElement('div','','next-step-actions');
+    controls.append(actionButton(tr('取消'),cancelNextStep,'quiet-link','cancelNextStep'));
+    const submit=textElement('button',tr('保存'),'primary');submit.type='submit';submit.id='saveNextStep';controls.append(submit);
+    form.append(label,input,controls);form.onsubmit=event=>{event.preventDefault();saveNextStep(id,input.value)};b.append(form);
+  }else{
+    if(cur.nextStep){const step=textElement('div','','recommendation-step');step.append(textElement('p',tr('下一步'),'next-step-label'),textElement('p',cur.nextStep,'next-step-copy user-text'));b.append(step)}
+    const actions=textElement('div','','actions');actions.id='recommendationActions';
+    const begin=actionButton(tr('开始'),()=>startRecommendation(id),'primary','start'),play=textElement('span','','play-icon');play.setAttribute('aria-hidden','true');begin.replaceChildren(play,textElement('span',tr('开始')));
+    recommendationChange.classList.toggle('hide',available.length<2);actions.append(begin,recommendationChange);b.append(actions);
+    if(cur.description){const description=textElement('details','','recommendation-details');description.append(textElement('summary',tr('活动说明')),textElement('p',cur.description,'muted user-text'));b.append(description)}
+  }
   b.classList.remove('hide');
-}recommendationChange.onclick=recommendAndReveal;
+}
+recommendationChange.onclick=recommendAndReveal;
+function editNextStep(id){
+  const task=d.tasks.find(t=>t.id===id);if(!task||cur?.id!==id)return;
+  closeRecommendationMenu();nextStepEditor={taskId:id,draft:task.nextStep||''};random({keepCurrent:true});$('nextStepInput')?.focus({preventScroll:true});
+}
+function cancelNextStep(){nextStepEditor=null;random({keepCurrent:true});$('recommendationMore')?.focus({preventScroll:true})}
+function saveNextStep(id,value){
+  const task=d.tasks.find(t=>t.id===id);if(!task||nextStepEditor?.taskId!==id)return false;
+  const nextStep=value.trim();nextStepEditor.draft=value;
+  if(nextStep.length>200){notify(tr('下一步最多 200 个字符。'));return false}
+  d.tasks=d.tasks.map(t=>t.id===id?{...t,nextStep,updatedAt:new Date().toISOString()}:t);
+  if(!save())return false;
+  nextStepEditor=null;random({keepCurrent:true});$('start')?.focus({preventScroll:true});return true;
+}
+function closeRecommendationMenu({restoreFocus=false}={}){
+  cancelMenuClose('recommendationMenu');const anchor=recommendationMenuContext?.anchor;recommendationMenuContext=null;
+  $('recommendationMenu').classList.add('hide');anchor?.setAttribute('aria-expanded','false');
+  if(restoreFocus&&anchor?.isConnected)anchor.focus({preventScroll:true});
+}
+function openRecommendationMenu(id,anchor,focus=true){
+  if(!anchor.isConnected||cur?.id!==id)return;
+  closeActivityMenu();closeRecommendationMenu();recommendationMenuContext={id,anchor};
+  showSideMenu('recommendationMenu',anchor);if(focus)$('recommendationMenuEdit').focus({preventScroll:true});
+}
+function toggleRecommendationMenu(id,anchor,mouse=false){
+  if(recommendationMenuContext?.anchor===anchor){if(!mouse)closeRecommendationMenu({restoreFocus:true});return}
+  openRecommendationMenu(id,anchor,!mouse);
+}
+$('recommendationMenuEdit').onclick=()=>{const id=recommendationMenuContext?.id;if(id)editNextStep(id)};
+
 function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
-function startTimer(t){if(timerState()){showFullTimer();return}if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;if(!selectionReady()){page('home');$('timePicker').open=true;$('customMinutes').focus({preventScroll:true});notify(tr('请先选择本次可用时间。'));return}primeTimerAudio();let now=Date.now(),plannedMs=time*60000,x={completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:{...t},taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};if(!setTimerState(x))return;timerView='full';renderTimer();startTimerLoop()}
-let timerTick=null,timerAudio=null;
+const TIMER_CHECKPOINT_MS=5000,TIMER_LONG_PAUSE_MS=60*60*1000,TIMER_UNOBSERVED_MS=2*60*1000;
+let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0;
 let timerView='full';
+function createTimerState(t,plannedMs,now=Date.now()){
+  return{timerVersion:2,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:{...t},taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
+}
+function startTimer(t){
+  if(timerState()){showFullTimer();return}
+  if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;
+  if(!selectionReady()){page('home');$('timePicker').open=true;$('customMinutes').focus({preventScroll:true});notify(tr('请先选择本次可用时间。'));return}
+  primeTimerAudio();if(!setTimerState(createTimerState(t,time*60000)))return;
+  clearTimeout(timerPauseWatch);timerView='full';renderTimer();startTimerLoop();
+}
 function primeTimerAudio(){try{if(!timerAudio)timerAudio=new (window.AudioContext||window.webkitAudioContext)();if(timerAudio.state==='suspended')timerAudio.resume()}catch(e){timerAudio=null}}
 function playTimeUpSound(x){if(!x||x.soundPlayed)return;x.soundPlayed=true;if(!setTimerState(x))return;try{primeTimerAudio();if(!timerAudio)return;let now=timerAudio.currentTime+0.03,gain=timerAudio.createGain();gain.gain.setValueAtTime(0.0001,now);gain.gain.linearRampToValueAtTime(0.075,now+0.18);gain.gain.exponentialRampToValueAtTime(0.0001,now+2.2);gain.connect(timerAudio.destination);[523.25,659.25,783.99].forEach((freq,i)=>{let osc=timerAudio.createOscillator();osc.type='sine';osc.frequency.value=freq;osc.connect(gain);osc.start(now+i*0.28);osc.stop(now+i*0.28+1.8)});setTimeout(()=>gain.disconnect(),2600)}catch(e){}}
 function validateTimer(x){
   if(!x||typeof x!=='object'||Array.isArray(x)||typeof x.taskId!=='string'||!x.taskId||!Number.isFinite(x.durationMs)||x.durationMs<=0||!Number.isFinite(x.elapsed)||x.elapsed<0||!Number.isFinite(x.lastStarted)||x.lastStarted<0||typeof x.paused!=='boolean'||typeof x.finished!=='boolean')throw Error(tr('进行中的计时数据无效'));
   if(x.task!==undefined&&(!x.task||typeof x.task!=='object'||typeof x.task.name!=='string'))throw Error(tr('计时任务快照无效'));
+  if(x.timerVersion!==undefined&&x.timerVersion!==2)throw Error(tr('进行中的计时数据无效'));
+  for(const key of ['checkpointAt','stoppedAt','timeUpAt'])if(x[key]!==undefined&&(!Number.isFinite(x[key])||x[key]<0))throw Error(tr('进行中的计时数据无效'));
+  if(x.recoveryReason!==undefined&&!['reopen','long','interrupted','legacy'].includes(x.recoveryReason))throw Error(tr('进行中的计时数据无效'));
+  for(const key of ['resumeAsNew','needsElapsedConfirmation'])if(x[key]!==undefined&&typeof x[key]!=='boolean')throw Error(tr('进行中的计时数据无效'));
   return x;
 }
 function timerState(){
@@ -321,47 +378,136 @@ function setTimerState(x){
   catch(e){storageFailure('activeTimer',e);return false}
 }
 function stopTimerLoop(){if(timerTick){clearInterval(timerTick);timerTick=null}}
-function startTimerLoop(){stopTimerLoop();timerTick=setInterval(()=>{let y=timerState();if(!y){stopTimerLoop();return}if(y.paused||y.finished){stopTimerLoop();renderTimer();return}advanceTimerIfNeeded(y);renderTimer()},250)}
 function plannedDurationMs(x){return Number.isFinite(x.plannedDurationMs)?x.plannedDurationMs:Math.max(0,x.durationMs-(x.extensionDurationMs||0))}
 function extensionStepMs(x){return Math.max(1,Math.round(plannedDurationMs(x)/120000))*60000}
-function activeElapsedMs(x,now=Date.now()){return x.paused||x.finished?x.elapsed:Math.max(0,x.elapsed+Math.max(0,now-x.lastStarted))}
-function advanceTimerIfNeeded(x,now=Date.now()){if(!x||x.paused||x.finished||timerState()?.completionId!==x.completionId)return false;if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return false}let elapsed=activeElapsedMs(x,now);if(elapsed<x.durationMs)return false;let step=extensionStepMs(x),count=Math.floor((elapsed-x.durationMs)/step)+1,added=count*step;x.extensionDurationMs=(x.extensionDurationMs||0)+added;x.durationMs+=added;x.soundPlayed=false;if(!setTimerState(x))return false;playTimeUpSound(x);notify(tr('时间到了，检测到你还没有结束任务，已自动追加 {duration}{details}',{duration:formatDuration(added),details:count>1?tr('（{count} 次，每次 {duration}）',{count,duration:formatDuration(step)}):''}));return true}
-function elapsedMs(x,now=Date.now()){return x.paused||x.finished?x.elapsed:Math.min(x.durationMs,x.elapsed+Math.max(0,now-x.lastStarted))}
+function activeElapsedMs(x,now=Date.now()){return Math.min(x.durationMs,Math.max(0,x.elapsed+(x.paused||x.finished||x.recoveryReason?0:Math.max(0,now-x.lastStarted))))}
+function elapsedMs(x,now=Date.now()){return activeElapsedMs(x,now)}
 function remainingMs(x,now=Date.now()){return Math.max(0,x.durationMs-elapsedMs(x,now))}
 function formatClock(ms){let n=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(n/60),s=n%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function timerTask(x){return x&&(d.tasks.find(t=>t.id===x.taskId)||x.task)}
+function longTimerPause(x,now=Date.now()){
+  const reference=x.recoveryReason?x.stoppedAt:x.finished?x.timeUpAt:x.paused?x.pauseStartedAt:null;
+  return Number.isFinite(reference)&&reference>0&&now-reference>=TIMER_LONG_PAUSE_MS;
+}
+function unobservedTimerGap(x,now=Date.now()){
+  const gap=now-(x.checkpointAt??x.lastStarted);
+  return x.timerVersion===2&&gap>(timerBackgroundAt?TIMER_LONG_PAUSE_MS:TIMER_UNOBSERVED_MS);
+}
+function watchPausedTimer(x){
+  clearTimeout(timerPauseWatch);if(!x||x.recoveryReason||(!x.paused&&!x.finished))return;
+  const reference=x.finished?x.timeUpAt:x.pauseStartedAt;if(!Number.isFinite(reference)||reference<=0)return;
+  timerPauseWatch=setTimeout(()=>{const current=timerState();if(current?.completionId===x.completionId&&longTimerPause(current)){suspendTimer('long',Date.now(),false);renderTimer()}},Math.max(0,reference+TIMER_LONG_PAUSE_MS-Date.now()));
+}
+function suspendTimer(reason='reopen',now=Date.now(),trustCurrent=true){
+  let x=timerState();if(!x)return true;stopTimerLoop();clearTimeout(timerPauseWatch);
+  const already=!!x.recoveryReason,wasLong=longTimerPause(x,now);
+  if(already){if(wasLong&&!x.resumeAsNew){x.resumeAsNew=true;return setTimerState(x)}return true}
+  const legacy=x.timerVersion!==2;
+  if(legacy){x.legacyTimerSnapshot=JSON.parse(JSON.stringify(x));x.needsElapsedConfirmation=(!x.paused&&!x.finished)||x.elapsed>plannedDurationMs(x)}
+  if(x.finished){
+    x.elapsed=Math.min(x.durationMs,x.elapsed);x.stoppedAt=x.timeUpAt??Math.min(now,(x.startedAt||now)+x.elapsed+(x.pausedDurationMs||0));
+  }else if(x.paused){
+    const pauseAt=x.pauseStartedAt||x.checkpointAt||now;
+    if(trustCurrent&&!wasLong){x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-pauseAt);x.stoppedAt=now}
+    else x.stoppedAt=pauseAt;
+  }else{
+    const deadline=x.lastStarted+Math.max(0,x.durationMs-x.elapsed);
+    if(trustCurrent&&!unobservedTimerGap(x,now)){x.elapsed=elapsedMs(x,now);x.stoppedAt=Math.min(now,deadline)}
+    else x.stoppedAt=x.checkpointAt??x.lastStarted??now;
+  }
+  x.timerVersion=2;x.recoveryReason=legacy&&x.needsElapsedConfirmation?'legacy':reason;
+  x.resumeAsNew=reason==='long'||wasLong||now-x.stoppedAt>=TIMER_LONG_PAUSE_MS;
+  x.paused=true;x.lastStarted=0;x.pauseStartedAt=now;x.checkpointAt=now;
+  return setTimerState(x);
+}
+function advanceTimerIfNeeded(x,now=Date.now()){
+  if(!x||x.paused||x.finished||x.recoveryReason||timerState()?.completionId!==x.completionId)return false;
+  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return false}
+  if(unobservedTimerGap(x,now)){suspendTimer('interrupted',now,false);return true}
+  if(elapsedMs(x,now)<x.durationMs)return false;
+  x.timeUpAt=x.lastStarted+Math.max(0,x.durationMs-x.elapsed);x.elapsed=x.durationMs;x.lastStarted=0;x.finished=true;x.checkpointAt=x.timeUpAt;
+  if(!setTimerState(x))return false;
+  stopTimerLoop();watchPausedTimer(x);playTimeUpSound(x);return true;
+}
+function checkpointTimer(force=false,now=Date.now()){
+  const x=timerState();if(!x||x.paused||x.finished||x.recoveryReason)return true;
+  if(advanceTimerIfNeeded(x,now))return !storageFailures.has('activeTimer');
+  if(!force&&now-(x.checkpointAt??x.lastStarted)<TIMER_CHECKPOINT_MS)return true;
+  x.elapsed=elapsedMs(x,now);x.lastStarted=now;x.checkpointAt=now;return setTimerState(x);
+}
+function startTimerLoop(){
+  stopTimerLoop();clearTimeout(timerPauseWatch);
+  timerTick=setInterval(()=>{const x=timerState();if(!x){stopTimerLoop();return}if(x.paused||x.finished||x.recoveryReason){stopTimerLoop();watchPausedTimer(x);renderTimer();return}checkpointTimer();renderTimer()},250);
+}
+function recoveryUsesNewSession(x){return x.resumeAsNew||d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)}
+function renderTimerRecovery(x,t){
+  const asNew=recoveryUsesNewSession(x);
+  $('timerRecoveryName').textContent=t.name;
+  $('timerRecoveryStatus').textContent=tr(asNew?'已暂停很久':x.recoveryReason==='interrupted'?'计时已中断':'等待恢复');
+  $('timerRecoveryLabel').textContent=tr(asNew?'上次已投入':'已投入');
+  $('timerRecoverySpent').textContent=x.needsElapsedConfirmation?'—':formatDuration(x.elapsed);
+  $('timerRecoveryRange').classList.toggle('hide',!asNew||!!x.needsElapsedConfirmation);
+  $('timerRecoveryRange').textContent=formatDateTime(x.startedAt)+' – '+formatDateTime(x.stoppedAt);
+  $('timerRecoveryNote').textContent=tr(x.needsElapsedConfirmation?'旧计时缺少可靠进度，请确认实际用时。':asNew?'接着做时，上次用时会单独记录。新的这一段重新计时。':'离开期间未计入用时。');
+  $('timerRecoveryLegacy').classList.toggle('hide',!x.needsElapsedConfirmation);
+  if($('timerRecovery').dataset.completionId!==x.completionId){$('recoveryMinutes').value=x.needsElapsedConfirmation&&x.elapsed?String(Math.round(x.elapsed/600)/100):'';$('recoveryError').textContent='';$('timerRecovery').dataset.completionId=x.completionId}
+  $('recoverTimer').textContent=tr(asNew?'接着做':'继续本次');
+}
 function renderTimer(){
   let x=timerState();
-  if(!x||d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){
-    $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();syncDialogState();return;
+  if(x&&!x.recoveryReason&&longTimerPause(x)){suspendTimer('long',Date.now(),false);x=timerState()}
+  if(!x||(!x.recoveryReason&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId))){
+    $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();clearTimeout(timerPauseWatch);syncDialogState();return;
   }
-  let t=timerTask(x);if(!t){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
-  let now=Date.now(),left=remainingMs(x,now),plannedMs=plannedDurationMs(x),extensionMs=Number.isFinite(x.extensionDurationMs)?x.extensionDurationMs:0;
+  const t=timerTask(x);if(!t){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
+  const now=Date.now(),recovering=!!x.recoveryReason,left=remainingMs(x,now),extensionMs=x.extensionDurationMs||0;
+  $('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');
+  $('timerStandard').classList.toggle('hide',recovering);$('timerRecovery').classList.toggle('hide',!recovering);
   $('timerName').textContent=t.name;$('timerDesc').textContent=t.description||'';$('timerDescription').classList.toggle('hide',!t.description);
   $('timerClock').textContent=formatClock(left);$('timerProgress').style.width=Math.min(100,elapsedMs(x,now)/x.durationMs*100)+'%';
-  $('timerMeta').textContent=tr('计划 {duration}',{duration:formatDuration(plannedMs)})+(extensionMs?tr(' · 已追加 {duration}',{duration:formatDuration(extensionMs)}):'');
-  $('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');
-  $('floatingClock').textContent=$('timerClock').textContent;
-  $('floatingPaused').classList.toggle('hide',!x.paused);
-  $('floatingTimer').setAttribute('aria-label',tr('{status} {time}，返回开始页的当前计时',{status:x.finished?tr('时间到了'):x.paused?tr('已暂停'):tr('剩余时间'),time:$('timerClock').textContent}));
+  $('timerMeta').textContent=x.finished?tr('本轮已投入 {duration}',{duration:formatDuration(x.elapsed)}):tr('计划 {duration}',{duration:formatDuration(plannedDurationMs(x))})+(extensionMs?tr(' · 已追加 {duration}',{duration:formatDuration(extensionMs)}):'');
+  $('floatingClock').textContent=recovering?formatClock(x.elapsed):$('timerClock').textContent;
+  $('floatingPaused').classList.toggle('hide',!x.paused&&!recovering);
+  $('floatingTimer').setAttribute('aria-label',tr('{status} {time}，返回开始页的当前计时',{status:recovering?tr('等待恢复'):x.finished?tr('时间到了'):x.paused?tr('已暂停'):tr('剩余时间'),time:$('floatingClock').textContent}));
   if(timerView==='floating')positionFloatingTimer();
   $('timerStatus').textContent=x.finished?tr('时间到了'):x.paused?tr('已暂停'):tr('正在专注');
-  let mode=x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions'),focusId=document.activeElement?.id;
-  if(actions.dataset.mode!==mode){
+  const mode=recovering?'recovery':x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions'),focusId=document.activeElement?.id;
+  if(mode==='recovery'){actions.replaceChildren();actions.dataset.mode=mode;renderTimerRecovery(x,t)}
+  else if(actions.dataset.mode!==mode){
     actions.dataset.mode=mode;
     if(mode==='finished'){
-      actions.innerHTML="<button type=\"button\" class=\"primary\" id=\"extendTimer\"><span data-i18n=\"继续\">继续</span></button><button type=\"button\" class=\"outline\" id=\"finishTimer\"><span data-i18n=\"结束\">结束</span></button>";
-      translateStatic(actions);$('extendTimer').textContent=tr('继续 {duration}',{duration:formatDuration(extensionStepMs(x))});$('extendTimer').onclick=extendTimer;$('finishTimer').onclick=()=>finishTimer(x.completionId);
+      actions.innerHTML='<button type="button" class="primary" id="extendTimer"></button><button type="button" class="outline" id="finishTimer"></button>';
+      $('extendTimer').textContent=tr('继续');$('extendTimer').onclick=extendTimer;$('finishTimer').textContent=tr('结束并记录');$('finishTimer').onclick=()=>finishTimer(x.completionId);
     }else{
-      actions.innerHTML="<button type=\"button\" class=\"primary\" id=\"pauseTimer\"><span data-i18n=\"暂停\">暂停</span></button><button type=\"button\" class=\"outline\" id=\"earlyTimer\"><span data-i18n=\"结束\">结束</span></button>";
-      translateStatic(actions);$('pauseTimer').textContent=x.paused?tr('继续'):tr('暂停');$('pauseTimer').onclick=()=>{let y=timerState();if(!y)return;y.paused?resumeTimer():pauseTimer()};$('earlyTimer').onclick=()=>finishTimer(x.completionId);
+      actions.innerHTML='<button type="button" class="primary" id="pauseTimer"></button><button type="button" class="outline" id="earlyTimer"></button>';
+      $('pauseTimer').textContent=x.paused?tr('继续'):tr('暂停');$('pauseTimer').onclick=()=>{const y=timerState();if(!y)return;y.paused?resumeTimer():pauseTimer()};$('earlyTimer').textContent=tr('结束');$('earlyTimer').onclick=()=>finishTimer(x.completionId);
     }
     if(['pauseTimer','earlyTimer','finishTimer','extendTimer'].includes(focusId))$(focusId)?.focus({preventScroll:true});
   }
+  $('timerWaitingNote').classList.toggle('hide',!x.finished||recovering);
   syncDialogState();
 }
+function confirmRecoveryElapsed(x){
+  if(!x.needsElapsedConfirmation)return x;
+  const raw=$('recoveryMinutes').value.trim(),minutes=Number(raw);
+  if(!raw||!Number.isFinite(minutes)||minutes<0||minutes>1440){$('recoveryError').textContent=tr('请输入 0–1440 分钟的实际用时。');$('recoveryMinutes').focus();return null}
+  x.elapsed=Math.round(minutes*60000);x.plannedDurationMs=plannedDurationMs(x);x.durationMs=Math.max(x.plannedDurationMs,x.elapsed);x.extensionDurationMs=Math.max(0,x.durationMs-x.plannedDurationMs);x.needsElapsedConfirmation=false;
+  x.stoppedAt=Math.max(x.stoppedAt||0,Math.min(Date.now(),(x.startedAt||Date.now())+x.elapsed+(x.pausedDurationMs||0)));return x;
+}
+function resumeRecoveredTimer(){
+  let x=timerState();if(!x?.recoveryReason)return false;
+  if(longTimerPause(x))x.resumeAsNew=true;
+  x=confirmRecoveryElapsed(x);if(!x)return false;
+  if(recoveryUsesNewSession(x))return finishTimer(x.completionId,{restart:true,confirmedState:x});
+  const now=Date.now();delete x.recoveryReason;x.paused=false;x.pauseStartedAt=0;x.lastStarted=now;x.checkpointAt=now;
+  if(x.elapsed>=x.durationMs){x.finished=true;x.timeUpAt=x.stoppedAt;if(!setTimerState(x))return false;extendTimer();return true}
+  x.finished=false;if(!setTimerState(x))return false;primeTimerAudio();renderTimer();startTimerLoop();return true;
+}
+$('recoverTimer').onclick=resumeRecoveredTimer;
+$('discardRecoveryTimer').onclick=()=>{if(timerState()?.recoveryReason)giveUpTimer()};
+$('finishRecoveryTimer').onclick=()=>{const x=timerState();if(x?.recoveryReason)finishTimer(x.completionId)};
 
-function showFullTimer(){timerView='full';renderTimer();($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
+function showFullTimer(){timerView='full';renderTimer();const x=timerState();(x?.recoveryReason?$('recoverTimer'):x?.finished?$('extendTimer'):$('pauseTimer'))?.focus({preventScroll:true})}
 function positionFloatingTimer(){
   const box=$('floatingTimer');if(box.classList.contains('hide'))return;
   const viewport=window.visualViewport||{width:window.innerWidth,height:window.innerHeight,offsetLeft:0,offsetTop:0};
@@ -381,10 +527,21 @@ function setupFloatingTimer(){
 }
 function discardTimer(){
   if(!setTimerState(null))return;
-  closeConfirm();stopTimerLoop();cur=null;renderTimer();page('home');
+  closeConfirm();stopTimerLoop();clearTimeout(timerPauseWatch);cur=null;renderTimer();page('home');
 }
-function pauseTimer(){let x=timerState();if(!x||x.finished)return;if(!x.paused){let now=Date.now();advanceTimerIfNeeded(x,now);x=timerState();if(!x||x.finished)return;x.elapsed=elapsedMs(x,now);x.paused=true;x.pauseStartedAt=now;x.lastStarted=0;if(!setTimerState(x))return;stopTimerLoop();renderTimer()}}
-function resumeTimer(){let x=timerState();if(!x||x.finished)return;if(!x.paused)return;let now=Date.now();if(Number.isFinite(x.pauseStartedAt))x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-x.pauseStartedAt);x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;if(!setTimerState(x))return;renderTimer();startTimerLoop()}
+function pauseTimer(){
+  let x=timerState();if(!x||x.finished||x.recoveryReason||x.paused)return;
+  const now=Date.now();advanceTimerIfNeeded(x,now);x=timerState();if(!x||x.finished||x.recoveryReason)return;
+  x.elapsed=elapsedMs(x,now);x.paused=true;x.pauseStartedAt=now;x.lastStarted=0;x.checkpointAt=now;
+  if(!setTimerState(x))return;stopTimerLoop();watchPausedTimer(x);renderTimer();
+}
+function resumeTimer(){
+  let x=timerState();if(!x||x.finished||!x.paused||x.recoveryReason)return;
+  const now=Date.now();if(longTimerPause(x,now)){suspendTimer('long',now,false);renderTimer();return}
+  if(x.pauseStartedAt>0)x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-x.pauseStartedAt);
+  x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;x.checkpointAt=now;if(!setTimerState(x))return;
+  clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
+}
 function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide');syncDialogState();restoreDialogFocus('confirmLayer')}
 function giveUpTimer(){openConfirm('giveup')}
 function openConfirm(type,id){
@@ -396,43 +553,57 @@ function openConfirm(type,id){
   $('confirmText').textContent=isDelete?tr('删除后任务将不再出现在任务库中，已有学习记录仍会保留。建议先导出数据备份。'):type==='early'?tr('确认后记录本次实际用时，任务仍会保留，可以再次执行。'):type==='import'?tr('导入前已校验备份结构；现有任务、完成记录、偏好、主题及其他主数据将被替换，兼容保留的旧目标数据也将被替换。当前活动计时保持不变，不随备份导入。'):tr('当前计时不会计入完成记录，任务仍会保留。');
   $('confirmTaskName').textContent=type==='import'?tr('备份数据将替换当前本地数据。'):task?.name||'';
   $('confirmTaskDesc').textContent=task?.description||'';
-  $('confirmCancel').textContent=isDelete||type==='import'?tr('取消'):tr('继续计时');
+  $('confirmCancel').textContent=isDelete||type==='import'||type==='giveup'&&timerState()?.recoveryReason?tr('取消'):tr('继续计时');
   $('confirmAccept').textContent=isDelete?tr('删除任务'):type==='early'?tr('✓ 完成本次执行'):type==='import'?tr('确认导入'):tr('放弃本次执行');
   $('confirmAccept').className=isDelete||type==='giveup'?'danger':'primary';
   $('confirmAccept').onclick=isDelete?()=>{d.tasks=d.tasks.filter(t=>t.id!==id);if(!save())return;closeConfirm();tasks();random({keepCurrent:true})}:type==='early'?()=>{closeConfirm();finishTimer()}:type==='import'?applyImport:discardTimer;
   $('confirmCancel').onclick=closeConfirm;$('confirmLayer').classList.remove('hide');syncDialogState();$('confirmCancel').focus();
 }
 function confirmEarly(){return finishTimer()}
-function finishTimer(expectedCompletionId){
-  const x=timerState();
+function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}){
+  let x=timerState();
   if(!x||(expectedCompletionId!==undefined&&x.completionId!==expectedCompletionId))return false;
+  if(!x.recoveryReason&&(longTimerPause(x)||(!x.paused&&!x.finished&&unobservedTimerGap(x)))){if(!suspendTimer(longTimerPause(x)?'long':'interrupted',Date.now(),false))return false;x=timerState()}
+  if(confirmedState&&confirmedState.completionId===x.completionId)x=confirmedState;
+  x=confirmRecoveryElapsed(x);if(!x)return false;
+  const task=timerTask(x),nextTask=restart?d.tasks.find(t=>t.id===x.taskId&&t.enabled!==false):null;
+  if(!task){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return false}
+  if(restart&&!nextTask){notify(tr('这项活动已不存在，请结束并记录。'));return false}
   let record=d.completed.find(c=>(c.completionId||c.recordId)===x.completionId);
   if(!record){
-    const t=timerTask(x);
-    if(!t){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return false}
-    const endedAt=Date.now(),actualMs=elapsedMs(x,endedAt);
-    const pausedMs=(x.pausedDurationMs||0)+(x.paused&&Number.isFinite(x.pauseStartedAt)?Math.max(0,endedAt-x.pauseStartedAt):0);
-    const plannedMs=plannedDurationMs(x),extensionMs=Number.isFinite(x.extensionDurationMs)?x.extensionDurationMs:0;
-    const goalId=x.goalId||x.task?.goalId||t.goalId;
-    const actual=Math.round(actualMs/600)/100,now=new Date(endedAt).toISOString();
-    record={recordId:x.completionId,completionId:x.completionId,taskId:x.taskId,taskName:x.taskName||x.task?.name||t.name,
-      goalId,goalName:x.goalName||gn(goalId)?.name||'',
-      startedAt:Number.isFinite(x.startedAt)?x.startedAt:null,endedAt,completedAt:now,date:now,
+    const now=Date.now(),actualMs=elapsedMs(x,now);
+    const boundary=x.recoveryReason?x.stoppedAt:x.finished?(x.timeUpAt??x.checkpointAt):!x.paused&&actualMs>=x.durationMs?x.lastStarted+Math.max(0,x.durationMs-x.elapsed):now;
+    const endedAt=Math.max(x.startedAt||0,Number.isFinite(boundary)?boundary:now);
+    const pausedMs=(x.pausedDurationMs||0)+(!x.recoveryReason&&!x.finished&&x.paused&&x.pauseStartedAt>0?Math.max(0,endedAt-x.pauseStartedAt):0);
+    const plannedMs=plannedDurationMs(x),extensionMs=x.extensionDurationMs||0,goalId=x.goalId||x.task?.goalId||task.goalId;
+    const actual=Math.round(actualMs/600)/100,stamp=new Date(endedAt).toISOString();
+    record={recordId:x.completionId,completionId:x.completionId,taskId:x.taskId,taskName:x.taskName||x.task?.name||task.name,
+      goalId,goalName:x.goalName||gn(goalId)?.name||'',startedAt:Number.isFinite(x.startedAt)?x.startedAt:null,endedAt,completedAt:stamp,date:stamp,
       plannedDuration:plannedMs/60000,actualDurationMs:actualMs,actualDuration:actual,minutes:actual,
       pausedDurationMs:pausedMs,extensionDurationMs:extensionMs,extensionDuration:extensionMs/60000};
-    d.completed.push(record);
-    if(!save())return false;
+    if(x.legacyTimerSnapshot)record.timerRecoveryOriginal=x.legacyTimerSnapshot;
+    d.completed.push(record);if(!save())return false;
   }
-  // A saved completion may remain after a failed timer cleanup. Retry cleanup
-  // without appending a second record, changing its duration or starting a task.
-  stopTimerLoop();
+  stopTimerLoop();clearTimeout(timerPauseWatch);
+  // The history commit is idempotent. Replacing the active state is a second
+  // atomic write; if it fails, retry never appends the old segment twice.
+  if(restart){
+    const plannedMs=selectionReady()?time*60000:plannedDurationMs(x);
+    if(!setTimerState(createTimerState(nextTask,plannedMs))){renderTimer();return false}
+    cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
+  }
   if(!setTimerState(null)){renderTimer();return false}
-  cur=null;renderTimer();page('home',{avoidActivityId:x.taskId});
-  notify(tr('已记录 {duration}',{duration:formatDuration(recordDurationMs(record))}));
-  $('start')?.focus({preventScroll:true});
-  return true;
+  cur=null;recommendationSkipped.clear();nextStepEditor=null;renderTimer();page('home',{avoidActivityId:x.taskId});
+  notify(tr('已记录 {duration}',{duration:formatDuration(recordDurationMs(record))}));$('start')?.focus({preventScroll:true});return true;
 }
-function extendTimer(){let x=timerState();if(!x)return;let now=Date.now(),extensionMs=extensionStepMs(x);x.plannedDurationMs=plannedDurationMs(x);x.extensionDurationMs=(x.extensionDurationMs||0)+extensionMs;x.durationMs=x.plannedDurationMs+x.extensionDurationMs;x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;if(!setTimerState(x))return;renderTimer();startTimerLoop()}
+
+function extendTimer(){
+  let x=timerState();if(!x||!x.finished||x.recoveryReason)return;
+  if(longTimerPause(x)){suspendTimer('long',Date.now(),false);renderTimer();return}
+  const now=Date.now(),extensionMs=extensionStepMs(x);x.plannedDurationMs=plannedDurationMs(x);x.extensionDurationMs=(x.extensionDurationMs||0)+extensionMs;x.durationMs=x.plannedDurationMs+x.extensionDurationMs;
+  x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
+  if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
+}
 function notify(message){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),3200)}
 function validateImport(x){return migrateData(x)}
 function applyImport(){
@@ -443,7 +614,7 @@ function applyImport(){
   // A single Storage write commits the whole main document. Do not touch activeTimer.
   if(!save(candidate))return;
   try{
-    d=candidate;syncRuntimePreferences();page('home');closeConfirm();notify(tr('备份数据已导入。'));
+    d=candidate;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences();page('home');closeConfirm();notify(tr('备份数据已导入。'));
   }catch(e){
     d=previousData;dataSnapshot=previousSnapshot;
     try{
@@ -482,14 +653,36 @@ function saveActivity({id='',name,requirements={computer:false,audio:false,speec
 }
 $('form').addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();saveActivity({id:$('tid').value,name:$('name').value,requirements:{computer:$('computer').checked,audio:$('requiresAudio').checked,speech:$('requiresSpeech').checked,uninterrupted:$('requiresUninterrupted').checked},description:$('desc').value})},true);
 $('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivity({name:$('quickName').value})){$('quickName').value='';$('start')?.focus({preventScroll:true})}});
-function restoreTimer(){let x=timerState();if(!x)return;if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}if(x.completionId&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return}if(!x.completionId)x.completionId='legacy-'+x.taskId+'-'+x.lastStarted;if(!Number.isFinite(x.extensionDurationMs))x.extensionDurationMs=0;if(!Number.isFinite(x.plannedDurationMs))x.plannedDurationMs=Math.max(0,x.durationMs-x.extensionDurationMs);if(JSON.stringify(x)!==originalTimer&&!setTimerState(x)){renderTimer();return}if(!x.finished&&!x.paused)advanceTimerIfNeeded(x);renderTimer();if(!x.finished&&!x.paused)startTimerLoop()}document.addEventListener('visibilitychange',()=>{if(!document.hidden){let x=timerState();if(x&&!x.paused&&!x.finished)advanceTimerIfNeeded(x);renderTimer()}});
+function restoreTimer(){
+  const x=timerState();if(!x)return;
+  if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
+  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return}
+  if(x.timerVersion===2&&x.finished&&!x.recoveryReason&&!longTimerPause(x)){renderTimer();watchPausedTimer(x);return}
+  suspendTimer('reopen',Date.now(),false);renderTimer();
+}
+function nativeTimerLifecycle(event){
+  if(storageBlocked)return false;
+  if(event==='close'||event==='sleep'){const result=suspendTimer(event==='sleep'?'interrupted':'reopen');renderTimer();return result}
+  if(event==='background'){const result=checkpointTimer(true);timerBackgroundAt=Date.now();return result}
+  if(event==='checkpoint')return checkpointTimer(true);
+  if(event==='resume'){
+    const x=timerState();if(x&&!x.recoveryReason){if(longTimerPause(x))suspendTimer('long',Date.now(),false);else checkpointTimer(true)}
+    timerBackgroundAt=0;renderTimer();return true;
+  }
+  return false;
+}
+document.addEventListener('visibilitychange',()=>nativeTimerLifecycle(document.hidden?'background':'resume'));
+document.addEventListener('freeze',()=>nativeTimerLifecycle('sleep'));
+window.addEventListener('pagehide',()=>nativeTimerLifecycle('close'));
+window.addEventListener('pageshow',event=>{if(event.persisted)nativeTimerLifecycle('resume')});
+
 function tasks(){
   closeActivityMenu();
   const hasActivities=d.tasks.some(t=>t.enabled!==false);
   if(!hasActivities)setActivitySearch(false,{render:false});
   const query=$('taskSearch').value.trim().toLocaleLowerCase();
   $('toggleActivitySearch').classList.toggle('hide',!hasActivities);
-  let a=d.tasks.filter(t=>t.enabled!==false&&(!query||(t.name+' '+(t.description||'')).toLocaleLowerCase().includes(query)));
+  let a=d.tasks.filter(t=>t.enabled!==false&&(!query||(t.name+' '+(t.description||'')+' '+(t.nextStep||'')).toLocaleLowerCase().includes(query)));
   const expanded=new Set([...document.querySelectorAll('#taskList details[open]')].map(el=>el.dataset.taskId));
   let cards=a.map((t,i)=>{
     let card=textElement('details','','activity-item'),summary=document.createElement('summary'),content=textElement('div','','activity-content'),meta=textElement('div','','meta');
@@ -502,37 +695,59 @@ function tasks(){
     for(let [action,title] of [['start',tr('开始')],['more','⋯']]){
       let button=textElement('button','','activity-action activity-action-'+action);button.type='button';button.dataset.taskAction=action;button.dataset.taskIndex=String(i);
       if(action==='start'){const play=textElement('span','▶','activity-play');play.setAttribute('aria-hidden','true');button.append(play,textElement('span',title));button.setAttribute('aria-label',tr('开始：{name}',{name:t.name}))}
-      else{button.textContent=title;button.setAttribute('aria-label',tr('{name}，更多操作',{name:t.name}));button.setAttribute('aria-haspopup','menu');button.setAttribute('aria-controls','activityMenu');button.setAttribute('aria-expanded','false')}
+      else{button.textContent=title;button.setAttribute('aria-label',tr('{name}，更多操作',{name:t.name}));button.setAttribute('aria-haspopup','menu');button.setAttribute('aria-controls','activityMenu');button.setAttribute('aria-expanded','false');bindMenuHover(button,'activityMenu',()=>openActivityMenu(t,button,false),()=>closeActivityMenu(),()=>activityMenuContext?.anchor===button)}
       summary.append(button);
     }
-    if(meta.children.length)content.append(meta);if(t.description)content.append(textElement('p',t.description,'user-text'));if(!content.children.length)content.append(textElement('p',tr('未添加说明'),'muted'));card.append(summary,content);return card;
+    if(meta.children.length)content.append(meta);if(t.nextStep)content.append(textElement('p',tr('下一步：{step}',{step:t.nextStep}),'user-text'));if(t.description)content.append(textElement('p',t.description,'user-text'));if(!content.children.length)content.append(textElement('p',tr('未添加说明'),'muted'));card.append(summary,content);return card;
   });
   if(cards.length)$('taskList').replaceChildren(...cards);
   else{const empty=textElement('div','','empty-state');empty.append(...(d.tasks.length?[textElement('p',tr('没有找到这项活动。'),'muted'),actionButton(tr('显示全部活动'),()=>setActivitySearch(false,{restoreFocus:true}),'secondary'),actionButton(tr('添加活动'),()=>newTask(),'primary')]:emptyTaskGuide('addLibraryTask')));$('taskList').replaceChildren(empty)}
-  $('taskList').onclick=e=>{let button=e.target.closest?.('button[data-task-action]');if(!button||!$('taskList').contains(button))return;e.preventDefault();let t=a[Number(button.dataset.taskIndex)];if(!t)return;if(button.dataset.taskAction==='start'){closeActivityMenu();run(t)}else toggleActivityMenu(t,button)};
+  $('taskList').onclick=e=>{let button=e.target.closest?.('button[data-task-action]');if(!button||!$('taskList').contains(button))return;e.preventDefault();let t=a[Number(button.dataset.taskIndex)];if(!t)return;if(button.dataset.taskAction==='start'){closeActivityMenu();run(t)}else toggleActivityMenu(t,button,e.pointerType==='mouse')};
+}
+function cancelMenuClose(id){clearTimeout(menuCloseTimers.get(id));menuCloseTimers.delete(id)}
+function bindMenuHover(anchor,id,open,close,isCurrent){
+  const panel=$(id);
+  anchor.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse')cancelMenuClose(id)});
+  // Actual movement opens the menu; closing a dialog under a stationary cursor
+  // must not undo Escape or Tab dismissal by generating a new pointerenter.
+  anchor.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'){cancelMenuClose(id);if(!isCurrent())open()}});
+  anchor.addEventListener('pointerleave',event=>{
+    if(event.pointerType!=='mouse'||!isCurrent()||panel.contains(event.relatedTarget))return;
+    cancelMenuClose(id);menuCloseTimers.set(id,setTimeout(()=>{if(isCurrent()&&!anchor.matches(':hover')&&!panel.matches(':hover'))close()},160));
+  });
+}
+function placeSideMenu(id,anchor){
+  const menu=$(id),r=anchor.getBoundingClientRect(),view=window.visualViewport;
+  const left=view?.offsetLeft||0,top=view?.offsetTop||0,right=left+(view?.width||window.innerWidth),bottom=top+(view?.height||window.innerHeight);
+  if(!anchor.isConnected||r.bottom<top||r.top>bottom)return false;
+  menu.style.left=left+'px';menu.style.top=top+'px';menu.style.maxHeight=Math.max(60,bottom-top-16)+'px';
+  const box=menu.getBoundingClientRect(),gap=8;
+  const fitsRight=r.right+gap+box.width<=right-8,fitsLeft=r.left-gap-box.width>=left+8;
+  const x=fitsRight?r.right+gap:fitsLeft?r.left-gap-box.width:Math.max(left+8,Math.min(right-box.width-8,r.right-box.width));
+  menu.style.left=x+'px';menu.style.top=Math.max(top+8,Math.min(bottom-box.height-8,r.top))+'px';
+  menu.dataset.placement=fitsRight?'right':fitsLeft?'left':'inside';return true;
+}
+function showSideMenu(id,anchor){
+  for(const picker of ['timePicker','conditionsPicker'])$(picker).open=false;
+  const panel=$(id);panel.style.visibility='hidden';panel.classList.remove('hide');anchor.setAttribute('aria-expanded','true');
+  placeSideMenu(id,anchor);panel.style.visibility='';
 }
 function closeActivityMenu({restoreFocus=false}={}){
-  const anchor=activityMenuContext?.anchor;activityMenuContext=null;
+  cancelMenuClose('activityMenu');const anchor=activityMenuContext?.anchor;activityMenuContext=null;
   $('activityMenu').classList.add('hide');anchor?.setAttribute('aria-expanded','false');
   if(restoreFocus&&anchor?.isConnected)anchor.focus({preventScroll:true});
 }
-function toggleActivityMenu(task,anchor){
-  if(activityMenuContext?.anchor===anchor){closeActivityMenu({restoreFocus:true});return}
-  closeActivityMenu();activityMenuContext={id:task.id,anchor};
-  anchor.setAttribute('aria-expanded','true');$('activityMenu').classList.remove('hide');
-  placeActivityMenu();
-  $('activityMenuEdit').focus({preventScroll:true});
+function openActivityMenu(task,anchor,focus=true){
+  if(!anchor.isConnected||!d.tasks.some(t=>t.id===task.id&&t.enabled!==false))return;
+  closeRecommendationMenu();closeActivityMenu();activityMenuContext={id:task.id,anchor};
+  showSideMenu('activityMenu',anchor);if(focus)$('activityMenuEdit').focus({preventScroll:true});
 }
-function placeActivityMenu(){
-  if(!activityMenuContext)return;
-  const {anchor}=activityMenuContext,menu=$('activityMenu'),r=anchor.getBoundingClientRect(),view=window.visualViewport;
-  const left=view?.offsetLeft||0,top=view?.offsetTop||0,right=left+(view?.width||window.innerWidth),bottom=top+(view?.height||window.innerHeight);
-  if(!anchor.isConnected||r.bottom<top||r.top>bottom){closeActivityMenu();return}
-  // Clear a previous position before measuring, including after a viewport change.
-  menu.style.left=left+'px';menu.style.top=top+'px';const box=menu.getBoundingClientRect();
-  menu.style.left=Math.max(left+8,Math.min(right-box.width-8,r.right-box.width))+'px';
-  menu.style.top=Math.max(top+8,Math.min(bottom-box.height-8,r.bottom+6+box.height>bottom-8?r.top-box.height-6:r.bottom+6))+'px';
+function toggleActivityMenu(task,anchor,mouse=false){
+  if(activityMenuContext?.anchor===anchor){if(!mouse)closeActivityMenu({restoreFocus:true});return}
+  openActivityMenu(task,anchor,!mouse);
 }
+function placeActivityMenu(){if(activityMenuContext&&!placeSideMenu('activityMenu',activityMenuContext.anchor))closeActivityMenu()}
+function placeRecommendationMenu(){if(recommendationMenuContext&&!placeSideMenu('recommendationMenu',recommendationMenuContext.anchor))closeRecommendationMenu()}
 function activityMenuAction(action){
   const task=d.tasks.find(t=>t.id===activityMenuContext?.id&&t.enabled!==false);
   closeActivityMenu({restoreFocus:true});if(!task)return;
@@ -540,15 +755,23 @@ function activityMenuAction(action){
 }
 $('activityMenuEdit').onclick=()=>activityMenuAction('edit');
 $('activityMenuDelete').onclick=()=>activityMenuAction('delete');
-$('activityMenu').addEventListener('keydown',e=>{
-  if(['ArrowDown','ArrowUp','Home','End'].includes(e.key)){
-    e.preventDefault();const items=[$('activityMenuEdit'),$('activityMenuDelete')],index=items.indexOf(document.activeElement);
-    items[e.key==='Home'?0:e.key==='End'?1:(index+1)%2].focus();
-  }else if(e.key==='Tab'){
-    // Continue the normal tab order from the originating row.
-    closeActivityMenu({restoreFocus:true});
-  }
-});
+for(const [id,context,close,items] of [
+  ['activityMenu',()=>activityMenuContext,closeActivityMenu,['activityMenuEdit','activityMenuDelete']],
+  ['recommendationMenu',()=>recommendationMenuContext,closeRecommendationMenu,['recommendationMenuEdit']]
+]){
+  const panel=$(id);
+  panel.addEventListener('pointerenter',()=>cancelMenuClose(id));
+  panel.addEventListener('pointerleave',event=>{
+    const anchor=context()?.anchor;if(event.pointerType==='mouse'&&anchor&&!anchor.contains(event.relatedTarget)){cancelMenuClose(id);close({restoreFocus:panel.contains(document.activeElement)})}
+  });
+  panel.addEventListener('keydown',event=>{
+    if(['ArrowDown','ArrowUp','Home','End'].includes(event.key)){
+      event.preventDefault();const buttons=items.map($),index=buttons.indexOf(document.activeElement);
+      buttons[event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length].focus();
+    }else if(event.key==='Tab')close({restoreFocus:true});
+  });
+}
+
 $('taskSearch').oninput=tasks;
 function setActivitySearch(open,{restoreFocus=false,render=true}={}){
   closeActivityMenu();$('librarySearch').classList.toggle('hide',!open);
@@ -692,7 +915,7 @@ function syncDialogState(){
   if(storageBlocked)return;
   const confirmOpen=!$('confirmLayer').classList.contains('hide'),modalOpen=!$('modal').classList.contains('hide');
   const timerFull=!$('timer').classList.contains('hide');
-  if(confirmOpen||modalOpen||timerFull)closeActivityMenu();
+  if(confirmOpen||modalOpen||timerFull){closeActivityMenu();closeRecommendationMenu()}
   document.querySelectorAll('header, main, #timer, #floatingTimer').forEach(el=>el.inert=confirmOpen||modalOpen||(timerFull&&el.tagName==='MAIN'));
   $('modal').inert=confirmOpen;
 }
@@ -734,17 +957,19 @@ function setupMinimalInteractions(){
   window.addEventListener('resize',()=>pickers.forEach(placeConditions));
   window.addEventListener('scroll',()=>pickers.forEach(placeConditions),{passive:true});
   document.addEventListener('pointerdown',e=>{for(const id of pickers)if(!$(id).contains(e.target))$(id).open=false});
-  document.addEventListener('pointerdown',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&!activityMenuContext.anchor.contains(e.target))closeActivityMenu()});
-  document.addEventListener('focusin',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&e.target!==activityMenuContext.anchor)closeActivityMenu()});
-  window.addEventListener('resize',placeActivityMenu);
-  window.addEventListener('scroll',placeActivityMenu,{passive:true});
-  window.visualViewport?.addEventListener('resize',placeActivityMenu);
-  window.visualViewport?.addEventListener('scroll',placeActivityMenu);
+  document.addEventListener('pointerdown',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&!activityMenuContext.anchor.contains(e.target))closeActivityMenu();if(recommendationMenuContext&&!$('recommendationMenu').contains(e.target)&&!recommendationMenuContext.anchor.contains(e.target))closeRecommendationMenu()});
+  document.addEventListener('focusin',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&e.target!==activityMenuContext.anchor)closeActivityMenu();if(recommendationMenuContext&&!$('recommendationMenu').contains(e.target)&&e.target!==recommendationMenuContext.anchor)closeRecommendationMenu()});
+  window.addEventListener('resize',()=>{placeActivityMenu();placeRecommendationMenu()});
+  window.addEventListener('scroll',()=>{placeActivityMenu();placeRecommendationMenu()},{passive:true});
+  window.visualViewport?.addEventListener('resize',()=>{placeActivityMenu();placeRecommendationMenu()});
+  window.visualViewport?.addEventListener('scroll',()=>{placeActivityMenu();placeRecommendationMenu()});
   document.addEventListener('keydown',e=>{
     const active=!$('confirmLayer').classList.contains('hide')?'confirmLayer':!$('modal').classList.contains('hide')?'modal':null;
     if(e.key==='Escape'){
       if(active){e.preventDefault();active==='modal'?closeActivity():closeConfirm();return}
       if(activityMenuContext){e.preventDefault();closeActivityMenu({restoreFocus:true});return}
+      if(recommendationMenuContext){e.preventDefault();closeRecommendationMenu({restoreFocus:true});return}
+      if(nextStepEditor&&$('nextStepForm')?.contains(e.target)){e.preventDefault();cancelNextStep();return}
       if(!$('librarySearch').classList.contains('hide')){e.preventDefault();setActivitySearch(false,{restoreFocus:true});return}
       for(const id of pickers)if($(id).open){e.preventDefault();$(id).open=false;document.querySelector('#'+id+' > summary')?.focus()}
     }

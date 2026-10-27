@@ -32,8 +32,8 @@ test('countdown returns home for pause and resume while reload preserves the exi
   assert.equal(app.elements.get('pauseTimer').textContent, '继续');
   const again = boot(Object.fromEntries(app.values)); assert.ifError(again.error);
   assert.equal(hidden(again, 'timer'), false); assert.equal(hidden(again, 'floatingTimer'), true);
-  assert.equal(again.values.get('activeTimer'), paused); assert.equal(again.intervals.size, 0);
-  again.run('page("tasks")'); again.elements.get('floatingTimer').click(); again.elements.get('pauseTimer').click();
+  assert.equal(again.run('timerState().elapsed'),JSON.parse(paused).elapsed);assert.equal(again.run('timerState().recoveryReason'),'reopen'); assert.equal(again.intervals.size, 0);
+  again.run('page("tasks")'); again.elements.get('floatingTimer').click(); again.elements.get('recoverTimer').click();
   assert.equal(again.run('timerState().paused'), false); assert.equal(again.intervals.size, 1);
   again.run('page("tasks")');assert.equal(hidden(again,'floatingPaused'),true);
 });
@@ -106,11 +106,11 @@ test('failed direct completion preserves timing and retry records once before ch
   assert.equal(other.run('location.hash.replace(/^#/,"")'),'home');
 });
 
-test('floating redraws do not repeat automatic extensions or create records', () => {
+test('floating redraws keep an expired timer stopped without adding time or records', () => {
   const app = start(); app.run('page("tasks");let x=timerState();x.lastStarted=Date.now()-x.durationMs-1000;setTimerState(x);advanceTimerIfNeeded(timerState())');
   const raw = app.values.get('activeTimer');
   for (let i = 0; i < 8; i++) app.run('renderTimer();showFullTimer();page("today");advanceTimerIfNeeded(timerState())');
   assert.equal(app.values.get('activeTimer'), raw); assert.equal(app.json('d.completed').length, 0);
   assert.equal(app.elements.get('timerClock').textContent, app.elements.get('floatingClock').textContent);
-  assert.equal(app.intervals.size, 1);
+  assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().extensionDurationMs'),0);assert.equal(app.intervals.size, 0);
 });

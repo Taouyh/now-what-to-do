@@ -19,9 +19,11 @@
 ## できること
 
 - **迷ったら、ひとつ。** 読書、絵、語学などを登録。提案から選んだり、別の候補や自分の一覧から選べます。
+- **次の一歩が見える。** 「前回の続きから1ページ読む」など、任意の一文をおすすめ画面に表示できます。
+- **変えた候補は、今回は出さない。** しっくりこなければ次へ。候補がなくなったら、もう一度見るか自分で選べます。
 - **今の状況に合わせる。** パソコンを使える、音を聞ける、声を出せる、中断されるかもしれない。最初はすべて未選択で、その後の選択は保存されます。
 - **空いた時間で。** 5・10・15・30・60分、または好きな時間を設定。パソコンでは時間や条件にマウスを重ねると開き、パネルから離すと閉じます。スマホではタップで操作します。
-- **終えたら記録。** 実際に使った時間を保存して開始画面へ。活動は残るので、次回も続けられます。
+- **戻って、続きを。** 時間が来たら停止し、「続ける」で延長。開き直すと再開待ちになり、長い休止後は前回の時間を別に記録します。
 - **今日を振り返る。** 同じ活動の記録をまとめ、回数と合計時間を表示。各回の記録を開くと、10秒後に閉じます。
 - **好みに合わせて。** ライト・ダークテーマ、英語・中国語・日本語。Windows・Android・ブラウザに対応。
 
@@ -30,11 +32,13 @@
 
 | 環境 | 入手先 | 必要なもの |
 | --- | --- | --- |
-| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
-| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Android.apk) | Android 7.0以降 |
+| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
+| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Android.apk) | Android 7.0以降 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要 |
 
 無料、登録不要。インストール版はオフラインで使え、初回は英語です。**設定**で言語を変更できます。Web版はブラウザの言語に合わせて起動します。
+
+**1.3 への更新：**旧版の未終了タイマーは、保存済みの進み具合がなければ実際に使った時間を確認します。既存の終了済み記録は保持されます。
 
 <details>
 <summary>インストールと更新について</summary>
@@ -55,14 +59,15 @@
 3. **開始を押す。** 終わったら終了を押すと、使った時間が保存されます。
 
 <details>
-<summary>条件の選択と今日の記録を見る</summary>
+<summary>条件・計時の再開・今日の記録を見る</summary>
 
 <p align="center"><img src="about/assets/conditions-ja.png" width="680" alt="現在の条件にマウスを重ねると、未選択の4つのチェックボックスが開きます。"></p>
+<p align="center"><img src="about/assets/recovery-ja.png" width="480" alt="保存した8分を保持して、再開または終了を待つ画面。"></p>
 <p align="center"><img src="about/assets/today-ja.png" width="820" alt="今日の3回の Vibe Coding をまとめ、各回の時間帯と実際に使った時間を表示。"></p>
 
 </details>
 
-[14秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo) · [1.2.1 の更新内容](docs/releases/v1.2.1.md)
+[14秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo) · [1.3.0 の更新内容](docs/releases/v1.3.0.md)
 
 <a id="privacy"></a>
 ## データとプライバシー

@@ -167,7 +167,9 @@ module.exports = async (scenario, fixture) => {
     await click(run,protocol,'.activity-item:first-child summary');
     assert.deepEqual(await run("return [document.querySelector('.activity-item').open,timerState()]"),[true,null]);
     await click(run,protocol,'.activity-item:last-child [data-task-action=more]');
-    assert.deepEqual(await run("return [document.querySelector('.activity-item:last-child').open,document.activeElement.id,timerState()]"),[false,'activityMenuEdit',null]);
+    assert.deepEqual(await run("return [document.querySelector('.activity-item:last-child').open,document.activeElement.dataset.taskAction,timerState()]"),[false,'more',null]);
+    await key(protocol,'Escape','Escape',27);await key(protocol,'Enter','Enter',13);
+    assert.equal(await run('return document.activeElement.id'),'activityMenuEdit');
     await key(protocol,'ArrowDown','ArrowDown',40);
     assert.equal(await run('return document.activeElement.id'),'activityMenuDelete');
     await key(protocol,'Escape','Escape',27);
@@ -309,10 +311,10 @@ module.exports = async (scenario, fixture) => {
 
   await check('reload, settings return, history and hash navigation keep the timer view aligned with the route', dataset(), async (run,_imp,{protocol,reload}) => {
     await run("cur=d.tasks[0];random({keepCurrent:true})");await click(run,protocol,'#start');await click(run,protocol,'#pauseTimer');
-    const raw=await run("return __rawGet('activeTimer')");
+    let raw=await run("return __rawGet('activeTimer')");
     const view=async(full)=>assert.deepEqual(await run("return [location.hash,$('timer').classList.contains('hide'),$('floatingTimer').classList.contains('hide')]"),[full?'#home':'#tasks',!full,full]);
     await click(run,protocol,'[data-page=tasks]');await reload();await view(false);
-    assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return __writes.length'),0);
+    assert.equal(await run('return timerState().elapsed'),JSON.parse(raw).elapsed);assert.equal(await run('return timerState().recoveryReason'),'reopen');raw=await run("return __rawGet('activeTimer')");
     await click(run,protocol,'[data-page=home]');await reload();await view(true);
     assert.equal(await run("return __rawGet('activeTimer')"),raw);assert.equal(await run('return __writes.length'),0);
     await click(run,protocol,'#dataMenuToggle');await click(run,protocol,'#closeSettings');await view(true);

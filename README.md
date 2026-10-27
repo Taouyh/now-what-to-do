@@ -19,9 +19,11 @@
 ## Features
 
 - **Pick one and begin.** Add reading, drawing or anything else you want to do. Accept a suggestion, try another or choose for yourself.
+- **Know the next step.** Add an optional line such as “Open where I left off and read one page.” It appears right on the recommendation.
+- **Swap without repeats.** Activities you skip stay out of this round. Look again or choose for yourself when none feels right.
 - **Fit the moment.** Say whether you can use a computer, listen, speak or might be interrupted. All conditions start unchecked; your choices are remembered.
 - **Use the time you have.** Choose 5, 10, 15, 30, 60 minutes or your own duration. On desktop, hover over time or conditions to open the menu; move away from the panel to close it. On mobile, tap.
-- **End and save.** Record the time you spent and return Home. The activity stays for next time.
+- **Pick up where you stopped.** Time stops at the end of a round until you choose Continue. Reopening waits for you to resume; a long break keeps the previous time as a separate session.
 - **See your day.** Repeat sessions appear together with their count and total time. Open an activity for individual sessions; it closes after ten seconds.
 - **Make it yours.** Light and dark themes. English, Chinese and Japanese. Windows, Android and web.
 
@@ -30,11 +32,13 @@
 
 | Platform | Get it | Requirements |
 | --- | --- | --- |
-| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Windows-x64-Setup.exe) · ~2 MiB | Windows 10 / 11, 64-bit |
-| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Android.apk) | Android 7.0+ |
+| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Windows-x64-Setup.exe) · ~2 MiB | Windows 10 / 11, 64-bit |
+| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Android.apk) | Android 7.0+ |
 | Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install |
 
 Free. No account. Installed apps work offline and start in English; change the language in **Settings**. The web app starts with your browser language.
+
+**Updating to 1.3:** an unfinished older timer may ask you to confirm the time you actually spent. Your existing completed records stay intact.
 
 <details>
 <summary>Installation and upgrade notes</summary>
@@ -55,14 +59,15 @@ Free. No account. Installed apps work offline and start in English; change the l
 3. **Press Start.** When you're done, press End to save your time.
 
 <details>
-<summary>See conditions and today's records</summary>
+<summary>See conditions, recovery and today's records</summary>
 
 <p align="center"><img src="about/assets/conditions-en.png" width="680" alt="Hovering over Current conditions reveals four initially unchecked checkboxes."></p>
+<p align="center"><img src="about/assets/recovery-en.png" width="480" alt="Reopening keeps eight minutes of saved progress and waits for an explicit choice to resume or end."></p>
 <p align="center"><img src="about/assets/today-en.png" width="820" alt="Today groups three Vibe Coding sessions with individual time ranges and actual durations."></p>
 
 </details>
 
-[Watch the 14-second introduction](https://taouyh.github.io/now-what-to-do/about/#demo) · [What's new in 1.2.1](docs/releases/v1.2.1.md)
+[Watch the 14-second introduction](https://taouyh.github.io/now-what-to-do/about/#demo) · [What's new in 1.3.0](docs/releases/v1.3.0.md)
 
 <a id="privacy"></a>
 ## Privacy

@@ -6,7 +6,7 @@ const stored = data => ({ whatToDoData: JSON.stringify(data) });
 const started = app => assert.ifError(app.error);
 function activeTimer(paused = false) {
   const task = fixture().tasks[0], now = Date.now();
-  return { completionId: 'session-one', taskId: task.id, task, durationMs: 600000, plannedDurationMs: 600000,
+  return { timerVersion:2, checkpointAt:now, completionId: 'session-one', taskId: task.id, task, durationMs: 600000, plannedDurationMs: 600000,
     extensionDurationMs: 0, elapsed: 1000, startedAt: now - 1000, lastStarted: paused ? 0 : now,
     paused, finished: false, soundPlayed: false, pauseStartedAt: paused ? now : 0, pausedDurationMs: 0 };
 }
@@ -186,7 +186,7 @@ test('failed completion save retains timer and permits one successful retry', ()
   assert.equal(app.values.get('whatToDoData'), before);
   assert.equal(app.values.get('activeTimer'), activeBefore);
   assert.equal(app.json('d.completed').length, 1);
-  assert.ok(app.intervals.size > 0);
+  assert.equal(app.intervals.size,0,'a restored session stays stopped during a failed save');
   delete app.faults.writeKey; app.run('finishTimer()'); app.run('finishTimer()');
   assert.equal(app.json('d.completed').length, 2);
   assert.equal(app.values.has('activeTimer'), false);
@@ -197,7 +197,7 @@ test('completion survives failed timer removal without duplicate records after r
   app.faults.removeKey = 'activeTimer'; app.run('finishTimer()'); app.run('finishTimer()');
   assert.equal(app.json('d.completed').filter(c => c.completionId === timer.completionId).length, 1);
   assert.equal(app.values.has('activeTimer'), true);
-  assert.equal(app.elements.get('timer').classList.contains('hide'), true);
+  assert.equal(app.elements.get('timerRecovery').classList.contains('hide'), false,'failed cleanup keeps the recovery controls available');
   const reload = boot(Object.fromEntries(app.values)); started(reload);
   assert.equal(reload.values.has('activeTimer'), false);
   assert.equal(reload.json('d.completed').filter(c => c.completionId === timer.completionId).length, 1);

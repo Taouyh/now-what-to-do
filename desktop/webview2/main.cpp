@@ -25,7 +25,8 @@ static ComPtr<ICoreWebView2Environment> environment;
 static ComPtr<ICoreWebView2Controller> controller;
 static ComPtr<ICoreWebView2> web;
 static fs::path applicationRoot,profile;
-static bool testing=false;
+static bool testing=false,closing=false;
+static constexpr UINT_PTR closeCheckpointTimer=77;
 static std::wstring env(const wchar_t* name) {
     DWORD size=GetEnvironmentVariableW(name,nullptr,0); if(!size)return L"";
     std::wstring result(size,L'\0');GetEnvironmentVariableW(name,result.data(),size);result.resize(size-1);return result;
@@ -116,6 +117,26 @@ static HRESULT configure() {
 }
 static LRESULT CALLBACK procedure(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam) {
     switch(message){
+        case WM_CLOSE:
+            if(closing)return 0;
+            if(web){
+                closing=true;SetTimer(hwnd,closeCheckpointTimer,1500,nullptr);
+                HRESULT result=web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' ? nativeTimerLifecycle('close') : true",Callback<ICoreWebView2ExecuteScriptCompletedHandler>([hwnd](HRESULT,LPCWSTR)->HRESULT{
+                    if(IsWindow(hwnd)){KillTimer(hwnd,closeCheckpointTimer);DestroyWindow(hwnd);}return S_OK;
+                }).Get());
+                if(SUCCEEDED(result))return 0;
+                KillTimer(hwnd,closeCheckpointTimer);
+            }
+            DestroyWindow(hwnd);return 0;
+        case WM_TIMER:
+            if(wParam==closeCheckpointTimer){KillTimer(hwnd,closeCheckpointTimer);DestroyWindow(hwnd);return 0;}break;
+        case WM_POWERBROADCAST:
+            if(web&&wParam==PBT_APMSUSPEND)web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('sleep')",nullptr);
+            if(web&&(wParam==PBT_APMRESUMEAUTOMATIC||wParam==PBT_APMRESUMESUSPEND))web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('resume')",nullptr);
+            return TRUE;
+        case WM_ENDSESSION:
+            if(web&&wParam)web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('close')",nullptr);
+            return 0;
         case WM_SIZE: if(controller){RECT bounds;GetClientRect(hwnd,&bounds);controller->put_Bounds(bounds);memoryTarget(wParam==SIZE_MINIMIZED);}return 0;
         case WM_ACTIVATE: memoryTarget(LOWORD(wParam)==WA_INACTIVE);return 0;
         case WM_DPICHANGED: {auto bounds=reinterpret_cast<RECT*>(lParam);SetWindowPos(hwnd,nullptr,bounds->left,bounds->top,bounds->right-bounds->left,bounds->bottom-bounds->top,SWP_NOZORDER|SWP_NOACTIVATE);return 0;}

@@ -19,9 +19,11 @@
 ## 有哪些功能
 
 - **少纠结，先做一件。** 写下读书、画画、学语言等想做的事；接受推荐、换一件，或者自己选。
+- **看清下一小步。** 可以选填「翻到上次的位置，先读一页」这样一句话，直接显示在推荐卡片上。
+- **换过的，本轮不再推。** 不想做就换一件；都没感觉时，可以重新看看，或者自己选。
 - **按当下条件选。** 能用电脑、听音频、出声，或者可能被打断，都可以告诉它。默认全部不勾选，选过会记住。
 - **有几分钟，就做几分钟。** 每次选 5、10、15、30、60 分钟或自定义。电脑上鼠标移到时间或条件入口就能展开，移出弹框自动收起；手机轻点操作。
-- **结束就记下。** 保存实际用时，回到开始页；活动仍然保留，下次继续。
+- **回来接着做。** 到点停止，点击继续才追加。关闭后保留进度，重开先等你确认；暂停很久时，上次用时单独保留。
 - **一眼回看今天。** 同一活动的多次记录放在一起，次数和总用时一目了然。展开看每次记录，10 秒后自动收起。
 - **按自己的习惯用。** 浅色、深色，中文、英语、日语；Windows、安卓、网页都能用。
 
@@ -30,11 +32,13 @@
 
 | 平台 | 入口 | 使用要求 |
 | --- | --- | --- |
-| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
-| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.2.1/Now-What-1.2.1-Android.apk) | Android 7.0 及以上 |
+| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
+| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Android.apk) | Android 7.0 及以上 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。
+
+**更新到 1.3：**旧版未结束的计时如果缺少保存进度，会请你确认实际用时，已有完成记录保持原样。
 
 <details>
 <summary>安装和升级时需要知道的事</summary>
@@ -55,14 +59,15 @@
 3. **点「开始」。** 做完点「结束」，这次用时会自动记下来。
 
 <details>
-<summary>看看条件选择和今天的记录</summary>
+<summary>看看条件选择、计时恢复和今天的记录</summary>
 
 <p align="center"><img src="about/assets/conditions-zh-CN.png" width="680" alt="鼠标移到当前条件，展开四个默认未勾选的复选框。"></p>
+<p align="center"><img src="about/assets/recovery-zh-CN.png" width="480" alt="重新打开后保留已投入的八分钟，等待继续本次或结束并记录。"></p>
 <p align="center"><img src="about/assets/today-zh-CN.png" width="820" alt="今天把三次 Vibe Coding 放在一起，展示每次时间段和实际用时。"></p>
 
 </details>
 
-[观看 14 秒入门演示](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo) · [1.2.1 更新说明](docs/releases/v1.2.1.md)
+[观看 14 秒入门演示](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo) · [1.3.0 更新说明](docs/releases/v1.3.0.md)
 
 <a id="privacy"></a>
 ## 数据与隐私

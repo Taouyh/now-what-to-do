@@ -34,19 +34,21 @@ test('condition changes preserve an eligible current recommendation', () => {
   assert.equal(app.json('timerState().taskId'), id);
 });
 
-test('the single change button avoids consecutive repeats when alternatives exist', () => {
+test('the change button skips each activity for the rest of the round', () => {
   const app = start(dataSet()); app.run('Math.random=()=>0');
-  let previous = app.run('cur.id');
-  for (let i = 0; i < 8; i++) {
+  const seen=new Set();
+  while(app.run('cur')) {
+    const id=app.run('cur.id');assert.equal(seen.has(id),false);seen.add(id);
     app.elements.get('random').click();
-    assert.notEqual(app.run('cur.id'), previous); previous = app.run('cur.id');
   }
+  assert.equal(seen.size,dataSet().tasks.length);
+  app.run('restartRecommendations()');assert.ok(app.run('cur'));
   assert.equal(app.json('d.completed').length, 0);
 });
 
 test('explicit change can choose another hard-eligible task even if it was recently practiced', () => {
   const data = dataSet(); data.completed = [record('old', 'task-1', new Date().toISOString())];
-  const app = start(data); assert.equal(app.run('cur.id'), 'task-0');
+  const app = start(data); app.run('cur=d.tasks[0];random({keepCurrent:true})');assert.equal(app.run('cur.id'), 'task-0');
   app.elements.get('random').click(); assert.equal(app.run('cur.id'), 'task-1');
 });
 
@@ -103,12 +105,12 @@ test('historical task flags and all completion records survive views and repeate
   }
 });
 
-test('restoring or automatically extending a timer does not create completion records', () => {
+test('restoring an interrupted timer does not add time or create completion records', () => {
   const app = start(dataSet()); app.elements.get('start').click();
   app.run('let session=timerState();session.lastStarted=Date.now()-session.durationMs-1000;setTimerState(session)');
   const reloaded = boot(Object.fromEntries(app.values)); assert.ifError(reloaded.error);
   assert.equal(reloaded.json('d.completed').length, 0);
-  assert.ok(reloaded.json('timerState().extensionDurationMs') > 0);
+  assert.equal(reloaded.json('timerState().extensionDurationMs'),0);assert.equal(reloaded.run('timerState().paused'),true);assert.equal(reloaded.run('timerState().recoveryReason'),'reopen');assert.equal(reloaded.intervals.size,0);
 });
 
 test('repeating the same task creates separate sessions, each completed only once', () => {

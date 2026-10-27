@@ -5,7 +5,7 @@ module.exports=async(scenario,fixture)=>{
  for(const locale of ['en','zh-CN','ja']){
   const data=fixture();data.completed=[];data.theme='light';
   data.preferences={time:10,language:locale,conditions:{computer:false,audio:false,speech:false,interrupted:false}};
-  data.tasks=[{id:'sample-read',name:{en:'Read a book','zh-CN':'读书',ja:'読書'}[locale],requirements:{}}];
+  data.tasks=[{id:'sample-read',name:{en:'Read a book','zh-CN':'读书',ja:'読書'}[locale],nextStep:{en:'Open where you left off. Read one page.','zh-CN':'翻到上次的位置，先读一页。',ja:'前回の続きから、まず1ページ読む。'}[locale],requirements:{}}];
   await scenario('capture actual Start screen and hover conditions in '+locale,{whatToDoData:JSON.stringify(data)},{},async(run,_import,{protocol})=>{
    await protocol('Emulation.setDeviceMetricsOverride',{width:1000,height:800,deviceScaleFactor:1,mobile:false});
    await run("page('home');await document.fonts.ready;await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame)");
