@@ -701,7 +701,7 @@ function tasks(){
     if(meta.children.length)content.append(meta);if(t.nextStep)content.append(textElement('p',tr('下一步：{step}',{step:t.nextStep}),'user-text'));if(t.description)content.append(textElement('p',t.description,'user-text'));if(!content.children.length)content.append(textElement('p',tr('未添加说明'),'muted'));card.append(summary,content);return card;
   });
   if(cards.length)$('taskList').replaceChildren(...cards);
-  else{const empty=textElement('div','','empty-state');empty.append(...(d.tasks.length?[textElement('p',tr('没有找到这项活动。'),'muted'),actionButton(tr('显示全部活动'),()=>setActivitySearch(false,{restoreFocus:true}),'secondary'),actionButton(tr('添加活动'),()=>newTask(),'primary')]:emptyTaskGuide('addLibraryTask')));$('taskList').replaceChildren(empty)}
+  else{const empty=textElement('div','','empty-state'+(d.tasks.length?'':' library-empty-state'));empty.append(...(d.tasks.length?[textElement('p',tr('没有找到这项活动。'),'muted'),actionButton(tr('显示全部活动'),()=>setActivitySearch(false,{restoreFocus:true}),'secondary'),actionButton(tr('添加活动'),()=>newTask(),'primary')]:[textElement('p',tr('暂无活动'),'muted')]));$('taskList').replaceChildren(empty)}
   $('taskList').onclick=e=>{let button=e.target.closest?.('button[data-task-action]');if(!button||!$('taskList').contains(button))return;e.preventDefault();let t=a[Number(button.dataset.taskIndex)];if(!t)return;if(button.dataset.taskAction==='start'){closeActivityMenu();run(t)}else toggleActivityMenu(t,button,e.pointerType==='mouse')};
 }
 function cancelMenuClose(id){clearTimeout(menuCloseTimers.get(id));menuCloseTimers.delete(id)}
@@ -884,7 +884,6 @@ function today(){
   let card=textElement('div','','today-overview');card.append(textElement('p',tr(a.length===1?'做了 1 次，共 {duration}':'做了 {count} 次，共 {duration}',{count:a.length,duration:formatDuration(totalMs)})));
   if(list.length){let history=textElement('div','','history-list');history.append(...list);$('todayBox').replaceChildren(card,history)}else{const empty=textElement('div','','empty-state');empty.append(textElement('p',tr('今天还没开始。')),actionButton(tr('去开始'),()=>page('home'),'primary'));$('todayBox').replaceChildren(card,empty)}
 }
-function emptyTaskGuide(buttonId){return[textElement('p',tr('添加一件你想经常做的事。'),'muted'),actionButton(tr('添加活动'),()=>newTask(),'primary',buttonId)]}
 function newTask(){
   closeActivityMenu();
   rememberDialogFocus('modal');$('modal').classList.remove('hide');$('modalTitle').textContent=tr('添加活动');$('form').reset();$('tid').value='';

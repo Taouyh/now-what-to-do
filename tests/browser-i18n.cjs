@@ -14,7 +14,7 @@ module.exports=async(scenario,fixture)=>{
  const noChinese=async run=>assert.deepEqual(await run(`const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),found=[];while(walker.nextNode()){const n=walker.currentNode,e=n.parentElement;if(e.closest('[data-language],.user-text,#timerName,#timerDesc,#confirmTaskName,#confirmTaskDesc,script')||!e.getClientRects().length||e.closest('.hide'))continue;if(/[\\u4e00-\\u9fff]/.test(n.textContent))found.push(n.textContent)}return found`),[]);
 
  await check('first visit follows Japanese browser language and renders all onboarding attributes',null,async(run,_imp,{protocol})=>{
-  assert.deepEqual(await run("return [language,document.documentElement.lang,document.title,$('quickName').placeholder]"),['ja','ja','今、何する？','例：読書、字の練習、単語の復習']);
+  assert.deepEqual(await run("return [language,document.documentElement.lang,document.title,$('quickName').placeholder]"),['ja','ja','今、何する？','例：読書']);
   await shot(run,protocol,'01-onboarding-ja');assert.equal(await run("return JSON.parse(__rawGet('whatToDoData')).preferences.language"),'ja');
  },{}, {languages:['ja-JP']});
  await check('unsupported browser language falls back to English without rewriting an existing backup',seed(),async(run)=>{

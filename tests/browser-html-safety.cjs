@@ -119,7 +119,7 @@ module.exports = async function htmlSafetySuite(scenario, fixture) {
     await run("closeConfirm();startTimer(d.tasks[0]);d.tasks=[];renderTimer();");
     assert.deepEqual(await run("return [$('timerName').textContent,$('timerDesc').textContent]"), [image, svg]);
     await run("giveUpTimer();$('confirmAccept').click();page('tasks');page('today');");
-    assert.ok(await run("return $('taskList').textContent.includes('添加一件你想经常做的事')"));
+    assert.ok(await run("return $('taskList').textContent.includes('暂无活动')"));
     await noInjection(run);
   });
 

@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "desktop/main.cjs",
   "scripts": {
+    "web": "node scripts/serve-web.cjs",
     "start": "powershell -NoProfile -Command \"& './dist/windows/webview2-unpacked/Now What.exe'\"",
     "start:legacy": "electron .",
     "test": "node --test tests/*.test.cjs",

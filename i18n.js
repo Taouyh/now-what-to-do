@@ -80,9 +80,13 @@ const MESSAGES={
     "en": "Activity name",
     "ja": "活動名"
   },
-  "例如：读书、练字、复习单词": {
-    "en": "E.g. reading, drawing, learning words",
-    "ja": "例：読書、字の練習、単語の復習"
+  "例如：读书": {
+    "en": "E.g. reading",
+    "ja": "例：読書"
+  },
+  "活动": {
+    "en": "Activity",
+    "ja": "活動"
   },
   "添加活动": {
     "en": "Add activity",
@@ -208,9 +212,9 @@ const MESSAGES={
     "en": "Import",
     "ja": "読み込む"
   },
-  "数据仅保存在当前浏览器，不会自动同步。": {
-    "en": "Data stays in this browser and is not synced.",
-    "ja": "データはこのブラウザにのみ保存され、自動同期されません。"
+  "数据不同步": {
+    "en": "No data sync",
+    "ja": "データ同期なし"
   },
   "活动操作": {
     "en": "Activity actions",
@@ -776,9 +780,9 @@ const MESSAGES={
     "en": "Get started",
     "ja": "はじめる"
   },
-  "添加一件你想经常做的事。": {
-    "en": "Add something you'd like to do regularly.",
-    "ja": "日々取り組みたいことを追加しましょう。"
+  "暂无活动": {
+    "en": "No activities yet",
+    "ja": "活動はまだありません"
   },
   "语言已切换。": {
     "en": "Language updated.",

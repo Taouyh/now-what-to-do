@@ -147,18 +147,8 @@ html[lang=ja] body{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sy
   .settings-surface .language-row{flex-wrap:wrap;gap:10px}
   .language-options{width:100%}
   .language-options button{flex:1;padding:8px 6px}
-  html[lang=ja] header{height:112px;flex-wrap:wrap;align-content:center;gap:0}
-  html[lang=ja] .brand{width:100%;padding-right:35px}
-  html[lang=ja] nav{order:3;width:100%;margin:0;justify-content:center;gap:24px}
-  html[lang=ja] .settings-toggle{position:absolute;right:12px;top:16px}
-  html[lang=ja] .timer-screen{top:112px}
 }
 @media(max-width:340px){
-  html[lang=en] header{height:112px;flex-wrap:wrap;align-content:center;gap:0}
-  html[lang=en] .brand{width:100%;padding-right:35px}
-  html[lang=en] nav{order:3;width:100%;margin:0;justify-content:center;gap:24px}
-  html[lang=en] .settings-toggle{position:absolute;right:12px;top:16px}
-  html[lang=en] .timer-screen{top:112px}
   .settings-surface{padding:0 16px}
 }
 
@@ -228,6 +218,20 @@ html[lang=ja] body{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sy
 .recovery-actions{display:flex;gap:10px;justify-content:center;margin-top:27px}
 .recovery-actions>button{flex:1;min-width:0;min-height:46px;padding:10px 14px;font-size:14px}
 .recovery-legacy{text-align:left;margin-top:20px}
+/* A soft filled focus state replaces the onboarding input's outer ring. */
+#quickName{transition:background-color .15s,box-shadow .15s}
+#quickName:focus,#quickName:focus-visible{outline:none;background:color-mix(in srgb,var(--ps) 65%,var(--input));box-shadow:0 3px 14px color-mix(in srgb,var(--p) 16%,transparent)}
+@media(forced-colors:active){#quickName:focus-visible{outline:2px solid Highlight;outline-offset:2px}}
+/* Keep the empty library's footprint after removing its duplicate action. */
+.empty-state.library-empty-state{min-height:196px;display:grid;place-items:center}
+.library-empty-state p{margin:0}
+/* Compact icon navigation keeps full labels available to assistive technology. */
+nav.icon-nav{gap:8px}
+.icon-nav button{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:10px;flex-shrink:0;transition:background-color .15s,color .15s}
+.icon-nav button:hover{background:var(--ps);color:var(--p)}
+.icon-nav button.active{background:var(--ps)}
+.icon-nav button.active:after{left:15px;right:15px;bottom:3px;border-radius:2px}
+@media(max-width:600px){nav.icon-nav{gap:4px}}
 .recovery-legacy label{display:block;font-size:12px;color:var(--m);margin-bottom:8px}
 .recovery-legacy input{display:block;width:100%;min-height:44px;font-size:14px}
 #recoveryError{font-size:12px;color:var(--danger);margin:8px 0 0}
