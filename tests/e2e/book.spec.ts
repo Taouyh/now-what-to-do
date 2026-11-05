@@ -76,6 +76,10 @@ test('local assets, languages, theme, keyboard escape, and narrow-screen control
   await nav(page, 'settings'); await page.locator('[data-language="en"]').click();
   await expect(page.locator('.bookmarks [data-page="tasks"]')).toContainText('Tasks');
   await page.locator('#theme').click(); await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  for (const id of ['export', 'import']) {
+    await expect(page.locator(`#${id}`)).toHaveCSS('background-color', 'rgb(80, 61, 44)');
+    await expect(page.locator(`#${id}`)).toHaveCSS('color', 'rgb(241, 223, 182)');
+  }
   await page.locator('[data-language="ja"]').click(); await page.locator('#lightTheme').click();
   await page.setViewportSize({ width: 390, height: 844 }); await nav(page, 'tasks');
   await page.locator('.small-action').click(); await page.locator('#name').fill('小さな画面'); await page.locator('#saveActivity').click();

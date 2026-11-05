@@ -198,6 +198,8 @@ html[data-theme=dark] .book-paper,html[data-theme=dark] .book-layer { filter: br
 html[data-theme=dark] .book-corner,html[data-theme=dark] .chapter-plant { filter: invert(.75); }
 html[data-theme=dark] .book .paper-button,html[data-theme=dark] .book .outline,html[data-theme=dark] .calendar-group,html[data-theme=dark] .book .settings-row button:not([aria-pressed=true]),html[data-theme=dark] .book .condition-picker>summary,html[data-theme=dark] .book .choices button:not(.on) { background: #503d2c; }
 html[data-theme=dark] .task-play img,html[data-theme=dark] #random img,html[data-theme=dark] .checkbox-label img { filter: brightness(0) saturate(100%) invert(.88) sepia(.35); }
+html[data-theme=dark] .book #export,html[data-theme=dark] .book #import { background: #503d2c; color: #f1dfb6; }
+html[data-theme=dark] .book .checkbox-label:has(input:checked) { background: #725334; }
 html[data-theme=dark] .book .paper-button:hover,html[data-theme=dark] .book .outline:hover,html[data-theme=dark] .book .task-play:hover { background: #725334; }
 html[data-theme=dark] .book-app :focus-visible { outline-color: #f1dcad; }
 html[data-theme=dark] .task-strip { background-image: linear-gradient(#38291ed9,#38291ed9),var(--task-paper); border-radius: 5px; }
