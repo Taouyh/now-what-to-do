@@ -14,7 +14,7 @@ Follow these stages in order. Open only the current stage guide and its required
 | 7. Development | [AGENTS.md](docs/development/AGENTS.md) |
 | 8. Deployment | [AGENTS.md](docs/deployment/AGENTS.md) |
 
-Current stage: 6, documentation delivered on 2026-11-05 at the user's request to proceed through stages 5 and 6. Stage 7 has not started. Use C for tasks/calendar and B elsewhere. Preserve v1.3 capabilities unless superseded by the current PRD. Full B/C prototype click verification and participant tests remain incomplete; older stage labels are historical.
+Current stage: 7, development authorized on 2026-11-05. Use C for tasks/calendar and B elsewhere. Preserve v1.3 capabilities unless superseded by the current PRD. Full B/C prototype click verification and participant tests remain incomplete; older stage labels are historical.
 Research delivery: `docs/research/market-2026-11-01/REPORT.md`.
 Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.

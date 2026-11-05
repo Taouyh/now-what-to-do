@@ -1,6 +1,6 @@
 # B/C 旧书版技术设计
 
-版本：TD 1.0，2026-11-05。状态：阶段 6 文档交付，尚未实现。选型见 [FRAMEWORK](../../technology/book-c-2026-11-05/FRAMEWORK.md)，需求以 [PRD](../../product/book-c-2026-11-04/PRD.md) 和 [INTERACTIONS](../../product/book-c-2026-11-04/INTERACTIONS.md) 为准。本文的模块名、接口和目录是目标契约，不代表文件已存在。
+版本：TD 1.1，2026-11-05。状态：阶段 7 已实现书版首个候选版本，独立验收进行中。选型见 [FRAMEWORK](../../technology/book-c-2026-11-05/FRAMEWORK.md)，需求以 [PRD](../../product/book-c-2026-11-04/PRD.md) 和 [INTERACTIONS](../../product/book-c-2026-11-04/INTERACTIONS.md) 为准。下列领域模块目录仍是逐步迁移目标，当前真实结构见本节末的实施记录。
 
 用户本轮授权从设计推进选型和技术文档；不因此宣告原型实点或参与者测试通过。旧文档的“阶段 5 未启动”描述保留为历史日期状态。本文不批准 PRD 之外的功能。
 
@@ -19,7 +19,18 @@
 | C 日历 | [151:4354](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=151-4354)、[151:4958](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=151-4958) | 目录 5 组、明细 4 条，独立分页 |
 | B 设置 | [111:4832](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=111-4832) | 三语言、主题、真实文件导入导出 |
 
-本轮两次尝试 Figma 连接器均报 Unknown tool，网页读取失败。技术设计依据 PRD、仓库设计说明和保存的尺寸/动作检查结果，没有重读线上实时图层。该限制不影响业务架构决策；具体素材导出、视觉 token 和逐页视觉验收留到对应实现切片，不从旧版绿色截图推断旧书视觉。
+阶段 6 曾因 Figma 连接失败而采用仓库设计证据；阶段 7 已恢复连接，核对账户 `3966592487`，读取首页、任务、添加、专注、恢复、反馈、日历和设置的实时设计上下文与截图。素材和字体已本地化，来源见 `public/assets/PROVENANCE.md`。未向 Figma 写入设计变更。
+
+### 当前实施结构与迁移边界
+
+- `src/main.ts`、`src/ui/book.ts` 负责书壳和交互装配；`src/ui/pages.ts` 实现推荐/续做、双页任务、日历分组和分页；`src/domain/pagination.ts` 提供有边界修正的分页；接口在 `src/ui/runtime.ts`。
+- `app.js`、`i18n.js` 继续作为唯一计时、迁移、存储和语言实现，Vite 的 `virtual:runtime` 将同一份源码打进经典 IIFE，并只向新页面提供显式接口。现有 VM 单元测试仍执行同一份源码。避免一次重写成熟计时引擎；不宣称它们已经全部迁为 TypeScript 或纯领域模块。
+- 开发 HTML 为根 `index.html`，加载 `src/main.ts`；`scripts/assemble-web.cjs` 生成 `dist/web/index.html`、`app.js`、`style.css` 和完整 `assets/`。字体作为本地独立文件，避免内联为巨大的 CSS。WebView2、Android、Electron 均消费这一目录，保持原来源和用户数据路径。
+- `npm run dev` 启动 Vite；`npm run web` 先构建后提供生产预览；`npm run build:web` 做类型检查与构建；`npm test` 做核心回归；`npm run test:e2e` 用独立 Edge context 和 8766 端口执行真实浏览器测试。测试只注入合成数据。
+- 多窗口主数据写入前复读原文；变化时进入保护模式，要求重新加载。它是冲突检测，不能宣称跨进程事务锁。会话仍要求单实例使用；原生宿主保留单实例约束。
+- 800px 以下使用保持操作可用的单列降级布局。这是工程适配，不代表已获得完整移动端 Figma 设计批准或参与者研究通过。
+
+最新验证结果与独立窗口报告见 [实施与验证记录](../../development/book-c-2026-11-05/IMPLEMENTATION.md)，不以本文的目标验收表推断未执行测试已通过。
 
 ## 2. 架构与目录
 

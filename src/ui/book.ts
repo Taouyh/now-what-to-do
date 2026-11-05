@@ -128,7 +128,7 @@ export function mountBook(app: Runtime) {
 
   for (const [index, id] of ['computer', 'requiresAudio', 'requiresSpeech', 'requiresUninterrupted'].entries()) {
     const label = byId(id).closest('label')!;
-    label.prepend(image(`scroll-icon-${index + 3}.svg`));
+    label.prepend(image(`scroll-icon-${index + 1}.svg`));
   }
   for (const id of ['timePicker', 'conditionsPicker']) {
     const details = byId<HTMLDetailsElement>(id);
