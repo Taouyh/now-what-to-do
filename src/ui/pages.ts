@@ -187,7 +187,9 @@ export class BookPages {
       right.append(element('h2', '', tr('记录明细')), element('p', 'book-caption', tr('点击左页任务，翻阅每次记录。')));
     } else {
       const name = selected.records[0].taskName || tr('已删除任务');
-      right.append(element('h2', 'user-text', name), element('p', 'book-caption', tr('{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
+      const heading = element('h2', 'user-text', name);
+      heading.tabIndex = 0;
+      right.append(heading, element('p', 'book-caption', tr('{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
       const page = paginate(selected.records, this.recordPage, 4);
       this.recordPage = page.page;
       const rows = element('div', 'calendar-records');

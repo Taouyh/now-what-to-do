@@ -42,6 +42,21 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
     }
     await page.locator('.calendar-group').last().scrollIntoViewIfNeeded();
     await page.screenshot({ path: testInfo.outputPath('calendar.png'), fullPage: true });
+    await page.locator('.calendar-group').last().click();
+    const fullName = page.locator('.calendar-column.book-right h2');
+    await expect(fullName).toHaveText(names[4]);
+    const rightBounds = await page.evaluate(() => {
+      const right = document.querySelector('.calendar-column.book-right')!;
+      return { heading: right.querySelector('h2')!.getBoundingClientRect().bottom, summary: right.querySelector('.book-caption')!.getBoundingClientRect(), records: right.querySelector('.calendar-records')!.getBoundingClientRect(), pager: right.querySelector('.book-pager')!.getBoundingClientRect().top };
+    });
+    expect(rightBounds.heading).toBeLessThanOrEqual(rightBounds.summary.top);
+    expect(rightBounds.summary.bottom).toBeLessThanOrEqual(rightBounds.records.top);
+    expect(rightBounds.records.bottom).toBeLessThanOrEqual(rightBounds.pager);
+    await expect(fullName).toHaveAttribute('tabindex', '0');
+    await fullName.focus(); await page.keyboard.press('End');
+    await expect.poll(() => fullName.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
+    await expect.poll(() => fullName.evaluate(el => el.scrollHeight - el.clientHeight - el.scrollTop)).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: testInfo.outputPath('calendar-long-name.png'), fullPage: true });
     await page.locator('#directory-next').click();
     await expect(page.locator('.calendar-group')).toHaveCount(1);
     await expect(page.locator('.calendar-group > span')).toHaveText('第六项活动');
