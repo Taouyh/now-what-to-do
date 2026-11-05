@@ -39,7 +39,18 @@ Copy-Item -LiteralPath (Join-Path $work 'resources.apk') -Destination $unsigned
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $archive = [IO.Compression.ZipFile]::Open($unsigned,[IO.Compression.ZipArchiveMode]::Update)
-try { [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive,(Join-Path $dex 'classes.dex'),'classes.dex',[IO.Compression.CompressionLevel]::Optimal) | Out-Null } finally { $archive.Dispose() }
+try {
+  # Windows aapt2 may emit backslashes for nested assets. APK asset lookups use '/'.
+  foreach($entry in @($archive.Entries | Where-Object {$_.FullName.Contains('\')})) {
+    $normalized=$entry.FullName.Replace('\','/')
+    if($archive.GetEntry($normalized)){throw "Duplicate normalized APK entry: $normalized"}
+    $replacement=$archive.CreateEntry($normalized,[IO.Compression.CompressionLevel]::Optimal)
+    $inputStream=$entry.Open();$outputStream=$replacement.Open()
+    try{$inputStream.CopyTo($outputStream)}finally{$inputStream.Dispose();$outputStream.Dispose()}
+    $entry.Delete()
+  }
+  [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive,(Join-Path $dex 'classes.dex'),'classes.dex',[IO.Compression.CompressionLevel]::Optimal) | Out-Null
+} finally { $archive.Dispose() }
 $aligned = Join-Path $work 'aligned.apk'
 Run-Tool (Join-Path $tools 'zipalign.exe') @('-f','-p','4',$unsigned,$aligned)
 $identity = Join-Path $root 'android/.signing'

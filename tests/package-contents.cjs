@@ -11,6 +11,7 @@ const root=path.resolve(__dirname,'..'),version=require('../package.json').versi
  const web=path.join(root,'dist/web'),manifest=JSON.parse(await fs.readFile(path.join(web,'manifest.json'),'utf8'));
  const apkPath=path.join(root,`dist/android/Now-What-${version}-Android.apk`),apk=await require('unzipper').Open.file(apkPath);
  const payload=process.env.NOWWHAT_NATIVE_DIR||path.join(root,'dist/windows/webview2-unpacked');
+ assert.ok(apk.files.every(item=>!item.path.includes('\\')),'APK paths use forward slashes');
  for(const file of manifest.map(item=>item.path)){
    let expected=await fs.readFile(path.join(web,file));
    assert.deepEqual(await fs.readFile(path.join(payload,'web',file)),expected,`Windows ${file}`);

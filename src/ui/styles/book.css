@@ -14,6 +14,8 @@
   --input: #f0e0b7;
   --line: #b18a5070;
 }
+#singleWindowNotice { max-width: 620px; margin: 15vh auto; padding: 30px; }
+#singleWindowNotice button { border: 1px solid #b18a50; padding: 10px 22px; }
 html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book-app { margin: 0; height: 100dvh; min-height: 0; display: flex; flex-direction: column; align-items: center; overflow: hidden; color: var(--ink); background: linear-gradient(#170d0842,#170d0842),var(--environment) center/cover fixed; font-family: 'Noto Sans SC Variable', sans-serif; padding: clamp(20px,4vh,40px) 20px 20px; }
 .book-app * { box-sizing: border-box; }

@@ -123,3 +123,15 @@ test('narrow task pages can scroll with a real wheel to reach pagination', async
   expect(next!.y).toBeLessThan(844);
   await page.locator('#tasks-next').click(); await expect(page.locator('.task-number').first()).toHaveText('11');
 });
+
+test('a second tab cannot mutate a running session and the lock releases on close', async ({ page, context }) => {
+  await seed(page); await page.locator('#start').click(); await page.locator('#pauseTimer').click();
+  const before = await page.evaluate(() => localStorage.getItem('activeTimer'));
+  const second = await context.newPage(); await second.goto('/');
+  await expect(second.locator('#singleWindowNotice')).toBeVisible();
+  expect(await second.evaluate(() => localStorage.getItem('activeTimer'))).toBe(before);
+  await page.close();
+  await expect.poll(() => second.evaluate(async () => (await navigator.locks.query()).held?.length || 0)).toBe(0);
+  await second.reload();
+  await expect(second.locator('#timerRecoveryName')).toHaveText('活动 1');
+});

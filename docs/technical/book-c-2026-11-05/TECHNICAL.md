@@ -27,7 +27,7 @@
 - `app.js`、`i18n.js` 继续作为唯一计时、迁移、存储和语言实现，Vite 的 `virtual:runtime` 将同一份源码打进经典 IIFE，并只向新页面提供显式接口。现有 VM 单元测试仍执行同一份源码。避免一次重写成熟计时引擎；不宣称它们已经全部迁为 TypeScript 或纯领域模块。
 - 开发 HTML 为根 `index.html`，加载 `src/main.ts`；`scripts/assemble-web.cjs` 生成 `dist/web/index.html`、`app.js`、`style.css` 和完整 `assets/`。字体作为本地独立文件，避免内联为巨大的 CSS。WebView2、Android、Electron 均消费这一目录，保持原来源和用户数据路径。
 - `npm run dev` 启动 Vite；`npm run web` 先构建后提供生产预览；`npm run build:web` 做类型检查与构建；`npm test` 做核心回归；`npm run test:e2e` 用独立 Edge context 和 8766 端口执行真实浏览器测试。测试只注入合成数据。
-- 多窗口主数据写入前复读原文；变化时进入保护模式，要求重新加载。它是冲突检测，不能宣称跨进程事务锁。会话仍要求单实例使用；原生宿主保留单实例约束。
+- `src/main.ts` 在加载计时运行时之前取得同来源 Web Lock，第二标签只显示回原窗口/重新加载提示，不初始化计时或写数据；页面关闭释放锁，返回缓存页面时重载重新取得锁。`file:` 或不支持 Web Locks 时降级为单窗口使用，监听外部存储变化并进入保护模式；主数据写入前仍复读原文。降级路径不是原子跨标签锁。原生宿主保留每 profile 单实例约束。
 - 800px 以下使用保持操作可用的单列降级布局。这是工程适配，不代表已获得完整移动端 Figma 设计批准或参与者研究通过。
 
 最新验证结果与独立窗口报告见 [实施与验证记录](../../development/book-c-2026-11-05/IMPLEMENTATION.md)，不以本文的目标验收表推断未执行测试已通过。
