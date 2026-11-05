@@ -28,7 +28,7 @@ test('custom time remains session-only through saved conditions, failed writes a
  a.faults.write=true;select(a,60);assert.deepEqual(a.json('[customTime,time,timeChosen]'),[true,25,true]);
  delete a.faults.write;a.elements.get('audioReady').checked=true;a.elements.get('audioReady').dispatch('change');
  assert.equal(a.run('time'),25);assert.equal(a.run('d.preferences.time'),10);assert.equal(a.run('conditions.audio'),true);
- const b=boot(Object.fromEntries(a.values));assert.ifError(b.error);assert.deepEqual(b.json('[customTime,customTimeDraft,time]'),[false,'',10]);assert.equal(b.run('conditions.audio'),true);
+ const b=boot(Object.fromEntries(a.values));assert.ifError(b.error);assert.deepEqual(b.json('[customTime,customTimeDraft,time]'),[false,'',10]);assert.equal(b.run('conditions.audio'),false);
 });
 test('budget and current-condition edits never alter a running or paused timer',()=>{
  for(const paused of [false,true]){

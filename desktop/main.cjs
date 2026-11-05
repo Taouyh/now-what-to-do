@@ -3,7 +3,8 @@ const path=require('node:path');
 const fs=require('node:fs/promises');
 const {pathToFileURL}=require('node:url');
 const ROOT=path.resolve(__dirname,'..');
-const ASSETS=new Set(['index.html','app.js','i18n.js','style.css']);
+const WEB=path.join(ROOT,'dist/web');
+const ASSETS=new Set(['index.html','app.js','style.css']);
 protocol.registerSchemesAsPrivileged([{scheme:'nowwhat',privileges:{standard:true,secure:true,supportFetchAPI:true}}]);
 app.setName('Now What');
 const testing=process.env.NOWWHAT_E2E==='1';
@@ -16,8 +17,9 @@ else{
   app.whenReady().then(()=>{
     protocol.handle('nowwhat',request=>{
       const u=new URL(request.url),name=u.pathname.slice(1);
-      if(u.hostname!=='app'||!ASSETS.has(name))return new Response('Not found',{status:404});
-      return net.fetch(pathToFileURL(path.join(ROOT,name)).href).then(response=>{
+      const resource=/^assets\/[A-Za-z0-9_./-]+\.(png|svg|woff2|css)$/.test(name)&&!name.includes('..');
+      if(u.hostname!=='app'||!(ASSETS.has(name)||resource))return new Response('Not found',{status:404});
+      return net.fetch(pathToFileURL(path.join(WEB,name)).href).then(response=>{
         const headers=new Headers(response.headers);
         headers.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-src 'none'");
         return new Response(response.body,{status:response.status,headers});

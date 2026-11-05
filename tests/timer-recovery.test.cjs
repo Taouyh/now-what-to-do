@@ -65,9 +65,7 @@ test('legacy paused progress is recoverable without guessing its offline duratio
  const input=saved({legacy:true,paused:true}),app=setup(input);assert.equal(app.run('timerState().needsElapsedConfirmation'),false);app.run('finishTimer()');assert.equal(app.run('d.completed[0].actualDurationMs'),480000);assert.equal(app.run('d.completed[0].pausedDurationMs'),1200);
 });
 test('an uncertain legacy session can be explicitly discarded without inventing a zero-duration record',()=>{
- const app=setup(saved({legacy:true}));app.elements.get('discardRecoveryTimer').click();assert.equal(app.elements.get('confirmCancel').textContent,'取消');
- app.elements.get('confirmCancel').click();assert.ok(app.run('timerState()'));assert.equal(app.run('d.completed.length'),0);
- app.elements.get('discardRecoveryTimer').click();app.elements.get('confirmAccept').click();assert.equal(app.run('timerState()'),null);assert.equal(app.run('d.completed.length'),0);assert.equal(app.run('d.tasks.length'),fixture().tasks.length);
+ const app=setup(saved({legacy:true}));app.elements.get('discardRecoveryTimer').click();assert.equal(app.elements.get('confirmLayer').classList.contains('hide'),true);assert.equal(app.run('timerState()'),null);assert.equal(app.run('d.completed.length'),0);assert.equal(app.run('d.tasks.length'),fixture().tasks.length);
 });
 test('an expired session left overnight starts a fresh segment rather than extending yesterday',()=>{
  const app=setup(saved({finished:true}));assert.equal(app.run('timerState().resumeAsNew'),true);app.run('resumeRecoveredTimer()');assert.equal(app.run('d.completed[0].actualDurationMs'),900000);assert.equal(app.run('timerState().elapsed'),0);assert.equal(app.run('timerState().extensionDurationMs'),0);

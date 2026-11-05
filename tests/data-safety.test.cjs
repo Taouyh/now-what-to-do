@@ -169,8 +169,9 @@ test('failed timer start, pause, resume and give-up retain the previous state', 
   const running = app.values.get('activeTimer');
   app.faults.writeKey = 'activeTimer'; app.run('pauseTimer()');
   assert.equal(app.values.get('activeTimer'), running);
-  assert.ok(app.intervals.size > 0);
-  delete app.faults.writeKey; app.run('pauseTimer()');
+  assert.equal(app.intervals.size, 0);
+  assert.equal(app.run('timerState().recoveryReason'), 'interrupted');
+  delete app.faults.writeKey; app.run('resumeRecoveredTimer();pauseTimer()');
   const paused = app.values.get('activeTimer');
   app.faults.writeKey = 'activeTimer'; app.run('resumeTimer()');
   assert.equal(app.values.get('activeTimer'), paused);

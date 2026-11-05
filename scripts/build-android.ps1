@@ -1,6 +1,8 @@
 param([string]$JavaHome, [string]$SdkRoot)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
+& npm.cmd --prefix $root run build:web
+if($LASTEXITCODE -ne 0){throw 'Web build failed.'}
 if (!$JavaHome) {
   $compiler = Get-Command javac.exe -ErrorAction SilentlyContinue
   if ($compiler) { $JavaHome = Split-Path (Split-Path $compiler.Source -Parent) -Parent } else { $JavaHome = $env:JAVA_HOME }
@@ -19,8 +21,8 @@ $classes = Join-Path $work 'classes'
 $dex = Join-Path $work 'dex'
 $out = Join-Path $root 'dist/android'
 New-Item -ItemType Directory -Path $work,$assets,$generated,$classes,$dex,$out -Force | Out-Null
-foreach ($file in @('app.js','i18n.js','style.css')) { Copy-Item -LiteralPath (Join-Path $root $file) -Destination $assets }
-$html = [IO.File]::ReadAllText((Join-Path $root 'index.html')).Replace('<script src="i18n.js','<script src="native-android.js"></script><script src="i18n.js')
+Copy-Item -Path "$root/dist/web/*" -Destination $assets -Recurse -Force
+$html = [IO.File]::ReadAllText((Join-Path $root 'dist/web/index.html')).Replace('<!-- native-bridge -->','<script src="native-android.js"></script>')
 [IO.File]::WriteAllText((Join-Path $assets 'index.html'),$html,[Text.UTF8Encoding]::new($false))
 Copy-Item -LiteralPath (Join-Path $root 'android/native-android.js') -Destination $assets
 function Run-Tool($exe,[string[]]$toolArgs) { & $exe @toolArgs; if ($LASTEXITCODE -ne 0) { throw "Tool failed: $exe ($LASTEXITCODE)" } }

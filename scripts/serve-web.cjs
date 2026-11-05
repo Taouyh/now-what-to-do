@@ -2,7 +2,7 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, '../dist/web');
 const files = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
@@ -16,7 +16,14 @@ const server = http.createServer((req, res) => {
     res.writeHead(405, {Allow: 'GET, HEAD'}); res.end(); return;
   }
   let entry;
-  try { entry = files.get(new URL(req.url, 'http://localhost:8765').pathname); } catch {}
+  try {
+    const pathname = new URL(req.url, 'http://localhost:8765').pathname;
+    entry = files.get(pathname);
+    if (!entry && /^\/assets\/[a-zA-Z0-9_./-]+$/.test(pathname) && !pathname.includes('..')) {
+      const mime = { '.png':'image/png', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.css':'text/css; charset=utf-8' }[path.extname(pathname)];
+      if (mime) entry = [pathname.slice(1), mime];
+    }
+  } catch {}
   if (!entry) { res.writeHead(404); res.end('Not found'); return; }
   fs.readFile(path.join(root, entry[0]), (error, data) => {
     if (error) { res.writeHead(500); res.end('Unable to load page'); return; }
@@ -30,7 +37,7 @@ server.on('error', error => {
     : `Unable to start Now What: ${error.message}`);
   process.exitCode = 1;
 });
-server.listen(8765, '127.0.0.1', () => {
+server.listen(Number(process.env.PORT || 8765), '127.0.0.1', () => {
   console.log('Now What: http://localhost:8765/');
   console.log('Keep this window open while using the local website. Press Ctrl+C to stop.');
 });

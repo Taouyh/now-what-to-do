@@ -3,7 +3,7 @@ const {boot,fixture}=require('./helpers/app-harness.cjs');
 function setup(specs=[{}],conditions={}){
  const d=fixture();d.completed=[];d.preferences={time:10,conditions:{computer:false,audio:false,speech:false,interrupted:false,...conditions}};
  d.tasks=specs.map((s,i)=>({id:'t'+i,name:'活动 '+i,requirements:{computer:false,audio:false,speech:false,uninterrupted:false,...s.requirements},...s}));
- const a=boot({whatToDoData:JSON.stringify(d)});assert.ifError(a.error);return a;
+ const a=boot({whatToDoData:JSON.stringify(d)});assert.ifError(a.error);for(const [key,value] of Object.entries(conditions))a.run(`selectHomeCondition('${key}',${JSON.stringify(value)})`);return a;
 }
 function toggle(a,id,value){a.elements.get(id).checked=value;a.elements.get(id).dispatch('change');}
 test('independent requirements combine with AND, with no mutually exclusive environment',()=>{
@@ -68,11 +68,11 @@ test('manual selection uses current budget while allowing a deliberate resource 
  const a=setup([{requirements:{computer:true}}]);assert.equal(a.run('cur'),null);
  a.run('run(d.tasks[0])');assert.equal(a.run('timerState().plannedDurationMs'),10*60000);
 });
-test('requirements and current conditions survive a backup round trip, preserving unknown legacy data',async()=>{
+test('backup preserves requirements and saved preferences; a fresh round clears conditions',async()=>{
  const a=setup([{requirements:{audio:true},notes:{keep:true}}],{audio:true});
  a.elements.get('export').click();const data=JSON.parse(await a.downloads.at(-1).blob.text());
  const b=boot({whatToDoData:JSON.stringify(data)});assert.ifError(b.error);
- assert.deepEqual(b.json('d.tasks'),data.tasks);assert.deepEqual(b.json('conditions'),data.preferences.conditions);
+ assert.deepEqual(b.json('d.tasks'),data.tasks);assert.deepEqual(b.json('d.preferences.conditions'),data.preferences.conditions);assert.deepEqual(b.json('conditions'),{computer:false,audio:false,speech:false,interrupted:false});
  for(const mutation of ['x.tasks[0].requirements.audio="yes"','x.preferences.conditions.speech=1']){
   const before=b.values.get('whatToDoData');b.run('var x=JSON.parse(JSON.stringify(d));'+mutation+';try{validateImport(x);throw Error("accepted")}catch(e){if(e.message==="accepted")throw e}');
   assert.equal(b.values.get('whatToDoData'),before);

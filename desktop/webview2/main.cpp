@@ -98,7 +98,16 @@ static HRESULT configure() {
     web->add_WebResourceRequested(Callback<ICoreWebView2WebResourceRequestedEventHandler>([](ICoreWebView2*,ICoreWebView2WebResourceRequestedEventArgs* args)->HRESULT{
         ComPtr<ICoreWebView2WebResourceRequest> request;args->get_Request(&request);LPWSTR raw=nullptr;request->get_Uri(&raw);
         std::wstring uri=raw?raw:L"";CoTaskMemFree(raw);uri=uri.substr(0,uri.find_first_of(L"?#"));
-        const std::map<std::wstring,std::wstring> assets={{L"index.html",L"text/html; charset=utf-8"},{L"app.js",L"text/javascript; charset=utf-8"},{L"i18n.js",L"text/javascript; charset=utf-8"},{L"style.css",L"text/css; charset=utf-8"}};
+        std::map<std::wstring,std::wstring> assets={{L"index.html",L"text/html; charset=utf-8"},{L"app.js",L"text/javascript; charset=utf-8"},{L"style.css",L"text/css; charset=utf-8"}};
+        const auto prefix=origin+L"/assets/";
+        if(uri.rfind(prefix,0)==0){
+            const auto name=uri.substr(origin.size()+1);
+            const std::map<std::wstring,std::wstring> types={{L".png",L"image/png"},{L".svg",L"image/svg+xml"},{L".woff2",L"font/woff2"},{L".css",L"text/css; charset=utf-8"}};
+            const auto dot=name.find_last_of(L'.');
+            if(dot!=std::wstring::npos&&name.find(L"..")==std::wstring::npos&&name.find_first_not_of(L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_./-")==std::wstring::npos){
+                const auto type=types.find(name.substr(dot));if(type!=types.end())assets.emplace(name,type->second);
+            }
+        }
         ComPtr<ICoreWebView2WebResourceResponse> response;bool found=false;
         for(const auto& asset:assets)if(uri==origin+L"/"+asset.first){
             ComPtr<IStream> stream;HRESULT result=SHCreateStreamOnFileEx((applicationRoot/L"web"/asset.first).c_str(),STGM_READ|STGM_SHARE_DENY_WRITE,FILE_ATTRIBUTE_NORMAL,FALSE,nullptr,&stream);

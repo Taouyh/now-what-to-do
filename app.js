@@ -1,4 +1,7 @@
 const $=id=>document.getElementById(id),gn=id=>d.goals.find(g=>g.id===id);
+let bookView = null;
+let completionFeedback = null;
+const emptyConditions = () => ({ computer: false, audio: false, speech: false, interrupted: false });
 const recommendationChange=$('random');
 const CONDITION_KEYS=['computer','audio','speech','interrupted'];
 const REQUIREMENT_KEYS=['computer','audio','speech','uninterrupted'];
@@ -95,7 +98,7 @@ function protectData(message){
     add('retryDataLoad',tr('重新加载'),()=>location.reload());
   }
   $('dataRecoveryMessage').textContent=message;
-  document.querySelectorAll('header, main, footer, #timer, #floatingTimer, #modal, #confirmLayer').forEach(el=>el.inert=true);
+  document.querySelectorAll('header, .bookmarks, main, footer, #timer, #floatingTimer, #modal, #confirmLayer').forEach(el=>el.inert=true);
 }
 function loadData(){
   try{
@@ -116,7 +119,7 @@ function storageFailure(key,error){
   $('storageWarningText').textContent=[...storageFailures.values()].join(' ');box.classList.remove('hide');
 }
 function clearStorageFailure(key){storageFailures.delete(key);if($('storageWarning')){if(!storageFailures.size)$('storageWarning').classList.add('hide');else $('storageWarningText').textContent=[...storageFailures.values()].join(' ')}}
-function syncRuntimePreferences(){
+function syncRuntimePreferences({restoreConditions=false}={}){
   const changedLanguage=applyLanguage(d.preferences.language);
   document.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===language)));
   if(changedLanguage){
@@ -126,7 +129,7 @@ function syncRuntimePreferences(){
     syncDescriptionToggle();
     recommendationChange.textContent=tr('换一件');
   }
-  time=customTime?customMinutes():Number(d.preferences.time);conditions=currentConditions(d.preferences);
+  time=customTime?customMinutes():Number(d.preferences.time);if(restoreConditions)conditions=currentConditions(d.preferences);
   document.documentElement.dataset.theme=d.theme;
   $('theme').setAttribute('aria-pressed',String(d.theme==='dark'));
   $('lightTheme').setAttribute('aria-pressed',String(d.theme==='light'));
@@ -135,6 +138,7 @@ function syncRuntimePreferences(){
 }
 function save(candidate=d){
   if(storageBlocked)return false;
+  try{if(localStorage.getItem('whatToDoData')!==originalMain){protectData(tr('本地数据已在其他窗口更改，请重新加载。'));return false}}catch(e){storageFailure('whatToDoData',e);return false}
   try{let serialized=JSON.stringify({...candidate,version:2});localStorage.setItem('whatToDoData',serialized);dataSnapshot=serialized;originalMain=serialized;clearStorageFailure('whatToDoData');return true}
   catch(e){d=JSON.parse(dataSnapshot);syncRuntimePreferences();storageFailure('whatToDoData',e);return false}
 }
@@ -178,10 +182,10 @@ function persistPreferences(){
   syncHomeControls();random({keepCurrent:true});return true;
 }
 function selectHomeCondition(key,value){
-  const previous={timeChosen,customTime};
+  const previous={timeChosen,customTime,conditions:{...conditions}};
   if(key==='time'){customTime=value==='custom';time=customTime?customMinutes():value;timeChosen=time!==null}
   else if(CONDITION_KEYS.includes(key))conditions={...conditions,[key]:!!value};
-  if(!persistPreferences()){timeChosen=previous.timeChosen;customTime=previous.customTime;syncRuntimePreferences()}
+  if(!persistPreferences()){timeChosen=previous.timeChosen;customTime=previous.customTime;conditions=previous.conditions;syncRuntimePreferences();random({keepCurrent:true})}
   if(key==='time'&&customTime)$('customMinutes').focus({preventScroll:true});
   else if(key==='time'){$('timePicker').open=false;document.querySelector('#timePicker > summary')?.focus({preventScroll:true})}
 }
@@ -194,6 +198,7 @@ function actionButton(label,action,className,id){
   let button=textElement('button',label,className);button.type='button';button.onclick=action;if(id)button.id=id;return button;
 }
 function page(id,{avoidActivityId=null}={}){
+  if (bookView) closeActivity();
   closeActivityMenu();
   closeRecommendationMenu();
   clearTodayRecordTimers();
@@ -211,6 +216,7 @@ function page(id,{avoidActivityId=null}={}){
   // Home resumes the current session; other pages keep its floating controls.
   if(session){if(id==='home')showFullTimer();else{timerView='floating';renderTimer()}}
   window.scrollTo?.({top:0,left:0,behavior:'instant'});
+  bookView?.onPage(id);
 }
 document.querySelectorAll('[data-page]').forEach(x=>x.onclick=()=>page(x.dataset.page));$('browse').onclick=()=>page('tasks');
 document.querySelectorAll('#times button').forEach(x=>x.onclick=()=>selectHomeCondition('time',x.dataset.v==='custom'?'custom':+x.dataset.v));
@@ -260,7 +266,11 @@ function revealRecommendation(){
 }
 function recommendAndReveal(){if(cur&&d.tasks.filter(ok).length<2)return;if(cur)recommendationSkipped.add(cur.id);nextStepEditor=null;random();revealRecommendation()}
 function restartRecommendations(){recommendationSkipped.clear();nextStepEditor=null;random()}
-function random({keepCurrent=false,avoidId=null}={}){
+function random(options = {}) {
+  updateRecommendation(options);
+  bookView?.renderHome();
+}
+function updateRecommendation({keepCurrent=false,avoidId=null}={}){
   cancelRecommendationReveal?.();closeRecommendationMenu();
   const empty=!d.tasks.length;
   $('onboarding').classList.toggle('hide',!empty);
@@ -342,18 +352,19 @@ function toggleRecommendationMenu(id,anchor,mouse=false){
 }
 $('recommendationMenuEdit').onclick=()=>{const id=recommendationMenuContext?.id;if(id)editNextStep(id)};
 
-function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
+function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(bookView&&timerState())page('home');if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
 const TIMER_CHECKPOINT_MS=5000,TIMER_LONG_PAUSE_MS=60*60*1000,TIMER_UNOBSERVED_MS=2*60*1000;
-let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0;
+let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0,timerFrozen=null;
 let timerView='full';
 function createTimerState(t,plannedMs,now=Date.now()){
-  return{timerVersion:2,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:{...t},taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
+  return{timerVersion:2,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:JSON.parse(JSON.stringify(t)),taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
 }
 function startTimer(t){
   if(timerState()){showFullTimer();return}
   if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;
   if(!selectionReady()){page('home');$('timePicker').open=true;$('customMinutes').focus({preventScroll:true});notify(tr('请先选择本次可用时间。'));return}
   primeTimerAudio();if(!setTimerState(createTimerState(t,time*60000)))return;
+  completionFeedback = null;
   clearTimeout(timerPauseWatch);timerView='full';renderTimer();startTimerLoop();
 }
 function primeTimerAudio(){try{if(!timerAudio)timerAudio=new (window.AudioContext||window.webkitAudioContext)();if(timerAudio.state==='suspended')timerAudio.resume()}catch(e){timerAudio=null}}
@@ -369,13 +380,18 @@ function validateTimer(x){
 }
 function timerState(){
   if(storageBlocked)return null;
+  if(timerFrozen)return JSON.parse(JSON.stringify(timerFrozen));
   try{let raw=localStorage.getItem('activeTimer');originalTimer=raw;if(raw===null||raw==='')return null;let x=validateTimer(JSON.parse(raw));if(!x.completionId)x.completionId='legacy-'+x.taskId+'-'+x.lastStarted;return x}
   catch(e){stopTimerLoop();protectData(tr('无法读取活动计时：{error}。原始计时数据未更改。',{error:e.message}));return null}
 }
 function setTimerState(x){
   if(storageBlocked)return false;
-  try{if(x)localStorage.setItem('activeTimer',JSON.stringify(x));else localStorage.removeItem('activeTimer');clearStorageFailure('activeTimer');return true}
-  catch(e){storageFailure('activeTimer',e);return false}
+  try{if(x)localStorage.setItem('activeTimer',JSON.stringify(x));else localStorage.removeItem('activeTimer');timerFrozen=null;clearStorageFailure('activeTimer');return true}
+  catch(e){
+    stopTimerLoop();clearTimeout(timerPauseWatch);
+    if(x&&!timerFrozen){try{const prior=JSON.parse(localStorage.getItem('activeTimer'));if(prior&&!prior.paused&&!prior.finished){timerFrozen={...prior,paused:true,lastStarted:0,recoveryReason:'interrupted',stoppedAt:prior.checkpointAt??prior.lastStarted,pauseStartedAt:Date.now()}}}catch{}}
+    storageFailure('activeTimer',e);return false;
+  }
 }
 function stopTimerLoop(){if(timerTick){clearInterval(timerTick);timerTick=null}}
 function plannedDurationMs(x){return Number.isFinite(x.plannedDurationMs)?x.plannedDurationMs:Math.max(0,x.durationMs-(x.extensionDurationMs||0))}
@@ -384,14 +400,14 @@ function activeElapsedMs(x,now=Date.now()){return Math.min(x.durationMs,Math.max
 function elapsedMs(x,now=Date.now()){return activeElapsedMs(x,now)}
 function remainingMs(x,now=Date.now()){return Math.max(0,x.durationMs-elapsedMs(x,now))}
 function formatClock(ms){let n=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(n/60),s=n%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
-function timerTask(x){return x&&(d.tasks.find(t=>t.id===x.taskId)||x.task)}
+function timerTask(x){return x&&(x.task||d.tasks.find(t=>t.id===x.taskId))}
 function longTimerPause(x,now=Date.now()){
   const reference=x.recoveryReason?x.stoppedAt:x.finished?x.timeUpAt:x.paused?x.pauseStartedAt:null;
   return Number.isFinite(reference)&&reference>0&&now-reference>=TIMER_LONG_PAUSE_MS;
 }
 function unobservedTimerGap(x,now=Date.now()){
   const gap=now-(x.checkpointAt??x.lastStarted);
-  return x.timerVersion===2&&gap>(timerBackgroundAt?TIMER_LONG_PAUSE_MS:TIMER_UNOBSERVED_MS);
+  return x.timerVersion===2&&(gap<0||gap>(timerBackgroundAt?TIMER_LONG_PAUSE_MS:TIMER_UNOBSERVED_MS));
 }
 function watchPausedTimer(x){
   clearTimeout(timerPauseWatch);if(!x||x.recoveryReason||(!x.paused&&!x.finished))return;
@@ -456,10 +472,11 @@ function renderTimerRecovery(x,t){
 function renderTimer(){
   let x=timerState();
   if(x&&!x.recoveryReason&&longTimerPause(x)){suspendTimer('long',Date.now(),false);x=timerState()}
-  if(!x||(!x.recoveryReason&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId))){
-    $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();clearTimeout(timerPauseWatch);syncDialogState();return;
+  if(!x){
+    $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();clearTimeout(timerPauseWatch);syncDialogState();bookView?.onTimer();return;
   }
   const t=timerTask(x);if(!t){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
+  const cleanup=!x.recoveryReason&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId);
   const now=Date.now(),recovering=!!x.recoveryReason,left=remainingMs(x,now),extensionMs=x.extensionDurationMs||0;
   $('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');
   $('timerStandard').classList.toggle('hide',recovering);$('timerRecovery').classList.toggle('hide',!recovering);
@@ -471,11 +488,14 @@ function renderTimer(){
   $('floatingTimer').setAttribute('aria-label',tr('{status} {time}，返回开始页的当前计时',{status:recovering?tr('等待恢复'):x.finished?tr('时间到了'):x.paused?tr('已暂停'):tr('剩余时间'),time:$('floatingClock').textContent}));
   if(timerView==='floating')positionFloatingTimer();
   $('timerStatus').textContent=x.finished?tr('时间到了'):x.paused?tr('已暂停'):tr('正在专注');
-  const mode=recovering?'recovery':x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions'),focusId=document.activeElement?.id;
+  const mode=cleanup?'cleanup':recovering?'recovery':x.finished?'finished':x.paused?'paused':'running',actions=$('timerActions'),focusId=document.activeElement?.id;
+  if(cleanup){stopTimerLoop();$('timerStatus').textContent=tr('记录已保存，请重试清理会话。');$('timerClock').textContent='—';}
   if(mode==='recovery'){actions.replaceChildren();actions.dataset.mode=mode;renderTimerRecovery(x,t)}
   else if(actions.dataset.mode!==mode){
     actions.dataset.mode=mode;
-    if(mode==='finished'){
+    if(mode==='cleanup'){
+      actions.replaceChildren(actionButton(tr('重试完成'),()=>finishTimer(x.completionId),'primary','retryFinish'));
+    }else if(mode==='finished'){
       actions.innerHTML='<button type="button" class="primary" id="extendTimer"></button><button type="button" class="outline" id="finishTimer"></button>';
       $('extendTimer').textContent=tr('继续');$('extendTimer').onclick=extendTimer;$('finishTimer').textContent=tr('结束并记录');$('finishTimer').onclick=()=>finishTimer(x.completionId);
     }else{
@@ -486,6 +506,7 @@ function renderTimer(){
   }
   $('timerWaitingNote').classList.toggle('hide',!x.finished||recovering);
   syncDialogState();
+  bookView?.onTimer();
 }
 function confirmRecoveryElapsed(x){
   if(!x.needsElapsedConfirmation)return x;
@@ -528,6 +549,9 @@ function setupFloatingTimer(){
 function discardTimer(){
   if(!setTimerState(null))return;
   closeConfirm();stopTimerLoop();clearTimeout(timerPauseWatch);cur=null;renderTimer();page('home');
+  completionFeedback = null;
+  bookView?.renderHome();
+  notify(tr('本次用时不会计入今天'),30000);
 }
 function pauseTimer(){
   let x=timerState();if(!x||x.finished||x.recoveryReason||x.paused)return;
@@ -543,7 +567,7 @@ function resumeTimer(){
   clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide');syncDialogState();restoreDialogFocus('confirmLayer')}
-function giveUpTimer(){openConfirm('giveup')}
+function giveUpTimer(){if(timerState()?.recoveryReason)discardTimer();else openConfirm('giveup')}
 function openConfirm(type,id){
   rememberDialogFocus('confirmLayer');
   $('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;
@@ -556,14 +580,14 @@ function openConfirm(type,id){
   $('confirmCancel').textContent=isDelete||type==='import'||type==='giveup'&&timerState()?.recoveryReason?tr('取消'):tr('继续计时');
   $('confirmAccept').textContent=isDelete?tr('删除任务'):type==='early'?tr('✓ 完成本次执行'):type==='import'?tr('确认导入'):tr('放弃本次执行');
   $('confirmAccept').className=isDelete||type==='giveup'?'danger':'primary';
-  $('confirmAccept').onclick=isDelete?()=>{d.tasks=d.tasks.filter(t=>t.id!==id);if(!save())return;closeConfirm();tasks();random({keepCurrent:true})}:type==='early'?()=>{closeConfirm();finishTimer()}:type==='import'?applyImport:discardTimer;
+  $('confirmAccept').onclick=isDelete?()=>{d.tasks=d.tasks.filter(t=>t.id!==id);if(!save())return;closeConfirm();closeActivity();tasks();random({keepCurrent:true})}:type==='early'?()=>{closeConfirm();finishTimer()}:type==='import'?applyImport:discardTimer;
   $('confirmCancel').onclick=closeConfirm;$('confirmLayer').classList.remove('hide');syncDialogState();$('confirmCancel').focus();
 }
 function confirmEarly(){return finishTimer()}
 function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}){
   let x=timerState();
   if(!x||(expectedCompletionId!==undefined&&x.completionId!==expectedCompletionId))return false;
-  if(!x.recoveryReason&&(longTimerPause(x)||(!x.paused&&!x.finished&&unobservedTimerGap(x)))){if(!suspendTimer(longTimerPause(x)?'long':'interrupted',Date.now(),false))return false;x=timerState()}
+  if(!d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)&&!x.recoveryReason&&(longTimerPause(x)||(!x.paused&&!x.finished&&unobservedTimerGap(x)))){if(!suspendTimer(longTimerPause(x)?'long':'interrupted',Date.now(),false))return false;x=timerState()}
   if(confirmedState&&confirmedState.completionId===x.completionId)x=confirmedState;
   x=confirmRecoveryElapsed(x);if(!x)return false;
   const task=timerTask(x),nextTask=restart?d.tasks.find(t=>t.id===x.taskId&&t.enabled!==false):null;
@@ -582,7 +606,9 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
       plannedDuration:plannedMs/60000,actualDurationMs:actualMs,actualDuration:actual,minutes:actual,
       pausedDurationMs:pausedMs,extensionDurationMs:extensionMs,extensionDuration:extensionMs/60000};
     if(x.legacyTimerSnapshot)record.timerRecoveryOriginal=x.legacyTimerSnapshot;
-    d.completed.push(record);if(!save())return false;
+    d.completed.push(record);
+    if (!restart) d.preferences = { ...d.preferences, conditions: emptyConditions() };
+    if(!save())return false;
   }
   stopTimerLoop();clearTimeout(timerPauseWatch);
   // The history commit is idempotent. Replacing the active state is a second
@@ -593,6 +619,9 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
     cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
   }
   if(!setTimerState(null)){renderTimer();return false}
+  conditions = emptyConditions();
+  syncHomeControls();
+  completionFeedback = { taskId: x.taskId, taskName: record.taskName, editing: false, draft: '' };
   cur=null;recommendationSkipped.clear();nextStepEditor=null;renderTimer();page('home',{avoidActivityId:x.taskId});
   notify(tr('已记录 {duration}',{duration:formatDuration(recordDurationMs(record))}));$('start')?.focus({preventScroll:true});return true;
 }
@@ -604,7 +633,29 @@ function extendTimer(){
   x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
   if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
-function notify(message){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),3200)}
+function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
+function closeContinuation() {
+  completionFeedback = null;
+  bookView?.renderHome();
+}
+function saveContinuation(value) {
+  if (!completionFeedback) return false;
+  const task = d.tasks.find(item => item.id === completionFeedback.taskId);
+  if (!task) {
+    notify(tr('这项活动已不存在，请重新选择。'));
+    closeContinuation();
+    return false;
+  }
+  const description = value.trim();
+  if ((task.description || '') !== description) {
+    const candidate = { ...d, tasks: d.tasks.map(item => item.id === task.id ? { ...item, description } : item) };
+    if (!save(candidate)) return false;
+    d = candidate;
+  }
+  closeContinuation();
+  random({ keepCurrent: true });
+  return true;
+}
 function validateImport(x){return migrateData(x)}
 function applyImport(){
   if(storageBlocked||!pendingImport)return;
@@ -614,7 +665,7 @@ function applyImport(){
   // A single Storage write commits the whole main document. Do not touch activeTimer.
   if(!save(candidate))return;
   try{
-    d=candidate;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences();page('home');closeConfirm();notify(tr('备份数据已导入。'));
+    d=candidate;completionFeedback=null;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences({restoreConditions:true});page('home');closeConfirm();notify(tr('备份数据已导入。'));
   }catch(e){
     d=previousData;dataSnapshot=previousSnapshot;
     try{
@@ -641,12 +692,17 @@ $('file').addEventListener('change',e=>{
 },true);
 function saveActivity({id='',name,requirements={computer:false,audio:false,speech:false,uninterrupted:false},description=''}){
   name=name.trim();
-  if(!name||!requirements||REQUIREMENT_KEYS.some(k=>typeof requirements[k]!=='boolean')){notify(tr('请填写活动名称并检查需要的条件。'));return false}
+  if(!name||!requirements||REQUIREMENT_KEYS.some(k=>typeof requirements[k]!=='boolean')){const error=$('activityError');if(error)error.textContent=tr('请填写活动名称并检查需要的条件。');$('name').setAttribute('aria-invalid','true');$('name').focus();notify(tr('请填写活动名称并检查需要的条件。'));return false}
   let old=d.tasks.find(t=>t.id===id),now=new Date().toISOString();
   if(id&&!old){notify(tr('这项活动已不存在，请重新选择。'));return false}
+  if (old && old.name === name && (old.description || '') === description.trim() && REQUIREMENT_KEYS.every(key => activityRequirements(old)[key] === requirements[key])) {
+    closeActivity();
+    return true;
+  }
   let t={...old,id:id||'t'+Date.now()+Math.random().toString(36).slice(2,8),name,requirements:{...old?.requirements,...requirements},description:description.trim(),createdAt:old?.createdAt||now,updatedAt:now,enabled:old?.enabled!==false};
   if(id)d.tasks=d.tasks.map(x=>x.id===id?t:x);else d.tasks.push(t);
   if(!save())return false;
+  bookView?.savedTask(t.id,!old);
   closeActivity();tasks();
   if(!old&&ok(t))cur=t;
   random({keepCurrent:true});notify(tr('活动已保存。'));return true;
@@ -656,7 +712,7 @@ $('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivi
 function restoreTimer(){
   const x=timerState();if(!x)return;
   if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
-  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return}
+  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){if(!setTimerState(null))renderTimer();return}
   if(x.timerVersion===2&&x.finished&&!x.recoveryReason&&!longTimerPause(x)){renderTimer();watchPausedTimer(x);return}
   suspendTimer('reopen',Date.now(),false);renderTimer();
 }
@@ -677,6 +733,7 @@ window.addEventListener('pagehide',()=>nativeTimerLifecycle('close'));
 window.addEventListener('pageshow',event=>{if(event.persisted)nativeTimerLifecycle('resume')});
 
 function tasks(){
+  if (bookView) { bookView.renderTasks(); return; }
   closeActivityMenu();
   const hasActivities=d.tasks.some(t=>t.enabled!==false);
   if(!hasActivities)setActivitySearch(false,{render:false});
@@ -833,6 +890,7 @@ function setupTodayDisclosure(card,onClose=()=>{}){
   return restart;
 }
 function today(){
+  if (bookView) { bookView.renderToday(); return; }
   clearTodayRecordTimers();
   let now=new Date(),a=recordsForLocalDay(d.completed,now),groups=todayRecordGroups(a),totalMs=groups.reduce((s,g)=>s+g.totalMs,0);
   $('date').textContent=new Intl.DateTimeFormat(language,{month:'numeric',day:'numeric'}).format(now);
@@ -892,9 +950,9 @@ function newTask(){
   $('requirementsOptions').open=false;
   $('desc').style.height='44px';
   $('saveActivity').textContent=tr('添加');
-  $('activityOptions').open=false;syncDescriptionToggle();syncDialogState();$('name').focus();
+  $('activityOptions').open=false;syncDescriptionToggle();syncDialogState();bookView?.onEditor();$('name').focus();
 }
-function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=!!t.description;syncDescriptionToggle()}
+function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=!!t.description;syncDescriptionToggle();bookView?.onEditor()}
 function delTask(id){openConfirm('delete',id)}
 function resizeActivityDescription(){
   const input=$('desc');if(!input.getClientRects?.().length)return;
@@ -928,7 +986,7 @@ function setupMinimalInteractions(){
     panel.style.left=Math.max(16,Math.min(window.innerWidth-width-16,r.left+r.width/2-width/2))+'px';
     panel.style.top=top+'px';panel.style.width=width+'px';panel.style.maxHeight=Math.max(90,window.innerHeight-top-16)+'px';
   };
-  for(const id of pickers){
+  for(const id of window.bookMode?[]:pickers){
     const summary=document.querySelector('#'+id+' > summary'),panel=document.querySelector('#'+id+' .condition-panel');
     let exitTimer;
     const cancelExit=()=>clearTimeout(exitTimer);
@@ -1002,4 +1060,4 @@ function setLanguage(nextLanguage){
   notify(tr('语言已切换。'));
 }
 document.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
-$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
+$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();conditions=emptyConditions();syncHomeControls();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);

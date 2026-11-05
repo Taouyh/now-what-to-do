@@ -1,6 +1,8 @@
 param([string]$OutputDirectory='dist/windows',[string]$NsisPath)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
+& npm.cmd --prefix $root run build:web
+if($LASTEXITCODE -ne 0){throw 'Web build failed.'}
 $version=(Get-Content (Join-Path $root 'package.json') -Raw | ConvertFrom-Json).version
 $sdk=Join-Path $root '.cache/webview2/sdk'
 $bootstrap=Join-Path $root '.cache/webview2/MicrosoftEdgeWebview2Setup.exe'
@@ -16,7 +18,7 @@ if(!$NsisPath){
 $output=[IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
 $payload=Join-Path $output 'webview2-unpacked'
 New-Item -ItemType Directory -Force "$payload/web" | Out-Null
-foreach($file in @('index.html','app.js','i18n.js','style.css')){Copy-Item (Join-Path $root $file) "$payload/web/$file" -Force}
+Copy-Item -Path "$root/dist/web/*" -Destination "$payload/web" -Recurse -Force
 Copy-Item "$root/desktop/webview2/native-webview2.js" $payload -Force
 Copy-Item "$sdk/LICENSE.txt" "$payload/LICENSE-WebView2.txt" -Force
 Copy-Item "$sdk/NOTICE.txt" "$payload/NOTICE-WebView2.txt" -Force
