@@ -198,7 +198,7 @@ test('completion survives failed timer removal without duplicate records after r
   app.faults.removeKey = 'activeTimer'; app.run('finishTimer()'); app.run('finishTimer()');
   assert.equal(app.json('d.completed').filter(c => c.completionId === timer.completionId).length, 1);
   assert.equal(app.values.has('activeTimer'), true);
-  assert.equal(app.elements.get('timerRecovery').classList.contains('hide'), false,'failed cleanup keeps the recovery controls available');
+  assert.equal(app.elements.get('timerActions').dataset.mode,'cleanup','failed cleanup exposes an idempotent retry instead of a new session');
   const reload = boot(Object.fromEntries(app.values)); started(reload);
   assert.equal(reload.values.has('activeTimer'), false);
   assert.equal(reload.json('d.completed').filter(c => c.completionId === timer.completionId).length, 1);

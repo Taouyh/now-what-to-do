@@ -120,11 +120,12 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .timer-screen { position: absolute; inset: 0; background: none; z-index: 2; padding: 0; }
 .book .timer-shell,.book .timer-content,.book #timerRecovery { position: absolute; inset: 0; width: 100%; max-width: none; padding: 0; text-align: left; }
 .book.has-focus #home { visibility: hidden; }
-.focus-left { top: 17%; height: 65%; }
+.focus-left { top: 17%; height: 65%; display: flex; flex-direction: column; min-height: 0; }
 .book #timerName,.book #timerRecoveryName { margin-top: 6%; font-size: clamp(28px,3.13cqw,45px); font-weight: 700; max-height: 4.5em; overflow: auto; }
-.book .timer-description { margin-top: 7%; text-align: left; font-size: clamp(14px,1.39cqw,20px); }
-.book .timer-desc { max-height: 25cqw; overflow: auto; font-size: clamp(16px,1.39cqw,20px); line-height: 1.7; text-align: center; white-space: pre-wrap; }
-.book #timerStatus,.book #timerRecoveryStatus { position: absolute; bottom: 5%; left: 0; color: var(--muted-ink); background: none; border: 0; padding: 0; font-size: clamp(14px,1.39cqw,20px); }
+.book #timerName,.book #timerRecoveryName { flex: 0 1 auto; min-height: 1.5em; max-height: 33%; }
+.book .timer-description { flex: 1 1 auto; min-height: 0; overflow: auto; width: 100%; max-width: none; margin: 7% 0 12px; text-align: left; font-size: clamp(14px,1.39cqw,20px); }
+.book .timer-desc { max-height: none; overflow: visible; font-size: clamp(16px,1.39cqw,20px); line-height: 1.7; text-align: center; white-space: pre-wrap; }
+.book #timerStatus,.book #timerRecoveryStatus { position: static; flex: none; margin: auto 0 0; color: var(--muted-ink); background: none; border: 0; padding: 0; font-size: clamp(14px,1.39cqw,20px); }
 .focus-right { text-align: center; top: 15%; }
 .book #timerClock { font: clamp(64px,8.89cqw,128px)/1.1 'EB Garamond Variable',serif; color: var(--ink); letter-spacing: -2px; margin: 3% 0 4%; }
 .book .timer-track { width: 79%; height: 4px; margin: 0 auto; background: #ccb282; }
@@ -166,6 +167,15 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .confirm-card h2 { font-size: clamp(24px,2.3cqw,33px); }.book .confirm-card p { margin: 0; }
 .book .condition-panel { position: absolute !important; left: -2.5% !important; top: -16% !important; width: 110% !important; transform: none; max-width: none; max-height: none !important; min-height: 100%; padding: 50px 26px 24px; background: var(--scroll-paper) center/cover; border: 1px solid #b18a50; border-radius: 8px; box-shadow: 0 10px 24px #1a0d0559; z-index: 8; color: var(--ink); }
 .book .condition-picker[open] .condition-panel,.book .dialog { animation: scroll-open 240ms ease-out; transform-origin: center bottom; }
+@supports (transition-behavior: allow-discrete) {
+  .book #modal { transition: opacity 240ms ease-out, display 240ms allow-discrete; opacity: 1; }
+  .book #modal.hide { opacity: 0; pointer-events: none; }
+  .book #modal .dialog { transition: transform 240ms ease-out; }
+  .book #modal.hide .dialog { transform: translateY(18px) scaleY(.08); }
+  .book .condition-picker::details-content { transition: content-visibility 240ms allow-discrete; }
+  .book .condition-picker .condition-panel { transition: opacity 240ms ease-out, transform 240ms ease-out; transform-origin: center bottom; }
+  .book .condition-picker:not([open]) .condition-panel { opacity: 0; transform: translateY(12px) scaleY(.08); pointer-events: none; }
+}
 .book .picker-close { position: absolute; top: 8px; right: 10px; }
 .book .condition-toggle { min-height: 46px; background: transparent; border-bottom: 1px solid #b18a5040; border-radius: 0; padding: 7px 0; color: var(--ink); }
 .book input[type=checkbox] { accent-color: #895332; }
@@ -184,13 +194,17 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 html[data-theme=dark] .book { --ink: #f1dfb6; --muted-ink: #d2b88e; --input: #503d2c; --t: #f1dfb6; --m: #d2b88e; --s: #38291e; }
 html[data-theme=dark] .book-paper,html[data-theme=dark] .book-layer { filter: brightness(.27) sepia(.4); }
 html[data-theme=dark] .book-corner,html[data-theme=dark] .chapter-plant { filter: invert(.75); }
-html[data-theme=dark] .book .paper-button,html[data-theme=dark] .calendar-group,html[data-theme=dark] .book .settings-row button:not([aria-pressed=true]) { background: #503d2c; }
+html[data-theme=dark] .book .paper-button,html[data-theme=dark] .book .outline,html[data-theme=dark] .calendar-group,html[data-theme=dark] .book .settings-row button:not([aria-pressed=true]),html[data-theme=dark] .book .condition-picker>summary,html[data-theme=dark] .book .choices button:not(.on) { background: #503d2c; }
+html[data-theme=dark] .task-play img,html[data-theme=dark] #random img,html[data-theme=dark] .checkbox-label img { filter: brightness(0) saturate(100%) invert(.88) sepia(.35); }
+html[data-theme=dark] .book .paper-button:hover,html[data-theme=dark] .book .outline:hover,html[data-theme=dark] .book .task-play:hover { background: #725334; }
+html[data-theme=dark] .book-app :focus-visible { outline-color: #f1dcad; }
 html[data-theme=dark] .task-strip { background-image: linear-gradient(#38291ed9,#38291ed9),var(--task-paper); border-radius: 5px; }
 html[data-theme=dark] .book .dialog,html[data-theme=dark] .book .confirm-card,html[data-theme=dark] .book .condition-panel { background-image: linear-gradient(#38291ee8,#38291ee8),var(--scroll-paper); }
 html[data-theme=dark] .chapter-title,html[data-theme=dark] .chapter-motto { color: #d2b88e; }
 @keyframes scroll-open { from { opacity: 0; transform: scaleY(.88); } to { opacity: 1; transform: scaleY(1); } }
 @media(prefers-reduced-motion:reduce) { .book * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 @media(max-width:800px),(max-height:550px) {
+  html:has(.book-app) { overflow: auto; }
   .book-app { display: block; overflow: auto; min-height: 100dvh; height: auto; padding: 20px 12px; }
   .book-header { width: 100%; height: 50px; }
   .book { width: 100%; aspect-ratio: auto; min-height: 720px; margin: 45px 0 20px; background: var(--scroll-paper) center/cover; border: 8px solid #703c25; border-radius: 12px; }
@@ -213,7 +227,7 @@ html[data-theme=dark] .chapter-title,html[data-theme=dark] .chapter-motto { colo
   .book .timer-screen { position: relative; inset: auto; min-height: 680px; }.book .timer-shell,.book .timer-content,.book #timerRecovery { position: relative; inset: auto; }
   .book.has-focus #home { display: none; }.book.has-focus main { display: none; }
   .book #timerStatus,.book #timerRecoveryStatus { position: static; margin-top: 20px; }
-  .book #timerClock { font-size: 76px; }.book .timer-desc { max-height: 180px; }
+  .book #timerClock { font-size: 76px; }.book .timer-description { flex: none; max-height: 180px; }.book #timerName,.book #timerRecoveryName { max-height: 4.5em; }
   .book #modal,.book #confirmLayer { position: fixed; inset: 0; background: #21130980; }
   .book .dialog,.book .confirm-card { left: 5%; top: 8%; width: 90%; height: auto; min-height: 470px; max-height: 84dvh; padding: 50px 25px 30px; overflow: auto; }
   .book .dialog::after,.book .confirm-card::after { display: none; }

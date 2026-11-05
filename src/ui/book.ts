@@ -129,6 +129,9 @@ export function mountBook(app: Runtime) {
   for (const [index, id] of ['computer', 'requiresAudio', 'requiresSpeech', 'requiresUninterrupted'].entries()) {
     const label = byId(id).closest('label')!;
     label.prepend(image(`scroll-icon-${index + 1}.svg`));
+    const key = ['必须用电脑', '必须听音频', '需要出声', '不便中断'][index];
+    label.dataset.i18nTitle = key;
+    label.title = app.tr(key);
   }
   for (const id of ['timePicker', 'conditionsPicker']) {
     const details = byId<HTMLDetailsElement>(id);
@@ -167,6 +170,7 @@ export function mountBook(app: Runtime) {
     renderTasks: () => pages.renderTasks(),
     renderToday: () => pages.renderToday(),
     savedTask(id, added) {
+      pages.taskFocusAfterSave = id;
       if (added) pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / 10);
     },
     onPage(id) {
@@ -189,6 +193,7 @@ export function mountBook(app: Runtime) {
     },
   });
   app.page(previousPage);
+  if (app.blocked) { book.inert = true; byId('retryDataLoad').focus(); }
   // Newly mounted labels participate in the same language dictionary.
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(node => { node.textContent = app.tr(node.dataset.i18n!); });
   let today = new Date().toDateString();

@@ -19,6 +19,7 @@ $output=[IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
 $payload=Join-Path $output 'webview2-unpacked'
 New-Item -ItemType Directory -Force "$payload/web" | Out-Null
 Copy-Item -Path "$root/dist/web/*" -Destination "$payload/web" -Recurse -Force
+if(Test-Path -LiteralPath "$payload/web/i18n.js"){Remove-Item -LiteralPath "$payload/web/i18n.js"}
 Copy-Item "$root/desktop/webview2/native-webview2.js" $payload -Force
 Copy-Item "$sdk/LICENSE.txt" "$payload/LICENSE-WebView2.txt" -Force
 Copy-Item "$sdk/NOTICE.txt" "$payload/NOTICE-WebView2.txt" -Force

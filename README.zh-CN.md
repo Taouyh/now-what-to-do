@@ -79,7 +79,7 @@
 <a id="development"></a>
 ## 开发与贡献
 
-下载源码后打开 `index.html` 就能运行。欢迎通过 [Issue](https://github.com/Taouyh/now-what-to-do/issues) 提建议，或提交 Pull Request。
+当前分支正在开发 1.4 书版；上面的截图和下载链接属于已发布的 1.3。源码需 Node.js 24：执行 `npm ci`，再执行 `npm run web`，打开终端显示的本地地址。开发热更新使用 `npm run dev`，检查使用 `npm test` 与 `npm run test:e2e`。不要直接双击源码 HTML。详见[实施与验证记录](docs/development/book-c-2026-11-05/IMPLEMENTATION.md)。欢迎通过 [Issue](https://github.com/Taouyh/now-what-to-do/issues) 提建议，或提交 Pull Request。
 
 [制作 Windows / 安卓安装包](docs/installable-builds.md) · [发布宣传页](docs/site-and-readme.md)
 

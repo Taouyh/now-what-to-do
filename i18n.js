@@ -1,5 +1,7 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "关闭": {"en":"Close","ja":"閉じる"},
+  "确定": {"en":"Done","ja":"確定"},
   "任务": {"en":"Tasks","ja":"活動"},
   "本地数据已在其他窗口更改，请重新加载。": {"en":"Local data changed in another window. Reload to continue.","ja":"別のウィンドウでデータが変更されました。再読み込みしてください。"},
   "记录已保存，请重试清理会话。": {"en":"Your record is saved. Retry to close this session.","ja":"記録は保存済みです。再試行して今回を終了してください。"},

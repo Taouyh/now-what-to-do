@@ -20,6 +20,19 @@ test('completion atomically resets conditions; cleanup retry cannot append twice
  assert.equal(app.elements.get('timerActions').dataset.mode,'cleanup');assert.ok(app.elements.get('retryFinish'));
  delete app.faults.removeKey;app.elements.get('retryFinish').click();assert.equal(app.run('d.completed.length'),1);assert.equal(app.values.has('activeTimer'),false);
 });
+test('all condition combinations reset after running, paused, time-up and recovered finishes',()=>{
+ for(let bits=0;bits<16;bits++)for(const mode of ['running','paused','finished','recovery']){
+  const app=setup();
+  const conditions={computer:!!(bits&1),audio:!!(bits&2),speech:!!(bits&4),interrupted:!!(bits&8)};
+  app.run(`conditions=${JSON.stringify(conditions)};persistPreferences();run(d.tasks[0])`);
+  if(mode==='paused')app.run('pauseTimer()');
+  if(mode==='finished')app.run('var x=timerState();x.elapsed=x.durationMs;x.finished=true;x.lastStarted=0;x.timeUpAt=Date.now();setTimerState(x)');
+  if(mode==='recovery')app.run("suspendTimer('reopen')");
+  assert.equal(app.run('finishTimer()'),true,`${bits} ${mode}`);
+  assert.deepEqual(app.json('conditions'),{computer:false,audio:false,speech:false,interrupted:false});
+  assert.equal(app.run('d.completed.length'),1);assert.equal(app.run('time'),10);
+ }
+});
 test('task and description snapshots remain immutable and continuation edits only the completed task',()=>{
  const app=setup();app.run('run(d.tasks[0]);d.tasks[0].name="新名称";d.tasks[0].description="新说明";save()');
  assert.equal(app.run('timerTask(timerState()).name'),fixture().tasks[0].name);
@@ -41,4 +54,9 @@ test('failed checkpoint freezes at last persisted progress and explicit recovery
 test('concurrent main document changes are detected before overwriting',()=>{
  const app=setup();const external=JSON.stringify({...fixture(),customData:{external:true}});app.values.set('whatToDoData',external);
  assert.equal(app.run('saveActivity({name:"冲突草稿"})'),false);assert.equal(app.values.get('whatToDoData'),external);assert.equal(app.run('storageBlocked'),true);
+});
+test('a recovered completion with failed cleanup offers only retry, not a new session',()=>{
+ const app=setup();app.run("run(d.tasks[0]);suspendTimer('reopen')");app.faults.removeKey='activeTimer';
+ assert.equal(app.run('finishTimer()'),false);assert.equal(app.elements.get('timerActions').dataset.mode,'cleanup');assert.equal(app.run('d.completed.length'),1);
+ delete app.faults.removeKey;app.elements.get('retryFinish').click();assert.equal(app.run('d.completed.length'),1);assert.equal(app.run('timerState()'),null);
 });

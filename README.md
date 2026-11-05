@@ -79,7 +79,7 @@ Clearing app or browser data can erase your records. Restoring a backup replaces
 <a id="development"></a>
 ## Development & contribution
 
-Download the source and open `index.html` to run the app. Suggestions in [Issues](https://github.com/Taouyh/now-what-to-do/issues) and Pull Requests are welcome.
+This branch develops the 1.4 book interface; the screenshots and download links above describe released 1.3. With Node.js 24, run `npm ci`, then `npm run web` and open the local URL printed in the terminal. Use `npm run dev` for live development, `npm test` and `npm run test:e2e` for checks. Do not open the source HTML directly. See the [implementation and verification record](docs/development/book-c-2026-11-05/IMPLEMENTATION.md). Suggestions in [Issues](https://github.com/Taouyh/now-what-to-do/issues) and Pull Requests are welcome.
 
 [Build Windows / Android](docs/installable-builds.md) · [Publish the website](docs/site-and-readme.md)
 

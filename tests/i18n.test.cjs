@@ -81,6 +81,11 @@ test('every explicit static and dynamic UI key has complete English and Japanese
   const app=fs.readFileSync(path.join(__dirname,'../app.js'),'utf8');
   const keys=[...html.matchAll(/data-i18n(?:-(?:placeholder|aria-label|title))?="([^"]+)"/g)].map(m=>m[1]);
   keys.push(...[...app.matchAll(/tr\('([^']+)'/g)].map(m=>m[1]));
+  for(const file of ['src/ui/book.ts','src/ui/pages.ts']){
+    const source=fs.readFileSync(path.join(__dirname,'..',file),'utf8');
+    keys.push(...[...source.matchAll(/tr\('([^']+)'/g)].map(m=>m[1]));
+    keys.push(...[...source.matchAll(/translated\('[^']+', '([^']+)'/g)].map(m=>m[1]));
+  }
   for(const key of keys){assert.ok(messages[key]?.en,key+' en');assert.ok(messages[key]?.ja,key+' ja');}
   for(const [key,values] of Object.entries(messages))for(const locale of ['en','ja']){
     assert.deepEqual([...key.matchAll(/\{\w+\}/g)].map(m=>m[0]).sort(),[...values[locale].matchAll(/\{\w+\}/g)].map(m=>m[0]).sort(),key+' placeholders in '+locale);

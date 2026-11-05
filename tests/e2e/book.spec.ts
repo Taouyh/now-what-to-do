@@ -81,3 +81,45 @@ test('local assets, languages, theme, keyboard escape, and narrow-screen control
   await page.locator('.small-action').click(); await page.locator('#name').fill('小さな画面'); await page.locator('#saveActivity').click();
   expect((await main(page)).tasks).toHaveLength(2); expect(failures).toEqual([]);
 });
+
+test('long focus descriptions stay inside the book and dark controls remain legible', async ({ page }) => {
+  const value = data(); value.tasks[0].name = '很长的活动名称'.repeat(15); value.tasks[0].description = '这是一段不能丢失的说明。\n'.repeat(150); value.theme = 'dark';
+  await seed(page, value);
+  await page.locator('#start').click(); await page.locator('#timerDescription summary').click();
+  for (const width of [1236, 1480]) {
+    await page.setViewportSize({ width, height: 715 });
+    const geometry = await page.evaluate(() => {
+      const book = document.getElementById('book')!.getBoundingClientRect();
+      const description = document.getElementById('timerDescription')!.getBoundingClientRect();
+      const status = document.getElementById('timerStatus')!.getBoundingClientRect();
+      const style = getComputedStyle(document.getElementById('earlyTimer')!);
+      return { bookBottom: book.bottom, descriptionBottom: description.bottom, statusTop: status.top, color: style.color, background: style.backgroundColor };
+    });
+    expect(geometry.bookBottom).toBeLessThanOrEqual(715);
+    expect(geometry.descriptionBottom).toBeLessThanOrEqual(geometry.statusTop + 1);
+    expect(geometry.color).toBe('rgb(241, 223, 182)');
+    expect(geometry.background).toBe('rgb(80, 61, 44)');
+  }
+  expect((await main(page)).tasks[0].description.length).toBe(value.tasks[0].description.length);
+});
+
+test('damaged source remains exportable and book controls stay inert', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('whatToDoData', '{damaged-json'));
+  await page.goto('/');
+  await expect(page.locator('#dataRecovery')).toBeVisible();
+  await expect(page.locator('#book')).toHaveAttribute('inert', '');
+  await page.keyboard.press('Escape'); await expect(page.locator('#dataRecovery')).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem('whatToDoData'))).toBe('{damaged-json');
+  const downloaded = page.waitForEvent('download'); await page.locator('#exportRawData').click();
+  const file = await downloaded;
+  expect(file.suggestedFilename()).toBe('what-to-do-original.txt');
+});
+
+test('narrow task pages can scroll with a real wheel to reach pagination', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 }); await seed(page, data(21)); await nav(page, 'tasks');
+  await page.mouse.move(250, 600); await page.mouse.wheel(0, 1000);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(0);
+  const next = await page.locator('#tasks-next').boundingBox();
+  expect(next!.y).toBeLessThan(844);
+  await page.locator('#tasks-next').click(); await expect(page.locator('.task-number').first()).toHaveText('11');
+});

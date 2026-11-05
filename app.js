@@ -98,7 +98,8 @@ function protectData(message){
     add('retryDataLoad',tr('重新加载'),()=>location.reload());
   }
   $('dataRecoveryMessage').textContent=message;
-  document.querySelectorAll('header, .bookmarks, main, footer, #timer, #floatingTimer, #modal, #confirmLayer').forEach(el=>el.inert=true);
+  document.querySelectorAll('#book, header, .bookmarks, main, footer, #timer, #floatingTimer, #modal, #confirmLayer').forEach(el=>el.inert=true);
+  $('retryDataLoad')?.focus();
 }
 function loadData(){
   try{
@@ -354,7 +355,7 @@ $('recommendationMenuEdit').onclick=()=>{const id=recommendationMenuContext?.id;
 
 function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(bookView&&timerState())page('home');if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
 const TIMER_CHECKPOINT_MS=5000,TIMER_LONG_PAUSE_MS=60*60*1000,TIMER_UNOBSERVED_MS=2*60*1000;
-let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0,timerFrozen=null;
+let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0,timerFrozen=null,timerCleanupId=null;
 let timerView='full';
 function createTimerState(t,plannedMs,now=Date.now()){
   return{timerVersion:2,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:JSON.parse(JSON.stringify(t)),taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
@@ -476,8 +477,8 @@ function renderTimer(){
     $('timer').classList.add('hide');$('floatingTimer').classList.add('hide');$('timerActions').replaceChildren();$('timerActions').dataset.mode='';stopTimerLoop();clearTimeout(timerPauseWatch);syncDialogState();bookView?.onTimer();return;
   }
   const t=timerTask(x);if(!t){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
-  const cleanup=!x.recoveryReason&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId);
-  const now=Date.now(),recovering=!!x.recoveryReason,left=remainingMs(x,now),extensionMs=x.extensionDurationMs||0;
+  const cleanup=timerCleanupId===x.completionId||!x.recoveryReason&&d.completed.some(c=>(c.completionId||c.recordId)===x.completionId);
+  const now=Date.now(),recovering=!cleanup&&!!x.recoveryReason,left=remainingMs(x,now),extensionMs=x.extensionDurationMs||0;
   $('timer').classList.toggle('hide',timerView!=='full');$('floatingTimer').classList.toggle('hide',timerView!=='floating');
   $('timerStandard').classList.toggle('hide',recovering);$('timerRecovery').classList.toggle('hide',!recovering);
   $('timerName').textContent=t.name;$('timerDesc').textContent=t.description||'';$('timerDescription').classList.toggle('hide',!t.description);
@@ -618,7 +619,9 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
     if(!setTimerState(createTimerState(nextTask,plannedMs))){renderTimer();return false}
     cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
   }
+  timerCleanupId=x.completionId;
   if(!setTimerState(null)){renderTimer();return false}
+  timerCleanupId=null;
   conditions = emptyConditions();
   syncHomeControls();
   completionFeedback = { taskId: x.taskId, taskName: record.taskName, editing: false, draft: '' };
@@ -712,7 +715,7 @@ $('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivi
 function restoreTimer(){
   const x=timerState();if(!x)return;
   if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
-  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){if(!setTimerState(null))renderTimer();return}
+  if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){timerCleanupId=x.completionId;if(!setTimerState(null))renderTimer();else timerCleanupId=null;return}
   if(x.timerVersion===2&&x.finished&&!x.recoveryReason&&!longTimerPause(x)){renderTimer();watchPausedTimer(x);return}
   suspendTimer('reopen',Date.now(),false);renderTimer();
 }
@@ -1021,9 +1024,9 @@ function setupMinimalInteractions(){
   window.visualViewport?.addEventListener('resize',()=>{placeActivityMenu();placeRecommendationMenu()});
   window.visualViewport?.addEventListener('scroll',()=>{placeActivityMenu();placeRecommendationMenu()});
   document.addEventListener('keydown',e=>{
-    const active=!$('confirmLayer').classList.contains('hide')?'confirmLayer':!$('modal').classList.contains('hide')?'modal':null;
+    const active=storageBlocked&&$('dataRecovery')?'dataRecovery':!$('confirmLayer').classList.contains('hide')?'confirmLayer':!$('modal').classList.contains('hide')?'modal':null;
     if(e.key==='Escape'){
-      if(active){e.preventDefault();active==='modal'?closeActivity():closeConfirm();return}
+      if(active){e.preventDefault();if(active!=='dataRecovery')active==='modal'?closeActivity():closeConfirm();return}
       if(activityMenuContext){e.preventDefault();closeActivityMenu({restoreFocus:true});return}
       if(recommendationMenuContext){e.preventDefault();closeRecommendationMenu({restoreFocus:true});return}
       if(nextStepEditor&&$('nextStepForm')?.contains(e.target)){e.preventDefault();cancelNextStep();return}

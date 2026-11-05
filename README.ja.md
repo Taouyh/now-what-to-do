@@ -79,7 +79,7 @@
 <a id="development"></a>
 ## 開発・貢献
 
-ソースをダウンロードして `index.html` を開くと使えます。[Issue](https://github.com/Taouyh/now-what-to-do/issues) や Pull Request も歓迎します。
+このブランチは書籍風 UI の 1.4 を開発中です。上の画像とダウンロードリンクは公開済みの 1.3 です。Node.js 24 で `npm ci`、`npm run web` を実行し、表示されたローカル URL を開いてください。開発には `npm run dev`、検証には `npm test` と `npm run test:e2e` を使います。ソース HTML を直接開かないでください。[実装・検証記録](docs/development/book-c-2026-11-05/IMPLEMENTATION.md)も参照できます。[Issue](https://github.com/Taouyh/now-what-to-do/issues) や Pull Request も歓迎します。
 
 [Windows / Android のビルド](docs/installable-builds.md) · [紹介ページの公開](docs/site-and-readme.md)
 

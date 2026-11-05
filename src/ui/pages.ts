@@ -5,6 +5,7 @@ import { element, button, image, byId } from './dom';
 
 export class BookPages {
   taskPage = 0;
+  taskFocusAfterSave: string | null = null;
   directoryPage = 0;
   recordPage = 0;
   selectedTask: string | null = null;
@@ -105,6 +106,8 @@ export class BookPages {
 
   renderTasks() {
     const { app } = this;
+    const focusedTask = this.taskFocusAfterSave || document.activeElement?.closest<HTMLElement>('[data-task-id]')?.dataset.taskId;
+    this.taskFocusAfterSave = null;
     const tasks = app.data.tasks.filter(task => task.enabled !== false);
     const group = paginate(tasks, this.taskPage, 10);
     this.taskPage = group.page;
@@ -127,6 +130,10 @@ export class BookPages {
     }, 'tasks');
     footer.classList.add('spread-pager');
     byId('taskList').replaceChildren(left, right, footer);
+    if (focusedTask) {
+      const row = document.querySelector<HTMLElement>(`[data-task-id="${CSS.escape(focusedTask)}"] .task-edit`);
+      (row || document.querySelector<HTMLElement>('.task-edit,.small-action'))?.focus({preventScroll: true});
+    }
   }
 
   focusPager(id: string, forward: boolean) {
