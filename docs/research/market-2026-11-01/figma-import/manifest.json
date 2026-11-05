@@ -1,0 +1,14 @@
+{
+  "name": "Now What Research Report",
+  "id": "now-what-research-local-import",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

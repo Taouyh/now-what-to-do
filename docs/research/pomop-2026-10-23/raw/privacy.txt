@@ -1,0 +1,96 @@
+Privacy Policy — Pomop.app
+We use Google Analytics to see how Pomop is used. Your tasks, history, and settings never leave your device. Analytics cookies stay off unless you accept. This choice covers analytics only.See our
+Privacy Policy
+.
+Reject
+Accept
+Pomop.app
+Product
+Features
+How it works
+Guides
+Privacy
+Open Pomop
+Product
+Features
+How it works
+Guides
+Privacy
+Privacy Policy
+Last updated: October 13, 2026
+Your tasks and settings stay in your browser. Three things do leave it: website analytics sent to Google, the ad requests Google AdSense makes to show ads, and anything you send through the contact form. This page covers all of them.
+What we store
+Pomop.app saves your tasks, deadlines, priority levels, time estimates, calendar dates, focus session history, theme preference, and other settings using your browser's
+localStorage
+. This data is written to and read from your device only. We do not operate a server or database that receives, stores, or processes this information.
+Analytics & advertising
+Pomop.app uses Google Analytics to understand aggregate usage, like which pages are visited. It's operated by Google, not by us, and may use cookies or similar technology to collect information such as your IP address, browser type, and browsing activity. This data goes directly to Google; we don't operate a server that receives, stores, or sees it. Google Analytics never receives your tasks, their titles, or your history.
+To help keep the app free, Pomop.app also shows ads from Google AdSense. We ask Google to show only non-personalized ads, so ads aren't based on your past browsing. Non-personalized ads can still use cookies or similar technology, for example to limit how often you see an ad, prevent fraud, and measure ads. AdSense never receives your tasks either. You can read more about how Google uses this data at
+policies.google.com/technologies/partner-sites
+, and manage your ad personalization settings at
+adssettings.google.com
+.
+If you visit from the European Economic Area, the UK, or Switzerland, Google's consent message (a Google-certified consent management platform) asks whether Google and its ad partners may use cookies and personal data for ads. If you don't consent, Google may show limited ads or no ads. You can change that choice at any time with the "Privacy and cookie settings" link Google adds to the page, or with the "Ad privacy choices" button below when it's shown. Outside those regions, Google's ad service (including its doubleclick.net domain) may set or read its own cookies without asking first.
+Pomop.app uses Google's Consent Mode for analytics. Until you accept the cookie banner, analytics cookies are off: the Google tag still loads, and it sends Google cookieless pings (for example, that a page was viewed) that don't set or read analytics cookies. If you accept, Google Analytics can set cookies and measure visits normally. If you reject, it stays in cookieless mode. The cookie banner covers analytics only; ad choices are made in Google's consent message. A changed choice applies from then on; it doesn't undo data that was already sent. You can change your mind at any time:
+Manage cookie preferences
+Ad privacy choices
+What we don't collect
+No account, email address, or password is needed to use the app
+No session history, tasks, plans, presets, or settings are ever transmitted off your device
+We never sell your data or share it beyond the services disclosed on this page
+Contact form
+The form on the
+Contact page
+sends your name, email address, and message to
+Web3Forms
+, a form-delivery service, which forwards them to our inbox. We use them only to reply to you. If you'd rather not use the form, you can email us directly instead.
+Notifications
+If you grant notification permission, Pomop.app uses your browser's built-in Notifications API to alert you when a timer finishes. This permission is requested only after you press Start, is handled entirely by your browser, and involves no third-party notification service.
+Clearing your data
+You can delete individual tasks from the Tasks or Calendar pages, or permanently remove everything — tasks, history, and settings — at any time from the "Clear all data" action on the Settings page.
+Changes to this policy
+If this policy changes, the "Last updated" date above will be revised. Since Pomop.app has no accounts or contact list, we won't be able to notify you individually.
+Questions
+If you have questions about this policy, visit our
+Contact page
+.
+Also built by us
+Other free tools from the team behind Pomop.
+PDFSizeFit.com
+(opens in a new tab)
+ATS Resume Kit
+(opens in a new tab)
+Image Size Pro
+(opens in a new tab)
+Pomop.app
+A simple decision maker that helps you choose what to work on next. Your tasks and history stay on your device.
+Product
+Dashboard
+Tasks
+Calendar
+History
+Settings
+Tools
+What Should I Do Next
+Task Prioritizer
+Daily Planner
+Task Calendar
+Productivity Planner
+Guides
+What Is Decision Fatigue
+Reduce Decision Fatigue
+Too Many Tasks
+To-Do List vs. Calendar
+Eisenhower vs. Time Blocking
+Company
+About Us
+Author
+Methodology
+Contact Us
+Privacy Policy
+Terms & Conditions
+© 2026 Pomop.app. All rights reserved.
+Built for focused work, not accounts.
+Are you sure?
+Cancel
+Confirm

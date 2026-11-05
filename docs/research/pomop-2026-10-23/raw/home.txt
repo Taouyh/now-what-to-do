@@ -1,0 +1,196 @@
+Pomop — Free Task Prioritizer: Decide What to Do Next
+We use Google Analytics to see how Pomop is used. Your tasks, history, and settings never leave your device. Analytics cookies stay off unless you accept. This choice covers analytics only.See our
+Privacy Policy
+.
+Reject
+Accept
+Pomop.app
+Product
+Features
+How it works
+Guides
+Privacy
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+Open Pomop
+Product
+Features
+How it works
+Guides
+Privacy
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+A smarter way to focus
+Know what to do
+next.
+Prioritize your tasks, plan your time, and start a focus session — all in one beautiful, private workspace.
+No account required
+Works offline
+Tasks stay on your device
+Free to use
+Open Pomop
+See how it works
+A simple, privacy-first productivity planner for students, professionals, and anyone who wants to get things done.
+Plan
+Your day
+Focus
+Without distraction
+Complete
+What matters
+Illustration of the Pomop dashboard, with example tasks.
+Pomop.app
+Home
+Tasks
+Calendar
+Focus
+History
+Settings
+“Small steps create big progress.”
+Good morning!
+Here's what you should work on next.
+Mon, Oct 21
+Recommended task
+Finish the project proposal
+High priority
+Due today
+25 minutes
+Why this task?
+Due today, high importance, fits within your 25-minute session.
+Start focus session
+View details
+Focus Timer
+15m
+25m
+45m
+60m
+25:00
+Today's tasks
+Add task
+Finish the project proposal
+High
+Due today
+25m
+Review design feedback
+Medium
+Due tomorrow
+30m
+Study chapter 4
+High
+Oct 23
+45m
+Plan next week
+Low
+Oct 25
+20m
+Today's progress
+3 of 6 tasks
+50%
+2
+Focus sessions
+1h 5m
+Focus time
+3
+Tasks completed
+78%
+Est. accuracy
+Capture every task
+Add a task in seconds with a priority, an estimated duration, and an optional deadline. Nothing else to fill in.
+See what's due, at a glance
+A calendar built from your own tasks — click any day to see what's due, add a task, or reschedule with one click.
+Focus without deciding twice
+Once Pomop picks a task, one click starts a distraction-free focus timer for it, sized to the time you said you have.
+A simple record of what got done
+Completed tasks and minutes focused, day by day. No streaks or points, just a log of what you finished.
+How it works
+Pomop runs in your browser, with no account and no backend. Your tasks and history never leave your device.
+01
+Add your tasks
+Give each one a priority, an optional deadline, and how long you expect it to take.
+02
+Get a recommendation
+Pomop weighs priority, deadline urgency, overdue status, and how long a task has been waiting, and tells you exactly which one to do next — and why.
+03
+Start Focus
+One click starts a distraction-free timer for that task. Switch tabs and it keeps counting accurately in the background.
+04
+Complete and repeat
+Mark it done, press "What should I do next?", and Pomop recommends the next task. No going back through the list yourself.
+How the Pomodoro Technique works
+The Pomodoro Technique is a time-management method built around short, focused work intervals. You set a focus timer for 25 minutes, work without interruption, then take a 5-minute break, repeating that cycle four times before a longer 15 to 30 minute break. Pomop's focus timer defaults to that same 25-minute session and runs it for one specific task — the one it just recommended — so you skip the step of deciding what the next Pomodoro is for. You can pick a shorter or longer session (15 to 90 minutes) when you have more or less time, and change the default in Settings. Pomop doesn't time your breaks, so step away for a few minutes between sessions the way the technique suggests.
+Frequently asked questions
+How does Pomop decide what I should work on next?
+A deterministic Decision Engine, not AI. It scores every pending task on priority, deadline urgency, overdue status, how long the task fits your available time, and how long it's been waiting, then recommends the highest-scoring one and shows you exactly why.
+What if I don't want to do the recommended task?
+"Choose another" re-ranks your remaining tasks and shows the next best option. Skipped tasks stay in your list — nothing is deleted or penalized.
+Is my data private?
+Yes. Pomop.app has no backend and no account system. Every setting, preset, and session in your history is stored only in your browser's local storage and is never sent to a server. The site uses Google Analytics to understand usage, and analytics cookies are only set if you accept the cookie banner. It also shows Google AdSense ads, which are non-personalized; Google's ad service may still set its own cookies, and visitors in the EEA, UK, and Switzerland are asked for consent through Google's consent message. Your tasks are never sent to either service. The Privacy Policy page has the details.
+Does it work offline?
+Yes. Pomop.app is a Progressive Web App. Install it from your browser and it will keep working without an internet connection.
+What happens if I switch tabs while a timer is running?
+The timer keeps counting accurately in the background — it measures elapsed time from timestamps rather than counting ticks, so it doesn't drift while the tab is hidden.
+Will I still get notified if I'm in a different tab or app?
+If you allow notifications when you press Start, Pomop.app will fire a browser notification when a session finishes, even if the tab is in the background.
+Can I back up or move my data to another device?
+Yes. Open Settings and use Export data to download your tasks, history, and settings as a JSON file, then use Import data on another device or browser to bring it back in.
+Is the focus timer a Pomodoro timer?
+It's a focus countdown for the one task you picked. Tell Pomop how much time you have — 15, 25, 45, 60, or 90 minutes — and it sizes the session to fit that time and the task's remaining estimate. 25 minutes, the classic Pomodoro length, is the default, and you can change it in Settings. Pomop doesn't schedule breaks for you, so take a short one between sessions.
+Also built by us
+PDFSizeFit.com
+Free PDF Tools
+Free PDF tools to help you manage and work with PDF files.
+Explore PDF Tools
+(opens in a new tab)
+More free tools:
+ATS Resume Kit
+(opens in a new tab)
+Image Size Pro
+(opens in a new tab)
+Pomop.app
+A simple decision maker that helps you choose what to work on next. Your tasks and history stay on your device.
+Product
+Dashboard
+Tasks
+Calendar
+History
+Settings
+Tools
+What Should I Do Next
+Task Prioritizer
+Daily Planner
+Task Calendar
+Productivity Planner
+Guides
+What Is Decision Fatigue
+Reduce Decision Fatigue
+Too Many Tasks
+To-Do List vs. Calendar
+Eisenhower vs. Time Blocking
+Company
+About Us
+Author
+Methodology
+Contact Us
+Privacy Policy
+Terms & Conditions
+© 2026 Pomop.app. All rights reserved.
+Built for focused work, not accounts.
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+Are you sure?
+Cancel
+Confirm

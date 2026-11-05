@@ -1,0 +1,595 @@
+{
+  "date": "2026-11-01",
+  "audit": {
+    "screenCount": 41,
+    "counts": {
+      "FRAME": 185,
+      "TEXT": 611,
+      "INSTANCE": 312
+    },
+    "fonts": [
+      "Noto Sans SC"
+    ],
+    "imageNodes": [],
+    "overflow": [],
+    "unwired": [],
+    "undersized": [],
+    "mobileCount": 36,
+    "desktopCount": 2,
+    "controlCount": 280,
+    "overviewNodes": [
+      {
+        "id": "11:324",
+        "name": "OVERVIEW · 主路径一览",
+        "descendants": 195,
+        "counts": {
+          "TEXT": 104,
+          "FRAME": 45,
+          "INSTANCE": 46
+        },
+        "imageNodes": []
+      },
+      {
+        "id": "13:371",
+        "name": "STATES · 边界状态一览",
+        "descendants": 343,
+        "counts": {
+          "TEXT": 180,
+          "FRAME": 75,
+          "INSTANCE": 88
+        },
+        "imageNodes": []
+      }
+    ]
+  },
+  "interactionScenarios": {
+    "method": "Evaluate read-back native Figma actions and variables; not a browser click test.",
+    "cases": [
+      {
+        "name": "首次 15 分钟、开始、留位置、回访续做",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/start",
+            "A"
+          ],
+          [
+            "A/end",
+            "F"
+          ],
+          [
+            "F/input",
+            "FF"
+          ],
+          [
+            "FF/save",
+            "D"
+          ],
+          [
+            "D/home",
+            "H2"
+          ],
+          [
+            "H2/continue",
+            "ROWN"
+          ],
+          [
+            "ROWN/start",
+            "A"
+          ]
+        ]
+      },
+      {
+        "name": "5 分钟、计时与暂停",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/time5",
+            "H"
+          ],
+          [
+            "H/start",
+            "R5"
+          ],
+          [
+            "R5/start",
+            "A"
+          ],
+          [
+            "A/timer",
+            "T"
+          ],
+          [
+            "T/toggle",
+            "TP"
+          ],
+          [
+            "TP/toggle",
+            "T"
+          ]
+        ]
+      },
+      {
+        "name": "30 分钟推荐",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/time30",
+            "H"
+          ],
+          [
+            "H/start",
+            "R30"
+          ]
+        ]
+      },
+      {
+        "name": "未知空档推荐",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/timeunknown",
+            "H"
+          ],
+          [
+            "H/start",
+            "RU"
+          ]
+        ]
+      },
+      {
+        "name": "拒绝、再次拒绝、休息",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/reject",
+            "J"
+          ],
+          [
+            "J/notnow",
+            "RALT"
+          ],
+          [
+            "RALT/reject",
+            "J2"
+          ],
+          [
+            "J2/rest",
+            "X"
+          ]
+        ]
+      },
+      {
+        "name": "无结果后调整范围恢复",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/empty",
+            "E"
+          ],
+          [
+            "E/conditions",
+            "C"
+          ],
+          [
+            "C/apply",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ]
+        ]
+      },
+      {
+        "name": "无库手选与名称错误",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/manual",
+            "M"
+          ],
+          [
+            "M/add",
+            "N"
+          ],
+          [
+            "N/save",
+            "NE"
+          ],
+          [
+            "NE/name",
+            "NF"
+          ],
+          [
+            "NF/save",
+            "ROWN"
+          ]
+        ]
+      },
+      {
+        "name": "计时中断后继续",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/start",
+            "A"
+          ],
+          [
+            "A/timer",
+            "T"
+          ],
+          [
+            "T/interrupted",
+            "I"
+          ],
+          [
+            "I/continue",
+            "T"
+          ]
+        ]
+      },
+      {
+        "name": "不计时中断后结束",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/start",
+            "A"
+          ],
+          [
+            "A/interrupted",
+            "I"
+          ],
+          [
+            "I/end",
+            "F"
+          ],
+          [
+            "F/skip",
+            "D0"
+          ]
+        ]
+      },
+      {
+        "name": "修改与删除取消、确认",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/return",
+            "H2"
+          ],
+          [
+            "H2/edit",
+            "FE"
+          ],
+          [
+            "FE/input",
+            "FE2"
+          ],
+          [
+            "FE2/save",
+            "MOWN"
+          ],
+          [
+            "MOWN/edit",
+            "FE"
+          ],
+          [
+            "FE/delete",
+            "Q"
+          ],
+          [
+            "Q/cancel",
+            "FE"
+          ],
+          [
+            "FE/delete",
+            "Q"
+          ],
+          [
+            "Q/delete",
+            "M0"
+          ]
+        ]
+      },
+      {
+        "name": "已有记录时空结束不覆盖",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/return",
+            "H2"
+          ],
+          [
+            "H2/continue",
+            "ROWN"
+          ],
+          [
+            "ROWN/start",
+            "A"
+          ],
+          [
+            "A/end",
+            "F"
+          ],
+          [
+            "F/save",
+            "D0"
+          ],
+          [
+            "D0/home",
+            "H2"
+          ]
+        ]
+      },
+      {
+        "name": "长期偏好撤销",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/reject",
+            "J"
+          ],
+          [
+            "J/less",
+            "P"
+          ],
+          [
+            "P/undo",
+            "R15"
+          ]
+        ]
+      },
+      {
+        "name": "计时到点不自动完成",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/timeout",
+            "TE"
+          ],
+          [
+            "TE/end",
+            "F"
+          ],
+          [
+            "F/skip",
+            "D0"
+          ]
+        ]
+      },
+      {
+        "name": "桌面示意进入完整演示",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/desktop",
+            "DH"
+          ],
+          [
+            "DH/main",
+            "DR"
+          ],
+          [
+            "DR/main",
+            "R15"
+          ]
+        ]
+      },
+      {
+        "name": "长期偏好影响后续推荐",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/reject",
+            "J"
+          ],
+          [
+            "J/less",
+            "P"
+          ],
+          [
+            "P/next",
+            "RALT"
+          ],
+          [
+            "RALT/home",
+            "H"
+          ],
+          [
+            "H/start",
+            "RALT"
+          ]
+        ]
+      },
+      {
+        "name": "已应用条件保留可见反馈",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/conditions",
+            "C"
+          ],
+          [
+            "C/quiet",
+            "CQUIET"
+          ],
+          [
+            "CQUIET/apply",
+            "H"
+          ]
+        ]
+      },
+      {
+        "name": "建议耗尽不重复抽取",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/reject",
+            "J"
+          ],
+          [
+            "J/notnow",
+            "RALT"
+          ],
+          [
+            "RALT/reject",
+            "J2"
+          ],
+          [
+            "J2/again",
+            "EPOOL"
+          ]
+        ]
+      },
+      {
+        "name": "材料缺失后不再缩小回阅读",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ],
+          [
+            "R15/reject",
+            "J"
+          ],
+          [
+            "J/material",
+            "RALT"
+          ],
+          [
+            "RALT/reject",
+            "J2"
+          ],
+          [
+            "J2/short",
+            "EPOOL"
+          ]
+        ]
+      },
+      {
+        "name": "新体验入口重置时间选择",
+        "pass": true,
+        "trace": [
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/time30",
+            "H"
+          ],
+          [
+            "H/guide",
+            "GUIDE"
+          ],
+          [
+            "GUIDE/first",
+            "H"
+          ],
+          [
+            "H/start",
+            "R15"
+          ]
+        ]
+      }
+    ],
+    "unreachable": [],
+    "controls": 280,
+    "branches": 390
+  },
+  "visual": {
+    "guide": "checked",
+    "coreJourney": "checked",
+    "exceptionStates": "checked after targeted label fix",
+    "controls": "checked after filled/error example fix",
+    "desktop": "checked"
+  },
+  "browserClickTest": {
+    "status": "not run",
+    "reason": "Browser runtime import failed: node:process is not allowed in node_repl. Verification used read-back native Figma actions, variable-state evaluation and cloud-rendered screenshots."
+  },
+  "participantTests": "not run"
+}

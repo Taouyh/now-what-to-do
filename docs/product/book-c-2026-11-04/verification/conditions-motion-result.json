@@ -1,0 +1,46 @@
+{
+  "defaults": [
+    {
+      "id": "VariableID:61:533",
+      "values": {
+        "61:0": false
+      }
+    },
+    {
+      "id": "VariableID:61:534",
+      "values": {
+        "61:0": false
+      }
+    },
+    {
+      "id": "VariableID:61:535",
+      "values": {
+        "61:0": false
+      }
+    },
+    {
+      "id": "VariableID:61:536",
+      "values": {
+        "61:0": false
+      }
+    }
+  ],
+  "checkedCloseEntries": 25,
+  "endStates": [
+    {
+      "id": "62:3281",
+      "delay": 0.009999999776482582,
+      "transition": null,
+      "sheetOpacity": 0,
+      "shadeOpacity": 0
+    },
+    {
+      "id": "62:3675",
+      "delay": 0.009999999776482582,
+      "transition": null,
+      "sheetOpacity": 0,
+      "shadeOpacity": 0
+    }
+  ],
+  "errors": []
+}

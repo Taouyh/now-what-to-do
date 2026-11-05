@@ -1,0 +1,31 @@
+{
+  "links": [
+    "/privacy-policy/",
+    "/",
+    "/app/",
+    "/tasks/",
+    "/calendar/",
+    "/app/#focus-timer",
+    "/history/",
+    "/settings/",
+    "/",
+    "/app/",
+    "/tasks/",
+    "/app/#focus-timer",
+    "/calendar/",
+    "/history/",
+    "/settings/",
+    "/settings/",
+    "/tasks/",
+    "/tasks/"
+  ],
+  "scripts": [
+    "https://www.googletagmanager.com/gtag/js?id=G-QWH68X4ZP4",
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2729930026460873",
+    "/_astro/ConsentBanner.astro_astro_type_script_index_0_lang.B193QJVN.js",
+    "/_astro/TaskForm.astro_astro_type_script_index_0_lang.DLhaXUUY.js",
+    "/_astro/TaskDetails.astro_astro_type_script_index_0_lang.2s-2UyZt.js",
+    "/_astro/index.astro_astro_type_script_index_0_lang.BTUCsylu.js",
+    "/_astro/Layout.astro_astro_type_script_index_0_lang.BgEdtXMx.js"
+  ]
+}

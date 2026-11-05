@@ -1,0 +1,90 @@
+Productivity Planner App: Tasks, Calendar & Focus | Pomop
+We use Google Analytics to see how Pomop is used. Your tasks, history, and settings never leave your device. Analytics cookies stay off unless you accept. This choice covers analytics only.See our
+Privacy Policy
+.
+Reject
+Accept
+Pomop.app
+Product
+Features
+How it works
+Guides
+Privacy
+Open Pomop
+Product
+Features
+How it works
+Guides
+Privacy
+Productivity planner
+Most productivity tools keep adding features until they need a manual. Pomop stays small: you add tasks, it picks one, you focus on it, and then it picks the next.
+Pomop is a digital planner: a free web app you can install on your phone or computer, not a printed planner or a PDF template. There's no account to create; your tasks are saved in your browser.
+The loop
+Every part of Pomop exists to support one cycle: capture a task, see it in context on the calendar, get a decision about what to work on, focus on it, mark it complete, and see it in your history. Then it starts again with the next task. Each step lives on a page you can reach from the menu (Home, Tasks, Calendar, History), so there's no separate mode to learn.
+What's deliberately left out
+No projects, no subtasks, no kanban boards, no team chat, no AI assistant, no habit tracker. They're reasonable features for a different kind of tool. Pomop leaves them out so the main screen stays about one thing, the recommendation.
+The pieces
+Tasks
+— capture and filter by Today, Upcoming, Overdue, or Completed
+Calendar
+— see due dates at a glance, add or reschedule with a click
+Decision Engine
+— one recommendation, with a reason, every time
+Focus — a distraction-free timer for the recommended task, one click away
+History
+— a plain log of what got done, no gamification
+Frequently asked questions
+Is this a replacement for Notion or Trello?
+No, and it's not trying to be. Pomop doesn't do projects, subtasks, kanban boards, or team collaboration. Its job is deciding what you should work on next, and the other features (tasks, calendar, focus, history) are only as big as that job needs.
+Why doesn’t it have streaks or points?
+Streaks reward opening the app every day, whether or not you worked on the right thing. Pomop's History page shows what got done and how long it took, and that's all.
+Is it really free?
+Yes. No account, no subscription, no feature paywall. Pomop.app is free to use, and never sells or transmits your task data.
+Related
+Planning one day at a time? See the
+daily planner
+. Want to see exactly how tasks get ranked? That's the
+task prioritizer
+. Curious why deciding gets harder as your list grows? Read
+what is decision fatigue
+.
+Also built by us
+Other free tools from the team behind Pomop.
+PDFSizeFit.com
+(opens in a new tab)
+ATS Resume Kit
+(opens in a new tab)
+Image Size Pro
+(opens in a new tab)
+Pomop.app
+A simple decision maker that helps you choose what to work on next. Your tasks and history stay on your device.
+Product
+Dashboard
+Tasks
+Calendar
+History
+Settings
+Tools
+What Should I Do Next
+Task Prioritizer
+Daily Planner
+Task Calendar
+Productivity Planner
+Guides
+What Is Decision Fatigue
+Reduce Decision Fatigue
+Too Many Tasks
+To-Do List vs. Calendar
+Eisenhower vs. Time Blocking
+Company
+About Us
+Author
+Methodology
+Contact Us
+Privacy Policy
+Terms & Conditions
+© 2026 Pomop.app. All rights reserved.
+Built for focused work, not accounts.
+Are you sure?
+Cancel
+Confirm

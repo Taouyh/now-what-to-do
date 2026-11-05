@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Now What · 计时中断与恢复</title>
+<style>
+:root{color-scheme:light;--bg:#f7f5f0;--s:#fdfcf9;--ink:#2e302b;--muted:#74786c;--line:#dedfd5;--olive:#5b6650;--soft:#e9eddf;--heading:"Songti SC","STSong","SimSun",serif}
+*{box-sizing:border-box}body{margin:0;background:#eeeee7;color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;font-size:14px;line-height:1.65}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}button:focus-visible{outline:2px solid var(--olive);outline-offset:4px}svg{display:block;flex-shrink:0}h1,h2,p{margin:0}.board{max-width:1800px;margin:auto;padding:39px 42px 26px}.board-header{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:.15em;color:var(--olive);margin-bottom:9px}.board-header h1{font-size:30px;font-weight:600;line-height:1.4;letter-spacing:.015em}.board-header>p{font-size:12px;color:var(--muted);margin-bottom:4px}.states{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.caption{display:flex;gap:10px;align-items:center;color:#5c6357;font-size:13px;margin-bottom:13px}.caption span{font-size:11px;color:var(--olive);letter-spacing:.08em}.window{height:754px;background:var(--bg);border:1px solid #d6d8cd;border-radius:15px;overflow:hidden;box-shadow:0 7px 22px #353d280c}.app-header{height:78px;display:flex;align-items:center;gap:22px;padding:0 25px;border-bottom:1px solid #e4e5db}.brand{font-size:18px;font-weight:500;letter-spacing:-.04em;margin-right:auto;white-space:nowrap}.nav{display:flex;align-items:center;gap:18px;font-size:12px;color:var(--muted);white-space:nowrap}.nav .active{position:relative;color:var(--olive)}.nav .active:after{position:absolute;content:"";height:2px;left:0;right:0;bottom:-12px;background:var(--olive)}.gear{color:var(--muted);width:18px;height:18px}.screen{padding:0 28px}.timer-view{text-align:center;margin:95px auto 0;max-width:430px}.status{font-size:13px;color:var(--olive);letter-spacing:.03em}.timer-view h2{font-family:var(--heading);font-size:42px;line-height:1.35;font-weight:600;margin:19px 0 0}.clock{font-size:94px;line-height:1.2;letter-spacing:-.035em;font-weight:500;font-variant-numeric:tabular-nums;margin:39px 0 25px}.progress{height:3px;width:278px;max-width:90%;margin:auto;background:var(--line);border-radius:4px;overflow:hidden}.progress i{display:block;width:100%;height:100%;background:var(--olive)}.timer-meta{font-size:13px;color:var(--muted);margin-top:16px}.actions{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:34px}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 21px;border-radius:9px;font-size:14px;white-space:nowrap;line-height:1.5}.primary{background:var(--olive);color:#fffef8;min-width:132px}.primary:hover{background:#4e5a43}.secondary{border:1px solid var(--line);color:var(--olive);min-width:132px}.secondary:hover{background:var(--soft)}.timer-view .actions{margin-top:37px}.waiting-hint{font-size:12px;color:#89907f;margin-top:20px}.recovery-view{max-width:400px;margin:84px auto 0}.recovery-kicker{font-size:13px;color:var(--muted);margin:0 0 19px;text-align:center}.recovery-card{background:var(--s);border:1px solid var(--line);border-radius:19px;padding:25px 28px 29px;text-align:center}.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);text-align:left}.pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;line-height:1.5;background:var(--soft);color:var(--olive);padding:4px 8px;border-radius:20px;white-space:nowrap}.pill i{width:5px;height:5px;border-radius:50%;background:#839174}.recovery-card h2{font-family:var(--heading);font-size:39px;font-weight:600;line-height:1.35;margin-top:27px}.spent-label{font-size:12px;color:var(--muted);margin-top:26px}.spent{display:flex;justify-content:center;align-items:baseline;gap:9px;line-height:1.2;margin-top:8px;font-variant-numeric:tabular-nums}.spent strong{font-size:64px;font-weight:500;letter-spacing:-.025em}.spent span{font-size:15px;color:var(--muted)}.recovery-note{font-size:12px;color:var(--muted);line-height:1.9;margin-top:20px}.recovery-card .actions{margin-top:27px;gap:10px}.recovery-card .primary,.recovery-card .secondary{padding-inline:15px;min-width:0;flex:1}.old-segment{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 0;margin-top:23px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}.old-segment strong{font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap}.long-pause .spent-label{margin-top:22px}.long-pause .recovery-note{margin-top:17px}.long-pause .actions{margin-top:23px}.long-pause .recovery-card{padding-bottom:27px}.note{margin:16px 4px 0;font-size:12px;color:#727b68;line-height:1.8}.note strong{font-weight:500;color:#4f5e43}.board-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #d9dcce;margin-top:30px;padding-top:16px;color:#858c7b;font-size:11px}.board-footer button{color:#68775a;font-size:11px;padding:5px 0}.done-view{text-align:center;margin:145px auto 0;max-width:400px}.check{width:45px;height:45px;color:var(--olive);margin:0 auto 23px}.done-view h2{font-family:var(--heading);font-size:34px;font-weight:600}.done-view p{color:var(--muted);font-size:13px;margin-top:17px}.done-view button{margin-top:30px}.resume-caption{font-size:12px;color:var(--muted);line-height:1.9;margin-top:24px}.sample-note{color:var(--muted);font-size:11px;min-height:19px;margin:14px auto 0;text-align:center}
+@media(max-width:1400px){.app-header{gap:15px;padding-inline:19px}.nav{gap:13px;font-size:11px}.brand{font-size:16px}.screen{padding-inline:19px}.recovery-card{padding-inline:22px}.primary,.secondary{font-size:13px;padding-inline:17px;min-width:110px}}
+@media(max-width:1080px){.board{padding:28px 18px}.states{grid-template-columns:1fr;gap:30px;max-width:600px;margin:auto}.board-header{max-width:600px;margin-inline:auto;display:block}.board-header>p{margin-top:11px}.window{height:720px}.app-header{padding-inline:26px}.brand{font-size:18px}.nav{font-size:12px;gap:20px}.screen{padding-inline:28px}.note{margin-top:14px}.board-footer{max-width:600px;margin-inline:auto}.recovery-view{margin-top:70px}.timer-view{margin-top:86px}}
+@media(max-width:430px){.board-header h1{font-size:25px}.app-header{padding-inline:14px;gap:14px;height:72px}.brand{font-size:16px}.nav{font-size:10px;gap:13px}.gear{width:16px;height:16px}.screen{padding-inline:18px}.recovery-card{padding-inline:21px}.clock{font-size:82px}.primary,.secondary{font-size:13px;min-width:0;padding-inline:17px}.recovery-card .actions{gap:8px}.recovery-card .primary,.recovery-card .secondary{padding-inline:11px}.timer-view h2{font-size:37px}.recovery-card h2{font-size:35px}.window{height:700px}.board-footer{gap:20px;align-items:start}}
+</style>
+</head>
+<body>
+<main class="board">
+ <div class="board-header"><div><p class="eyebrow">NOW WHAT / PRODUCT CONCEPT</p><h1>计时中断与恢复</h1></div><p>三个状态 · 示例活动 · 概念预览</p></div>
+ <div class="states">
+  <section><div class="caption"><span>01</span>本轮时间到了</div><div class="window" data-state="timeup"></div><p class="note"><strong>到点停住，等待继续。</strong><br>不再因忘记结束而不断追加。</p></section>
+  <section><div class="caption"><span>02</span>关闭后重新打开</div><div class="window" data-state="reopen"></div><p class="note"><strong>恢复已保存的进度。</strong><br>离开期间不累计，继续前保持停止。</p></section>
+  <section><div class="caption"><span>03</span>长时间暂停后回来</div><div class="window" data-state="long"></div><p class="note"><strong>接着做，从新一段开始。</strong><br>上次用时单独记录，不把整夜算作暂停。</p></section>
+ </div>
+ <div class="board-footer"><span>独立产品预览 · 按钮可点击体验，不保存真实记录</span><button type="button" id="reset">重置演示 ↺</button></div>
+</main>
+<script>
+const gear='<svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m9 3-.6 2.2-2 .9-2.1-.6-2 3.5 1.6 1.6v2.3L2.3 14l2 3.5 2.1-.6 2 .9L9 20h4l.6-2.2 2-.9 2.1.6 2-3.5-1.6-1.6v-2.3L19.7 9l-2-3.5-2.1.6-2-.9L13 3Z"/><circle cx="11" cy="11.5" r="3"/></svg>';
+const shell='<div class="app-header"><span class="brand">Now What</span><div class="nav"><span class="active">开始</span><span>我的活动</span><span>今天</span></div>'+gear+'</div><div class="screen"></div>';
+const controls=(primary,secondary)=>'<div class="actions"><button type="button" class="primary" data-action="continue">'+primary+'</button><button type="button" class="secondary" data-action="finish">'+secondary+'</button></div>';
+function initial(root){
+ root.innerHTML=shell;const screen=root.querySelector('.screen');root.dataset.mode='initial';
+ if(root.dataset.state==='timeup'){
+  screen.innerHTML='<div class="timer-view"><p class="status">时间到了</p><h2>读书</h2><div class="clock">00:00</div><div class="progress"><i></i></div><p class="timer-meta">本轮已投入 15 分钟</p>'+controls('继续','结束并记录')+'<p class="waiting-hint">等待期间不计时</p></div>';
+ }else if(root.dataset.state==='reopen'){
+  screen.innerHTML='<div class="recovery-view"><p class="recovery-kicker">上次的活动还没结束</p><div class="recovery-card"><div class="card-top"><span>保留上次进度</span><span class="pill"><i></i>等待恢复</span></div><h2>读书</h2><p class="spent-label">已投入</p><div class="spent"><strong>8</strong><span>分钟</span></div><p class="recovery-note">离开期间未计入用时。</p>'+controls('继续本次','结束并记录')+'</div></div>';
+ }else{
+  screen.innerHTML='<div class="recovery-view long-pause"><p class="recovery-kicker">上次的活动还没结束</p><div class="recovery-card"><div class="card-top"><span>昨天留下的进度</span><span class="pill"><i></i>已暂停很久</span></div><h2>读书</h2><p class="spent-label">上次已投入</p><div class="spent"><strong>8</strong><span>分钟</span></div><div class="old-segment"><span>昨天 20:40–20:48</span><strong>8 分钟</strong></div><p class="recovery-note">接着做时，上次用时会单独记录。<br>新的这一段重新计时。</p>'+controls('接着做','结束并记录')+'</div></div>';
+ }
+}
+function continueActivity(root){
+ const isLong=root.dataset.state==='long',isTimeup=root.dataset.state==='timeup';root.dataset.mode='running';
+ const clock=isLong?'15:00':isTimeup?'08:00':'07:00';
+ const meta=isLong?'这次已投入 0 分钟':isTimeup?'已投入 15 分钟 · 继续 8 分钟':'已投入 8 分钟';
+ root.querySelector('.screen').innerHTML='<div class="timer-view"><p class="status">正在专注</p><h2>读书</h2><div class="clock">'+clock+'</div><div class="progress"><i style="width:'+(isLong?0:47)+'%"></i></div><p class="timer-meta">'+meta+'</p><div class="actions"><button type="button" class="primary" data-action="pause">暂停</button><button type="button" class="secondary" data-action="finish">结束并记录</button></div>'+(isLong?'<p class="resume-caption">上次的 8 分钟已单独保留。</p>':'')+'<p class="sample-note">演示画面</p></div>';
+}
+function finishActivity(root){
+ const minutes=root.dataset.state==='timeup'?15:root.dataset.state==='long'&&root.dataset.mode!=='initial'?0:8;
+ root.dataset.mode='done';
+ root.querySelector('.screen').innerHTML='<div class="done-view"><svg class="check" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="m14 24 7 7 14-15"/></svg><h2>已记录 '+minutes+' 分钟</h2><p>读书仍保留在我的活动里，下次可以继续。</p><button type="button" class="primary" data-action="reset">返回预览</button><p class="sample-note">示例结果，不写入真实记录</p></div>';
+}
+function reset(){document.querySelectorAll('[data-state]').forEach(root=>{initial(root);root.onclick=event=>{
+ const action=event.target.closest('[data-action]')?.dataset.action;
+ if(action==='continue')continueActivity(root);
+ if(action==='finish')finishActivity(root);
+ if(action==='reset')initial(root);
+ if(action==='pause'){
+  const paused=root.dataset.mode==='paused';root.dataset.mode=paused?'running':'paused';root.querySelector('.status').textContent=paused?'正在专注':'已暂停';event.target.textContent=paused?'暂停':'继续';
+ }
+}})}
+document.getElementById('reset').onclick=reset;reset();
+</script>
+</body>
+</html>

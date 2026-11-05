@@ -1,0 +1,147 @@
+Task Prioritizer — Rank Your To-Do List | Pomop.app
+We use Google Analytics to see how Pomop is used. Your tasks, history, and settings never leave your device. Analytics cookies stay off unless you accept. This choice covers analytics only.See our
+Privacy Policy
+.
+Reject
+Accept
+Pomop.app
+Product
+Features
+How it works
+Guides
+Privacy
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+Open Pomop
+Product
+Features
+How it works
+Guides
+Privacy
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+Task prioritizer
+Stop manually re-sorting your to-do list. Add a priority and a deadline to each task, and Pomop ranks them for you — automatically, and every time your list changes.
+What goes into the ranking
+Priority
+— low, medium, high, or critical, set when you add the task
+Deadline urgency
+— due today and due tomorrow outrank due-next-week, and overdue tasks rank highest of all
+Time fit
+— how well a task's estimated length matches the time you actually have right now
+Workload impact
+— how much of the task one session would actually finish
+Task age
+— a small, deliberately modest boost so a task you added three weeks ago doesn't get buried forever
+These combine into a single score per task — urgency counts for 45%, importance 26%, time fit 15%, workload impact 10%, and task age 4%. The full breakdown is on the
+methodology page
+. The highest-scoring task is recommended first, and you can see the next-best options with "Choose another."
+Importance vs. urgency: setting priority so the ranking works
+Priority and deadline measure different things, and the prioritizer treats them separately. Priority is how much a task matters. The deadline is how soon it matters. Urgency carries more weight (45%) than importance (26%), so a real due date usually does more for a task's rank than bumping its priority.
+If a task has a real deadline, enter it.
+With no due date, a task gets no urgency credit at all. All else being equal, a low-priority task due today outranks a critical task with no deadline.
+Keep "critical" rare.
+If every task is critical, priority stops telling them apart, and the ranking comes down to deadlines, time fit, and age.
+Add a time estimate.
+Without one, Pomop assumes the task fits whatever time you have, so it can't tell a five-minute job from a half-day one.
+A worked example
+Say you have 25 minutes free and two tasks, both added today:
+Write the quarterly report
+— high priority, due in five days, about two hours of work
+Send an invoice
+— medium priority, due today, about 15 minutes of work
+The report is more important, but the invoice wins, 0.63 to 0.40. It's due within 24 hours, so it scores far higher on urgency, and it fits your 25 minutes and can be finished in one sitting — while 25 minutes would only dent the report. Move the invoice's deadline to next week and the order flips: the report comes out ahead, 0.40 to 0.39, because its higher importance and closer deadline now outweigh the invoice's better fit.
+That's the point of weighing several signals at once: neither "most important first" nor "shortest first" gets both of those situations right.
+Why not just sort by deadline?
+Sorting by deadline alone treats a low-priority task due tomorrow the same as a critical one — and ignores tasks with no deadline entirely, which then never surface. A real prioritizer has to weigh several signals at once, the way Pomop's Decision Engine does, rather than picking a single column to sort by. See
+Eisenhower Matrix vs. time blocking
+for how this compares to two popular manual methods.
+How to use it
+Add your tasks with a priority, an optional deadline, and how long each will take
+Open
+Home
+to see the top-ranked task and why it was picked
+Review the full ranked list any time on the
+Tasks page
+, or see ranked tasks laid out by due date on the
+task calendar
+Staring at a list that's already too long to rank? Start with
+what to do when you have too many tasks
+.
+Prioritizing isn't the same as planning your day
+The prioritizer ranks your whole list. Some nearby questions need a different view of the same tasks:
+"What needs my attention today?" The
+daily planner
+covers what's overdue, what's due today, and how much time it adds up to.
+"Which one should I start right now?"
+What should I do next
+picks the single task for the time you have, and says why.
+"When is everything due?" The
+task calendar
+lays your deadlines out by date.
+Frequently asked questions
+Is this a task priority calculator?
+It does the same job as a priority calculator — score each task and tell you what ranks highest — but it doesn't stop at a one-off score. Your tasks stay in Pomop, so the ranking updates automatically as deadlines approach, tasks go overdue, or you add new ones, instead of needing to be recalculated by hand each time.
+How is this different from an Eisenhower matrix?
+An Eisenhower matrix still asks you to sort tasks into quadrants yourself. Pomop's prioritizer does the sorting automatically — priority, deadline urgency, overdue status, task age, and how well a task fits your available time all feed into one score, and it hands you the top pick.
+Can I change how a task is prioritized?
+Yes. Editing a task's priority or due date immediately changes how it scores next time you ask what to do. You can also reschedule a task from the Calendar with one click.
+Does a short task always win?
+No. Duration is only one factor among several — a short, low-priority task with no deadline won't outrank a high-priority task that's due today, though it may win when priorities are otherwise close and it fits your available time better.
+Also built by us
+Other free tools from the team behind Pomop.
+PDFSizeFit.com
+(opens in a new tab)
+ATS Resume Kit
+(opens in a new tab)
+Image Size Pro
+(opens in a new tab)
+Pomop.app
+A simple decision maker that helps you choose what to work on next. Your tasks and history stay on your device.
+Product
+Dashboard
+Tasks
+Calendar
+History
+Settings
+Tools
+What Should I Do Next
+Task Prioritizer
+Daily Planner
+Task Calendar
+Productivity Planner
+Guides
+What Is Decision Fatigue
+Reduce Decision Fatigue
+Too Many Tasks
+To-Do List vs. Calendar
+Eisenhower vs. Time Blocking
+Company
+About Us
+Author
+Methodology
+Contact Us
+Privacy Policy
+Terms & Conditions
+© 2026 Pomop.app. All rights reserved.
+Built for focused work, not accounts.
+en
+English
+en
+Português (Brasil)
+pt-BR
+Español
+es
+Are you sure?
+Cancel
+Confirm

@@ -1,0 +1,16 @@
+{
+  "motion": {
+    "counts": {
+      "open": 53,
+      "close": 8
+    },
+    "errors": [],
+    "openingMs": 250,
+    "closingMs": 250,
+    "openingFrames": [
+      "234:4153",
+      "234:4227"
+    ]
+  },
+  "regression": 93
+}

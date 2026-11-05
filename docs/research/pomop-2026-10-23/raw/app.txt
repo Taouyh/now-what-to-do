@@ -1,0 +1,71 @@
+Dashboard | Pomop.app
+We use Google Analytics to see how Pomop is used. Your tasks, history, and settings never leave your device. Analytics cookies stay off unless you accept. This choice covers analytics only.See our
+Privacy Policy
+.
+Reject
+Accept
+Pomop.app
+Home
+Tasks
+Calendar
+Focus
+History
+Settings
+“Small steps create big progress.”
+Pomop.app
+Home
+Tasks
+Focus
+Calendar
+More
+History
+Settings
+Good morning!
+Here's what you should work on next.
+Add your first task to get a personalized recommendation.
+Add task
+Task completed
+Mark task as done
+What should I do next?
+Focus Timer
+I have about…
+25:00
+Today's tasks
+See all
+Add task
+See all tasks
+Today's progress
+Focus
+00:00
+Paused
+Pause
+0% complete
+Complete
+Stop
+Add task
+Save
+Task title
+Description (optional)
+Priority
+Low
+Medium
+High
+Critical
+Due date
+Estimated duration
+No estimate
+15 minutes
+25 minutes
+30 minutes
+45 minutes
+60 minutes
+90 minutes
+120 minutes
+Task details
+Why this task?
+Start focus session
+Description
+Delete task
+Are you sure?
+Cancel
+Confirm
