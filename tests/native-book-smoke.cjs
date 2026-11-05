@@ -16,7 +16,8 @@ async function closeHost(){
  const output=path.join(profile,'exports');await fs.mkdir(output);
  async function launch(){
    const server=net.createServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const port=server.address().port;await new Promise(resolve=>server.close(resolve));
-   child=spawn(path.join(root,'dist/windows/webview2-unpacked/Now What.exe'),[],{cwd:root,windowsHide:true,env:{...process.env,NOWWHAT_E2E:'1',NOWWHAT_E2E_PORT:String(port),NOWWHAT_E2E_PROFILE:profile,NOWWHAT_E2E_SAVE_DIR:output},stdio:'ignore'});
+   const payload=process.env.NOWWHAT_NATIVE_DIR||path.join(root,'dist/windows/webview2-unpacked');
+   child=spawn(path.join(payload,'Now What.exe'),[],{cwd:root,windowsHide:true,env:{...process.env,NOWWHAT_E2E:'1',NOWWHAT_E2E_PORT:String(port),NOWWHAT_E2E_PROFILE:profile,NOWWHAT_E2E_SAVE_DIR:output},stdio:'ignore'});
    let ready=false;
    for(let n=0;n<100;n++){try{await fetch(`http://127.0.0.1:${port}/json/version`);ready=true;break}catch{await new Promise(resolve=>setTimeout(resolve,100))}}
    if(!ready)throw Error('Native CDP unavailable');

@@ -37,6 +37,17 @@ $batch="@echo off`r`ncall ""$visualStudio\VC\Auxiliary\Build\vcvars64.bat"" >nul
 & "$build/compile.cmd"
 if($LASTEXITCODE -ne 0){throw 'Native Windows compilation failed.'}
 $installer=Join-Path $output "Now-What-$version-Windows-x64-Setup.exe"
-& $NsisPath /V2 "/DROOT=$root" "/DPAYLOAD=$payload" "/DBOOTSTRAP=$bootstrap" "/DOUTPUT=$installer" "/DVERSION=$version" "$root/packaging/windows-webview2.nsi"
+$webRoot=[IO.Path]::GetFullPath("$payload/web")
+$uninstallLines=@(Get-ChildItem -LiteralPath $webRoot -Recurse -File | ForEach-Object {
+  $relative=$_.FullName.Substring($webRoot.Length+1).Replace('/','\')
+  'Delete "$INSTDIR\web\'+$relative+'"'
+})
+$uninstallLines+=@(Get-ChildItem -LiteralPath $webRoot -Recurse -Directory | Sort-Object {$_.FullName.Length} -Descending | ForEach-Object {
+  $relative=$_.FullName.Substring($webRoot.Length+1).Replace('/','\')
+  'RMDir "$INSTDIR\web\'+$relative+'"'
+})
+$uninstallManifest=Join-Path $build 'web-uninstall.nsh'
+[IO.File]::WriteAllLines($uninstallManifest,$uninstallLines,[Text.UTF8Encoding]::new($false))
+& $NsisPath /V2 "/DROOT=$root" "/DPAYLOAD=$payload" "/DBOOTSTRAP=$bootstrap" "/DOUTPUT=$installer" "/DVERSION=$version" "/DWEB_UNINSTALL=$uninstallManifest" "$root/packaging/windows-webview2.nsi"
 if($LASTEXITCODE -ne 0){throw 'NSIS installer build failed.'}
 Write-Output "Built $installer"

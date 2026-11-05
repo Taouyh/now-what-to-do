@@ -33,7 +33,7 @@ Section "Now What"
   File "${PAYLOAD}\NOTICE-WebView2.txt"
   File "${ROOT}\LICENSE"
   SetOutPath "$INSTDIR\web"
-  File "${PAYLOAD}\web\*"
+  File /r "${PAYLOAD}\web\*"
   SetOutPath "$INSTDIR"
   ExecWait '"$INSTDIR\Now What.exe" --check-runtime' $0
   ${If} $0 != 0
@@ -61,10 +61,8 @@ SectionEnd
 Section "Uninstall"
   ReadEnvStr $9 "NOWWHAT_INSTALL_TEST"
   ; Delete only owned files. Never recursively remove a user-selected directory or their profile.
-  Delete "$INSTDIR\web\index.html"
-  Delete "$INSTDIR\web\app.js"
+  !include "${WEB_UNINSTALL}"
   Delete "$INSTDIR\web\i18n.js"
-  Delete "$INSTDIR\web\style.css"
   RMDir "$INSTDIR\web"
   Delete "$INSTDIR\Now What.exe"
   Delete "$INSTDIR\native-webview2.js"
