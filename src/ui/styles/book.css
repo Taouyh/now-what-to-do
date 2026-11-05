@@ -28,6 +28,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book-header .brand { color: #f1dcad; font-family: 'Noto Serif SC Variable', serif; font-size: clamp(20px,1.875vw,30px); line-height: 1.45; }
 .book { position: relative; isolation: isolate; container-type: inline-size; width: min(1440px,calc(100vw - 80px),calc((100dvh - 180px)*1.832)); aspect-ratio: 1440/786; flex: none; margin-top: clamp(28px,4.8vh,48px); font-size: clamp(16px,1.3vw,20px); }
 .book-decoration { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.book { color: var(--ink); }
 .book-cover { position: absolute; left: 1.04%; top: 2.54%; width: 97.92%; height: 93.9%; border: 2px solid #ab7f4a; border-radius: 25px; background: linear-gradient(#865335,#59351f 30%,#48291a 55%,#6d4127); box-shadow: 0 4px 7px #1409048c,0 24px 38px #140904a6; }
 .cover-rule { position: absolute; left: 1.81%; top: 3.82%; width: 96.39%; height: 90.97%; border: 1px solid #c89e6380; border-radius: 19px; }
 .book-layer,.book-paper { position: absolute; width: 46.94%; height: 89.66%; max-width: none; }

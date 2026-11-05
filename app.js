@@ -1048,7 +1048,7 @@ function setupMinimalInteractions(){
 setupMinimalInteractions();
 setupFloatingTimer();
 window.addEventListener('storage',event=>{
-  if(window.navigator?.locks||!['whatToDoData','activeTimer'].includes(event.key))return;
+  if((window.navigator?.locks&&location.protocol!=='file:')||!['whatToDoData','activeTimer'].includes(event.key))return;
   if(event.key==='whatToDoData')originalMain=event.newValue;else originalTimer=event.newValue;
   stopTimerLoop();protectData(tr('本地数据已在其他窗口更改，请重新加载。'));
 });

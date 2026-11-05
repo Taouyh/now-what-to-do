@@ -1,4 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
 
 function data(count = 1) {
   return { version: 2, goals: [], tasks: Array.from({ length: count }, (_, i) => ({ id: `t${i}`, name: `活动 ${i + 1}`, description: `说明 ${i + 1}`, requirements: { computer: false, audio: false, speech: false, uninterrupted: false } })), completed: [] as any[], preferences: { time: 15, language: 'zh-CN', conditions: { computer: true, audio: true, speech: true, interrupted: true } }, theme: 'light', customData: { keep: true } };
@@ -80,6 +82,7 @@ test('local assets, languages, theme, keyboard escape, and narrow-screen control
     await expect(page.locator(`#${id}`)).toHaveCSS('background-color', 'rgb(80, 61, 44)');
     await expect(page.locator(`#${id}`)).toHaveCSS('color', 'rgb(241, 223, 182)');
   }
+  await expect(page.locator('.settings-row > span').first()).toHaveCSS('color', 'rgb(241, 223, 182)');
   await page.locator('[data-language="ja"]').click(); await page.locator('#lightTheme').click();
   await page.setViewportSize({ width: 390, height: 844 }); await nav(page, 'tasks');
   await page.locator('.small-action').click(); await page.locator('#name').fill('小さな画面'); await page.locator('#saveActivity').click();
@@ -138,4 +141,14 @@ test('a second tab cannot mutate a running session and the lock releases on clos
   await expect.poll(() => second.evaluate(async () => (await navigator.locks.query()).held?.length || 0)).toBe(0);
   await second.reload();
   await expect(second.locator('#timerRecoveryName')).toHaveText('活动 1');
+});
+
+test('file-origin fallback protects the old window when another tab writes', async ({ page, context }) => {
+  const url = pathToFileURL(resolve('dist/web/index.html')).href;
+  await page.goto(url); await page.locator('#quickName').fill('合成文件来源任务'); await page.locator('#addFirstTask').click();
+  const second = await context.newPage(); await second.goto(url);
+  await nav(second, 'settings'); await second.locator('#theme').click();
+  await expect(page.locator('#dataRecovery')).toBeVisible();
+  await expect(page.locator('#book')).toHaveAttribute('inert', '');
+  expect((await main(second)).theme).toBe('dark');
 });
