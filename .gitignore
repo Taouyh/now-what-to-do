@@ -27,6 +27,7 @@ node_modules/
 /playwright-report/
 /test-artifacts/
 /docs/development/book-c-2026-11-05/independent-evidence*/
+/docs/development/book-c-2026-11-05/calendar-independent-evidence*/
 .cache/
 .tmp/
 *.log

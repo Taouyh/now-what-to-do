@@ -8,6 +8,10 @@
 
 开发窗口验证：`npm run build:web` 通过；新增 `tests/e2e/calendar-layout.spec.ts` 在 10 种视口 × 中英日三语言共 30 个场景通过，包括用户的 1531×715、1480×715、1236×715、1920×1080、1024×768、820×600、800×600、390×844、320×568、812×375。验证选中/未选中名称与统计行完整、互不重叠、卡片包含文字、目录实际滚轮、分页和长名称省略。旧版本的用户尺寸测试先失败，修复后通过；该测试用于防止仅调整字号而再次隐藏文字。
 
-截图和日志保留在本地 `test-results/calendar-layout-*` 和 `.cache/calendar-*.txt`，均为合成数据。独立窗口复验及合并记录随后追加。本次本地 Web 预览已重建；先前的原生安装包不会因 CSS 源码更新而自动变化，本次不发布安装包。
+截图和日志保留在本地 `test-results/calendar-layout-*` 和 `.cache/calendar-*.txt`，均为合成数据。本次本地 Web 预览已重建；先前的原生安装包不会因 CSS 源码更新而自动变化，本次不发布安装包。
 
 独立补查发现同页右侧的既有问题：超长名称不断换行，将记录和分页挤到重叠。开发窗口扩展了同一组 30 个场景，先确认原代码记录区域底部 825.81px 超过分页顶部 532.98px，再修复为右页标题最多占两行高度、完整名称可鼠标/触摸滚动，并可通过 Tab 聚焦、End 到达末尾；统计、记录区与分页独立分配空间。记录明细按实际内容撑开，在低高度桌面区域内滚动，移动单栏维持自然页滚动。未删减或截断存储中的名称。
+
+固定提交：目录修复 `3a84870bde55a84d3a9c8bccd64ea787fcb027e6`；补修右页后 `fcbf056cc2392fd9e76824684db98b4591d59d94`。独立 GPT 窗口在原隔离 worktree 针对最终提交重建 Web，30 项扩展矩阵、2 项既有回归、9 项自主补充检查全部通过；原超长标题失败断言通过，完整报告见 [CALENDAR-INDEPENDENT-TEST.md](CALENDAR-INDEPENDENT-TEST.md)。复验脚本归档在 `tests/calendar-independent`，原始截图/日志留在独立 worktree 的 `calendar-independent-evidence*`。
+
+本地 `master` 已快进合入最终代码。在 `D:\code\now-what-to-do-integration` 重新构建并以端口 8770 运行 4 项冒烟：用户 1531×715、320×568、日历分组分页、创建任务至完成/下一步记录，全部通过。日志在该目录 `.cache/calendar-merge-build.txt` 和 `.cache/calendar-merge-smoke.txt`。未推送、发布或修改其他窗口的 `docs/weekly/`。

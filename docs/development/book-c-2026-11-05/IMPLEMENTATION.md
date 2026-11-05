@@ -1,6 +1,6 @@
 # B/C 书版实施与验证
 
-2026-11-05，版本 1.4.0，开发分支 `design/minimal-ui`。产品与打包代码基线：`948952aabab7594e5c7e631a219551c0cc162c50`。本地开发交付，尚未发布。
+2026-11-05，版本 1.4.0，开发分支 `design/minimal-ui`。首版产品与打包代码基线：`948952aabab7594e5c7e631a219551c0cc162c50`。本地开发交付，尚未发布。后续日历名称适配修复见 [CALENDAR-LAYOUT-FIX.md](CALENDAR-LAYOUT-FIX.md)，其 Web 更新不改写首版安装包验收记录。
 
 ## 实现
 
