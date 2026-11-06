@@ -122,12 +122,12 @@ export class BookPages {
     const right = element('div', 'book-column book-right');
     left.append(element('h1', '', app.tr('任务')), element('p', 'book-caption', app.tr('共 {count} 项 · {time}', { count: tasks.length, time: app.minutes ? app.formatDuration(app.minutes * 60000) : '—' })));
     const heading = element('div', 'column-heading');
-    heading.append(element('h2', '', app.tr('任务 · 续页')), button(app.tr('＋ 添加任务'), () => app.newTask(), 'primary small-action'));
+    heading.append(element('h2', '', app.tr('任务 · 续页')), button(app.tr('添加'), () => app.newTask(), 'primary small-action'));
     right.append(heading, element('p', 'book-caption', app.tr('点击任务编辑，点击 ▶ 开始')));
     const first = element('div', 'task-strips');
     const second = element('div', 'task-strips');
     group.items.forEach((task, index) => (index < 5 ? first : second).append(this.taskRow(task, group.start + index)));
-    if (!tasks.length) first.append(element('p', 'empty-copy', app.tr('暂无活动')), button(app.tr('添加活动'), () => app.newTask(), 'paper-button'));
+    if (!tasks.length) first.append(element('p', 'empty-copy', app.tr('暂无活动')), button(app.tr('添加活动'), () => app.newTask(), 'paper-slip empty-task-add'));
     left.append(first);
     right.append(second);
     const footer = this.pager(group.page, group.total, page => {

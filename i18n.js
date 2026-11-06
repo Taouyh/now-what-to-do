@@ -1,5 +1,6 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "你想做什么": {"en":"What would you like to do?","ja":"何をしたい？"},
   "关闭": {"en":"Close","ja":"閉じる"},
   "确定": {"en":"Done","ja":"確定"},
   "任务": {"en":"Tasks","ja":"活動"},

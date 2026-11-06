@@ -73,6 +73,12 @@ export function mountBook(app: Runtime) {
   byId('homeWorkspace').classList.add('book-column', 'book-right');
   byId('onboarding').classList.add('book-column', 'book-right');
   byId('quickName').removeAttribute('maxlength');
+  for (const id of ['quickName', 'name']) {
+    const input = byId(id);
+    const strip = element('div', 'paper-slip paper-input');
+    input.before(strip);
+    strip.append(input);
+  }
   byId('addFirstTask').dataset.i18n = '添加活动';
   const entries = document.querySelector<HTMLElement>('.home-entries')!;
   entries.id = 'homeEntries';
@@ -112,7 +118,7 @@ export function mountBook(app: Runtime) {
   const error = element('p', 'field-error');
   error.id = 'activityError';
   error.setAttribute('role', 'alert');
-  byId('name').after(error);
+  byId('name').closest('.paper-input')!.after(error);
   byId('name').setAttribute('aria-describedby', error.id);
   const cancel = button(app.tr('取消'), () => app.closeActivity(), 'primary');
   cancel.dataset.i18n = '取消';
