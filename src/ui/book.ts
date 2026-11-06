@@ -149,7 +149,7 @@ export function mountBook(app: Runtime) {
     }, 'primary picker-done');
     done.dataset.i18n = '确定';
     panel.prepend(close);
-    panel.append(done);
+    if (id === 'conditionsPicker') panel.append(done);
     details.addEventListener('toggle', () => {
       if (details.open) {
         const other = byId<HTMLDetailsElement>(id === 'timePicker' ? 'conditionsPicker' : 'timePicker');

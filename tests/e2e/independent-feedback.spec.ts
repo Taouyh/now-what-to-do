@@ -69,7 +69,7 @@ test('independent invalid values never silently default and boundaries stay sess
   await seed(page); const raw = await page.evaluate(() => localStorage.getItem('whatToDoData'));
   await custom(page);
   for (const invalid of ['0', '-1', '1.5', '1441', 'abc', '1e2', 'Infinity']) {
-    await page.locator('#customMinutes').fill(invalid); await page.locator('#timePicker .picker-done').click();
+    await page.locator('#customMinutes').fill(invalid); await page.locator('#customMinutes').press('Enter');
     await expect(page.locator('#timePicker')).toHaveAttribute('open', '');
     await expect(page.locator('#customMinutes')).toHaveValue(invalid);
     await expect(page.locator('#customMinutes')).toHaveAttribute('aria-invalid', 'true');
@@ -79,7 +79,7 @@ test('independent invalid values never silently default and boundaries stay sess
     await page.locator('#timePicker > summary').click();
   }
   for (const valid of ['1', '1440']) {
-    await page.locator('#customMinutes').fill(valid); await page.locator('#timePicker .picker-done').click();
+    await page.locator('#customMinutes').fill(valid); await page.locator('#customMinutes').press('Enter');
     await expect(page.locator('#timeSummary')).toHaveText(`${valid} 分钟`);
     expect(await page.evaluate(() => localStorage.getItem('whatToDoData'))).toBe(raw);
     await page.locator('#timePicker > summary').click();
@@ -87,7 +87,7 @@ test('independent invalid values never silently default and boundaries stay sess
   await page.keyboard.press('Escape'); await page.reload(); await expect(page.locator('#timeSummary')).toHaveText('60 分钟');
 });
 
-for (const exit of ['done', 'escape', 'navigation']) test(`independent blank fallback storage failure ${exit}`, async ({ page }) => {
+for (const exit of ['enter', 'escape', 'navigation']) test(`independent blank fallback storage failure ${exit}`, async ({ page }) => {
   await seed(page); const original = await page.evaluate(() => localStorage.getItem('whatToDoData'));
   await custom(page, '   ');
   await page.evaluate(() => {
@@ -95,7 +95,7 @@ for (const exit of ['done', 'escape', 'navigation']) test(`independent blank fal
     (window as any).restoreIndependentStorage = () => { Storage.prototype.setItem = originalSet; };
     Storage.prototype.setItem = function(key, value) { if (key === 'whatToDoData') throw new DOMException('Synthetic quota', 'QuotaExceededError'); originalSet.call(this, key, value); };
   });
-  if (exit === 'done') await page.locator('#timePicker .picker-done').click();
+  if (exit === 'enter') await page.locator('#customMinutes').press('Enter');
   if (exit === 'escape') await page.keyboard.press('Escape');
   if (exit === 'navigation') { await nav(page, 'tasks'); await nav(page, 'home'); }
   await expect(page.locator('#storageWarning')).toBeVisible();
@@ -103,7 +103,7 @@ for (const exit of ['done', 'escape', 'navigation']) test(`independent blank fal
   expect(await page.evaluate(() => localStorage.getItem('activeTimer'))).toBeNull();
   await page.evaluate(() => (window as any).restoreIndependentStorage());
   if (!await page.locator('#timePicker').evaluate(el => el.hasAttribute('open'))) await page.locator('#timePicker > summary').click();
-  await page.locator('#timePicker .picker-done').click();
+  await page.locator('#customMinutes').press('Enter');
   await expect(page.locator('#timeSummary')).toHaveText('10 分钟');
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).preferences.time)).toBe(10);
 });
@@ -122,11 +122,11 @@ test('independent paused timer survives navigation and settings then next sessio
   expect(next.plannedDurationMs).toBe(600000); expect(next.completionId).not.toBe(JSON.parse(timer!).completionId);
 });
 
-for (const exit of ['done', 'close', 'escape', 'summary', 'outside', 'navigation']) {
+for (const exit of ['enter', 'close', 'escape', 'summary', 'outside', 'navigation']) {
   test(`independent genuinely empty prior-valid draft exits via ${exit}`, async ({ page }) => {
-    await seed(page); await custom(page, '25'); await page.locator('#timePicker .picker-done').click();
+    await seed(page); await custom(page, '25'); await page.locator('#customMinutes').press('Enter');
     await custom(page, '');
-    if (exit === 'done') await page.locator('#timePicker .picker-done').click();
+    if (exit === 'enter') await page.locator('#customMinutes').press('Enter');
     if (exit === 'close') await page.locator('#timePicker .picker-close').click();
     if (exit === 'escape') await page.keyboard.press('Escape');
     if (exit === 'summary') await page.locator('#timePicker > summary').press('Space');

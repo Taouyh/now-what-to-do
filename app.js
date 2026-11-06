@@ -170,7 +170,7 @@ function syncHomeControls(){
   const invalid=customTime&&customMinutes()===null;
   const showError=invalid&&customTimeDraft.trim()!=='';
   $('customMinutes').setAttribute('aria-invalid',String(showError));
-  $('customTimeError').textContent=customTime?(showError?tr('请输入 1–1440 的整数'):tr('1–1440 分钟，整数')):'';
+  $('customTimeError').textContent=showError?tr('请输入 1–1440 的整数'):'';
   recommendationChange.disabled=!selectionReady();
   $('timeSummary').textContent=customTime?(customMinutes()===null?tr('自定义时间'):tr('{n} 分钟',{n:customMinutes()})):tr('{n} 分钟',{n:time});
   for(const key of CONDITION_KEYS)$(CONDITION_INPUTS[key]).checked=conditions[key];
@@ -231,7 +231,23 @@ $('customMinutes').oninput=()=>{
   if(!customTime)return;
   time=customMinutes();timeChosen=time!==null;
   syncHomeControls();random({keepCurrent:true});
+  if(!customTimeComposing)showCustomTimeError();
 };
+let customTimeComposing=false;
+function showCustomTimeError(){
+  if(customTime&&customTimeDraft.trim()!==''&&customMinutes()===null){
+    notify(tr('请输入 1–1440 的整数'));
+    $('appNotice').classList.add('time-error-notice');
+  }else if($('appNotice')?.classList.contains('time-error-notice'))$('appNotice').classList.add('hide');
+}
+$('customMinutes').addEventListener('compositionstart',()=>{customTimeComposing=true});
+$('customMinutes').addEventListener('compositionend',()=>{customTimeComposing=false;showCustomTimeError()});
+$('customMinutes').addEventListener('keydown',e=>{
+  if(e.key!=='Enter'||e.isComposing||customTimeComposing)return;
+  e.preventDefault();
+  if(!settleEmptyCustomTime()){showCustomTimeError();return}
+  $('timePicker').open=false;document.querySelector('#timePicker > summary')?.focus({preventScroll:true});
+});
 for(const key of CONDITION_KEYS)$(CONDITION_INPUTS[key]).onchange=()=>selectHomeCondition(key,$(CONDITION_INPUTS[key]).checked);
 function ok(t){const r=activityRequirements(t);return t.enabled!==false&&['computer','audio','speech'].every(k=>!r[k]||conditions[k])}
 function startRecommendation(id){
@@ -641,7 +657,7 @@ function extendTimer(){
   x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
   if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
-function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
+function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide','time-error-notice');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
 function closeContinuation() {
   completionFeedback = null;
   bookView?.renderHome();

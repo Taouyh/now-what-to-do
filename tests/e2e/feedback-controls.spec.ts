@@ -15,11 +15,11 @@ async function custom(page: Page) {
 }
 async function savedTime(page: Page) { return page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).preferences.time); }
 
-for (const exit of ['done', 'close', 'escape', 'summary', 'outside', 'navigation']) {
+for (const exit of ['enter', 'close', 'escape', 'summary', 'outside', 'navigation']) {
   test(`blank custom time defaults to ten on ${exit}`, async ({ page }) => {
     await seed(page); await custom(page);
     await page.locator('#customMinutes').fill('   ');
-    if (exit === 'done') await page.locator('#timePicker .picker-done').click();
+    if (exit === 'enter') await page.locator('#customMinutes').press('Enter');
     if (exit === 'close') await page.locator('#timePicker .picker-close').click();
     if (exit === 'escape') await page.keyboard.press('Escape');
     if (exit === 'summary') await page.locator('#timePicker > summary').press('Space');
@@ -38,10 +38,10 @@ test('ordered presets, persisted twenty, valid custom and nonempty invalid input
   await page.locator('#timePicker > summary').click(); await page.locator('#times [data-v="20"]').click();
   await expect(page.locator('#timePicker')).not.toHaveAttribute('open', ''); await page.reload();
   await expect(page.locator('#timeSummary')).toHaveText('20 分钟'); expect(await savedTime(page)).toBe(20);
-  await custom(page); await page.locator('#customMinutes').fill('25'); await page.locator('#timePicker .picker-done').click();
+  await custom(page); await page.locator('#customMinutes').fill('25'); await page.locator('#customMinutes').press('Enter');
   await expect(page.locator('#timeSummary')).toHaveText('25 分钟');
   await page.locator('#timePicker > summary').click(); await page.locator('#customMinutes').fill('0');
-  await page.locator('#timePicker .picker-done').click();
+  await page.locator('#customMinutes').press('Enter');
   await expect(page.locator('#timePicker')).toHaveAttribute('open', '');
   await expect(page.locator('#customMinutes')).toHaveValue('0');
   await expect(page.locator('#customMinutes')).toHaveAttribute('aria-invalid', 'true');

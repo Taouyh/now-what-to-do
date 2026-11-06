@@ -88,6 +88,8 @@ domain 不依赖 DOM、Storage 或 native bridge；由调用者传入数据、�
 
 ### 3.2 存储格式和类型
 
+2026-11-06 交互精简：时间卷轴移除确定按钮，有效自定义值沿用 input 即时应用，Enter 校验后关闭，空白仍走默认 10 分钟和保存失败回滚。无效输入复用通知层并限定黑白样式，保留 aria-invalid 和仅辅助技术可读的错误描述；组合输入结束后才通知。条件保留原生 checkbox 语义/事件但隐藏方框，用文字颜色和字重反馈，键盘焦点用下划线。续做框取消光晕，保留底色/边框焦点变化。日历常规四条随空间分配行高、缩小字体，只有展开长明细时保留内部滚动。见 [交互精简交付](../../development/interaction-refinement-2026-11-06/IMPLEMENTATION.md)。
+
 继续使用 `whatToDoData`，包含 `version: 2`、`goals`（旧字段）、`tasks`、`completed`、`preferences`、`theme` 及未知字段。`activeTimer` 使用已有 timerVersion 2；新鲜启动无进行中会话则不存在该 key。
 
 ```ts
