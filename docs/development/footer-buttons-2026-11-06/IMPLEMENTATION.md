@@ -7,3 +7,5 @@
 开发验证：类型检查及生产构建通过；既有 `book.spec.ts` 的任务分页/取消/保存/删除用例 1/1 通过。以全新 Edge context 和合成数据检查 1531×715、390×715 × 深浅主题 × 添加/编辑共 8 组，实际背景、边框、圆角、颜色、阴影、字体、行高、高度与保存按钮一致，hover 均为 `brightness(1.09)`。没有为此纯样式改动新增永久测试。
 
 本地截图和样式核对日志：`.cache/footer-buttons/`、`.cache/footer-buttons-visual.txt`；构建和既有用例日志 `.cache/footer-buttons-{build,e2e}.txt`。固定提交后交独立窗口复核，再合入本地 master，并新建 worktree/GPT 窗口同步 Figma 添加/编辑按钮。后续结果完成后追加。
+
+独立验收已完成：固定产品提交 69a5df2，构建、既有任务用例 1/1、8 组样式和取消/删除交互均通过，见 [独立报告](INDEPENDENT-TEST.md)。本地 master 已快进合入并完成生产构建、任务用例 1/1。新 worktree/GPT 窗口 01a1af27-2dd0-77a3-84e7-c408963f5159 已核对指定账户并完成 Figma 同步，见 [同步报告](FIGMA-SYNC.md)。
