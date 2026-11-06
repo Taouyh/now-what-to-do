@@ -521,7 +521,7 @@ function renderTimer(){
       actions.innerHTML='<button type="button" class="primary" id="extendTimer"></button><button type="button" class="outline" id="finishTimer"></button>';
       $('extendTimer').textContent=tr('继续');$('extendTimer').onclick=extendTimer;$('finishTimer').textContent=tr('结束并记录');$('finishTimer').onclick=()=>finishTimer(x.completionId);
     }else{
-      actions.innerHTML='<button type="button" class="primary" id="pauseTimer"></button><button type="button" class="outline" id="earlyTimer"></button>';
+      actions.innerHTML='<button type="button" class="primary" id="pauseTimer"></button><button type="button" class="primary" id="earlyTimer"></button>';
       $('pauseTimer').textContent=x.paused?tr('继续'):tr('暂停');$('pauseTimer').onclick=()=>{const y=timerState();if(!y)return;y.paused?resumeTimer():pauseTimer()};$('earlyTimer').textContent=tr('结束');$('earlyTimer').onclick=()=>finishTimer(x.completionId);
     }
     if(['pauseTimer','earlyTimer','finishTimer','extendTimer'].includes(focusId))$(focusId)?.focus({preventScroll:true});
