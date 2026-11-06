@@ -114,10 +114,10 @@ export function mountBook(app: Runtime) {
   error.setAttribute('role', 'alert');
   byId('name').after(error);
   byId('name').setAttribute('aria-describedby', error.id);
-  const cancel = button(app.tr('取消'), () => app.closeActivity(), 'paper-button');
+  const cancel = button(app.tr('取消'), () => app.closeActivity(), 'primary');
   cancel.dataset.i18n = '取消';
   cancel.id = 'cancelActivity';
-  const remove = button(app.tr('删除'), () => app.delTask(byId<HTMLInputElement>('tid').value), 'danger');
+  const remove = button(app.tr('删除'), () => app.delTask(byId<HTMLInputElement>('tid').value), 'primary');
   remove.dataset.i18n = '删除';
   remove.id = 'deleteActivity';
   document.querySelector('.activity-dialog-footer')!.append(cancel, remove);

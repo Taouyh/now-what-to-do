@@ -171,8 +171,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .activity-form-body { padding: 4% 0 0; overflow: auto; max-height: 100%; }
 .book #name { width: 100%; font: clamp(16px,1.53cqw,22px)/1.45 'Noto Serif SC Variable',serif; }
 .book .activity-dialog-footer { position: absolute; left: calc(100% - 36px); top: 27%; display: flex; flex-direction: column; gap: 12px; width: 100px; margin: 0; padding: 0; border: 0; background: transparent; }
-.book .activity-dialog-footer button { width: 100%; min-height: 44px; padding: 8px; }
-.book .activity-dialog-footer .danger { background: #6a2f21; border: 1px solid #b18a50; color: #f1dcad; }
+.book .activity-dialog-footer button { width: 100%; min-height: 44px; padding: 8px; font-size: 16px; }
 .book .requirements-options { margin-top: 18px; }.book .requirements-options>summary,.book .description-options>summary { pointer-events: none; list-style: none; font-size: 14px; color: var(--muted-ink); }
 .book .activity-requirements { display: flex; gap: 8px; padding: 9px 0; }
 .book .checkbox-label { position: relative; display: grid; place-items: center; width: 44px; height: 44px; padding: 5px; border: 1px solid #b18a50; border-radius: 4px; }
