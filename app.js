@@ -594,6 +594,7 @@ function openConfirm(type,id){
   rememberDialogFocus('confirmLayer');
   $('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;
   let isDelete=type==='delete',task=isDelete?d.tasks.find(t=>t.id===id):(timerState()?timerTask(timerState()):null);
+  $('confirmLayer').classList.toggle('confirm-delete',isDelete);
   $('confirmKicker').textContent=isDelete?tr('删除任务？'):type==='early'?tr('结束本次执行？'):type==='import'?tr('导入备份？'):tr('放弃本次执行？');
   $('confirmTitle').textContent=isDelete?tr('确定删除这个任务吗？'):type==='early'?tr('已经完成本次执行了吗？'):type==='import'?tr('用备份替换当前任务、记录和设置？'):tr('确定放弃本次执行吗？');
   $('confirmText').textContent=isDelete?tr('删除后任务将不再出现在任务库中，已有学习记录仍会保留。建议先导出数据备份。'):type==='early'?tr('确认后记录本次实际用时，任务仍会保留，可以再次执行。'):type==='import'?tr('导入前已校验备份结构；现有任务、完成记录、偏好、主题及其他主数据将被替换，兼容保留的旧目标数据也将被替换。当前活动计时保持不变，不随备份导入。'):tr('当前计时不会计入完成记录，任务仍会保留。');

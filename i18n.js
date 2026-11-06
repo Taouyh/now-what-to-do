@@ -53,7 +53,7 @@ const MESSAGES={
   "例如 8": {"en":"For example, 8","ja":"例：8"},
   "请输入 0–1440 分钟的实际用时。": {"en":"Enter the actual time spent, from 0 to 1440 minutes.","ja":"実際に使った時間を0〜1440分で入力してください。"},
   "这项活动已不存在，请结束并记录。": {"en":"This activity is no longer available. End and save this session.","ja":"この活動は利用できません。今回を終了して記録してください。"},
-  "自己选": {"en":"Choose for yourself","ja":"自分で選ぶ"},
+  "自己选": {"en":"Choose","ja":"選ぶ"},
   "自己选一件": {"en":"Choose an activity","ja":"自分で選ぶ"},
   "推荐操作": {"en":"Recommendation options","ja":"おすすめの操作"},
   "下一步": {"en":"Next step","ja":"次の一歩"},
@@ -146,7 +146,7 @@ const MESSAGES={
     "ja": "分"
   },
   "当前条件": {
-    "en": "Current conditions",
+    "en": "Conditions",
     "ja": "今の状況"
   },
   "方便使用电脑": {

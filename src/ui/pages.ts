@@ -25,7 +25,7 @@ export class BookPages {
     const next = button(tr('下一页'), () => change(page + 1), 'paper-button');
     next.id = `${id}-next`;
     next.disabled = !total || page + 1 >= total;
-    navigation.append(previous, element('span', 'page-count', total ? `${page + 1} / ${total}` : '—'), next);
+    navigation.append(previous, element('span', id === 'tasks' ? 'page-count sr-only' : 'page-count', total ? `${page + 1} / ${total}` : '—'), next);
     return navigation;
   }
 
