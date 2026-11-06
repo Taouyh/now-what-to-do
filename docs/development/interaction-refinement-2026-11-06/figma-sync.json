@@ -1,0 +1,600 @@
+{
+  "date": "2026-11-06",
+  "status": "PASS: scoped editable Figma sync and bounded inspection",
+  "productCommit": "29d9b4656f47b50435b30ca81137fc0b787b35a0",
+  "independentTestReportCommit": "e214f42b128141e37bf2ae209316d5dd13abbb55",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "sessionId": "9292bfab-8ca4-47ad-b6a6-ed6d0a5c8bce",
+  "account": {
+    "handle": "3966592487",
+    "email": "3966592487@qq.com",
+    "userId": "1698571271826901612"
+  },
+  "worktree": "C:/Users/fengcai/.codex/worktrees/2312/now-what-to-do",
+  "branch": "codex/figma-interaction-refinement-2026-11-06",
+  "time": {
+    "frames": [
+      "61:550",
+      "62:3087",
+      "62:3281",
+      "62:3879",
+      "62:4079"
+    ],
+    "hiddenConfirm": [
+      "62:4076",
+      "62:4218"
+    ],
+    "hiddenRange": [
+      "62:4078",
+      "62:4220"
+    ],
+    "apply40BeforeNavigate": "62:4074",
+    "timeVariable": "VariableID:61:532",
+    "currentTimeBindingPreserved": "62:4202",
+    "blankExitValue": "10 分钟",
+    "validCustomExitKeys": [
+      "Enter",
+      "Escape"
+    ],
+    "arbitraryInput": "Specification only"
+  },
+  "conditions": {
+    "sourceComponent": "61:544",
+    "selectedTextSource": "293:4308",
+    "rows": [
+      {
+        "id": "61:832",
+        "selected": "I61:832;293:4308",
+        "variable": "VariableID:61:533"
+      },
+      {
+        "id": "61:838",
+        "selected": "I61:838;293:4308",
+        "variable": "VariableID:61:534"
+      },
+      {
+        "id": "61:844",
+        "selected": "I61:844;293:4308",
+        "variable": "VariableID:61:535"
+      },
+      {
+        "id": "61:850",
+        "selected": "I61:850;293:4308",
+        "variable": "VariableID:61:536"
+      },
+      {
+        "id": "62:3599",
+        "selected": "I62:3599;293:4308",
+        "variable": "VariableID:61:533"
+      },
+      {
+        "id": "62:3600",
+        "selected": "I62:3600;293:4308",
+        "variable": "VariableID:61:534"
+      },
+      {
+        "id": "62:3601",
+        "selected": "I62:3601;293:4308",
+        "variable": "VariableID:61:535"
+      },
+      {
+        "id": "62:3602",
+        "selected": "I62:3602;293:4308",
+        "variable": "VariableID:61:536"
+      },
+      {
+        "id": "62:3799",
+        "selected": "I62:3799;293:4308",
+        "variable": "VariableID:61:533"
+      },
+      {
+        "id": "62:3800",
+        "selected": "I62:3800;293:4308",
+        "variable": "VariableID:61:534"
+      },
+      {
+        "id": "62:3801",
+        "selected": "I62:3801;293:4308",
+        "variable": "VariableID:61:535"
+      },
+      {
+        "id": "62:3802",
+        "selected": "I62:3802;293:4308",
+        "variable": "VariableID:61:536"
+      }
+    ],
+    "uncheckedLight": "#7d6041",
+    "checkedLight": "#452a1a",
+    "uncheckedDark": "#d2b88e",
+    "checkedDark": "#f1dfb6",
+    "selectedWeight": 700,
+    "dark": "Editable adjacent specimens; no new dark condition screen"
+  },
+  "inputs": {
+    "nodes": [
+      "151:4177",
+      "151:4189",
+      "151:4250",
+      "151:4262",
+      "205:4205",
+      "203:4019",
+      "203:4044",
+      "203:4499"
+    ],
+    "effects": [],
+    "hoverFocus": {
+      "light": {
+        "fill": "#e4cca1",
+        "border": "#895332"
+      },
+      "dark": {
+        "fill": "#725334",
+        "border": "#d2b88e"
+      }
+    },
+    "hoverFocusPrototype": "Editable adjacent visual specimens, not arbitrary DOM focus"
+  },
+  "selfChoose": {
+    "hover": "49:609",
+    "labelsWithoutDecoration": [
+      "49:617",
+      "49:620",
+      "I49:622;49:613"
+    ]
+  },
+  "calendar": {
+    "frames": [
+      {
+        "id": "151:4354",
+        "groups": 5,
+        "rows": 0
+      },
+      {
+        "id": "151:4661",
+        "groups": 3,
+        "rows": 0
+      },
+      {
+        "id": "151:4958",
+        "groups": 5,
+        "rows": 4
+      },
+      {
+        "id": "151:5298",
+        "groups": 5,
+        "rows": 1
+      },
+      {
+        "id": "151:5612",
+        "groups": 5,
+        "rows": 1
+      },
+      {
+        "id": "151:5926",
+        "groups": 5,
+        "rows": 1
+      },
+      {
+        "id": "151:6240",
+        "groups": 5,
+        "rows": 1
+      },
+      {
+        "id": "151:6554",
+        "groups": 3,
+        "rows": 1
+      },
+      {
+        "id": "151:6858",
+        "groups": 3,
+        "rows": 1
+      },
+      {
+        "id": "151:7162",
+        "groups": 3,
+        "rows": 1
+      },
+      {
+        "id": "151:7466",
+        "groups": 5,
+        "rows": 2
+      },
+      {
+        "id": "270:4257",
+        "groups": 0,
+        "rows": 0
+      }
+    ],
+    "directoryRows": 47,
+    "detailRows": 13,
+    "directory": "Existing task paper edge and right curl; name only; per-activity statistics on right; daily aggregate retained on left",
+    "detail": {
+      "width": 530,
+      "minimumHeight": 99.6875,
+      "mainFont": 20,
+      "detailFont": 16,
+      "listHeight": 398.75,
+      "overflowDirection": "NONE",
+      "columnsAndRowMinimums": "Same expanded/collapsed"
+    },
+    "pagination": {
+      "groups": 5,
+      "records": 4
+    }
+  },
+  "settings": {
+    "sets": [
+      {
+        "id": "296:4291",
+        "theme": "light",
+        "variants": [
+          {
+            "id": "296:4292",
+            "name": "Style=Paper, State=Default",
+            "radius": 24
+          },
+          {
+            "id": "296:4294",
+            "name": "Style=Paper, State=Hover",
+            "radius": 24
+          },
+          {
+            "id": "296:4296",
+            "name": "Style=Paper, State=Pressed",
+            "radius": 24
+          },
+          {
+            "id": "296:4298",
+            "name": "Style=Leather, State=Default",
+            "radius": 24
+          },
+          {
+            "id": "296:4300",
+            "name": "Style=Leather, State=Hover",
+            "radius": 24
+          },
+          {
+            "id": "296:4302",
+            "name": "Style=Leather, State=Pressed",
+            "radius": 24
+          }
+        ]
+      },
+      {
+        "id": "296:4310",
+        "theme": "dark",
+        "variants": [
+          {
+            "id": "296:4311",
+            "name": "Style=Paper, State=Default",
+            "radius": 24
+          },
+          {
+            "id": "296:4313",
+            "name": "Style=Paper, State=Hover",
+            "radius": 24
+          },
+          {
+            "id": "296:4315",
+            "name": "Style=Paper, State=Pressed",
+            "radius": 24
+          },
+          {
+            "id": "296:4317",
+            "name": "Style=Leather, State=Default",
+            "radius": 24
+          },
+          {
+            "id": "296:4319",
+            "name": "Style=Leather, State=Hover",
+            "radius": 24
+          },
+          {
+            "id": "296:4321",
+            "name": "Style=Leather, State=Pressed",
+            "radius": 24
+          }
+        ]
+      }
+    ],
+    "frames": [
+      {
+        "id": "111:4832",
+        "buttons": 7,
+        "selected": 2
+      },
+      {
+        "id": "111:5147",
+        "buttons": 7,
+        "selected": 2
+      },
+      {
+        "id": "111:5493",
+        "buttons": 7,
+        "selected": 2
+      },
+      {
+        "id": "111:5808",
+        "buttons": 7,
+        "selected": 2
+      },
+      {
+        "id": "111:6154",
+        "buttons": 7,
+        "selected": 2
+      },
+      {
+        "id": "111:6469",
+        "buttons": 7,
+        "selected": 2
+      }
+    ],
+    "instances": [
+      {
+        "id": "111:5111",
+        "wrapper": "111:5110",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:5114",
+        "wrapper": "111:5113",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5117",
+        "wrapper": "111:5116",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5125",
+        "wrapper": "111:5124",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:5128",
+        "wrapper": "111:5127",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5137",
+        "wrapper": "111:5136",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5145",
+        "wrapper": "111:5144",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5426",
+        "wrapper": "111:5425",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:5429",
+        "wrapper": "111:5428",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:5432",
+        "wrapper": "111:5431",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:5440",
+        "wrapper": "111:5439",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:5443",
+        "wrapper": "111:5442",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:5452",
+        "wrapper": "111:5451",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:5460",
+        "wrapper": "111:5459",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:5772",
+        "wrapper": "111:5771",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5775",
+        "wrapper": "111:5774",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:5778",
+        "wrapper": "111:5777",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5786",
+        "wrapper": "111:5785",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:5789",
+        "wrapper": "111:5788",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5798",
+        "wrapper": "111:5797",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:5806",
+        "wrapper": "111:5805",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6087",
+        "wrapper": "111:6086",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6090",
+        "wrapper": "111:6089",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:6093",
+        "wrapper": "111:6092",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6101",
+        "wrapper": "111:6100",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6104",
+        "wrapper": "111:6103",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:6113",
+        "wrapper": "111:6112",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6121",
+        "wrapper": "111:6120",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6433",
+        "wrapper": "111:6432",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6436",
+        "wrapper": "111:6435",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6439",
+        "wrapper": "111:6438",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:6447",
+        "wrapper": "111:6446",
+        "main": "296:4298"
+      },
+      {
+        "id": "111:6450",
+        "wrapper": "111:6449",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6459",
+        "wrapper": "111:6458",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6467",
+        "wrapper": "111:6466",
+        "main": "296:4292"
+      },
+      {
+        "id": "111:6748",
+        "wrapper": "111:6747",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6751",
+        "wrapper": "111:6750",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6754",
+        "wrapper": "111:6753",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:6762",
+        "wrapper": "111:6761",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6765",
+        "wrapper": "111:6764",
+        "main": "296:4317"
+      },
+      {
+        "id": "111:6774",
+        "wrapper": "111:6773",
+        "main": "296:4311"
+      },
+      {
+        "id": "111:6782",
+        "wrapper": "111:6781",
+        "main": "296:4311"
+      }
+    ],
+    "radius": 24,
+    "height": 52,
+    "all42LabelsFit": true,
+    "all42InheritFills": true,
+    "legacyDarkPaintOverridesCleared": true,
+    "focus": "Same visual treatment as hover; keyboard traversal not simulated"
+  },
+  "specifications": {
+    "updated": "268:4276",
+    "new": "299:4291",
+    "editableErrorText": "请输入1–1440的整数"
+  },
+  "protectedFooter": {
+    "instances": [
+      "151:4277",
+      "151:4279",
+      "151:4204",
+      "266:4221",
+      "151:4206"
+    ],
+    "component": "111:3029",
+    "radius": 6,
+    "size": [
+      120,
+      68
+    ]
+  },
+  "audit": {
+    "method": "FNV-1a over serialized reactions; compare raw and normalize only known setting CHANGE_TO destination ids",
+    "baselineReactions": 372,
+    "identicalRaw": 330,
+    "expectedSettingDestinationRemaps": 42,
+    "identicalAfterNormalization": 372,
+    "unexpected": 0,
+    "hiddenDiscardFeedbackRemainsHidden": true
+  },
+  "screenshots": {
+    "directory": ".cache/figma-interaction-refinement",
+    "final": [
+      "calendar.png",
+      "settings.png",
+      "time-empty.png",
+      "time-filled-final.png",
+      "conditions.png",
+      "continuation.png",
+      "edit.png",
+      "settings-dark-final.png",
+      "states-final.png"
+    ]
+  },
+  "limits": [
+    "No whole-file scan or full prototype click verification",
+    "Input/IME, error branches and keyboard focus represented by adjacent editable specifications",
+    "No product rebuild or tests rerun in this window",
+    "No Android, upgrade, participant, merge, push, or stage 8 work"
+  ]
+}
