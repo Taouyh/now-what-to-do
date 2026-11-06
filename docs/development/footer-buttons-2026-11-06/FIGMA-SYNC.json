@@ -1,0 +1,141 @@
+{
+  "productCommit": "69a5df2248ad485ddc8b02403fbd3892aff83e0c",
+  "date": "2026-11-06",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "account": {
+    "handle": "3966592487",
+    "email": "3966592487@qq.com",
+    "userId": "1698571271826901612"
+  },
+  "changedInstances": [
+    "151:4279",
+    "266:4221"
+  ],
+  "verifiedUnchangedInstances": [
+    "151:4277",
+    "151:4204",
+    "151:4206"
+  ],
+  "referenceComponent": "111:3029",
+  "hoverComponent": "111:3031",
+  "pressedComponent": "111:3033",
+  "buttons": [
+    {
+      "id": "151:4277",
+      "label": "添加",
+      "mainComponentId": "111:3029",
+      "styleMatchesReference": true,
+      "reactionsMatchReference": true
+    },
+    {
+      "id": "151:4279",
+      "label": "取消",
+      "mainComponentId": "111:3029",
+      "styleMatchesReference": true,
+      "reactionsMatchReference": true
+    },
+    {
+      "id": "151:4204",
+      "label": "保存",
+      "mainComponentId": "111:3029",
+      "styleMatchesReference": true,
+      "reactionsMatchReference": true
+    },
+    {
+      "id": "266:4221",
+      "label": "取消",
+      "mainComponentId": "111:3029",
+      "styleMatchesReference": true,
+      "reactionsMatchReference": true
+    },
+    {
+      "id": "151:4206",
+      "label": "删除",
+      "mainComponentId": "111:3029",
+      "styleMatchesReference": true,
+      "reactionsMatchReference": true
+    }
+  ],
+  "appearance": {
+    "size": [
+      120,
+      68
+    ],
+    "radius": 6,
+    "strokeWidth": 1,
+    "gradient": [
+      "#a16b43",
+      "#895332",
+      "#63351f"
+    ],
+    "gradientPositions": [
+      0,
+      0.22,
+      1
+    ],
+    "strokeVariable": "VariableID:6:7",
+    "labelVariable": "VariableID:6:8",
+    "labelColor": "#f1dcad",
+    "font": "Noto Serif SC Medium",
+    "fontSize": 22,
+    "lineHeight": "150%",
+    "hover": "Existing Leather hover variant (7% pale overlay); inherited, no library edit"
+  },
+  "audit": {
+    "nodeCountBefore": 141,
+    "nodeCountAfter": 141,
+    "unchangedNodesExcludingCancelInstancesAndTheirLabels": 137,
+    "method": "FNV-1a over JSON property groups; same read script before/after",
+    "protectedNodes": [
+      {
+        "id": "151:4276",
+        "identical": true,
+        "reactionBefore": "df1ade60",
+        "reactionAfter": "df1ade60"
+      },
+      {
+        "id": "151:4278",
+        "identical": true,
+        "reactionBefore": "e692ec98",
+        "reactionAfter": "e692ec98"
+      },
+      {
+        "id": "151:4203",
+        "identical": true,
+        "reactionBefore": "16ec8097",
+        "reactionAfter": "16ec8097"
+      },
+      {
+        "id": "266:4220",
+        "identical": true,
+        "reactionBefore": "e692ec98",
+        "reactionAfter": "e692ec98"
+      },
+      {
+        "id": "151:4205",
+        "identical": true,
+        "reactionBefore": "5b697900",
+        "reactionAfter": "5b697900"
+      },
+      {
+        "id": "151:4275",
+        "identical": true,
+        "reactionBefore": "741638a5",
+        "reactionAfter": "741638a5"
+      },
+      {
+        "id": "151:4202",
+        "identical": true,
+        "reactionBefore": "741638a5",
+        "reactionAfter": "741638a5"
+      }
+    ]
+  },
+  "screenshots": {
+    "figmaAdd": "C:/Users/fengcai/.codex/worktrees/6d2c/now-what-to-do/.cache/footer-buttons/figma-add.png",
+    "figmaEdit": "C:/Users/fengcai/.codex/worktrees/6d2c/now-what-to-do/.cache/footer-buttons/figma-edit.png",
+    "webAdd": "D:/code/now-what-to-do/.cache/footer-buttons/1531-light-add.png",
+    "webEdit": "D:/code/now-what-to-do/.cache/footer-buttons/1531-light-edit.png"
+  },
+  "scope": "Figma property/reaction readback and two static final screenshots; no prototype click, Android, upgrade, participant or full B/C acceptance"
+}
