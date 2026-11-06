@@ -16,4 +16,12 @@
 
 `BOOK_TEST_PORT=8768 npx playwright test tests/e2e/continuation-label.spec.ts tests/e2e/book.spec.ts --grep 'continuation|empty library'`：5/5。覆盖刚完成读书而当前推荐散步时的归属、键盘 Enter/自动聚焦、保存仅修改原活动、取消草稿、长名称，以及 1531×715 中文浅色、390×715 英文深色、320×715 日文浅色。截图检查后补了桌面编辑状态间距，并验证操作按钮在书页内。
 
-开发日志 `.cache/continuation-{build,unit,e2e}.txt`，截图 `test-results/continuation-label-*/`。固定提交完成后交独立 GPT 窗口验收，通过后本地合并并在新 worktree、新 GPT 窗口同步 Figma 对应的结束反馈/展开草稿状态。本文件不提前宣称这些后续步骤已完成。
+开发日志 `.cache/continuation-{build,unit,e2e}.txt`，截图另存 `.cache/continuation-9210239/`。
+
+## 独立验收与集成
+
+固定提交 `92102393d77dda9b8a89ed1f0a84cc09962fc930` 已由独立 GPT 窗口在 `7aa2` worktree 通过核心 140/140、构建、浏览器 16/16（既有10 + 本轮4 + 独立补查2）。见 [独立报告](INDEPENDENT-TEST.md)。补查源码归档 `tests/e2e/independent-continuation.spec.ts`，本地证据已复制到 `test-artifacts/continuation-independent/`（忽略）。
+
+已在集成 worktree 快进本地 master，复建 app.js/style.css 哈希与独立构建一致；创建到完成/续做和指定原活动保存两项冒烟 2/2 通过。没有推送或发布；保留用户 `docs/weekly/`。
+
+按用户流程另建 Figma 同步窗口 `01a1aefb-8760-7873-9802-de108ba34cec`、独立 `dad8` worktree，仅更新本次反馈及展开草稿。同步结果待完成后归档。
