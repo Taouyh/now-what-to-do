@@ -52,5 +52,9 @@ for (const width of [1531, 1024, 810, 390, 320]) test(`four calendar records fit
   await page.screenshot({ path: info.outputPath('calendar.png'), fullPage: true });
   await page.locator('#records-next').click(); await expect(page.locator('.record-toggle')).toHaveCount(1);
   await page.locator('#records-previous').click(); await expect(page.locator('.record-toggle')).toHaveCount(4);
+  const before = await page.locator('.record-row').evaluateAll(rows => rows.map(row => ({ width: row.getBoundingClientRect().width, height: row.getBoundingClientRect().height })));
   await page.locator('.record-toggle').first().click(); await expect(page.locator('.record-detail')).toBeVisible();
+  const after = await page.locator('.record-row').evaluateAll(rows => rows.map(row => ({ width: row.getBoundingClientRect().width, height: row.getBoundingClientRect().height })));
+  for (let i = 0; i < before.length; i++) { expect(after[i].width).toBeCloseTo(before[i].width, 1); expect(after[i].height).toBeGreaterThanOrEqual(before[i].height-1); }
+  await page.screenshot({ path: info.outputPath('calendar-expanded.png'), fullPage: true });
 });

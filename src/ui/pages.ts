@@ -176,10 +176,10 @@ export class BookPages {
         this.clearRecordSelection();
         this.renderToday();
         document.querySelector<HTMLButtonElement>(`[data-group-id="${CSS.escape(group.taskId)}"]`)?.focus();
-      }, 'calendar-group');
+      }, 'calendar-group task-strip');
       row.dataset.groupId = group.taskId;
       row.setAttribute('aria-pressed', String(group.taskId === this.selectedTask));
-      row.append(element('span', 'user-text', name), element('small', '', tr('{count} 次 · {duration}', { count: group.records.length, duration: app.formatDuration(group.totalMs) })));
+      row.append(element('span', 'user-text', name));
       list.append(row);
     }
     if (!groups.length) list.append(element('p', 'empty-copy', tr('今天还没开始。')), button(tr('去开始'), () => app.page('home'), 'primary calendar-start'));
