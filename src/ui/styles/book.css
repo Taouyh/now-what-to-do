@@ -95,8 +95,8 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .icon-button { min-width: 36px; min-height: 36px; border: 0; background: transparent; color: var(--ink); padding: 5px; }
 .continuation-form { position: relative; }.continuation-form textarea { width: 100%; resize: none; max-height: 76px; padding-right: 35px; }
 .continuation-input { position: relative; }
-.book :is(#continuationInput,#name,#desc):focus-visible { outline: none; box-shadow: none; }
-.book :is(#continuationInput,#name,#desc):hover,.book :is(#continuationInput,#name,#desc):focus { background: #e4cca1; border-color: #895332; }
+.book :is(#continuationInput,#desc):focus-visible { outline: none; box-shadow: none; }
+.book :is(#continuationInput,#desc):hover,.book :is(#continuationInput,#desc):focus { background: #e4cca1; border-color: #895332; }
 #appNotice.time-error-notice { background: #111 !important; color: #fff !important; }
 @media(min-width:801px) and (min-height:551px) {
   .book .home-workspace:has(.continuation-form) .home-controls { margin-bottom: 3%; }
@@ -244,7 +244,7 @@ html[data-theme=dark] .book #export,html[data-theme=dark] .book #import { backgr
 html[data-theme=dark] .book .checkbox-label:has(input:checked) { background: #725334; }
 html[data-theme=dark] .book .paper-button:hover,html[data-theme=dark] .book .outline:hover,html[data-theme=dark] .book .task-play:hover { background: #725334; }
 html[data-theme=dark] .book .condition-picker>summary:hover { background: #38291e; border-color: #d2b88e; }
-html[data-theme=dark] .book :is(#continuationInput,#name,#desc):hover,html[data-theme=dark] .book :is(#continuationInput,#name,#desc):focus { background: #725334; border-color: #d2b88e; }
+html[data-theme=dark] .book :is(#continuationInput,#desc):hover,html[data-theme=dark] .book :is(#continuationInput,#desc):focus { background: #725334; border-color: #d2b88e; }
 html[data-theme=dark] .book .settings-row button:hover,html[data-theme=dark] .book .settings-row button:focus-visible { filter: brightness(1.18); border-color: #d2b88e; }
 html[data-theme=dark] .book #times button:not(.on),html[data-theme=dark] .book #timePicker .custom-minutes-control { background: #503d2c; }
 html[data-theme=dark] .book #times button:hover,html[data-theme=dark] .book #times button:focus-visible { filter: brightness(1.18); }
