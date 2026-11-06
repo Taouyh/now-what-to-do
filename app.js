@@ -601,7 +601,7 @@ function openConfirm(type,id){
   $('confirmTaskName').textContent=type==='import'?tr('备份数据将替换当前本地数据。'):task?.name||'';
   $('confirmTaskDesc').textContent=task?.description||'';
   $('confirmCancel').textContent=isDelete||type==='import'||type==='giveup'&&timerState()?.recoveryReason?tr('取消'):tr('继续计时');
-  $('confirmAccept').textContent=isDelete?tr('删除任务'):type==='early'?tr('✓ 完成本次执行'):type==='import'?tr('确认导入'):tr('放弃本次执行');
+  $('confirmAccept').textContent=isDelete?tr('删除'):type==='early'?tr('✓ 完成本次执行'):type==='import'?tr('确认导入'):tr('放弃本次执行');
   $('confirmAccept').className=isDelete||type==='giveup'?'danger':'primary';
   $('confirmAccept').onclick=isDelete?()=>{d.tasks=d.tasks.filter(t=>t.id!==id);if(!save())return;closeConfirm();closeActivity();tasks();random({keepCurrent:true})}:type==='early'?()=>{closeConfirm();finishTimer()}:type==='import'?applyImport:discardTimer;
   $('confirmCancel').onclick=closeConfirm;$('confirmLayer').classList.remove('hide');syncDialogState();$('confirmCancel').focus();
