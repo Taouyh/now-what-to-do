@@ -24,4 +24,4 @@
 
 已在集成 worktree 快进本地 master，复建 app.js/style.css 哈希与独立构建一致；创建到完成/续做和指定原活动保存两项冒烟 2/2 通过。没有推送或发布；保留用户 `docs/weekly/`。
 
-按用户流程另建 Figma 同步窗口 `01a1aefb-8760-7873-9802-de108ba34cec`、独立 `dad8` worktree，仅更新本次反馈及展开草稿。同步结果待完成后归档。
+按用户流程另建 Figma 同步窗口 `01a1aefb-8760-7873-9802-de108ba34cec`、独立 `dad8` worktree，已使用账号 `3966592487` 完成本次反馈及展开草稿同步。节点回读、24 个原业务反应对比和最终截图检查通过，详情见 [FIGMA-SYNC](FIGMA-SYNC.md)。报告及 JSON 已归档；完整本地图片另复制到主目录 `.cache/figma-continuation-sync/`，不进入 Git。Figma 任意输入和真实保存的能力边界以同步报告为准。

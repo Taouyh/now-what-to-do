@@ -53,6 +53,8 @@
 
 2026-11-06 的自定义时间、按钮边框、即时提示和日历显示修订，见 [11 项浏览器反馈交付](../book-feedback-2026-11-06/IMPLEMENTATION.md)。本页以下保留 11 月 5 日初始实施的验证边界。
 
+同日后续“记下一步”的对象澄清与突出设计，见 [续做入口交付](../continuation-2026-11-06/IMPLEMENTATION.md)，含固定提交的独立验收及新窗口 Figma 同步。
+
 保留原仓库和原始历史，先提交原有界面改动与设计文档，再分别提交实现、测试和缺陷修复。源分支仍为 `design/minimal-ui`，独立验收通过后本地快进合入 `master`，随后在独立集成 worktree 构建和跑核心旅程。没有重写历史、推送或发布。其他窗口新建的 `docs/weekly/` 保持原状，不进入本次提交。
 
 合并实际记录：`origin/master` 刷新后仍为 `4ed3aa165c4f37da066bdd4709ab06224c7fd15e`；本地 `master` 在 `D:\code\now-what-to-do-integration` 快进到已验收代码 `948952aabab7594e5c7e631a219551c0cc162c50`。在该集成目录重新 `npm ci --ignore-scripts`、`npm run build:web`、`npm test`（137/137），并以端口 8770 运行 `npm run test:e2e -- --grep 'empty library'`（1/1），验证创建任务、专注、暂停、导航、完成与下一步记录。日志在集成目录 `.cache/`。其后仅同步本次交付文档、独立测试源码与证据忽略规则，不改变已验收产品代码。
