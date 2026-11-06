@@ -83,7 +83,7 @@ module.exports=async(scenario,fixture)=>{
 
   await check('preset switching hides errors and preserves the 60-minute ceiling and session draft',async(run,_imp,{protocol})=>{
     await choose(run,protocol);await input(run,protocol,'90');
-    for(const minutes of [5,10,15,30,60]){
+    for(const minutes of [10,15,20,30,60]){
       await click(run,protocol,`#times [data-v="${minutes}"]`);
       assert.deepEqual(await run("return [time,$('customTimeField').classList.contains('hide'),selectionReady()]"),[minutes,true,true]);
       assert.ok(await run('return d.tasks.filter(ok).every(t=>t.minutes<=time)'));

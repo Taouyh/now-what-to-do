@@ -130,17 +130,20 @@ export function mountBook(app: Runtime) {
     const label = byId(id).closest('label')!;
     label.prepend(image(`scroll-icon-${index + 1}.svg`));
     const key = ['必须用电脑', '必须听音频', '需要出声', '不便中断'][index];
-    label.dataset.i18nTitle = key;
-    label.title = app.tr(key);
+    const tip = translated('span', key, 'requirement-tooltip');
+    tip.setAttribute('role', 'tooltip');
+    // The original label already supplies the accessible checkbox name.
+    tip.setAttribute('aria-hidden', 'true');
+    label.append(tip);
   }
   for (const id of ['timePicker', 'conditionsPicker']) {
     const details = byId<HTMLDetailsElement>(id);
     const panel = details.querySelector<HTMLElement>('.condition-panel')!;
-    const close = button('×', () => { details.open = false; details.querySelector('summary')!.focus(); }, 'picker-close icon-button');
+    const close = button('×', () => { if (id === 'timePicker') app.settleEmptyCustomTime(); details.open = false; details.querySelector('summary')!.focus(); }, 'picker-close icon-button');
     close.dataset.i18nAriaLabel = '关闭';
     close.setAttribute('aria-label', app.tr('关闭'));
     const done = button(app.tr('确定'), () => {
-      if (id === 'timePicker' && !app.selectionReady()) { byId('customMinutes').focus(); return; }
+      if (id === 'timePicker' && !app.settleEmptyCustomTime()) { byId('customMinutes').focus(); return; }
       details.open = false;
       details.querySelector('summary')!.focus();
     }, 'primary picker-done');
@@ -152,7 +155,7 @@ export function mountBook(app: Runtime) {
         const other = byId<HTMLDetailsElement>(id === 'timePicker' ? 'conditionsPicker' : 'timePicker');
         other.open = false;
         panel.querySelector<HTMLElement>('input,button')?.focus();
-      }
+      } else if (id === 'timePicker') app.settleEmptyCustomTime();
     });
   }
   document.addEventListener('keydown', event => {

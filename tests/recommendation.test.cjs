@@ -26,9 +26,9 @@ test('disabled and computer-only activities stay excluded when no other candidat
  toggle(a,'computerReady',true);assert.equal(a.run('cur.id'),'t1');
 });
 test('changing time keeps the activity and starts a session for that budget',()=>{
- const a=setup();a.times.find(b=>b.dataset.v==='5').click();
+ const a=setup();a.times.find(b=>b.dataset.v==='20').click();
  assert.equal(a.run('cur.id'),'t0');a.elements.get('start').click();
- assert.equal(a.run('timerState().plannedDurationMs'),5*60000);
+ assert.equal(a.run('timerState().plannedDurationMs'),20*60000);
 });
 test('condition changes invalidate stale start buttons',()=>{
  const a=setup([{requirements:{audio:true}}],{audio:true}),stale=a.elements.get('start');

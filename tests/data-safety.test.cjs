@@ -233,7 +233,7 @@ test('strict import validation rejects invalid fields and never mutates the cand
     x => { x.version = 99; }, x => { delete x.completed; }, x => { x.preferences = []; },
     x => { x.goals.push(x.goals[0]); }, x => { x.tasks[0].minutes = 0; },
     x => { x.tasks[0].goalId = 123; }, x => { x.tasks[0].computer = 1; },
-    x => { x.preferences.time = 20; }, x => { x.preferences.env = 'invalid'; },
+    x => { x.preferences.time = 25; }, x => { x.preferences.env = 'invalid'; },
     x => { x.completed[0].minutes = -1; }, x => { x.completed[0].minutes = ''; },
     x => { x.completed[0].completedAt = 'invalid'; }, x => { x.completed[0].taskName = {}; },
   ];

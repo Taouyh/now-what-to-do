@@ -125,14 +125,14 @@ test('more information restarts the group timeout, switches panels and resets wh
   assert.equal(app.writes.length,0);
 });
 
-test('compact ranges use minutes while retaining seconds for short executions and dates across midnight', () => {
+test('compact ranges always use minutes, preserving dates across midnight (2026-11-06 feedback)', () => {
   const app=appFor();
   const compact=(startedAt,endedAt)=>app.run(`recordCompactTimeRange(${JSON.stringify({startedAt,endedAt})},${JSON.stringify(now)})`);
   assert.equal(compact('2026-10-21T20:04:48+08:00','2026-10-21T20:19:33+08:00'),'20:04–20:19');
-  assert.equal(compact('2026-10-21T11:10:19+08:00','2026-10-21T11:10:22+08:00'),'11:10:19–11:10:22');
-  assert.equal(compact('2026-10-21T11:10:58+08:00','2026-10-21T11:11:05+08:00'),'11:10:58–11:11:05');
+  assert.equal(compact('2026-10-21T11:10:19+08:00','2026-10-21T11:10:22+08:00'),'11:10–11:10');
+  assert.equal(compact('2026-10-21T11:10:58+08:00','2026-10-21T11:11:05+08:00'),'11:10–11:11');
   assert.equal(compact('2026-10-21T11:10:00+08:00','2026-10-21T11:11:00+08:00'),'11:10–11:11');
-  assert.equal(compact('2026-10-20T23:59:58+08:00','2026-10-21T00:00:05+08:00'),'2026-10-20 23:59:58–2026-10-21 00:00:05');
+  assert.equal(compact('2026-10-20T23:59:58+08:00','2026-10-21T00:00:05+08:00'),'2026-10-20 23:59–2026-10-21 00:00');
   assert.equal(compact(null,null),'开始时间未记录–结束时间未记录');
   assert.equal(compact(null,'2026-10-21T20:19:33+08:00'),'开始时间未记录–2026-10-21 20:19');
 });

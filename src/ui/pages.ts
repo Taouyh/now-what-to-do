@@ -175,7 +175,7 @@ export class BookPages {
       row.append(element('span', 'user-text', name), element('small', '', tr('{count} 次 · {duration}', { count: group.records.length, duration: app.formatDuration(group.totalMs) })));
       list.append(row);
     }
-    if (!groups.length) list.append(element('p', 'empty-copy', tr('今天还没开始。')), button(tr('去开始'), () => app.page('home'), 'paper-button'));
+    if (!groups.length) list.append(element('p', 'empty-copy', tr('今天还没开始。')), button(tr('去开始'), () => app.page('home'), 'primary calendar-start'));
     left.append(list, this.pager(directory.page, directory.total, page => {
       this.directoryPage = page;
       this.selectedTask = null;

@@ -71,7 +71,7 @@ function boot(initial = {}, faults = {}, options = {}) {
     if (on) el.classList.add('on');
     return el;
   };
-  const times = [5, 10, 15, 30, 60, 'custom'].map(x => choice(x, x === 10));
+  const times = [10, 15, 20, 30, 60, 'custom'].map(x => choice(x, x === 10));
   const envs = ['quiet', 'noisy', 'class'].map(x => choice(x, x === 'noisy'));
   const pages = ['home', 'today', 'tasks', 'settings'].map(id => elements.get(id));
   const nav = pages.map(p => { const e = new Element('button'); e.dataset.page = p.id; return e; });

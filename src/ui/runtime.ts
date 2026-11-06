@@ -40,6 +40,7 @@ export interface Runtime {
   recordCompactTimeRange(record: RecordEntry): string;
   activityRequirements(task: Task): Requirements;
   selectionReady(): boolean;
+  settleEmptyCustomTime(): boolean;
   selectHomeCondition(key: string, value: boolean | string | number): void;
   syncHomeControls(): void;
   renderTimer(): void;

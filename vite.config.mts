@@ -14,7 +14,7 @@ export const runtime = {
   tr, page, random, run, startRecommendation, edit, newTask, closeActivity, delTask, saveActivity,
   timerState, finishTimer, discardTimer, pauseTimer, resumeTimer, extendTimer,
   formatDuration, formatClock, recordDurationMs, recordsForLocalDay, todayRecordGroups,
-  recordCompactTimeRange, plannedDurationMs, activityRequirements, selectionReady,
+  recordCompactTimeRange, plannedDurationMs, activityRequirements, selectionReady, settleEmptyCustomTime,
   selectHomeCondition, syncHomeControls, renderTimer, tasks, today, save,
   notify, saveContinuation, closeContinuation,
   connect(view) { bookView = view; random({keepCurrent:true}); tasks(); today(); renderTimer(); },

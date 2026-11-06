@@ -65,6 +65,8 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .home-controls { display: flex; justify-content: center; gap: 12px; padding: 0; margin: 2% 0 12%; }
 .book .condition-picker { position: static; }
 .book .condition-picker>summary { min-width: 0; width: 12.5cqw; min-height: 36px; padding: 5px 8px; border: 1px solid #a88554cc; border-radius: 24px; background: linear-gradient(#f8ebc9,#d6b783); color: var(--ink); font: 500 clamp(14px,1.32cqw,19px)/1.45 'Noto Serif SC Variable',serif; box-shadow: 0 2px 3px #1409041f; white-space: nowrap; }
+.book .condition-picker>summary:hover { background: linear-gradient(#edd9af,#be965d); border-color: #895332; }
+.book .custom-time .custom-minutes-control input,.book .custom-time .custom-minutes-control input:focus-visible { border: 0; outline: none; box-shadow: none; background: transparent; border-radius: 0; }
 .book .chevron { width: 10px; height: 10px; }
 .book .rec { background: none; border: 0; box-shadow: none; padding: 0; min-height: 0; max-width: none; text-align: center; }
 .book .rec h2 { font-size: clamp(26px,3.54cqw,51px); font-weight: 700; line-height: 1.45; max-height: 3em; overflow: auto; margin: 0 0 9%; }
@@ -110,6 +112,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .spread-pager { left: 8.06%; right: 9.16%; bottom: 16%; }
 .page-count { font-family: 'EB Garamond Variable',serif; color: var(--muted-ink); }
 .empty-copy { padding: 20px 0; color: var(--muted-ink); }
+.book .calendar-start { justify-self: start; min-height: 44px; padding: 8px 24px; font-family: 'Noto Serif SC Variable',serif; }
 .calendar-column { height: 71%; display: flex; flex-direction: column; }
 .calendar-column>h1,.calendar-column>h2,.calendar-column>.book-caption { flex: none; }
 .calendar-column>h2 { max-height: 3em; overflow-y: auto; }
@@ -156,7 +159,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book #form { height: 100%; }
 .book .activity-form-body { padding: 4% 0 0; overflow: auto; max-height: 100%; }
 .book #name { width: 100%; font: clamp(16px,1.53cqw,22px)/1.45 'Noto Serif SC Variable',serif; }
-.book .activity-dialog-footer { position: absolute; left: calc(100% - 36px); top: 27%; display: flex; flex-direction: column; gap: 12px; width: 100px; margin: 0; padding: 0; border: 0; }
+.book .activity-dialog-footer { position: absolute; left: calc(100% - 36px); top: 27%; display: flex; flex-direction: column; gap: 12px; width: 100px; margin: 0; padding: 0; border: 0; background: transparent; }
 .book .activity-dialog-footer button { width: 100%; min-height: 44px; padding: 8px; }
 .book .activity-dialog-footer .danger { background: #6a2f21; border: 1px solid #b18a50; color: #f1dcad; }
 .book .requirements-options { margin-top: 18px; }.book .requirements-options>summary,.book .description-options>summary { pointer-events: none; list-style: none; font-size: 14px; color: var(--muted-ink); }
@@ -166,7 +169,10 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .checkbox-label:has(input:checked) { background: #d4b582; box-shadow: inset 0 0 0 2px #895332; }
 .book .checkbox-label:has(input:focus-visible) { outline: 3px solid #895332; }
 .book .checkbox-label img { width: 22px; height: 22px; object-fit: contain; }
-.book .checkbox-label span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.book .checkbox-label span:not(.requirement-tooltip) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.book .requirement-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); z-index: 3; padding: 7px 10px; border-radius: 4px; background: #111; color: #fff; font-size: 13px; line-height: 1.45; white-space: nowrap; pointer-events: none; visibility: hidden; }
+.book .checkbox-label:first-child .requirement-tooltip { left: 0; transform: none; }
+.book .checkbox-label:hover .requirement-tooltip,.book .checkbox-label:has(input:focus-visible) .requirement-tooltip { visibility: visible; }
 .book .description-field { position: relative; margin-top: 8px; }
 .book #desc { min-height: 85px; max-height: 130px; width: 100%; resize: vertical; padding-right: 36px; overflow: auto; }
 .book .field-error { color: #9a3025; font-size: 13px; margin: 5px 0 0; min-height: 1.4em; }
@@ -192,9 +198,9 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .settings-row { display: block; border-bottom: 1px solid #b18a5040; padding: 24px 0; }
 .book .settings-row:first-of-type { margin-top: 12px; }
 .book .settings-row>span,.book .settings-row>div:first-child { display: block; margin-bottom: 12px; }
-.book .language-options,.book .theme-options { display: flex; gap: 10px; }
+.book .language-options,.book .theme-options { display: flex; gap: 10px; width: 100%; min-width: 0; border: 0; border-radius: 0; overflow: visible; background: transparent; }
 .book .language-options button,.book .theme-options button,.book #export,.book #import { padding: 8px 10px; color: var(--ink); background: #f0e0b7; border: 1px solid #b18a50; border-radius: 4px; }
-.book .language-options button { flex: 1; font-family: 'Noto Serif SC Variable',serif; font-size: clamp(14px,1.39cqw,20px); }
+.book .language-options button { flex: 1; min-width: 0; padding-inline: clamp(4px,.7cqw,10px); font-family: 'Noto Serif SC Variable',serif; font-size: clamp(14px,1.39cqw,20px); }
 .book .theme-options button { flex: 1; }
 .book .settings-row button[aria-pressed=true] { background: linear-gradient(#a16b43,#63351f); color: #f1dcad; }
 .book #export,.book #import { display: block; width: 40%; min-height: 44px; }.book .settings-note { text-align: left; color: var(--muted-ink); margin-top: 20px; }
@@ -206,6 +212,7 @@ html[data-theme=dark] .task-play img,html[data-theme=dark] #random img,html[data
 html[data-theme=dark] .book #export,html[data-theme=dark] .book #import { background: #503d2c; color: #f1dfb6; }
 html[data-theme=dark] .book .checkbox-label:has(input:checked) { background: #725334; }
 html[data-theme=dark] .book .paper-button:hover,html[data-theme=dark] .book .outline:hover,html[data-theme=dark] .book .task-play:hover { background: #725334; }
+html[data-theme=dark] .book .condition-picker>summary:hover { background: #38291e; border-color: #d2b88e; }
 html[data-theme=dark] .book-app :focus-visible { outline-color: #f1dcad; }
 html[data-theme=dark] .task-strip { background-image: linear-gradient(#38291ed9,#38291ed9),var(--task-paper); border-radius: 5px; }
 html[data-theme=dark] .book .dialog,html[data-theme=dark] .book .confirm-card,html[data-theme=dark] .book .condition-panel { background-image: linear-gradient(#38291ee8,#38291ee8),var(--scroll-paper); }

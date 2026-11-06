@@ -52,7 +52,7 @@ function validateData(x){
   if(x.preferences!==undefined&&!object(x.preferences)||x.version===2&&!object(x.preferences))throw Error(tr('偏好数据无效。'));
   let p=x.preferences||{};
   if(p.language!==undefined&&!SUPPORTED_LANGUAGES.includes(p.language))throw Error(tr('语言设置无效。'));
-  if(p.time!==undefined&&![5,10,15,30,60].includes(Number(p.time))||p.env!==undefined&&!['quiet','noisy','class'].includes(p.env)||p.computerReady!==undefined&&typeof p.computerReady!=='boolean'||x.version===2&&(p.time===undefined||p.conditions===undefined&&p.env===undefined))throw Error(tr('时间或旧环境偏好无效。'));
+  if(p.time!==undefined&&![5,10,15,20,30,60].includes(Number(p.time))||p.env!==undefined&&!['quiet','noisy','class'].includes(p.env)||p.computerReady!==undefined&&typeof p.computerReady!=='boolean'||x.version===2&&(p.time===undefined||p.conditions===undefined&&p.env===undefined))throw Error(tr('时间或旧环境偏好无效。'));
   if(p.conditions!==undefined&&(!object(p.conditions)||CONDITION_KEYS.some(k=>p.conditions[k]!==undefined&&typeof p.conditions[k]!=='boolean')))throw Error(tr('当前条件必须为布尔值。'));
   if(x.theme!==undefined&&!['light','dark'].includes(x.theme))throw Error(tr('主题数据无效。'));
   if(x.defaultTasksSeeded!==undefined&&typeof x.defaultTasksSeeded!=='boolean')throw Error(tr('默认任务迁移标记无效。'));
@@ -153,6 +153,10 @@ function customMinutes(){
   return /^[0-9]+$/.test(value)&&Number(value)>=1&&Number(value)<=1440?Number(value):null;
 }
 function selectionReady(){return timeChosen&&(!customTime||customMinutes()!==null)}
+function settleEmptyCustomTime(){
+  if(customTime&&customTimeDraft.trim()===''&&!storageBlocked)selectHomeCondition('time',10);
+  return selectionReady();
+}
 function syncHomeControls(){
   for(const [id,value,chosen] of [['times',time,timeChosen]]){
     document.querySelectorAll('#'+id+' button').forEach(button=>{
@@ -199,6 +203,7 @@ function actionButton(label,action,className,id){
   let button=textElement('button',label,className);button.type='button';button.onclick=action;if(id)button.id=id;return button;
 }
 function page(id,{avoidActivityId=null}={}){
+  settleEmptyCustomTime();
   if (bookView) closeActivity();
   closeActivityMenu();
   closeRecommendationMenu();
@@ -861,9 +866,7 @@ function recordTimeRange(record,reference=new Date(),{seconds=false}={}){
   return(start===null?tr('开始时间未记录'):clock(start))+'–'+(end===null?tr('结束时间未记录'):clock(end));
 }
 function recordCompactTimeRange(record,reference=new Date()){
-  const start=toTimestamp(record.startedAt),end=toTimestamp(record.endedAt);
-  const short=start!==null&&end!==null&&end>=start&&end-start<60000;
-  return recordTimeRange(record,reference,{seconds:short});
+  return recordTimeRange(record,reference);
 }
 const todayRecordTimers=new Map();
 function clearTodayRecordTimers(){
@@ -1016,7 +1019,7 @@ function setupMinimalInteractions(){
   }
   window.addEventListener('resize',()=>pickers.forEach(placeConditions));
   window.addEventListener('scroll',()=>pickers.forEach(placeConditions),{passive:true});
-  document.addEventListener('pointerdown',e=>{for(const id of pickers)if(!$(id).contains(e.target))$(id).open=false});
+  document.addEventListener('pointerdown',e=>{for(const id of pickers)if(!$(id).contains(e.target)){if(id==='timePicker'&&$(id).open)settleEmptyCustomTime();$(id).open=false}});
   document.addEventListener('pointerdown',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&!activityMenuContext.anchor.contains(e.target))closeActivityMenu();if(recommendationMenuContext&&!$('recommendationMenu').contains(e.target)&&!recommendationMenuContext.anchor.contains(e.target))closeRecommendationMenu()});
   document.addEventListener('focusin',e=>{if(activityMenuContext&&!$('activityMenu').contains(e.target)&&e.target!==activityMenuContext.anchor)closeActivityMenu();if(recommendationMenuContext&&!$('recommendationMenu').contains(e.target)&&e.target!==recommendationMenuContext.anchor)closeRecommendationMenu()});
   window.addEventListener('resize',()=>{placeActivityMenu();placeRecommendationMenu()});
@@ -1031,7 +1034,7 @@ function setupMinimalInteractions(){
       if(recommendationMenuContext){e.preventDefault();closeRecommendationMenu({restoreFocus:true});return}
       if(nextStepEditor&&$('nextStepForm')?.contains(e.target)){e.preventDefault();cancelNextStep();return}
       if(!$('librarySearch').classList.contains('hide')){e.preventDefault();setActivitySearch(false,{restoreFocus:true});return}
-      for(const id of pickers)if($(id).open){e.preventDefault();$(id).open=false;document.querySelector('#'+id+' > summary')?.focus()}
+      for(const id of pickers)if($(id).open){e.preventDefault();if(id==='timePicker')settleEmptyCustomTime();$(id).open=false;document.querySelector('#'+id+' > summary')?.focus()}
     }
     if(active&&e.key==='Tab'){
       const elements=[...$(active).querySelectorAll('button,input,select,textarea,summary,a[href],[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);

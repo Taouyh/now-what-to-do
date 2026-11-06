@@ -74,7 +74,7 @@ test('changing recommendation conditions does not change a running or paused tim
     const app = start(dataSet()); app.elements.get('start').click();
     if (paused) app.run('pauseTimer()');
     const before = app.values.get('activeTimer');
-    app.times.find(b => b.dataset.v === '5').click(); app.elements.get('audioReady').checked=true;app.elements.get('audioReady').dispatch('change');
+    app.times.find(b => b.dataset.v === '20').click(); app.elements.get('audioReady').checked=true;app.elements.get('audioReady').dispatch('change');
     app.elements.get('random').click();
     assert.equal(app.values.get('activeTimer'), before);
     assert.equal(app.json('d.completed').length, 0);

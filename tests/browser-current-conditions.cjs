@@ -84,7 +84,7 @@ module.exports=async function(scenario,fixture){
    assert.equal(await run("return $('conditionsPicker').open"),false,edge+' exit closes without a delay');
   }
   assert.equal(await run("return __rawGet('whatToDoData')"),raw);assert.equal(await run('return __writes.length'),writes);
-  assert.deepEqual(await run("return [...document.querySelectorAll('#times button')].map(e=>e.dataset.v)"),['5','10','15','30','60','custom']);
+  assert.deepEqual(await run("return [...document.querySelectorAll('#times button')].map(e=>e.dataset.v)"),['10','15','20','30','60','custom']);
  });
  await check('touch release keeps the panel open and keyboard checkboxes and Escape still work',dataset(),async(run,_imp,{protocol})=>{
   await size(protocol,375);await click(run,protocol,'#conditionsPicker > summary');
