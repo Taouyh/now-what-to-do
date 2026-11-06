@@ -30,4 +30,8 @@ PRD、INTERACTIONS、TECHNICAL 同步修改行为契约。用户新增流程已�
 
 ## 独立验收与集成
 
-待固定提交交原独立 GPT 测试窗口复核；通过前不合入 master。独立结果另存 `INDEPENDENT-TEST.md`。真实安装升级、Android 真机、参与者研究等不由本轮网页测试推断。
+固定产品提交 `2624744f6d564c94910c23f9439239dedaf6783e` 已由新独立 GPT 窗口 `01a1aec5-0bd2-7a43-ba37-2e62a1732fcc` 在 `7aa2` worktree 验收通过：核心 140/140、构建、浏览器 43/43（原 21 + 独立补充 22），无阻断问题。完整结论见 [INDEPENDENT-TEST](INDEPENDENT-TEST.md)，独立测试原文归档 `tests/e2e/independent-feedback.spec.ts`。证据包另保存在开发目录 `.cache/feedback-2624744/independent-feedback-evidence.zip`。原测试窗口未开始本轮执行，因此改用上述新窗口。
+
+验收通过后，已在 `D:\code\now-what-to-do-integration` 将本地 master 快进至 `051f6f3`（后者只补 Figma 交接文档）；重新构建并运行核心旅程、空自定义确认、日历 CTA/分钟显示 3 项冒烟，全部通过。生成 app.js/style.css SHA-256 与独立构建一致。origin/master 经 fetch 仍为 `4ed3aa1`，未推送或发布。后续文档和独立测试归档提交不改产品代码。
+
+Figma 同步已另建 GPT 窗口 `01a1aecd-6caf-7633-a8ce-f654cb3796d5`，使用新 `23c1` worktree，待其完成后归档同步结果。真实安装升级、Android 真机、参与者研究等不由本轮网页测试推断。
