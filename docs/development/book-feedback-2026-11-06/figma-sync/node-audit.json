@@ -1,0 +1,1464 @@
+{
+  "fonts": [
+    {
+      "id": "49:244",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 20
+    },
+    {
+      "id": "61:550",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 27
+    },
+    {
+      "id": "62:3879",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 32
+    },
+    {
+      "id": "62:4079",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 32
+    },
+    {
+      "id": "151:4148",
+      "families": [
+        "Noto Sans SC",
+        "Noto Serif SC"
+      ],
+      "textCount": 17
+    },
+    {
+      "id": "151:4235",
+      "families": [
+        "Noto Sans SC",
+        "Noto Serif SC"
+      ],
+      "textCount": 16
+    },
+    {
+      "id": "111:4832",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC",
+        "Noto Sans JP"
+      ],
+      "textCount": 25
+    },
+    {
+      "id": "151:4354",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 31
+    },
+    {
+      "id": "151:4958",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 46
+    },
+    {
+      "id": "268:4276",
+      "families": [
+        "Noto Serif SC",
+        "Noto Sans SC"
+      ],
+      "textCount": 18
+    },
+    {
+      "id": "270:4257",
+      "families": [
+        "Noto Serif SC",
+        "EB Garamond",
+        "Noto Sans SC"
+      ],
+      "textCount": 14
+    }
+  ],
+  "editable": [
+    {
+      "id": "49:244",
+      "instances": 14,
+      "texts": 20,
+      "imageLayers": 6
+    },
+    {
+      "id": "61:550",
+      "instances": 16,
+      "texts": 27,
+      "imageLayers": 7
+    },
+    {
+      "id": "62:3879",
+      "instances": 16,
+      "texts": 32,
+      "imageLayers": 7
+    },
+    {
+      "id": "62:4079",
+      "instances": 16,
+      "texts": 32,
+      "imageLayers": 7
+    },
+    {
+      "id": "151:4148",
+      "instances": 7,
+      "texts": 17,
+      "imageLayers": 1
+    },
+    {
+      "id": "151:4235",
+      "instances": 6,
+      "texts": 16,
+      "imageLayers": 1
+    },
+    {
+      "id": "111:4832",
+      "instances": 12,
+      "texts": 25,
+      "imageLayers": 6
+    },
+    {
+      "id": "151:4354",
+      "instances": 7,
+      "texts": 31,
+      "imageLayers": 6
+    },
+    {
+      "id": "151:4958",
+      "instances": 9,
+      "texts": 46,
+      "imageLayers": 6
+    },
+    {
+      "id": "268:4276",
+      "instances": 9,
+      "texts": 18,
+      "imageLayers": 0
+    },
+    {
+      "id": "270:4257",
+      "instances": 6,
+      "texts": 14,
+      "imageLayers": 6
+    }
+  ],
+  "tooltips": [
+    {
+      "id": "104:2162",
+      "name": "Type=0, State=Default",
+      "opacity": 0,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        0,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_HOVER",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "104:2169",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2169",
+      "name": "Type=0, State=Hover",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        0,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2176",
+      "name": "Type=1, State=Default",
+      "opacity": 0,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -16.5,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_HOVER",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "104:2184",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2184",
+      "name": "Type=1, State=Hover",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -16.5,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2192",
+      "name": "Type=2, State=Default",
+      "opacity": 0,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_HOVER",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "104:2199",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2199",
+      "name": "Type=2, State=Hover",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2206",
+      "name": "Type=3, State=Default",
+      "opacity": 0,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_HOVER",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "104:2213",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "104:2213",
+      "name": "Type=3, State=Hover",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "268:4212",
+      "name": "Type=0, State=Focus",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        0,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "268:4222",
+      "name": "Type=1, State=Focus",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -16.5,
+        -44,
+        85,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "268:4233",
+      "name": "Type=2, State=Focus",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "268:4243",
+      "name": "Type=3, State=Focus",
+      "opacity": 1,
+      "background": [
+        {
+          "r": 0.06666667014360428,
+          "g": 0.06666667014360428,
+          "b": 0.06666667014360428
+        }
+      ],
+      "textColor": [
+        {
+          "r": 1,
+          "g": 1,
+          "b": 1
+        }
+      ],
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "tipBounds": [
+        -10,
+        -44,
+        72,
+        33
+      ],
+      "rx": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "SET_VARIABLE"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "instanceHover": [
+    {
+      "id": "151:4184",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2169",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4185",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2184",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4186",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2199",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4187",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2213",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4257",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2169",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4258",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2184",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4259",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2199",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    },
+    {
+      "id": "151:4260",
+      "hover": [
+        [
+          {
+            "type": "NODE",
+            "destinationId": "104:2213",
+            "navigation": "CHANGE_TO",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ]
+      ],
+      "clickActionCount": 2,
+      "parentClips": false
+    }
+  ],
+  "settings": [
+    {
+      "id": "111:4832",
+      "groups": [
+        {
+          "id": "111:5109",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5111",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5114",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5117",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:5123",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5125",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5128",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111:5147",
+      "groups": [
+        {
+          "id": "111:5424",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5426",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            },
+            {
+              "id": "111:5429",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5432",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:5438",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5440",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5443",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111:5493",
+      "groups": [
+        {
+          "id": "111:5770",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5772",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5775",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5778",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:5784",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:5786",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:5789",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111:5808",
+      "groups": [
+        {
+          "id": "111:6085",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6087",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6090",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            },
+            {
+              "id": "111:6093",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:6099",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6101",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6104",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111:6154",
+      "groups": [
+        {
+          "id": "111:6431",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6433",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6436",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6439",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:6445",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6447",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6450",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111:6469",
+      "groups": [
+        {
+          "id": "111:6746",
+          "name": "语言选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6748",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6751",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6754",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            }
+          ]
+        },
+        {
+          "id": "111:6760",
+          "name": "外观选项",
+          "clip": false,
+          "fillCount": 0,
+          "buttonInstances": [
+            {
+              "id": "111:6762",
+              "strokeCount": 1,
+              "strokeWeight": 1,
+              "clip": false
+            },
+            {
+              "id": "111:6765",
+              "strokeCount": 1,
+              "strokeWeight": 2,
+              "clip": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "default": "49:536",
+      "hover": "49:537",
+      "defaultStops": [
+        {
+          "r": 0.9725490212440491,
+          "g": 0.9215686321258545,
+          "b": 0.7882353067398071,
+          "a": 1
+        },
+        {
+          "r": 0.8392156958580017,
+          "g": 0.7176470756530762,
+          "b": 0.5137255191802979,
+          "a": 1
+        }
+      ],
+      "hoverStops": [
+        {
+          "r": 0.8558431267738342,
+          "g": 0.8109803795814514,
+          "b": 0.6936470866203308,
+          "a": 1
+        },
+        {
+          "r": 0.7385098338127136,
+          "g": 0.6315294504165649,
+          "b": 0.4520784616470337,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "default": "49:560",
+      "hover": "49:561",
+      "defaultStops": [
+        {
+          "r": 0.9725490212440491,
+          "g": 0.9215686321258545,
+          "b": 0.7882353067398071,
+          "a": 1
+        },
+        {
+          "r": 0.8392156958580017,
+          "g": 0.7176470756530762,
+          "b": 0.5137255191802979,
+          "a": 1
+        }
+      ],
+      "hoverStops": [
+        {
+          "r": 0.8558431267738342,
+          "g": 0.8109803795814514,
+          "b": 0.6936470866203308,
+          "a": 1
+        },
+        {
+          "r": 0.7385098338127136,
+          "g": 0.6315294504165649,
+          "b": 0.4520784616470337,
+          "a": 1
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "62:4017",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "SET_VARIABLE",
+              "value": "10 分钟"
+            },
+            {
+              "type": "NODE",
+              "destinationId": "62:3281",
+              "navigation": "NAVIGATE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "62:4076",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "SET_VARIABLE",
+              "value": "10 分钟"
+            },
+            {
+              "type": "NODE",
+              "destinationId": "62:3281",
+              "navigation": "NAVIGATE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "62:3879",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_KEY_DOWN",
+            "device": "KEYBOARD",
+            "keyCodes": [
+              27
+            ]
+          },
+          "actions": [
+            {
+              "type": "SET_VARIABLE",
+              "value": "10 分钟"
+            },
+            {
+              "type": "NODE",
+              "destinationId": "62:3281",
+              "navigation": "NAVIGATE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "266:4220",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "SET_VARIABLE",
+              "value": false
+            },
+            {
+              "type": "NODE",
+              "destinationId": "198:4039",
+              "navigation": "SWAP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "151:4205",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "151:4308",
+              "navigation": "SWAP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "270:4382",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "49:244",
+              "navigation": "NAVIGATE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "270:4385",
+      "rx": [
+        {
+          "trigger": {
+            "type": "ON_CLICK"
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "270:4257",
+              "navigation": "NAVIGATE"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "calendarRanges": [
+    {
+      "id": "151:5235",
+      "text": "09:00 · 6 次 · 80 分钟"
+    },
+    {
+      "id": "151:5240",
+      "text": "10:30 · 8 分钟"
+    },
+    {
+      "id": "151:5245",
+      "text": "11:00 · 12 分钟"
+    },
+    {
+      "id": "151:5250",
+      "text": "12:00 · 15 分钟"
+    },
+    {
+      "id": "151:5255",
+      "text": "14:00 · 20 分钟"
+    },
+    {
+      "id": "151:5261",
+      "text": "09:00–09:15"
+    },
+    {
+      "id": "151:5267",
+      "text": "10:00–10:10"
+    },
+    {
+      "id": "151:5273",
+      "text": "11:30–11:50"
+    },
+    {
+      "id": "151:5279",
+      "text": "13:00–13:10"
+    },
+    {
+      "id": "151:5053",
+      "text": "25:00"
+    }
+  ],
+  "historicalEmptyLabel": "现在做",
+  "homeEntriesAndFortyExample": [{"id":"49:556","name":"条件 / 25 分钟","rx":[{"trigger":{"type":"ON_HOVER"},"actions":[{"type":"NODE","destinationId":"49:537","navigation":"CHANGE_TO","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.11999999731779099}}]},{"trigger":{"type":"ON_PRESS"},"actions":[{"type":"NODE","destinationId":"49:538","navigation":"CHANGE_TO","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.11999999731779099}}]},{"trigger":{"type":"ON_CLICK"},"actions":[{"type":"NODE","destinationId":"61:550","navigation":"NAVIGATE","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.2199999988079071}}]}]},{"id":"49:580","name":"条件 / 当前条件","rx":[{"trigger":{"type":"ON_HOVER"},"actions":[{"type":"NODE","destinationId":"49:561","navigation":"CHANGE_TO","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.11999999731779099}}]},{"trigger":{"type":"ON_PRESS"},"actions":[{"type":"NODE","destinationId":"49:562","navigation":"CHANGE_TO","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.11999999731779099}}]},{"trigger":{"type":"ON_CLICK"},"actions":[{"type":"NODE","destinationId":"61:700","navigation":"NAVIGATE","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.2199999988079071}}]}]},{"id":"62:4218","name":"自定义 / 确定","rx":[{"trigger":{"type":"ON_CLICK"},"actions":[{"type":"SET_VARIABLE","value":"40 分钟"},{"type":"NODE","destinationId":"62:3281","navigation":"NAVIGATE","transition":{"type":"SMART_ANIMATE","easing":{"type":"EASE_OUT"},"duration":0.23999999463558197}}]}]}]
+}

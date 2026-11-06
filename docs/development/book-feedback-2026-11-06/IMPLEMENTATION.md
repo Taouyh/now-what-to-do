@@ -18,7 +18,7 @@
 
 已核对 Figma 账号 `3966592487`，只读复核文件 `EUoXZR1hDJUUPVAtrDxpE5` 的编辑 `151:4148`、设置 `111:4832` 节点及截图，复用已有本地纹理、字体和图标。此次修改遵循用户批注，保留已有取消操作。
 
-PRD、INTERACTIONS、TECHNICAL 同步修改行为契约。用户新增流程已写入根 AGENTS 与 WORKFLOW：最终界面/交互确定后，再新开独立 worktree 和 GPT 窗口同步相关 Figma 页面/组件，记录节点和截图；此处暂不宣称 Figma 已完成更新。
+PRD、INTERACTIONS、TECHNICAL 同步修改行为契约。用户新增流程已写入根 AGENTS 与 WORKFLOW：最终界面/交互确定后，再新开独立 worktree 和 GPT 窗口同步相关 Figma 页面/组件，记录节点和截图。本轮已按此流程完成同步，见 [FIGMA-SYNC](FIGMA-SYNC.md)。
 
 ## 开发窗口验证
 
@@ -34,4 +34,4 @@ PRD、INTERACTIONS、TECHNICAL 同步修改行为契约。用户新增流程已�
 
 验收通过后，已在 `D:\code\now-what-to-do-integration` 将本地 master 快进至 `051f6f3`（后者只补 Figma 交接文档）；重新构建并运行核心旅程、空自定义确认、日历 CTA/分钟显示 3 项冒烟，全部通过。生成 app.js/style.css SHA-256 与独立构建一致。origin/master 经 fetch 仍为 `4ed3aa1`，未推送或发布。后续文档和独立测试归档提交不改产品代码。
 
-Figma 同步已另建 GPT 窗口 `01a1aecd-6caf-7633-a8ce-f654cb3796d5`，使用新 `23c1` worktree，待其完成后归档同步结果。真实安装升级、Android 真机、参与者研究等不由本轮网页测试推断。
+Figma 同步已由另建 GPT 窗口 `01a1aecd-6caf-7633-a8ce-f654cb3796d5` 在新 `23c1` worktree 完成，账号 `3966592487`；同步窗口最终记录提交 `25ac4a8bc46a93d2fd77d8a877075127bfed735f`。本主分支选择性归档报告及两份节点 JSON，22 张截图与完整 ZIP 在本地同目录保留、由 gitignore 排除；原同步分支的完整提交不重写。节点回读和最终截图检查通过，原型不能模拟的输入/存储边界已注明。真实安装升级、Android 真机、参与者研究等不由本轮网页测试推断。

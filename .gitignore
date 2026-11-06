@@ -28,6 +28,8 @@ node_modules/
 /test-artifacts/
 /docs/development/book-c-2026-11-05/independent-evidence*/
 /docs/development/book-c-2026-11-05/calendar-independent-evidence*/
+/docs/development/book-feedback-2026-11-06/figma-sync/*.png
+/docs/development/book-feedback-2026-11-06/figma-sync-evidence.zip
 .cache/
 .tmp/
 *.log

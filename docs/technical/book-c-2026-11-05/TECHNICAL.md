@@ -19,7 +19,7 @@
 | C 日历 | [151:4354](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=151-4354)、[151:4958](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=151-4958) | 目录 5 组、明细 4 条，独立分页 |
 | B 设置 | [111:4832](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=111-4832) | 三语言、主题、真实文件导入导出 |
 
-阶段 6 曾因 Figma 连接失败而采用仓库设计证据；阶段 7 已恢复连接，核对账户 `3966592487`，读取首页、任务、添加、专注、恢复、反馈、日历和设置的实时设计上下文与截图。素材和字体已本地化，来源见 `public/assets/PROVENANCE.md`。未向 Figma 写入设计变更。
+阶段 6 曾因 Figma 连接失败而采用仓库设计证据；阶段 7 已恢复连接，核对账户 `3966592487`，读取首页、任务、添加、专注、恢复、反馈、日历和设置的实时设计上下文与截图。素材和字体已本地化，来源见 `public/assets/PROVENANCE.md`。初始实现仅只读设计；2026-11-06 用户反馈经独立验收后，已另开 worktree 和 GPT 窗口同步相关 Figma 状态，见 [同步记录](../../development/book-feedback-2026-11-06/FIGMA-SYNC.md)。
 
 ### 当前实施结构与迁移边界
 
