@@ -25,7 +25,7 @@ test('empty library, real first activity, pause, navigation, finish and continua
   await nav(page, 'tasks'); await expect(page.locator('#floatingTimer')).toBeVisible();
   await page.locator('.task-play').click(); await expect(page.locator('#timerName')).toHaveText('读书');
   await page.locator('#earlyTimer').click(); await expect(page.locator('#completionFeedback')).toContainText('已记录');
-  await page.getByRole('button', { name: '记下一步', exact: true }).click();
+  await page.getByRole('button', { name: '为「读书」记录下次起点', exact: true }).click();
   await page.locator('#continuationInput').fill('从第 12 页继续');
   await page.locator('.continuation-form').getByRole('button', { name: '保存', exact: true }).click();
   expect((await main(page)).tasks[0].description).toBe('从第 12 页继续');

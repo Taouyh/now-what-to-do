@@ -53,20 +53,24 @@ export class BookPages {
     const completed = app.feedback;
     if (!completed) return;
     const title = element('div', 'feedback-heading');
-    title.append(element('span', 'user-text', tr('已记录 · {name}', { name: completed.taskName })));
+    title.append(element('span', '', tr('本次已记录')));
     const close = button('×', () => app.closeContinuation(), 'icon-button');
     close.setAttribute('aria-label', tr('关闭'));
     title.append(close);
     feedback.append(title);
     if (!completed.editing) {
-      const next = button(tr('记下一步'), () => {
+      const next = button('', () => {
         const task = app.data.tasks.find(item => item.id === completed.taskId);
         if (!task) { app.closeContinuation(); return; }
         completed.editing = true;
         completed.draft = task.description || '';
         this.renderHome();
         byId('continuationInput').focus();
-      }, 'quiet-link');
+      }, 'paper-button continuation-trigger');
+      next.setAttribute('aria-label', tr('为「{name}」记录下次起点', { name: completed.taskName }));
+      const target = element('span', 'continuation-target user-text', completed.taskName);
+      target.title = completed.taskName;
+      next.append(element('span', 'continuation-verb', tr('记下次起点')), element('span', 'continuation-separator', '·'), target);
       next.disabled = !app.data.tasks.some(item => item.id === completed.taskId);
       feedback.append(next);
       return;
@@ -74,17 +78,20 @@ export class BookPages {
     const form = element('form', 'continuation-form');
     const input = element('textarea');
     input.id = 'continuationInput';
-    input.setAttribute('aria-label', tr('活动说明'));
+    const label = element('label', 'continuation-label user-text', tr('{name}：下次从哪继续？', { name: completed.taskName }));
+    label.htmlFor = input.id;
     input.value = completed.draft;
     input.rows = 2;
     input.addEventListener('input', () => { completed.draft = input.value; });
     const clear = button('×', () => { input.value = ''; completed.draft = ''; input.focus(); }, 'clear-description');
     clear.setAttribute('aria-label', tr('清空说明'));
+    const field = element('div', 'continuation-input');
+    field.append(input, clear);
     const controls = element('div', 'feedback-actions');
     const save = button(tr('保存'), () => {}, 'paper-button');
     save.type = 'submit';
     controls.append(save, button(tr('取消'), () => app.closeContinuation(), 'paper-button'));
-    form.append(input, clear, controls);
+    form.append(label, field, controls);
     form.addEventListener('submit', event => { event.preventDefault(); app.saveContinuation(input.value); });
     feedback.append(form);
   }

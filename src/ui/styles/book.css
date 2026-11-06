@@ -87,8 +87,19 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .completion-feedback { text-align: left; font-size: clamp(13px,1.11cqw,16px); margin-top: 10px; color: var(--muted-ink); }
 .feedback-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .feedback-heading .user-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.book .continuation-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; text-align: left; font-size: clamp(14px,1.32cqw,18px); font-weight: 600; }
+.continuation-verb { flex: none; }.continuation-separator { flex: none; opacity: .55; }
+.continuation-target { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400; }
+.continuation-label { display: block; color: var(--ink); font-weight: 500; line-height: 1.5; margin-bottom: 6px; max-height: 3em; overflow: auto; overflow-wrap: anywhere; }
 .book .icon-button { min-width: 36px; min-height: 36px; border: 0; background: transparent; color: var(--ink); padding: 5px; }
 .continuation-form { position: relative; }.continuation-form textarea { width: 100%; resize: none; max-height: 76px; padding-right: 35px; }
+.continuation-input { position: relative; }
+@media(min-width:801px) and (min-height:551px) {
+  .book .home-workspace:has(.continuation-form) .home-controls { margin-bottom: 3%; }
+  .book .home-workspace:has(.continuation-form) .rec h2 { margin-bottom: 3%; font-size: clamp(26px,2.5cqw,36px); max-height: 1.5em; }
+  .book .home-workspace:has(.continuation-form) .home-entries { margin-top: 1%; }
+  .book .home-workspace:has(.continuation-form) .completion-feedback { margin-top: 0; }
+}
 .clear-description { position: absolute; top: 2px; right: 3px; background: transparent; border: 0; color: var(--muted-ink); width: 36px; }
 .feedback-actions { display: flex; gap: 8px; margin-top: 6px; }
 .book .paper-button,.book .outline { color: var(--ink); border: 1px solid #b18a50; border-radius: 4px; background: #f0e0b7; padding: 6px 16px; font-family: 'Noto Serif SC Variable',serif; }
