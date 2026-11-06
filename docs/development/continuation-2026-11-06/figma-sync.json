@@ -1,0 +1,457 @@
+{
+  "productCommit": "92102393d77dda9b8a89ed1f0a84cc09962fc930",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "sessionId": "372e313b-0c1b-47f0-b38c-93bbce933de2",
+  "account": {
+    "handle": "3966592487",
+    "email": "3966592487@qq.com",
+    "userId": "1698571271826901612"
+  },
+  "createdNodeIds": [
+    "278:4305",
+    "278:4306",
+    "278:4307",
+    "278:4308",
+    "278:4309",
+    "278:4310",
+    "278:4312",
+    "278:4313",
+    "278:4314",
+    "278:4315",
+    "278:4316",
+    "278:4317",
+    "278:4319",
+    "278:4320",
+    "278:4321",
+    "278:4322",
+    "278:4323",
+    "278:4324",
+    "278:4326",
+    "278:4327",
+    "278:4328",
+    "278:4329",
+    "278:4330"
+  ],
+  "mutatedNodeIds": [
+    "203:4012",
+    "I203:4012;111:3024",
+    "203:4011",
+    "203:4008",
+    "203:4015",
+    "I203:4015;111:3024",
+    "203:4009",
+    "203:4010",
+    "203:4018",
+    "203:4007",
+    "49:320",
+    "49:324",
+    "49:326",
+    "49:325",
+    "203:4037",
+    "I203:4037;111:3024",
+    "203:4036",
+    "203:4033",
+    "203:4040",
+    "I203:4040;111:3024",
+    "203:4034",
+    "203:4035",
+    "203:4043",
+    "203:4032",
+    "71:1761",
+    "71:1765",
+    "71:1767",
+    "71:1766",
+    "203:4496",
+    "I203:4496;111:3024",
+    "203:4495",
+    "203:4492",
+    "203:4497",
+    "I203:4497;111:3024",
+    "203:4493",
+    "203:4494",
+    "203:4498",
+    "203:4491",
+    "203:4459",
+    "203:4463",
+    "203:4465",
+    "203:4464",
+    "205:4202",
+    "I205:4202;111:3024",
+    "205:4201",
+    "205:4198",
+    "205:4203",
+    "I205:4203;111:3024",
+    "205:4199",
+    "205:4200",
+    "205:4204",
+    "205:4197",
+    "205:4161",
+    "205:4165",
+    "205:4167",
+    "205:4166",
+    "205:4206"
+  ],
+  "targets": [
+    {
+      "feedback": "203:4007",
+      "entry": "203:4011",
+      "button": "203:4012",
+      "label": "278:4307",
+      "owner": "278:4308",
+      "status": "203:4009",
+      "close": "203:4015",
+      "draft": "203:4018",
+      "action": "49:320",
+      "static": false
+    },
+    {
+      "feedback": "203:4032",
+      "entry": "203:4036",
+      "button": "203:4037",
+      "label": "278:4314",
+      "owner": "278:4315",
+      "status": "203:4034",
+      "close": "203:4040",
+      "draft": "203:4043",
+      "action": "71:1761",
+      "static": false
+    },
+    {
+      "feedback": "203:4491",
+      "entry": "203:4495",
+      "button": "203:4496",
+      "label": "278:4321",
+      "owner": "278:4322",
+      "status": "203:4493",
+      "close": "203:4497",
+      "draft": "203:4498",
+      "action": "203:4459",
+      "static": false
+    },
+    {
+      "feedback": "205:4197",
+      "entry": "205:4201",
+      "button": "205:4202",
+      "label": "278:4328",
+      "owner": "278:4329",
+      "status": "205:4199",
+      "close": "205:4203",
+      "draft": "205:4204",
+      "action": "205:4161",
+      "static": true
+    }
+  ],
+  "actionChecks": [
+    {
+      "id": "203:4012",
+      "before": "e3b1d9e6",
+      "after": "e3b1d9e6",
+      "pass": true
+    },
+    {
+      "id": "203:4015",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "203:4019",
+      "before": "23600e70",
+      "after": "23600e70",
+      "pass": true
+    },
+    {
+      "id": "203:4022",
+      "before": "13e536c",
+      "after": "13e536c",
+      "pass": true
+    },
+    {
+      "id": "203:4026",
+      "before": "5fc9a6ef",
+      "after": "5fc9a6ef",
+      "pass": true
+    },
+    {
+      "id": "203:4029",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "203:4037",
+      "before": "e3b1d9e6",
+      "after": "e3b1d9e6",
+      "pass": true
+    },
+    {
+      "id": "203:4040",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "203:4044",
+      "before": "23600e70",
+      "after": "23600e70",
+      "pass": true
+    },
+    {
+      "id": "203:4047",
+      "before": "13e536c",
+      "after": "13e536c",
+      "pass": true
+    },
+    {
+      "id": "203:4051",
+      "before": "5fc9a6ef",
+      "after": "5fc9a6ef",
+      "pass": true
+    },
+    {
+      "id": "203:4054",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "203:4496",
+      "before": "e3b1d9e6",
+      "after": "e3b1d9e6",
+      "pass": true
+    },
+    {
+      "id": "203:4497",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "203:4499",
+      "before": "23600e70",
+      "after": "23600e70",
+      "pass": true
+    },
+    {
+      "id": "203:4501",
+      "before": "13e536c",
+      "after": "13e536c",
+      "pass": true
+    },
+    {
+      "id": "203:4504",
+      "before": "5fc9a6ef",
+      "after": "5fc9a6ef",
+      "pass": true
+    },
+    {
+      "id": "203:4505",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "205:4202",
+      "before": "e3b1d9e6",
+      "after": "e3b1d9e6",
+      "pass": true
+    },
+    {
+      "id": "205:4203",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    },
+    {
+      "id": "205:4205",
+      "before": "23600e70",
+      "after": "23600e70",
+      "pass": true
+    },
+    {
+      "id": "205:4207",
+      "before": "13e536c",
+      "after": "13e536c",
+      "pass": true
+    },
+    {
+      "id": "205:4210",
+      "before": "5fc9a6ef",
+      "after": "5fc9a6ef",
+      "pass": true
+    },
+    {
+      "id": "205:4211",
+      "before": "6928f224",
+      "after": "6928f224",
+      "pass": true
+    }
+  ],
+  "fonts": [
+    "Noto Sans SC",
+    "Noto Serif SC"
+  ],
+  "example": {
+    "title": "散步",
+    "input": "第 12 页",
+    "book": {
+      "x": 3780,
+      "y": 26048,
+      "width": 1440,
+      "height": 786
+    },
+    "feedback": {
+      "x": 4598,
+      "y": 26498,
+      "width": 480,
+      "height": 190
+    }
+  },
+  "bindings": [
+    {
+      "id": "203:4007",
+      "visible": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:203:3999"
+      },
+      "entry": [
+        {
+          "id": "203:4011",
+          "visible": true,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4001"
+            }
+          },
+          "actions": 1
+        }
+      ],
+      "owners": [
+        {
+          "id": "203:4010",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        },
+        {
+          "id": "278:4308",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        }
+      ],
+      "draft": [
+        {
+          "id": "203:4018",
+          "visible": false,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4000"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "203:4032",
+      "visible": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:203:3999"
+      },
+      "entry": [
+        {
+          "id": "203:4036",
+          "visible": true,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4001"
+            }
+          },
+          "actions": 1
+        }
+      ],
+      "owners": [
+        {
+          "id": "203:4035",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        },
+        {
+          "id": "278:4315",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        }
+      ],
+      "draft": [
+        {
+          "id": "203:4043",
+          "visible": false,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4000"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "203:4491",
+      "entry": [
+        {
+          "id": "203:4495",
+          "visible": true,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4001"
+            }
+          },
+          "actions": 1
+        }
+      ],
+      "owners": [
+        {
+          "id": "203:4494",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        },
+        {
+          "id": "278:4322",
+          "bound": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:203:4003"
+          }
+        }
+      ],
+      "draft": [
+        {
+          "id": "203:4498",
+          "visible": false,
+          "bound": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:203:4000"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "screenshots": {
+    "entry": "../../../.cache/figma-continuation-sync/after-entry.png",
+    "editor": "../../../.cache/figma-continuation-sync/after-editor.png"
+  },
+  "boundary": "Existing Figma input click writes a fixed example draft; save models existing sample activity slots, not arbitrary input or real persistence."
+}
