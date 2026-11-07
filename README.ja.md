@@ -33,7 +33,7 @@
 | 環境 | 入手先 | 必要なもの |
 | --- | --- | --- |
 | Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
-| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) | Android 7.0以降 |
+| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) · 18.2 MiB | Android 7.0以降 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要 |
 
 無料、登録不要。インストール版はオフラインで使え、初回は英語です。**設定**で言語を変更できます。Web版はブラウザの言語に合わせて起動します。

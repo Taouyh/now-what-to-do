@@ -33,7 +33,7 @@
 | 平台 | 入口 | 使用要求 |
 | --- | --- | --- |
 | Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
-| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) | Android 7.0 及以上 |
+| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) · 18.2 MiB | Android 7.0 及以上 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。

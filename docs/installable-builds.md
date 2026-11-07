@@ -2,7 +2,7 @@
 
 当前版本：**1.4.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.0)，变更见 [发布说明](releases/v1.4.0.md)。本版采用书页界面，并保留可选下一步、本轮不重复推荐、右侧悬停菜单及计时恢复。到点等待手动继续，退出后重开不补计离开时间，长暂停分段保留。旧计时缺少可靠进度时需要确认实际用时或明确放弃，已有历史不自动修改。
 
-从 1.1 / 1.2 更新到 1.4.0 可直接覆盖安装，数据目录、来源和存储格式保持不变，安卓使用原签名及 versionCode 6。
+从 1.1 / 1.2 / 1.3 更新到 1.4.0 可直接覆盖安装，数据目录、来源和存储格式保持不变，安卓使用原签名及 versionCode 6。
 
 ## 下载与安装
 
@@ -15,10 +15,10 @@ Windows 采用 **C++ / Win32 + 系统 WebView2 + NSIS**，不再附带 Electron�
 
 Windows 安装包目前没有发布者签名，可能显示「未知发布者」。安卓版可直接覆盖安装，沿用原包名和原签名；不要先卸载。APK 不含原生 CPU 库。已检查签名、版本和包内容，尚未在安卓真机或模拟器上验证安装和运行。
 
-## Windows 1.0 升级到 1.3
+## Windows 1.0 升级到 1.4
 
 1. 在旧版结束正在运行的计时，在 **设置 → 备份数据 → 导出** 保存 JSON 备份。
-2. 安装 1.3，打开设置并导入刚才的备份。导入确认后会替换新版当前数据，正在运行的计时不包含在备份里。
+2. 安装 1.4，打开设置并导入刚才的备份。导入确认后会替换新版当前数据，正在运行的计时不包含在备份里。
 3. 核对活动、记录和语言后再决定是否卸载旧版。不要手动清理旧数据目录。
 
 新外壳使用独立的 `%LOCALAPPDATA%\\NowWhat\\WebView2` 配置目录，以及 `https://nowwhat.local` 本地来源；1.0 使用 Electron 的配置目录和 `nowwhat://app` 来源。因此不会自动读取旧记录。安装、卸载新版均不删除旧版配置；新版卸载也保留自己的配置。需要再次导出时，[1.0 安装包](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.0.0)仍然保留。旧版与新版快捷方式名称相同，旧版卸载后可重装新版恢复快捷方式。
@@ -26,7 +26,9 @@ Windows 安装包目前没有发布者签名，可能显示「未知发布者」
 网页版、Windows、安卓、不同设备之间不自动同步，迁移请用导出和导入。Android 卸载一般会删除其数据；清理应用数据前务必先备份。安卓后台运行受系统限制，不能作为可靠的后台闹钟；回到应用时会依据保存的时间重算。
 
 <a id="windows-memory"></a>
-## Windows 内存与体积实测
+## Windows 内存与体积实测（旧版对比）
+
+下表是旧版界面的历史对比，不是 1.4 书页版数据。本次 1.4 安装包约 18.6 MiB；Windows 11 / WebView2 156 隔离资料采样，宿主及六个子进程私有内存合计约 281.7 MiB，工作集合计约 446.9 MiB（会重复统计共享页，且包含调试连接）。Android 内存尚未实测。
 
 2026-10-25，同一台 Windows 机器、相同网页代码、独立空资料目录，首次打开后切换三种语言，静置约 5 秒再采样。统计 CDP 返回的浏览器进程，并将原生宿主 PID 去重后加入，**包含 WebView2 子进程**，不是只看 344 KiB 的窗口程序。
 
@@ -47,7 +49,7 @@ Windows 安装包目前没有发布者签名，可能显示「未知发布者」
 
 ## 本地构建
 
-网页无需构建，直接打开 `index.html`。打包需要 Node.js 22.12+；Windows 原生编译另需 Visual Studio 2022 / Build Tools 的「使用 C++ 的桌面开发」、Windows SDK，以及 [NSIS 3](https://nsis.sourceforge.io/Download)。将 `makensis.exe` 加入 PATH，或给脚本传入 `-NsisPath`。已有项目 NSIS 缓存时会自动使用。
+书页版需要构建。使用 Node.js 24，运行 `npm run build:web`，再用 `npm run preview` 打开生产页面；不要直接打开源码 `index.html`。Windows 编译另需 Visual Studio Build Tools 的「使用 C++ 的桌面开发」、Windows SDK 和 [NSIS](https://nsis.sourceforge.io/Download)。已有项目工具缓存会自动使用。
 
 ```powershell
 npm ci --no-audit --no-fund
@@ -70,12 +72,12 @@ npm test
 node tests/desktop-packaging.cjs --webview2
 node tests/windows-installer.cjs
 node tests/package-contents.cjs
-node_modules/electron/dist/electron.exe tests/about-browser.cjs --force-device-scale-factor=1
+npm run test:e2e
 ```
 
 这些测试使用隐藏窗口、独立目录和合成数据；不读取正常安装的个人资料。覆盖默认英语、三语切换、没有 Node 的本地页面、原生导出、非法文件名拒绝、文件导入确认、最小化时计时、重启恢复，以及结束后推荐另一件活动。真实安装与卸载测试会关闭快捷方式和注册表写入，验证带空格的安装目录、包内文件一致性及保留非程序文件。已有 WebView2 的安装路径已实测；缺失运行时的联网安装尚未在干净虚拟机验证。
 
-128 项 Node 单元测试通过。APK 构建会验证签名及编译后的各语言应用名；包内容检查确保网页与当前源代码相同，不包含密钥、用户数据或研究资料。浏览器交互与宣传页另行检查。发布附带 `SHA256SUMS.txt`。
+本次 140 项 Node 单元测试通过。APK 构建会验证签名及应用名；包内容检查确保两平台的 270 个生产文件一致，不包含密钥、用户数据或研究资料。完整验证见 [发布报告](deployment/book-1.4.0/RELEASE.md)。发布附带 `SHA256SUMS.txt`。
 
 GitHub 插件没有 Release 附件上传能力，发布脚本使用官方 GitHub CLI。登录后，先提交并推送构建所对应的源码，再运行：
 
@@ -84,4 +86,4 @@ gh auth login --hostname github.com --git-protocol https --web
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-release.ps1
 ```
 
-脚本核对远程分支、源码提交、包内容及校验值，先上传草稿，全部成功后公开发布；已有同版本会停止，不覆盖。加 `-Draft` 可保留草稿。GitHub Pages 继续使用 `design/minimal-ui` 的根目录，工具和宣传页网址均不变。
+脚本核对远程分支、源码提交、包内容及校验值，先上传草稿，全部成功后公开发布；已有同版本会停止，不覆盖。加 `-Draft` 可保留草稿。GitHub Pages 使用 Actions 从 `master` 构建 `dist/site`，工具和介绍页网址均不变。
