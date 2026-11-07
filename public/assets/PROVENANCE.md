@@ -12,4 +12,4 @@ Assets are checked into the project for offline use. Temporary Figma download UR
 
 Fonts: Fontsource Variable packages Noto Serif SC 5.3.1, Noto Sans SC 5.3.1, EB Garamond 5.3.0. Their original OFL licenses are included in the corresponding `fonts/*/LICENSE` files. CSS retains the original unicode ranges and local WOFF2 files.
 
-Release 1.4 optimization (2026-11-07): six PNG textures also have lossless WebP copies. RGBA pixel equality was checked for every copy; original PNGs remain here as source assets. Production builds omit those PNG duplicates and the JavaScript source map. Font coverage is unchanged.
+Release 1.4 optimization (2026-11-07): six PNG textures also have lossless WebP copies. Alpha and all visible pixel channels match. Five copies have exact RGBA equality; task-paper normalizes RGB values at 4,711 fully transparent pixels, which does not change rendering. Original PNGs remain here as source assets. Production builds omit those PNG duplicates and the JavaScript source map. Font coverage is unchanged.
