@@ -25,7 +25,7 @@ export function mountBook(app: Runtime) {
     decoration.append(left, right);
   }
   for (const side of ['left', 'right']) {
-    decoration.append(image(`paper-${side}.png`, `book-paper ${side}`), image(`spine-${side}.svg`, `book-paper spine ${side}`));
+    decoration.append(image(`paper-${side}.webp`, `book-paper ${side}`), image(`spine-${side}.svg`, `book-paper spine ${side}`));
     for (const position of ['top', 'bottom']) decoration.append(image(`corner-${side}.svg`, `book-corner ${side} ${position}`));
   }
   decoration.append(element('div', 'book-spine'));

@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
     const pathname = new URL(req.url, 'http://localhost:8765').pathname;
     entry = files.get(pathname);
     if (!entry && /^\/assets\/[a-zA-Z0-9_./-]+$/.test(pathname) && !pathname.includes('..')) {
-      const mime = { '.png':'image/png', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.css':'text/css; charset=utf-8' }[path.extname(pathname)];
+      const mime = { '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.css':'text/css; charset=utf-8' }[path.extname(pathname)];
       if (mime) entry = [pathname.slice(1), mime];
     }
   } catch {}

@@ -11,9 +11,9 @@
   <a href="https://github.com/Taouyh/now-what-to-do/releases"><img src="https://img.shields.io/github/downloads/Taouyh/now-what-to-do/total?color=5b6650" alt="下载量"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b6650" alt="MIT 许可"></a>
 </p>
-<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">在线体验</a> · <a href="https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN">宣传页</a></p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">在线体验</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">宣传页</a></p>
 
-<p align="center"><img src="about/assets/start-zh-CN.png" width="820" alt="选好十分钟，直接开始读书。"></p>
+<p align="center"><img src="about/assets/book-home.webp" width="820" alt="选好十分钟，直接开始读书。"></p>
 
 <a id="features"></a>
 ## 有哪些功能
@@ -32,13 +32,13 @@
 
 | 平台 | 入口 | 使用要求 |
 | --- | --- | --- |
-| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
-| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Android.apk) | Android 7.0 及以上 |
+| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
+| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) | Android 7.0 及以上 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。
 
-**更新到 1.3：**旧版未结束的计时如果缺少保存进度，会请你确认实际用时，已有完成记录保持原样。
+**更新版本：**旧版未结束的计时如果缺少保存进度，会请你确认实际用时，已有完成记录保持原样。
 
 <details>
 <summary>安装和升级时需要知道的事</summary>
@@ -58,16 +58,9 @@
 2. **看看现在有多少时间。** 需要时再调整当前条件。
 3. **点「开始」。** 做完点「结束」，这次用时会自动记下来。
 
-<details>
-<summary>看看条件选择、计时恢复和今天的记录</summary>
 
-<p align="center"><img src="about/assets/conditions-zh-CN.png" width="680" alt="鼠标移到当前条件，展开四个默认未勾选的复选框。"></p>
-<p align="center"><img src="about/assets/recovery-zh-CN.png" width="480" alt="重新打开后保留已投入的八分钟，等待继续本次或结束并记录。"></p>
-<p align="center"><img src="about/assets/today-zh-CN.png" width="820" alt="今天把三次 Vibe Coding 放在一起，展示每次时间段和实际用时。"></p>
 
-</details>
-
-[观看 14 秒入门演示](https://taouyh.github.io/now-what-to-do/about/?lang=zh-CN#demo) · [1.3.0 更新说明](docs/releases/v1.3.0.md)
+[观看 77 秒入门演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.0 更新说明](docs/releases/v1.4.0.md)
 
 <a id="privacy"></a>
 ## 数据与隐私
@@ -79,7 +72,7 @@
 <a id="development"></a>
 ## 开发与贡献
 
-当前分支正在开发 1.4 书版；上面的截图和下载链接属于已发布的 1.3。源码需 Node.js 24：执行 `npm ci`，再执行 `npm run web`，打开终端显示的本地地址。开发热更新使用 `npm run dev`，检查使用 `npm test` 与 `npm run test:e2e`。不要直接双击源码 HTML。详见[实施与验证记录](docs/development/book-c-2026-11-05/IMPLEMENTATION.md)。欢迎通过 [Issue](https://github.com/Taouyh/now-what-to-do/issues) 提建议，或提交 Pull Request。
+当前为 1.4 书页版，网页从 master 构建发布。源码需 Node.js 24：执行 `npm ci`，再执行 `npm run web`，打开终端显示的本地地址。开发热更新使用 `npm run dev`，检查使用 `npm test` 与 `npm run test:e2e`。不要直接双击源码 HTML。详见[实施与验证记录](docs/development/book-c-2026-11-05/IMPLEMENTATION.md)。欢迎通过 [Issue](https://github.com/Taouyh/now-what-to-do/issues) 提建议，或提交 Pull Request。
 
 [制作 Windows / 安卓安装包](docs/installable-builds.md) · [发布宣传页](docs/site-and-readme.md)
 
@@ -87,3 +80,7 @@
 ## 开源许可
 
 [MIT](LICENSE) © 2026 Taouyh。可以使用、修改和分享，请保留许可声明。
+
+[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=360-4380)
+
+The demo uses soft music and mouse clicks, with no voiceover.

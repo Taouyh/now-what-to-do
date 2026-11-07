@@ -11,9 +11,9 @@
   <a href="https://github.com/Taouyh/now-what-to-do/releases"><img src="https://img.shields.io/github/downloads/Taouyh/now-what-to-do/total?color=5b6650" alt="ダウンロード数"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b6650" alt="MIT ライセンス"></a>
 </p>
-<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">ブラウザで使う</a> · <a href="https://taouyh.github.io/now-what-to-do/about/?lang=ja">紹介ページ</a></p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">ブラウザで使う</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">紹介ページ</a></p>
 
-<p align="center"><img src="about/assets/start-ja.png" width="820" alt="空いた10分で読書をはじめる画面。"></p>
+<p align="center"><img src="about/assets/book-home.webp" width="820" alt="空いた10分で読書をはじめる画面。"></p>
 
 <a id="features"></a>
 ## できること
@@ -32,13 +32,13 @@
 
 | 環境 | 入手先 | 必要なもの |
 | --- | --- | --- |
-| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
-| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.3.0/Now-What-1.3.0-Android.apk) | Android 7.0以降 |
+| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
+| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) | Android 7.0以降 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要 |
 
 無料、登録不要。インストール版はオフラインで使え、初回は英語です。**設定**で言語を変更できます。Web版はブラウザの言語に合わせて起動します。
 
-**1.3 への更新：**旧版の未終了タイマーは、保存済みの進み具合がなければ実際に使った時間を確認します。既存の終了済み記録は保持されます。
+**更新について：**旧版の未終了タイマーは、保存済みの進み具合がなければ実際に使った時間を確認します。既存の終了済み記録は保持されます。
 
 <details>
 <summary>インストールと更新について</summary>
@@ -58,16 +58,9 @@
 2. **空いている時間を選ぶ。** 必要なら今の条件も調整します。
 3. **開始を押す。** 終わったら終了を押すと、使った時間が保存されます。
 
-<details>
-<summary>条件・計時の再開・今日の記録を見る</summary>
 
-<p align="center"><img src="about/assets/conditions-ja.png" width="680" alt="現在の条件にマウスを重ねると、未選択の4つのチェックボックスが開きます。"></p>
-<p align="center"><img src="about/assets/recovery-ja.png" width="480" alt="保存した8分を保持して、再開または終了を待つ画面。"></p>
-<p align="center"><img src="about/assets/today-ja.png" width="820" alt="今日の3回の Vibe Coding をまとめ、各回の時間帯と実際に使った時間を表示。"></p>
 
-</details>
-
-[14秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/?lang=ja#demo) · [1.3.0 の更新内容](docs/releases/v1.3.0.md)
+[77秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.0 の更新内容](docs/releases/v1.4.0.md)
 
 <a id="privacy"></a>
 ## データとプライバシー
@@ -79,7 +72,7 @@
 <a id="development"></a>
 ## 開発・貢献
 
-このブランチは書籍風 UI の 1.4 を開発中です。上の画像とダウンロードリンクは公開済みの 1.3 です。Node.js 24 で `npm ci`、`npm run web` を実行し、表示されたローカル URL を開いてください。開発には `npm run dev`、検証には `npm test` と `npm run test:e2e` を使います。ソース HTML を直接開かないでください。[実装・検証記録](docs/development/book-c-2026-11-05/IMPLEMENTATION.md)も参照できます。[Issue](https://github.com/Taouyh/now-what-to-do/issues) や Pull Request も歓迎します。
+1.4 はブック版です。GitHub Pages は `master` からアプリと英語の紹介ページをビルドします。Node.js 24 で `npm ci` と `npm run web` を実行してください。
 
 [Windows / Android のビルド](docs/installable-builds.md) · [紹介ページの公開](docs/site-and-readme.md)
 
@@ -87,3 +80,7 @@
 ## ライセンス
 
 [MIT](LICENSE) © 2026 Taouyh。使用・変更・共有できます。ライセンス表記を残してください。
+
+[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=360-4380)
+
+The demo uses soft music and mouse clicks, with no voiceover.

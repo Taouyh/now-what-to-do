@@ -49,10 +49,10 @@ public final class MainActivity extends Activity {
             }
             @Override public WebResourceResponse shouldInterceptRequest(WebView view,WebResourceRequest request){
                 Uri uri=request.getUrl();String name=uri.getPath();
-                boolean resource=name!=null&&name.matches("/assets/[A-Za-z0-9_./-]+\\.(png|svg|woff2|css)")&&!name.contains("..");
+                boolean resource=name!=null&&name.matches("/assets/[A-Za-z0-9_./-]+\\.(png|webp|svg|woff2|css)")&&!name.contains("..");
                 if(!"https".equals(uri.getScheme())||!"app.nowwhat.local".equals(uri.getHost())||!(resource||"/index.html".equals(name)||"/app.js".equals(name)||"/style.css".equals(name)||"/native-android.js".equals(name)))return errorResponse();
                 try{
-                    String mime=name.endsWith(".js")?"application/javascript":name.endsWith(".css")?"text/css":name.endsWith(".svg")?"image/svg+xml":name.endsWith(".png")?"image/png":name.endsWith(".woff2")?"font/woff2":"text/html";
+                    String mime=name.endsWith(".js")?"application/javascript":name.endsWith(".css")?"text/css":name.endsWith(".svg")?"image/svg+xml":name.endsWith(".png")?"image/png":name.endsWith(".webp")?"image/webp":name.endsWith(".woff2")?"font/woff2":"text/html";
                     Map<String,String> headers=new HashMap<>();
                     headers.put("Content-Security-Policy","default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; object-src 'none'; frame-src 'none'; base-uri 'none'");
                     return new WebResourceResponse(mime,"UTF-8",200,"OK",headers,getAssets().open(name.substring(1)));

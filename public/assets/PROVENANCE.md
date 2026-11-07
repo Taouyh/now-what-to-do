@@ -11,3 +11,5 @@ Retrieved 2026-11-05 through the Figma connector, after verifying account handle
 Assets are checked into the project for offline use. Temporary Figma download URLs are not runtime dependencies. These are user-provided design assets; this manifest does not establish any wider redistribution rights beyond the project.
 
 Fonts: Fontsource Variable packages Noto Serif SC 5.3.1, Noto Sans SC 5.3.1, EB Garamond 5.3.0. Their original OFL licenses are included in the corresponding `fonts/*/LICENSE` files. CSS retains the original unicode ranges and local WOFF2 files.
+
+Release 1.4 optimization (2026-11-07): six PNG textures also have lossless WebP copies. RGBA pixel equality was checked for every copy; original PNGs remain here as source assets. Production builds omit those PNG duplicates and the JavaScript source map. Font coverage is unchanged.

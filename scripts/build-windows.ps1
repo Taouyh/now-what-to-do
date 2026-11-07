@@ -19,6 +19,12 @@ $output=[IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
 $payload=Join-Path $output 'webview2-unpacked'
 New-Item -ItemType Directory -Force "$payload/web" | Out-Null
 Copy-Item -Path "$root/dist/web/*" -Destination "$payload/web" -Recurse -Force
+foreach($name in @('paper-left','paper-right','bookmark','scroll-paper','environment','task-paper')) {
+  $oldAsset=Join-Path $payload "web/assets/$name.png"
+  if(Test-Path -LiteralPath $oldAsset){Remove-Item -LiteralPath $oldAsset}
+}
+$oldMap=Join-Path $payload 'web/app.js.map'
+if(Test-Path -LiteralPath $oldMap){Remove-Item -LiteralPath $oldMap}
 if(Test-Path -LiteralPath "$payload/web/i18n.js"){Remove-Item -LiteralPath "$payload/web/i18n.js"}
 Copy-Item "$root/desktop/webview2/native-webview2.js" $payload -Force
 Copy-Item "$sdk/LICENSE.txt" "$payload/LICENSE-WebView2.txt" -Force

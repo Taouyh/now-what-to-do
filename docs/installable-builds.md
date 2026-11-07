@@ -1,15 +1,15 @@
 # Windows 和 Android 安装版
 
-当前版本：**1.3.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.3.0)，变更见 [发布说明](releases/v1.3.0.md)。两个安装包包含可选下一步、本轮不重复推荐、右侧悬停菜单及计时恢复。到点等待手动继续，退出后重开不补计离开时间，长暂停分段保留。旧计时缺少可靠进度时需要确认实际用时或明确放弃，已有历史不自动修改。
+当前版本：**1.4.0**。下载见 [GitHub Releases](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.0)，变更见 [发布说明](releases/v1.4.0.md)。本版采用书页界面，并保留可选下一步、本轮不重复推荐、右侧悬停菜单及计时恢复。到点等待手动继续，退出后重开不补计离开时间，长暂停分段保留。旧计时缺少可靠进度时需要确认实际用时或明确放弃，已有历史不自动修改。
 
-从 1.1 / 1.2 更新到 1.3.0 可直接覆盖安装，数据目录、来源和存储格式保持不变，安卓使用原签名及 versionCode 5。
+从 1.1 / 1.2 更新到 1.4.0 可直接覆盖安装，数据目录、来源和存储格式保持不变，安卓使用原签名及 versionCode 6。
 
 ## 下载与安装
 
 | 系统 | 文件 | 环境 |
 | --- | --- | --- |
-| Windows | `dist/windows/Now-What-1.3.0-Windows-x64-Setup.exe`，约 2 MiB | Windows 10 / 11，x64，Microsoft Edge WebView2 Runtime |
-| Android | `dist/android/Now-What-1.3.0-Android.apk` | Android 7.0+，较新的 Android System WebView |
+| Windows | `dist/windows/Now-What-1.4.0-Windows-x64-Setup.exe`，约 18.6 MiB | Windows 10 / 11，x64，Microsoft Edge WebView2 Runtime |
+| Android | `dist/android/Now-What-1.4.0-Android.apk` | Android 7.0+，较新的 Android System WebView |
 
 Windows 采用 **C++ / Win32 + 系统 WebView2 + NSIS**，不再附带 Electron、Node.js、完整 Chromium 或 .NET。安装器允许选择目录，默认只安装到当前用户。如果电脑缺少 WebView2，安装器会运行随包提供、经微软签名的 Evergreen 引导程序并联网下载运行时；已有运行时则不必下载。安装后应用页面可离线使用。首次打开为英语，设置里可切换中文、日语并记住选择。
 
@@ -61,7 +61,7 @@ npm run build:android
 
 WebView2 SDK 固定为 1.0.4314.35，下载后按脚本内 SHA-256 校验。微软引导程序从官方链接下载，构建前验证微软 Authenticode 签名。C++ 使用静态 CRT 和静态 WebView2 Loader，用户无需安装 .NET 或 Visual C++ Redistributable。SDK 许可及声明随安装包提供。构建输出在 `dist/windows/webview2-unpacked`，自选输出目录可用 `-OutputDirectory`。Electron 依赖保留用于现有浏览器测试及基准比较，不会出现在新安装包里。
 
-安卓使用 Java 与原生 WebView，直接调用官方 SDK 工具构建。请备份 **`android/.signing/`** 中的私有签名身份，切勿上传。APK 更新必须沿用原密钥，并递增 manifest 的 versionCode。当前版本为 versionName 1.3.0 / versionCode 5。
+安卓使用 Java 与原生 WebView，直接调用官方 SDK 工具构建。请备份 **`android/.signing/`** 中的私有签名身份，切勿上传。APK 更新必须沿用原密钥，并递增 manifest 的 versionCode。当前版本为 versionName 1.4.0 / versionCode 6。
 
 ## 验证与发布
 

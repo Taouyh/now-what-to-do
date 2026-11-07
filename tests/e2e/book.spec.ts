@@ -100,12 +100,12 @@ test('long focus descriptions stay inside the book and dark controls remain legi
       const description = document.getElementById('timerDescription')!.getBoundingClientRect();
       const status = document.getElementById('timerStatus')!.getBoundingClientRect();
       const style = getComputedStyle(document.getElementById('earlyTimer')!);
-      return { bookBottom: book.bottom, descriptionBottom: description.bottom, statusTop: status.top, color: style.color, background: style.backgroundColor };
+      return { bookBottom: book.bottom, descriptionBottom: description.bottom, statusTop: status.top, color: style.color, background: style.backgroundImage };
     });
     expect(geometry.bookBottom).toBeLessThanOrEqual(715);
     expect(geometry.descriptionBottom).toBeLessThanOrEqual(geometry.statusTop + 1);
-    expect(geometry.color).toBe('rgb(241, 223, 182)');
-    expect(geometry.background).toBe('rgb(80, 61, 44)');
+    expect(geometry.color).toBe('rgb(241, 220, 173)');
+    expect(geometry.background).toBe('linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))');
   }
   expect((await main(page)).tasks[0].description.length).toBe(value.tasks[0].description.length);
 });

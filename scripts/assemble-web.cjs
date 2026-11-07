@@ -6,6 +6,11 @@ const source = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const html = source.replace('<script type="module" src="/src/main.ts"></script>', '<!-- native-bridge --><script src="app.js"></script>');
 fs.writeFileSync(path.join(output, 'index.html'), html);
 fs.cpSync(path.join(root, 'public/assets'), path.join(output, 'assets'), { recursive: true });
+// Keep original design PNGs in source, but ship only their pixel-identical WebP copies.
+for (const name of ['paper-left','paper-right','bookmark','scroll-paper','environment','task-paper']) {
+  fs.rmSync(path.join(output, 'assets', `${name}.png`), { force: true });
+}
+fs.rmSync(path.join(output, 'app.js.map'), { force: true });
 fs.mkdirSync(path.join(output, 'packaging'), { recursive: true });
 fs.copyFileSync(path.join(root, 'packaging/icon.png'), path.join(output, 'packaging/icon.png'));
 const manifest = [];

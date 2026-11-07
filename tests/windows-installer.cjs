@@ -19,7 +19,7 @@ async function run(){
  assert.ifError(uninstalled.error);assert.equal(uninstalled.status,0);
  assert.equal(await fs.readFile(path.join(install,'unrelated-file.txt'),'utf8'),'keep me');
  assert.equal(await fs.readFile(path.join(install,'web/assets/unrelated-note.txt'),'utf8'),'keep this too');
- assert.equal(await fs.stat(path.join(install,'web/assets/environment.png')).then(()=>true,()=>false),false);
+ assert.equal(await fs.stat(path.join(install,'web/assets/environment.webp')).then(()=>true,()=>false),false);
  assert.equal(await fs.stat(path.join(install,'web/app.js')).then(()=>true,()=>false),false);
  console.log('PASS real installer installs current files to a path with spaces; uninstaller preserves unrelated files and never touches app profiles');
 }

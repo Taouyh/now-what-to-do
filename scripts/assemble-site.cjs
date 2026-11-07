@@ -1,0 +1,10 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const output = path.join(root, 'dist/site');
+fs.mkdirSync(output, { recursive: true });
+fs.cpSync(path.join(root, 'dist/web'), output, { recursive: true });
+fs.cpSync(path.join(root, 'about'), path.join(output, 'about'), { recursive: true });
+fs.writeFileSync(path.join(output, '.nojekyll'), '');
+fs.writeFileSync(path.join(output, 'release.json'), JSON.stringify({version:require('../package.json').version,commit:process.env.GITHUB_SHA || require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim()}));
+console.log('Assembled dist/site: app + introduction page');

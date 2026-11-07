@@ -1,6 +1,6 @@
 @import './fonts/fonts.css';
 :root {
-  --environment: url('./assets/environment.png');
-  --task-paper: url('./assets/task-paper.png');
-  --scroll-paper: url('./assets/scroll-paper.png');
+  --environment: url('./assets/environment.webp');
+  --task-paper: url('./assets/task-paper.webp');
+  --scroll-paper: url('./assets/scroll-paper.webp');
 }

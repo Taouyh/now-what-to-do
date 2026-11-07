@@ -17,15 +17,15 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
     await expect(page.locator('.calendar-group')).toHaveCount(5);
     const inspect = async () => {
       const metrics = await page.locator('.calendar-group').evaluateAll(rows => rows.map(row => {
-        const title = row.querySelector('span')!, meta = row.querySelector('small')!;
-        const a = title.getBoundingClientRect(), b = meta.getBoundingClientRect(), c = row.getBoundingClientRect();
-        return { titleHeight: a.height, lineHeight: parseFloat(getComputedStyle(title).lineHeight), overlap: a.bottom - b.top, inside: c.bottom - b.bottom, metaHeight: b.height, metaLine: parseFloat(getComputedStyle(meta).lineHeight) };
+        const title = row.querySelector('span')!;
+        const a = title.getBoundingClientRect(), c = row.getBoundingClientRect();
+        return { titleHeight: a.height, lineHeight: parseFloat(getComputedStyle(title).lineHeight), inside: c.bottom - a.bottom, top: a.top - c.top, width: c.right - a.right };
       }));
       for (const m of metrics) {
         expect(m.titleHeight, 'activity name must retain a complete line').toBeGreaterThanOrEqual(m.lineHeight - 1);
-        expect(m.metaHeight, 'summary must retain a complete line').toBeGreaterThanOrEqual(m.metaLine - 1);
-        expect(m.overlap, 'name and summary must not overlap').toBeLessThanOrEqual(1);
-        expect(m.inside, 'summary must remain inside its card').toBeGreaterThanOrEqual(1);
+        expect(m.inside, 'activity name must remain inside its card').toBeGreaterThanOrEqual(0);
+        expect(m.top, 'activity name must remain below card top').toBeGreaterThanOrEqual(0);
+        expect(m.width, 'activity name must remain before card edge').toBeGreaterThanOrEqual(0);
       }
     };
     await inspect();

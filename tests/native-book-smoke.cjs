@@ -31,7 +31,7 @@ async function closeHost(){
  require('node:assert/strict').deepEqual(isolation,['https://nowwhat.local','undefined','undefined','function']);
  const assets=await page.evaluate(async()=>{
    await document.fonts.ready;
-   const images=await Promise.all(['assets/environment.png','assets/plant-4.svg'].map(url=>new Promise(resolve=>{const image=new Image();image.onload=()=>resolve(image.naturalWidth>0);image.onerror=()=>resolve(false);image.src=url})));
+   const images=await Promise.all(['assets/environment.webp','assets/plant-4.svg'].map(url=>new Promise(resolve=>{const image=new Image();image.onload=()=>resolve(image.naturalWidth>0);image.onerror=()=>resolve(false);image.src=url})));
    const font=new FontFace('NativeProbe','url(assets/fonts/eb-garamond/files/eb-garamond-latin-wght-normal.woff2)');
    await font.load();return [...images,font.status==='loaded'];
  });
