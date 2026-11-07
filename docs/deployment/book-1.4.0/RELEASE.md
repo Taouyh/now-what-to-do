@@ -1,6 +1,6 @@
 # Book edition 1.4.0 release
 
-User authorized deployment, GitHub default-branch restoration, website refresh, README updates, and Android/Windows packages on 2026-11-07. Final publication details will be appended after independent fixed-commit verification.
+User authorized deployment, GitHub default-branch restoration, website refresh, README updates, and Android/Windows packages on 2026-11-07. The book app, introduction and 1.4.0 downloads are now public.
 
 ## Candidate
 
@@ -37,4 +37,14 @@ No storage schema, package name, native profile location or web origin changed. 
 
 Keep prior GitHub releases available. Web rollback is a reviewed earlier source deployed through the master workflow; do not reset history or clear browser data. Only tracked release files are committed. Pre-existing `docs/weekly/` and `nowwhat-video/` work remain untouched.
 
-Independent test and Figma synchronization reports are required before final publication; pending at this candidate commit.
+## Independent verification and publication
+
+- Separate GPT worktree tested fixed source `e2c66b800d505f4328df0a0ffe256019bd7216eb`: 140 core tests, build and all 86 configured browser tests passed. Desktop/390px/320px introduction, real muted video playback, package contents/hashes and Android certificate continuity passed. [Independent report](INDEPENDENT-TEST.md); original report commit `1f4c719570df987b6caf7963eb2333cae1d3221e`, integrated as `60e7b5c`.
+- Only after that checkpoint, local `master` was fast-forwarded and pushed. No force push or history rewrite. GitHub default branch is `master`; Pages uses `build_type: workflow` and source `master /`.
+- [Pages run 42321108015](https://github.com/Taouyh/now-what-to-do/actions/runs/42321108015) passed every step, including hosted core tests/build/upload/deploy. The legacy Pages `status` field still reflected the superseded branch-build failure; the successful custom deployment and actual served release were checked directly.
+- [Public app](https://taouyh.github.io/now-what-to-do/) and [English introduction](https://taouyh.github.io/now-what-to-do/about/) checked in a fresh Edge profile. Live `release.json` returned version 1.4.0, commit `60e7b5c3fb6170a21ba7c5a9a5d19ab27022b2da`. Start/Tasks/Journal/Settings navigation worked; book assets, font, introduction images and 77.013-second video loaded. No page/HTTP errors or 390px horizontal overflow. Screenshots were inspected. A first network-idle navigation timeout was retried using DOM readiness and explicit asset checks; no product repair was needed.
+- [Release v1.4.0](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.0) published at 2026-11-07 00:59:21 UTC. Tag points to the exact tested/built source `e2c66b8`; subsequent master commits carry documentation and verification reports. All three uploaded asset digests match local files. Both public installer/APK links returned HTTP 200, and the downloaded public checksum file matched exactly.
+- The Windows unpacked payload is 19,699,129 bytes across 275 files, excluding the shared system runtime. Existing app data locations and signing identity were preserved.
+- The requested local preview was restored at `http://127.0.0.1:8765/#home`; its WebP asset endpoint returns HTTP 200. It serves production files only.
+
+The separate Figma synchronization record is [FIGMA-SYNC.md](FIGMA-SYNC.md), original report commit `fe1f289cc39cd438ace54d150b543c2ec3320405`. Editable [desktop](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469) and [mobile](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-5014) frames passed final screenshot and bounds checks, with 529/531 descendants. Original app frames were preserved. The design uses Inter in place of unavailable Segoe UI and a static video poster/link; these documented fidelity limits do not affect the actual webpage. The source is the same fixed webpage candidate; Figma checks do not replace browser or native validation.

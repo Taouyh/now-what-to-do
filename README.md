@@ -83,7 +83,7 @@ Version 1.4 is the book edition. GitHub Pages builds `master` and publishes the 
 
 [MIT](LICENSE) © 2026 Taouyh. Use, change and share it; keep the license notice.
 
-[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=360-4380)
+[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
 The demo uses soft music and mouse clicks, with no voiceover.
 
