@@ -1,5 +1,45 @@
 # Independent Android viewport verification
 
+## Final retest: PASS for web and supplied-package scope
+
+2026-11-08, Asia/Shanghai. Final fixed product source: **`ca728cd276db3f8d1c64aff297ec0ba18d418a6d`**. Same independent GPT chat/worktree, clean detached product checkout, fresh synthetic nonpersistent Edge contexts. The original failed checkpoint below is preserved unchanged as historical evidence.
+
+**MOB-01 is independently closed.** Production build/typecheck and all **20 requested Edge tests pass** (10 mobile plus 10 book journeys; 14.8 seconds). Bounded supplemental interaction retests pass. No remaining blocker was observed in the executed web/package scope. Browser simulation does not establish Android-device, soft-keyboard/IME, installation, in-place upgrade, system-scaling or participant acceptance.
+
+The new source changes only the relevant mobile dialog rules, task anchor behavior and noninteractive notification hit handling, plus tests/documentation. Tested on Edge 157.0.4341.42 with Node 24.18.0/npm 11.16.0. Reused the already installed isolated-worktree dependencies. Ports 8793/8794 were checked unused before starting this round. No product source/test change, Windows package build, push, merge or Figma access was performed by the tester; only this report is committed.
+
+### Targeted independent retests
+
+- **800x360 landscape and 390x360 contracted phone:** Save/Cancel/Delete occupy y=286..330, fit inside the viewport and pass center-point hit testing both before and after scrolling. The editor body moves with actual wheel input and CDP touch swipes in both directions, while its footer stays reachable. Measured body scroll ranges reached 154/157px at 800 width and 139/142px at 390 width. Name and multiline mixed-language description drafts survived contraction and scrolling; Save persisted them, while Cancel discarded later unsaved changes.
+- **Long-content confirmation:** Real saved long task names and descriptions produce confirmation scrollHeight 652px at 800 width and 1128px at 390 width, with clientHeight 332px. Touch input advances the content from its top; wheel input reaches its end. Both confirmation actions then fit at approximately y=274..318 and pass hit testing. Cancelling deletion preserves the editor's unsaved name draft and all 23 stored tasks.
+- **Rotation observation closed:** The exact original sequence now yields portrait `ind-9..17`, landscape `ind-8,ind-9`, then portrait `ind-9..17`. Original task `ind-9` remains visible after the round trip. Editing this task, changing capacity while the dialog is open, then saving also returns to the page containing `ind-9`.
+- **Toast touch interception closed:** At 320x568, while the completion notification was still visible, computed `pointer-events` was `none`; both continuation buttons passed hit tests and Save persisted the draft immediately. The notification can still visually overlap the button area briefly; this is not reported as visual removal of the notification.
+- Inspected six new targeted screenshots: both editor sizes, both long confirmations, rotation return and the visible-toast hit scenario. No page exceptions occurred in the two editor/confirmation contexts.
+
+The specified 20-test run also reran the original four-size task traversal/settings chooser checks, add/delete/current-capacity behavior, completion capsule checks and existing book journeys. Prior separate four-configuration visual/text-boundary checks, empty-phone/actual backup restore, dynamic language traversal and final-page deletion evidence are inherited from the original checkpoint for unchanged behavior; that broader supplemental matrix was not needlessly repeated or represented as newly rerun.
+
+New evidence is under `.cache/mobile-independent-retest/`: `build-web.log`, `e2e.log`, `retest.cjs`, `probe.log`, `results.json`, six PNG captures and final APK comparison/signature/metadata logs. Original `.cache/mobile-independent/` evidence remains intact.
+
+### Final supplied APK
+
+Read-only inspection of the rebuilt `D:\code\now-what-to-do\dist\android-preview\Now-What-1.4.0-Android.apk`:
+
+| Property | Final observed value |
+| --- | --- |
+| Bytes | 19,060,482 |
+| SHA-256 | `722AF52D3CBEF09CD645C477D69895C82DEF70180C69B88A78C8C78B7613BACC` |
+| Package/version | `io.github.taouyh.nowwhat`, versionCode 6, versionName 1.4.0 |
+| SDK | min 24, target 35 |
+| Certificate SHA-256 | `08d941113e6b6cde7147cbbd7eee37345b0d36c477c8472707db2b9aef4b4a15` |
+
+All 270 production manifest files match the independent final-source build: 226 exact, 44 text-only CRLF/LF differences, zero mismatches. The expected Android index bridge insertion and native bridge match. The APK has 279 entries and no inspected prohibited paths. `apksigner` verifies v2/v3 signatures with the same certificate as the previously inspected published package; `aapt2` confirms the metadata above. The published `dist/android` APK remains SHA-256 `3A3FB094F21B6AD81DE34F4670F00E73A0AE1E393E6C9868D46430D3F3F0FF85`. The original candidate APK hash in the historical section is superseded for this final candidate.
+
+Final independent web SHA-256: app.js `EDE8E0231E61D317618F9289EBEF0FA7D13C931867E47E2E50912EB7C5D30801`; style.css `78661CEBF681D4877AFD5D11BD16D3D74B56BEB7F7FD7AF0CDCE27E42E2CD33F`; index.html `168CDC9E729155D67E60D6EA7A730596CB89DDD3797F814DF29F46491524E70B`.
+
+No APK installation, native upgrade, real IME or device acceptance was performed. No private signing material was accessed. The fixed-source web and supplied-package checkpoint passes within these boundaries.
+
+## Historical first checkpoint: FAIL
+
 Date: 2026-11-08, Asia/Shanghai. Fixed source: **`c208809211874e54fa15c9ee37da5f8bbc5e2f61`**. Separate GPT chat, isolated worktree `C:\Users\fengcai\.codex\worktrees\09f0\now-what-to-do`, detached HEAD during testing.
 
 ## Decision
