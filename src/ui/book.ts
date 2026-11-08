@@ -11,6 +11,15 @@ function translated(tag: 'h1' | 'h2' | 'p' | 'span', text: string, className = '
 export function mountBook(app: Runtime) {
   document.body.classList.add('book-app');
   const pages = new BookPages(app);
+  const compactViewport = matchMedia('(max-width:800px), (max-height:550px)');
+  const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
+  document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
+  compactViewport.addEventListener('change', () => {
+    const anchor = pages.taskPage * pages.taskPageSize;
+    document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
+    pages.taskPage = Math.floor(anchor / pages.taskPageSize);
+    pages.renderTasks();
+  });
   const book = element('div', 'book');
   book.id = 'book';
   const decoration = element('div', 'book-decoration');
@@ -180,7 +189,7 @@ export function mountBook(app: Runtime) {
     renderToday: () => pages.renderToday(),
     savedTask(id, added) {
       pages.taskFocusAfterSave = id;
-      if (added) pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / 10);
+      if (added) pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / pages.taskPageSize);
     },
     onPage(id) {
       pages.clearRecordSelection();

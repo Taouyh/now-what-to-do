@@ -1,4 +1,4 @@
-param([string]$JavaHome, [string]$SdkRoot)
+param([string]$JavaHome, [string]$SdkRoot, [string]$OutputDirectory)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 & npm.cmd --prefix $root run build:web
@@ -19,7 +19,7 @@ $assets = Join-Path $work 'assets'
 $generated = Join-Path $work 'generated'
 $classes = Join-Path $work 'classes'
 $dex = Join-Path $work 'dex'
-$out = Join-Path $root 'dist/android'
+$out = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path $root 'dist/android' }
 New-Item -ItemType Directory -Path $work,$assets,$generated,$classes,$dex,$out -Force | Out-Null
 Copy-Item -Path "$root/dist/web/*" -Destination $assets -Recurse -Force
 $html = [IO.File]::ReadAllText((Join-Path $root 'dist/web/index.html')).Replace('<!-- native-bridge -->','<script src="native-android.js"></script>')

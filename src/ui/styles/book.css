@@ -108,6 +108,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 }
 .clear-description { position: absolute; top: 2px; right: 3px; background: transparent; border: 0; color: var(--muted-ink); width: 36px; }
 .feedback-actions { display: flex; gap: 8px; margin-top: 6px; }
+.book .feedback-actions button { flex: 1; min-width: 0; }
 .book .paper-button,.book .outline { color: var(--ink); border: 1px solid #b18a50; border-radius: 4px; background: #f0e0b7; padding: 6px 16px; font-family: 'Noto Serif SC Variable',serif; }
 .book .paper-button:hover,.book .outline:hover { background: #e4cca1; }
 .book #tasks>.heading,.book #librarySearch,.book #today>.today-heading,.book #settings>.heading { display: none; }
@@ -133,9 +134,9 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book-pager button { font-size: clamp(14px,1.25cqw,18px); }
 .spread-pager { left: 8.06%; right: 9.16%; bottom: 8%; }
 .page-count { font-family: 'EB Garamond Variable',serif; color: var(--muted-ink); }
-.book .book-pager button,.book #confirmLayer.confirm-delete .confirm-actions button { min-height: 44px; padding: 7px 10px; border: 1px solid #a88554cc; border-radius: 24px; color: var(--ink); background: linear-gradient(#f8ebc9,#d6b783); box-shadow: 0 2px 3px #1409041f; font: 500 clamp(14px,1.25cqw,18px)/1.45 'Noto Serif SC Variable',serif; outline: none; }
+.book .feedback-actions button,.book .book-pager button,.book #confirmLayer.confirm-delete .confirm-actions button { min-height: 44px; padding: 7px 10px; border: 1px solid #a88554cc; border-radius: 24px; color: var(--ink); background: linear-gradient(#f8ebc9,#d6b783); box-shadow: 0 2px 3px #1409041f; font: 500 clamp(14px,1.25cqw,18px)/1.45 'Noto Serif SC Variable',serif; outline: none; }
 .book .book-pager button { flex: 0 0 clamp(88px,10cqw,120px); width: clamp(88px,10cqw,120px); }
-.book .book-pager button:not(:disabled):hover,.book .book-pager button:focus-visible,.book #confirmLayer.confirm-delete .confirm-actions button:hover,.book #confirmLayer.confirm-delete .confirm-actions button:focus-visible { outline: none; background: linear-gradient(#edd9af,#be965d); border-color: #895332; filter: none; }
+.book .feedback-actions button:hover,.book .feedback-actions button:focus-visible,.book .book-pager button:not(:disabled):hover,.book .book-pager button:focus-visible,.book #confirmLayer.confirm-delete .confirm-actions button:hover,.book #confirmLayer.confirm-delete .confirm-actions button:focus-visible { outline: none; background: linear-gradient(#edd9af,#be965d); border-color: #895332; filter: none; }
 .book #confirmLayer.confirm-delete .confirm-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
 .book #confirmLayer.confirm-delete .confirm-actions button { width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
 .empty-copy { padding: 20px 0; color: var(--muted-ink); }
@@ -268,8 +269,8 @@ html[data-theme=dark] .book #export,html[data-theme=dark] .book #import { backgr
 html[data-theme=dark] .book .checkbox-label:has(input:checked) { background: #725334; }
 html[data-theme=dark] .book .paper-button:hover,html[data-theme=dark] .book .outline:hover,html[data-theme=dark] .book .task-play:hover { background: #725334; }
 html[data-theme=dark] .book .condition-picker>summary:hover { background: #38291e; border-color: #d2b88e; }
-html[data-theme=dark] .book .book-pager button,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button { background: #503d2c; }
-html[data-theme=dark] .book .book-pager button:not(:disabled):hover,html[data-theme=dark] .book .book-pager button:focus-visible,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button:hover,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button:focus-visible { background: #38291e; border-color: #d2b88e; }
+html[data-theme=dark] .book .feedback-actions button,html[data-theme=dark] .book .book-pager button,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button { background: #503d2c; }
+html[data-theme=dark] .book .feedback-actions button:hover,html[data-theme=dark] .book .feedback-actions button:focus-visible,html[data-theme=dark] .book .book-pager button:not(:disabled):hover,html[data-theme=dark] .book .book-pager button:focus-visible,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button:hover,html[data-theme=dark] .book #confirmLayer.confirm-delete .confirm-actions button:focus-visible { background: #38291e; border-color: #d2b88e; }
 html[data-theme=dark] .book :is(#continuationInput,#desc):hover,html[data-theme=dark] .book :is(#continuationInput,#desc):focus { background: #725334; border-color: #d2b88e; }
 html[data-theme=dark] .book .settings-row button:hover,html[data-theme=dark] .book .settings-row button:focus-visible { filter: brightness(1.18); border-color: #d2b88e; }
 html[data-theme=dark] .book #times button:not(.on),html[data-theme=dark] .book #timePicker .custom-minutes-control { background: #503d2c; }
@@ -313,4 +314,60 @@ html[data-theme=dark] .chapter-title,html[data-theme=dark] .chapter-motto { colo
   .book .condition-panel { left: 0 !important; top: -24px !important; width: 100% !important; min-height: 370px; }
   .book .column-heading h2 { font-size: 20px; }
   html[data-theme=dark] .book { background-image: linear-gradient(#38291ee8,#38291ee8),var(--scroll-paper); }
+}
+
+/* Phone/touch layouts use the actual WebView viewport; Windows keeps its existing layout. */
+html:has(.mobile-book) { overflow: hidden; }
+.book-app.mobile-book { display: flex; height: 100dvh; min-height: 0; overflow: hidden; padding: 8px 10px max(10px,env(safe-area-inset-bottom)); }
+.mobile-book .book-header { flex: 0 0 32px; height: 32px; width: 100%; }
+.mobile-book .book-header .brand { font-size: 20px; }
+.mobile-book .book { flex: 1; min-height: 0; width: 100%; margin: 44px 0 0; border-width: 6px; font-size: 15px; }
+.mobile-book .bookmarks { top: -44px; height: 44px; }
+.mobile-book .bookmarks button { font-size: 12px; gap: 4px; }
+.mobile-book .bookmarks img { width: 16px; height: 16px; }
+.mobile-book .bookmarks button.active { height: 44px; }
+.mobile-book .book main,.mobile-book .book .page { position: absolute; inset: 0; min-height: 0; height: 100%; }
+.mobile-book .book .page.active { display: block; overflow: auto; overscroll-behavior: contain; }
+.mobile-book .book .book-column { margin: 16px; }
+.mobile-book .book #taskList { position: absolute; inset: 0; padding: 14px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.mobile-book .mobile-task-heading { flex: none; }
+.mobile-book .book #taskList .book-caption { margin: 5px 0 0; font-size: 13px; }
+.mobile-book .mobile-task-items { flex: 1; min-height: 0; gap: 8px; }
+.mobile-book .mobile-task-items .task-strip { flex: 0 0 52px; height: 52px; min-height: 52px; }
+.mobile-book .book .task-title { font-size: 15px; line-height: 1.35; }
+.mobile-book .book #taskList .spread-pager { flex: none; margin: 0; position: static; }
+.mobile-book .book .page#tasks { overflow: hidden; }
+.mobile-book .book #dataPanel { padding: 14px 16px; }
+.mobile-book .book #dataPanel .settings-column { margin: 0; }
+.mobile-book .book #dataPanel h1,.mobile-book .book #dataPanel h2 { font-size: 20px; line-height: 1.4; }
+.mobile-book .book #dataPanel .settings-row { padding: 10px 0; margin-top: 0; }
+.mobile-book .book #dataPanel .settings-row>span,.mobile-book .book #dataPanel .settings-row>div:first-child { margin-bottom: 6px; }
+.mobile-book .book #dataPanel .settings-note { margin: 8px 0 12px; font-size: 12px; }
+.mobile-book .book #dataPanel .book-right .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mobile-book .book #dataPanel .book-right .settings-row>div { margin: 0; }
+.mobile-book .book .home-workspace { margin: 22px 16px 16px; }
+.mobile-book .book .home-controls { margin-bottom: 24px; gap: 8px; flex-wrap: wrap; }
+.mobile-book .book .rec h2 { margin-bottom: 22px; }
+.mobile-book .book .home-entries { margin-top: 14px; }
+.mobile-book .book .completion-feedback { margin-top: 14px; }
+.mobile-book .book .onboarding { min-height: 0; padding: 24px 16px; height: 100%; }
+.mobile-book .book .timer-screen { position: absolute; inset: 0; min-height: 0; overflow: auto; }
+.mobile-book .book #timerName,.mobile-book .book #timerRecoveryName { margin-top: 8px; font-size: 28px; }
+.mobile-book .book .timer-description { margin-top: 12px; max-height: 100px; }
+.mobile-book .book .focus-left .book-caption { margin-top: 0; }
+.mobile-book .book .focus-left { margin-bottom: 12px; }
+.mobile-book .book #timerStatus,.mobile-book .book #timerRecoveryStatus { margin-top: 10px; }
+.mobile-book .book .focus-right { margin-top: 12px; }
+.mobile-book .book #timerClock { font-size: 64px; margin: 10px 0; }
+.mobile-book .book .timer-meta { margin: 12px 0; }
+.mobile-book .book .condition-panel { max-height: calc(100dvh - 140px) !important; min-height: 0; overflow: auto; }
+@media(orientation:landscape) {
+  .mobile-book .book #dataPanel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .mobile-book .book #dataPanel .settings-row { padding: 6px 0; }
+  .mobile-book .book #dataPanel .settings-note { margin: 6px 0 0; }
+  .mobile-book .book .mobile-task-items .task-strip { flex-basis: 44px; height: 44px; min-height: 44px; }
+  .mobile-book .book #taskList { gap: 8px; padding: 10px 14px; }
+  .mobile-book .book #taskList h1 { font-size: 20px; }
+  .mobile-book .book #taskList .book-caption { margin-top: 0; font-size: 12px; }
+  .mobile-book .book #timerStandard,.mobile-book .book #timerRecovery { display: grid; grid-template-columns: 1fr 1fr; }
 }

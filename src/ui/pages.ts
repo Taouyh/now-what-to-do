@@ -5,6 +5,8 @@ import { element, button, image, byId } from './dom';
 
 export class BookPages {
   taskPage = 0;
+  mobileTaskPageSize = 4;
+  taskResizeObserver: ResizeObserver | undefined;
   taskFocusAfterSave: string | null = null;
   directoryPage = 0;
   recordPage = 0;
@@ -14,6 +16,8 @@ export class BookPages {
   readonly app: Runtime;
 
   constructor(app: Runtime) { this.app = app; }
+
+  get taskPageSize() { return document.body.classList.contains('mobile-book') ? this.mobileTaskPageSize : 10; }
 
   pager(page: number, total: number, change: (page: number) => void, id: string) {
     const { tr } = this.app;
@@ -116,7 +120,8 @@ export class BookPages {
     const focusedTask = this.taskFocusAfterSave || document.activeElement?.closest<HTMLElement>('[data-task-id]')?.dataset.taskId;
     this.taskFocusAfterSave = null;
     const tasks = app.data.tasks.filter(task => task.enabled !== false);
-    const group = paginate(tasks, this.taskPage, 10);
+    const mobile = document.body.classList.contains('mobile-book');
+    const group = paginate(tasks, this.taskPage, this.taskPageSize);
     this.taskPage = group.page;
     const left = element('div', 'book-column book-left');
     const right = element('div', 'book-column book-right');
@@ -126,7 +131,7 @@ export class BookPages {
     right.append(heading, element('p', 'book-caption', app.tr('点击任务编辑，点击 ▶ 开始')));
     const first = element('div', 'task-strips');
     const second = element('div', 'task-strips');
-    group.items.forEach((task, index) => (index < 5 ? first : second).append(this.taskRow(task, group.start + index)));
+    group.items.forEach((task, index) => (mobile || index < 5 ? first : second).append(this.taskRow(task, group.start + index)));
     if (!tasks.length) first.append(element('p', 'empty-copy', app.tr('暂无活动')), button(app.tr('添加活动'), () => app.newTask(), 'paper-slip empty-task-add'));
     left.append(first);
     right.append(second);
@@ -136,7 +141,30 @@ export class BookPages {
       this.focusPager('tasks', page > group.page);
     }, 'tasks');
     footer.classList.add('spread-pager');
-    byId('taskList').replaceChildren(left, right, footer);
+    this.taskResizeObserver?.disconnect();
+    if (mobile) {
+      const mobileHeading = element('div', 'mobile-task-heading');
+      const title = element('div', 'column-heading');
+      title.append(left.querySelector('h1')!, heading.querySelector('button')!);
+      mobileHeading.append(title, left.querySelector('.book-caption')!);
+      first.classList.add('mobile-task-items');
+      byId('taskList').replaceChildren(mobileHeading, first, footer);
+      this.taskResizeObserver = new ResizeObserver(() => {
+        // Measure the space between the heading and pager, rather than clipping a long list.
+        const height = first.getBoundingClientRect().height;
+        if (!height || !document.body.classList.contains('mobile-book')) return;
+        const row = first.querySelector<HTMLElement>('.task-strip');
+        const rowHeight = row ? parseFloat(getComputedStyle(row).minHeight) : 52;
+        const gap = parseFloat(getComputedStyle(first).rowGap) || 0;
+        const capacity = Math.max(1, Math.floor((height + gap) / (rowHeight + gap)));
+        if (capacity === this.mobileTaskPageSize) return;
+        const anchor = this.taskPage * this.mobileTaskPageSize;
+        this.mobileTaskPageSize = capacity;
+        this.taskPage = Math.floor(anchor / capacity);
+        this.renderTasks();
+      });
+      this.taskResizeObserver.observe(first);
+    } else byId('taskList').replaceChildren(left, right, footer);
     if (focusedTask) {
       const row = document.querySelector<HTMLElement>(`[data-task-id="${CSS.escape(focusedTask)}"] .task-edit`);
       (row || document.querySelector<HTMLElement>('.task-edit,.small-action'))?.focus({preventScroll: true});
