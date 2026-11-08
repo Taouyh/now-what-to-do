@@ -53,6 +53,10 @@ test('phone resize preserves position; adding and deleting uses the current page
   const page = await context.newPage(); await seed(page); await nav(page, 'tasks'); await assertTaskBounds(page);
   await page.locator('#tasks-next').click();
   const anchor = await page.locator('.task-strip').first().getAttribute('data-task-id');
+  await page.setViewportSize({ width: 800, height: 360 }); await assertTaskBounds(page);
+  await expect(page.locator(`.task-strip[data-task-id="${anchor}"]`)).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 }); await assertTaskBounds(page);
+  await expect(page.locator(`.task-strip[data-task-id="${anchor}"]`)).toBeVisible();
   await page.setViewportSize({ width: 360, height: 568 }); await assertTaskBounds(page);
   await expect(page.locator(`.task-strip[data-task-id="${anchor}"]`)).toBeVisible();
   await page.locator('.small-action').click(); await page.locator('#name').fill('新加任务'); await page.locator('#saveActivity').click();
@@ -60,6 +64,32 @@ test('phone resize preserves position; adding and deleting uses the current page
   await page.locator('.task-edit').last().click(); await page.locator('#deleteActivity').click(); await page.locator('#confirmAccept').click();
   await assertTaskBounds(page); await expect(page.locator('.task-title', { hasText: '新加任务' })).toHaveCount(0);
   await context.close();
+});
+
+test('phone editor actions remain reachable when the viewport contracts', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, userAgent: android, hasTouch: true });
+  const page = await context.newPage(); await seed(page); await nav(page, 'tasks'); await assertTaskBounds(page);
+  await page.locator('.task-edit').first().click(); await page.locator('#name').fill('短视口保存');
+  await page.locator('#desc').fill('保留输入草稿');
+  for (const viewport of [{ width: 390, height: 360 }, { width: 800, height: 360 }]) {
+    await page.setViewportSize(viewport);
+    for (const id of ['saveActivity', 'cancelActivity', 'deleteActivity']) {
+      await expect.poll(() => page.locator(`#${id}`).evaluate(button => {
+        const r = button.getBoundingClientRect();
+        return r.top >= 0 && r.bottom <= innerHeight && button.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+      })).toBe(true);
+    }
+    await expect(page.locator('#name')).toHaveValue('短视口保存');
+  }
+  await page.locator('#saveActivity').click();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).tasks[0].description)).toBe('保留输入草稿');
+  await page.locator('.task-edit').first().click(); await page.locator('#deleteActivity').click();
+  const card = page.locator('.confirm-card'); await card.hover(); await page.mouse.wheel(0, 600);
+  await expect.poll(() => page.locator('#confirmCancel').evaluate(button => {
+    const r = button.getBoundingClientRect(); return r.bottom <= innerHeight && button.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+  })).toBe(true);
+  await page.locator('#confirmCancel').click(); await expect(page.locator('#name')).toHaveValue('短视口保存');
+  await page.locator('#cancelActivity').click(); await context.close();
 });
 
 for (const mobile of [true, false]) for (const dark of [true, false]) {

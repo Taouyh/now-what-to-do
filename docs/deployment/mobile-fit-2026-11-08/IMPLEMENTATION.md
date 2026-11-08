@@ -18,3 +18,9 @@
 - Synthetic fresh Edge contexts, no real user storage. Phone sizes: 320×568, 360×640, 390×844, 800×360. Temporary captures/logs are under `.cache/mobile-visual/` and `.cache/mobile-*.txt`.
 
 Independent fixed-source test results, candidate APK identity and Figma synchronization will be added after completion. No Android physical-device, IME, installation/upgrade or Windows acceptance is inferred from browser tests. No push, publication or Windows build is authorized in this round.
+
+## First independent checkpoint and repair
+
+The independent `c208809` checkpoint failed MOB-01 despite build and 19 browser tests passing: the inherited 470px dialog minimum made actions unreachable at 360px viewport height. Its report and evidence are preserved in [INDEPENDENT-TEST.md](INDEPENDENT-TEST.md).
+
+The repair limits only mobile dialogs to the available viewport, scrolls the editor body and keeps its action footer visible. Confirmation content remains scrollable. A stable task-ID anchor now survives portrait/landscape round trips, rather than accumulating page-start rounding. Noninteractive completion notices no longer intercept touch input. Ten developer mobile tests pass, including short-viewport button hit testing, preserved drafts, confirmation scrolling and rotation round trips. The Android preview will be rebuilt and independently rechecked; the first APK is not the final candidate.

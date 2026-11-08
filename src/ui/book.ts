@@ -15,10 +15,8 @@ export function mountBook(app: Runtime) {
   const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
   document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
   compactViewport.addEventListener('change', () => {
-    const anchor = pages.taskPage * pages.taskPageSize;
     document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
-    pages.taskPage = Math.floor(anchor / pages.taskPageSize);
-    pages.renderTasks();
+    pages.reflowTasks();
   });
   const book = element('div', 'book');
   book.id = 'book';
@@ -187,9 +185,10 @@ export function mountBook(app: Runtime) {
     renderHome: () => pages.renderHome(),
     renderTasks: () => pages.renderTasks(),
     renderToday: () => pages.renderToday(),
-    savedTask(id, added) {
+    savedTask(id) {
       pages.taskFocusAfterSave = id;
-      if (added) pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / pages.taskPageSize);
+      pages.taskAnchorId = id;
+      pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / pages.taskPageSize);
     },
     onPage(id) {
       pages.clearRecordSelection();

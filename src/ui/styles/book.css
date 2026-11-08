@@ -361,6 +361,15 @@ html:has(.mobile-book) { overflow: hidden; }
 .mobile-book .book #timerClock { font-size: 64px; margin: 10px 0; }
 .mobile-book .book .timer-meta { margin: 12px 0; }
 .mobile-book .book .condition-panel { max-height: calc(100dvh - 140px) !important; min-height: 0; overflow: auto; }
+.mobile-book .book .dialog,.mobile-book .book .confirm-card { top: 12px; min-height: 0; max-height: calc(100dvh - 24px); }
+.mobile-book .book .dialog { height: min(520px,calc(100dvh - 24px)); padding: 48px 20px 16px; overflow: hidden; }
+.mobile-book .book .activity-dialog-header { margin: 0; }
+.mobile-book .book #form { flex: 1; height: auto; min-height: 0; }
+.mobile-book .book .activity-form-body { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+.mobile-book .book .activity-dialog-footer { flex: none; margin-top: 12px; }
+.mobile-book .book .confirm-card { padding: 28px 20px; justify-content: flex-start; overflow: auto; overscroll-behavior: contain; }
+.mobile-book .book .confirm-card>* { flex-shrink: 0; }
+.mobile-book #appNotice { pointer-events: none; }
 @media(orientation:landscape) {
   .mobile-book .book #dataPanel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .mobile-book .book #dataPanel .settings-row { padding: 6px 0; }

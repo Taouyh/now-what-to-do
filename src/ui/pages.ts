@@ -5,6 +5,7 @@ import { element, button, image, byId } from './dom';
 
 export class BookPages {
   taskPage = 0;
+  taskAnchorId: string | null = null;
   mobileTaskPageSize = 4;
   taskResizeObserver: ResizeObserver | undefined;
   taskFocusAfterSave: string | null = null;
@@ -18,6 +19,13 @@ export class BookPages {
   constructor(app: Runtime) { this.app = app; }
 
   get taskPageSize() { return document.body.classList.contains('mobile-book') ? this.mobileTaskPageSize : 10; }
+
+  reflowTasks() {
+    const tasks = this.app.data.tasks.filter(task => task.enabled !== false);
+    const anchor = Math.max(0, tasks.findIndex(task => task.id === this.taskAnchorId));
+    this.taskPage = Math.floor(anchor / this.taskPageSize);
+    this.renderTasks();
+  }
 
   pager(page: number, total: number, change: (page: number) => void, id: string) {
     const { tr } = this.app;
@@ -123,6 +131,7 @@ export class BookPages {
     const mobile = document.body.classList.contains('mobile-book');
     const group = paginate(tasks, this.taskPage, this.taskPageSize);
     this.taskPage = group.page;
+    if (!group.items.some(task => task.id === this.taskAnchorId)) this.taskAnchorId = group.items[0]?.id || null;
     const left = element('div', 'book-column book-left');
     const right = element('div', 'book-column book-right');
     left.append(element('h1', '', app.tr('任务')), element('p', 'book-caption', app.tr('共 {count} 项 · {time}', { count: tasks.length, time: app.minutes ? app.formatDuration(app.minutes * 60000) : '—' })));
@@ -158,10 +167,8 @@ export class BookPages {
         const gap = parseFloat(getComputedStyle(first).rowGap) || 0;
         const capacity = Math.max(1, Math.floor((height + gap) / (rowHeight + gap)));
         if (capacity === this.mobileTaskPageSize) return;
-        const anchor = this.taskPage * this.mobileTaskPageSize;
         this.mobileTaskPageSize = capacity;
-        this.taskPage = Math.floor(anchor / capacity);
-        this.renderTasks();
+        this.reflowTasks();
       });
       this.taskResizeObserver.observe(first);
     } else byId('taskList').replaceChildren(left, right, footer);
