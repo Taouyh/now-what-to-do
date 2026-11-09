@@ -1,0 +1,19 @@
+{
+  "version": "1.4.1",
+  "sourceCommit": "39d64f18bb6ffcf5125a05719ccbf492dcc1ce81",
+  "androidVersionCode": 7,
+  "artifacts": [
+    {
+      "path": "D:\\code\\now-what-to-do\\dist\\native-preview-1.4.1\\windows\\Now-What-1.4.1-Windows-x64-Setup.exe",
+      "bytes": 19500594,
+      "sha256": "47f2924ea30f317c363aceed09bce796d0cd7a81ff6c81173e3763fa9be1f6fa"
+    },
+    {
+      "path": "D:\\code\\now-what-to-do\\dist\\native-preview-1.4.1\\android\\Now-What-1.4.1-Android.apk",
+      "bytes": 19064578,
+      "sha256": "e1c284f8358cb780bdfcd234693c8e9efd634a35f8ea6025fed55af4b1576753"
+    }
+  ],
+  "androidCertificateSha256": "08d941113e6b6cde7147cbbd7eee37345b0d36c477c8472707db2b9aef4b4a15",
+  "publication": "local only; independently verified within documented scope; awaiting user native acceptance"
+}
