@@ -171,6 +171,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .timer-description { flex: 1 1 auto; min-height: 0; overflow: auto; width: 100%; max-width: none; margin: 7% 0 12px; text-align: left; font-size: clamp(14px,1.39cqw,20px); }
 .book .timer-desc { max-height: none; overflow: visible; font-size: clamp(16px,1.39cqw,20px); line-height: 1.7; text-align: center; white-space: pre-wrap; }
 .book .timer-description>summary,.book .description-options>summary { text-align: center; }
+.book .description-options>summary { width: 100%; justify-content: center; }
 .book #timerStatus,.book #timerRecoveryStatus { position: static; flex: none; margin: auto 0 0; color: var(--muted-ink); background: none; border: 0; padding: 0; font-size: clamp(14px,1.39cqw,20px); }
 .focus-right { text-align: center; top: 15%; }
 .book #timerClock { font: clamp(64px,8.89cqw,128px)/1.1 'EB Garamond Variable',serif; color: var(--ink); letter-spacing: -2px; margin: 3% 0 4%; }

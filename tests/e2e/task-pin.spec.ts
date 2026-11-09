@@ -21,6 +21,11 @@ for (const language of ['zh-CN', 'en', 'ja']) test(`web pin pagination and open 
   await page.locator('[data-task-id="pin-11"] .task-edit').click();
   await expect(page.locator('#activityOptions')).toHaveAttribute('open', '');
   await expect(page.locator('#descriptionToggle')).toHaveCSS('text-align', 'center');
+  expect(await page.locator('#descriptionToggle').evaluate(el => {
+    const range = document.createRange(); range.selectNodeContents(el);
+    const text = range.getBoundingClientRect(), parent = el.parentElement!.getBoundingClientRect();
+    return Math.abs(text.x + text.width / 2 - parent.x - parent.width / 2);
+  })).toBeLessThan(1);
   await page.locator('#cancelActivity').click();
   await page.locator('[data-task-id="pin-11"] .task-play').click();
   await expect(page.locator('#timerDescription')).toHaveAttribute('open', '');
