@@ -20,8 +20,14 @@ export class BookPages {
 
   get taskPageSize() { return document.body.classList.contains('mobile-book') ? this.mobileTaskPageSize : 10; }
 
+  get orderedTasks() {
+    // Sort a copy: pinning affects the task directory, never recommendation order.
+    return this.app.data.tasks.filter(task => task.enabled !== false)
+      .sort((a, b) => Number(b.pinned === true) - Number(a.pinned === true));
+  }
+
   reflowTasks() {
-    const tasks = this.app.data.tasks.filter(task => task.enabled !== false);
+    const tasks = this.orderedTasks;
     const anchor = Math.max(0, tasks.findIndex(task => task.id === this.taskAnchorId));
     this.taskPage = Math.floor(anchor / this.taskPageSize);
     this.renderTasks();
@@ -78,7 +84,7 @@ export class BookPages {
         completed.draft = task.description || '';
         this.renderHome();
         byId('continuationInput').focus();
-      }, 'paper-button continuation-trigger');
+      }, 'paper-slip continuation-trigger');
       next.setAttribute('aria-label', tr('为「{name}」记录下次起点', { name: completed.taskName }));
       const target = element('span', 'continuation-target user-text', completed.taskName);
       target.title = completed.taskName;
@@ -119,7 +125,19 @@ export class BookPages {
     start.title = app.tr('开始');
     start.setAttribute('aria-label', app.tr('开始'));
     start.append(image('task-play.svg'));
-    row.append(edit, start);
+    const pin = button('', () => {
+      if (!app.toggleTaskPin(task.id)) return;
+      this.taskAnchorId = task.id;
+      this.taskPage = Math.floor(this.orderedTasks.findIndex(item => item.id === task.id) / this.taskPageSize);
+      this.renderTasks();
+      document.querySelector<HTMLButtonElement>(`[data-task-id="${CSS.escape(task.id)}"] .task-pin`)?.focus({ preventScroll: true });
+    }, 'task-pin icon-button');
+    pin.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 6 4 4v2H5v-2l4-4-1-6Z"/><path d="M12 15v6"/></svg>';
+    pin.title = app.tr(task.pinned ? '取消置顶' : '置顶');
+    pin.setAttribute('aria-label', app.tr(task.pinned ? '取消置顶：{name}' : '置顶：{name}', { name: task.name }));
+    pin.setAttribute('aria-pressed', String(task.pinned === true));
+    row.classList.toggle('is-pinned', task.pinned === true);
+    row.append(edit, pin, start);
     return row;
   }
 
@@ -127,7 +145,7 @@ export class BookPages {
     const { app } = this;
     const focusedTask = this.taskFocusAfterSave || document.activeElement?.closest<HTMLElement>('[data-task-id]')?.dataset.taskId;
     this.taskFocusAfterSave = null;
-    const tasks = app.data.tasks.filter(task => task.enabled !== false);
+    const tasks = this.orderedTasks;
     const mobile = document.body.classList.contains('mobile-book');
     const group = paginate(tasks, this.taskPage, this.taskPageSize);
     this.taskPage = group.page;

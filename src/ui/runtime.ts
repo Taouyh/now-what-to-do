@@ -29,6 +29,7 @@ export interface Runtime {
   newTask(): void;
   closeActivity(): void;
   delTask(id: string): void;
+  toggleTaskPin(id: string): boolean;
   saveActivity(draft: { id?: string; name: string; description: string; requirements: Requirements }): boolean;
   timerState(): { completionId: string; taskId: string; elapsed: number; durationMs: number; paused: boolean; finished: boolean; recoveryReason?: string } | null;
   discardTimer(): void;

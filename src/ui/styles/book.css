@@ -90,7 +90,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .completion-feedback { text-align: left; font-size: clamp(13px,1.11cqw,16px); margin-top: 10px; color: var(--muted-ink); }
 .feedback-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .feedback-heading .user-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.book .continuation-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; text-align: left; font-size: clamp(14px,1.32cqw,18px); font-weight: 600; }
+.book .continuation-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 6px 24px 6px 14px; border: 0; border-radius: 0; box-shadow: none; text-align: left; color: var(--ink); font-size: clamp(14px,1.32cqw,18px); font-weight: 600; }
 .continuation-verb { flex: none; }.continuation-separator { flex: none; opacity: .55; }
 .continuation-target { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400; }
 .continuation-label { display: block; color: var(--ink); font-weight: 500; line-height: 1.5; margin-bottom: 6px; max-height: 3em; overflow: auto; overflow-wrap: anywhere; }
@@ -130,6 +130,11 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .task-title { font: 500 clamp(16px,1.53cqw,22px)/1.45 'Noto Serif SC Variable',serif; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow-wrap: anywhere; }
 .book .task-play { flex: 0 0 44px; height: 44px; margin-right: 9px; }
 .task-play img { width: 20px; height: 20px; object-fit: contain; }
+.book .task-pin { flex: 0 0 36px; width: 36px; height: 36px; padding: 8px; border: 0; border-radius: 50%; background: transparent; color: var(--muted-ink); }
+.task-pin svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.book .task-pin:hover,.book .task-pin:focus-visible { background: #89533226; color: var(--ink); outline: none; }
+.book .task-pin[aria-pressed=true] { color: var(--ink); background: #89533226; }
+.task-pin[aria-pressed=true] svg path:first-child { fill: currentColor; }
 .book-pager { position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; }
 .book-pager button { font-size: clamp(14px,1.25cqw,18px); }
 .spread-pager { left: 8.06%; right: 9.16%; bottom: 8%; }
@@ -165,6 +170,7 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book #timerName,.book #timerRecoveryName { flex: 0 1 auto; min-height: 1.5em; max-height: 33%; }
 .book .timer-description { flex: 1 1 auto; min-height: 0; overflow: auto; width: 100%; max-width: none; margin: 7% 0 12px; text-align: left; font-size: clamp(14px,1.39cqw,20px); }
 .book .timer-desc { max-height: none; overflow: visible; font-size: clamp(16px,1.39cqw,20px); line-height: 1.7; text-align: center; white-space: pre-wrap; }
+.book .timer-description>summary,.book .description-options>summary { text-align: center; }
 .book #timerStatus,.book #timerRecoveryStatus { position: static; flex: none; margin: auto 0 0; color: var(--muted-ink); background: none; border: 0; padding: 0; font-size: clamp(14px,1.39cqw,20px); }
 .focus-right { text-align: center; top: 15%; }
 .book #timerClock { font: clamp(64px,8.89cqw,128px)/1.1 'EB Garamond Variable',serif; color: var(--ink); letter-spacing: -2px; margin: 3% 0 4%; }

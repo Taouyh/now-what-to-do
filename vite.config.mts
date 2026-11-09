@@ -11,7 +11,7 @@ export const runtime = {
   get conditions() { return conditions }, get blocked() { return storageBlocked },
   get skipped() { return recommendationSkipped }, get feedback() { return completionFeedback },
   get storageErrors() { return storageFailures },
-  tr, page, random, run, startRecommendation, edit, newTask, closeActivity, delTask, saveActivity,
+  tr, page, random, run, startRecommendation, edit, newTask, closeActivity, delTask, saveActivity, toggleTaskPin,
   timerState, finishTimer, discardTimer, pauseTimer, resumeTimer, extendTimer,
   formatDuration, formatClock, recordDurationMs, recordsForLocalDay, todayRecordGroups,
   recordCompactTimeRange, plannedDurationMs, activityRequirements, selectionReady, settleEmptyCustomTime,

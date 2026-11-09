@@ -188,7 +188,7 @@ export function mountBook(app: Runtime) {
     savedTask(id) {
       pages.taskFocusAfterSave = id;
       pages.taskAnchorId = id;
-      pages.taskPage = Math.floor(app.data.tasks.filter(item => item.enabled !== false).findIndex(item => item.id === id) / pages.taskPageSize);
+      pages.taskPage = Math.floor(pages.orderedTasks.findIndex(item => item.id === id) / pages.taskPageSize);
     },
     onPage(id) {
       pages.clearRecordSelection();

@@ -12,6 +12,7 @@ export interface Task {
   nextStep?: string;
   requirements?: Partial<Requirements>;
   enabled?: boolean;
+  pinned?: boolean;
   [key: string]: unknown;
 }
 

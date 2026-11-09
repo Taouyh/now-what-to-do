@@ -1,5 +1,10 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "置顶": {"en":"Pin","ja":"固定"},
+  "取消置顶": {"en":"Unpin","ja":"固定を解除"},
+  "置顶：{name}": {"en":"Pin: {name}","ja":"固定：{name}"},
+  "取消置顶：{name}": {"en":"Unpin: {name}","ja":"固定を解除：{name}"},
+  "任务置顶状态无效。": {"en":"Invalid task pin status.","ja":"活動の固定状態が無効です。"},
   "你想做什么": {"en":"What would you like to do?","ja":"何をしたい？"},
   "关闭": {"en":"Close","ja":"閉じる"},
   "确定": {"en":"Done","ja":"確定"},

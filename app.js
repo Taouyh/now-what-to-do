@@ -45,6 +45,7 @@ function validateData(x){
     else if(!object(t.requirements)||REQUIREMENT_KEYS.some(k=>t.requirements[k]!==undefined&&typeof t.requirements[k]!=='boolean'))throw Error(tr('活动条件必须为布尔值。'));
     if(t.minutes!==undefined&&(!Number.isFinite(t.minutes)||t.minutes<1||t.minutes>1440)||t.env!==undefined&&!['quiet','noisy','class'].includes(t.env)||t.computer!==undefined&&typeof t.computer!=='boolean')throw Error(tr('旧活动字段无效。'));
     if(t.description!==undefined&&typeof t.description!=='string'||t.enabled!==undefined&&typeof t.enabled!=='boolean')throw Error(tr('任务说明或启用状态无效。'));
+    if(t.pinned!==undefined&&typeof t.pinned!=='boolean')throw Error(tr('任务置顶状态无效。'));
     if(t.nextStep!==undefined&&(typeof t.nextStep!=='string'||t.nextStep.length>200))throw Error(tr('活动下一步无效。'));
     if(t.activityCategory!==undefined&&t.activityCategory!==''&&!LEGACY_ACTIVITY_CATEGORIES.includes(t.activityCategory))throw Error(tr('活动分类无效。'));
     taskIds.add(t.id);
@@ -340,7 +341,7 @@ function updateRecommendation({keepCurrent=false,avoidId=null}={}){
     const actions=textElement('div','','actions');actions.id='recommendationActions';
     const begin=actionButton(tr('开始'),()=>startRecommendation(id),'primary','start'),play=textElement('span','','play-icon');play.setAttribute('aria-hidden','true');begin.replaceChildren(play,textElement('span',tr('开始')));
     recommendationChange.classList.toggle('hide',available.length<2);actions.append(begin,recommendationChange);b.append(actions);
-    if(cur.description){const description=textElement('details','','recommendation-details');description.append(textElement('summary',tr('活动说明')),textElement('p',cur.description,'muted user-text'));b.append(description)}
+    if(cur.description){const description=textElement('details','','recommendation-details');description.open=true;description.append(textElement('summary',tr('活动说明')),textElement('p',cur.description,'muted user-text'));b.append(description)}
   }
   b.classList.remove('hide');
 }
@@ -374,7 +375,7 @@ function toggleRecommendationMenu(id,anchor,mouse=false){
 }
 $('recommendationMenuEdit').onclick=()=>{const id=recommendationMenuContext?.id;if(id)editNextStep(id)};
 
-function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=false;if(bookView&&timerState())page('home');if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
+function run(t){const starting=!timerState();cur=t;startTimer(t);if(starting)$('timerDescription').open=true;if(bookView&&timerState())page('home');if(!$('timer').classList.contains('hide'))($('pauseTimer')||$('extendTimer'))?.focus({preventScroll:true})}
 const TIMER_CHECKPOINT_MS=5000,TIMER_LONG_PAUSE_MS=60*60*1000,TIMER_UNOBSERVED_MS=2*60*1000;
 let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0,timerFrozen=null,timerCleanupId=null;
 let timerView='full';
@@ -715,6 +716,14 @@ $('file').addEventListener('change',e=>{
     r.readAsText(f);
   }catch(err){fail(tr('无法读取文件，现有数据未更改。'))}
 },true);
+function toggleTaskPin(id){
+  const task=d.tasks.find(item=>item.id===id);
+  if(!task||storageBlocked)return false;
+  const candidate={...d,tasks:d.tasks.map(item=>item.id===id?{...item,pinned:item.pinned!==true}:item)};
+  if(!save(candidate))return false;
+  d=candidate;
+  return true;
+}
 function saveActivity({id='',name,requirements={computer:false,audio:false,speech:false,uninterrupted:false},description=''}){
   name=name.trim();
   if(!name||!requirements||REQUIREMENT_KEYS.some(k=>typeof requirements[k]!=='boolean')){const error=$('activityError');if(error)error.textContent=tr('请填写活动名称并检查需要的条件。');$('name').setAttribute('aria-invalid','true');$('name').focus();notify(tr('请填写活动名称并检查需要的条件。'));return false}
@@ -973,9 +982,9 @@ function newTask(){
   $('requirementsOptions').open=false;
   $('desc').style.height='44px';
   $('saveActivity').textContent=tr('添加');
-  $('activityOptions').open=false;syncDescriptionToggle();syncDialogState();bookView?.onEditor();$('name').focus();
+  $('activityOptions').open=true;syncDescriptionToggle();syncDialogState();bookView?.onEditor();$('name').focus();
 }
-function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=!!t.description;syncDescriptionToggle();bookView?.onEditor()}
+function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=true;syncDescriptionToggle();bookView?.onEditor()}
 function delTask(id){openConfirm('delete',id)}
 function resizeActivityDescription(){
   const input=$('desc');if(!input.getClientRects?.().length)return;
