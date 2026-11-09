@@ -218,6 +218,12 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .confirm-card { display: flex; flex-direction: column; justify-content: center; gap: 12px; text-align: left; }
 .book .confirm-card h2 { font-size: clamp(24px,2.3cqw,33px); }.book .confirm-card p { margin: 0; }
 .book .confirm-card::after { pointer-events: none; }
+.book #confirmLayer.confirm-import .confirm-card { padding: 26px 24px; justify-content: flex-start; gap: 8px; }
+.book #confirmLayer.confirm-import .confirm-card>* { flex-shrink: 0; }
+.book #confirmLayer.confirm-import .confirm-card h2 { font-size: clamp(20px,2cqw,28px); line-height: 1.35; margin: 0; }
+.book #confirmLayer.confirm-import #confirmText { flex: 1 1 auto; min-height: 0; overflow: auto; }
+.book #confirmLayer.confirm-import .confirm-task { padding: 8px 0; margin: 4px 0; }
+.book #confirmLayer.confirm-import .confirm-actions { margin-top: auto; }
 @media(min-width:801px) and (min-height:551px) {
   @container (max-width:850px) {
     .book #taskList .book-column { top: 10%; height: 68%; display: flex; flex-direction: column; }
