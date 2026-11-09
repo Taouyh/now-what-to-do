@@ -1,0 +1,2780 @@
+{
+  "sourceCommit": "b8b887871fa4c9f1325a2aabb88b2cee22cf30ab",
+  "account": {
+    "handle": "3966592487",
+    "userId": "1698571271826901612"
+  },
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "page": "49:243",
+  "session": "bc222b46-0039-4d8e-b227-e951b737f337",
+  "source": [
+    {
+      "language": "zh-CN",
+      "theme": "light",
+      "tasks": [
+        {
+          "text": "添加",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(69, 42, 26)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px \"Noto Sans SC Variable\", sans-serif",
+          "border": "0px none rgb(69, 42, 26)"
+        }
+      ],
+      "import": [
+        {
+          "text": "取消",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 625.453125,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "确认",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 625.453125,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "继续",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "结束并记录",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    },
+    {
+      "language": "zh-CN",
+      "theme": "dark",
+      "tasks": [
+        {
+          "text": "添加",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px \"Noto Sans SC Variable\", sans-serif",
+          "border": "0px none rgb(241, 223, 182)"
+        }
+      ],
+      "import": [
+        {
+          "text": "取消",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 625.453125,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "确认",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 625.453125,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "继续",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "结束并记录",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "tasks": [
+        {
+          "text": "Add",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(69, 42, 26)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "border": "0px none rgb(69, 42, 26)"
+        }
+      ],
+      "import": [
+        {
+          "text": "Cancel",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 636.65625,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "Confirm",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 636.65625,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "Resume",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "End and save",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "tasks": [
+        {
+          "text": "Add",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "border": "0px none rgb(241, 223, 182)"
+        }
+      ],
+      "import": [
+        {
+          "text": "Cancel",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 636.65625,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "Confirm",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 636.65625,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "Resume",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "End and save",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "theme": "light",
+      "tasks": [
+        {
+          "text": "追加",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(69, 42, 26)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px \"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "border": "0px none rgb(69, 42, 26)"
+        }
+      ],
+      "import": [
+        {
+          "text": "キャンセル",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 636.65625,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "確認する",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 636.65625,
+          "color": "rgb(69, 42, 26)",
+          "bg": "linear-gradient(rgb(248, 235, 201), rgb(214, 183, 131))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "再開",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "終了して記録",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    },
+    {
+      "language": "ja",
+      "theme": "dark",
+      "tasks": [
+        {
+          "text": "追加",
+          "w": 530.0625,
+          "h": 40.796875,
+          "x": 858.03125,
+          "y": 245.921875,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "font": "20px / 32px \"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "border": "0px none rgb(241, 223, 182)"
+        }
+      ],
+      "import": [
+        {
+          "text": "キャンセル",
+          "w": 254.015625,
+          "h": 44,
+          "x": 879.953125,
+          "y": 636.65625,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        },
+        {
+          "text": "確認する",
+          "w": 254.015625,
+          "h": 44,
+          "x": 1145.96875,
+          "y": 636.65625,
+          "color": "rgb(241, 223, 182)",
+          "bg": "none",
+          "fill": "rgb(80, 61, 44)",
+          "radius": "24px",
+          "font": "500 18px / 26.1px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgba(168, 133, 84, 0.8)"
+        }
+      ],
+      "expired": [
+        {
+          "text": "再開",
+          "w": 259.03125,
+          "h": 48,
+          "x": 858.03125,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        },
+        {
+          "text": "終了して記録",
+          "w": 259.03125,
+          "h": 48,
+          "x": 1129.0625,
+          "y": 587.65625,
+          "color": "rgb(241, 220, 173)",
+          "bg": "linear-gradient(rgb(161, 107, 67), rgb(137, 83, 50) 22%, rgb(99, 53, 31))",
+          "fill": "rgba(0, 0, 0, 0)",
+          "radius": "6px",
+          "font": "20px / 32px \"Noto Serif SC Variable\", serif",
+          "border": "1px solid rgb(197, 155, 96)"
+        }
+      ]
+    }
+  ],
+  "before": {
+    "out": [
+      {
+        "id": "151:3405",
+        "children": [
+          {
+            "id": "315:4318",
+            "parent": "315:4313",
+            "name": "添加活动",
+            "type": "TEXT",
+            "text": "添加活动",
+            "x": 180,
+            "y": 78,
+            "w": 80,
+            "h": 30
+          },
+          {
+            "id": "151:3649",
+            "parent": "151:3648",
+            "name": "C / 续页标题",
+            "type": "TEXT",
+            "text": "任务 · 续页",
+            "x": 0,
+            "y": 3.5,
+            "w": 146,
+            "h": 45
+          },
+          {
+            "id": "I151:3651;111:3030",
+            "parent": "151:3651",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "添加",
+            "x": 75,
+            "y": 11,
+            "w": 40,
+            "h": 30
+          },
+          {
+            "id": "151:3807",
+            "parent": "151:3806",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4349"
+          },
+          {
+            "id": "151:3810",
+            "parent": "151:3809",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4343"
+          }
+        ]
+      },
+      {
+        "id": "151:3813",
+        "children": [
+          {
+            "id": "151:4057",
+            "parent": "151:4056",
+            "name": "C / 续页标题",
+            "type": "TEXT",
+            "text": "任务 · 续页",
+            "x": 0,
+            "y": 3.5,
+            "w": 146,
+            "h": 45
+          },
+          {
+            "id": "I151:4059;111:3030",
+            "parent": "151:4059",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "＋ 添加任务",
+            "x": 42,
+            "y": 11,
+            "w": 106,
+            "h": 30
+          },
+          {
+            "id": "151:4142",
+            "parent": "151:4141",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "151:4145",
+            "parent": "151:4144",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4349"
+          }
+        ]
+      },
+      {
+        "id": "408:6136",
+        "children": [
+          {
+            "id": "408:6201",
+            "parent": "408:6199",
+            "name": "添加活动",
+            "type": "TEXT",
+            "text": "添加活动",
+            "x": 180,
+            "y": 78,
+            "w": 80,
+            "h": 30
+          },
+          {
+            "id": "408:6205",
+            "parent": "408:6192",
+            "name": "Web / 取消置顶 · 画画",
+            "type": "INSTANCE",
+            "x": 441.0625,
+            "y": 13.9609375,
+            "w": 36,
+            "h": 36,
+            "main": "406:6098"
+          },
+          {
+            "id": "408:6209",
+            "parent": "408:6208",
+            "name": "C / 续页标题",
+            "type": "TEXT",
+            "text": "任务 · 续页",
+            "x": 0,
+            "y": 3.5,
+            "w": 146,
+            "h": 45
+          },
+          {
+            "id": "I408:6211;111:3030",
+            "parent": "408:6211",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "添加",
+            "x": 75,
+            "y": 11,
+            "w": 40,
+            "h": 30
+          },
+          {
+            "id": "408:6225",
+            "parent": "408:6224",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4349"
+          },
+          {
+            "id": "408:6227",
+            "parent": "408:6226",
+            "name": "C / Compact navigation / Capsule · 2026-11-06",
+            "type": "INSTANCE",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 44,
+            "main": "342:4343"
+          }
+        ]
+      },
+      {
+        "id": "71:1566",
+        "children": [
+          {
+            "id": "406:6187",
+            "parent": "71:1617",
+            "name": "活动说明正文",
+            "type": "TEXT",
+            "text": "打开课程，接着上次的位置继续学习。",
+            "x": 0,
+            "y": 245.390625,
+            "w": 530.0625,
+            "h": 34
+          },
+          {
+            "id": "I71:1643;74:1214",
+            "parent": "71:1643",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "继续",
+            "x": 104,
+            "y": 15.5,
+            "w": 46,
+            "h": 33
+          },
+          {
+            "id": "71:1644",
+            "parent": "71:1642",
+            "name": "专注操作 / 结束并记录",
+            "type": "INSTANCE",
+            "x": 236,
+            "y": 0,
+            "w": 220,
+            "h": 64,
+            "main": "75:1186"
+          },
+          {
+            "id": "I71:1644;75:1187",
+            "parent": "71:1644",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "结束并记录",
+            "x": 52.5,
+            "y": 15.5,
+            "w": 115,
+            "h": 33
+          }
+        ]
+      },
+      {
+        "id": "114:3620",
+        "children": [
+          {
+            "id": "114:3635",
+            "parent": "114:3633",
+            "name": "便签说明",
+            "type": "TEXT",
+            "text": "导入将替换当前活动和记录。",
+            "x": 0,
+            "y": 66,
+            "w": 456,
+            "h": 30
+          },
+          {
+            "id": "I114:3638;111:3030",
+            "parent": "114:3638",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "确认导入",
+            "x": 90,
+            "y": 11,
+            "w": 80,
+            "h": 30
+          },
+          {
+            "id": "I114:3640;111:3024",
+            "parent": "114:3640",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "取消",
+            "x": 110,
+            "y": 11,
+            "w": 40,
+            "h": 30
+          }
+        ]
+      },
+      {
+        "id": "111:6815",
+        "children": [
+          {
+            "id": "I111:6901;111:3024",
+            "parent": "111:6901",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "导入",
+            "x": 85,
+            "y": 11,
+            "w": 40,
+            "h": 30
+          },
+          {
+            "id": "111:7024",
+            "parent": "111:6937",
+            "name": "便签说明",
+            "type": "TEXT",
+            "text": "导入将替换当前活动和记录。",
+            "x": 0,
+            "y": 66,
+            "w": 456,
+            "h": 30
+          },
+          {
+            "id": "I111:7027;111:3030",
+            "parent": "111:7027",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "确认导入",
+            "x": 90,
+            "y": 11,
+            "w": 80,
+            "h": 30
+          },
+          {
+            "id": "I111:7030;111:3024",
+            "parent": "111:7030",
+            "name": "Label",
+            "type": "TEXT",
+            "text": "取消",
+            "x": 110,
+            "y": 11,
+            "w": 40,
+            "h": 30
+          }
+        ]
+      },
+      {
+        "id": "342:4359",
+        "children": []
+      }
+    ],
+    "reactions": [
+      {
+        "id": "49:244",
+        "hash": "534bb8fc"
+      },
+      {
+        "id": "49:360",
+        "hash": "56694313"
+      },
+      {
+        "id": "49:515",
+        "hash": "65caa85a"
+      },
+      {
+        "id": "49:539",
+        "hash": "e6017c4d"
+      },
+      {
+        "id": "49:563",
+        "hash": "844fd2fb"
+      },
+      {
+        "id": "49:587",
+        "hash": "888d95bf"
+      },
+      {
+        "id": "49:611",
+        "hash": "ed97bdca"
+      },
+      {
+        "id": "51:363",
+        "hash": "303a6df6"
+      },
+      {
+        "id": "51:567",
+        "hash": "e4683850"
+      },
+      {
+        "id": "61:542",
+        "hash": "56d017ca"
+      },
+      {
+        "id": "61:544",
+        "hash": "129b0f68"
+      },
+      {
+        "id": "61:550",
+        "hash": "388cf0a8"
+      },
+      {
+        "id": "61:700",
+        "hash": "59d303bb"
+      },
+      {
+        "id": "62:3087",
+        "hash": "e6f3531e"
+      },
+      {
+        "id": "62:3281",
+        "hash": "f98b999c"
+      },
+      {
+        "id": "62:3475",
+        "hash": "2dc3b023"
+      },
+      {
+        "id": "62:3675",
+        "hash": "2ec6a98"
+      },
+      {
+        "id": "62:3879",
+        "hash": "b2e7af24"
+      },
+      {
+        "id": "62:4079",
+        "hash": "afc2e70d"
+      },
+      {
+        "id": "71:1035",
+        "hash": "12512988"
+      },
+      {
+        "id": "71:1045",
+        "hash": "cd820a27"
+      },
+      {
+        "id": "71:1219",
+        "hash": "733a8e6a"
+      },
+      {
+        "id": "71:1338",
+        "hash": "fe72814e"
+      },
+      {
+        "id": "71:1419",
+        "hash": "75a8ada0"
+      },
+      {
+        "id": "71:1566",
+        "hash": "98e8e173"
+      },
+      {
+        "id": "71:1685",
+        "hash": "15b63fe4"
+      },
+      {
+        "id": "75:1198",
+        "hash": "ca8daa41"
+      },
+      {
+        "id": "87:1236",
+        "hash": "b75ee6d1"
+      },
+      {
+        "id": "87:1306",
+        "hash": "78329c2b"
+      },
+      {
+        "id": "87:1320",
+        "hash": "189b9b66"
+      },
+      {
+        "id": "87:1321",
+        "hash": "5676a6d4"
+      },
+      {
+        "id": "87:1603",
+        "hash": "476d3263"
+      },
+      {
+        "id": "87:1815",
+        "hash": "f91c3092"
+      },
+      {
+        "id": "87:2027",
+        "hash": "df329b92"
+      },
+      {
+        "id": "93:1678",
+        "hash": "cf61d9ec"
+      },
+      {
+        "id": "104:1811",
+        "hash": "4eaa1b68"
+      },
+      {
+        "id": "104:2220",
+        "hash": "5d119fa8"
+      },
+      {
+        "id": "104:2223",
+        "hash": "43eab386"
+      },
+      {
+        "id": "104:2585",
+        "hash": "ef15d1be"
+      },
+      {
+        "id": "104:2921",
+        "hash": "156019e1"
+      },
+      {
+        "id": "104:3257",
+        "hash": "f26328c4"
+      },
+      {
+        "id": "104:3592",
+        "hash": "ec9d88e3"
+      },
+      {
+        "id": "104:3924",
+        "hash": "1e24cc8d"
+      },
+      {
+        "id": "104:4256",
+        "hash": "ee0cc83b"
+      },
+      {
+        "id": "111:3035",
+        "hash": "42fcc2b"
+      },
+      {
+        "id": "111:3036",
+        "hash": "db9e5bd1"
+      },
+      {
+        "id": "111:3329",
+        "hash": "e27ab2e6"
+      },
+      {
+        "id": "111:3634",
+        "hash": "bc0cda88"
+      },
+      {
+        "id": "111:3940",
+        "hash": "116c91a"
+      },
+      {
+        "id": "111:4246",
+        "hash": "42efaedb"
+      },
+      {
+        "id": "111:4545",
+        "hash": "478d02e0"
+      },
+      {
+        "id": "111:4832",
+        "hash": "162335e8"
+      },
+      {
+        "id": "111:5147",
+        "hash": "e0ca5f5b"
+      },
+      {
+        "id": "111:5493",
+        "hash": "587bb08c"
+      },
+      {
+        "id": "111:5808",
+        "hash": "ee535735"
+      },
+      {
+        "id": "111:6154",
+        "hash": "36c28a0b"
+      },
+      {
+        "id": "111:6469",
+        "hash": "aadc95df"
+      },
+      {
+        "id": "111:6815",
+        "hash": "eaafd0ae"
+      },
+      {
+        "id": "111:7032",
+        "hash": "38d75276"
+      },
+      {
+        "id": "111:7226",
+        "hash": "15b4a053"
+      },
+      {
+        "id": "114:3620",
+        "hash": "b4fee69c"
+      },
+      {
+        "id": "114:3651",
+        "hash": "be5e919c"
+      },
+      {
+        "id": "114:3679",
+        "hash": "1e717775"
+      },
+      {
+        "id": "151:3405",
+        "hash": "468587cc"
+      },
+      {
+        "id": "151:3813",
+        "hash": "26a16044"
+      },
+      {
+        "id": "151:4148",
+        "hash": "67886bef"
+      },
+      {
+        "id": "151:4235",
+        "hash": "40ba3d42"
+      },
+      {
+        "id": "151:4308",
+        "hash": "676704da"
+      },
+      {
+        "id": "151:4354",
+        "hash": "33efc72d"
+      },
+      {
+        "id": "151:4661",
+        "hash": "5745541d"
+      },
+      {
+        "id": "151:4958",
+        "hash": "4072455a"
+      },
+      {
+        "id": "151:5298",
+        "hash": "99362fee"
+      },
+      {
+        "id": "151:5612",
+        "hash": "1f5220d5"
+      },
+      {
+        "id": "151:5926",
+        "hash": "946f5886"
+      },
+      {
+        "id": "151:6240",
+        "hash": "c1dad8a6"
+      },
+      {
+        "id": "151:6554",
+        "hash": "eb53696a"
+      },
+      {
+        "id": "151:6858",
+        "hash": "9adc9e8c"
+      },
+      {
+        "id": "151:7162",
+        "hash": "4caa09fd"
+      },
+      {
+        "id": "151:7466",
+        "hash": "8fc9bf3f"
+      },
+      {
+        "id": "198:3966",
+        "hash": "36030223"
+      },
+      {
+        "id": "198:4039",
+        "hash": "f46b2f31"
+      },
+      {
+        "id": "203:4267",
+        "hash": "34199d16"
+      },
+      {
+        "id": "203:4383",
+        "hash": "573b17f6"
+      },
+      {
+        "id": "205:4085",
+        "hash": "1e3dd474"
+      },
+      {
+        "id": "205:4260",
+        "hash": "441fcffe"
+      },
+      {
+        "id": "234:4153",
+        "hash": "959a8bd0"
+      },
+      {
+        "id": "234:4227",
+        "hash": "c2faa23d"
+      },
+      {
+        "id": "268:4276",
+        "hash": "1bec2d5c"
+      },
+      {
+        "id": "270:4257",
+        "hash": "7cdf33a9"
+      },
+      {
+        "id": "296:4291",
+        "hash": "bfa07cf"
+      },
+      {
+        "id": "296:4310",
+        "hash": "aa28aa67"
+      },
+      {
+        "id": "299:4291",
+        "hash": "9430575a"
+      },
+      {
+        "id": "313:4315",
+        "hash": "7ae6ffbd"
+      },
+      {
+        "id": "317:4311",
+        "hash": "b5d3891d"
+      },
+      {
+        "id": "342:4359",
+        "hash": "ee4b88f1"
+      },
+      {
+        "id": "346:4343",
+        "hash": "24f8fe7f"
+      },
+      {
+        "id": "360:4380",
+        "hash": "18ff6ee1"
+      },
+      {
+        "id": "366:4399",
+        "hash": "b916c2ee"
+      },
+      {
+        "id": "367:4469",
+        "hash": "157acf41"
+      },
+      {
+        "id": "367:5014",
+        "hash": "f4e77fb8"
+      },
+      {
+        "id": "367:5561",
+        "hash": "e15b3053"
+      },
+      {
+        "id": "374:5361",
+        "hash": "9c1b727c"
+      },
+      {
+        "id": "376:5829",
+        "hash": "d51984a7"
+      },
+      {
+        "id": "376:5950",
+        "hash": "86d72702"
+      },
+      {
+        "id": "376:6073",
+        "hash": "f325961c"
+      },
+      {
+        "id": "376:6142",
+        "hash": "af6daca4"
+      },
+      {
+        "id": "376:6211",
+        "hash": "93faec5d"
+      },
+      {
+        "id": "379:5620",
+        "hash": "63d68958"
+      },
+      {
+        "id": "392:5701",
+        "hash": "6a1ff77e"
+      },
+      {
+        "id": "392:5748",
+        "hash": "c757f462"
+      },
+      {
+        "id": "393:5746",
+        "hash": "560f35e5"
+      },
+      {
+        "id": "393:5930",
+        "hash": "159087eb"
+      },
+      {
+        "id": "395:5852",
+        "hash": "409dda09"
+      },
+      {
+        "id": "406:6114",
+        "hash": "4b9594a3"
+      },
+      {
+        "id": "408:5894",
+        "hash": "ee1ae1c"
+      },
+      {
+        "id": "408:5897",
+        "hash": "912da99e"
+      },
+      {
+        "id": "408:5913",
+        "hash": "38cb7d7a"
+      },
+      {
+        "id": "408:6136",
+        "hash": "92579aca"
+      },
+      {
+        "id": "408:6441",
+        "hash": "c2576a96"
+      }
+    ]
+  },
+  "after": [
+    {
+      "id": "49:244",
+      "hash": "534bb8fc"
+    },
+    {
+      "id": "49:360",
+      "hash": "56694313"
+    },
+    {
+      "id": "49:515",
+      "hash": "65caa85a"
+    },
+    {
+      "id": "49:539",
+      "hash": "e6017c4d"
+    },
+    {
+      "id": "49:563",
+      "hash": "844fd2fb"
+    },
+    {
+      "id": "49:587",
+      "hash": "888d95bf"
+    },
+    {
+      "id": "49:611",
+      "hash": "ed97bdca"
+    },
+    {
+      "id": "51:363",
+      "hash": "303a6df6"
+    },
+    {
+      "id": "51:567",
+      "hash": "e4683850"
+    },
+    {
+      "id": "61:542",
+      "hash": "56d017ca"
+    },
+    {
+      "id": "61:544",
+      "hash": "129b0f68"
+    },
+    {
+      "id": "61:550",
+      "hash": "388cf0a8"
+    },
+    {
+      "id": "61:700",
+      "hash": "59d303bb"
+    },
+    {
+      "id": "62:3087",
+      "hash": "e6f3531e"
+    },
+    {
+      "id": "62:3281",
+      "hash": "f98b999c"
+    },
+    {
+      "id": "62:3475",
+      "hash": "2dc3b023"
+    },
+    {
+      "id": "62:3675",
+      "hash": "2ec6a98"
+    },
+    {
+      "id": "62:3879",
+      "hash": "b2e7af24"
+    },
+    {
+      "id": "62:4079",
+      "hash": "afc2e70d"
+    },
+    {
+      "id": "71:1035",
+      "hash": "12512988"
+    },
+    {
+      "id": "71:1045",
+      "hash": "cd820a27"
+    },
+    {
+      "id": "71:1219",
+      "hash": "733a8e6a"
+    },
+    {
+      "id": "71:1338",
+      "hash": "fe72814e"
+    },
+    {
+      "id": "71:1419",
+      "hash": "75a8ada0"
+    },
+    {
+      "id": "71:1566",
+      "hash": "98e8e173"
+    },
+    {
+      "id": "71:1685",
+      "hash": "15b63fe4"
+    },
+    {
+      "id": "75:1198",
+      "hash": "ca8daa41"
+    },
+    {
+      "id": "87:1236",
+      "hash": "b75ee6d1"
+    },
+    {
+      "id": "87:1306",
+      "hash": "78329c2b"
+    },
+    {
+      "id": "87:1320",
+      "hash": "189b9b66"
+    },
+    {
+      "id": "87:1321",
+      "hash": "5676a6d4"
+    },
+    {
+      "id": "87:1603",
+      "hash": "476d3263"
+    },
+    {
+      "id": "87:1815",
+      "hash": "f91c3092"
+    },
+    {
+      "id": "87:2027",
+      "hash": "df329b92"
+    },
+    {
+      "id": "93:1678",
+      "hash": "cf61d9ec"
+    },
+    {
+      "id": "104:1811",
+      "hash": "4eaa1b68"
+    },
+    {
+      "id": "104:2220",
+      "hash": "5d119fa8"
+    },
+    {
+      "id": "104:2223",
+      "hash": "43eab386"
+    },
+    {
+      "id": "104:2585",
+      "hash": "ef15d1be"
+    },
+    {
+      "id": "104:2921",
+      "hash": "156019e1"
+    },
+    {
+      "id": "104:3257",
+      "hash": "f26328c4"
+    },
+    {
+      "id": "104:3592",
+      "hash": "ec9d88e3"
+    },
+    {
+      "id": "104:3924",
+      "hash": "1e24cc8d"
+    },
+    {
+      "id": "104:4256",
+      "hash": "ee0cc83b"
+    },
+    {
+      "id": "111:3035",
+      "hash": "42fcc2b"
+    },
+    {
+      "id": "111:3036",
+      "hash": "db9e5bd1"
+    },
+    {
+      "id": "111:3329",
+      "hash": "e27ab2e6"
+    },
+    {
+      "id": "111:3634",
+      "hash": "bc0cda88"
+    },
+    {
+      "id": "111:3940",
+      "hash": "116c91a"
+    },
+    {
+      "id": "111:4246",
+      "hash": "42efaedb"
+    },
+    {
+      "id": "111:4545",
+      "hash": "478d02e0"
+    },
+    {
+      "id": "111:4832",
+      "hash": "162335e8"
+    },
+    {
+      "id": "111:5147",
+      "hash": "e0ca5f5b"
+    },
+    {
+      "id": "111:5493",
+      "hash": "587bb08c"
+    },
+    {
+      "id": "111:5808",
+      "hash": "ee535735"
+    },
+    {
+      "id": "111:6154",
+      "hash": "36c28a0b"
+    },
+    {
+      "id": "111:6469",
+      "hash": "aadc95df"
+    },
+    {
+      "id": "111:6815",
+      "hash": "37cebaa6"
+    },
+    {
+      "id": "111:7032",
+      "hash": "38d75276"
+    },
+    {
+      "id": "111:7226",
+      "hash": "15b4a053"
+    },
+    {
+      "id": "114:3620",
+      "hash": "9145a948"
+    },
+    {
+      "id": "114:3651",
+      "hash": "be5e919c"
+    },
+    {
+      "id": "114:3679",
+      "hash": "1e717775"
+    },
+    {
+      "id": "151:3405",
+      "hash": "468587cc"
+    },
+    {
+      "id": "151:3813",
+      "hash": "26a16044"
+    },
+    {
+      "id": "151:4148",
+      "hash": "67886bef"
+    },
+    {
+      "id": "151:4235",
+      "hash": "40ba3d42"
+    },
+    {
+      "id": "151:4308",
+      "hash": "676704da"
+    },
+    {
+      "id": "151:4354",
+      "hash": "33efc72d"
+    },
+    {
+      "id": "151:4661",
+      "hash": "5745541d"
+    },
+    {
+      "id": "151:4958",
+      "hash": "4072455a"
+    },
+    {
+      "id": "151:5298",
+      "hash": "99362fee"
+    },
+    {
+      "id": "151:5612",
+      "hash": "1f5220d5"
+    },
+    {
+      "id": "151:5926",
+      "hash": "946f5886"
+    },
+    {
+      "id": "151:6240",
+      "hash": "c1dad8a6"
+    },
+    {
+      "id": "151:6554",
+      "hash": "eb53696a"
+    },
+    {
+      "id": "151:6858",
+      "hash": "9adc9e8c"
+    },
+    {
+      "id": "151:7162",
+      "hash": "4caa09fd"
+    },
+    {
+      "id": "151:7466",
+      "hash": "8fc9bf3f"
+    },
+    {
+      "id": "198:3966",
+      "hash": "36030223"
+    },
+    {
+      "id": "198:4039",
+      "hash": "f46b2f31"
+    },
+    {
+      "id": "203:4267",
+      "hash": "34199d16"
+    },
+    {
+      "id": "203:4383",
+      "hash": "573b17f6"
+    },
+    {
+      "id": "205:4085",
+      "hash": "1e3dd474"
+    },
+    {
+      "id": "205:4260",
+      "hash": "441fcffe"
+    },
+    {
+      "id": "234:4153",
+      "hash": "959a8bd0"
+    },
+    {
+      "id": "234:4227",
+      "hash": "c2faa23d"
+    },
+    {
+      "id": "268:4276",
+      "hash": "1bec2d5c"
+    },
+    {
+      "id": "270:4257",
+      "hash": "7cdf33a9"
+    },
+    {
+      "id": "296:4291",
+      "hash": "bfa07cf"
+    },
+    {
+      "id": "296:4310",
+      "hash": "aa28aa67"
+    },
+    {
+      "id": "299:4291",
+      "hash": "9430575a"
+    },
+    {
+      "id": "313:4315",
+      "hash": "7ae6ffbd"
+    },
+    {
+      "id": "317:4311",
+      "hash": "b5d3891d"
+    },
+    {
+      "id": "342:4359",
+      "hash": "ee4b88f1"
+    },
+    {
+      "id": "346:4343",
+      "hash": "24f8fe7f"
+    },
+    {
+      "id": "360:4380",
+      "hash": "18ff6ee1"
+    },
+    {
+      "id": "366:4399",
+      "hash": "b916c2ee"
+    },
+    {
+      "id": "367:4469",
+      "hash": "157acf41"
+    },
+    {
+      "id": "367:5014",
+      "hash": "f4e77fb8"
+    },
+    {
+      "id": "367:5561",
+      "hash": "e15b3053"
+    },
+    {
+      "id": "374:5361",
+      "hash": "9c1b727c"
+    },
+    {
+      "id": "376:5829",
+      "hash": "d51984a7"
+    },
+    {
+      "id": "376:5950",
+      "hash": "86d72702"
+    },
+    {
+      "id": "376:6073",
+      "hash": "f325961c"
+    },
+    {
+      "id": "376:6142",
+      "hash": "af6daca4"
+    },
+    {
+      "id": "376:6211",
+      "hash": "93faec5d"
+    },
+    {
+      "id": "379:5620",
+      "hash": "63d68958"
+    },
+    {
+      "id": "392:5701",
+      "hash": "6a1ff77e"
+    },
+    {
+      "id": "392:5748",
+      "hash": "c757f462"
+    },
+    {
+      "id": "393:5746",
+      "hash": "560f35e5"
+    },
+    {
+      "id": "393:5930",
+      "hash": "159087eb"
+    },
+    {
+      "id": "395:5852",
+      "hash": "409dda09"
+    },
+    {
+      "id": "406:6114",
+      "hash": "4b9594a3"
+    },
+    {
+      "id": "408:5894",
+      "hash": "ee1ae1c"
+    },
+    {
+      "id": "408:5897",
+      "hash": "912da99e"
+    },
+    {
+      "id": "408:5913",
+      "hash": "38cb7d7a"
+    },
+    {
+      "id": "408:6136",
+      "hash": "92579aca"
+    },
+    {
+      "id": "408:6441",
+      "hash": "c2576a96"
+    },
+    {
+      "id": "422:6274",
+      "hash": "584e63f9"
+    }
+  ],
+  "mutation": {
+    "mutatedNodeIds": [
+      "151:3649",
+      "151:3648",
+      "151:4057",
+      "151:4056",
+      "408:6209",
+      "408:6208",
+      "I151:4059;111:3030",
+      "114:3640",
+      "114:3639",
+      "I114:3640;342:4344",
+      "114:3638",
+      "114:3637",
+      "I114:3638;342:4344",
+      "114:3633",
+      "111:7030",
+      "111:7029",
+      "I111:7030;342:4344",
+      "111:7027",
+      "111:7026",
+      "I111:7027;342:4344",
+      "111:6937",
+      "71:1644",
+      "I71:1644;75:1187"
+    ],
+    "createdNodeIds": [
+      "421:6274",
+      "421:6277"
+    ]
+  },
+  "board": {
+    "createdNodeIds": [
+      "422:6274",
+      "422:6275",
+      "422:6276",
+      "422:6277",
+      "422:6278",
+      "I422:6278;342:4344",
+      "422:6280",
+      "I422:6280;342:4344",
+      "422:6282",
+      "422:6283",
+      "I422:6283;75:1187",
+      "422:6285",
+      "I422:6285;75:1187",
+      "422:6287",
+      "422:6288",
+      "422:6289",
+      "422:6290",
+      "I422:6290;342:4352",
+      "422:6292",
+      "I422:6292;342:4352",
+      "422:6294",
+      "422:6295",
+      "I422:6295;75:1187",
+      "422:6297",
+      "I422:6297;75:1187",
+      "422:6299",
+      "422:6300",
+      "422:6301",
+      "422:6302",
+      "I422:6302;342:4344",
+      "422:6304",
+      "I422:6304;342:4344",
+      "422:6306",
+      "422:6307",
+      "I422:6307;75:1187",
+      "422:6309",
+      "I422:6309;75:1187",
+      "422:6311",
+      "422:6312",
+      "422:6313",
+      "422:6314",
+      "I422:6314;342:4352",
+      "422:6316",
+      "I422:6316;342:4352",
+      "422:6318",
+      "422:6319",
+      "I422:6319;75:1187",
+      "422:6321",
+      "I422:6321;75:1187",
+      "422:6323",
+      "422:6324",
+      "422:6325",
+      "422:6326",
+      "I422:6326;342:4344",
+      "422:6328",
+      "I422:6328;342:4344",
+      "422:6330",
+      "422:6331",
+      "I422:6331;75:1187",
+      "422:6333",
+      "I422:6333;75:1187",
+      "422:6335",
+      "422:6336",
+      "422:6337",
+      "422:6338",
+      "I422:6338;342:4352",
+      "422:6340",
+      "I422:6340;342:4352",
+      "422:6342",
+      "422:6343",
+      "I422:6343;75:1187",
+      "422:6345",
+      "I422:6345;75:1187"
+    ],
+    "mutatedNodeIds": [
+      "71:1642",
+      "I71:1643;74:1212",
+      "I71:1643;74:1214",
+      "71:1643",
+      "I71:1644;75:1187",
+      "71:1644"
+    ],
+    "board": "422:6274",
+    "cases": [
+      {
+        "id": "422:6275",
+        "language": "zh-CN",
+        "theme": "light"
+      },
+      {
+        "id": "422:6287",
+        "language": "zh-CN",
+        "theme": "dark"
+      },
+      {
+        "id": "422:6299",
+        "language": "en",
+        "theme": "light"
+      },
+      {
+        "id": "422:6311",
+        "language": "en",
+        "theme": "dark"
+      },
+      {
+        "id": "422:6323",
+        "language": "ja",
+        "theme": "light"
+      },
+      {
+        "id": "422:6335",
+        "language": "ja",
+        "theme": "dark"
+      }
+    ]
+  },
+  "verification": {
+    "result": [
+      {
+        "id": "151:3648",
+        "w": 530,
+        "h": 52,
+        "descendants": 4,
+        "text": [
+          {
+            "id": "151:3649",
+            "text": "任务 · 续页",
+            "visible": false,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I151:3651;111:3030",
+            "text": "添加",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "151:3651",
+            "w": 190,
+            "h": 52,
+            "main": "111:3029"
+          }
+        ]
+      },
+      {
+        "id": "151:4056",
+        "w": 530,
+        "h": 52,
+        "descendants": 4,
+        "text": [
+          {
+            "id": "151:4057",
+            "text": "任务 · 续页",
+            "visible": false,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I151:4059;111:3030",
+            "text": "添加",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "151:4059",
+            "w": 190,
+            "h": 52,
+            "main": "111:3029"
+          }
+        ]
+      },
+      {
+        "id": "408:6208",
+        "w": 530,
+        "h": 52,
+        "descendants": 4,
+        "text": [
+          {
+            "id": "408:6209",
+            "text": "任务 · 续页",
+            "visible": false,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I408:6211;111:3030",
+            "text": "添加",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "408:6211",
+            "w": 190,
+            "h": 52,
+            "main": "111:3029"
+          }
+        ]
+      },
+      {
+        "id": "71:1642",
+        "w": 530.0625,
+        "h": 48,
+        "descendants": 4,
+        "text": [
+          {
+            "id": "I71:1643;74:1214",
+            "text": "继续",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I71:1644;75:1187",
+            "text": "结束并记录",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "71:1643",
+            "w": 259.03125,
+            "h": 48,
+            "main": "74:1211"
+          },
+          {
+            "id": "71:1644",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          }
+        ]
+      },
+      {
+        "id": "421:6274",
+        "w": 456,
+        "h": 44,
+        "descendants": 6,
+        "text": [
+          {
+            "id": "I114:3640;342:4344",
+            "text": "取消",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I114:3638;342:4344",
+            "text": "确认",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "114:3640",
+            "w": 222,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "114:3638",
+            "w": 222,
+            "h": 44,
+            "main": "342:4343"
+          }
+        ]
+      },
+      {
+        "id": "421:6277",
+        "w": 456,
+        "h": 44,
+        "descendants": 6,
+        "text": [
+          {
+            "id": "I111:7030;342:4344",
+            "text": "取消",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I111:7027;342:4344",
+            "text": "确认",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "111:7030",
+            "w": 222,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "111:7027",
+            "w": 222,
+            "h": 44,
+            "main": "342:4343"
+          }
+        ]
+      },
+      {
+        "id": "422:6274",
+        "w": 618.0625,
+        "h": 1266,
+        "descendants": 72,
+        "text": [
+          {
+            "id": "422:6276",
+            "text": "zh-CN · light / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6278;342:4344",
+            "text": "取消",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6280;342:4344",
+            "text": "确认",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6283;75:1187",
+            "text": "继续",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6285;75:1187",
+            "text": "结束并记录",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "422:6288",
+            "text": "zh-CN · dark / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6290;342:4352",
+            "text": "取消",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6292;342:4352",
+            "text": "确认",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6295;75:1187",
+            "text": "继续",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6297;75:1187",
+            "text": "结束并记录",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "422:6300",
+            "text": "en · light / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6302;342:4344",
+            "text": "Cancel",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6304;342:4344",
+            "text": "Confirm",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6307;75:1187",
+            "text": "Resume",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6309;75:1187",
+            "text": "End and save",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "422:6312",
+            "text": "en · dark / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6314;342:4352",
+            "text": "Cancel",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6316;342:4352",
+            "text": "Confirm",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6319;75:1187",
+            "text": "Resume",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6321;75:1187",
+            "text": "End and save",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "422:6324",
+            "text": "ja · light / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6326;342:4344",
+            "text": "キャンセル",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6328;342:4344",
+            "text": "確認する",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6331;75:1187",
+            "text": "再開",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6333;75:1187",
+            "text": "終了して記録",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "422:6336",
+            "text": "ja · dark / Import + 00:00",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6338;342:4352",
+            "text": "キャンセル",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6340;342:4352",
+            "text": "確認する",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6343;75:1187",
+            "text": "再開",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I422:6345;75:1187",
+            "text": "終了して記録",
+            "visible": true,
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          }
+        ],
+        "instances": [
+          {
+            "id": "422:6278",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6280",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6283",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6285",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6290",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6292",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6295",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6297",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6302",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6304",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6307",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6309",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6314",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6316",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6319",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6321",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6326",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6328",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4343"
+          },
+          {
+            "id": "422:6331",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6333",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6338",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6340",
+            "w": 254.015625,
+            "h": 44,
+            "main": "342:4351"
+          },
+          {
+            "id": "422:6343",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          },
+          {
+            "id": "422:6345",
+            "w": 259.03125,
+            "h": 48,
+            "main": "75:1186"
+          }
+        ]
+      }
+    ],
+    "wrappers": [
+      {
+        "id": "114:3637",
+        "hash": "1bc289d0",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "114:3679",
+                "navigation": "SWAP"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "114:3639",
+        "hash": "9c5f8428",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "CLOSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "111:7026",
+        "hash": "f8a16",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "111:7226",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "111:7029",
+        "hash": "d102fe20",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "CONDITIONAL"
+              },
+              {
+                "type": "CONDITIONAL"
+              },
+              {
+                "type": "CONDITIONAL"
+              },
+              {
+                "type": "CONDITIONAL"
+              },
+              {
+                "type": "CONDITIONAL"
+              },
+              {
+                "type": "CONDITIONAL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "406:6137",
+        "hash": "9640128",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "408:6136",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "408:6205",
+        "hash": "fb89fcca",
+        "actions": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "151:3405",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
