@@ -1,5 +1,10 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+  "任务排序数据无效。": {"en":"Invalid task order.","ja":"活動の並び順が無効です。"},
+  "拖拽排序，或用 ↑ ↓ 调整": {"en":"Drag to reorder, or use ↑ ↓","ja":"ドラッグ、または ↑ ↓ で並べ替え"},
+  "排序：{name}": {"en":"Reorder: {name}","ja":"並べ替え：{name}"},
+  "任务顺序已保存。": {"en":"Task order saved.","ja":"活動の並び順を保存しました。"},
+  "请在同一置顶分组内排序。": {"en":"Reorder within the same pinned or unpinned group.","ja":"固定済み・未固定の同じグループ内で並べ替えてください。"},
   "置顶": {"en":"Pin","ja":"固定"},
   "取消置顶": {"en":"Unpin","ja":"固定を解除"},
   "置顶：{name}": {"en":"Pin: {name}","ja":"固定：{name}"},

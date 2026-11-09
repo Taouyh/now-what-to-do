@@ -2,6 +2,7 @@ import type { Runtime } from './runtime';
 import type { Task } from '../domain/types';
 import { paginate } from '../domain/pagination';
 import { element, button, image, byId } from './dom';
+import { TaskReorder } from './task-reorder';
 
 export class BookPages {
   taskPage = 0;
@@ -15,15 +16,14 @@ export class BookPages {
   expandedRecord: string | null = null;
   recordTimeout: ReturnType<typeof setTimeout> | undefined;
   readonly app: Runtime;
+  readonly reorder: TaskReorder;
 
-  constructor(app: Runtime) { this.app = app; }
+  constructor(app: Runtime) { this.app = app; this.reorder = new TaskReorder(this); }
 
   get taskPageSize() { return document.body.classList.contains('mobile-book') ? this.mobileTaskPageSize : 10; }
 
   get orderedTasks() {
-    // Sort a copy: pinning affects the task directory, never recommendation order.
-    return this.app.data.tasks.filter(task => task.enabled !== false)
-      .sort((a, b) => Number(b.pinned === true) - Number(a.pinned === true));
+    return this.app.orderedTasks();
   }
 
   reflowTasks() {
@@ -137,7 +137,7 @@ export class BookPages {
     pin.setAttribute('aria-label', app.tr(task.pinned ? '取消置顶：{name}' : '置顶：{name}', { name: task.name }));
     pin.setAttribute('aria-pressed', String(task.pinned === true));
     row.classList.toggle('is-pinned', task.pinned === true);
-    row.append(edit, pin, start);
+    row.append(this.reorder.handle(task), edit, pin, start);
     return row;
   }
 
@@ -190,6 +190,7 @@ export class BookPages {
       });
       this.taskResizeObserver.observe(first);
     } else byId('taskList').replaceChildren(left, right, footer);
+    this.reorder.markSource();
     if (focusedTask) {
       const row = document.querySelector<HTMLElement>(`[data-task-id="${CSS.escape(focusedTask)}"] .task-edit`);
       (row || document.querySelector<HTMLElement>('.task-edit,.small-action'))?.focus({preventScroll: true});

@@ -52,6 +52,7 @@ function validateData(x){
   }
   if(x.preferences!==undefined&&!object(x.preferences)||x.version===2&&!object(x.preferences))throw Error(tr('偏好数据无效。'));
   let p=x.preferences||{};
+  if(p.taskOrder!==undefined&&(!Array.isArray(p.taskOrder)||p.taskOrder.some(id=>typeof id!=='string'||!id)||new Set(p.taskOrder).size!==p.taskOrder.length))throw Error(tr('任务排序数据无效。'));
   if(p.language!==undefined&&!SUPPORTED_LANGUAGES.includes(p.language))throw Error(tr('语言设置无效。'));
   if(p.time!==undefined&&![5,10,15,20,30,60].includes(Number(p.time))||p.env!==undefined&&!['quiet','noisy','class'].includes(p.env)||p.computerReady!==undefined&&typeof p.computerReady!=='boolean'||x.version===2&&(p.time===undefined||p.conditions===undefined&&p.env===undefined))throw Error(tr('时间或旧环境偏好无效。'));
   if(p.conditions!==undefined&&(!object(p.conditions)||CONDITION_KEYS.some(k=>p.conditions[k]!==undefined&&typeof p.conditions[k]!=='boolean')))throw Error(tr('当前条件必须为布尔值。'));
@@ -717,6 +718,23 @@ $('file').addEventListener('change',e=>{
     r.readAsText(f);
   }catch(err){fail(tr('无法读取文件，现有数据未更改。'))}
 },true);
+function orderedTasks(){
+  const order=new Map((d.preferences.taskOrder||[]).map((id,index)=>[id,index]));
+  const rank=task=>order.has(task.id)?order.get(task.id):order.size+d.tasks.indexOf(task);
+  return d.tasks.filter(task=>task.enabled!==false).sort((a,b)=>Number(b.pinned===true)-Number(a.pinned===true)||rank(a)-rank(b));
+}
+function moveTask(id,targetId,after=false){
+  const tasks=orderedTasks(),task=tasks.find(item=>item.id===id),target=tasks.find(item=>item.id===targetId);
+  if(storageBlocked||!task||!target||id===targetId||(task.pinned===true)!==(target.pinned===true))return false;
+  // Keep source array order intact: manual ordering is a directory preference.
+  const order=new Map((d.preferences.taskOrder||[]).map((key,index)=>[key,index]));
+  const rank=item=>order.has(item.id)?order.get(item.id):order.size+d.tasks.indexOf(item);
+  const ids=[...d.tasks].sort((a,b)=>rank(a)-rank(b)).map(item=>item.id).filter(key=>key!==id);
+  ids.splice(ids.indexOf(targetId)+(after?1:0),0,id);
+  const candidate={...d,preferences:{...d.preferences,taskOrder:ids}};
+  if(!save(candidate))return false;
+  d=candidate;return true;
+}
 function toggleTaskPin(id){
   const task=d.tasks.find(item=>item.id===id);
   if(!task||storageBlocked)return false;

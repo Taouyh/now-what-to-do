@@ -136,6 +136,17 @@ html:has(.book-app) { overflow: hidden; scrollbar-gutter: auto; }
 .book .task-pin:hover,.book .task-pin:focus-visible { background: #89533226; color: var(--ink); outline: none; }
 .book .task-pin[aria-pressed=true] { color: var(--ink); background: #89533226; }
 .task-pin[aria-pressed=true] svg path:first-child { fill: currentColor; }
+.book .task-drag-handle { flex: 0 0 28px; width: 28px; height: 100%; min-height: 28px; padding: 4px; border: 0; color: var(--muted-ink); background: transparent; cursor: grab; touch-action: none; }
+.task-drag-handle svg { display: block; width: 16px; height: 24px; margin: auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.book .task-drag-handle:hover,.book .task-drag-handle:focus-visible { background: #89533226; color: var(--ink); outline: none; }
+.book .task-strip:has(.task-drag-handle) .task-edit { padding-left: 0; }
+.task-reordering,.task-reordering * { cursor: grabbing !important; user-select: none; }
+.task-dragging { opacity: .45; }
+.task-drop-before::before,.task-drop-after::before { content: ''; position: absolute; left: 0; right: 0; height: 3px; background: var(--ink); pointer-events: none; border-radius: 2px; }
+.task-drop-before::before { top: -3px; }.task-drop-after::before { bottom: -3px; }
+.book .book-pager button.task-page-drop { background: #c9a16c; }
+.task-drag-preview { position: fixed; z-index: 100; width: 240px; padding: 12px; border-radius: 5px; background: #f0e0b7; color: #432a18; box-shadow: 0 6px 20px #14090455; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.task-drag-preview.invalid-drop { opacity: .5; }
 .book-pager { position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; }
 .book-pager button { font-size: clamp(14px,1.25cqw,18px); }
 .spread-pager { left: 8.06%; right: 9.16%; bottom: 8%; }

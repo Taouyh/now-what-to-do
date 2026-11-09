@@ -191,6 +191,7 @@ export function mountBook(app: Runtime) {
       pages.taskPage = Math.floor(pages.orderedTasks.findIndex(item => item.id === id) / pages.taskPageSize);
     },
     onPage(id) {
+      pages.reorder.cancel();
       pages.clearRecordSelection();
       if (id === 'tasks' && previousPage !== 'tasks') { pages.taskPage = 0; pages.renderTasks(); }
       if (id !== 'today') pages.selectedTask = null;
