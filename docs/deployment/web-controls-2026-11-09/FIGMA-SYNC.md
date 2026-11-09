@@ -1,6 +1,19 @@
 # Web controls — Figma synchronization
 
-2026-11-09, Asia/Shanghai. **PASS for bounded editable synchronization and static screenshot/structural verification.** Fixed product commit: `b8b887871fa4c9f1325a2aabb88b2cee22cf30ab`.
+2026-11-09, Asia/Shanghai. **PASS for bounded editable synchronization and static screenshot/structural verification.** Final fixed product commit: `43c0d1fd99244f94321d3d696f65e202a17dcc48`. Initial synchronization below used `b8b887871fa4c9f1325a2aabb88b2cee22cf30ab`; the import-only follow-up supersedes its historical import layout measurements.
+
+## Final import-only follow-up
+
+- Independently archived exact source `43c0d1f` under the ignored cache, reused installed dependencies, and passed `npm run build:web` including typecheck. Product files in this report branch remain untouched. Reverified Figma account 3966592487 and reused the existing file session.
+- Rendered six import cases at **1531×715**: Chinese, English and Japanese × light/dark. Measured all six; visually inspected English/light and Japanese/dark source screenshots. All source action rows have y510.96875, height44 and bottom554.96875; card bottom582.96875. Both buttons are width165.390625. The footer is independent of the flexible description height.
+- Updated only original import roots `114:3620` and `111:6815`: padding26/24, gap8, title28 with 1.35 line height in their historical larger shell; actual full Chinese description in a vertically scrollable FILL viewport; warning padding8 plus margin4 represented as 12 top/bottom; fixed-height footer below. Existing shell and business wrappers remain. Their wider historical body now has 260×44 buttons; previous 222-wide measurements above are historical.
+- Added only two editable **import-card** boundary examples, [English/light and Japanese/dark](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=427-6303), nodes `427:6304` and `427:6318`. These represent the card geometry measured at 1531×715, not new full-screen language scenarios. Each card is 394.78125×460.0625; title20/27 occupies54px; flexible description is165.1875px; footer bottom432.0625 and decoration top448 yield **15.9375px clearance** in the design. The source's precise decoration has17px clearance, as reported by independent testing. The Figma decoration is a simplified editable bar, not an exact texture/geometry reproduction.
+- Two final Figma screenshots inspected: updated original import overlay and boundary pair. An initial boundary screenshot caught overlapping title line boxes; explicitly sizing the kicker/title to the measured line boxes fixed it, and the final screenshot passed. Footer labels remain fully visible with clearance above the decoration. Platform body-font fallback is represented by Noto Sans SC in the editable boundary cards; geometry and text coverage, rather than exact platform font rasterization, are the acceptance target.
+- **All120 pre-existing top-level reaction fingerprints are unchanged relative to the initial completed synchronization**, including both imports and the six-strip comparison. Task, pin, timer and other states were not rerendered or edited in this follow-up. No full-screen raster was inserted.
+- Parent chat reports independent final PASS at `43c0d1f`: six1531×715 cases have17px decoration clearance; seven cases including narrow English/dark pass visibility/style and real Cancel/Confirm checks. Independent report `f980db8`, integrated there as `0fc900d`. These independent results were communicated by the parent, not rerun as behavioral tests by this Figma chat.
+- No prototype-player real clicks or scroll interaction tests were performed. Figma scroll-region configuration is structural evidence only. Native, participant and complete B/C acceptance remain excluded.
+
+Incremental evidence: [figma-import-final.json](figma-import-final.json) and [import-final-screenshot-hashes.json](import-final-screenshot-hashes.json). Local source screenshots: `.cache/figma-web-controls/final-{language}-{theme}.png`; final design images: `final-figma-114-3620.png` and `final-figma-427-6303.png` in the same directory.
 
 ## Isolation and source
 
