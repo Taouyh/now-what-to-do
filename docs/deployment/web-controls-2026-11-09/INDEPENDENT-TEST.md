@@ -1,8 +1,20 @@
 # Independent web controls verification
 
-2026-11-09. Fixed source: `b8b887871fa4c9f1325a2aabb88b2cee22cf30ab`.
+2026-11-09. Final fixed source: `43c0d1fd99244f94321d3d696f65e202a17dcc48`. Original behavior baseline: `b8b887871fa4c9f1325a2aabb88b2cee22cf30ab`.
 
-**Result: FAIL visual acceptance; bounded behavior and style comparisons PASS.** The desktop English and Japanese import actions overlap the scroll decoration. No product files were changed by this test.
+**Final result: PASS within the bounded web scope.** The import decoration-overlap finding is closed on `43c0d1f`. No product files were changed by this test.
+
+## Final correction retest
+
+The final source differs from the original tested source only by six import-scoped CSS lines. A fresh production build/typecheck passed and assembled 270 files. Import checks alone were rerun on the final source in seven fresh contexts: all three languages in both themes at 1531 x 715, plus English dark mobile emulation at 360 x 640. Paging/Add and expired timer results below remain explicitly attributed to `b8b8878`; they were not rerun or represented as newly tested on the final source.
+
+- **7/7 PASS:** normal, hover and keyboard focus-visible paired styles/dimensions; localized action labels; real filechooser Cancel preserving the entire stored string and Confirm replacing tasks while retaining imported custom data.
+- All six desktop pairs measure 165.39 x 44px and end at y=554.97; the bottom decoration starts at y=571.97, leaving 17px clearance. Both capsules and labels remain inside the card and viewport.
+- Narrow actions measure 130 x 44px, end at y=424.53 inside the card ending at y=452.53, and the decoration is absent. The complete backup explanation is visible without overflow in all seven cases (`scrollHeight == clientHeight` for the explanation).
+- All seven final import screenshots were visually inspected: titles, backup explanation, replacement warning, action labels and complete capsule edges are unobscured.
+- Final evidence: `build-fix.log`, `import-fix.cjs`, `import-fix.log`, `import-fix-results.json`, and seven `fixed-{language}-{theme}-{width}-import.png` screenshots in the directory below.
+
+The following sections preserve the original finding and original behavior evidence for traceability. The earlier report-only FAIL commit is `8ad5239c0b351bbb952994d21e463ce0e8936aad`.
 
 ## Environment and scope
 
@@ -11,7 +23,7 @@
 - Desktop 1531 x 715: Simplified Chinese, English and Japanese, each in light and dark themes. Additional English dark 360 x 640 browser mobile emulation.
 - Only the import controls, task continuation heading/paging/Add, and expired timer controls were tested. No full regression suite, native build, native device, upgrade, participant, publication or Figma acceptance is implied.
 
-## Finding requiring correction
+## Original finding (closed by the final retest)
 
 **P2: Desktop import action capsules are obscured by the bottom scroll decoration.** Open Settings in English or Japanese at 1531 x 715 and choose a valid backup through Import. Both themes reproduce immediately, before hover or focus. English Cancel/Confirm text is partly covered; Japanese button lower edges are covered. Buttons remain clickable because the decoration has `pointer-events: none`, so successful clicks and matching computed styles do not establish visual correctness.
 
@@ -20,7 +32,7 @@
 - Evidence: `en-light-import-initial.png`, `en-dark-import-initial.png`, `ja-light-import-initial.png`, `ja-dark-import-initial.png`, and `occlusion.json` in the evidence directory below. Initial-open screenshots independently reproduce the same appearance as the full interaction journeys.
 - Required outcome: keep both complete capsules and their labels clear of the decoration in all three languages and both themes at the requested desktop viewport; repeat the bounded import checks after the correction.
 
-## Passed checks
+## Original baseline passed checks (`b8b8878`)
 
 | Check | Result |
 | --- | --- |
@@ -43,4 +55,4 @@ Local, ignored evidence directory: `C:/Users/fengcai/.codex/worktrees/09f0/now-w
 - `build.log`; `probe.cjs`, `probe.log`, `results.json`; 21 journey screenshots named `{language}-{theme}-{width}-{import|tasks-last|expired}.png`.
 - `occlusion.cjs`, `occlusion.json`; six initial-open import screenshots named `{language}-{theme}-import-initial.png`.
 - The first synthetic fixture used unsupported `preferences.time=1` and was correctly rejected. It was corrected to the supported five-minute value before the reported journeys. That harness false start is retained as `invalid-fixture-results.json` and is not a product failure.
-- Evidence is local and is not included in this report-only commit. `results.json` records assertion success, not visual acceptance; use this report's overall FAIL until the obstruction is corrected and independently retested.
+- Evidence is local and is not included in this report-only commit. Original `results.json` records assertion success, not visual acceptance. The final correction retest above supersedes the original visual FAIL; final import results are recorded separately in `import-fix-results.json`.
