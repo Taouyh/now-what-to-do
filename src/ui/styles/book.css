@@ -350,7 +350,12 @@ html:has(.mobile-book) { overflow: hidden; }
 .mobile-book .book .rec h2 { margin-bottom: 22px; }
 .mobile-book .book .home-entries { margin-top: 14px; }
 .mobile-book .book .completion-feedback { margin-top: 14px; }
-.mobile-book .book .onboarding { min-height: 0; padding: 24px 16px; height: 100%; }
+.mobile-book .book .onboarding { min-height: 0; padding: clamp(24px,6dvh,48px) 16px; height: auto; place-items: start center; }
+.mobile-book .book .welcome-card { width: min(100%,360px); }
+.mobile-book .book .welcome-card h1 { margin-bottom: 16px; }
+.mobile-book .calendar-directory:has(.calendar-start) { align-items: stretch; }
+.mobile-book .book .calendar-start { justify-self: center; align-self: center; width: auto; min-width: 130px; padding: 8px 24px; margin-top: 12px; }
+.mobile-book .book-left:has(.calendar-start) .book-pager { margin-top: 12px; }
 .mobile-book .book .timer-screen { position: absolute; inset: 0; min-height: 0; overflow: auto; }
 .mobile-book .book #timerName,.mobile-book .book #timerRecoveryName { margin-top: 8px; font-size: 28px; }
 .mobile-book .book .timer-description { margin-top: 12px; max-height: 100px; }
@@ -362,8 +367,11 @@ html:has(.mobile-book) { overflow: hidden; }
 .mobile-book .book .timer-meta { margin: 12px 0; }
 .mobile-book .book .condition-panel { max-height: calc(100dvh - 140px) !important; min-height: 0; overflow: auto; }
 .mobile-book .book .dialog,.mobile-book .book .confirm-card { top: 12px; min-height: 0; max-height: calc(100dvh - 24px); }
-.mobile-book .book .dialog { height: min(520px,calc(100dvh - 24px)); padding: 48px 20px 16px; overflow: hidden; }
-.mobile-book .book .activity-dialog-header { margin: 0; }
+.mobile-book .book .dialog { height: min(520px,calc(100dvh - 24px)); padding: 16px 20px; overflow: hidden; }
+.mobile-book:has(#modal:not(.hide)) .book-header { visibility: hidden; }
+.mobile-book .book .activity-dialog-header { position: relative; min-height: 44px; margin: 0 0 8px; gap: 8px; }
+.mobile-book .book #modalTitle { position: static; flex: 1; width: auto; min-width: 0; margin: 0; font-size: 20px; border-radius: 8px; }
+.mobile-book .book #close { position: static; flex: 0 0 44px; width: 44px; height: 44px; min-height: 44px; margin: 0; }
 .mobile-book .book #form { flex: 1; height: auto; min-height: 0; }
 .mobile-book .book .activity-form-body { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
 .mobile-book .book .activity-dialog-footer { flex: none; margin-top: 12px; }
