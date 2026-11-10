@@ -11,7 +11,7 @@ await page.addInitScript(d=>{localStorage.setItem('whatToDoData',JSON.stringify(
 await page.goto('http://127.0.0.1:5189');await page.locator('body.book-app #start').waitFor({state:'visible'});await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(image=>image.decode().catch(()=>{})));});await page.waitForTimeout(300);
 const events=[],screens=[],captions=[];let time=0,count=0;
 async function shot(t){await page.screenshot({path:path.join(out,`${count}.png`),animations:'disabled'});screens.push({time:t,file:`demo/${count++}.png`});}
-await shot(0);captions.push({time:0,text:'NowWhat â€” product walkthrough',chapter:'Overview'});time=2;
+await shot(0);captions.push({time:0,text:'Now What 1.4.1 - product walkthrough',chapter:'Overview'});time=2;
 async function act(selector,text,chapter,duration=2.6,type){
  const loc=typeof selector==='string'?page.locator(selector):selector;
  await loc.waitFor({state:'visible'});const box=await loc.boundingBox();if(!box)throw Error('Missing target '+text);
@@ -55,7 +55,7 @@ await act('#earlyTimer','End the session and record the time spent.','Focus',3);
 await act('.continuation-trigger','Save a note for the next session.','Next step');
 await act('#continuationInput','Write where you want to resume.','Next step',3.5,'Next time, start with shoulder stretches.');
 await act('.continuation-form button[type="submit"]','Save your next starting point.','Next step');
-await act(nav('today'),'Open the Journal to review todayâ€™s sessions.','Journal');
+await act(nav('today'),"Open the Journal to review today's sessions.",'Journal');
 await act(page.locator('.calendar-group').first(),'Select an activity to see its sessions.','Journal');
 await act(page.locator('.record-toggle').first(),'Open a session to see its recorded details.','Journal',3);
 await act(nav('settings'),'Open Settings for language, appearance, and backups.','Settings',3);

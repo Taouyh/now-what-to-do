@@ -15,4 +15,4 @@ Install this directory's locked dependencies with `npm ci`. Start the parent app
 
 Composition duration derives from `src/demo-data.json`; capture coordinates drive the reconstructed cursor and click feedback. Generated screenshots, audio, dependencies and local output are ignored. The shipped MP4 is `about/assets/nowwhat-demo-1.4.1.mp4`. The older demo remains available under its original filename.
 
-Validation: TypeScript, all 2,580 rendered frames, full-file video/audio decode, browser playback, first frame and representative task/drag/note/journal/theme screenshots. Final artifact SHA-256: `81525017E50F5DA149913013AA905B24ACFBE55809B4B9CAEBAEE7F9941DE94C`. Generated mixed PCM peak is 0.532 (below clipping). Opening capture waits for the app, fonts and images to settle.
+Validation: TypeScript, all 2,580 rendered frames, full-file video/audio decode, browser playback, first frame and representative task/drag/note/journal/theme screenshots. Final artifact SHA-256: `D17F47754D91E4ECF76AB08D8C685E55801AA45D3229B3250AF8079F2BA8B67A`. Generated mixed PCM peak is 0.532 (below clipping). Opening capture waits for the app, fonts and images to settle.

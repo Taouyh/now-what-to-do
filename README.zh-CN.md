@@ -83,6 +83,6 @@
 
 [MIT](LICENSE) © 2026 Taouyh。可以使用、修改和分享，请保留许可声明。
 
-[86-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[86 秒英语演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [可编辑的 Figma 宣传页](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-The demo uses soft music and mouse clicks, with no voiceover.
+演示配有轻柔音乐和鼠标点击声，无旁白。
