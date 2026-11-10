@@ -1,0 +1,1250 @@
+{
+  "date": "2026-11-10",
+  "sourceCommit": "8d64eb148f634ee6b4631c440a3774bc3ac683ac",
+  "figmaFile": "EUoXZR1hDJUUPVAtrDxpE5",
+  "verifiedHandle": "3966592487",
+  "sessionId": "26616b18-4237-4df7-848a-6dcc129f3f7e",
+  "pageId": "49:243",
+  "results": [
+    {
+      "id": "442:6759",
+      "name": "Introduction / 1.4.1 / en / 1440 / Default",
+      "width": 1440,
+      "height": 4240.53125,
+      "counts": {
+        "FRAME": 182,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "442:6797",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I442:6797;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I442:6797;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6797;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6797;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6797;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I442:6797;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "442:6993",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I442:6993;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I442:6993;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6993;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6993;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I442:6993;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I442:6993;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "442:7166",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 672.3280639648438,
+          "h": 378.1845397949219
+        },
+        {
+          "id": "I442:7166;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I442:7166;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I442:7166;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 31.767501831054688
+        },
+        {
+          "id": "I442:7166;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I442:7166;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I442:7166;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I442:7166;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 199.3032684326172,
+          "h": 23.44744110107422
+        }
+      ],
+      "staleVersionText": []
+    },
+    {
+      "id": "444:7195",
+      "name": "Introduction / 1.4.1 / zh-CN / 1440 / Default",
+      "width": 1440,
+      "height": 4253.640625,
+      "counts": {
+        "FRAME": 182,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "444:7233",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I444:7233;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I444:7233;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7233;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7233;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7233;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I444:7233;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "444:7429",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I444:7429;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I444:7429;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7429;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7429;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7429;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I444:7429;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "444:7602",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 672.3280639648438,
+          "h": 378.1845397949219
+        },
+        {
+          "id": "I444:7602;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:7602;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:7602;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 31.767501831054688
+        },
+        {
+          "id": "I444:7602;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:7602;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I444:7602;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I444:7602;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 199.3032684326172,
+          "h": 23.44744110107422
+        }
+      ],
+      "staleVersionText": []
+    },
+    {
+      "id": "444:7779",
+      "name": "Introduction / 1.4.1 / ja / 1440 / Default",
+      "width": 1440,
+      "height": 4349.3125,
+      "counts": {
+        "FRAME": 182,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "444:7817",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I444:7817;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I444:7817;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7817;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7817;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:7817;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I444:7817;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "444:8013",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 1200,
+          "h": 675
+        },
+        {
+          "id": "I444:8013;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 56.70000076293945
+        },
+        {
+          "id": "I444:8013;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:8013;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:8013;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 89.0999984741211,
+          "h": 48.599998474121094
+        },
+        {
+          "id": "I444:8013;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "I444:8013;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 456.29998779296875,
+          "h": 475.6730651855469
+        },
+        {
+          "id": "444:8185",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 672.3280639648438,
+          "h": 378.1845397949219
+        },
+        {
+          "id": "I444:8185;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:8185;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:8185;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 31.767501831054688
+        },
+        {
+          "id": "I444:8185;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 49.92036056518555,
+          "h": 27.229286193847656
+        },
+        {
+          "id": "I444:8185;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I444:8185;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 255.6527557373047,
+          "h": 266.5069580078125
+        },
+        {
+          "id": "I444:8185;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 199.3032684326172,
+          "h": 23.44744110107422
+        }
+      ],
+      "staleVersionText": []
+    },
+    {
+      "id": "444:8363",
+      "name": "Introduction / 1.4.1 / en / 390 / Default",
+      "width": 390,
+      "height": 3627.171875,
+      "counts": {
+        "FRAME": 175,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "444:8400",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:8400;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:8400;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8400;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8400;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8400;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:8400;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:8592",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:8592;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:8592;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8592;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8592;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8592;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:8592;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:8764",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:8764;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8764;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8764;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:8764;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8764;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:8764;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:8764;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 103.75313568115234,
+          "h": 12.206250190734863
+        }
+      ],
+      "staleVersionText": []
+    },
+    {
+      "id": "444:8940",
+      "name": "Introduction / 1.4.1 / zh-CN / 390 / Default",
+      "width": 390,
+      "height": 3557.296875,
+      "counts": {
+        "FRAME": 175,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "444:8977",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:8977;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:8977;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8977;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8977;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:8977;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:8977;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:9169",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:9169;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:9169;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9169;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9169;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9169;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9169;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:9341",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:9341;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9341;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9341;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:9341;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9341;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9341;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9341;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 103.75313568115234,
+          "h": 12.206250190734863
+        }
+      ],
+      "staleVersionText": []
+    },
+    {
+      "id": "444:9517",
+      "name": "Introduction / 1.4.1 / ja / 390 / Default",
+      "width": 390,
+      "height": 3712.765625,
+      "counts": {
+        "FRAME": 175,
+        "TEXT": 100,
+        "INSTANCE": 18,
+        "RECTANGLE": 15,
+        "GROUP": 52,
+        "VECTOR": 194
+      },
+      "outside": [],
+      "links": [
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://taouyh.github.io/now-what-to-do/about/#demo",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/about/assets/nowwhat-demo-1.4.1.mp4",
+        "https://taouyh.github.io/now-what-to-do/#home",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do/releases",
+        "https://github.com/Taouyh/now-what-to-do",
+        "https://taouyh.github.io/now-what-to-do/about/#",
+        "https://github.com/Taouyh/now-what-to-do/blob/master/LICENSE"
+      ],
+      "images": [
+        {
+          "id": "444:9554",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:9554;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:9554;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9554;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9554;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9554;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9554;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:9746",
+          "name": "Introduction 1.4.1 / Book preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:9746;441:6726",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:9746;441:6729",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9746;441:6732",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9746;441:6735",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9746;441:6756",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9746;441:6757",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "444:9918",
+          "name": "Introduction 1.4.1 / Journal preview",
+          "type": "INSTANCE",
+          "w": 350.0000305175781,
+          "h": 196.87501525878906
+        },
+        {
+          "id": "I444:9918;441:6903",
+          "name": "书签 / 现在做",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9918;441:6906",
+          "name": "书签 / 任务",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9918;441:6909",
+          "name": "书签 / 日历",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 16.53750228881836
+        },
+        {
+          "id": "I444:9918;441:6912",
+          "name": "书签 / 设置",
+          "type": "FRAME",
+          "w": 25.98750114440918,
+          "h": 14.175000190734863
+        },
+        {
+          "id": "I444:9918;441:6933",
+          "name": "左页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9918;441:6934",
+          "name": "右页 / 可编辑轮廓与纸张填充",
+          "type": "VECTOR",
+          "w": 133.08750915527344,
+          "h": 138.7379913330078
+        },
+        {
+          "id": "I444:9918;441:6966",
+          "name": "Vector",
+          "type": "VECTOR",
+          "w": 103.75313568115234,
+          "h": 12.206250190734863
+        }
+      ],
+      "staleVersionText": []
+    }
+  ],
+  "preserved": [
+    {
+      "id": "367:4469",
+      "exists": true,
+      "name": "Introduction / Book edition 1.4 / English / Desktop 1440"
+    },
+    {
+      "id": "367:5014",
+      "exists": true,
+      "name": "Introduction / Book edition 1.4 / English / Mobile 390"
+    },
+    {
+      "id": "367:5561",
+      "exists": true,
+      "name": "Introduction / Installation disclosure / expanded content"
+    },
+    {
+      "id": "366:4399",
+      "exists": true,
+      "name": "Introduction 1.4 / Editable source components"
+    },
+    {
+      "id": "360:4380",
+      "exists": true,
+      "name": "About / Book edition 1.4 / English"
+    },
+    {
+      "id": "366:4789",
+      "exists": true,
+      "name": "Introduction 1.4 / Book preview"
+    },
+    {
+      "id": "366:4790",
+      "exists": true,
+      "name": "Introduction 1.4 / Journal preview"
+    }
+  ],
+  "menus": [
+    {
+      "id": "445:9385",
+      "lang": "English",
+      "width": 1440,
+      "menu": "445:9399",
+      "selected": 0
+    },
+    {
+      "id": "445:9411",
+      "lang": "简体中文",
+      "width": 1440,
+      "menu": "445:9425",
+      "selected": 1
+    },
+    {
+      "id": "445:9437",
+      "lang": "日本語",
+      "width": 1440,
+      "menu": "445:9451",
+      "selected": 2
+    },
+    {
+      "id": "445:9463",
+      "lang": "English",
+      "width": 390,
+      "menu": "445:9476",
+      "selected": 0
+    },
+    {
+      "id": "445:9488",
+      "lang": "简体中文",
+      "width": 390,
+      "menu": "445:9501",
+      "selected": 1
+    },
+    {
+      "id": "445:9513",
+      "lang": "日本語",
+      "width": 390,
+      "menu": "445:9526",
+      "selected": 2
+    }
+  ],
+  "disclosures": [
+    {
+      "id": "447:9421",
+      "width": 512,
+      "height": 186
+    },
+    {
+      "id": "447:9427",
+      "width": 512,
+      "height": 167
+    },
+    {
+      "id": "447:9433",
+      "width": 512,
+      "height": 186
+    },
+    {
+      "id": "447:9439",
+      "width": 350,
+      "height": 205
+    },
+    {
+      "id": "447:9445",
+      "width": 350,
+      "height": 186
+    },
+    {
+      "id": "447:9451",
+      "width": 350,
+      "height": 205
+    }
+  ],
+  "previewMasters": [
+    "441:6720",
+    "441:6897"
+  ],
+  "navigationMaster": "442:6757"
+}
