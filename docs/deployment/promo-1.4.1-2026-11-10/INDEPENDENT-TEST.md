@@ -83,3 +83,29 @@ Primary absolute evidence directory: `C:/Users/fengcai/.codex/worktrees/f7ec/now
 Repository browser harness evidence: `C:/Users/fengcai/.codex/worktrees/f7ec/now-what-to-do/.cache/promo-141-test/`, including `result.json` and six menu screenshots.
 
 Only this report is committed. Correct the two P2 findings, preferably localize the P3 footer at the same time, and submit the corrected fixed commit/new media hash for focused re-verification before recording a publication PASS.
+
+## Focused re-verification — 2026-11-10
+
+**PASS for the corrected promotional publication candidate `5bf74a693eab92cb0e9fdb28d9acc1c09594cde0`.** Both P2 findings and the P3 localization finding above are resolved. The original failed result and evidence remain unchanged as the historical assessment of `8d64eb1`; this appended result applies to the corrected candidate only. Combined with the original passing checks for unchanged code, no promotional publication blocker remains in this independent test scope. Main-window release/deployment and public verification are still separate actions.
+
+Retest used the same isolated worktree on new branch `codex/promo-141-retest-f7ec`, fixed at the exact SHA above before any checks. `git diff` confirmed no app/native/build implementation or introduction HTML/CSS/JavaScript change since `8d64eb1`. Therefore the prior independent build and 144 passing Node tests remain applicable; those unchanged tests were not rerun. Reassembled `dist/site` using the previously independently built, unchanged app files and the corrected checked-out introduction/media. No original evidence was overwritten.
+
+| Focused check | Result |
+| --- | --- |
+| Corrected video identity | PASS: 7,719,812 bytes; SHA-256 `D17F47754D91E4ECF76AB08D8C685E55801AA45D3229B3250AF8079F2BA8B67A`, matching the requested hash and updated media README. |
+| Whole-file video/audio decode | PASS: FFmpeg `-c:v rawvideo -c:a pcm_s16le -f null -`, exit 0, empty error log. FFprobe retains 1920 x 1080, 30 fps, 2,580 frames / 86.000 seconds video and 86.016-second container/audio. |
+| Rendered caption fixes | PASS: independently extracted and visually inspected new MP4 frames at 0 and 62 seconds. Opening reads `Now What 1.4.1 - product walkthrough`; Journal reads `Open the Journal to review today's sessions.` Both punctuation sequences are clean ASCII. Capture source and generated caption data match; no corrupt `â` or replacement characters remain in caption texts. |
+| Browser playback and site regression | PASS: reran the existing `tests/promo-141.cjs` harness body with only its local root/evidence paths redirected, using fresh temporary Edge contexts and the reassembled site. Video metadata loaded, actual playback advanced with `paused=false`, all 21 language/width combinations passed, and no page errors were reported. Hover/exit, no click/touch opening, keyboard, selected styling, exact Releases-index links and synthetic storage preservation all passed again. |
+| Japanese README presets | PASS: now `10・15・20・30・60分`, matching `index.html` and both other READMEs. |
+| Chinese/Japanese README footer | PASS: demo/poster links and music/click/no-narration prose now appear in the corresponding language. Destinations remain intact. |
+| Installation guide | PASS: current release/tag/notes and filenames are 1.4.1; Android versionName 1.4.1 / versionCode 7 matches the manifest; 144-test statement matches prior independent execution. Device coverage wording distinguishes automated package checks from owner confirmation. Historical 1.0 migration, 1.3 timer behavior and 1.4 memory context remain historical sections. |
+| Site/readme guide | PASS: documents the trilingual HTML/CSS/JavaScript implementation, readable static English fallback, English initialization, hover/keyboard behavior, Releases-index actions and the 86-second version-specific MP4. Master-only Pages description matches the checked-in workflow. New Figma reference matches the committed synchronization report; Figma itself was not reopened or re-audited in this test window. |
+| Local documentation links | PASS: relative link/image targets in all three READMEs and both updated guides exist. Public asset availability is a post-publication check, not claimed here. |
+
+Additional evidence directory: `C:/Users/fengcai/.codex/worktrees/f7ec/now-what-to-do/.cache/promo-141-retest/`.
+
+- `video-hash.txt`, `video-metadata.json`, `video-decode.log`, `content-check.json`.
+- `frame-0.png` and `frame-62.png`: visually inspected corrected captions decoded from the exact candidate MP4.
+- `browser.cjs`, `browser/result.json` and six `browser/menu-{en,zh-CN,ja}-{390,1531}.png` captures from the rerun.
+
+Only this appended report is committed. Native installer identities and prior native/Android/participant limitations remain as recorded above; the focused media/documentation correction introduces no new device or upgrade claim. No product fix, package rebuild, push, merge, Release or website publication was performed in this window.
