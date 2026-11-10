@@ -2,11 +2,17 @@ const assert=require('node:assert/strict'),fs=require('node:fs/promises'),path=r
 const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),version=require('../package.json').version;
 (async()=>{
- // Release links stay at published 1.3 while 1.4 is under development.
- // Publishing must run the additional release-link gate.
- if(process.argv.includes('--release'))for(const source of ['README.md','README.zh-CN.md','README.ja.md','about/index.html']){
+ // READMEs name exact assets; the introduction routes download actions to Releases.
+ if(process.argv.includes('--release')){
+ for(const source of ['README.md','README.zh-CN.md','README.ja.md']){
    const links=[...(await fs.readFile(path.join(root,source),'utf8')).matchAll(/releases\/download\/([^/]+)\/([^"\s)<>]+)/g)];
    assert.equal(links.length,2);assert.deepEqual(links.map(m=>m[2]).sort(),[`Now-What-${version}-Windows-x64-Setup.exe`,`Now-What-${version}-Android.apk`].sort());assert.ok(links.every(m=>m[1]==='v'+version));
+ }
+ const introduction=await fs.readFile(path.join(root,'about/index.html'),'utf8');
+ const releasePage='https://github.com/Taouyh/now-what-to-do/releases';
+ const downloadLinks=[...introduction.matchAll(/<a\b[^>]*(?:id="getApp"|class="download")[^>]*href="([^"]+)"/g)];
+ assert.equal(downloadLinks.length,3,'header and both platform actions exist');
+ assert.ok(downloadLinks.every(link=>link[1]===releasePage),'introduction downloads lead to the project Releases');
  }
  const web=path.join(root,'dist/web'),manifest=JSON.parse(await fs.readFile(path.join(web,'manifest.json'),'utf8'));
  const apkPath=path.join(root,`dist/android/Now-What-${version}-Android.apk`),apk=await require('unzipper').Open.file(apkPath);
