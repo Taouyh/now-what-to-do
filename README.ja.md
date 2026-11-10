@@ -16,6 +16,8 @@
 <p align="center"><img src="about/assets/book-home.webp" width="820" alt="空いた10分で読書をはじめる画面。"></p>
 
 <a id="features"></a>
+
+**1.4.1 の更新：**活動のピン留めとドラッグによる並べ替えに対応（各グループ内）。一覧はページ送りで表示し、活動の説明は初期状態で開きます。モバイル表示とボタンも改善しました。
 ## できること
 
 - **迷ったら、ひとつ。** 読書、絵、語学などを登録。提案から選んだり、別の候補や自分の一覧から選べます。
@@ -24,7 +26,7 @@
 - **今の状況に合わせる。** パソコンを使える、音を聞ける、声を出せる、中断されるかもしれない。最初はすべて未選択で、その後の選択は保存されます。
 - **空いた時間で。** 5・10・15・30・60分、または好きな時間を設定。パソコンでは時間や条件にマウスを重ねると開き、パネルから離すと閉じます。スマホではタップで操作します。
 - **戻って、続きを。** 時間が来たら停止し、「続ける」で延長。開き直すと再開待ちになり、長い休止後は前回の時間を別に記録します。
-- **今日を振り返る。** 同じ活動の記録をまとめ、回数と合計時間を表示。各回の記録を開くと、10秒後に閉じます。
+- **今日を振り返る。** 同じ活動の記録をまとめ、回数と合計時間を表示。各回の記録を開いて確認できます。
 - **好みに合わせて。** ライト・ダークテーマ、英語・中国語・日本語。Windows・Android・ブラウザに対応。
 
 <a id="download"></a>
@@ -32,8 +34,8 @@
 
 | 環境 | 入手先 | 必要なもの |
 | --- | --- | --- |
-| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 約2 MiB | Windows 10 / 11、64ビット |
-| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) · 18.2 MiB | Android 7.0以降 |
+| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Windows-x64-Setup.exe) · 18.6 MiB | Windows 10 / 11、64ビット |
+| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Android.apk) · 18.2 MiB | Android 7.0以降 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要 |
 
 無料、登録不要。インストール版はオフラインで使え、初回は英語です。**設定**で言語を変更できます。Web版はブラウザの言語に合わせて起動します。
@@ -45,7 +47,7 @@
 
 - Windows はシステムの WebView2 を使います。未導入の場合のみセットアップ中にダウンロードします。インストーラーは未署名のため、「不明な発行元」と表示される場合があります。
 - Android は新しい WebView が必要です。パッケージと署名は確認済みですが、実機での動作は未検証です。
-- 1.1 / 1.2 からは上書きで更新できます。データの保存場所は同じです。Android は先にアンインストールしないでください。
+- 1.1–1.4 からは上書きで更新できます。データの保存場所は同じです。Android は先にアンインストールしないでください。
 - **Windows 1.0** からは、旧版でバックアップを書き出し、新版の設定で復元してください。自動移行はありません。進行中のタイマーはバックアップに含まれません。
 - [すべてのリリース](https://github.com/Taouyh/now-what-to-do/releases) · [詳しいインストール・更新手順](docs/installable-builds.md)
 
@@ -60,7 +62,7 @@
 
 
 
-[77秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.0 の更新内容](docs/releases/v1.4.0.md)
+[86秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.1 の更新内容](docs/releases/v1.4.1.md)
 
 <a id="privacy"></a>
 ## データとプライバシー
@@ -72,7 +74,7 @@
 <a id="development"></a>
 ## 開発・貢献
 
-1.4 はブック版です。GitHub Pages は `master` からアプリと英語の紹介ページをビルドします。Node.js 24 で `npm ci` と `npm run web` を実行してください。
+1.4 はブック版です。GitHub Pages は `master` からアプリと3言語の紹介ページをビルドします。Node.js 24 で `npm ci` と `npm run web` を実行してください。
 
 [Windows / Android のビルド](docs/installable-builds.md) · [紹介ページの公開](docs/site-and-readme.md)
 
@@ -81,6 +83,6 @@
 
 [MIT](LICENSE) © 2026 Taouyh。使用・変更・共有できます。ライセンス表記を残してください。
 
-[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[86-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
 The demo uses soft music and mouse clicks, with no voiceover.

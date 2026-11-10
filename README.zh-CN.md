@@ -16,15 +16,17 @@
 <p align="center"><img src="about/assets/book-home.webp" width="820" alt="选好十分钟，直接开始读书。"></p>
 
 <a id="features"></a>
+
+**1.4.1 更新：**任务可置顶，也可拖拽排序（置顶与未置顶任务各自排序）；任务列表按页展示。活动说明默认展开，手机布局与按钮样式同步优化。
 ## 有哪些功能
 
 - **少纠结，先做一件。** 写下读书、画画、学语言等想做的事；接受推荐、换一件，或者自己选。
 - **看清下一小步。** 可以选填「翻到上次的位置，先读一页」这样一句话，直接显示在推荐卡片上。
 - **换过的，本轮不再推。** 不想做就换一件；都没感觉时，可以重新看看，或者自己选。
 - **按当下条件选。** 能用电脑、听音频、出声，或者可能被打断，都可以告诉它。默认全部不勾选，选过会记住。
-- **有几分钟，就做几分钟。** 每次选 5、10、15、30、60 分钟或自定义。电脑上鼠标移到时间或条件入口就能展开，移出弹框自动收起；手机轻点操作。
+- **有几分钟，就做几分钟。** 每次选 10、15、20、30、60 分钟或自定义。电脑上鼠标移到时间或条件入口就能展开，移出弹框自动收起；手机轻点操作。
 - **回来接着做。** 到点停止，点击继续才追加。关闭后保留进度，重开先等你确认；暂停很久时，上次用时单独保留。
-- **一眼回看今天。** 同一活动的多次记录放在一起，次数和总用时一目了然。展开看每次记录，10 秒后自动收起。
+- **一眼回看今天。** 同一活动的多次记录放在一起，次数和总用时一目了然。打开后可查看每次记录。
 - **按自己的习惯用。** 浅色、深色，中文、英语、日语；Windows、安卓、网页都能用。
 
 <a id="download"></a>
@@ -32,8 +34,8 @@
 
 | 平台 | 入口 | 使用要求 |
 | --- | --- | --- |
-| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Windows-x64-Setup.exe) · 约 2 MiB | Windows 10 / 11，64 位 |
-| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.0/Now-What-1.4.0-Android.apk) · 18.2 MiB | Android 7.0 及以上 |
+| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Windows-x64-Setup.exe) · 18.6 MiB | Windows 10 / 11，64 位 |
+| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Android.apk) · 18.2 MiB | Android 7.0 及以上 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。
@@ -45,7 +47,7 @@
 
 - Windows 依赖系统 WebView2，缺少时安装器会下载，首次安装需要联网。安装包暂未签名，可能提示「未知发布者」。
 - 安卓需要较新的 WebView；已检查包内容和签名，尚未在真机上验证运行。
-- 从 1.1 / 1.2 升级可直接覆盖安装，数据位置不变。安卓不要先卸载。
+- 从 1.1–1.4 升级可直接覆盖安装，数据位置不变。安卓不要先卸载。
 - 从 **Windows 1.0** 升级：先在旧版导出备份，安装新版后在设置中导入；不会自动迁移。运行中的计时不包含在备份中。
 - [全部版本](https://github.com/Taouyh/now-what-to-do/releases) · [详细安装与升级说明](docs/installable-builds.md)
 
@@ -60,7 +62,7 @@
 
 
 
-[观看 77 秒入门演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.0 更新说明](docs/releases/v1.4.0.md)
+[观看 86 秒入门演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.1 更新说明](docs/releases/v1.4.1.md)
 
 <a id="privacy"></a>
 ## 数据与隐私
@@ -81,6 +83,6 @@
 
 [MIT](LICENSE) © 2026 Taouyh。可以使用、修改和分享，请保留许可声明。
 
-[77-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[86-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
 The demo uses soft music and mouse clicks, with no voiceover.

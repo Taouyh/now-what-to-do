@@ -1,96 +1,77 @@
-/* This page keeps its language preference separate from the tool's data. */
+/* Static landing-page copy; never reads or writes application storage. */
 (() => {
-  'use strict';
-  const copy = {
-    en: {
-      recoveryKicker: "NEW IN 1.3", recoveryTitle: "Pick up where you stopped.", recoveryBody: "Time stops at the end of a round until you choose Continue. Close the app and come back to your saved progress, ready when you are.", recoveryNote: "After a long pause, the previous time is saved separately and you start a new session.", recoveryAlt: "Eight minutes of saved progress, waiting for an explicit choice to resume or end.",
-      conditionsKicker: 'CURRENT CONDITIONS', conditionsTitle: 'Ready when you are.', conditionsBody: 'Hover over time or conditions to open the menu. Pick what fits, then start. Move away from the panel and it closes.', conditionsNote: 'All four conditions start unchecked. Your choices are remembered. On mobile, just tap.', conditionsAlt: 'Four simple condition checkboxes, all initially unchecked.',
-      historyKicker: 'YOUR DAY AT A GLANCE', historyTitle: 'See what you made time for.', historyBody: 'Repeat sessions come together in Today. Open an activity to see each time range and time spent. Use ⋯ when you want a little more detail.', historyNote: 'Cards close after ten seconds. Your original records stay intact.', historyAlt: 'Today groups three Vibe Coding sessions with their time ranges and actual durations.',
-      pageTitle: 'Now What — A little time. A real start.', description: "Got a little free time? Pick something you've been meaning to do, and start now.",
-      skip: 'Skip to content', nav: 'Navigation', language: 'Language', navDemo: 'See it work', navDownload: 'Download',
-      heroKicker: 'FOR THE THINGS YOU KEEP MEANING TO DO', titleOne: 'Got a little', titleTwo: 'free time?', intro: "Pick something you've been meaning to do. Start now.", open: 'Open in browser ↗', getApp: 'Get the app ↓', heroNote: 'Free. No account. Just a place to start.', oneThing: 'ONE THING, RIGHT NOW', artFoot: 'A little progress counts.', shotAlt: 'Now What suggests reading a book with ten minutes available.',
-      demoKicker: 'LESS DECIDING. MORE DOING.', demoTitle: 'From “someday” to started.', format: 'Demo format', desktop: 'Windows', mobile: 'Mobile', videoDesktop: 'Windows app demo, 14 seconds', videoMobile: 'Mobile app demo, 14 seconds', demoNote: '14 seconds · English interface · gentle music, no voice', saveVideo: 'Save video ↓', videoFallback: 'Download the demo video',
-      howKicker: 'NOT ANOTHER LONG TO-DO LIST', howTitle: 'One small start is enough.', stepOne: 'Add your things.', stepOneBody: 'A name is enough. Add a small next step whenever it helps.', stepTwo: 'Set the moment.', stepTwoBody: 'How much time do you have? Can you use a computer, listen or speak?', stepThree: 'Begin one.', stepThreeBody: 'Start a suggestion, or swap it out for this round. End to save the time you spent.',
-      downloadKicker: 'KEEP A LITTLE SPACE FOR YOURSELF', downloadOne: 'Your next', downloadTwo: 'ten minutes.', browserAlternative: 'Or just open it in your browser ↗', windowsSpec: 'Windows 10 / 11 · 64-bit · ~2 MiB', androidSpec: 'Android 7.0+ · .apk', downloadAction: 'Download ↓', installNote: 'Works offline after setup. Starts in English. Windows uses Microsoft WebView2; setup needs internet if the runtime is missing.', beforeInstall: 'Before you install', installCaveat: 'Windows may show an unknown-publisher notice. Upgrading from Windows 1.0? Export your old backup before installing, then restore it in the new app. Android needs an up-to-date WebView and has not yet been tested on a real phone.', upgradeGuide: 'Version 1.3.0 & upgrade guide ↗', allReleases: 'All releases & download help ↗', privacy: 'Your activities stay on this device. No automatic sync. Export a backup in Settings to keep a copy.', license: 'MIT License ↗'
-    },
-    'zh-CN': {
-      recoveryKicker: "1.3 版本更新", recoveryTitle: "回来接着做。", recoveryBody: "到点后停下来，点继续才追加。关闭后保留进度，重新打开等你主动继续。", recoveryNote: "暂停很久时，上次用时单独记录，接着做从新一段开始。", recoveryAlt: "重新打开后保留已投入的八分钟，等待继续本次或结束并记录。",
-      conditionsKicker: '按当下条件', conditionsTitle: '随时都能开始。', conditionsBody: '鼠标移到时间或当前条件，选项就会展开。按现在的情况选好，就能开始；移出弹框，它会自动收起。', conditionsNote: '四项条件默认都不勾选，选过会记住。手机上轻点操作。', conditionsAlt: '当前条件展开为四个简洁的复选框，默认全部未勾选。',
-      historyKicker: '回看今天', historyTitle: '今天做过的，一眼就清楚。', historyBody: '同一活动的多次执行放在一起。展开就能看到每次的时间段和实际用时，需要更多信息时再点 ⋯。', historyNote: '卡片 10 秒后自动收起，原始记录完整保留。', historyAlt: '今天页汇总三次 Vibe Coding，每次只展示时间段和实际用时。',
-      pageTitle: 'Now What — 有点空闲，现在就开始。', description: '有点空闲？选一件一直想做的事，现在就开始。',
-      skip: '跳到正文', nav: '导航', language: '语言', navDemo: '看看怎么用', navDownload: '下载',
-      heroKicker: '给那些一直想做的事，留一点时间', titleOne: '有点空闲？', titleTwo: '现在就开始。', intro: '选一件一直想做的事，现在就开始。', open: '打开网页版 ↗', getApp: '下载安装 ↓', heroNote: '免费，不用注册，直接开始。', oneThing: '此刻，只做一件事', artFoot: '开始一点，也算前进。', shotAlt: 'Now What 在有十分钟空闲时推荐读书。',
-      demoKicker: '少纠结一点，多开始一点', demoTitle: '从「一直想做」到开始做。', format: '演示格式', desktop: 'Windows', mobile: '手机版', videoDesktop: 'Windows 版操作演示，14 秒', videoMobile: '手机版操作演示，14 秒', demoNote: '14 秒 · 英语界面 · 轻柔配乐，无人声', saveVideo: '保存视频 ↓', videoFallback: '下载演示视频',
-      howKicker: '不用再列一张长长的清单', howTitle: '先开始一件小事。', stepOne: '写下想做的事。', stepOneBody: '先写一个名字就好。需要时，留一句下一小步。', stepTwo: '看看现在的条件。', stepTwoBody: '有多少时间？能用电脑、听音频，还是方便出声？', stepThree: '选一件，开始。', stepThreeBody: '想做就开始，不想做就换一件，本轮不再重复。结束后记下用时。',
-      downloadKicker: '给自己，留一点空闲', downloadOne: '接下来的', downloadTwo: '十分钟。', browserAlternative: '也可以直接打开网页版 ↗', windowsSpec: 'Windows 10 / 11 · 64 位 · 约 2 MiB', androidSpec: 'Android 7.0 及以上 · .apk', downloadAction: '下载 ↓', installNote: '安装后可离线使用，首次为英语，可在设置中切换。Windows 使用系统 WebView2，缺少运行时时首次安装需要联网。', beforeInstall: '安装前看一眼', installCaveat: 'Windows 可能提示「未知发布者」。从 Windows 1.0 升级时，请先在旧版导出备份，再安装新版并导入。安卓需要较新的 WebView，目前尚未在真机上测试。', upgradeGuide: '1.3.0 版本与升级说明 ↗', allReleases: '全部版本与下载说明 ↗', privacy: '活动只存在当前设备，不会自动同步。可以在设置里导出备份，自己留一份。', license: 'MIT 开源许可 ↗'
-    },
-    ja: {
-      recoveryKicker: "1.3 の更新", recoveryTitle: "戻って、続きを。", recoveryBody: "時間が来たら停止し、「続ける」で延長。アプリを開き直すと、保存した進み具合から自分で再開できます。", recoveryNote: "長い休止後は前回の時間を別に記録し、新しい回で続けます。", recoveryAlt: "保存した8分を保持して、再開または終了を待つ画面。",
-      conditionsKicker: '今の状況に合わせて', conditionsTitle: '思い立ったら、すぐに。', conditionsBody: '時間や条件にマウスを重ねると、選択肢が開きます。今の状況を選んで、開始。パネルから離すと閉じます。', conditionsNote: '4つの条件は最初は未選択。選んだ内容は保存されます。スマホではタップで操作します。', conditionsAlt: '最初はすべて未選択の、4つのシンプルな条件チェックボックス。',
-      historyKicker: '今日を振り返る', historyTitle: '今日の積み重ねが、見えてくる。', historyBody: '同じ活動の記録をひとつに。開くと各回の時間帯と実際に使った時間が並びます。詳しく見たいときだけ ⋯ へ。', historyNote: 'カードは10秒後に閉じ、元の記録はそのまま残ります。', historyAlt: 'Vibe Coding の3回の記録をまとめ、時間帯と実際に使った時間を表示する今日の画面。',
-      pageTitle: 'Now What — 少しの時間で、ひとつはじめよう。', description: '少し時間が空いた？ ずっとやりたかったことをひとつ選んで、今はじめよう。',
-      skip: '本文へ移動', nav: 'ナビゲーション', language: '言語', navDemo: '使い方を見る', navDownload: 'ダウンロード',
-      heroKicker: 'ずっとやりたかったことに、少しの時間を', titleOne: '少し時間が', titleTwo: '空いた？', intro: 'ずっとやりたかったことをひとつ選んで、今はじめよう。', open: 'ブラウザで開く ↗', getApp: 'アプリを入れる ↓', heroNote: '無料。登録不要。気軽にはじめよう。', oneThing: '今、できることをひとつ', artFoot: '少しの一歩も、前進。', shotAlt: '空いた10分に読書を提案する Now What の画面。',
-      demoKicker: '迷う時間を、はじめる時間に', demoTitle: '「いつか」を、今に。', format: 'デモの形式', desktop: 'Windows', mobile: 'モバイル', videoDesktop: 'Windows 版の操作デモ、14秒', videoMobile: 'モバイル版の操作デモ、14秒', demoNote: '14秒 · 英語の画面 · 穏やかな音楽、音声なし', saveVideo: '動画を保存 ↓', videoFallback: 'デモ動画をダウンロード',
-      howKicker: '長いリストは、いりません', howTitle: '小さく、ひとつはじめよう。', stepOne: 'やりたいことを書く。', stepOneBody: 'まずは名前だけで大丈夫。必要なら次の小さな一歩を。', stepTwo: '今の状況を選ぶ。', stepTwoBody: '何分ある？ パソコンを使える？ 音を聞ける？ 声を出せる？', stepThree: 'ひとつ、はじめる。', stepThreeBody: 'やりたい提案から開始。変えた候補は今回は出しません。終了すると時間を記録します。',
-      downloadKicker: '自分のために、少しの時間を', downloadOne: '次の', downloadTwo: '10分から。', browserAlternative: 'ブラウザでも、そのまま使えます ↗', windowsSpec: 'Windows 10 / 11 · 64ビット · 約2 MiB', androidSpec: 'Android 7.0以降 · .apk', downloadAction: 'ダウンロード ↓', installNote: 'セットアップ後はオフラインで使えます。初回は英語です。Windows は WebView2 を使い、未導入の場合のみ通信が必要です。', beforeInstall: 'インストール前に', installCaveat: 'Windows では「不明な発行元」と表示される場合があります。Windows 1.0 から更新する前にバックアップを保存し、新版で復元してください。Android は最新の WebView が必要です。実機では未検証です。', upgradeGuide: '1.3.0 の更新・移行ガイド ↗', allReleases: 'すべてのリリースとダウンロード案内 ↗', privacy: 'データは今の端末だけに保存され、自動同期されません。設定からバックアップを保存できます。', license: 'MIT ライセンス ↗'
-    }
-  };
-  const storageKey = 'nowWhat.about.language';
-  const allowed = language => Object.hasOwn(copy, language);
-  let language = 'en';
-  const requested = new URL(location.href).searchParams.get('lang');
-  if (allowed(requested)) language = requested;
-  else {
-    try {
-      const saved = localStorage.getItem(storageKey);
-      if (allowed(saved)) language = saved;
-    } catch (_) { /* English is usable when storage is unavailable. */ }
-  }
-  let demo = matchMedia('(max-width: 700px)').matches ? 'mobile' : 'windows';
-  const video = document.getElementById('demoVideo');
-
-  function renderLanguage() {
-    const text = copy[language];
-    document.documentElement.lang = language;
-    document.title = text.pageTitle;
-    document.querySelector('meta[name="description"]').content = text.description;
-    for (const element of document.querySelectorAll('[data-copy]')) element.textContent = text[element.dataset.copy];
-    for (const element of document.querySelectorAll('[data-label]')) element.setAttribute('aria-label', text[element.dataset.label]);
-    for (const element of document.querySelectorAll('[data-alt]')) element.alt = text[element.dataset.alt];
-    document.getElementById('startShot').src = `assets/start-${language}.png?v=1.3.0`;
-    document.getElementById('conditionsShot').src = `assets/conditions-${language}.png?v=1.3.0`;
-    document.getElementById('recoveryShot').src = `assets/recovery-${language}.png?v=1.3.0`;
-    document.getElementById('historyShot').src = `assets/today-${language}.png?v=1.3.0`;
-    for (const button of document.querySelectorAll('[data-lang]')) button.setAttribute('aria-pressed', String(button.dataset.lang === language));
-    video.setAttribute('aria-label', text[demo === 'windows' ? 'videoDesktop' : 'videoMobile']);
-  }
-
-  function renderDemo() {
-    video.pause();
-    video.poster = `assets/${demo}-poster.jpg`;
-    const source = video.querySelector('source');
-    source.src = `assets/${demo}-demo.mp4`;
-    video.querySelector('a').href = source.src;
-    video.width = demo === 'windows' ? 1920 : 1080;
-    video.height = demo === 'windows' ? 1080 : 1920;
-    video.load();
-    video.closest('.video-stage').dataset.format = demo;
-    document.getElementById('videoDownload').href = source.src;
-    for (const button of document.querySelectorAll('[data-demo]')) button.setAttribute('aria-pressed', String(button.dataset.demo === demo));
-    video.dataset.label = demo === 'windows' ? 'videoDesktop' : 'videoMobile';
-    video.setAttribute('aria-label', copy[language][video.dataset.label]);
-  }
-
-  for (const button of document.querySelectorAll('[data-lang]')) button.addEventListener('click', () => {
-    language = button.dataset.lang;
-    try { localStorage.setItem(storageKey, language); } catch (_) { /* Switching still works. */ }
-    renderLanguage();
-  });
-  for (const button of document.querySelectorAll('[data-demo]')) button.addEventListener('click', () => {
-    demo = button.dataset.demo;
-    renderDemo();
-  });
-  renderLanguage();
-  renderDemo();
+'use strict';
+const names=['English','简体中文','日本語'], languages=['en','zh-CN','ja'];
+const copy=[
+['.skip','Skip to content','跳到正文','本文へ移動'],
+['#navDemo','See it work','看看怎么用','使い方を見る'],
+['#getApp','Get the app ↗','获取应用 ↗','アプリを入手 ↗'],
+['.hero .eyebrow','A QUIET PLACE TO BEGIN · VERSION 1.4.1','安静地开始 · 1.4.1 版','静かに始める場所 · バージョン 1.4.1'],
+['#hero-title','A little time.<br><em>A page of your own.</em>','有点空闲。<br><em>写下自己的这一页。</em>','少しの時間を、<br><em>自分の一ページに。</em>'],
+['.lead','Keep the things you want to do.<br class="mobile-break"> Choose one that fits right now.','把一直想做的事放在这里。<br class="mobile-break"> 有空时选一件，做一点。','やりたいことを、ここに。<br class="mobile-break"> 今できることを一つ選ぼう。'],
+['.actions .primary','Open in browser ↗','打开网页版 ↗','ブラウザで開く ↗'],
+['.actions .secondary','Watch the demo ↓','观看演示 ↓','デモを見る ↓'],
+['.hero > .small','Free. No account. Your data stays on this device.','免费，无需注册。数据保存在当前设备。','無料、登録不要。データはこの端末に保存。'],
+['figcaption','A familiar place for a small first step.','一个熟悉的地方，迈出小小的第一步。','小さな一歩のための、なじみの場所。'],
+['.steps-section .eyebrow','HOW IT WORKS','怎么开始','使い方'],
+['#steps-title','From a free moment<br>to a first step.','从一点空闲，<br>到第一小步。','空いた時間から、<br>最初の一歩へ。'],
+['.steps article:nth-child(1) h3','Keep your ideas.','记下想做的事。','やりたいことを残す。'],
+['.steps article:nth-child(1) p','Add an activity and a small next step. Pin favorites and drag the grip to put tasks in your own order.','添加活动和下一小步。常做的任务可以置顶，也可以拖动把手调整顺序。','活動と次の一歩を追加。よく使う活動をピン留めし、ハンドルをドラッグして並べ替えられます。'],
+['.steps article:nth-child(2) h3','Find what fits.','选一件合适的。','今できることを選ぶ。'],
+['.steps article:nth-child(2) p','Choose your time and current conditions. Start a suggestion, try another, or choose for yourself.','选好时间和当前条件。接受推荐、换一件，或者自己选。','時間と今の条件を設定。提案を始めても、別の活動を選んでも大丈夫。'],
+['.steps article:nth-child(3) h3','Start, then remember.','开始，也记下来。','始めて、記録する。'],
+['.steps article:nth-child(3) p','Focus, pause when you need to, and end to save your time. Leave a note for next time.','专注一会儿，需要时暂停，结束后记录用时。留下一句，下次接着做。','集中し、必要なら一休み。終了すると時間が記録され、次回のメモを残せます。'],
+['.demo-section .eyebrow','A WALK THROUGH THE APP','跟着演示走一遍','アプリをひとめぐり'],
+['#demo-title','See each step.','每一步，都看得见。','一つずつ、見てみよう。'],
+['.section-heading .small','86 seconds · English<br>Soft music and mouse clicks. No voiceover.','86 秒 · 英语界面<br>轻柔配乐和鼠标点击声，无旁白。','86秒 · 英語の画面<br>穏やかな音楽とクリック音。ナレーションなし。'],
+['video a','Download the product demo','下载产品演示','製品デモをダウンロード'],
+['.video-caption span','Add → Pin & reorder → Focus → Journal → Settings','添加 → 置顶与排序 → 专注 → 日历 → 设置','追加 → ピン留め・並べ替え → 集中 → 記録 → 設定'],
+['.video-caption a','Save video ↓','保存视频 ↓','動画を保存 ↓'],
+['.journal .eyebrow','A RECORD OF YOUR TIME','留下时间的痕迹','時間の記録'],
+['#journal-title','Your time,<br>in a journal.','你的时间，<br>在手账里。','あなたの時間を、<br>手帳に。'],
+['.journal p:not(.eyebrow):not(.small)','See what you made time for. Open an activity, review your sessions, and pick up where you left off.','看看今天为哪些事留出了时间。打开活动，回顾记录，下次从这里继续。','何に時間を使えたかを振り返る。活動を開いて記録を見たら、また続きから。'],
+['.journal .small','Light and dark themes. English, Chinese and Japanese.<br>Export a backup in Settings to keep a copy.','浅色与深色主题，支持中英日。<br>可以在设置中导出备份。','ライト・ダークテーマ、英語・中国語・日本語に対応。<br>設定からバックアップを書き出せます。'],
+['.download-section .eyebrow','TAKE IT WITH YOU · 1.4.1','随身带上 · 1.4.1','いつも手元に · 1.4.1'],
+['#download-title','Make room for<br><em>one small thing.</em>','留一点时间，<br><em>做一件小事。</em>','小さなことを一つ、<br><em>始める余白を。</em>'],
+['.text-link','Or open it in your browser ↗','也可以直接打开网页版 ↗','ブラウザで開くこともできます ↗'],
+['.download:nth-child(1) small','Windows 10 / 11 · 64-bit · 1.4.1','Windows 10 / 11 · 64 位 · 1.4.1','Windows 10 / 11 · 64ビット · 1.4.1'],
+['.download:nth-child(2) small','Android 7.0+ · APK · 1.4.1','Android 7.0 及以上 · APK · 1.4.1','Android 7.0以降 · APK · 1.4.1'],
+['.download > span:last-child','GitHub Releases ↗','前往 GitHub Release ↗','GitHub Releases へ ↗'],
+['.downloads > .small','Installed apps work offline. Windows shares the system WebView2 runtime; first setup needs internet if it is missing.','安装版可离线使用。Windows 使用系统 WebView2；缺少运行时时，首次安装需联网。','インストール版はオフラインで使えます。Windows はシステムの WebView2 を使い、未導入時の初回セットアップには接続が必要です。'],
+['.downloads summary','Installation and updates','安装与更新','インストールと更新'],
+['.downloads details p:nth-of-type(1)','Windows may show an unknown-publisher notice. Android needs an up-to-date WebView.','Windows 可能提示未知发布者。安卓需要较新的 WebView。','Windows では不明な発行元の通知が出る場合があります。Android には新しい WebView が必要です。'],
+['.downloads details p:nth-of-type(2)','Back up before updating. Install over your existing 1.1–1.4 app to keep its data. From Windows 1.0, export first and restore in Settings.','更新前先导出备份。1.1–1.4 版本可覆盖安装，保留数据；Windows 1.0 请先导出，再到新版设置中恢复。','更新前にバックアップを。1.1〜1.4 は上書きでデータを保持できます。Windows 1.0 は先に書き出し、新版の設定で復元してください。'],
+['.downloads details a','Release notes ↗','版本说明 ↗','更新内容 ↗'],
+['.privacy p','No account. No automatic sync.<br>Your activities, settings and history stay on this device.','无需注册，不自动同步。<br>活动、设置和历史记录保存在当前设备。','登録不要、自動同期なし。<br>活動・設定・履歴はこの端末に保存されます。'],
+['.privacy a','Open source, with care ↗','开源，也用心 ↗','オープンソース ↗'],
+['footer > a:last-child','MIT License ↗','MIT 许可 ↗','MIT ライセンス ↗']
+];
+const titles=['Now What — A little time. A page of your own.','Now What — 有点空闲，现在就开始。','Now What — 少しの時間を、自分の一歩に。'];
+const descriptions=['A book-style activity picker for Windows, Android and the web. Pin, reorder and start one thing.','支持 Windows、安卓和网页的活动手账。置顶、拖拽排序，选一件事开始。','Windows・Android・Webで使える手帳のような活動アプリ。ピン留め、並べ替え、そして一歩。'];
+const picker=document.querySelector('.language-picker'),trigger=picker.querySelector('.language-trigger'),options=picker.querySelector('.language-options');
+function open(value){picker.classList.toggle('is-open',value);trigger.setAttribute('aria-expanded',String(value));}
+function select(i){
+ document.documentElement.lang=languages[i];document.title=titles[i];
+ document.querySelector('meta[name="description"]').content=descriptions[i];
+ document.querySelector('meta[property="og:title"]').content=titles[i];
+ for(const [selector,...text] of copy) document.querySelectorAll(selector).forEach(el=>{el.innerHTML=text[i];});
+ document.getElementById('languageCurrent').textContent=names[i];
+ const label=['Language','语言','言語'][i];trigger.setAttribute('aria-label',label+': '+names[i]);options.setAttribute('aria-label',label);
+ document.querySelector('nav').setAttribute('aria-label',['Main navigation','主导航','メインナビゲーション'][i]);
+ document.querySelector('.hero-image img').alt=['Now What 1.4.1: choose time and conditions, then start.','Now What 1.4.1：选好时间与条件，开始活动。','Now What 1.4.1：時間と条件を選んで活動を始める。'][i];
+ document.querySelector('.journal img').alt=['Activity sessions and time spent in the Journal.','手账日历展示活动记录和投入时间。','記録画面に活動と所要時間が表示される。'][i];
+ document.querySelector('video').setAttribute('aria-label',['Now What 1.4.1 English demonstration, 86 seconds','Now What 1.4.1 英语演示，86 秒','Now What 1.4.1 英語デモ、86秒'][i]);
+ options.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===languages[i])));
+}
+// Hover opens the pointer menu. Clicking the trigger never toggles it.
+picker.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')open(true);});
+picker.addEventListener('pointerleave',()=>open(false));
+// Keyboard access supplements hover, without click-to-open behavior.
+trigger.addEventListener('keydown',e=>{if(['ArrowDown','Enter',' '].includes(e.key)){e.preventDefault();open(true);options.querySelector('[aria-pressed="true"]').focus();}});
+picker.addEventListener('keydown',e=>{if(e.key==='Escape'){open(false);trigger.focus();}});
+picker.addEventListener('focusout',e=>{if(!picker.contains(e.relatedTarget))open(false);});
+options.querySelectorAll('[data-lang]').forEach(el=>el.addEventListener('click',()=>{select(languages.indexOf(el.dataset.lang));open(false);trigger.focus();}));
+// Every initial load is English, regardless of browser or saved app language.
+select(0);
 })();
+

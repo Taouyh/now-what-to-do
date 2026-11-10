@@ -1,0 +1,472 @@
+{
+  "duration": 86,
+  "width": 1600,
+  "height": 900,
+  "events": [
+    {
+      "time": 2.85,
+      "x": 1063.65625,
+      "y": 135.46875
+    },
+    {
+      "time": 5.449999999999999,
+      "x": 1309.34375,
+      "y": 248.078125
+    },
+    {
+      "time": 8.049999999999999,
+      "x": 1111.4140625,
+      "y": 247.3125
+    },
+    {
+      "time": 11.549999999999999,
+      "x": 1111.4140625,
+      "y": 532.28125
+    },
+    {
+      "time": 15.049999999999999,
+      "x": 1389.0625,
+      "y": 329.28125
+    },
+    {
+      "time": 17.650000000000002,
+      "x": 661.328125,
+      "y": 358.109375
+    },
+    {
+      "time": 20.250000000000004,
+      "x": 260.796875,
+      "y": 505.546875
+    },
+    {
+      "time": 21.400000000000002,
+      "x": 489.5625,
+      "y": 414.259375,
+      "drag": true
+    },
+    {
+      "time": 24.250000000000004,
+      "x": 661.328125,
+      "y": 358.109375
+    },
+    {
+      "time": 26.650000000000002,
+      "x": 933.640625,
+      "y": 135.46875
+    },
+    {
+      "time": 29.250000000000004,
+      "x": 1007.484375,
+      "y": 257.2109375
+    },
+    {
+      "time": 31.850000000000005,
+      "x": 985.546875,
+      "y": 357.09375
+    },
+    {
+      "time": 33.85,
+      "x": 1184.359375,
+      "y": 257.2109375
+    },
+    {
+      "time": 36.45,
+      "x": 1108.0703125,
+      "y": 444.640625
+    },
+    {
+      "time": 39.050000000000004,
+      "x": 1344.109375,
+      "y": 261.640625
+    },
+    {
+      "time": 41.050000000000004,
+      "x": 1095.9140625,
+      "y": 551.5859375
+    },
+    {
+      "time": 44.550000000000004,
+      "x": 1002.53125,
+      "y": 567.015625
+    },
+    {
+      "time": 47.550000000000004,
+      "x": 1002.53125,
+      "y": 567.015625
+    },
+    {
+      "time": 50.550000000000004,
+      "x": 1189.3125,
+      "y": 567.015625
+    },
+    {
+      "time": 53.550000000000004,
+      "x": 1095.921875,
+      "y": 669.03125
+    },
+    {
+      "time": 56.150000000000006,
+      "x": 1095.921875,
+      "y": 584.859375
+    },
+    {
+      "time": 59.650000000000006,
+      "x": 972.5390625,
+      "y": 653.703125
+    },
+    {
+      "time": 62.25000000000001,
+      "x": 1193.671875,
+      "y": 135.46875
+    },
+    {
+      "time": 64.85,
+      "x": 482.0625,
+      "y": 358.109375
+    },
+    {
+      "time": 67.44999999999999,
+      "x": 1095.921875,
+      "y": 348.828125
+    },
+    {
+      "time": 70.44999999999999,
+      "x": 1323.6875,
+      "y": 135.46875
+    },
+    {
+      "time": 73.44999999999999,
+      "x": 613.4453125,
+      "y": 504.65625
+    },
+    {
+      "time": 76.44999999999999,
+      "x": 365.6796875,
+      "y": 504.65625
+    },
+    {
+      "time": 78.94999999999999,
+      "x": 950.2578125,
+      "y": 372.34375
+    },
+    {
+      "time": 81.94999999999999,
+      "x": 933.640625,
+      "y": 135.46875
+    }
+  ],
+  "screens": [
+    {
+      "time": 0,
+      "file": "demo/0.png"
+    },
+    {
+      "time": 3,
+      "file": "demo/1.png"
+    },
+    {
+      "time": 5.6,
+      "file": "demo/2.png"
+    },
+    {
+      "time": 8.62,
+      "file": "demo/3.png"
+    },
+    {
+      "time": 9.04,
+      "file": "demo/4.png"
+    },
+    {
+      "time": 9.459999999999999,
+      "file": "demo/5.png"
+    },
+    {
+      "time": 9.879999999999999,
+      "file": "demo/6.png"
+    },
+    {
+      "time": 12.12,
+      "file": "demo/7.png"
+    },
+    {
+      "time": 12.54,
+      "file": "demo/8.png"
+    },
+    {
+      "time": 12.959999999999999,
+      "file": "demo/9.png"
+    },
+    {
+      "time": 13.379999999999999,
+      "file": "demo/10.png"
+    },
+    {
+      "time": 15.2,
+      "file": "demo/11.png"
+    },
+    {
+      "time": 17.8,
+      "file": "demo/12.png"
+    },
+    {
+      "time": 21.400000000000002,
+      "file": "demo/13.png"
+    },
+    {
+      "time": 22.400000000000002,
+      "file": "demo/14.png"
+    },
+    {
+      "time": 24.400000000000002,
+      "file": "demo/15.png"
+    },
+    {
+      "time": 26.8,
+      "file": "demo/16.png"
+    },
+    {
+      "time": 29.400000000000002,
+      "file": "demo/17.png"
+    },
+    {
+      "time": 32,
+      "file": "demo/18.png"
+    },
+    {
+      "time": 34,
+      "file": "demo/19.png"
+    },
+    {
+      "time": 36.6,
+      "file": "demo/20.png"
+    },
+    {
+      "time": 39.2,
+      "file": "demo/21.png"
+    },
+    {
+      "time": 41.2,
+      "file": "demo/22.png"
+    },
+    {
+      "time": 44.7,
+      "file": "demo/23.png"
+    },
+    {
+      "time": 47.7,
+      "file": "demo/24.png"
+    },
+    {
+      "time": 50.7,
+      "file": "demo/25.png"
+    },
+    {
+      "time": 53.7,
+      "file": "demo/26.png"
+    },
+    {
+      "time": 56.720000000000006,
+      "file": "demo/27.png"
+    },
+    {
+      "time": 57.14000000000001,
+      "file": "demo/28.png"
+    },
+    {
+      "time": 57.56,
+      "file": "demo/29.png"
+    },
+    {
+      "time": 57.980000000000004,
+      "file": "demo/30.png"
+    },
+    {
+      "time": 59.800000000000004,
+      "file": "demo/31.png"
+    },
+    {
+      "time": 62.400000000000006,
+      "file": "demo/32.png"
+    },
+    {
+      "time": 65,
+      "file": "demo/33.png"
+    },
+    {
+      "time": 67.6,
+      "file": "demo/34.png"
+    },
+    {
+      "time": 70.6,
+      "file": "demo/35.png"
+    },
+    {
+      "time": 73.6,
+      "file": "demo/36.png"
+    },
+    {
+      "time": 76.6,
+      "file": "demo/37.png"
+    },
+    {
+      "time": 79.1,
+      "file": "demo/38.png"
+    },
+    {
+      "time": 82.1,
+      "file": "demo/39.png"
+    }
+  ],
+  "captions": [
+    {
+      "time": 0,
+      "text": "NowWhat â€” product walkthrough",
+      "chapter": "Overview"
+    },
+    {
+      "time": 2,
+      "text": "Open Tasks to manage your activities.",
+      "chapter": "Tasks"
+    },
+    {
+      "time": 4.6,
+      "text": "Click Add to create an activity.",
+      "chapter": "Tasks"
+    },
+    {
+      "time": 7.199999999999999,
+      "text": "Enter the activity name.",
+      "chapter": "Tasks"
+    },
+    {
+      "time": 10.7,
+      "text": "Write a simple instruction for getting started.",
+      "chapter": "Tasks"
+    },
+    {
+      "time": 14.2,
+      "text": "Save the activity to your list.",
+      "chapter": "Tasks"
+    },
+    {
+      "time": 16.8,
+      "text": "Pin an activity to keep it at the top.",
+      "chapter": "Organize"
+    },
+    {
+      "time": 19.400000000000002,
+      "text": "Drag the grip to reorder your activities.",
+      "chapter": "Organize"
+    },
+    {
+      "time": 23.400000000000002,
+      "text": "Unpin at any time. Your order is remembered.",
+      "chapter": "Organize"
+    },
+    {
+      "time": 25.8,
+      "text": "Return to Start for a suggestion.",
+      "chapter": "Start"
+    },
+    {
+      "time": 28.400000000000002,
+      "text": "Choose how long you want to spend.",
+      "chapter": "Start"
+    },
+    {
+      "time": 31.000000000000004,
+      "text": "Select a 10-minute session.",
+      "chapter": "Start"
+    },
+    {
+      "time": 33,
+      "text": "Set the conditions that apply right now.",
+      "chapter": "Start"
+    },
+    {
+      "time": 35.6,
+      "text": "Mark whether you might be interrupted.",
+      "chapter": "Start"
+    },
+    {
+      "time": 38.2,
+      "text": "Keep these conditions.",
+      "chapter": "Start"
+    },
+    {
+      "time": 40.2,
+      "text": "Start the suggested activity.",
+      "chapter": "Focus"
+    },
+    {
+      "time": 43.7,
+      "text": "Pause the timer when you need a break.",
+      "chapter": "Focus"
+    },
+    {
+      "time": 46.7,
+      "text": "Resume the same session.",
+      "chapter": "Focus"
+    },
+    {
+      "time": 49.7,
+      "text": "End the session and record the time spent.",
+      "chapter": "Focus"
+    },
+    {
+      "time": 52.7,
+      "text": "Save a note for the next session.",
+      "chapter": "Next step"
+    },
+    {
+      "time": 55.300000000000004,
+      "text": "Write where you want to resume.",
+      "chapter": "Next step"
+    },
+    {
+      "time": 58.800000000000004,
+      "text": "Save your next starting point.",
+      "chapter": "Next step"
+    },
+    {
+      "time": 61.400000000000006,
+      "text": "Open the Journal to review todayâ€™s sessions.",
+      "chapter": "Journal"
+    },
+    {
+      "time": 64,
+      "text": "Select an activity to see its sessions.",
+      "chapter": "Journal"
+    },
+    {
+      "time": 66.6,
+      "text": "Open a session to see its recorded details.",
+      "chapter": "Journal"
+    },
+    {
+      "time": 69.6,
+      "text": "Open Settings for language, appearance, and backups.",
+      "chapter": "Settings"
+    },
+    {
+      "time": 72.6,
+      "text": "Switch to the dark appearance.",
+      "chapter": "Settings"
+    },
+    {
+      "time": 75.6,
+      "text": "Switch back to the light appearance.",
+      "chapter": "Settings"
+    },
+    {
+      "time": 78.1,
+      "text": "Export a backup of your data.",
+      "chapter": "Settings"
+    },
+    {
+      "time": 81.1,
+      "text": "Return to Start.",
+      "chapter": "Start"
+    }
+  ]
+}

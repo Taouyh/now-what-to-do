@@ -21,7 +21,7 @@ Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.
 Design delivery: `docs/design/free-time-start-2026-11-01/V13-ITERATION.md`.
 Latest verified design sync: `docs/deployment/web-drag-2026-11-09/FIGMA-SYNC.md`; earlier reports remain in their delivery directories.
-Current native review candidate: `docs/deployment/native-1.4.1-2026-11-09/RELEASE.md`. User authorized Windows/Android packages and a new independent test worktree on 2026-11-09. Local commits only; no push, publication or master merge. Deliver tested installers for user acceptance.
+Current native review candidate: `docs/deployment/native-1.4.1-2026-11-09/RELEASE.md`. User authorized Windows/Android packages and a new independent test worktree on 2026-11-09. User confirmed the installers on 2026-11-10 and authorized push, Release and website publication after tests. Current publication: `docs/deployment/promo-1.4.1-2026-11-10/RELEASE.md`.
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.
 Release introduction design sync: `docs/deployment/book-1.4.0/FIGMA-SYNC.md`.
 Use Figma account `3966592487` for this project. Verify the active account before accessing project designs in each Figma session.
