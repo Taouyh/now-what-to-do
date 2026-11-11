@@ -1,0 +1,5816 @@
+{
+  "date": "2026-11-11",
+  "sourceCommit": "c9a7ad658e05f1d207cd1a2493d8720efb589288",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "pageId": "49:243",
+  "accountHandle": "3966592487",
+  "sessionId": "7263b892-1273-4fbc-8f93-4c51a40858e7",
+  "mutation": {
+    "createdNodeIds": [
+      "474:9772",
+      "474:9773",
+      "474:9774",
+      "474:9775",
+      "474:9776",
+      "474:9777",
+      "474:9778",
+      "474:9779",
+      "474:9780",
+      "474:9781",
+      "474:9782",
+      "474:9783",
+      "474:9784",
+      "474:9785",
+      "474:9786",
+      "474:9787",
+      "474:9788",
+      "474:9789",
+      "474:9790",
+      "474:9791",
+      "474:9792",
+      "474:9793",
+      "474:9794",
+      "474:9795",
+      "474:9796",
+      "474:9797",
+      "474:9798",
+      "474:9799",
+      "474:9800",
+      "474:9801",
+      "474:9802",
+      "474:9803",
+      "474:9804",
+      "474:9805",
+      "474:9806",
+      "474:9807",
+      "474:9808",
+      "474:9809",
+      "474:9810",
+      "474:9811",
+      "474:9812",
+      "474:9813",
+      "474:9814",
+      "474:9815",
+      "474:9816",
+      "474:9817",
+      "474:9818",
+      "474:9819",
+      "474:9820",
+      "474:9821",
+      "474:9822",
+      "474:9823",
+      "474:9824",
+      "474:9825",
+      "474:9826",
+      "474:9827",
+      "474:9828",
+      "474:9829",
+      "474:9830",
+      "474:9831",
+      "474:9832",
+      "I474:9832;474:9773",
+      "I474:9832;474:9774",
+      "I474:9832;474:9775",
+      "I474:9832;474:9776",
+      "I474:9832;474:9777",
+      "I474:9832;474:9778",
+      "I474:9832;474:9779",
+      "474:9840",
+      "I474:9840;474:9781",
+      "I474:9840;474:9782",
+      "I474:9840;474:9783",
+      "I474:9840;474:9784",
+      "I474:9840;474:9785",
+      "I474:9840;474:9786",
+      "I474:9840;474:9787",
+      "474:9848",
+      "I474:9848;474:9789",
+      "I474:9848;474:9790",
+      "I474:9848;474:9791",
+      "I474:9848;474:9792",
+      "I474:9848;474:9793",
+      "I474:9848;474:9794",
+      "I474:9848;474:9795",
+      "I474:9848;474:9796",
+      "I474:9848;474:9797",
+      "I474:9848;474:9798",
+      "474:9859",
+      "I474:9859;474:9800",
+      "I474:9859;474:9801",
+      "I474:9859;474:9802",
+      "I474:9859;474:9803",
+      "I474:9859;474:9804",
+      "I474:9859;474:9805",
+      "I474:9859;474:9806",
+      "I474:9859;474:9807",
+      "I474:9859;474:9808",
+      "I474:9859;474:9809",
+      "474:9870",
+      "474:9871",
+      "474:9872",
+      "474:9873",
+      "474:9874",
+      "474:9875",
+      "474:9876",
+      "I474:9876;474:9773",
+      "I474:9876;474:9774",
+      "I474:9876;474:9775",
+      "I474:9876;474:9776",
+      "I474:9876;474:9777",
+      "I474:9876;474:9778",
+      "I474:9876;474:9779",
+      "474:9884",
+      "474:9885",
+      "474:9886",
+      "474:9887",
+      "I474:9887;474:9781",
+      "I474:9887;474:9782",
+      "I474:9887;474:9783",
+      "I474:9887;474:9784",
+      "I474:9887;474:9785",
+      "I474:9887;474:9786",
+      "I474:9887;474:9787",
+      "474:9895",
+      "474:9896",
+      "474:9897",
+      "474:9898",
+      "I474:9898;474:9789",
+      "I474:9898;474:9790",
+      "I474:9898;474:9791",
+      "I474:9898;474:9792",
+      "I474:9898;474:9793",
+      "I474:9898;474:9794",
+      "I474:9898;474:9795",
+      "I474:9898;474:9796",
+      "I474:9898;474:9797",
+      "I474:9898;474:9798",
+      "474:9909",
+      "474:9910",
+      "474:9911",
+      "474:9912",
+      "I474:9912;474:9800",
+      "I474:9912;474:9801",
+      "I474:9912;474:9802",
+      "I474:9912;474:9803",
+      "I474:9912;474:9804",
+      "I474:9912;474:9805",
+      "I474:9912;474:9806",
+      "I474:9912;474:9807",
+      "I474:9912;474:9808",
+      "I474:9912;474:9809",
+      "474:9923",
+      "474:9924",
+      "474:9925",
+      "474:9926",
+      "I474:9926;474:9811",
+      "I474:9926;474:9812",
+      "I474:9926;474:9813",
+      "I474:9926;474:9814",
+      "I474:9926;474:9815",
+      "I474:9926;474:9816",
+      "I474:9926;474:9817",
+      "I474:9926;474:9818",
+      "I474:9926;474:9819",
+      "I474:9926;474:9820",
+      "474:9937",
+      "474:9938",
+      "474:9939",
+      "474:9940",
+      "I474:9940;474:9822",
+      "I474:9940;474:9823",
+      "I474:9940;474:9824",
+      "I474:9940;474:9825",
+      "I474:9940;474:9826",
+      "I474:9940;474:9827",
+      "I474:9940;474:9828",
+      "I474:9940;474:9829",
+      "I474:9940;474:9830",
+      "I474:9940;474:9831"
+    ],
+    "mutatedNodeIds": [
+      "457:9433",
+      "457:9561",
+      "457:9586",
+      "457:9791",
+      "457:9919",
+      "457:9944",
+      "457:10154",
+      "457:10225",
+      "457:10249",
+      "457:10398",
+      "457:10469",
+      "457:10493",
+      "457:9600",
+      "457:9750",
+      "457:9958",
+      "457:10108",
+      "457:10260",
+      "457:10352",
+      "457:9421",
+      "457:9423",
+      "457:9777",
+      "457:9779",
+      "457:10137",
+      "457:10139",
+      "457:10381",
+      "457:10383",
+      "458:9706",
+      "463:9740",
+      "463:9755",
+      "463:9790",
+      "463:9792",
+      "463:9794",
+      "463:9796",
+      "463:9756",
+      "458:9872",
+      "458:9873",
+      "458:9874",
+      "458:9875",
+      "458:9876",
+      "458:9877",
+      "458:9878",
+      "458:9883",
+      "458:9884",
+      "458:9886"
+    ],
+    "removedNodeIds": [
+      "457:9582",
+      "457:9583",
+      "I457:9583;457:9422",
+      "457:9585",
+      "457:9940",
+      "457:9941",
+      "I457:9941;457:9778",
+      "457:9943",
+      "457:10245",
+      "457:10246",
+      "I457:10246;457:10138",
+      "457:10248",
+      "457:10489",
+      "457:10490",
+      "I457:10490;457:10382",
+      "457:10492",
+      "457:10504",
+      "I457:10504;457:10384",
+      "I457:10504;457:10385",
+      "I457:10504;457:10386",
+      "I457:10504;457:10387",
+      "I457:10504;457:10388",
+      "I457:10504;457:10389",
+      "I457:10504;457:10390",
+      "I457:10504;457:10391",
+      "I457:10504;457:10392",
+      "I457:10504;457:10393",
+      "I457:10504;457:10394",
+      "I457:10504;457:10395",
+      "I457:10504;457:10396",
+      "I457:10504;457:10397"
+    ],
+    "current": [
+      {
+        "key": "web-zh",
+        "id": "457:9433",
+        "footer": "474:9832"
+      },
+      {
+        "key": "windows-en",
+        "id": "457:9791",
+        "footer": "474:9840"
+      },
+      {
+        "key": "android-zh",
+        "id": "457:10154",
+        "footer": "474:9848"
+      },
+      {
+        "key": "android-en",
+        "id": "457:10398",
+        "footer": "474:9859"
+      }
+    ],
+    "masters": [
+      {
+        "id": "474:9772",
+        "key": "web-zh"
+      },
+      {
+        "id": "474:9780",
+        "key": "windows-en"
+      },
+      {
+        "id": "474:9788",
+        "key": "android-zh"
+      },
+      {
+        "id": "474:9799",
+        "key": "android-en"
+      },
+      {
+        "id": "474:9810",
+        "key": "android-zh-dark"
+      },
+      {
+        "id": "474:9821",
+        "key": "android-ja-dark"
+      }
+    ],
+    "board": "474:9870",
+    "superseded": [
+      "457:9600",
+      "457:9958",
+      "457:10260",
+      "457:9421",
+      "457:9423",
+      "457:9777",
+      "457:9779",
+      "457:10137",
+      "457:10139",
+      "457:10381",
+      "457:10383",
+      "458:9706",
+      "463:9740",
+      "463:9755",
+      "463:9790",
+      "463:9792",
+      "463:9794",
+      "463:9796"
+    ]
+  },
+  "readback": {
+    "historical": [
+      {
+        "id": "49:244",
+        "expected": "3092058e",
+        "actual": "3092058e",
+        "unchanged": true
+      },
+      {
+        "id": "49:360",
+        "expected": "8e237c74",
+        "actual": "8e237c74",
+        "unchanged": true
+      },
+      {
+        "id": "49:515",
+        "expected": "a0d9bf42",
+        "actual": "a0d9bf42",
+        "unchanged": true
+      },
+      {
+        "id": "49:539",
+        "expected": "4f391073",
+        "actual": "4f391073",
+        "unchanged": true
+      },
+      {
+        "id": "49:563",
+        "expected": "4b98a8ae",
+        "actual": "4b98a8ae",
+        "unchanged": true
+      },
+      {
+        "id": "49:587",
+        "expected": "99c09d2b",
+        "actual": "99c09d2b",
+        "unchanged": true
+      },
+      {
+        "id": "49:611",
+        "expected": "aee734f8",
+        "actual": "aee734f8",
+        "unchanged": true
+      },
+      {
+        "id": "51:363",
+        "expected": "8d20991d",
+        "actual": "8d20991d",
+        "unchanged": true
+      },
+      {
+        "id": "51:567",
+        "expected": "f995923d",
+        "actual": "f995923d",
+        "unchanged": true
+      },
+      {
+        "id": "61:542",
+        "expected": "b68f9e00",
+        "actual": "b68f9e00",
+        "unchanged": true
+      },
+      {
+        "id": "61:544",
+        "expected": "e79a8ffa",
+        "actual": "e79a8ffa",
+        "unchanged": true
+      },
+      {
+        "id": "61:550",
+        "expected": "fc6667c0",
+        "actual": "fc6667c0",
+        "unchanged": true
+      },
+      {
+        "id": "61:700",
+        "expected": "31bed1cb",
+        "actual": "31bed1cb",
+        "unchanged": true
+      },
+      {
+        "id": "62:3087",
+        "expected": "85b0a888",
+        "actual": "85b0a888",
+        "unchanged": true
+      },
+      {
+        "id": "62:3281",
+        "expected": "5c22e0ad",
+        "actual": "5c22e0ad",
+        "unchanged": true
+      },
+      {
+        "id": "62:3475",
+        "expected": "9c8885ce",
+        "actual": "9c8885ce",
+        "unchanged": true
+      },
+      {
+        "id": "62:3675",
+        "expected": "b8add74a",
+        "actual": "b8add74a",
+        "unchanged": true
+      },
+      {
+        "id": "62:3879",
+        "expected": "de15badc",
+        "actual": "de15badc",
+        "unchanged": true
+      },
+      {
+        "id": "62:4079",
+        "expected": "c2df6de5",
+        "actual": "c2df6de5",
+        "unchanged": true
+      },
+      {
+        "id": "71:1035",
+        "expected": "b9c1c780",
+        "actual": "b9c1c780",
+        "unchanged": true
+      },
+      {
+        "id": "71:1045",
+        "expected": "620a8cb5",
+        "actual": "620a8cb5",
+        "unchanged": true
+      },
+      {
+        "id": "71:1219",
+        "expected": "87988fcc",
+        "actual": "87988fcc",
+        "unchanged": true
+      },
+      {
+        "id": "71:1338",
+        "expected": "25fecd25",
+        "actual": "25fecd25",
+        "unchanged": true
+      },
+      {
+        "id": "71:1419",
+        "expected": "38f8a2c8",
+        "actual": "38f8a2c8",
+        "unchanged": true
+      },
+      {
+        "id": "71:1566",
+        "expected": "f83806a7",
+        "actual": "f83806a7",
+        "unchanged": true
+      },
+      {
+        "id": "71:1685",
+        "expected": "80279ce7",
+        "actual": "80279ce7",
+        "unchanged": true
+      },
+      {
+        "id": "75:1198",
+        "expected": "3ba480aa",
+        "actual": "3ba480aa",
+        "unchanged": true
+      },
+      {
+        "id": "87:1236",
+        "expected": "e67e2301",
+        "actual": "e67e2301",
+        "unchanged": true
+      },
+      {
+        "id": "87:1306",
+        "expected": "a5c3e9d0",
+        "actual": "a5c3e9d0",
+        "unchanged": true
+      },
+      {
+        "id": "87:1320",
+        "expected": "6d4642dc",
+        "actual": "6d4642dc",
+        "unchanged": true
+      },
+      {
+        "id": "87:1321",
+        "expected": "c0846202",
+        "actual": "c0846202",
+        "unchanged": true
+      },
+      {
+        "id": "87:1603",
+        "expected": "1d075035",
+        "actual": "1d075035",
+        "unchanged": true
+      },
+      {
+        "id": "87:1815",
+        "expected": "af430aa",
+        "actual": "af430aa",
+        "unchanged": true
+      },
+      {
+        "id": "87:2027",
+        "expected": "232aa9f0",
+        "actual": "232aa9f0",
+        "unchanged": true
+      },
+      {
+        "id": "93:1678",
+        "expected": "96c6ad75",
+        "actual": "96c6ad75",
+        "unchanged": true
+      },
+      {
+        "id": "104:1811",
+        "expected": "28a29cad",
+        "actual": "28a29cad",
+        "unchanged": true
+      },
+      {
+        "id": "104:2220",
+        "expected": "4ce331af",
+        "actual": "4ce331af",
+        "unchanged": true
+      },
+      {
+        "id": "104:2223",
+        "expected": "8587693d",
+        "actual": "8587693d",
+        "unchanged": true
+      },
+      {
+        "id": "104:2585",
+        "expected": "a0e929a2",
+        "actual": "a0e929a2",
+        "unchanged": true
+      },
+      {
+        "id": "104:2921",
+        "expected": "4e25c893",
+        "actual": "4e25c893",
+        "unchanged": true
+      },
+      {
+        "id": "104:3257",
+        "expected": "66796c01",
+        "actual": "66796c01",
+        "unchanged": true
+      },
+      {
+        "id": "104:3592",
+        "expected": "3af8d9c7",
+        "actual": "3af8d9c7",
+        "unchanged": true
+      },
+      {
+        "id": "104:3924",
+        "expected": "8520c414",
+        "actual": "8520c414",
+        "unchanged": true
+      },
+      {
+        "id": "104:4256",
+        "expected": "5773a3b4",
+        "actual": "5773a3b4",
+        "unchanged": true
+      },
+      {
+        "id": "111:3035",
+        "expected": "44399982",
+        "actual": "44399982",
+        "unchanged": true
+      },
+      {
+        "id": "111:3036",
+        "expected": "635a51e3",
+        "actual": "635a51e3",
+        "unchanged": true
+      },
+      {
+        "id": "111:3329",
+        "expected": "57632990",
+        "actual": "57632990",
+        "unchanged": true
+      },
+      {
+        "id": "111:3634",
+        "expected": "59d3e680",
+        "actual": "59d3e680",
+        "unchanged": true
+      },
+      {
+        "id": "111:3940",
+        "expected": "341ac1e9",
+        "actual": "341ac1e9",
+        "unchanged": true
+      },
+      {
+        "id": "111:4246",
+        "expected": "3f4d6263",
+        "actual": "3f4d6263",
+        "unchanged": true
+      },
+      {
+        "id": "111:4545",
+        "expected": "27ed1c01",
+        "actual": "27ed1c01",
+        "unchanged": true
+      },
+      {
+        "id": "111:4832",
+        "expected": "4c3452f4",
+        "actual": "4c3452f4",
+        "unchanged": true
+      },
+      {
+        "id": "111:5147",
+        "expected": "16e4c0e4",
+        "actual": "16e4c0e4",
+        "unchanged": true
+      },
+      {
+        "id": "111:5493",
+        "expected": "de2812c0",
+        "actual": "de2812c0",
+        "unchanged": true
+      },
+      {
+        "id": "111:5808",
+        "expected": "97be5eb",
+        "actual": "97be5eb",
+        "unchanged": true
+      },
+      {
+        "id": "111:6154",
+        "expected": "ca94b855",
+        "actual": "ca94b855",
+        "unchanged": true
+      },
+      {
+        "id": "111:6469",
+        "expected": "cd10e628",
+        "actual": "cd10e628",
+        "unchanged": true
+      },
+      {
+        "id": "111:6815",
+        "expected": "26acb252",
+        "actual": "26acb252",
+        "unchanged": true
+      },
+      {
+        "id": "111:7032",
+        "expected": "f94a18a",
+        "actual": "f94a18a",
+        "unchanged": true
+      },
+      {
+        "id": "111:7226",
+        "expected": "4c5c3b03",
+        "actual": "4c5c3b03",
+        "unchanged": true
+      },
+      {
+        "id": "114:3620",
+        "expected": "d24a5e13",
+        "actual": "d24a5e13",
+        "unchanged": true
+      },
+      {
+        "id": "114:3651",
+        "expected": "4a897e60",
+        "actual": "4a897e60",
+        "unchanged": true
+      },
+      {
+        "id": "114:3679",
+        "expected": "e47ed6bc",
+        "actual": "e47ed6bc",
+        "unchanged": true
+      },
+      {
+        "id": "151:3405",
+        "expected": "4e7b6b38",
+        "actual": "4e7b6b38",
+        "unchanged": true
+      },
+      {
+        "id": "151:3813",
+        "expected": "ed608797",
+        "actual": "ed608797",
+        "unchanged": true
+      },
+      {
+        "id": "151:4148",
+        "expected": "ad8913da",
+        "actual": "ad8913da",
+        "unchanged": true
+      },
+      {
+        "id": "151:4235",
+        "expected": "8d0e6183",
+        "actual": "8d0e6183",
+        "unchanged": true
+      },
+      {
+        "id": "151:4308",
+        "expected": "ed91d809",
+        "actual": "ed91d809",
+        "unchanged": true
+      },
+      {
+        "id": "151:4354",
+        "expected": "487288b4",
+        "actual": "487288b4",
+        "unchanged": true
+      },
+      {
+        "id": "151:4661",
+        "expected": "1c473c08",
+        "actual": "1c473c08",
+        "unchanged": true
+      },
+      {
+        "id": "151:4958",
+        "expected": "28f66da8",
+        "actual": "28f66da8",
+        "unchanged": true
+      },
+      {
+        "id": "151:5298",
+        "expected": "8090236f",
+        "actual": "8090236f",
+        "unchanged": true
+      },
+      {
+        "id": "151:5612",
+        "expected": "6725b3ec",
+        "actual": "6725b3ec",
+        "unchanged": true
+      },
+      {
+        "id": "151:5926",
+        "expected": "14639872",
+        "actual": "14639872",
+        "unchanged": true
+      },
+      {
+        "id": "151:6240",
+        "expected": "c917af84",
+        "actual": "c917af84",
+        "unchanged": true
+      },
+      {
+        "id": "151:6554",
+        "expected": "72cce1e9",
+        "actual": "72cce1e9",
+        "unchanged": true
+      },
+      {
+        "id": "151:6858",
+        "expected": "37a1d280",
+        "actual": "37a1d280",
+        "unchanged": true
+      },
+      {
+        "id": "151:7162",
+        "expected": "9bf4bf88",
+        "actual": "9bf4bf88",
+        "unchanged": true
+      },
+      {
+        "id": "151:7466",
+        "expected": "9c0a9520",
+        "actual": "9c0a9520",
+        "unchanged": true
+      },
+      {
+        "id": "198:3966",
+        "expected": "bcab097f",
+        "actual": "bcab097f",
+        "unchanged": true
+      },
+      {
+        "id": "198:4039",
+        "expected": "f211ecee",
+        "actual": "f211ecee",
+        "unchanged": true
+      },
+      {
+        "id": "203:4267",
+        "expected": "3e8ba5f8",
+        "actual": "3e8ba5f8",
+        "unchanged": true
+      },
+      {
+        "id": "203:4383",
+        "expected": "1ac377ac",
+        "actual": "1ac377ac",
+        "unchanged": true
+      },
+      {
+        "id": "205:4085",
+        "expected": "600a76b5",
+        "actual": "600a76b5",
+        "unchanged": true
+      },
+      {
+        "id": "205:4260",
+        "expected": "fb1a9ecb",
+        "actual": "fb1a9ecb",
+        "unchanged": true
+      },
+      {
+        "id": "234:4153",
+        "expected": "b5ed99d3",
+        "actual": "b5ed99d3",
+        "unchanged": true
+      },
+      {
+        "id": "234:4227",
+        "expected": "608f1c6f",
+        "actual": "608f1c6f",
+        "unchanged": true
+      },
+      {
+        "id": "268:4276",
+        "expected": "df962c84",
+        "actual": "df962c84",
+        "unchanged": true
+      },
+      {
+        "id": "270:4257",
+        "expected": "3af43573",
+        "actual": "3af43573",
+        "unchanged": true
+      },
+      {
+        "id": "296:4291",
+        "expected": "53bb7812",
+        "actual": "53bb7812",
+        "unchanged": true
+      },
+      {
+        "id": "296:4310",
+        "expected": "8290d69c",
+        "actual": "8290d69c",
+        "unchanged": true
+      },
+      {
+        "id": "299:4291",
+        "expected": "e7808d0b",
+        "actual": "e7808d0b",
+        "unchanged": true
+      },
+      {
+        "id": "313:4315",
+        "expected": "f19b892b",
+        "actual": "f19b892b",
+        "unchanged": true
+      },
+      {
+        "id": "317:4311",
+        "expected": "b6a29ee3",
+        "actual": "b6a29ee3",
+        "unchanged": true
+      },
+      {
+        "id": "342:4359",
+        "expected": "bd648e0c",
+        "actual": "bd648e0c",
+        "unchanged": true
+      },
+      {
+        "id": "346:4343",
+        "expected": "44c5c26d",
+        "actual": "44c5c26d",
+        "unchanged": true
+      },
+      {
+        "id": "360:4380",
+        "expected": "45a7b6dc",
+        "actual": "45a7b6dc",
+        "unchanged": true
+      },
+      {
+        "id": "366:4399",
+        "expected": "6536cf4b",
+        "actual": "6536cf4b",
+        "unchanged": true
+      },
+      {
+        "id": "367:4469",
+        "expected": "44f798ba",
+        "actual": "44f798ba",
+        "unchanged": true
+      },
+      {
+        "id": "367:5014",
+        "expected": "82e5d633",
+        "actual": "82e5d633",
+        "unchanged": true
+      },
+      {
+        "id": "367:5561",
+        "expected": "6c592a01",
+        "actual": "6c592a01",
+        "unchanged": true
+      },
+      {
+        "id": "374:5361",
+        "expected": "d66e2217",
+        "actual": "d66e2217",
+        "unchanged": true
+      },
+      {
+        "id": "376:5829",
+        "expected": "d546f514",
+        "actual": "d546f514",
+        "unchanged": true
+      },
+      {
+        "id": "376:5950",
+        "expected": "4aa3306c",
+        "actual": "4aa3306c",
+        "unchanged": true
+      },
+      {
+        "id": "376:6073",
+        "expected": "77f523e4",
+        "actual": "77f523e4",
+        "unchanged": true
+      },
+      {
+        "id": "376:6142",
+        "expected": "ba977d35",
+        "actual": "ba977d35",
+        "unchanged": true
+      },
+      {
+        "id": "376:6211",
+        "expected": "9fa3a35a",
+        "actual": "9fa3a35a",
+        "unchanged": true
+      },
+      {
+        "id": "379:5620",
+        "expected": "e75b23f5",
+        "actual": "e75b23f5",
+        "unchanged": true
+      },
+      {
+        "id": "392:5701",
+        "expected": "5a1a4b7f",
+        "actual": "5a1a4b7f",
+        "unchanged": true
+      },
+      {
+        "id": "392:5748",
+        "expected": "8f87d602",
+        "actual": "8f87d602",
+        "unchanged": true
+      },
+      {
+        "id": "393:5746",
+        "expected": "847b034c",
+        "actual": "847b034c",
+        "unchanged": true
+      },
+      {
+        "id": "393:5930",
+        "expected": "a36b56d8",
+        "actual": "a36b56d8",
+        "unchanged": true
+      },
+      {
+        "id": "395:5852",
+        "expected": "655aa1e4",
+        "actual": "655aa1e4",
+        "unchanged": true
+      },
+      {
+        "id": "406:6114",
+        "expected": "36cc7a6f",
+        "actual": "36cc7a6f",
+        "unchanged": true
+      },
+      {
+        "id": "408:5894",
+        "expected": "120e033a",
+        "actual": "120e033a",
+        "unchanged": true
+      },
+      {
+        "id": "408:5897",
+        "expected": "bb31cbe7",
+        "actual": "bb31cbe7",
+        "unchanged": true
+      },
+      {
+        "id": "408:5913",
+        "expected": "584c8754",
+        "actual": "584c8754",
+        "unchanged": true
+      },
+      {
+        "id": "408:6136",
+        "expected": "3b3cb52a",
+        "actual": "3b3cb52a",
+        "unchanged": true
+      },
+      {
+        "id": "408:6441",
+        "expected": "e367488c",
+        "actual": "e367488c",
+        "unchanged": true
+      },
+      {
+        "id": "422:6274",
+        "expected": "43e8db91",
+        "actual": "43e8db91",
+        "unchanged": true
+      },
+      {
+        "id": "427:6303",
+        "expected": "f69d6431",
+        "actual": "f69d6431",
+        "unchanged": true
+      },
+      {
+        "id": "434:6301",
+        "expected": "c6b3bb52",
+        "actual": "c6b3bb52",
+        "unchanged": true
+      },
+      {
+        "id": "434:6304",
+        "expected": "497e30af",
+        "actual": "497e30af",
+        "unchanged": true
+      },
+      {
+        "id": "435:6377",
+        "expected": "398a90b7",
+        "actual": "398a90b7",
+        "unchanged": true
+      },
+      {
+        "id": "441:6719",
+        "expected": "f79ceabb",
+        "actual": "f79ceabb",
+        "unchanged": true
+      },
+      {
+        "id": "442:6757",
+        "expected": "9037ef80",
+        "actual": "9037ef80",
+        "unchanged": true
+      },
+      {
+        "id": "442:6759",
+        "expected": "4fab499a",
+        "actual": "4fab499a",
+        "unchanged": true
+      },
+      {
+        "id": "444:7195",
+        "expected": "713ff677",
+        "actual": "713ff677",
+        "unchanged": true
+      },
+      {
+        "id": "444:7779",
+        "expected": "1733e0a8",
+        "actual": "1733e0a8",
+        "unchanged": true
+      },
+      {
+        "id": "444:8363",
+        "expected": "82e4146f",
+        "actual": "82e4146f",
+        "unchanged": true
+      },
+      {
+        "id": "444:8940",
+        "expected": "4038b94a",
+        "actual": "4038b94a",
+        "unchanged": true
+      },
+      {
+        "id": "444:9517",
+        "expected": "e4a01a20",
+        "actual": "e4a01a20",
+        "unchanged": true
+      },
+      {
+        "id": "445:9385",
+        "expected": "e4fcccd1",
+        "actual": "e4fcccd1",
+        "unchanged": true
+      },
+      {
+        "id": "445:9411",
+        "expected": "640ea371",
+        "actual": "640ea371",
+        "unchanged": true
+      },
+      {
+        "id": "445:9437",
+        "expected": "1fb16c68",
+        "actual": "1fb16c68",
+        "unchanged": true
+      },
+      {
+        "id": "445:9463",
+        "expected": "45dc98b1",
+        "actual": "45dc98b1",
+        "unchanged": true
+      },
+      {
+        "id": "445:9488",
+        "expected": "38403dce",
+        "actual": "38403dce",
+        "unchanged": true
+      },
+      {
+        "id": "445:9513",
+        "expected": "168e15be",
+        "actual": "168e15be",
+        "unchanged": true
+      },
+      {
+        "id": "447:9421",
+        "expected": "8aab51a6",
+        "actual": "8aab51a6",
+        "unchanged": true
+      },
+      {
+        "id": "447:9427",
+        "expected": "8b8f81a6",
+        "actual": "8b8f81a6",
+        "unchanged": true
+      },
+      {
+        "id": "447:9433",
+        "expected": "35a10b66",
+        "actual": "35a10b66",
+        "unchanged": true
+      },
+      {
+        "id": "447:9439",
+        "expected": "be816598",
+        "actual": "be816598",
+        "unchanged": true
+      },
+      {
+        "id": "447:9445",
+        "expected": "e20f83f8",
+        "actual": "e20f83f8",
+        "unchanged": true
+      },
+      {
+        "id": "447:9451",
+        "expected": "ab97e1cc",
+        "actual": "ab97e1cc",
+        "unchanged": true
+      },
+      {
+        "id": "458:9721",
+        "expected": "4fa7a129",
+        "actual": "4fa7a129",
+        "unchanged": true
+      },
+      {
+        "id": "458:9724",
+        "expected": "dc898825",
+        "actual": "dc898825",
+        "unchanged": true
+      },
+      {
+        "id": "458:9727",
+        "expected": "3132a537",
+        "actual": "3132a537",
+        "unchanged": true
+      }
+    ],
+    "roots": [
+      {
+        "id": "457:9433",
+        "name": "1.4.2 FINAL / web / zh-CN / 1600 / Direct preferences · c9a7ad6",
+        "width": 1600,
+        "height": 1000,
+        "nodeCount": 128,
+        "types": {
+          "FRAME": 32,
+          "RECTANGLE": 7,
+          "TEXT": 24,
+          "INSTANCE": 13,
+          "GROUP": 8,
+          "VECTOR": 44
+        },
+        "text": [
+          {
+            "id": "457:9436",
+            "text": "现在做什么",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Bold",
+              "variationSettings": {
+                "wght": 700
+              }
+            }
+          },
+          {
+            "id": "I457:9438;49:403",
+            "text": "现在做",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9438;49:406",
+            "text": "任务",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9438;49:409",
+            "text": "日历",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9438;49:412",
+            "text": "设置",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:9462",
+            "text": "1",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9463",
+            "text": "2",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9562",
+            "text": "设置",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9565",
+            "text": "语言",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9567;296:4299",
+            "text": "简体中文",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9569;296:4293",
+            "text": "English",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9571;296:4293",
+            "text": "日本語",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9575",
+            "text": "外观",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9577;296:4299",
+            "text": "浅色",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9579;296:4293",
+            "text": "深色",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9832;474:9775",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9832;474:9779",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9587",
+            "text": "备份与恢复",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9590",
+            "text": "备份数据",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9592;296:4293",
+            "text": "导出",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9596",
+            "text": "恢复备份",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9598;296:4293",
+            "text": "导入",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9521",
+            "text": "返回专注",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9522",
+            "text": "25:00",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [
+          "457:9433",
+          "I457:9438;49:401",
+          "I457:9438;49:404",
+          "I457:9438;49:407",
+          "I457:9438;49:410",
+          "457:9457",
+          "457:9458"
+        ],
+        "reactions": []
+      },
+      {
+        "id": "457:9791",
+        "name": "1.4.2 FINAL / windows / en / 1600 / Direct preferences · c9a7ad6",
+        "width": 1600,
+        "height": 1000,
+        "nodeCount": 128,
+        "types": {
+          "FRAME": 32,
+          "RECTANGLE": 7,
+          "TEXT": 24,
+          "INSTANCE": 13,
+          "GROUP": 8,
+          "VECTOR": 44
+        },
+        "text": [
+          {
+            "id": "457:9794",
+            "text": "Now What?",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Bold",
+              "variationSettings": {
+                "wght": 700
+              }
+            }
+          },
+          {
+            "id": "I457:9796;49:403",
+            "text": "Start",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9796;49:406",
+            "text": "Tasks",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9796;49:409",
+            "text": "Journal",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "I457:9796;49:412",
+            "text": "Settings",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:9820",
+            "text": "1",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9821",
+            "text": "2",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9920",
+            "text": "Settings",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9923",
+            "text": "Language",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:9925;296:4293",
+            "text": "简体中文",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9927;296:4299",
+            "text": "English",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:9929;296:4293",
+            "text": "日本語",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9933",
+            "text": "Appearance",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:9935;296:4299",
+            "text": "Light",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:9937;296:4293",
+            "text": "Dark",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9840;474:9783",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9840;474:9787",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "457:9945",
+            "text": "Backup & restore",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9948",
+            "text": "Back up data",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:9950;296:4293",
+            "text": "Export",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "457:9954",
+            "text": "Restore backup",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:9956;296:4293",
+            "text": "Import",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "457:9879",
+            "text": "返回专注",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:9880",
+            "text": "25:00",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [
+          "457:9791",
+          "I457:9796;49:401",
+          "I457:9796;49:404",
+          "I457:9796;49:407",
+          "I457:9796;49:410",
+          "457:9815",
+          "457:9816"
+        ],
+        "reactions": []
+      },
+      {
+        "id": "457:10154",
+        "name": "1.4.2 FINAL / android / zh-CN / 360 / Direct preferences · c9a7ad6",
+        "width": 360,
+        "height": 640,
+        "nodeCount": 79,
+        "types": {
+          "FRAME": 27,
+          "TEXT": 21,
+          "INSTANCE": 12,
+          "GROUP": 4,
+          "VECTOR": 12,
+          "RECTANGLE": 3
+        },
+        "text": [
+          {
+            "id": "457:10156",
+            "text": "现在做什么",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10162",
+            "text": "现在做",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10165",
+            "text": "任务",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10168",
+            "text": "日历",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10171",
+            "text": "设置",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10226",
+            "text": "设置",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10228",
+            "text": "语言",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10230;296:4299",
+            "text": "简体中文",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10232;296:4293",
+            "text": "English",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10234;296:4293",
+            "text": "日本語",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10238",
+            "text": "外观",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10240;296:4299",
+            "text": "浅色",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10242;296:4293",
+            "text": "深色",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9848;474:9791",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9848;474:9796",
+            "text": "振动",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9848;474:9798",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10250",
+            "text": "备份与恢复",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10252",
+            "text": "备份数据",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10253;296:4293",
+            "text": "导出",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10257",
+            "text": "恢复备份",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10258;296:4293",
+            "text": "导入",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [
+          "457:10154",
+          "457:10158"
+        ],
+        "reactions": []
+      },
+      {
+        "id": "457:10398",
+        "name": "1.4.2 FINAL / android / en / 320 / Direct preferences · c9a7ad6",
+        "width": 320,
+        "height": 568,
+        "nodeCount": 79,
+        "types": {
+          "FRAME": 27,
+          "TEXT": 21,
+          "INSTANCE": 12,
+          "GROUP": 4,
+          "VECTOR": 12,
+          "RECTANGLE": 3
+        },
+        "text": [
+          {
+            "id": "457:10400",
+            "text": "Now What?",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10406",
+            "text": "Start",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10409",
+            "text": "Tasks",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10412",
+            "text": "Journal",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10415",
+            "text": "Settings",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Medium",
+              "variationSettings": {
+                "wght": 500
+              }
+            }
+          },
+          {
+            "id": "457:10470",
+            "text": "Settings",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10472",
+            "text": "Language",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:10474;296:4293",
+            "text": "简体中文",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10476;296:4299",
+            "text": "English",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I457:10478;296:4293",
+            "text": "日本語",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10482",
+            "text": "Appearance",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:10484;296:4299",
+            "text": "Light",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:10486;296:4293",
+            "text": "Dark",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9859;474:9802",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9859;474:9807",
+            "text": "Vibration",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9859;474:9809",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "457:10494",
+            "text": "Backup & restore",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "457:10496",
+            "text": "Back up data",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:10497;296:4293",
+            "text": "Export",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "457:10501",
+            "text": "Restore backup",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I457:10502;296:4293",
+            "text": "Import",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          }
+        ],
+        "images": [
+          "457:10398",
+          "457:10402"
+        ],
+        "reactions": []
+      },
+      {
+        "id": "474:9772",
+        "name": "1.4.2 FINAL / Direct preferences footer / web-zh / c9a7ad6",
+        "width": 530.0625,
+        "height": 35.1875,
+        "nodeCount": 8,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 4,
+          "TEXT": 2,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9775",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9779",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9780",
+        "name": "1.4.2 FINAL / Direct preferences footer / windows-en / c9a7ad6",
+        "width": 530.0625,
+        "height": 35.1875,
+        "nodeCount": 8,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 4,
+          "TEXT": 2,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9783",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "474:9787",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9788",
+        "name": "1.4.2 FINAL / Direct preferences footer / android-zh / c9a7ad6",
+        "width": 296,
+        "height": 39.1875,
+        "nodeCount": 11,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 6,
+          "TEXT": 3,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9791",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9796",
+            "text": "振动",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9798",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9799",
+        "name": "1.4.2 FINAL / Direct preferences footer / android-en / c9a7ad6",
+        "width": 256,
+        "height": 39.1875,
+        "nodeCount": 11,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 6,
+          "TEXT": 3,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9802",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "474:9807",
+            "text": "Vibration",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "474:9809",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9810",
+        "name": "1.4.2 FINAL / Direct preferences footer / android-zh-dark / c9a7ad6",
+        "width": 256,
+        "height": 39.1875,
+        "nodeCount": 11,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 6,
+          "TEXT": 3,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9813",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9818",
+            "text": "振动",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9820",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9821",
+        "name": "1.4.2 FINAL / Direct preferences footer / android-ja-dark / c9a7ad6",
+        "width": 256,
+        "height": 39.1875,
+        "nodeCount": 11,
+        "types": {
+          "COMPONENT": 1,
+          "FRAME": 6,
+          "TEXT": 3,
+          "VECTOR": 1
+        },
+        "text": [
+          {
+            "id": "474:9824",
+            "text": "サウンド",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9829",
+            "text": "振動",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9831",
+            "text": "データ同期なし",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "474:9870",
+        "name": "1.4.2 FINAL / Direct footer preferences / c9a7ad6",
+        "width": 1200,
+        "height": 778.125,
+        "nodeCount": 81,
+        "types": {
+          "FRAME": 45,
+          "TEXT": 24,
+          "INSTANCE": 6,
+          "VECTOR": 6
+        },
+        "text": [
+          {
+            "id": "474:9871",
+            "text": "最终设置 footer · 自动到点提醒 · c9a7ad6",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9872",
+            "text": "声音默认开启；Android 振动默认关闭。直接修改偏好，无提醒按钮、展开面板或系统通知设置按钮。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9874",
+            "text": "web-zh · 1600 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9876;474:9775",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9876;474:9779",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9885",
+            "text": "windows-en · 1600 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9887;474:9783",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9887;474:9787",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "474:9896",
+            "text": "android-zh · 360 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9898;474:9791",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9898;474:9796",
+            "text": "振动",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9898;474:9798",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9910",
+            "text": "android-en · 320 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9912;474:9802",
+            "text": "Sound",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9912;474:9807",
+            "text": "Vibration",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "I474:9912;474:9809",
+            "text": "No data sync",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            }
+          },
+          {
+            "id": "474:9924",
+            "text": "android-zh-dark · 320 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9926;474:9813",
+            "text": "声音",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9926;474:9818",
+            "text": "振动",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9926;474:9820",
+            "text": "数据不同步",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "474:9938",
+            "text": "android-ja-dark · 320 px",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9940;474:9824",
+            "text": "サウンド",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9940;474:9829",
+            "text": "振動",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "I474:9940;474:9831",
+            "text": "データ同期なし",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      },
+      {
+        "id": "458:9870",
+        "name": "1.4.2 / Startup & reminders / Interaction notes and acceptance boundary",
+        "width": 1500,
+        "height": 1078,
+        "nodeCount": 17,
+        "types": {
+          "FRAME": 1,
+          "TEXT": 16
+        },
+        "text": [
+          {
+            "id": "458:9871",
+            "text": "1.4.2 · 启动与到点提醒",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9872",
+            "text": "最终提醒 UI 源 c9a7ad6 · 2026-11-11 · 启动与到点画面保留，面板方案已过时",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9873",
+            "text": "设置 footer → 直接偏好开关",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9874",
+            "text": "声音默认开启；振动默认关闭且仅 Android 显示。右侧保留「数据不同步」。已移除「到点提醒」入口、展开面板与系统通知设置按钮，无需手动开启提醒。网页关闭后不能发送系统通知；这是平台边界，不再作为面板文案展示。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9875",
+            "text": "开始计时 → 默认自动提醒",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9876",
+            "text": "Android 首次明确开始或恢复计时时，按操作系统要求请求一次通知权限；不需要独立的提醒启用操作。系统权限与免打扰仍然有效；系统权限弹窗不在 Figma 中模拟。Windows/Android 的系统投递与点击需真实平台验证。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9877",
+            "text": "息屏继续计时；到截止停止",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9878",
+            "text": "息屏不会自动暂停；运行中的本轮继续到截止。到点显示「时间到了」，保留「继续」「结束并记录」与「等待期间不计时」。不自动延长，不宣布任务完成。消费标记避免前台、后台、重新打开后重复提醒。只有明确操作才继续或记录，通知点击回到当前会话。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9879",
+            "text": "通知文案 · 三语言",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9880",
+            "text": "ZH：这一轮时间到了\n继续，或结束并记录。\nEN：Time is up for this round\nContinue, or finish and record.\nJA：今回の時間になりました\n続ける、または終了して記録。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9881",
+            "text": "启动 → 整页显示",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9882",
+            "text": "启动统一显示 Now What 与 Loading… / 正在打开 / 読み込み中。预载并解码主要装饰后整页显示；挂载后的 2.5 秒上限避免缺图卡住。不是固定时长动画，也不承诺每台设备瞬时打开。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9883",
+            "text": "本轮旧面板方案已过时",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9884",
+            "text": "9e6f6bb 的面板方案及 de59c5a 的暗色/悬停修复仅保留为本轮历史记录，已标记 SUPERSEDED。当前最终实现仅使用 footer 的直接声音/振动开关。旧 1.4.1 历史设计以及本轮启动、到点画面未改动。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9885",
+            "text": "验证边界",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          },
+          {
+            "id": "458:9886",
+            "text": "本次从 c9a7ad6 完整源归档构建，在独立 :8901 与全新 Edge 上下文核对六种语言/平台/主题布局，均为合成数据。152 Node 与 13 focused browser 通过由主实现窗口报告；这里没有重跑全套或验证真实 OS 投递。Noto/Inter 等字体替代限制仍按同步报告保留。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            }
+          }
+        ],
+        "images": [],
+        "reactions": []
+      }
+    ],
+    "obsolete": [
+      {
+        "id": "457:9600",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / web / zh-CN / 1600 / Reminders open",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:9958",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / windows / en / 1600 / Reminders open",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:10260",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / android / zh-CN / 360 / Reminders open",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:9421",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / zh-CN / 1600",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:9423",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder panel / web / zh-CN / default",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:9777",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / en / 1600",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:9779",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder panel / windows / en / default",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:10137",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / zh-CN / 360",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:10139",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder panel / android / zh-CN / default",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:10381",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / en / 320",
+        "reactionCount": 0
+      },
+      {
+        "id": "457:10383",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder panel / android / en / notifications-off",
+        "reactionCount": 0
+      },
+      {
+        "id": "458:9706",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Android JA approximate / Dark corrected · de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9740",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Android JA approximate / Dark 320 · de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9755",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Dark correction & summary hover / de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9790",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / zh-CN / 1600 / Hover · de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9792",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / en / 1600 / Hover · de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9794",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / zh-CN / 360 / Hover · de59c5a",
+        "reactionCount": 0
+      },
+      {
+        "id": "463:9796",
+        "name": "SUPERSEDED by c9a7ad6 / 1.4.2 / Reminder summary / en / 320 / Hover · de59c5a",
+        "reactionCount": 0
+      }
+    ]
+  },
+  "normalizedFigmaInputs": [
+    {
+      "key": "web-zh",
+      "lang": "zh-CN",
+      "platform": "web",
+      "width": 1600,
+      "height": 1000,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n\n数据不同步",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "none",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "inline",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 226.0625,
+            "y": 584.515625,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "inline-block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 666.125,
+            "y": 583.921875,
+            "width": 60,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ],
+      "right": {
+        "x": 858.03125,
+        "y": 245.921875,
+        "width": 530.0625,
+        "height": 546.265625,
+        "top": 245.921875,
+        "right": 1388.09375,
+        "bottom": 792.1875,
+        "left": 858.03125
+      },
+      "book": {
+        "x": 80,
+        "y": 148,
+        "width": 1440,
+        "height": 786,
+        "top": 148,
+        "right": 1520,
+        "bottom": 934,
+        "left": 80
+      },
+      "left": {
+        "x": 196.0625,
+        "y": 245.921875,
+        "width": 530.0625,
+        "height": 546.265625,
+        "top": 245.921875,
+        "right": 726.125,
+        "bottom": 792.1875,
+        "left": 196.0625
+      }
+    },
+    {
+      "key": "windows-en",
+      "lang": "en",
+      "platform": "windows",
+      "width": 1600,
+      "height": 1000,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "Sound\n\nNo data sync",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 61.03125,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 61.03125,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Vibration",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "none",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 37.03125,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Vibration",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "inline",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 239.09375,
+            "y": 584.515625,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "display": "inline-block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "No data sync",
+          "rect": {
+            "x": 650.90625,
+            "y": 583.921875,
+            "width": 75.21875,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ],
+      "right": {
+        "x": 858.03125,
+        "y": 245.921875,
+        "width": 530.0625,
+        "height": 546.265625,
+        "top": 245.921875,
+        "right": 1388.09375,
+        "bottom": 792.1875,
+        "left": 858.03125
+      },
+      "book": {
+        "x": 80,
+        "y": 148,
+        "width": 1440,
+        "height": 786,
+        "top": 148,
+        "right": 1520,
+        "bottom": 934,
+        "left": 80
+      },
+      "left": {
+        "x": 196.0625,
+        "y": 245.921875,
+        "width": 530.0625,
+        "height": 546.265625,
+        "top": 245.921875,
+        "right": 726.125,
+        "bottom": 792.1875,
+        "left": 196.0625
+      }
+    },
+    {
+      "key": "android-zh",
+      "lang": "zh-CN",
+      "platform": "android",
+      "width": 360,
+      "height": 640,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 360,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 296,
+            "height": 39.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音\n振动",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 108,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 62,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 122,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 268,
+            "y": 330,
+            "width": 60,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ],
+      "right": {
+        "x": 32,
+        "y": 361.1875,
+        "width": 296,
+        "height": 180,
+        "top": 361.1875,
+        "right": 328,
+        "bottom": 541.1875,
+        "left": 32
+      },
+      "book": {
+        "x": 10,
+        "y": 84,
+        "width": 340,
+        "height": 546,
+        "top": 84,
+        "right": 350,
+        "bottom": 630,
+        "left": 10
+      },
+      "left": {
+        "x": 32,
+        "y": 104,
+        "width": 296,
+        "height": 257.1875,
+        "top": 104,
+        "right": 328,
+        "bottom": 361.1875,
+        "left": 32
+      }
+    },
+    {
+      "key": "android-en",
+      "lang": "en",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "Sound\nVibration\n\nNo data sync",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "Sound\nVibration",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 149.90625,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Sound",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 61.03125,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Vibration",
+          "rect": {
+            "x": 105.03125,
+            "y": 332,
+            "width": 76.875,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Sound",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 37.03125,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Vibration",
+          "rect": {
+            "x": 105.03125,
+            "y": 332,
+            "width": 52.875,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 75.03125,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 163.90625,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "No data sync",
+          "rect": {
+            "x": 212.78125,
+            "y": 330,
+            "width": 75.21875,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Inter",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ],
+      "right": {
+        "x": 32,
+        "y": 361.1875,
+        "width": 256,
+        "height": 180,
+        "top": 361.1875,
+        "right": 288,
+        "bottom": 541.1875,
+        "left": 32
+      },
+      "book": {
+        "x": 10,
+        "y": 84,
+        "width": 300,
+        "height": 474,
+        "top": 84,
+        "right": 310,
+        "bottom": 558,
+        "left": 10
+      },
+      "left": {
+        "x": 32,
+        "y": 104,
+        "width": 256,
+        "height": 257.1875,
+        "top": 104,
+        "right": 288,
+        "bottom": 361.1875,
+        "left": 32
+      }
+    },
+    {
+      "key": "android-zh-dark",
+      "lang": "zh-CN",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音\n振动",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 108,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 62,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 122,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 228,
+            "y": 330,
+            "width": 60,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans SC",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(210, 184, 142)"
+        }
+      ],
+      "right": {
+        "x": 32,
+        "y": 361.1875,
+        "width": 256,
+        "height": 180,
+        "top": 361.1875,
+        "right": 288,
+        "bottom": 541.1875,
+        "left": 32
+      },
+      "book": {
+        "x": 10,
+        "y": 84,
+        "width": 300,
+        "height": 474,
+        "top": 84,
+        "right": 310,
+        "bottom": 558,
+        "left": 10
+      },
+      "left": {
+        "x": 32,
+        "y": 104,
+        "width": 256,
+        "height": 257.1875,
+        "top": 104,
+        "right": 288,
+        "bottom": 361.1875,
+        "left": 32
+      }
+    },
+    {
+      "key": "android-ja-dark",
+      "lang": "ja",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "サウンド\n振動\n\nデータ同期なし",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans JP",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "サウンド\n振動",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 132,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans JP",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "サウンド",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 72,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振動",
+          "rect": {
+            "x": 116,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "flex",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "サウンド",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振動",
+          "rect": {
+            "x": 116,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 86,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 146,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18
+          },
+          "display": "block",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "データ同期なし",
+          "rect": {
+            "x": 204.46875,
+            "y": 330,
+            "width": 83.53125,
+            "height": 19.1875
+          },
+          "display": "block",
+          "font": "Noto Sans JP",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(210, 184, 142)"
+        }
+      ],
+      "right": {
+        "x": 32,
+        "y": 361.1875,
+        "width": 256,
+        "height": 180,
+        "top": 361.1875,
+        "right": 288,
+        "bottom": 541.1875,
+        "left": 32
+      },
+      "book": {
+        "x": 10,
+        "y": 84,
+        "width": 300,
+        "height": 474,
+        "top": 84,
+        "right": 310,
+        "bottom": 558,
+        "left": 10
+      },
+      "left": {
+        "x": 32,
+        "y": 104,
+        "width": 256,
+        "height": 257.1875,
+        "top": 104,
+        "right": 288,
+        "bottom": 361.1875,
+        "left": 32
+      }
+    }
+  ],
+  "validation": {
+    "buildWebAndTypecheck": "passed",
+    "sourceScenarios": 6,
+    "parentReportedNode": 152,
+    "parentReportedFocusedBrowser": 13,
+    "fullSuiteIndependentlyRerun": false,
+    "nativeDeviceAcceptance": false
+  },
+  "sourceMeasurements": [
+    {
+      "key": "web-zh",
+      "lang": "zh-CN",
+      "platform": "web",
+      "width": 1600,
+      "height": 1000,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "1\n2\n现在做\n任务\n日历\n设置\n设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n\n数据不同步\n\n备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 80,
+            "y": 148,
+            "width": 1440,
+            "height": 786,
+            "top": 148,
+            "right": 1520,
+            "bottom": 934,
+            "left": 80
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n\n数据不同步",
+          "rect": {
+            "x": 196.0625,
+            "y": 245.921875,
+            "width": 530.0625,
+            "height": 546.265625,
+            "top": 245.921875,
+            "right": 726.125,
+            "bottom": 792.1875,
+            "left": 196.0625
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 858.03125,
+            "y": 245.921875,
+            "width": 530.0625,
+            "height": 546.265625,
+            "top": 245.921875,
+            "right": 1388.09375,
+            "bottom": 792.1875,
+            "left": 858.03125
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n\n数据不同步",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 611.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 48,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 244.0625,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 48,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 244.0625,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "none",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 24,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 220.0625,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "inline",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 226.0625,
+            "y": 584.515625,
+            "width": 18,
+            "height": 18,
+            "top": 584.515625,
+            "right": 244.0625,
+            "bottom": 602.515625,
+            "left": 226.0625
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "inline-block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 666.125,
+            "y": 583.921875,
+            "width": 60,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 726.125,
+            "bottom": 603.109375,
+            "left": 666.125
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ]
+    },
+    {
+      "key": "windows-en",
+      "lang": "en",
+      "platform": "windows",
+      "width": 1600,
+      "height": 1000,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "1\n2\nStart\nTasks\nJournal\nSettings\nSettings\nLanguage\n简体中文\nEnglish\n日本語\nAppearance\nLight\nDark\nSound\n\nNo data sync\n\nBackup & restore\nBack up data\nExport\nRestore backup\nImport",
+          "rect": {
+            "x": 80,
+            "y": 148,
+            "width": 1440,
+            "height": 786,
+            "top": 148,
+            "right": 1520,
+            "bottom": 934,
+            "left": 80
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "Settings\nLanguage\n简体中文\nEnglish\n日本語\nAppearance\nLight\nDark\nSound\n\nNo data sync",
+          "rect": {
+            "x": 196.0625,
+            "y": 245.921875,
+            "width": 530.0625,
+            "height": 546.265625,
+            "top": 245.921875,
+            "right": 726.125,
+            "bottom": 792.1875,
+            "left": 196.0625
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "Backup & restore\nBack up data\nExport\nRestore backup\nImport",
+          "rect": {
+            "x": 858.03125,
+            "y": 245.921875,
+            "width": 530.0625,
+            "height": 546.265625,
+            "top": 245.921875,
+            "right": 1388.09375,
+            "bottom": 792.1875,
+            "left": 858.03125
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "Sound\n\nNo data sync",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 611.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 61.03125,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 257.09375,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "20px",
+          "line": "32px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 61.03125,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 257.09375,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Vibration",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "none",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Sound",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 37.03125,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 233.09375,
+            "bottom": 603.109375,
+            "left": 196.0625
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Vibration",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "inline",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 239.09375,
+            "y": 584.515625,
+            "width": 18,
+            "height": 18,
+            "top": 584.515625,
+            "right": 257.09375,
+            "bottom": 602.515625,
+            "left": 239.09375
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "display": "inline-block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "No data sync",
+          "rect": {
+            "x": 650.90625,
+            "y": 583.921875,
+            "width": 75.21875,
+            "height": 19.1875,
+            "top": 583.921875,
+            "right": 726.125,
+            "bottom": 603.109375,
+            "left": 650.90625
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ]
+    },
+    {
+      "key": "android-zh",
+      "lang": "zh-CN",
+      "platform": "android",
+      "width": 360,
+      "height": 640,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 360,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "现在做\n任务\n日历\n设置\n设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n振动\n\n数据不同步\n\n备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 10,
+            "y": 84,
+            "width": 340,
+            "height": 546,
+            "top": 84,
+            "right": 350,
+            "bottom": 630,
+            "left": 10
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 104,
+            "width": 296,
+            "height": 257.1875,
+            "top": 104,
+            "right": 328,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 32,
+            "y": 361.1875,
+            "width": 296,
+            "height": 180,
+            "top": 361.1875,
+            "right": 328,
+            "bottom": 541.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 296,
+            "height": 39.1875,
+            "top": 322,
+            "right": 328,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音\n振动",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 108,
+            "height": 19.1875,
+            "top": 332,
+            "right": 140,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 80,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 140,
+            "bottom": 351.1875,
+            "left": 92
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875,
+            "top": 332,
+            "right": 56,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875,
+            "top": 332,
+            "right": 116,
+            "bottom": 351.1875,
+            "left": 92
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 62,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 80,
+            "bottom": 350.59375,
+            "left": 62
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 122,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 140,
+            "bottom": 350.59375,
+            "left": 122
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 268,
+            "y": 330,
+            "width": 60,
+            "height": 19.1875,
+            "top": 330,
+            "right": 328,
+            "bottom": 349.1875,
+            "left": 268
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ]
+    },
+    {
+      "key": "android-en",
+      "lang": "en",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "Start\nTasks\nJournal\nSettings\nSettings\nLanguage\n简体中文\nEnglish\n日本語\nAppearance\nLight\nDark\nSound\nVibration\n\nNo data sync\n\nBackup & restore\nBack up data\nExport\nRestore backup\nImport",
+          "rect": {
+            "x": 10,
+            "y": 84,
+            "width": 300,
+            "height": 474,
+            "top": 84,
+            "right": 310,
+            "bottom": 558,
+            "left": 10
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "Settings\nLanguage\n简体中文\nEnglish\n日本語\nAppearance\nLight\nDark\nSound\nVibration\n\nNo data sync",
+          "rect": {
+            "x": 32,
+            "y": 104,
+            "width": 256,
+            "height": 257.1875,
+            "top": 104,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "Backup & restore\nBack up data\nExport\nRestore backup\nImport",
+          "rect": {
+            "x": 32,
+            "y": 361.1875,
+            "width": 256,
+            "height": 180,
+            "top": 361.1875,
+            "right": 288,
+            "bottom": 541.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "Sound\nVibration\n\nNo data sync",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875,
+            "top": 322,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "Sound\nVibration",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 149.90625,
+            "height": 19.1875,
+            "top": 332,
+            "right": 181.90625,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Sound",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 61.03125,
+            "height": 19.1875,
+            "top": 332,
+            "right": 93.03125,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "Vibration",
+          "rect": {
+            "x": 105.03125,
+            "y": 332,
+            "width": 76.875,
+            "height": 19.1875,
+            "top": 332,
+            "right": 181.90625,
+            "bottom": 351.1875,
+            "left": 105.03125
+          },
+          "display": "flex",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Sound",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 37.03125,
+            "height": 19.1875,
+            "top": 332,
+            "right": 69.03125,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "Vibration",
+          "rect": {
+            "x": 105.03125,
+            "y": 332,
+            "width": 52.875,
+            "height": 19.1875,
+            "top": 332,
+            "right": 157.90625,
+            "bottom": 351.1875,
+            "left": 105.03125
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 75.03125,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 93.03125,
+            "bottom": 350.59375,
+            "left": 75.03125
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 163.90625,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 181.90625,
+            "bottom": 350.59375,
+            "left": 163.90625
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(69, 42, 26)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "No data sync",
+          "rect": {
+            "x": 212.78125,
+            "y": 330,
+            "width": 75.21875,
+            "height": 19.1875,
+            "top": 330,
+            "right": 288,
+            "bottom": 349.1875,
+            "left": 212.78125
+          },
+          "display": "block",
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(125, 96, 65)"
+        }
+      ]
+    },
+    {
+      "key": "android-zh-dark",
+      "lang": "zh-CN",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "现在做\n任务\n日历\n设置\n设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n振动\n\n数据不同步\n\n备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 10,
+            "y": 84,
+            "width": 300,
+            "height": 474,
+            "top": 84,
+            "right": 310,
+            "bottom": 558,
+            "left": 10
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "设置\n语言\n简体中文\nEnglish\n日本語\n外观\n浅色\n深色\n声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 104,
+            "width": 256,
+            "height": 257.1875,
+            "top": 104,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "备份与恢复\n备份数据\n导出\n恢复备份\n导入",
+          "rect": {
+            "x": 32,
+            "y": 361.1875,
+            "width": 256,
+            "height": 180,
+            "top": 361.1875,
+            "right": 288,
+            "bottom": 541.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "声音\n振动\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875,
+            "top": 322,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "声音\n振动",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 108,
+            "height": 19.1875,
+            "top": 332,
+            "right": 140,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 80,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 140,
+            "bottom": 351.1875,
+            "left": 92
+          },
+          "display": "flex",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "声音",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875,
+            "top": 332,
+            "right": 56,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振动",
+          "rect": {
+            "x": 92,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875,
+            "top": 332,
+            "right": 116,
+            "bottom": 351.1875,
+            "left": 92
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 62,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 80,
+            "bottom": 350.59375,
+            "left": 62
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 122,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 140,
+            "bottom": 350.59375,
+            "left": 122
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "数据不同步",
+          "rect": {
+            "x": 228,
+            "y": 330,
+            "width": 60,
+            "height": 19.1875,
+            "top": 330,
+            "right": 288,
+            "bottom": 349.1875,
+            "left": 228
+          },
+          "display": "block",
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(210, 184, 142)"
+        }
+      ]
+    },
+    {
+      "key": "android-ja-dark",
+      "lang": "ja",
+      "platform": "android",
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "absent": {
+        "entry": true,
+        "panel": true,
+        "button": true
+      },
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": "#book",
+          "text": "今やる\n活動\n記録\n設定\n設定\n言語\n简体中文\nEnglish\n日本語\n外観\nライト\nダーク\nサウンド\n振動\n\nデータ同期なし\n\nバックアップと復元\nバックアップ\n書き出す\nバックアップを復元\n読み込む",
+          "rect": {
+            "x": 10,
+            "y": 84,
+            "width": 300,
+            "height": 474,
+            "top": 84,
+            "right": 310,
+            "bottom": 558,
+            "left": 10
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-column.book-left",
+          "text": "設定\n言語\n简体中文\nEnglish\n日本語\n外観\nライト\nダーク\nサウンド\n振動\n\nデータ同期なし",
+          "rect": {
+            "x": 32,
+            "y": 104,
+            "width": 256,
+            "height": 257.1875,
+            "top": 104,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-column.book-right",
+          "text": "バックアップと復元\nバックアップ\n書き出す\nバックアップを復元\n読み込む",
+          "rect": {
+            "x": 32,
+            "y": 361.1875,
+            "width": 256,
+            "height": 180,
+            "top": 361.1875,
+            "right": 288,
+            "bottom": 541.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".settings-footer",
+          "text": "サウンド\n振動\n\nデータ同期なし",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 39.1875,
+            "top": 322,
+            "right": 288,
+            "bottom": 361.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences",
+          "text": "サウンド\n振動",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 132,
+            "height": 19.1875,
+            "top": 332,
+            "right": 164,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "15px",
+          "line": "24px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "サウンド",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 72,
+            "height": 19.1875,
+            "top": 332,
+            "right": 104,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "flex",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences label",
+          "text": "振動",
+          "rect": {
+            "x": 116,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 164,
+            "bottom": 351.1875,
+            "left": 116
+          },
+          "display": "flex",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "サウンド",
+          "rect": {
+            "x": 32,
+            "y": 332,
+            "width": 48,
+            "height": 19.1875,
+            "top": 332,
+            "right": 80,
+            "bottom": 351.1875,
+            "left": 32
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences span",
+          "text": "振動",
+          "rect": {
+            "x": 116,
+            "y": 332,
+            "width": 24,
+            "height": 19.1875,
+            "top": 332,
+            "right": 140,
+            "bottom": 351.1875,
+            "left": 116
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)"
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 86,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 104,
+            "bottom": 350.59375,
+            "left": 86
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": true
+        },
+        {
+          "selector": ".reminder-preferences input",
+          "text": "",
+          "rect": {
+            "x": 146,
+            "y": 332.59375,
+            "width": 18,
+            "height": 18,
+            "top": 332.59375,
+            "right": 164,
+            "bottom": 350.59375,
+            "left": 146
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(241, 223, 182)",
+          "checked": false
+        },
+        {
+          "selector": ".settings-note",
+          "text": "データ同期なし",
+          "rect": {
+            "x": 204.46875,
+            "y": 330,
+            "width": 83.53125,
+            "height": 19.1875,
+            "top": 330,
+            "right": 288,
+            "bottom": 349.1875,
+            "left": 204.46875
+          },
+          "display": "block",
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "size": "12px",
+          "line": "19.2px",
+          "color": "rgb(210, 184, 142)"
+        }
+      ]
+    }
+  ],
+  "screenshotHashes": [
+    {
+      "file": "c9a7-android-en.png",
+      "sha256": "8D021E13EF2BFA30F22F1896E16D45C333B3EA6BD09E0CF729FBD5CCEA1A881F"
+    },
+    {
+      "file": "c9a7-android-ja-dark.png",
+      "sha256": "F71798722DE554B24CF21B70311248F839211DCD849E96E18F609A353C4D1C52"
+    },
+    {
+      "file": "c9a7-android-zh-dark.png",
+      "sha256": "26119851F2546C4CE9BDBC24C5A55EED17A56D18DDE7E3BB8A4D446584D9F51E"
+    },
+    {
+      "file": "c9a7-android-zh.png",
+      "sha256": "C8162531379DCB521F276C8E5690D3765A7E8884118FE82E208C53B32A6176F6"
+    },
+    {
+      "file": "c9a7-figma-457-10154.png",
+      "sha256": "92426BDE4B6B0FBE3B9ECF25A43FE04773F20B31FF6404EA606FA2F228ACB00C"
+    },
+    {
+      "file": "c9a7-figma-457-10398.png",
+      "sha256": "47B7A337C3893E5651B43983ADD8EB927F0F918C3C20D404D4D2255A14F76BB7"
+    },
+    {
+      "file": "c9a7-figma-457-9433.png",
+      "sha256": "2FF31FB37886B80AF2420E7C57638AA8AF057FBEA1121D0237731FB88779A0DF"
+    },
+    {
+      "file": "c9a7-figma-457-9791.png",
+      "sha256": "6C01AE17CBFDA17B27F8773C36323E006FF9D0A09B2BBC20616DCEC2FE7FC7F8"
+    },
+    {
+      "file": "c9a7-figma-458-9870.png",
+      "sha256": "416C45BE9D78DBD10DC6B57EDF1221C001F2451EBCD43ECD9045E35ED5B54697"
+    },
+    {
+      "file": "c9a7-figma-474-9870.png",
+      "sha256": "82B3D63EE51612DFB8A3844AD7CFD2D449444F1945741FC1F9178941D2C779C6"
+    },
+    {
+      "file": "c9a7-web-zh.png",
+      "sha256": "9AB0BCEFBF07669372179E2B6ABC8FDA93657931C1F63FACA2E9B6D6D0EE983C"
+    },
+    {
+      "file": "c9a7-windows-en.png",
+      "sha256": "BE4059B9CAC3592E52782FCBABC3CFCAA3D4F9475776F050AFA073AC1B46E64B"
+    }
+  ]
+}
