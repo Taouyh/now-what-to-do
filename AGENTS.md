@@ -20,8 +20,8 @@ Research delivery: `docs/research/market-2026-11-01/REPORT.md`.
 Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.
 Design delivery: `docs/design/free-time-start-2026-11-01/V13-ITERATION.md`.
-Latest verified design sync: `docs/deployment/promo-1.4.1-2026-11-10/FIGMA-SYNC.md`; earlier reports remain in their delivery directories.
-Current native review candidate: `docs/deployment/native-1.4.1-2026-11-09/RELEASE.md`. User authorized Windows/Android packages and a new independent test worktree on 2026-11-09. User confirmed the installers on 2026-11-10 and authorized push, Release and website publication after tests. Current publication: `docs/deployment/promo-1.4.1-2026-11-10/RELEASE.md`.
+Latest verified design sync: `docs/deployment/startup-reminders-1.4.2-2026-11-11/FIGMA-SYNC.md`; earlier reports remain historical.
+Current local review candidate: `docs/deployment/startup-reminders-1.4.2-2026-11-11/RELEASE.md`; independent findings are closed in its `INDEPENDENT-TEST.md`. Automatic reminders have no activation button; screen-off keeps running to the deadline. Physical Android/OS notification and upgrade acceptance remain pending. No 1.4.2 publication. User approved the 1.4.1 installers and publication on 2026-11-10; current publication remains `docs/deployment/promo-1.4.1-2026-11-10/RELEASE.md`.
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.
 Release introduction design sync: `docs/deployment/promo-1.4.1-2026-11-10/FIGMA-SYNC.md`.
 Use Figma account `3966592487` for this project. Verify the active account before accessing project designs in each Figma session.
