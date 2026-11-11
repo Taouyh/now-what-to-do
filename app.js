@@ -397,7 +397,7 @@ function reminderPreferences(){return {sound:true,vibration:false,...d.preferenc
 function syncNativeReminder(x,background=!!document.hidden||!!timerBackgroundAt){
   if(!window.nativeApp?.syncReminder)return;
   const live=x&&x.reminderVersion===1&&!x.paused&&!x.recoveryReason;
-  const payload=live&&(!x.finished||background)?{key:x.completionId+':'+x.durationMs,at:x.finished?x.timeUpAt:x.lastStarted+Math.max(0,x.durationMs-x.elapsed),title:tr('这一轮时间到了'),body:tr('继续，或结束并记录。'),...reminderPreferences(),background}:null;
+  const payload=live&&(!x.finished||background&&!x.reminderConsumed)?{key:x.completionId+':'+x.durationMs,at:x.finished?x.timeUpAt:x.lastStarted+Math.max(0,x.durationMs-x.elapsed),title:tr('这一轮时间到了'),body:tr('继续，或结束并记录。'),...reminderPreferences(),background}:null;
   try{window.nativeApp.syncReminder(payload)}catch(e){console.warn('Reminder bridge unavailable',e)}
 }
 function syncReminderSettings(){
@@ -421,6 +421,7 @@ function validateTimer(x){
   if(x.task!==undefined&&(!x.task||typeof x.task!=='object'||typeof x.task.name!=='string'))throw Error(tr('计时任务快照无效'));
   if(x.timerVersion!==undefined&&x.timerVersion!==2)throw Error(tr('进行中的计时数据无效'));
   if(x.reminderVersion!==undefined&&x.reminderVersion!==1)throw Error(tr('进行中的计时数据无效'));
+  if(x.reminderConsumed!==undefined&&typeof x.reminderConsumed!=='boolean')throw Error(tr('进行中的计时数据无效'));
   for(const key of ['checkpointAt','stoppedAt','timeUpAt'])if(x[key]!==undefined&&(!Number.isFinite(x[key])||x[key]<0))throw Error(tr('进行中的计时数据无效'));
   if(x.recoveryReason!==undefined&&!['reopen','long','interrupted','legacy'].includes(x.recoveryReason))throw Error(tr('进行中的计时数据无效'));
   for(const key of ['resumeAsNew','needsElapsedConfirmation'])if(x[key]!==undefined&&typeof x[key]!=='boolean')throw Error(tr('进行中的计时数据无效'));
@@ -492,6 +493,7 @@ function advanceTimerIfNeeded(x,now=Date.now()){
   if(x.reminderVersion!==1&&unobservedTimerGap(x,now)){suspendTimer('interrupted',now,false);return true}
   if(elapsedMs(x,now)<x.durationMs)return false;
   x.timeUpAt=x.lastStarted+Math.max(0,x.durationMs-x.elapsed);x.elapsed=x.durationMs;x.lastStarted=0;x.finished=true;x.checkpointAt=x.timeUpAt;
+  x.reminderConsumed=!document.hidden&&!timerBackgroundAt;
   if(!setTimerState(x))return false;
   stopTimerLoop();playTimeUpSound(x,now-x.timeUpAt<1500&&!timerBackgroundAt);return true;
 }
@@ -684,7 +686,7 @@ function extendTimer(){
   let x=timerState();if(!x||!x.finished||x.recoveryReason)return;
   if(longTimerPause(x)){suspendTimer('long',Date.now(),false);renderTimer();return}
   const now=Date.now(),extensionMs=extensionStepMs(x);x.plannedDurationMs=plannedDurationMs(x);x.extensionDurationMs=(x.extensionDurationMs||0)+extensionMs;x.durationMs=x.plannedDurationMs+x.extensionDurationMs;
-  x.reminderVersion=1;x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
+  x.reminderVersion=1;x.reminderConsumed=false;x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
   if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide','time-error-notice');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
@@ -719,12 +721,12 @@ function applyImport(){
   // A single Storage write commits the whole main document. Do not touch activeTimer.
   if(!save(candidate))return;
   try{
-    d=candidate;completionFeedback=null;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences({restoreConditions:true});page('home');closeConfirm();notify(tr('备份数据已导入。'));
+    d=candidate;completionFeedback=null;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences({restoreConditions:true});page('home');closeConfirm();notify(tr('备份数据已导入。'));syncNativeReminder(timerState());
   }catch(e){
     d=previousData;dataSnapshot=previousSnapshot;
     try{
       if(previousRaw===null)localStorage.removeItem('whatToDoData');else localStorage.setItem('whatToDoData',previousRaw);originalMain=previousRaw;
-      syncRuntimePreferences();closeConfirm();page(previousPage);notify(tr('导入未完成，已恢复导入前的数据。'));
+      syncRuntimePreferences();closeConfirm();page(previousPage);notify(tr('导入未完成，已恢复导入前的数据。'));syncNativeReminder(timerState());
     }catch(rollbackError){
       originalMain=previousRaw;
       protectData(tr('导入后的界面同步失败，恢复操作也遇到错误。已停止后续写入；请导出原始主数据并重新加载检查。'));
@@ -792,8 +794,8 @@ function restoreTimer(){
   const x=timerState();if(!x)return;
   if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
   if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){timerCleanupId=x.completionId;if(!setTimerState(null))renderTimer();else timerCleanupId=null;return}
-  if(x.timerVersion===2&&x.finished&&!x.recoveryReason&&!longTimerPause(x)){renderTimer();watchPausedTimer(x);return}
-  if(x.reminderVersion===1&&!x.paused&&!x.recoveryReason){timerBackgroundAt=Date.now();checkpointTimer(true);timerBackgroundAt=0;if(!timerState()?.finished)startTimerLoop();syncNativeReminder(timerState());renderTimer();return}
+  if(x.timerVersion===2&&x.finished&&!x.recoveryReason){x.reminderConsumed=true;x.soundPlayed=true;setTimerState(x);renderTimer();return}
+  if(x.reminderVersion===1&&!x.paused&&!x.recoveryReason){timerBackgroundAt=Date.now();checkpointTimer(true);timerBackgroundAt=0;const current=timerState();if(current?.finished){current.reminderConsumed=true;setTimerState(current)}else startTimerLoop();syncNativeReminder(timerState());renderTimer();return}
   suspendTimer('reopen',Date.now(),false);renderTimer();
 }
 function nativeTimerLifecycle(event){
@@ -807,7 +809,7 @@ function nativeTimerLifecycle(event){
     // A visibility/native-resume callback is reconciliation, never a new alert.
     timerBackgroundAt=timerBackgroundAt||Date.now();
     const x=timerState();if(x&&!x.recoveryReason){if(longTimerPause(x))suspendTimer('long',Date.now(),false);else checkpointTimer(true)}
-    timerBackgroundAt=0;syncReminderSettings();syncNativeReminder(timerState());renderTimer();return true;
+    timerBackgroundAt=0;const current=timerState();if(current?.finished){current.reminderConsumed=true;current.soundPlayed=true;setTimerState(current)}syncReminderSettings();syncNativeReminder(timerState());renderTimer();return true;
   }
   return false;
 }

@@ -24,6 +24,10 @@ public final class TimerReminder extends BroadcastReceiver {
             JSONObject next=new JSONObject(json);String key=next.getString("key");long at=next.getLong("at");
             if(key.length()>160||at<=0||at>System.currentTimeMillis()+172800000L)return;
             JSONObject previous=new JSONObject(store(c).getString("payload","{}"));
+            if(at<=System.currentTimeMillis()&&!key.equals(previous.optString("key"))){
+                alarms.cancel(alarmIntent(c));notifications.cancel(ID);
+                store(c).edit().remove("payload").putString("delivered",key).apply();return;
+            }
             store(c).edit().putString("payload",json).apply();
             if(key.equals(store(c).getString("delivered","")))return;
             if(key.equals(previous.optString("key"))&&at==previous.optLong("at"))return;

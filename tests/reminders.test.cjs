@@ -34,3 +34,17 @@ test('foreground sound is one-shot and muted or returning sessions never play it
   assert.equal(app.run('notes'),mode==='foreground'?3:0);assert.equal(app.run('timerState().soundPlayed'),true);
  }
 });
+test('consumed foreground and restored rounds never re-arm when backgrounded',()=>{
+ for(const arrival of ['foreground','resume','restore']){
+  const {app,calls}=setup();app.run('run(d.tasks[0]);now+=900001');
+  app.run(arrival==='foreground'?'advanceTimerIfNeeded(timerState())':arrival==='resume'?"nativeTimerLifecycle('resume')":'restoreTimer()');
+  assert.equal(app.run('timerState().reminderConsumed'),true);
+  calls.length=0;app.run("now+=1000;nativeTimerLifecycle('background')");assert.equal(calls.at(-1),null);
+  app.run("nativeTimerLifecycle('resume');nativeTimerLifecycle('background')");assert.equal(calls.at(-1),null);
+ }
+});
+test('pending background arrival remains armed until the foreground consumes it',()=>{
+ const {app,calls}=setup();app.run("run(d.tasks[0]);nativeTimerLifecycle('background');now+=900001;advanceTimerIfNeeded(timerState())");
+ assert.ok(calls.at(-1));assert.equal(app.run('timerState().reminderConsumed'),false);
+ app.run("nativeTimerLifecycle('resume');nativeTimerLifecycle('background')");assert.equal(calls.at(-1),null);
+});
