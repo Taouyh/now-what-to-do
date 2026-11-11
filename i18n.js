@@ -1,5 +1,19 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+"系统通知未开启。":{"en": "System notifications are off.", "ja": "システム通知がオフです。"},
+"锁屏提醒可能延迟；可在系统设置允许准时提醒。":{"en": "Lock-screen reminders may be delayed. Allow exact alarms in system settings.", "ja": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。"},
+"通知受系统权限与免打扰设置影响。":{"en": "System permissions and Do Not Disturb apply.", "ja": "通知はシステムの権限と集中モード設定に従います。"},
+"网页关闭后不发送系统通知。":{"en": "No system notification after this web page is closed.", "ja": "このページを閉じるとシステム通知は届きません。"},
+
+"提醒偏好无效。":{"en": "Invalid reminder preferences.", "ja": "通知設定が無効です。"},
+"这一轮时间到了":{"en": "Time is up for this round", "ja": "今回の時間になりました"},
+"继续，或结束并记录。":{"en": "Continue, or finish and record.", "ja": "続ける、または終了して記録。"},
+"到点提醒":{"en": "Timer reminders", "ja": "時間の通知"},
+"声音":{"en": "Sound", "ja": "サウンド"},
+"振动":{"en": "Vibration", "ja": "振動"},
+"系统通知设置":{"en": "Notification settings", "ja": "システム通知設定"},
+"到点只提醒一次，不会自动继续。":{"en": "One reminder. No automatic continuation.", "ja": "通知は一度だけ。自動延長はしません。"},
+
   "任务排序数据无效。": {"en":"Invalid task order.","ja":"活動の並び順が無効です。"},
   "拖拽排序，或用 ↑ ↓ 调整": {"en":"Drag to reorder, or use ↑ ↓","ja":"ドラッグ、または ↑ ↓ で並べ替え"},
   "排序：{name}": {"en":"Reorder: {name}","ja":"並べ替え：{name}"},

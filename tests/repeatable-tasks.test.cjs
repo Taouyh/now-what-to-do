@@ -105,12 +105,12 @@ test('historical task flags and all completion records survive views and repeate
   }
 });
 
-test('restoring an interrupted timer does not add time or create completion records', () => {
+test('restoring a missed reminder shows time-up without extending or creating records', () => {
   const app = start(dataSet()); app.elements.get('start').click();
   app.run('let session=timerState();session.lastStarted=Date.now()-session.durationMs-1000;setTimerState(session)');
   const reloaded = boot(Object.fromEntries(app.values)); assert.ifError(reloaded.error);
   assert.equal(reloaded.json('d.completed').length, 0);
-  assert.equal(reloaded.json('timerState().extensionDurationMs'),0);assert.equal(reloaded.run('timerState().paused'),true);assert.equal(reloaded.run('timerState().recoveryReason'),'reopen');assert.equal(reloaded.intervals.size,0);
+  assert.equal(reloaded.json('timerState().extensionDurationMs'),0);assert.equal(reloaded.run('timerState().finished'),true);assert.equal(reloaded.run('timerState().elapsed===timerState().durationMs'),true);assert.equal(reloaded.run('timerState().soundPlayed'),true);assert.equal(reloaded.intervals.size,0);
 });
 
 test('repeating the same task creates separate sessions, each completed only once', () => {

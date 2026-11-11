@@ -15,6 +15,7 @@ import java.util.*;
 import org.json.JSONObject;
 
 public final class MainActivity extends Activity {
+    static volatile boolean resumed=false;
     private static final String ORIGIN = "https://app.nowwhat.local";
     private static final int OPEN_BACKUP = 10, SAVE_BACKUP = 11;
     private WebView web;
@@ -44,6 +45,7 @@ public final class MainActivity extends Activity {
         settings.setMediaPlaybackRequiresUserGesture(true);
         web.addJavascriptInterface(new BackupBridge(), "NowWhatAndroid");
         web.setWebViewClient(new WebViewClient(){
+            @Override public void onPageFinished(WebView view,String url){if("io.github.taouyh.nowwhat.TIMER".equals(getIntent().getAction()))openTimer();}
             @Override public boolean shouldOverrideUrlLoading(WebView view,WebResourceRequest request){
                 Uri uri=request.getUrl();return !("https".equals(uri.getScheme())&&"app.nowwhat.local".equals(uri.getHost())&&"/index.html".equals(uri.getPath()));
             }
@@ -71,6 +73,15 @@ public final class MainActivity extends Activity {
     }
     private WebResourceResponse errorResponse(){return new WebResourceResponse("text/plain","UTF-8",404,"Not Found",Collections.emptyMap(),new ByteArrayInputStream(new byte[0]));}
     public final class BackupBridge {
+        @JavascriptInterface public void syncReminder(String payload){runOnUiThread(()->TimerReminder.sync(MainActivity.this,payload));}
+        @JavascriptInterface public String reminderStatus(){return TimerReminder.status(MainActivity.this);}
+        @JavascriptInterface public void requestReminders(){runOnUiThread(()->{
+            if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED){requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},42);return;}
+            Intent settings;
+            if(Build.VERSION.SDK_INT>=31&&!((android.app.AlarmManager)getSystemService(ALARM_SERVICE)).canScheduleExactAlarms())settings=new Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,Uri.parse("package:"+getPackageName()));
+            else settings=new Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,getPackageName());
+            try{startActivity(settings);}catch(Exception ignored){}
+        });}
         @JavascriptInterface public void setTheme(String theme){
             runOnUiThread(()->{
                 boolean dark="dark".equals(theme);int color=dark?Color.rgb(30,32,28):Color.rgb(247,245,240);
@@ -109,12 +120,15 @@ public final class MainActivity extends Activity {
         web.evaluateJavascript("(function(){if(typeof page!=='function')return 'background';if(!$('confirmLayer').classList.contains('hide')||!$('modal').classList.contains('hide')||$('timePicker').open||$('conditionsPicker').open||!$('librarySearch').classList.contains('hide')){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));}else if(location.hash!=='#home'){page('home');}else{return 'background';}return 'handled';})()",value->{if("\"background\"".equals(value))moveTaskToBack(true);});
     }
     @Override protected void onPause(){
+        resumed=false;
         android.os.PowerManager power=(android.os.PowerManager)getSystemService(POWER_SERVICE);
         String lifecycle=power!=null&&!power.isInteractive()?"sleep":"background";
         web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('"+lifecycle+"')",null);
         super.onPause();web.onPause();
     }
     @Override protected void onStop(){if(web!=null)web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('checkpoint')",null);super.onStop();}
-    @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.evaluateJavascript("typeof nativeTimerLifecycle==='function' ? nativeTimerLifecycle('resume') : document.dispatchEvent(new Event('visibilitychange'))",null);}}
+    @Override protected void onResume(){super.onResume();resumed=true;TimerReminder.refresh(this);if(web!=null){web.onResume();web.evaluateJavascript("typeof nativeTimerLifecycle==='function' ? nativeTimerLifecycle('resume') : document.dispatchEvent(new Event('visibilitychange'))",null);}}
+    private void openTimer(){if(web!=null)web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('notification')",null);}
+    @Override protected void onNewIntent(Intent intent){super.onNewIntent(intent);setIntent(intent);if("io.github.taouyh.nowwhat.TIMER".equals(intent.getAction()))openTimer();}
     @Override protected void onDestroy(){if(fileCallback!=null)fileCallback.onReceiveValue(null);web.removeJavascriptInterface("NowWhatAndroid");web.destroy();super.onDestroy();}
 }

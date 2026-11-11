@@ -14,8 +14,8 @@ test('only an explicit Continue adds one extension and the waiting period is exc
  app.run('extendTimer()');const x=app.json('timerState()');assert.equal(x.elapsed,900000);assert.equal(x.extensionDurationMs,480000);assert.equal(x.finished,false);assert.equal(app.run('remainingMs(timerState())'),480000);
  app.run('extendTimer()');assert.equal(app.run('timerState().extensionDurationMs'),480000);advance(3000);assert.equal(app.run('elapsedMs(timerState())'),903000);
 });
-test('periodic checkpoints and a normal close preserve progress and reopening does not add offline time',()=>{
- const app=setup(),advance=clock(app);app.run('run(d.tasks[0])');advance(6000);app.run('checkpointTimer()');assert.equal(app.run('timerState().elapsed'),6000);
+test('legacy periodic checkpoints and a normal close preserve progress and reopening does not add offline time',()=>{
+ const app=setup(),advance=clock(app);app.run('run(d.tasks[0]);var legacy=timerState();delete legacy.reminderVersion;setTimerState(legacy)');advance(6000);app.run('checkpointTimer()');assert.equal(app.run('timerState().elapsed'),6000);
  advance(2000);app.run("nativeTimerLifecycle('close')");const closed=app.json('timerState()');assert.equal(closed.elapsed,8000);assert.equal(closed.paused,true);assert.equal(closed.recoveryReason,'reopen');
  const again=boot(Object.fromEntries(app.values));assert.ifError(again.error);assert.equal(again.run('timerState().elapsed'),8000);assert.equal(again.intervals.size,0);assert.equal(again.run('d.completed.length'),0);
  again.run('resumeRecoveredTimer()');assert.equal(again.run('timerState().completionId'),closed.completionId);assert.equal(again.run('timerState().paused'),false);assert.equal(again.run('timerState().pausedDurationMs'),0);
@@ -39,19 +39,19 @@ test('failed old-segment save never starts a new timer; failed timer replacement
  }
 });
 test('short pauses remain in the same session; long pauses become a frozen previous segment',()=>{
- const app=setup(),advance=clock(app);app.run('run(d.tasks[0])');advance(8000);app.run('pauseTimer()');const id=app.run('timerState().completionId');
+ const app=setup(),advance=clock(app);app.run('run(d.tasks[0]);var legacy=timerState();delete legacy.reminderVersion;setTimerState(legacy)');advance(8000);app.run('pauseTimer()');const id=app.run('timerState().completionId');
  advance(10000);app.run('resumeTimer()');assert.equal(app.run('timerState().pausedDurationMs'),10000);assert.equal(app.run('timerState().completionId'),id);advance(1000);app.run('pauseTimer()');
  advance(3600001);app.run('resumeTimer()');assert.equal(app.run('timerState().resumeAsNew'),true);assert.equal(app.run('timerState().elapsed'),9000);assert.equal(app.run('timerState().pausedDurationMs'),10000);assert.equal(app.run('timerState().paused'),true);
 });
-test('unexpected heartbeat gaps and native sleep do not get charged as effective time',()=>{
+test('legacy unexpected heartbeat gaps and native sleep do not get charged as effective time',()=>{
  for(const event of ['sleep','checkpoint']){
-  const app=setup(),advance=clock(app);app.run('run(d.tasks[0])');advance(6000);app.run('checkpointTimer()');advance(86400000);
+  const app=setup(),advance=clock(app);app.run('run(d.tasks[0]);var legacy=timerState();delete legacy.reminderVersion;setTimerState(legacy)');advance(6000);app.run('checkpointTimer()');advance(86400000);
   app.run(`nativeTimerLifecycle('${event}')`);assert.equal(app.run('timerState().elapsed'),6000);assert.equal(app.run('timerState().recoveryReason'),'interrupted');assert.equal(app.run('timerState().paused'),true);
  }
 });
-test('a bounded background interval reaches time up while a very long background gap waits for recovery',()=>{
+test('legacy bounded background interval reaches time up while a very long background gap waits for recovery',()=>{
  for(const gap of [16*60000,24*3600000]){
-  const app=setup(),advance=clock(app);app.run('run(d.tasks[0])');advance(6000);app.run("nativeTimerLifecycle('background')");advance(gap);app.run("nativeTimerLifecycle('resume')");
+  const app=setup(),advance=clock(app);app.run('run(d.tasks[0]);var legacy=timerState();delete legacy.reminderVersion;setTimerState(legacy)');advance(6000);app.run("nativeTimerLifecycle('background')");advance(gap);app.run("nativeTimerLifecycle('resume')");
   assert.equal(app.run('timerState().extensionDurationMs'),0);
   if(gap<3600000){assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().elapsed'),900000)}else{assert.equal(app.run('timerState().paused'),true);assert.equal(app.run('timerState().elapsed'),6000)}
  }
@@ -67,6 +67,7 @@ test('legacy paused progress is recoverable without guessing its offline duratio
 test('an uncertain legacy session can be explicitly discarded without inventing a zero-duration record',()=>{
  const app=setup(saved({legacy:true}));app.elements.get('discardRecoveryTimer').click();assert.equal(app.elements.get('confirmLayer').classList.contains('hide'),true);assert.equal(app.run('timerState()'),null);assert.equal(app.run('d.completed.length'),0);assert.equal(app.run('d.tasks.length'),fixture().tasks.length);
 });
-test('an expired session left overnight starts a fresh segment rather than extending yesterday',()=>{
- const app=setup(saved({finished:true}));assert.equal(app.run('timerState().resumeAsNew'),true);app.run('resumeRecoveredTimer()');assert.equal(app.run('d.completed[0].actualDurationMs'),900000);assert.equal(app.run('timerState().elapsed'),0);assert.equal(app.run('timerState().extensionDurationMs'),0);
+test('an expired session left overnight remains time-up until an explicit action',()=>{
+ const app=setup(saved({finished:true}));assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().recoveryReason'),undefined);assert.equal(app.run('d.completed.length'),0);
+ app.run('extendTimer()');assert.equal(app.run('timerState().elapsed'),900000);assert.equal(app.run('timerState().finished'),false);
 });
