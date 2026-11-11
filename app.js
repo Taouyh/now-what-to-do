@@ -395,7 +395,8 @@ function startTimer(t){
   clearTimeout(timerPauseWatch);timerView='full';renderTimer();startTimerLoop();
 }
 function requestAutomaticReminderPermission(){try{window.nativeApp?.requestReminders?.()}catch{}}
-function reminderPreferences(){return {sound:true,vibration:false,...d.preferences.reminders}}
+// Sound is always requested. Ignore the former mute preference in old backups.
+function reminderPreferences(){return {vibration:false,...d.preferences.reminders,sound:true}}
 function syncNativeReminder(x,background=!!document.hidden||!!timerBackgroundAt){
   if(!window.nativeApp?.syncReminder)return;
   const live=x&&x.reminderVersion===1&&!x.paused&&!x.recoveryReason;
@@ -404,13 +405,13 @@ function syncNativeReminder(x,background=!!document.hidden||!!timerBackgroundAt)
 }
 function syncReminderSettings(){
   const prefs=reminderPreferences();
-  if($('reminderSound'))$('reminderSound').checked=prefs.sound;
   if($('reminderVibration'))$('reminderVibration').checked=prefs.vibration;
   if($('reminderVibrationRow'))$('reminderVibrationRow').classList.toggle('hide',!window.nativeApp?.supportsVibration);
+  if($('reminderPreferences'))$('reminderPreferences').classList.toggle('hide',!window.nativeApp?.supportsVibration);
 
 }
 function setReminderPreference(key,value){
-  if(!['sound','vibration'].includes(key)||typeof value!=='boolean')return false;
+  if(key!=='vibration'||typeof value!=='boolean')return false;
   d.preferences={...d.preferences,reminders:{...reminderPreferences(),[key]:value}};
   if(!save())return false;syncReminderSettings();syncNativeReminder(timerState());return true;
 }
@@ -1154,6 +1155,5 @@ function setLanguage(nextLanguage){
 document.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
 $('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();conditions=emptyConditions();syncHomeControls();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
 
-$('reminderSound')?.addEventListener('change',e=>setReminderPreference('sound',e.target.checked));
 $('reminderVibration')?.addEventListener('change',e=>setReminderPreference('vibration',e.target.checked));
 
