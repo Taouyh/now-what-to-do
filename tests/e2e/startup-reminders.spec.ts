@@ -22,3 +22,13 @@ test('timer arrival, silent reopen and preferences keep one current session',asy
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('whatToDoData')!).preferences.reminders.sound)).toBe(false);
  await expect(page.locator('#reminderVibrationRow')).toBeHidden();
 });
+test('dark reminder panel keeps readable contrast and stays in the mobile viewport',async({browser})=>{
+ const context=await browser.newContext({viewport:{width:320,height:568},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36'});
+ const page=await context.newPage();await page.addInitScript(data=>localStorage.setItem('whatToDoData',JSON.stringify({...data,theme:'dark'})),data);
+ await page.goto('/#settings');await page.locator('#reminderSettings summary').click();
+ const result=await page.locator('.reminder-panel').evaluate(el=>{
+  const style=getComputedStyle(el),rect=el.getBoundingClientRect();
+  const lum=(css:string)=>css.match(/[\d.]+/g)!.slice(0,3).map(Number).map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);
+  const a=lum(style.color),b=lum(style.backgroundColor);return{contrast:(Math.max(a,b)+.05)/(Math.min(a,b)+.05),visible:rect.left>=0&&rect.top>=0&&rect.right<=innerWidth&&rect.bottom<=innerHeight};
+ });expect(result.contrast).toBeGreaterThan(4.5);expect(result.visible).toBe(true);await context.close();
+});
