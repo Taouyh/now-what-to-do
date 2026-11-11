@@ -1,16 +1,22 @@
 # Startup and round reminders 1.4.2 — Figma synchronization
 
-2026-11-11, Asia/Shanghai. Fixed source: `9e6f6bb02c4b11c93a0b376c53ce0b34030c4744`. Separate GPT chat/worktree `f12f`, branch `codex/figma-startup-reminders-1.4.2`.
+2026-11-11, Asia/Shanghai. Initial fixed source: `9e6f6bb02c4b11c93a0b376c53ce0b34030c4744`; dark-panel/hover follow-up source: `de59c5a920d7b13e4e07fdb1c524e5dd093970a7`. Separate GPT chat/worktree `f12f`, branch `codex/figma-startup-reminders-1.4.2`.
 
-Bounded editable synchronization is delivered. **The fixed source has a dark-theme reminder contrast defect; dark visual acceptance is not passed.** This report does not approve release or native notification delivery.
+Bounded editable synchronization is delivered. **The previously reported dark reminder contrast defect is resolved and synchronized from `de59c5a`.** The scoped contrast/viewport verification passes; exact platform-font fidelity and the broader acceptance boundaries below remain unchanged. This report does not approve release or native notification delivery.
 
-## Source defect requiring implementation follow-up
+## Resolved source defect and scoped follow-up
 
-At this fixed commit, `src/ui/styles/book.css:290` changes `--ink` to `#f1dfb6` inside the dark book, but leaves `--paper` as `#f1dfb6`. The new `.reminder-panel` at line 421 uses these two variables for foreground and background. The computed text and panel colors are therefore identical. Sound, vibration, the native settings button, and explanatory copy become nearly invisible. The summary hover also retains a light background.
+At the initial `9e6f6bb` commit, `src/ui/styles/book.css:290` changed `--ink` to `#f1dfb6` inside the dark book but left `--paper` as `#f1dfb6`. The new `.reminder-panel` used these identical foreground/background colors. Sound, vibration, the native settings button, and explanatory copy became nearly invisible. The summary hover also retained a light background.
 
 Reproduced in a fresh Edge context with Japanese, dark theme, Android user agent, 390×844, and a synthetic native bridge reporting approximate scheduling. The bridge only exposes the real source UI; it does not simulate successful native notification delivery. [Source screenshot](figma-source-dark-defect.png), SHA-256 `B2268306047DA33A6BAE44B434157A0BDF87EB7F65E533A16282BA8527E318FC`.
 
-The [JA dark defect component](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=458-9706) preserves unreadable source foreground/background and is explicitly labelled as a failed state. Readable Japanese permission copy is transcribed in the adjacent interaction notes. No source repair or unverified design-only color correction was made. Synchronize the corrected fixed commit before claiming dark-theme acceptance.
+The user supplied `de59c5a`, which sets the dark panel background to `#503d2c` and shared summary hover to `#b18a5033`. This chat extracted the complete fixed commit to an ignored directory inside the existing worktree, built it successfully with typecheck, and served it on independent port 8900. No tracked product source was changed. The earlier failure screenshot is retained as historical evidence.
+
+Fresh temporary Android Edge contexts verified dark Chinese web UI at 320×568, dark Japanese native UI at 390×844 and 320×568, and the shared hover change in light Chinese UI at 360×640. All three dark panel checks measured **7.809781:1** foreground/background contrast and complete viewport containment. Every hover check returned `rgba(177, 138, 80, 0.2)`. The Japanese 320 panel measured 249.59375×242.75 at (32,87.25); the 390 panel remained 300×223.5625 at (32,106.4375). [Corrected 320-pixel source screenshot](figma-source-dark-corrected.png), SHA-256 `1A2F72D30E7BD53C62BC6FCA821C25BCBCCF56DF42D5148EA7E069863D046223`.
+
+The existing [JA dark component](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=458-9706) is now corrected in place. Added a [320-pixel panel component](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=463-9740) and [dark/hover review board](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=463-9755). Four hover components clone only this iteration's summary masters; fills use the existing brass token with explicitly verified 20% opacity. Default summary components remain transparent. Hover examples are static references, with no new prototype business reactions. Updated the interaction notes to mark the defect resolved.
+
+Follow-up `whoami` again confirmed account `3966592487`; session `3b134865-5f68-416e-a288-c11d8e904ab2`. Inspected the source screenshots, corrected panel/hover composition and updated notes. Fixed the review board's row sizing after its first screenshot; the post-fix composition passed with readable, nonoverlapping copy. Read-back reconfirmed all 144 original geometry/text/reaction fingerprints unchanged. New follow-up components and board contain no image fills. Current scoped evidence is in [figma-dark-followup.json](figma-dark-followup.json); `figma-sync.json` remains the historical first-pass snapshot. Only panel colors, corresponding narrow layout, hover examples and the correction notes were updated; timer and startup designs were unchanged. This follow-up does not claim to independently accept the intervening `16efacd` reminder logic changes.
 
 ## Editable delivery
 
@@ -33,7 +39,7 @@ The three closed/open pairs have six new review navigation reactions on the remi
 ## Behavior represented
 
 - Footer summary opens a compact panel upward over the settings content. Sound is initially checked; vibration is initially unchecked and appears only for Android. Native UI includes the system notification settings action. Web hides both vibration and the native settings action and explains that closing the page prevents system notifications.
-- Native copy covers system permissions/Do Not Disturb, notifications off, and potentially delayed lock-screen reminders without exact-alarm access. Japanese long permission text is transcribed on the behavior board and retained in the defect component.
+- Native copy covers system permissions/Do Not Disturb, notifications off, and potentially delayed lock-screen reminders without exact-alarm access. Japanese long permission text is transcribed on the behavior board and present in the corrected dark components.
 - Startup shows `Now What` and `Loading… / 正在打开 / 読み込み中`, then reveals the assembled page. The 2.5-second ceiling is post-mount protection against missing decorations, not a fixed animation duration or universal startup-performance promise.
 - A round reaching its deadline remains at `时间到了`, with `继续`, `结束并记录` and `等待期间不计时`. Notifications say `这一轮时间到了` / `Time is up for this round` / `今回の時間になりました`, not that an activity is completed. Only explicit actions extend or record. Background, lock, close and overnight return do not automatically extend a versioned round; missed reminders are silently consumed. Notification activation returns to the current session.
 
@@ -43,7 +49,7 @@ Read only stage 8 and its required source/release context, development rules, th
 
 Captured Chinese web, English Windows UI, Chinese Android 360, Japanese dark Android 390 and English Android 320 closed/open states, plus startup and time-up. Android contexts explicitly use an Android user agent and touch/mobile emulation. Windows/Android bridges are lightweight presentation stubs. Source document width stayed within each viewport. This is source measurement for design synchronization, not a rerun or replacement of the separate 148 Node/13 browser checks reported in IMPLEMENTATION.md.
 
-Inspected complete Figma compositions against source captures. Corrected 320-pixel English navigation/label width, translated copied desktop navigation, and multi-line annotation flow, then inspected their post-fix screenshots. No further unchanged screenshot pass was repeated. The Chinese Android expanded screen was inspected inline. The dark panel remains a known source failure.
+Inspected complete Figma compositions against source captures. Corrected 320-pixel English navigation/label width, translated copied desktop navigation, and multi-line annotation flow, then inspected their post-fix screenshots. No further unchanged screenshot pass was repeated. The Chinese Android expanded screen was inspected inline. The initial dark failure was subsequently resolved by the scoped follow-up above.
 
 Read-back confirmed all **144 pre-existing top-level subtrees** retain the same geometry/text/reaction fingerprints as before the writes. This includes old settings, timers, task/calendar screens, the drag board `435:6377`, and previous promotional designs. No mutation targeted those old nodes. The audit records each new root's node counts, fonts, image-filled descendants, panel bounds and reactions. The new UI is editable text/frames/instances/vectors; reused image fills are decorative textures. No full-UI screenshot was imported into any deliverable.
 
@@ -57,4 +63,4 @@ No real Android-device notification/lock/reboot test, actual Windows toast activ
 
 ## Repository handoff
 
-Only this report, machine-readable audit and synthetic dark-defect screenshot are committed. No product source modification, push, merge, package build or publication. Local ignored evidence remains under `.cache/figma-reminders/`; `final-*` files are the reviewed post-fix compositions. This delivery applies to the fixed commit above; later layout or contrast fixes need a scoped follow-up.
+Only this report, machine-readable audits and synthetic before/after dark screenshots are committed. No product source modification, push, merge, native package build or publication. Local ignored evidence remains under `.cache/figma-reminders/`; `final-*` files are initial reviewed post-fix compositions, and `de59-figma-board-final.png` is the reviewed correction board. Initial UI evidence applies to `9e6f6bb`; the dark-panel/hover correction applies to `de59c5a` as specified above.
