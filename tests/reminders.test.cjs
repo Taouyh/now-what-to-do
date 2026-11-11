@@ -57,3 +57,10 @@ test('locking a known running round does not pause it, including a pre-upgrade l
   app.run("nativeTimerLifecycle('sleep');now+=900000;nativeTimerLifecycle('resume')");assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().elapsed'),900000);
  }
 });
+test('explicit long recovery requests native permission only after a restarted timer is saved',()=>{
+ for(const fail of [false,true]){
+  const {app}=setup();app.run("var permissionCalls=0;window.nativeApp.requestReminders=()=>permissionCalls++;run(d.tasks[0]);pauseTimer();now+=86400000;nativeTimerLifecycle('resume');permissionCalls=0");
+  if(fail)app.faults.writeKey='activeTimer';
+  app.run('resumeRecoveredTimer()');assert.equal(app.run('permissionCalls'),fail?0:1);
+ }
+});

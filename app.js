@@ -672,7 +672,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
   if(restart){
     const plannedMs=selectionReady()?time*60000:plannedDurationMs(x);
     if(!setTimerState(createTimerState(nextTask,plannedMs))){renderTimer();return false}
-    cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
+    requestAutomaticReminderPermission();cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
   }
   timerCleanupId=x.completionId;
   if(!setTimerState(null)){renderTimer();return false}
