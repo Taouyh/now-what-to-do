@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "3fd496890e9bf03e94a651ec396b5967c993401a",
+  "artifacts": [
+    {
+      "path": "dist/native-preview-1.4.2-sound/windows/Now-What-1.4.2-Windows-x64-Setup.exe",
+      "bytes": 13714063,
+      "sha256": "368815D2BCF3028E2DEAF300B3FA5D6AD1F20C3EF60EACB0BAC68481B5363229"
+    },
+    {
+      "path": "dist/native-preview-1.4.2-sound/android/Now-What-1.4.2-Android.apk",
+      "bytes": 11958018,
+      "sha256": "A59F4ECA64397F6AFE6AE4238369BA5338129357920B6408400F0827F92DA93C"
+    }
+  ]
+}
