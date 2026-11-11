@@ -48,3 +48,12 @@ test('pending background arrival remains armed until the foreground consumes it'
  assert.ok(calls.at(-1));assert.equal(app.run('timerState().reminderConsumed'),false);
  app.run("nativeTimerLifecycle('resume');nativeTimerLifecycle('background')");assert.equal(calls.at(-1),null);
 });
+test('locking a known running round does not pause it, including a pre-upgrade live round',()=>{
+ for(const old of [false,true]){
+  const {app}=setup();app.run('run(d.tasks[0]);now+=5000;checkpointTimer(true)');
+  if(old)app.run('var x=timerState();delete x.reminderVersion;setTimerState(x)');
+  app.run("nativeTimerLifecycle('sleep');now+=60000;nativeTimerLifecycle('resume')");
+  assert.equal(app.run('timerState().paused'),false);assert.equal(app.run('timerState().recoveryReason'),undefined);assert.equal(app.run('elapsedMs(timerState())'),65000);
+  app.run("nativeTimerLifecycle('sleep');now+=900000;nativeTimerLifecycle('resume')");assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().elapsed'),900000);
+ }
+});

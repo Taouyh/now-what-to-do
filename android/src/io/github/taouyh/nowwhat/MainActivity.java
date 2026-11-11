@@ -76,11 +76,10 @@ public final class MainActivity extends Activity {
         @JavascriptInterface public void syncReminder(String payload){runOnUiThread(()->TimerReminder.sync(MainActivity.this,payload));}
         @JavascriptInterface public String reminderStatus(){return TimerReminder.status(MainActivity.this);}
         @JavascriptInterface public void requestReminders(){runOnUiThread(()->{
-            if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED){requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},42);return;}
-            Intent settings;
-            if(Build.VERSION.SDK_INT>=31&&!((android.app.AlarmManager)getSystemService(ALARM_SERVICE)).canScheduleExactAlarms())settings=new Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,Uri.parse("package:"+getPackageName()));
-            else settings=new Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,getPackageName());
-            try{startActivity(settings);}catch(Exception ignored){}
+            android.content.SharedPreferences prefs=getSharedPreferences("reminder-permission",0);
+            if(Build.VERSION.SDK_INT>=33&&!prefs.getBoolean("asked",false)&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED){
+                prefs.edit().putBoolean("asked",true).apply();requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},42);
+            }
         });}
         @JavascriptInterface public void setTheme(String theme){
             runOnUiThread(()->{

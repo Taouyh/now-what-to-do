@@ -390,9 +390,11 @@ function startTimer(t){
   if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;
   if(!selectionReady()){page('home');$('timePicker').open=true;$('customMinutes').focus({preventScroll:true});notify(tr('请先选择本次可用时间。'));return}
   primeTimerAudio();if(!setTimerState(createTimerState(t,time*60000)))return;
+  requestAutomaticReminderPermission();
   completionFeedback = null;
   clearTimeout(timerPauseWatch);timerView='full';renderTimer();startTimerLoop();
 }
+function requestAutomaticReminderPermission(){try{window.nativeApp?.requestReminders?.()}catch{}}
 function reminderPreferences(){return {sound:true,vibration:false,...d.preferences.reminders}}
 function syncNativeReminder(x,background=!!document.hidden||!!timerBackgroundAt){
   if(!window.nativeApp?.syncReminder)return;
@@ -405,9 +407,7 @@ function syncReminderSettings(){
   if($('reminderSound'))$('reminderSound').checked=prefs.sound;
   if($('reminderVibration'))$('reminderVibration').checked=prefs.vibration;
   if($('reminderVibrationRow'))$('reminderVibrationRow').classList.toggle('hide',!window.nativeApp?.supportsVibration);
-  if($('enableNotifications'))$('enableNotifications').classList.toggle('hide',!window.nativeApp?.requestReminders);
-  let status;try{status=window.nativeApp?.reminderStatus?.()}catch{}
-  if($('reminderPermissionStatus'))$('reminderPermissionStatus').textContent=tr(status==='notifications-off'?'系统通知未开启。':status==='approximate'?'锁屏提醒可能延迟；可在系统设置允许准时提醒。':window.nativeApp?'通知受系统权限与免打扰设置影响。':'网页关闭后不发送系统通知。');
+
 }
 function setReminderPreference(key,value){
   if(!['sound','vibration'].includes(key)||typeof value!=='boolean')return false;
@@ -572,6 +572,7 @@ function resumeRecoveredTimer(){
   if(longTimerPause(x))x.resumeAsNew=true;
   x=confirmRecoveryElapsed(x);if(!x)return false;
   if(recoveryUsesNewSession(x))return finishTimer(x.completionId,{restart:true,confirmedState:x});
+  requestAutomaticReminderPermission();x.reminderVersion=1;
   const now=Date.now();delete x.recoveryReason;x.paused=false;x.pauseStartedAt=0;x.lastStarted=now;x.checkpointAt=now;
   if(x.elapsed>=x.durationMs){x.finished=true;x.timeUpAt=x.stoppedAt;if(!setTimerState(x))return false;extendTimer();return true}
   x.finished=false;if(!setTimerState(x))return false;primeTimerAudio();renderTimer();startTimerLoop();return true;
@@ -615,7 +616,8 @@ function resumeTimer(){
   let x=timerState();if(!x||x.finished||!x.paused||x.recoveryReason)return;
   const now=Date.now();if(longTimerPause(x,now)){suspendTimer('long',now,false);renderTimer();return}
   if(x.pauseStartedAt>0)x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-x.pauseStartedAt);
-  x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;x.checkpointAt=now;if(!setTimerState(x))return;
+  x.reminderVersion=1;x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;x.checkpointAt=now;if(!setTimerState(x))return;
+  requestAutomaticReminderPermission();
   clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide');syncDialogState();restoreDialogFocus('confirmLayer')}
@@ -687,7 +689,7 @@ function extendTimer(){
   if(longTimerPause(x)){suspendTimer('long',Date.now(),false);renderTimer();return}
   const now=Date.now(),extensionMs=extensionStepMs(x);x.plannedDurationMs=plannedDurationMs(x);x.extensionDurationMs=(x.extensionDurationMs||0)+extensionMs;x.durationMs=x.plannedDurationMs+x.extensionDurationMs;
   x.reminderVersion=1;x.reminderConsumed=false;x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
-  if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
+  if(!setTimerState(x))return;requestAutomaticReminderPermission();clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide','time-error-notice');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
 function closeContinuation() {
@@ -800,6 +802,7 @@ function restoreTimer(){
 }
 function nativeTimerLifecycle(event){
   if(storageBlocked)return false;
+  if(['background','sleep'].includes(event)){const active=timerState();if(active?.timerVersion===2&&active.reminderVersion!==1&&!active.paused&&!active.finished&&!active.recoveryReason&&!unobservedTimerGap(active)){active.reminderVersion=1;if(!setTimerState(active))return false}}
   if(['close','sleep'].includes(event)&&timerState()?.reminderVersion===1){timerBackgroundAt=Date.now();const result=checkpointTimer(true);syncNativeReminder(timerState(),true);return result}
   if(event==='notification'){nativeTimerLifecycle('resume');page('home');showFullTimer();return true}
   if(event==='close'||event==='sleep'){const result=suspendTimer(event==='sleep'?'interrupted':'reopen');renderTimer();return result}
@@ -1153,4 +1156,4 @@ $('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2
 
 $('reminderSound')?.addEventListener('change',e=>setReminderPreference('sound',e.target.checked));
 $('reminderVibration')?.addEventListener('change',e=>setReminderPreference('vibration',e.target.checked));
-$('enableNotifications')?.addEventListener('click',()=>window.nativeApp?.requestReminders?.());
+

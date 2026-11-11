@@ -117,7 +117,7 @@ export function mountBook(app: Runtime) {
   const settingsRows = [...document.querySelectorAll('#dataPanel .settings-row')];
   settingsRows.forEach((row, index) => (index < 2 ? settingsLeft : settingsRight).append(row));
   const settingsFooter = element('div', 'settings-footer');
-  settingsFooter.append(byId('reminderSettings'), document.querySelector('.settings-note')!);
+  settingsFooter.append(byId('reminderPreferences'), document.querySelector('.settings-note')!);
   settingsLeft.append(settingsFooter);
   byId('dataPanel').replaceChildren(settingsLeft, settingsRight);
   byId('settings').append(byId('dataPanel'));

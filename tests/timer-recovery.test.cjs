@@ -49,11 +49,11 @@ test('legacy unexpected heartbeat gaps and native sleep do not get charged as ef
   app.run(`nativeTimerLifecycle('${event}')`);assert.equal(app.run('timerState().elapsed'),6000);assert.equal(app.run('timerState().recoveryReason'),'interrupted');assert.equal(app.run('timerState().paused'),true);
  }
 });
-test('legacy bounded background interval reaches time up while a very long background gap waits for recovery',()=>{
+test('known running v2 rounds adopt the new deadline policy when backgrounded',()=>{
  for(const gap of [16*60000,24*3600000]){
   const app=setup(),advance=clock(app);app.run('run(d.tasks[0]);var legacy=timerState();delete legacy.reminderVersion;setTimerState(legacy)');advance(6000);app.run("nativeTimerLifecycle('background')");advance(gap);app.run("nativeTimerLifecycle('resume')");
   assert.equal(app.run('timerState().extensionDurationMs'),0);
-  if(gap<3600000){assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().elapsed'),900000)}else{assert.equal(app.run('timerState().paused'),true);assert.equal(app.run('timerState().elapsed'),6000)}
+  assert.equal(app.run('timerState().finished'),true);assert.equal(app.run('timerState().elapsed'),900000);assert.equal(app.run('timerState().reminderVersion'),1)
  }
 });
 test('an old running timer needs a deliberate duration confirmation and retains its original snapshot',()=>{
