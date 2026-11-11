@@ -10,6 +10,7 @@ static bool reminderBackground=false;
 static JsonObject reminderPayload{nullptr};
 static std::wstring reminderSignature;
 static void reminderCancel() {
+    if(testing){reminderSignature.clear();return;}
     using namespace winrt::Windows::UI::Notifications;
     try{auto notifier=ToastNotificationManager::CreateToastNotifier(reminderAppId);
         for(auto item:notifier.GetScheduledToastNotifications())if(item.Id()==L"round")notifier.RemoveFromSchedule(item);

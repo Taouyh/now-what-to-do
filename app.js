@@ -420,6 +420,7 @@ function validateTimer(x){
   if(!x||typeof x!=='object'||Array.isArray(x)||typeof x.taskId!=='string'||!x.taskId||!Number.isFinite(x.durationMs)||x.durationMs<=0||!Number.isFinite(x.elapsed)||x.elapsed<0||!Number.isFinite(x.lastStarted)||x.lastStarted<0||typeof x.paused!=='boolean'||typeof x.finished!=='boolean')throw Error(tr('进行中的计时数据无效'));
   if(x.task!==undefined&&(!x.task||typeof x.task!=='object'||typeof x.task.name!=='string'))throw Error(tr('计时任务快照无效'));
   if(x.timerVersion!==undefined&&x.timerVersion!==2)throw Error(tr('进行中的计时数据无效'));
+  if(x.reminderVersion!==undefined&&x.reminderVersion!==1)throw Error(tr('进行中的计时数据无效'));
   for(const key of ['checkpointAt','stoppedAt','timeUpAt'])if(x[key]!==undefined&&(!Number.isFinite(x[key])||x[key]<0))throw Error(tr('进行中的计时数据无效'));
   if(x.recoveryReason!==undefined&&!['reopen','long','interrupted','legacy'].includes(x.recoveryReason))throw Error(tr('进行中的计时数据无效'));
   for(const key of ['resumeAsNew','needsElapsedConfirmation'])if(x[key]!==undefined&&typeof x[key]!=='boolean')throw Error(tr('进行中的计时数据无效'));
@@ -436,6 +437,7 @@ function setTimerState(x){
   try{if(x)localStorage.setItem('activeTimer',JSON.stringify(x));else localStorage.removeItem('activeTimer');timerFrozen=null;clearStorageFailure('activeTimer');syncNativeReminder(x);return true}
   catch(e){
     stopTimerLoop();clearTimeout(timerPauseWatch);
+    syncNativeReminder(null);
     if(x&&!timerFrozen){try{const prior=JSON.parse(localStorage.getItem('activeTimer'));if(prior&&!prior.paused&&!prior.finished){timerFrozen={...prior,paused:true,lastStarted:0,recoveryReason:'interrupted',stoppedAt:prior.checkpointAt??prior.lastStarted,pauseStartedAt:Date.now()}}}catch{}}
     storageFailure('activeTimer',e);return false;
   }
@@ -802,6 +804,8 @@ function nativeTimerLifecycle(event){
   if(event==='background'){timerBackgroundAt=Date.now();const result=checkpointTimer(true);syncNativeReminder(timerState(),true);return result}
   if(event==='checkpoint')return checkpointTimer(true);
   if(event==='resume'){
+    // A visibility/native-resume callback is reconciliation, never a new alert.
+    timerBackgroundAt=timerBackgroundAt||Date.now();
     const x=timerState();if(x&&!x.recoveryReason){if(longTimerPause(x))suspendTimer('long',Date.now(),false);else checkpointTimer(true)}
     timerBackgroundAt=0;syncReminderSettings();syncNativeReminder(timerState());renderTimer();return true;
   }

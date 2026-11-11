@@ -24,3 +24,13 @@ test('notification activation returns to the current session without committing 
 test('failed reminder preference save restores previous preference and does not change delivery',()=>{
  const {app,calls}=setup();app.run('run(d.tasks[0])');app.faults.writeKey='whatToDoData';assert.equal(app.run("setReminderPreference('sound',false)"),false);assert.equal(app.run('reminderPreferences().sound'),true);assert.equal(calls.at(-1).sound,true);
 });
+test('foreground sound is one-shot and muted or returning sessions never play it',()=>{
+ for(const mode of ['foreground','muted','resume']){
+  const {app}=setup();app.run("var notes=0;window.AudioContext=class{state='running';currentTime=0;destination={};createGain(){return{gain:{setValueAtTime(){},linearRampToValueAtTime(){},exponentialRampToValueAtTime(){}},connect(){},disconnect(){}}}createOscillator(){return{frequency:{},connect(){},start(){notes++},stop(){}}}}");
+  if(mode==='muted')app.run("setReminderPreference('sound',false)");
+  app.run('run(d.tasks[0]);now+=900000');
+  app.run(mode==='resume'?"nativeTimerLifecycle('resume')":'advanceTimerIfNeeded(timerState())');
+  app.run('advanceTimerIfNeeded(timerState());playTimeUpSound(timerState());renderTimer()');
+  assert.equal(app.run('notes'),mode==='foreground'?3:0);assert.equal(app.run('timerState().soundPlayed'),true);
+ }
+});
