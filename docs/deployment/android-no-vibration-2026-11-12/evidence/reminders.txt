@@ -1,0 +1,17 @@
+✔ background, sleep and closed-app deadlines cap the round and never replay sound (16.8886ms)
+✔ one native deadline per round; pause cancels, continue reschedules, finish clears (4.7966ms)
+✔ notification activation returns to the current session without committing it (3.4481ms)
+✔ failed reminder preference save restores previous preference and does not change delivery (2.3358ms)
+✔ foreground sound ignores old mute preference, stays one-shot and never replays on return (8.5492ms)
+✔ consumed foreground and restored rounds never re-arm when backgrounded (9.3406ms)
+✔ pending background arrival remains armed until the foreground consumes it (2.5483ms)
+✔ locking a known running round does not pause it, including a pre-upgrade live round (9.8454ms)
+✔ explicit long recovery requests native permission only after a restarted timer is saved (8.5177ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.9852
