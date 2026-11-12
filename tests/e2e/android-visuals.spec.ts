@@ -13,6 +13,29 @@ async function seed(page: Page, language: string) {
   await expect(page.locator('html')).toHaveAttribute('data-app-ready','true');
 }
 
+test('calendar return retains focus after pending keyboard viewport reflow', async ({browser}) => {
+  const context = await browser.newContext({viewport:{width:320,height:592}, userAgent:android, hasTouch:true, isMobile:true});
+  const page = await context.newPage();
+  await seed(page,'zh-CN');
+  await page.locator('[data-page=tasks]').click();
+  await page.clock.install();
+  await page.clock.pauseAt(new Date(Date.now()+1000));
+  await page.locator('.small-action').click();
+  await page.setViewportSize({width:320,height:320});
+  await page.evaluate(()=>(window as any).nativeNavigateBack());
+  await page.setViewportSize({width:320,height:592});
+  const group = await page.evaluate(()=>{
+    document.querySelector<HTMLButtonElement>('[data-page=today]')!.click();
+    document.querySelector<HTMLButtonElement>('.calendar-group')!.click();
+    (window as any).nativeNavigateBack();
+    return (document.activeElement as HTMLElement).dataset.groupId!;
+  });
+  expect(group).toBeTruthy();
+  await page.clock.runFor(300);
+  await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+  await context.close();
+});
+
 for (const [width,height,language] of [[360,752,'zh-CN'],[320,592,'en'],[390,796,'ja']] as const) {
   test(`Android visual flow ${width}x${height} ${language}`, async ({browser}, info) => {
     const context = await browser.newContext({viewport:{width,height}, userAgent:android, hasTouch:true, isMobile:true});
@@ -37,6 +60,9 @@ for (const [width,height,language] of [[360,752,'zh-CN'],[320,592,'en'],[390,796
       await page.locator('#tasks-next').click();
     } while(ids.length<20);
     expect(ids).toEqual(tasks.map(t=>t.id));
+    if (height > 650 && await page.locator('#taskList .task-strip').count() <= 3) {
+      await expect(page.locator('#taskList .task-strip').first()).toHaveCSS('height','72px');
+    }
     const anchor=await page.locator('#taskList .task-strip').first().getAttribute('data-task-id');
     await page.screenshot({path:info.outputPath('tasks.png')});
     await page.locator('.small-action').click();

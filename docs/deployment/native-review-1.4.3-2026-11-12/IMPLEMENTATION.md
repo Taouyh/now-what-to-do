@@ -8,6 +8,7 @@ Figma file `EUoXZR1hDJUUPVAtrDxpE5`, visual board `574:10204`. Account handle `3
 
 - Android home uses the paper page, top time/conditions controls, a centered action group, and an independently raised activity name. Existing next-step content remains readable.
 - Tasks stay top-aligned on sparse, full and final pages. Row capacity follows available height, with true pagination, bottom navigation, dragging, pinning and direct Start preserved.
+- Independent review correction: sparse final pages use the same 72 px slips as sparse first pages (64 px on small portrait screens). Capacity uses the standard row size so switching to a sparse page cannot oscillate pagination. Calendar reflow preserves focused entry/control after delayed IME release.
 - Calendar directory and record details now occupy separate mobile views. Back returns to the same directory page/entry. Records have transparent backgrounds, bottom rules only, reserved detail space and up to four rows per page, reduced on short screens.
 - The activity editor keeps its heading/close target and footer visible above the keyboard. Only the form body scrolls. Closing blurs the field and requests native keyboard dismissal immediately; the dialog uses a 100 ms opacity transition with no vertical collapse. Underlying layout remains stable until viewport resize events settle, preserving the task anchor.
 - The native Back bridge now calls an exported function instead of inaccessible bundled globals. Notification cold entry waits for the app-ready signal when necessary.

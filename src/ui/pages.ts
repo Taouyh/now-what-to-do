@@ -181,15 +181,16 @@ export class BookPages {
       title.append(left.querySelector('h1')!, heading.querySelector('button')!);
       mobileHeading.append(title, element('p', 'book-caption', app.tr('共 {count} 项', { count: tasks.length })));
       first.classList.add('mobile-task-items');
-      first.classList.toggle('few-tasks', tasks.length <= 3);
+      first.classList.toggle('few-tasks', group.items.length <= 3);
       byId('taskList').replaceChildren(mobileHeading, first, footer);
       this.taskResizeObserver = new ResizeObserver(() => {
         if (this.isViewportFrozen()) return;
         // Measure the space between the heading and pager, rather than clipping a long list.
         const height = first.getBoundingClientRect().height;
         if (!height || !document.body.classList.contains('mobile-book')) return;
-        const row = first.querySelector<HTMLElement>('.task-strip');
-        const rowHeight = row ? parseFloat(getComputedStyle(row).minHeight) : 52;
+        // Sparse final pages use taller slips without changing page capacity.
+        // Measuring their taller rows would oscillate the pagination boundary.
+        const rowHeight = parseFloat(getComputedStyle(first).getPropertyValue('--task-page-row-height')) || 64;
         const gap = parseFloat(getComputedStyle(first).rowGap) || 0;
         const capacity = Math.max(1, Math.floor((height + gap) / (rowHeight + gap)));
         if (capacity === this.mobileTaskPageSize) return;
@@ -227,6 +228,15 @@ export class BookPages {
   renderToday() {
     const { app } = this;
     const { tr } = app;
+    const container = byId('todayBox');
+    const active = document.activeElement as HTMLElement | null;
+    const focusedSelector = active && container.contains(active)
+      ? active.id ? `#${CSS.escape(active.id)}`
+        : active.dataset.groupId ? `[data-group-id="${CSS.escape(active.dataset.groupId)}"]` : null
+      : null;
+    const restoreFocus = () => {
+      if (focusedSelector) container.querySelector<HTMLElement>(focusedSelector)?.focus({ preventScroll: true });
+    };
     const mobile = document.body.classList.contains('mobile-book');
     const records = app.recordsForLocalDay();
     const groups = app.todayRecordGroups(records);
@@ -315,13 +325,14 @@ export class BookPages {
       }, 'records'));
     }
     this.calendarResizeObserver?.disconnect();
-    if (!mobile) { byId('todayBox').replaceChildren(left, right); return; }
+    if (!mobile) { container.replaceChildren(left, right); restoreFocus(); return; }
     const column = selected ? right : left;
     column.classList.add('mobile-calendar-column');
     const content = column.querySelector<HTMLElement>('.calendar-directory,.calendar-records')!;
     const emptyStart = content.querySelector('.calendar-start');
     if (emptyStart) column.insertBefore(emptyStart, column.querySelector('.book-pager'));
-    byId('todayBox').replaceChildren(column);
+    container.replaceChildren(column);
+    restoreFocus();
     this.calendarResizeObserver = new ResizeObserver(() => {
       if (this.isViewportFrozen() || !content.getBoundingClientRect().height) return;
       const rowHeight = parseFloat(getComputedStyle(content).getPropertyValue('--calendar-row-height')) || 72;

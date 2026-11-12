@@ -37,7 +37,7 @@
 .mobile-book .mobile-task-heading { height: 60px; }
 .mobile-book .mobile-task-heading .column-heading { height: 36px; }
 .mobile-book .book .small-action { width: 80px; min-height: 44px; height: 44px; border-radius: 8px; font-size: 14px; }
-.mobile-book .mobile-task-items { gap: 12px; justify-content: flex-start; overflow: hidden; }
+.mobile-book .mobile-task-items { --task-page-row-height: 64; gap: 12px; justify-content: flex-start; overflow: hidden; }
 .mobile-book .book .mobile-task-items .task-strip { flex: 0 0 64px; min-height: 64px; height: 64px; }
 .mobile-book .book .mobile-task-items.few-tasks .task-strip { flex-basis: 72px; min-height: 72px; height: 72px; }
 .mobile-book .task-strip { gap: 4px; padding: 0 4px; border: 1px solid var(--gold); border-radius: 7px; background: var(--mobile-task-paper) center/100% 100% no-repeat; filter: drop-shadow(0 3px 1.5px #2b170a29); }
@@ -115,8 +115,8 @@ html[data-theme=dark] .mobile-book .book .checkbox-label:has(input:checked) { ba
 @media(orientation:landscape) and (max-height:450px) {
   .mobile-book .book #taskList,.mobile-book .book .mobile-calendar-column { padding: 8px 12px; gap: 8px; }
   .mobile-book .mobile-task-heading { height: 50px; }
-  .mobile-book .book .mobile-task-items .task-strip { flex-basis: 52px; height: 52px; min-height: 52px; }
-  .mobile-book .mobile-task-items { gap: 8px; }
+  .mobile-book .book .mobile-task-items .task-strip,.mobile-book .book .mobile-task-items.few-tasks .task-strip { flex-basis: 52px; height: 52px; min-height: 52px; }
+  .mobile-book .mobile-task-items { --task-page-row-height: 52; gap: 8px; }
   .mobile-book .book .home-workspace { min-height: 350px; }
   .mobile-book .mobile-calendar-column .book-caption { margin-bottom: 8px; }
   .mobile-book .book .calendar-back { height: 36px; min-height: 36px; margin-bottom: 0; }
