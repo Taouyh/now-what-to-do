@@ -20,7 +20,7 @@ Research delivery: `docs/research/market-2026-11-01/REPORT.md`.
 Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.
 Design delivery: `docs/design/free-time-start-2026-11-01/V13-ITERATION.md`.
-Latest verified design sync: `docs/deployment/always-sound-2026-11-11/VERIFICATION.md`; earlier reports remain historical.
+Latest verified design mapping: `docs/deployment/native-review-1.4.3-2026-11-12/FIGMA-VERIFICATION.md`; earlier reports remain historical.
 Current native candidate: `docs/deployment/native-review-1.4.3-2026-11-12/IMPLEMENTATION.md`. On November 12 the user authorized implementing the latest Android visuals, new book icons for both native versions, and both installers, with a new independent testing chat. Earlier wireframe-only gates are historical. No push or publication is authorized for this candidate.
 Current local correction: `docs/deployment/always-sound-2026-11-11/IMPLEMENTATION.md`, superseding the optional sound setting in `docs/deployment/startup-reminders-1.4.2-2026-11-11/RELEASE.md`. No Sound option: always request one timely sound, ignore old mute preferences, never replay missed alerts. Automatic reminders have no activation button; screen-off keeps running to the deadline. Android vibration remains optional. Physical OS/device notification and upgrade acceptance remain pending. No 1.4.2 publication; current published release remains `docs/deployment/promo-1.4.1-2026-11-10/RELEASE.md`.
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.

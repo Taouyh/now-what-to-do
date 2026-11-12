@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "sha256": "41C33C9347F9D55CC7AF0AADE132E3177C3A862916122B864A473BE26E54B87F",
+      "bytes": 12106044,
+      "path": "final/android/Now-What-1.4.3-Android.apk"
+    },
+    {
+      "sha256": "82F3579826BADAA578B8A241019F4002F2B2B27525B6DBE28E1A735807232B6C",
+      "bytes": 13910587,
+      "path": "final/windows/Now-What-1.4.3-Windows-x64-Setup.exe"
+    }
+  ],
+  "androidVersionCode": 9,
+  "supersededSourceCommit": "08cc289202f6d5cb575b0ea9a659da3c3becedb9",
+  "sourceCommit": "a6e9c9e8f73f132c86674e105c658fb1643e042f",
+  "version": "1.4.3"
+}

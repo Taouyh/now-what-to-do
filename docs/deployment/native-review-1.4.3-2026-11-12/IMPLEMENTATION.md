@@ -28,8 +28,8 @@ Implementation checks: 153 Node tests passed; Vite/TypeScript build passed; 23 b
 Build commands:
 
 ```powershell
-npm.cmd run build:android -- -OutputDirectory dist/native-review-1.4.3-2026-11-12/android
-npm.cmd run build:windows -- -OutputDirectory dist/native-review-1.4.3-2026-11-12/windows
+npm.cmd run build:android -- -OutputDirectory dist/native-review-1.4.3-2026-11-12/final/android
+npm.cmd run build:windows -- -OutputDirectory dist/native-review-1.4.3-2026-11-12/final/windows
 ```
 
 Run sequentially because both refresh dist/web. The independent window must test the fixed source commit and these exact artifacts, checking hashes, APK signing/version/assets, Windows installer/payload and isolated browser regressions. The release record will hold final paths/hashes and independent results.
