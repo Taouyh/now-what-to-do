@@ -48,3 +48,28 @@ Local evidence: `.cache/promo-videos-test/result.json` and screenshots; `.cache/
 This is local website/media validation in Edge, including emulated narrow/touch layouts. It is not Android-device, Windows-native, installer, upgrade, notification or participant acceptance. Audio streams were fully decoded and preserved by hash; a complete listening/editorial review was not performed. Native media controls can temporarily overlay burned-in captions while visible. Figma synchronization and post-deployment live-media hashes/playback remain separate delivery checks.
 
 Only this report is committed by the independent reviewer. No push, merge, release upload or deployment was performed. The parent delivery can use this PASS for the exact fixed commit and should verify the deployed candidate after publication.
+
+## Addendum: authorized native 1.4.3 download publication
+
+**PASS** for the focused follow-up at fixed commit `fedfb1501a9a7b1694baaf4ccbd37db9c77b34cb`, on 2026-11-12 (Asia/Shanghai). The user additionally authorized publishing the existing accepted Windows installer and latest Android build 10 installer. This supersedes the earlier download-version restriction in this report; the earlier findings remain evidence for their original fixed commit.
+
+Compared with `e0e266a043d118f1ba1c942f930dfb23bede51ab`, the only changes are the three README download rows, promotional hero/download/release-note copy in `about/about.js` and `about/index.html`, this pre-existing report, and `NATIVE-RELEASE.md`. No application source, native packaging, package/lockfile, CSS, media or build workflow changed. `git diff --check` passed. The web code/package remains 1.4.1; site reassembly reports version `1.4.1` and source `fedfb1501a9a7b1694baaf4ccbd37db9c77b34cb`. No native application branch was merged here.
+
+Read the existing independent reports from `D:/code/now-what-to-do/docs/deployment/native-review-1.4.3-2026-11-12/INDEPENDENT-TEST.md` and `android-no-vibration-2026-11-12/INDEPENDENT-TEST.md`. Rehashed the actual existing installers without rebuilding or installing them:
+
+| Existing file under `D:/code/now-what-to-do/dist/` | Bytes | Rounded MiB | SHA-256 |
+| --- | ---: | ---: | --- |
+| `native-review-1.4.3-2026-11-12/final/windows/Now-What-1.4.3-Windows-x64-Setup.exe` | 13,910,587 | 13.3 | `82F3579826BADAA578B8A241019F4002F2B2B27525B6DBE28E1A735807232B6C` |
+| `android-no-vibration-2026-11-12/Now-What-1.4.3-Android-build10.apk` | 12,106,044 | 11.5 | `EB678BBE9E59BE849342F6769873845C07315A1D51A2F9D6E11CBA8B869F9A89` |
+
+Both match their respective final independent reports exactly. The superseded build 9 APK hash was not substituted for build 10. Planned Release tag target `900cc3a5d5bed60be5d69414c00322da624b6852` resolves locally, includes both independent reports, and descends from Android source `7ff2aa77228fc19d338615f4e1843361ca4c20fd`. Windows executable source remains the separately verified `a6e9c9e8f73f132c86674e105c658fb1643e042f`, as disclosed in `NATIVE-RELEASE.md`; this is a combined artifact release, not a claim that both binaries were rebuilt from the tag.
+
+Focused probe `.cache/independent-promo/native-copy.cjs` passed:
+
+- All three READMEs contain exactly the intended two `/releases/download/v1.4.3/` installer URLs, filenames and 13.3 / 11.5 MiB sizes.
+- Six fresh-context Edge cases: English, Chinese and Japanese at 1440 and 390 CSS px. The hero has no shared version label; the native download section and both platform descriptions show 1.4.3; release notes target `/releases/tag/v1.4.3`; the main and platform download links still lead to the Releases listing.
+- No horizontal overflow or page errors. Download-section screenshots were captured; desktop English and mobile Chinese/Japanese were visually inspected. Local result: `.cache/independent-promo/native-copy-result.json`.
+
+The public GitHub API endpoint for `releases/tags/v1.4.3` returned 404 during this check, consistent with the parent's release upload/publication still in progress. Public tag/asset digests and actual download availability therefore remain **pending post-publication verification**, not a source-validation failure. No claim of successful public publication is made here.
+
+The original media decode and broader application suites were not repeated because their bytes/source are unchanged. Existing native report results are relied on by exact artifact identity; this addendum does not add physical-device, notification, OS sound, upgrade or participant acceptance. Only this report is appended and committed; no push, merge or release action is performed by this reviewer.
