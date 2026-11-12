@@ -4,6 +4,7 @@
 
 ## Review links
 
+- [Now/home: default, compact and long-name layouts — added November 12](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=516-10138) · [preview](home-wireframes.png)
 - [Complete editable Figma board](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=497-9796)
 - [Tasks: sparse, full, second page and small screen](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=497-9820)
 - [Calendar: today, activity details, empty and small screen](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=497-10173)
@@ -13,6 +14,12 @@
 Verified Figma account handle `3966592487` before project access. Session `efb45b4b-0625-4fbc-b08e-4a89c5f59425`. Created a separate, clearly named DRAFT board on existing page `49:243`; existing approved visual screens/components were not modified. Gray fills describe structure, not an approved color or visual redesign. The ten screen frames are static editable wireframes, not a functioning phone or executable prototype.
 
 ## Proposed layout
+
+**Now/home (added 2026-11-12).** The user reported that the task name, Start and Change controls sit too high. Keep time and current conditions in the top utility row; center the task/action group in the remaining page area, with Start primary and Change directly underneath. Reserve two lines for the task name so changing between short and long names does not move the controls. Existing next-step text participates in the group's layout. On small screens or with larger text, reduce free space before permitting content scrolling; never hide the primary controls. The review includes 360×800 default, 320×640 compact, and 360×800 long-title/next-step states. These are reference sizes, not measured OPPO viewports.
+
+The home extension reuses the prior wireframe shell, navigation, gray variables and existing Start/Change/capsule components. Account `3966592487` was verified again; Figma session `420dc164-465c-4c9e-b4ab-79a89fd3bdf4`. It contains 55 editable text nodes, 47 frames, 20 instances, 8 vectors and one local reusable action-group component, with no image-filled nodes. Text families are Noto Sans SC and Noto Serif SC. Group top/height is 367/216 px in the default 800 px reference, 287/216 px in the compact 640 px reference, and 346.5/257 px for the long-title state. A screenshot review confirmed intact labels and controls; the component reference area's height was then adjusted to avoid cropping it. `home-figma-audit.json` records node IDs and `add-home-wireframes.js` reproduces the design-only extension. The earlier `wireframes.png` remains the November 11 snapshot; use `home-wireframes.png` for this extension.
+
+This home layout also awaits user approval before visual or code changes. The user explicitly permitted this chat to finish the current Figma task; future design work must move to the existing `NowWhat | Figma UI 设计稿` chat or a new worktree chat. No application code, installer, APK or published site was changed.
 
 **Tasks.** Keep the app brand and four navigation tabs. Give the task page the remaining usable viewport. Center a short set of activities within the main content area; align each name, pin and Start control vertically. Keep Previous/Next in a stable bottom area, clear of the system inset. More activities use true pagination; the examples show six rows at 360×800 and four at 320×640. Actual capacity must use available height, font size and safe insets. Preserve pinning, dragging, editing and starting. Do not add a visible task page counter or “任务·续页”. Keep the current page/anchor when dismissing the editor.
 

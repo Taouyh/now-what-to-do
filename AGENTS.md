@@ -26,6 +26,7 @@ Current local correction: `docs/deployment/always-sound-2026-11-11/IMPLEMENTATIO
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.
 Release introduction design sync: `docs/deployment/promo-1.4.1-2026-11-10/FIGMA-SYNC.md`.
 Use Figma account `3966592487` for this project. Verify the active account before accessing project designs in each Figma session.
+For future design work, hand off to the existing `NowWhat | Figma UI 设计稿` chat or open a new worktree chat. The user allowed the 2026-11-12 home wireframe update in this chat as an exception.
 After interface or interaction changes are finalized, open a separate GPT chat in a new worktree to synchronize the affected Figma pages or components with the verified implementation.
 Framework: `docs/technology/book-c-2026-11-05/FRAMEWORK.md`.
 Technical delivery: `docs/technical/book-c-2026-11-05/TECHNICAL.md`; workflow: `WORKFLOW.md`; independent-window testing: `TEST-HANDOFF.md` in the same directory.
