@@ -161,4 +161,3 @@ textNode(board,'自适应图标：108 × 108 dp 分层画布，主体位于中�
 textNode(board,'图标无文字与纸纹噪点；保留书脊、页边厚度和右页开始符号。',18);
 const nodes=[...masters,board].flatMap(n=>[n,...n.findAll(()=>true)]);
 return {boardId:board.id,masters:masters.map(n=>({id:n.id,name:n.name,w:n.width,h:n.height})),collectionId:coll.id,variables:vars,createdNodeIds:nodes.map(n=>n.id),vectorCount:nodes.filter(n=>n.type==='VECTOR').length,imageNodeCount:nodes.filter(n=>'fills'in n&&Array.isArray(n.fills)&&n.fills.some(p=>p.type==='IMAGE')).length};
-
