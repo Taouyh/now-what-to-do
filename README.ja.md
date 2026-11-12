@@ -15,6 +15,8 @@
 
 <p align="center"><img src="about/assets/book-home.webp" width="820" alt="空いた10分で読書をはじめる画面。"></p>
 
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/#demo">PC版デモ</a> · <a href="https://taouyh.github.io/now-what-to-do/about/#android-demo">Android版デモ</a></p>
+
 <a id="features"></a>
 
 **1.4.1 の更新：**活動のピン留めとドラッグによる並べ替えに対応（各グループ内）。一覧はページ送りで表示し、活動の説明は初期状態で開きます。モバイル表示とボタンも改善しました。
@@ -62,7 +64,7 @@
 
 
 
-[86秒の使い方動画](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.1 の更新内容](docs/releases/v1.4.1.md)
+[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.1 の更新内容](docs/releases/v1.4.1.md)
 
 <a id="privacy"></a>
 ## データとプライバシー
@@ -83,6 +85,6 @@
 
 [MIT](LICENSE) © 2026 Taouyh。使用・変更・共有できます。ライセンス表記を残してください。
 
-[86秒の英語デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [編集可能な Figma 紹介ページ](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [編集可能な Figma 紹介ページ](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-動画には穏やかな音楽とクリック音が入っています。ナレーションはありません。
+どちらも59秒。英語ナレーション、英語・中国語字幕、穏やかな音楽とクリック音付きです。

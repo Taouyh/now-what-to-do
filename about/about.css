@@ -9,3 +9,5 @@ html:lang(zh-CN) h1,html:lang(ja) h1{font-size:clamp(34px,5.4vw,76px);letter-spa
 @media(max-width:700px){header{flex-wrap:wrap;gap:16px}header nav{justify-content:flex-end;margin-left:auto;font-size:12px;gap:6px}.nav-control{padding:8px 10px}.section-heading .small{max-width:380px}.download>span:last-child{white-space:normal;text-align:right}}
 @media(max-width:440px){header nav{width:100%;justify-content:space-between}.nav-control{font-size:12px}h1{font-size:48px}html:lang(ja) h1{font-size:32px}.actions{flex-wrap:wrap}}
 
+
+.android-demo{margin-top:64px;padding-top:56px;border-top:1px solid var(--line)}.portrait-player{width:min(100%,360px);margin-inline:auto}.portrait-player video{aspect-ratio:9/16}.portrait-player .video-caption{justify-content:flex-end}

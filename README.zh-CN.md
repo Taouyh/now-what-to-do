@@ -15,6 +15,8 @@
 
 <p align="center"><img src="about/assets/book-home.webp" width="820" alt="选好十分钟，直接开始读书。"></p>
 
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/#demo">电脑版演示</a> · <a href="https://taouyh.github.io/now-what-to-do/about/#android-demo">安卓版本演示</a></p>
+
 <a id="features"></a>
 
 **1.4.1 更新：**任务可置顶，也可拖拽排序（置顶与未置顶任务各自排序）；任务列表按页展示。活动说明默认展开，手机布局与按钮样式同步优化。
@@ -62,7 +64,7 @@
 
 
 
-[观看 86 秒入门演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [1.4.1 更新说明](docs/releases/v1.4.1.md)
+[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.1 更新说明](docs/releases/v1.4.1.md)
 
 <a id="privacy"></a>
 ## 数据与隐私
@@ -83,6 +85,6 @@
 
 [MIT](LICENSE) © 2026 Taouyh。可以使用、修改和分享，请保留许可声明。
 
-[86 秒英语演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [可编辑的 Figma 宣传页](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [可编辑的 Figma 宣传页](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-演示配有轻柔音乐和鼠标点击声，无旁白。
+两段演示均为 59 秒，配有英文旁白、中英双语字幕、轻柔音乐和点击音。

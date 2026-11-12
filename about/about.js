@@ -22,9 +22,11 @@ const copy=[
 ['.steps article:nth-child(3) h3','Start, then remember.','开始，也记下来。','始めて、記録する。'],
 ['.steps article:nth-child(3) p','Focus, pause when you need to, and end to save your time. Leave a note for next time.','专注一会儿，需要时暂停，结束后记录用时。留下一句，下次接着做。','集中し、必要なら一休み。終了すると時間が記録され、次回のメモを残せます。'],
 ['.demo-section .eyebrow','A WALK THROUGH THE APP','跟着演示走一遍','アプリをひとめぐり'],
-['#demo-title','See each step.','每一步，都看得见。','一つずつ、見てみよう。'],
-['.section-heading .small','86 seconds · English<br>Soft music and mouse clicks. No voiceover.','86 秒 · 英语界面<br>轻柔配乐和鼠标点击声，无旁白。','86秒 · 英語の画面<br>穏やかな音楽とクリック音。ナレーションなし。'],
-['video a','Download the product demo','下载产品演示','製品デモをダウンロード'],
+['#demo-title','Desktop demo','电脑版演示','PC版デモ'],
+['#android-demo-title','Android demo','安卓版本演示','Android版デモ'],
+['.demo-details','59 seconds · English voice<br>English and Chinese subtitles.','59 秒 · 英文配音<br>中英双语字幕。','59秒 · 英語ナレーション<br>英語・中国語字幕。'],
+['#desktop-demo video a','Download the desktop demo','下载电脑版演示','PC版デモをダウンロード'],
+['#android-demo video a','Download the Android demo','下载安卓版本演示','Android版デモをダウンロード'],
 ['.video-caption span','Add → Pin & reorder → Focus → Journal → Settings','添加 → 置顶与排序 → 专注 → 日历 → 设置','追加 → ピン留め・並べ替え → 集中 → 記録 → 設定'],
 ['.video-caption a','Save video ↓','保存视频 ↓','動画を保存 ↓'],
 ['.journal .eyebrow','A RECORD OF YOUR TIME','留下时间的痕迹','時間の記録'],
@@ -60,7 +62,8 @@ function select(i){
  document.querySelector('nav').setAttribute('aria-label',['Main navigation','主导航','メインナビゲーション'][i]);
  document.querySelector('.hero-image img').alt=['Now What 1.4.1: choose time and conditions, then start.','Now What 1.4.1：选好时间与条件，开始活动。','Now What 1.4.1：時間と条件を選んで活動を始める。'][i];
  document.querySelector('.journal img').alt=['Activity sessions and time spent in the Journal.','手账日历展示活动记录和投入时间。','記録画面に活動と所要時間が表示される。'][i];
- document.querySelector('video').setAttribute('aria-label',['Now What 1.4.1 English demonstration, 86 seconds','Now What 1.4.1 英语演示，86 秒','Now What 1.4.1 英語デモ、86秒'][i]);
+ document.querySelector('#desktop-demo video').setAttribute('aria-label',['Desktop demo, 59 seconds','电脑版演示，59 秒','PC版デモ、59秒'][i]);
+ document.querySelector('#android-demo video').setAttribute('aria-label',['Android demo, 59 seconds','安卓版本演示，59 秒','Android版デモ、59秒'][i]);
  options.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===languages[i])));
 }
 // Hover opens the pointer menu. Clicking the trigger never toggles it.

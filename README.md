@@ -15,6 +15,8 @@
 
 <p align="center"><img src="about/assets/book-home.webp" width="820" alt="Now What 1.4 book interface: time, conditions and one activity to start."></p>
 
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/#demo">Desktop demo</a> · <a href="https://taouyh.github.io/now-what-to-do/about/#android-demo">Android demo</a></p>
+
 <a id="features"></a>
 
 **New in 1.4.1:** pin favorite activities and drag to reorder within pinned or unpinned groups. Task pagination fits the available space, descriptions open by default, and mobile layouts and shared controls are refined.
@@ -64,7 +66,7 @@ Free. No account. Installed apps work offline and start in English; change the l
 
 
 
-[Watch the 86-second introduction](https://taouyh.github.io/now-what-to-do/about/#demo) · [What's new in 1.4.1](docs/releases/v1.4.1.md)
+[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [What's new in 1.4.1](docs/releases/v1.4.1.md)
 
 <a id="privacy"></a>
 ## Privacy
@@ -85,7 +87,7 @@ Version 1.4 is the book edition. GitHub Pages builds `master` and publishes the 
 
 [MIT](LICENSE) © 2026 Taouyh. Use, change and share it; keep the license notice.
 
-[86-second English demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
+[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-The demo uses soft music and mouse clicks, with no voiceover.
+Both demos are 59 seconds, with English narration, English and Chinese subtitles, soft music and click sounds.
 
