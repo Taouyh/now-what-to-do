@@ -1,0 +1,6345 @@
+{
+  "nativeCopyCommit": "fedfb1501a9a7b1694baaf4ccbd37db9c77b34cb",
+  "nativeCopyUpdate": {
+    "mutatedNodeIds": [
+      "442:6778",
+      "442:7300",
+      "442:7310",
+      "442:7318",
+      "444:7214",
+      "444:7736",
+      "444:7746",
+      "444:7754",
+      "444:7798",
+      "444:8320",
+      "444:8330",
+      "444:8338",
+      "444:8381",
+      "444:8898",
+      "444:8908",
+      "444:8916",
+      "444:8958",
+      "444:9475",
+      "444:9485",
+      "444:9493",
+      "444:9535",
+      "444:10052",
+      "444:10062",
+      "444:10070",
+      "447:9425",
+      "447:9431",
+      "447:9437",
+      "447:9443",
+      "447:9449",
+      "447:9455"
+    ],
+    "changes": [
+      {
+        "id": "442:6778",
+        "root": "442:6759",
+        "before": {
+          "text": "A QUIET PLACE TO BEGIN · VERSION 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "A QUIET PLACE TO BEGIN",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "442:7300",
+        "root": "442:6759",
+        "before": {
+          "text": "TAKE IT WITH YOU · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "TAKE IT WITH YOU · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "442:7310",
+        "root": "442:6759",
+        "before": {
+          "text": "Windows 10 / 11 · 64-bit · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64-bit · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "442:7318",
+        "root": "442:6759",
+        "before": {
+          "text": "Android 7.0+ · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0+ · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:7214",
+        "root": "444:7195",
+        "before": {
+          "text": "安静地开始 · 1.4.1 版",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "安静地开始",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:7736",
+        "root": "444:7195",
+        "before": {
+          "text": "随身带上 · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "随身带上 · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:7746",
+        "root": "444:7195",
+        "before": {
+          "text": "Windows 10 / 11 · 64 位 · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64 位 · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:7754",
+        "root": "444:7195",
+        "before": {
+          "text": "Android 7.0 及以上 · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0 及以上 · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:7798",
+        "root": "444:7779",
+        "before": {
+          "text": "静かに始める場所 · バージョン 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "静かに始める場所",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8320",
+        "root": "444:7779",
+        "before": {
+          "text": "いつも手元に · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "いつも手元に · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8330",
+        "root": "444:7779",
+        "before": {
+          "text": "Windows 10 / 11 · 64ビット · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64ビット · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8338",
+        "root": "444:7779",
+        "before": {
+          "text": "Android 7.0以降 · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0以降 · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8381",
+        "root": "444:8363",
+        "before": {
+          "text": "A QUIET PLACE TO BEGIN · VERSION 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "A QUIET PLACE TO BEGIN",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8898",
+        "root": "444:8363",
+        "before": {
+          "text": "TAKE IT WITH YOU · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "TAKE IT WITH YOU · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8908",
+        "root": "444:8363",
+        "before": {
+          "text": "Windows 10 / 11 · 64-bit · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64-bit · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8916",
+        "root": "444:8363",
+        "before": {
+          "text": "Android 7.0+ · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0+ · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:8958",
+        "root": "444:8940",
+        "before": {
+          "text": "安静地开始 · 1.4.1 版",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "安静地开始",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:9475",
+        "root": "444:8940",
+        "before": {
+          "text": "随身带上 · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "随身带上 · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:9485",
+        "root": "444:8940",
+        "before": {
+          "text": "Windows 10 / 11 · 64 位 · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64 位 · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:9493",
+        "root": "444:8940",
+        "before": {
+          "text": "Android 7.0 及以上 · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0 及以上 · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:9535",
+        "root": "444:9517",
+        "before": {
+          "text": "静かに始める場所 · バージョン 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "静かに始める場所",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:10052",
+        "root": "444:9517",
+        "before": {
+          "text": "いつも手元に · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "いつも手元に · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:10062",
+        "root": "444:9517",
+        "before": {
+          "text": "Windows 10 / 11 · 64ビット · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Windows 10 / 11 · 64ビット · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "444:10070",
+        "root": "444:9517",
+        "before": {
+          "text": "Android 7.0以降 · APK · 1.4.1",
+          "hyperlink": null
+        },
+        "after": {
+          "text": "Android 7.0以降 · APK · 1.4.3",
+          "hyperlink": null
+        }
+      },
+      {
+        "id": "447:9425",
+        "root": "447:9421",
+        "before": {
+          "text": "Release notes ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "Release notes ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      },
+      {
+        "id": "447:9431",
+        "root": "447:9427",
+        "before": {
+          "text": "版本说明 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "版本说明 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      },
+      {
+        "id": "447:9437",
+        "root": "447:9433",
+        "before": {
+          "text": "更新内容 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "更新内容 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      },
+      {
+        "id": "447:9443",
+        "root": "447:9439",
+        "before": {
+          "text": "Release notes ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "Release notes ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      },
+      {
+        "id": "447:9449",
+        "root": "447:9445",
+        "before": {
+          "text": "版本说明 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "版本说明 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      },
+      {
+        "id": "447:9455",
+        "root": "447:9451",
+        "before": {
+          "text": "更新内容 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.1"
+          }
+        },
+        "after": {
+          "text": "更新内容 ↗",
+          "hyperlink": {
+            "type": "URL",
+            "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+          }
+        }
+      }
+    ]
+  },
+  "finalNativeValidation": {
+    "changes": [
+      {
+        "id": "442:6778",
+        "text": "A QUIET PLACE TO BEGIN",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "442:7300",
+        "text": "TAKE IT WITH YOU · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "442:7310",
+        "text": "Windows 10 / 11 · 64-bit · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "442:7318",
+        "text": "Android 7.0+ · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:7214",
+        "text": "安静地开始",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:7736",
+        "text": "随身带上 · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:7746",
+        "text": "Windows 10 / 11 · 64 位 · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:7754",
+        "text": "Android 7.0 及以上 · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:7798",
+        "text": "静かに始める場所",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8320",
+        "text": "いつも手元に · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8330",
+        "text": "Windows 10 / 11 · 64ビット · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8338",
+        "text": "Android 7.0以降 · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8381",
+        "text": "A QUIET PLACE TO BEGIN",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8898",
+        "text": "TAKE IT WITH YOU · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8908",
+        "text": "Windows 10 / 11 · 64-bit · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8916",
+        "text": "Android 7.0+ · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:8958",
+        "text": "安静地开始",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:9475",
+        "text": "随身带上 · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:9485",
+        "text": "Windows 10 / 11 · 64 位 · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:9493",
+        "text": "Android 7.0 及以上 · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:9535",
+        "text": "静かに始める場所",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:10052",
+        "text": "いつも手元に · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:10062",
+        "text": "Windows 10 / 11 · 64ビット · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "444:10070",
+        "text": "Android 7.0以降 · APK · 1.4.3",
+        "hyperlink": null,
+        "pass": true
+      },
+      {
+        "id": "447:9425",
+        "text": "Release notes ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      },
+      {
+        "id": "447:9431",
+        "text": "版本说明 ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      },
+      {
+        "id": "447:9437",
+        "text": "更新内容 ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      },
+      {
+        "id": "447:9443",
+        "text": "Release notes ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      },
+      {
+        "id": "447:9449",
+        "text": "版本说明 ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      },
+      {
+        "id": "447:9455",
+        "text": "更新内容 ↗",
+        "hyperlink": {
+          "type": "URL",
+          "value": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3"
+        },
+        "pass": true
+      }
+    ],
+    "preservation": [
+      {
+        "id": "442:6759",
+        "height": 5131.953125,
+        "sections": [
+          {
+            "id": "442:6776",
+            "pass": true
+          },
+          {
+            "id": "442:6953",
+            "pass": true
+          },
+          {
+            "id": "442:6980",
+            "pass": true
+          },
+          {
+            "id": "442:7296",
+            "pass": true
+          },
+          {
+            "id": "442:7297",
+            "pass": true
+          },
+          {
+            "id": "442:7333",
+            "pass": true
+          },
+          {
+            "id": "442:7342",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "id": "444:7195",
+        "height": 5162.421875,
+        "sections": [
+          {
+            "id": "444:7212",
+            "pass": true
+          },
+          {
+            "id": "444:7389",
+            "pass": true
+          },
+          {
+            "id": "444:7416",
+            "pass": true
+          },
+          {
+            "id": "444:7732",
+            "pass": true
+          },
+          {
+            "id": "444:7733",
+            "pass": true
+          },
+          {
+            "id": "444:7769",
+            "pass": true
+          },
+          {
+            "id": "444:7778",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "id": "444:7779",
+        "height": 5258.09375,
+        "sections": [
+          {
+            "id": "444:7796",
+            "pass": true
+          },
+          {
+            "id": "444:7973",
+            "pass": true
+          },
+          {
+            "id": "444:8000",
+            "pass": true
+          },
+          {
+            "id": "444:8316",
+            "pass": true
+          },
+          {
+            "id": "444:8317",
+            "pass": true
+          },
+          {
+            "id": "444:8353",
+            "pass": true
+          },
+          {
+            "id": "444:8362",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "id": "444:8363",
+        "height": 4542.5625,
+        "sections": [
+          {
+            "id": "444:8379",
+            "pass": true
+          },
+          {
+            "id": "444:8556",
+            "pass": true
+          },
+          {
+            "id": "444:8580",
+            "pass": true
+          },
+          {
+            "id": "444:8894",
+            "pass": true
+          },
+          {
+            "id": "444:8895",
+            "pass": true
+          },
+          {
+            "id": "444:8930",
+            "pass": true
+          },
+          {
+            "id": "444:8939",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "id": "444:8940",
+        "height": 4431.890625,
+        "sections": [
+          {
+            "id": "444:8956",
+            "pass": true
+          },
+          {
+            "id": "444:9133",
+            "pass": true
+          },
+          {
+            "id": "444:9157",
+            "pass": true
+          },
+          {
+            "id": "444:9471",
+            "pass": true
+          },
+          {
+            "id": "444:9472",
+            "pass": true
+          },
+          {
+            "id": "444:9507",
+            "pass": true
+          },
+          {
+            "id": "444:9516",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "id": "444:9517",
+        "height": 4587.359375,
+        "sections": [
+          {
+            "id": "444:9533",
+            "pass": true
+          },
+          {
+            "id": "444:9710",
+            "pass": true
+          },
+          {
+            "id": "444:9734",
+            "pass": true
+          },
+          {
+            "id": "444:10048",
+            "pass": true
+          },
+          {
+            "id": "444:10049",
+            "pass": true
+          },
+          {
+            "id": "444:10084",
+            "pass": true
+          },
+          {
+            "id": "444:10093",
+            "pass": true
+          }
+        ]
+      }
+    ]
+  },
+  "auditNote": "The after block records the verified video update before the native-copy follow-up. finalNativeValidation verifies the 30 authorized text/link changes and all 42 other section fingerprints after normalizing that delta. Video geometry, fonts, image nodes and descendant counts are unchanged by that follow-up.",
+  "date": "2026-11-12",
+  "sourceCommit": "e0e266a043d118f1ba1c942f930dfb23bede51ab",
+  "accountHandle": "3966592487",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "pageId": "49:243",
+  "sessionId": "5e27677e-ee6a-4ddc-9481-2a34da0894b7",
+  "checks": [
+    {
+      "id": "442:6759",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11066",
+          "name": "Desktop demo / static poster + video link",
+          "width": 1200,
+          "height": 675,
+          "x": 120,
+          "y": 2140.828125
+        },
+        {
+          "id": "605:11083",
+          "name": "Android demo / static poster + video link",
+          "width": 360,
+          "height": 640,
+          "x": 540,
+          "y": 3067.25
+        }
+      ],
+      "fonts": [
+        "Inter",
+        "EB Garamond"
+      ],
+      "preservedSections": 7
+    },
+    {
+      "id": "444:7195",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11100",
+          "name": "Desktop demo / static poster + video link",
+          "width": 1200,
+          "height": 675,
+          "x": 120,
+          "y": 2176.03125
+        },
+        {
+          "id": "605:11117",
+          "name": "Android demo / static poster + video link",
+          "width": 360,
+          "height": 640,
+          "x": 540,
+          "y": 3119.8125
+        }
+      ],
+      "fonts": [
+        "Noto Sans SC",
+        "Noto Serif SC",
+        "Inter"
+      ],
+      "preservedSections": 7
+    },
+    {
+      "id": "444:7779",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11134",
+          "name": "Desktop demo / static poster + video link",
+          "width": 1200,
+          "height": 675,
+          "x": 120,
+          "y": 2204.03125
+        },
+        {
+          "id": "605:11151",
+          "name": "Android demo / static poster + video link",
+          "width": 360,
+          "height": 640,
+          "x": 540,
+          "y": 3147.8125
+        }
+      ],
+      "fonts": [
+        "Noto Sans JP",
+        "Noto Serif JP",
+        "Inter"
+      ],
+      "preservedSections": 7
+    },
+    {
+      "id": "444:8363",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11167",
+          "name": "Desktop demo / static poster + video link",
+          "width": 350,
+          "height": 196.875,
+          "x": 20,
+          "y": 1784.09375
+        },
+        {
+          "id": "605:11183",
+          "name": "Android demo / static poster + video link",
+          "width": 350,
+          "height": 622.21875,
+          "x": 20,
+          "y": 2313.328125
+        }
+      ],
+      "fonts": [
+        "Inter",
+        "EB Garamond"
+      ],
+      "preservedSections": 7
+    },
+    {
+      "id": "444:8940",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11198",
+          "name": "Desktop demo / static poster + video link",
+          "width": 350,
+          "height": 196.875,
+          "x": 20,
+          "y": 1704.28125
+        },
+        {
+          "id": "605:11214",
+          "name": "Android demo / static poster + video link",
+          "width": 350,
+          "height": 622.21875,
+          "x": 20,
+          "y": 2205.53125
+        }
+      ],
+      "fonts": [
+        "Noto Sans SC",
+        "Noto Serif SC",
+        "Inter"
+      ],
+      "preservedSections": 7
+    },
+    {
+      "id": "444:9517",
+      "sourceCopyCount": 8,
+      "missing": [],
+      "stale": [],
+      "videoGeometry": [
+        {
+          "id": "605:11229",
+          "name": "Desktop demo / static poster + video link",
+          "width": 350,
+          "height": 196.875,
+          "x": 20,
+          "y": 1727.28125
+        },
+        {
+          "id": "605:11245",
+          "name": "Android demo / static poster + video link",
+          "width": 350,
+          "height": 622.21875,
+          "x": 20,
+          "y": 2267.71875
+        }
+      ],
+      "fonts": [
+        "Noto Sans JP",
+        "Noto Serif JP",
+        "Inter"
+      ],
+      "preservedSections": 7
+    }
+  ],
+  "before": {
+    "frames": [
+      {
+        "id": "442:6759",
+        "h": 4240.53125,
+        "sections": [
+          {
+            "id": "442:6776",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 112,
+            "fingerprint": "6fad3ce2"
+          },
+          {
+            "id": "442:6953",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "h": 1215.734375,
+            "fingerprint": "45063dd1"
+          },
+          {
+            "id": "442:6980",
+            "name": "Alignment / wrap steps-section",
+            "y": 1327.734375,
+            "h": 600.265625,
+            "fingerprint": "8dc7b602"
+          },
+          {
+            "id": "442:6981",
+            "name": "demo",
+            "y": 1928,
+            "h": 999.015625,
+            "fingerprint": null
+          },
+          {
+            "id": "442:7296",
+            "name": "Alignment / wrap journal",
+            "y": 2927.015625,
+            "h": 598.171875,
+            "fingerprint": "abbacda7"
+          },
+          {
+            "id": "442:7297",
+            "name": "download",
+            "y": 3525.1875,
+            "h": 450.75,
+            "fingerprint": "38f50cd8"
+          },
+          {
+            "id": "442:7333",
+            "name": "Alignment / wrap privacy",
+            "y": 3975.9375,
+            "h": 163.59375,
+            "fingerprint": "2b9c4987"
+          },
+          {
+            "id": "442:7342",
+            "name": "Alignment / wrap",
+            "y": 4139.53125,
+            "h": 101,
+            "fingerprint": "e42eca7"
+          }
+        ]
+      },
+      {
+        "id": "444:7195",
+        "h": 4253.640625,
+        "sections": [
+          {
+            "id": "444:7212",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 112,
+            "fingerprint": "866b77d4"
+          },
+          {
+            "id": "444:7389",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "h": 1218.078125,
+            "fingerprint": "67a88"
+          },
+          {
+            "id": "444:7416",
+            "name": "Alignment / wrap steps-section",
+            "y": 1330.078125,
+            "h": 615.765625,
+            "fingerprint": "ae9f78c4"
+          },
+          {
+            "id": "444:7417",
+            "name": "demo",
+            "y": 1945.84375,
+            "h": 1016.375,
+            "fingerprint": null
+          },
+          {
+            "id": "444:7732",
+            "name": "Alignment / wrap journal",
+            "y": 2962.21875,
+            "h": 598.171875,
+            "fingerprint": "f8bf687e"
+          },
+          {
+            "id": "444:7733",
+            "name": "download",
+            "y": 3560.390625,
+            "h": 428.65625,
+            "fingerprint": "6c210dd9"
+          },
+          {
+            "id": "444:7769",
+            "name": "Alignment / wrap privacy",
+            "y": 3989.046875,
+            "h": 163.59375,
+            "fingerprint": "d561db0"
+          },
+          {
+            "id": "444:7778",
+            "name": "Alignment / wrap",
+            "y": 4152.640625,
+            "h": 101,
+            "fingerprint": "e327a32a"
+          }
+        ]
+      },
+      {
+        "id": "444:7779",
+        "h": 4349.3125,
+        "sections": [
+          {
+            "id": "444:7796",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 112,
+            "fingerprint": "35085c06"
+          },
+          {
+            "id": "444:7973",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "h": 1222.078125,
+            "fingerprint": "28de3530"
+          },
+          {
+            "id": "444:8000",
+            "name": "Alignment / wrap steps-section",
+            "y": 1334.078125,
+            "h": 639.765625,
+            "fingerprint": "722765c"
+          },
+          {
+            "id": "444:8001",
+            "name": "demo",
+            "y": 1973.84375,
+            "h": 1016.375,
+            "fingerprint": null
+          },
+          {
+            "id": "444:8316",
+            "name": "Alignment / wrap journal",
+            "y": 2990.21875,
+            "h": 643.75,
+            "fingerprint": "c84e9983"
+          },
+          {
+            "id": "444:8317",
+            "name": "download",
+            "y": 3633.96875,
+            "h": 450.75,
+            "fingerprint": "6167492f"
+          },
+          {
+            "id": "444:8353",
+            "name": "Alignment / wrap privacy",
+            "y": 4084.71875,
+            "h": 163.59375,
+            "fingerprint": "9293719"
+          },
+          {
+            "id": "444:8362",
+            "name": "Alignment / wrap",
+            "y": 4248.3125,
+            "h": 101,
+            "fingerprint": "29858e56"
+          }
+        ]
+      },
+      {
+        "id": "444:8363",
+        "h": 3627.171875,
+        "sections": [
+          {
+            "id": "444:8379",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 139.59375,
+            "fingerprint": "b4ee64f"
+          },
+          {
+            "id": "444:8556",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "h": 684.40625,
+            "fingerprint": "b67e5eaf"
+          },
+          {
+            "id": "444:8580",
+            "name": "Alignment / wrap steps-section",
+            "y": 824,
+            "h": 734.71875,
+            "fingerprint": "c3a1b7de"
+          },
+          {
+            "id": "444:8581",
+            "name": "demo",
+            "y": 1558.71875,
+            "h": 546.625,
+            "fingerprint": null
+          },
+          {
+            "id": "444:8894",
+            "name": "Alignment / wrap journal",
+            "y": 2105.34375,
+            "h": 640.828125,
+            "fingerprint": "617da399"
+          },
+          {
+            "id": "444:8895",
+            "name": "download",
+            "y": 2746.171875,
+            "h": 632.421875,
+            "fingerprint": "567156df"
+          },
+          {
+            "id": "444:8930",
+            "name": "Alignment / wrap privacy",
+            "y": 3378.59375,
+            "h": 160.390625,
+            "fingerprint": "98bc0296"
+          },
+          {
+            "id": "444:8939",
+            "name": "Alignment / wrap",
+            "y": 3538.984375,
+            "h": 88.1875,
+            "fingerprint": "55aa561b"
+          }
+        ]
+      },
+      {
+        "id": "444:8940",
+        "h": 3557.296875,
+        "sections": [
+          {
+            "id": "444:8956",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 139.59375,
+            "fingerprint": "e28e303e"
+          },
+          {
+            "id": "444:9133",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "h": 622.546875,
+            "fingerprint": "d13b0ddb"
+          },
+          {
+            "id": "444:9157",
+            "name": "Alignment / wrap steps-section",
+            "y": 762.140625,
+            "h": 705.5625,
+            "fingerprint": "1f0715c5"
+          },
+          {
+            "id": "444:9158",
+            "name": "demo",
+            "y": 1467.703125,
+            "h": 570.640625,
+            "fingerprint": null
+          },
+          {
+            "id": "444:9471",
+            "name": "Alignment / wrap journal",
+            "y": 2038.34375,
+            "h": 637.640625,
+            "fingerprint": "da3d1106"
+          },
+          {
+            "id": "444:9472",
+            "name": "download",
+            "y": 2675.984375,
+            "h": 632.734375,
+            "fingerprint": "8003de95"
+          },
+          {
+            "id": "444:9507",
+            "name": "Alignment / wrap privacy",
+            "y": 3308.71875,
+            "h": 160.390625,
+            "fingerprint": "94c4ccec"
+          },
+          {
+            "id": "444:9516",
+            "name": "Alignment / wrap",
+            "y": 3469.109375,
+            "h": 88.1875,
+            "fingerprint": "4baa93a0"
+          }
+        ]
+      },
+      {
+        "id": "444:9517",
+        "h": 3712.765625,
+        "sections": [
+          {
+            "id": "444:9533",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "h": 139.59375,
+            "fingerprint": "6ae690a6"
+          },
+          {
+            "id": "444:9710",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "h": 621.546875,
+            "fingerprint": "256d5382"
+          },
+          {
+            "id": "444:9734",
+            "name": "Alignment / wrap steps-section",
+            "y": 761.140625,
+            "h": 729.5625,
+            "fingerprint": "12d4d40c"
+          },
+          {
+            "id": "444:9735",
+            "name": "demo",
+            "y": 1490.703125,
+            "h": 609.828125,
+            "fingerprint": null
+          },
+          {
+            "id": "444:10048",
+            "name": "Alignment / wrap journal",
+            "y": 2100.53125,
+            "h": 637.640625,
+            "fingerprint": "31919eb0"
+          },
+          {
+            "id": "444:10049",
+            "name": "download",
+            "y": 2738.171875,
+            "h": 726.015625,
+            "fingerprint": "d76c039c"
+          },
+          {
+            "id": "444:10084",
+            "name": "Alignment / wrap privacy",
+            "y": 3464.1875,
+            "h": 160.390625,
+            "fingerprint": "fc766c01"
+          },
+          {
+            "id": "444:10093",
+            "name": "Alignment / wrap",
+            "y": 3624.578125,
+            "h": 88.1875,
+            "fingerprint": "f608289"
+          }
+        ]
+      }
+    ],
+    "outsideFrameCount": 179,
+    "outsideTopFingerprint": "9ab07f27",
+    "rightmost": 54988
+  },
+  "after": {
+    "frames": [
+      {
+        "id": "442:6759",
+        "name": "Introduction / 1.4.1 / en / 1440 / Default",
+        "width": 1440,
+        "height": 5131.953125,
+        "demoId": "442:6981",
+        "demoHeight": 1890.4375,
+        "descendants": 427,
+        "types": {
+          "FRAME": 163,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "442:6776",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "6fad3ce2"
+          },
+          {
+            "id": "442:6953",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "45063dd1"
+          },
+          {
+            "id": "442:6980",
+            "name": "Alignment / wrap steps-section",
+            "y": 1327.734375,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "8dc7b602"
+          },
+          {
+            "id": "442:7296",
+            "name": "Alignment / wrap journal",
+            "y": 3818.4375,
+            "delta": 891.421875,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "abbacda7"
+          },
+          {
+            "id": "442:7297",
+            "name": "download",
+            "y": 4416.609375,
+            "delta": 891.421875,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "38f50cd8"
+          },
+          {
+            "id": "442:7333",
+            "name": "Alignment / wrap privacy",
+            "y": 4867.359375,
+            "delta": 891.421875,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "2b9c4987"
+          },
+          {
+            "id": "442:7342",
+            "name": "Alignment / wrap",
+            "y": 5030.953125,
+            "delta": 891.421875,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "e42eca7"
+          }
+        ],
+        "texts": [
+          {
+            "id": "442:6985",
+            "name": "eyebrow",
+            "text": "A WALK THROUGH THE APP",
+            "font": {
+              "family": "Inter",
+              "style": "Semi Bold",
+              "variationSettings": {
+                "wght": 600,
+                "slnt": 0
+              }
+            },
+            "w": 380.828125,
+            "h": 17.59375,
+            "hyperlink": null
+          },
+          {
+            "id": "442:6987",
+            "name": "demo-title",
+            "text": "Desktop demo",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 337,
+            "h": 64,
+            "hyperlink": null
+          },
+          {
+            "id": "442:6989",
+            "name": "small demo-details",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 184,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11069",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "442:7151",
+            "name": "span",
+            "text": "Add → Pin & reorder → Focus → Journal → Settings",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 292,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "442:7153",
+            "name": "a",
+            "text": "Save video ↓",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 77,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11077",
+            "name": "android-demo-title",
+            "text": "Android demo",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 339,
+            "h": 64,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11079",
+            "name": "small demo-details",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 184,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11086",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11089",
+            "name": "a",
+            "text": "Save video ↓",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 77,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "442:6797",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 56.70000076293945,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:6797;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11067",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11084",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 360,
+            "height": 640,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "442:7166",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 672.3280639648438,
+            "height": 378.1845397949219,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 31.767501831054688,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I442:7166;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 199.3032684326172,
+            "height": 23.44744110107422,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11067",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11084",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11066",
+            "name": "Desktop demo / static poster + video link",
+            "width": 1200,
+            "height": 675,
+            "x": 120,
+            "y": 2140.828125
+          },
+          {
+            "id": "605:11083",
+            "name": "Android demo / static poster + video link",
+            "width": 360,
+            "height": 640,
+            "x": 540,
+            "y": 3067.25
+          }
+        ],
+        "outOfBounds": []
+      },
+      {
+        "id": "444:7195",
+        "name": "Introduction / 1.4.1 / zh-CN / 1440 / Default",
+        "width": 1440,
+        "height": 5162.421875,
+        "demoId": "444:7417",
+        "demoHeight": 1925.15625,
+        "descendants": 427,
+        "types": {
+          "FRAME": 163,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "444:7212",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "866b77d4"
+          },
+          {
+            "id": "444:7389",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "67a88"
+          },
+          {
+            "id": "444:7416",
+            "name": "Alignment / wrap steps-section",
+            "y": 1330.078125,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "ae9f78c4"
+          },
+          {
+            "id": "444:7732",
+            "name": "Alignment / wrap journal",
+            "y": 3871,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "f8bf687e"
+          },
+          {
+            "id": "444:7733",
+            "name": "download",
+            "y": 4469.171875,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "6c210dd9"
+          },
+          {
+            "id": "444:7769",
+            "name": "Alignment / wrap privacy",
+            "y": 4897.828125,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "d561db0"
+          },
+          {
+            "id": "444:7778",
+            "name": "Alignment / wrap",
+            "y": 5061.421875,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "e327a32a"
+          }
+        ],
+        "texts": [
+          {
+            "id": "444:7421",
+            "name": "eyebrow",
+            "text": "跟着演示走一遍",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 310,
+            "h": 17.59375,
+            "hyperlink": null
+          },
+          {
+            "id": "444:7423",
+            "name": "demo-title",
+            "text": "电脑版演示",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 310,
+            "h": 81,
+            "hyperlink": null
+          },
+          {
+            "id": "444:7425",
+            "name": "small demo-details",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 102,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11103",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "444:7587",
+            "name": "span",
+            "text": "添加 → 置顶与排序 → 专注 → 日历 → 设置",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 226,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "444:7589",
+            "name": "a",
+            "text": "保存视频 ↓",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 63,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11111",
+            "name": "android-demo-title",
+            "text": "安卓版本演示",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 372,
+            "h": 81,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11113",
+            "name": "small demo-details",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 102,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11120",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11123",
+            "name": "a",
+            "text": "保存视频 ↓",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 63,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "444:7233",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 56.70000076293945,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7233;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11101",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11118",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 360,
+            "height": 640,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "444:7602",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 672.3280639648438,
+            "height": 378.1845397949219,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 31.767501831054688,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7602;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 199.3032684326172,
+            "height": 23.44744110107422,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11101",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11118",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11100",
+            "name": "Desktop demo / static poster + video link",
+            "width": 1200,
+            "height": 675,
+            "x": 120,
+            "y": 2176.03125
+          },
+          {
+            "id": "605:11117",
+            "name": "Android demo / static poster + video link",
+            "width": 360,
+            "height": 640,
+            "x": 540,
+            "y": 3119.8125
+          }
+        ],
+        "outOfBounds": []
+      },
+      {
+        "id": "444:7779",
+        "name": "Introduction / 1.4.1 / ja / 1440 / Default",
+        "width": 1440,
+        "height": 5258.09375,
+        "demoId": "444:8001",
+        "demoHeight": 1925.15625,
+        "descendants": 427,
+        "types": {
+          "FRAME": 163,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "444:7796",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "35085c06"
+          },
+          {
+            "id": "444:7973",
+            "name": "Alignment / hero wrap",
+            "y": 112,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "28de3530"
+          },
+          {
+            "id": "444:8000",
+            "name": "Alignment / wrap steps-section",
+            "y": 1334.078125,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "722765c"
+          },
+          {
+            "id": "444:8316",
+            "name": "Alignment / wrap journal",
+            "y": 3899,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "c84e9983"
+          },
+          {
+            "id": "444:8317",
+            "name": "download",
+            "y": 4542.75,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "6167492f"
+          },
+          {
+            "id": "444:8353",
+            "name": "Alignment / wrap privacy",
+            "y": 4993.5,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "9293719"
+          },
+          {
+            "id": "444:8362",
+            "name": "Alignment / wrap",
+            "y": 5157.09375,
+            "delta": 908.78125,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "29858e56"
+          }
+        ],
+        "texts": [
+          {
+            "id": "444:8005",
+            "name": "eyebrow",
+            "text": "アプリをひとめぐり",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 263.625,
+            "h": 17.59375,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8007",
+            "name": "demo-title",
+            "text": "PC版デモ",
+            "font": {
+              "family": "Noto Serif JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 269,
+            "h": 81,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8009",
+            "name": "small demo-details",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 145,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11137",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "444:8171",
+            "name": "span",
+            "text": "追加 → ピン留め・並べ替え → 集中 → 記録 → 設定",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 274,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8173",
+            "name": "a",
+            "text": "動画を保存 ↓",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 75,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11145",
+            "name": "android-demo-title",
+            "text": "Android版デモ",
+            "font": {
+              "family": "Noto Serif JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 435,
+            "h": 81,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11147",
+            "name": "small demo-details",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 145,
+            "h": 45,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11154",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11157",
+            "name": "a",
+            "text": "動画を保存 ↓",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 75,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "444:7817",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 56.70000076293945,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 89.0999984741211,
+            "height": 48.599998474121094,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:7817;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 456.29998779296875,
+            "height": 475.6730651855469,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11135",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 1200,
+            "height": 675,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11152",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 360,
+            "height": 640,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "444:8185",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 672.3280639648438,
+            "height": 378.1845397949219,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 31.767501831054688,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 49.92036056518555,
+            "height": 27.229286193847656,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 255.6527557373047,
+            "height": 266.5069580078125,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8185;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 199.3032684326172,
+            "height": 23.44744110107422,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11135",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11152",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11134",
+            "name": "Desktop demo / static poster + video link",
+            "width": 1200,
+            "height": 675,
+            "x": 120,
+            "y": 2204.03125
+          },
+          {
+            "id": "605:11151",
+            "name": "Android demo / static poster + video link",
+            "width": 360,
+            "height": 640,
+            "x": 540,
+            "y": 3147.8125
+          }
+        ],
+        "outOfBounds": []
+      },
+      {
+        "id": "444:8363",
+        "name": "Introduction / 1.4.1 / en / 390 / Default",
+        "width": 390,
+        "height": 4542.5625,
+        "demoId": "444:8581",
+        "demoHeight": 1462.015625,
+        "descendants": 421,
+        "types": {
+          "FRAME": 157,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "444:8379",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "b4ee64f"
+          },
+          {
+            "id": "444:8556",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "b67e5eaf"
+          },
+          {
+            "id": "444:8580",
+            "name": "Alignment / wrap steps-section",
+            "y": 824,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "c3a1b7de"
+          },
+          {
+            "id": "444:8894",
+            "name": "Alignment / wrap journal",
+            "y": 3020.734375,
+            "delta": 915.390625,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "617da399"
+          },
+          {
+            "id": "444:8895",
+            "name": "download",
+            "y": 3661.5625,
+            "delta": 915.390625,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "567156df"
+          },
+          {
+            "id": "444:8930",
+            "name": "Alignment / wrap privacy",
+            "y": 4293.984375,
+            "delta": 915.390625,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "98bc0296"
+          },
+          {
+            "id": "444:8939",
+            "name": "Alignment / wrap",
+            "y": 4454.375,
+            "delta": 915.390625,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "55aa561b"
+          }
+        ],
+        "texts": [
+          {
+            "id": "444:8585",
+            "name": "eyebrow",
+            "text": "A WALK THROUGH THE APP",
+            "font": {
+              "family": "Inter",
+              "style": "Semi Bold",
+              "variationSettings": {
+                "wght": 600,
+                "slnt": 0
+              }
+            },
+            "w": 350,
+            "h": 14.390625,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8587",
+            "name": "demo-title",
+            "text": "Desktop demo",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 40.796875,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8589",
+            "name": "small demo-details",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11170",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "444:8750",
+            "name": "span",
+            "text": "Add → Pin & reorder → Focus → Journal → Settings",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 292,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "444:8752",
+            "name": "a",
+            "text": "Save video ↓",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 77,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11178",
+            "name": "android-demo-title",
+            "text": "Android demo",
+            "font": {
+              "family": "EB Garamond",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 40.796875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11180",
+            "name": "small demo-details",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11186",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11189",
+            "name": "a",
+            "text": "Save video ↓",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 77,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "444:8400",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8400;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11168",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 196.875,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11184",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 622.21875,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "444:8764",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8764;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 103.75313568115234,
+            "height": 12.206250190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11168",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11184",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11167",
+            "name": "Desktop demo / static poster + video link",
+            "width": 350,
+            "height": 196.875,
+            "x": 20,
+            "y": 1784.09375
+          },
+          {
+            "id": "605:11183",
+            "name": "Android demo / static poster + video link",
+            "width": 350,
+            "height": 622.21875,
+            "x": 20,
+            "y": 2313.328125
+          }
+        ],
+        "outOfBounds": []
+      },
+      {
+        "id": "444:8940",
+        "name": "Introduction / 1.4.1 / zh-CN / 390 / Default",
+        "width": 390,
+        "height": 4431.890625,
+        "demoId": "444:9158",
+        "demoHeight": 1445.234375,
+        "descendants": 420,
+        "types": {
+          "FRAME": 156,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "444:8956",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "e28e303e"
+          },
+          {
+            "id": "444:9133",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "d13b0ddb"
+          },
+          {
+            "id": "444:9157",
+            "name": "Alignment / wrap steps-section",
+            "y": 762.140625,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "1f0715c5"
+          },
+          {
+            "id": "444:9471",
+            "name": "Alignment / wrap journal",
+            "y": 2912.9375,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "da3d1106"
+          },
+          {
+            "id": "444:9472",
+            "name": "download",
+            "y": 3550.578125,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "8003de95"
+          },
+          {
+            "id": "444:9507",
+            "name": "Alignment / wrap privacy",
+            "y": 4183.3125,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "94c4ccec"
+          },
+          {
+            "id": "444:9516",
+            "name": "Alignment / wrap",
+            "y": 4343.703125,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "4baa93a0"
+          }
+        ],
+        "texts": [
+          {
+            "id": "444:9162",
+            "name": "eyebrow",
+            "text": "跟着演示走一遍",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 14.390625,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9164",
+            "name": "demo-title",
+            "text": "电脑版演示",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 52,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9166",
+            "name": "small demo-details",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11201",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "444:9327",
+            "name": "span",
+            "text": "添加 → 置顶与排序 → 专注 → 日历 → 设置",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 226,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9329",
+            "name": "a",
+            "text": "保存视频 ↓",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 63,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11209",
+            "name": "android-demo-title",
+            "text": "安卓版本演示",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 52,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11211",
+            "name": "small demo-details",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11217",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11220",
+            "name": "a",
+            "text": "保存视频 ↓",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 63,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "444:8977",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:8977;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11199",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 196.875,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11215",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 622.21875,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "444:9341",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9341;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 103.75313568115234,
+            "height": 12.206250190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11199",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11215",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11198",
+            "name": "Desktop demo / static poster + video link",
+            "width": 350,
+            "height": 196.875,
+            "x": 20,
+            "y": 1704.28125
+          },
+          {
+            "id": "605:11214",
+            "name": "Android demo / static poster + video link",
+            "width": 350,
+            "height": 622.21875,
+            "x": 20,
+            "y": 2205.53125
+          }
+        ],
+        "outOfBounds": []
+      },
+      {
+        "id": "444:9517",
+        "name": "Introduction / 1.4.1 / ja / 390 / Default",
+        "width": 390,
+        "height": 4587.359375,
+        "demoId": "444:9735",
+        "demoHeight": 1484.421875,
+        "descendants": 421,
+        "types": {
+          "FRAME": 157,
+          "TEXT": 88,
+          "INSTANCE": 15,
+          "RECTANGLE": 12,
+          "GROUP": 30,
+          "VECTOR": 119
+        },
+        "preservation": [
+          {
+            "id": "444:9533",
+            "name": "Alignment / wrap",
+            "y": 0,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "6ae690a6"
+          },
+          {
+            "id": "444:9710",
+            "name": "Alignment / hero wrap",
+            "y": 139.59375,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "256d5382"
+          },
+          {
+            "id": "444:9734",
+            "name": "Alignment / wrap steps-section",
+            "y": 761.140625,
+            "delta": 0,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "12d4d40c"
+          },
+          {
+            "id": "444:10048",
+            "name": "Alignment / wrap journal",
+            "y": 2975.125,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "31919eb0"
+          },
+          {
+            "id": "444:10049",
+            "name": "download",
+            "y": 3612.765625,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "d76c039c"
+          },
+          {
+            "id": "444:10084",
+            "name": "Alignment / wrap privacy",
+            "y": 4338.78125,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "fc766c01"
+          },
+          {
+            "id": "444:10093",
+            "name": "Alignment / wrap",
+            "y": 4499.171875,
+            "delta": 874.59375,
+            "heightUnchanged": true,
+            "contentUnchanged": true,
+            "fingerprint": "f608289"
+          }
+        ],
+        "texts": [
+          {
+            "id": "444:9739",
+            "name": "eyebrow",
+            "text": "アプリをひとめぐり",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 14.390625,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9741",
+            "name": "demo-title",
+            "text": "PC版デモ",
+            "font": {
+              "family": "Noto Serif JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 52,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9743",
+            "name": "small demo-details",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11232",
+            "name": "Open 59-second Desktop demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "444:9904",
+            "name": "span",
+            "text": "追加 → ピン留め・並べ替え → 集中 → 記録 → 設定",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 274,
+            "h": 20,
+            "hyperlink": null
+          },
+          {
+            "id": "444:9906",
+            "name": "a",
+            "text": "動画を保存 ↓",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 75,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4"
+            }
+          },
+          {
+            "id": "605:11240",
+            "name": "android-demo-title",
+            "text": "Android版デモ",
+            "font": {
+              "family": "Noto Serif JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 52,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11242",
+            "name": "small demo-details",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 350,
+            "h": 44.1875,
+            "hyperlink": null
+          },
+          {
+            "id": "605:11248",
+            "name": "Open 59-second Android demo",
+            "text": "▶   0:00 / 0:59",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "w": 180,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          },
+          {
+            "id": "605:11251",
+            "name": "a",
+            "text": "動画を保存 ↓",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "w": 75,
+            "h": 20,
+            "hyperlink": {
+              "type": "URL",
+              "value": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4"
+            }
+          }
+        ],
+        "imageNodes": [
+          {
+            "id": "444:9554",
+            "name": "Introduction 1.4.1 / Book preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6726",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6729",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6732",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6735",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6756",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9554;441:6757",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "605:11230",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 196.875,
+            "images": [
+              {
+                "hash": "7f72b5877f40399afdf4c61e283ddcba29252005",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "605:11246",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "type": "INSTANCE",
+            "width": 350,
+            "height": 622.21875,
+            "images": [
+              {
+                "hash": "e17e89c230eb674efb01d9543f8db2239498f36d",
+                "scaleMode": "FIT"
+              }
+            ]
+          },
+          {
+            "id": "444:9918",
+            "name": "Introduction 1.4.1 / Journal preview",
+            "type": "INSTANCE",
+            "width": 350.0000305175781,
+            "height": 196.87501525878906,
+            "images": [
+              {
+                "hash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6903",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6906",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6909",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 16.53750228881836,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6912",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 25.98750114440918,
+            "height": 14.175000190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6933",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6934",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 133.08750915527344,
+            "height": 138.7379913330078,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          },
+          {
+            "id": "I444:9918;441:6966",
+            "name": "Vector",
+            "type": "VECTOR",
+            "width": 103.75313568115234,
+            "height": 12.206250190734863,
+            "images": [
+              {
+                "hash": "c74648da2e3c62bd020c183a06afbbdbb17a39a0",
+                "scaleMode": "FILL"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "id": "605:11230",
+            "name": "Promo videos 2026-11-12 / Desktop original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          },
+          {
+            "id": "605:11246",
+            "name": "Promo videos 2026-11-12 / Android original film poster",
+            "reactions": [
+              {
+                "action": {
+                  "type": "URL",
+                  "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                  "openInNewTab": true
+                },
+                "actions": [
+                  {
+                    "type": "URL",
+                    "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                    "openInNewTab": true
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "id": "605:11229",
+            "name": "Desktop demo / static poster + video link",
+            "width": 350,
+            "height": 196.875,
+            "x": 20,
+            "y": 1727.28125
+          },
+          {
+            "id": "605:11245",
+            "name": "Android demo / static poster + video link",
+            "width": 350,
+            "height": 622.21875,
+            "x": 20,
+            "y": 2267.71875
+          }
+        ],
+        "outOfBounds": []
+      }
+    ],
+    "masters": [
+      {
+        "id": "604:11058",
+        "name": "Promo videos 2026-11-12 / Desktop original film poster",
+        "description": "Original finished-film poster only. Static representation; open the MP4 URL for video playback. This raster is a discrete media cover, not the webpage UI.",
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "FIT",
+            "scalingFactor": 0.5,
+            "rotation": 0,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "imageHash": "7f72b5877f40399afdf4c61e283ddcba29252005"
+          }
+        ],
+        "reactions": [
+          {
+            "action": {
+              "type": "URL",
+              "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+              "openInNewTab": true
+            },
+            "actions": [
+              {
+                "type": "URL",
+                "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+                "openInNewTab": true
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "604:11060",
+        "name": "Promo videos 2026-11-12 / Android original film poster",
+        "description": "Original finished-film poster only. Static representation; open the MP4 URL for video playback. This raster is a discrete media cover, not the webpage UI.",
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "FIT",
+            "scalingFactor": 0.5,
+            "rotation": 0,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "imageHash": "e17e89c230eb674efb01d9543f8db2239498f36d"
+          }
+        ],
+        "reactions": [
+          {
+            "action": {
+              "type": "URL",
+              "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+              "openInNewTab": true
+            },
+            "actions": [
+              {
+                "type": "URL",
+                "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+                "openInNewTab": true
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      }
+    ],
+    "outsideTopFingerprint": "9ab07f27",
+    "outsideFrameCount": 179
+  },
+  "mutation": {
+    "createdNodeIds": [
+      "605:11058",
+      "605:11059",
+      "605:11060",
+      "605:11061",
+      "605:11062",
+      "605:11063",
+      "605:11064",
+      "605:11065",
+      "605:11066",
+      "605:11067",
+      "605:11068",
+      "605:11069",
+      "605:11070",
+      "605:11071",
+      "605:11072",
+      "605:11073",
+      "605:11074",
+      "605:11075",
+      "605:11076",
+      "605:11077",
+      "605:11078",
+      "605:11079",
+      "605:11080",
+      "605:11081",
+      "605:11082",
+      "605:11083",
+      "605:11084",
+      "605:11085",
+      "605:11086",
+      "605:11087",
+      "605:11088",
+      "605:11089",
+      "605:11090",
+      "605:11091",
+      "605:11092",
+      "605:11093",
+      "605:11094",
+      "605:11095",
+      "605:11096",
+      "605:11097",
+      "605:11098",
+      "605:11099",
+      "605:11100",
+      "605:11101",
+      "605:11102",
+      "605:11103",
+      "605:11104",
+      "605:11105",
+      "605:11106",
+      "605:11107",
+      "605:11108",
+      "605:11109",
+      "605:11110",
+      "605:11111",
+      "605:11112",
+      "605:11113",
+      "605:11114",
+      "605:11115",
+      "605:11116",
+      "605:11117",
+      "605:11118",
+      "605:11119",
+      "605:11120",
+      "605:11121",
+      "605:11122",
+      "605:11123",
+      "605:11124",
+      "605:11125",
+      "605:11126",
+      "605:11127",
+      "605:11128",
+      "605:11129",
+      "605:11130",
+      "605:11131",
+      "605:11132",
+      "605:11133",
+      "605:11134",
+      "605:11135",
+      "605:11136",
+      "605:11137",
+      "605:11138",
+      "605:11139",
+      "605:11140",
+      "605:11141",
+      "605:11142",
+      "605:11143",
+      "605:11144",
+      "605:11145",
+      "605:11146",
+      "605:11147",
+      "605:11148",
+      "605:11149",
+      "605:11150",
+      "605:11151",
+      "605:11152",
+      "605:11153",
+      "605:11154",
+      "605:11155",
+      "605:11156",
+      "605:11157",
+      "605:11158",
+      "605:11159",
+      "605:11160",
+      "605:11161",
+      "605:11162",
+      "605:11163",
+      "605:11164",
+      "605:11165",
+      "605:11166",
+      "605:11167",
+      "605:11168",
+      "605:11169",
+      "605:11170",
+      "605:11171",
+      "605:11172",
+      "605:11173",
+      "605:11174",
+      "605:11175",
+      "605:11176",
+      "605:11177",
+      "605:11178",
+      "605:11179",
+      "605:11180",
+      "605:11181",
+      "605:11182",
+      "605:11183",
+      "605:11184",
+      "605:11185",
+      "605:11186",
+      "605:11187",
+      "605:11188",
+      "605:11189",
+      "605:11190",
+      "605:11191",
+      "605:11192",
+      "605:11193",
+      "605:11194",
+      "605:11195",
+      "605:11196",
+      "605:11197",
+      "605:11198",
+      "605:11199",
+      "605:11200",
+      "605:11201",
+      "605:11202",
+      "605:11203",
+      "605:11204",
+      "605:11205",
+      "605:11206",
+      "605:11207",
+      "605:11208",
+      "605:11209",
+      "605:11210",
+      "605:11211",
+      "605:11212",
+      "605:11213",
+      "605:11214",
+      "605:11215",
+      "605:11216",
+      "605:11217",
+      "605:11218",
+      "605:11219",
+      "605:11220",
+      "605:11221",
+      "605:11222",
+      "605:11223",
+      "605:11224",
+      "605:11225",
+      "605:11226",
+      "605:11227",
+      "605:11228",
+      "605:11229",
+      "605:11230",
+      "605:11231",
+      "605:11232",
+      "605:11233",
+      "605:11234",
+      "605:11235",
+      "605:11236",
+      "605:11237",
+      "605:11238",
+      "605:11239",
+      "605:11240",
+      "605:11241",
+      "605:11242",
+      "605:11243",
+      "605:11244",
+      "605:11245",
+      "605:11246",
+      "605:11247",
+      "605:11248",
+      "605:11249",
+      "605:11250",
+      "605:11251",
+      "605:11252"
+    ],
+    "mutatedNodeIds": [
+      "442:6985",
+      "442:6987",
+      "442:6989",
+      "442:7151",
+      "442:7153",
+      "442:6981",
+      "442:6759",
+      "442:7296",
+      "442:7297",
+      "442:7333",
+      "442:7342",
+      "444:7421",
+      "444:7423",
+      "444:7425",
+      "444:7587",
+      "444:7589",
+      "444:7417",
+      "444:7195",
+      "444:7732",
+      "444:7733",
+      "444:7769",
+      "444:7778",
+      "444:8005",
+      "444:8007",
+      "444:8009",
+      "444:8171",
+      "444:8173",
+      "444:8001",
+      "444:7779",
+      "444:8316",
+      "444:8317",
+      "444:8353",
+      "444:8362",
+      "444:8585",
+      "444:8587",
+      "444:8589",
+      "444:8750",
+      "444:8752",
+      "444:8581",
+      "444:8363",
+      "444:8894",
+      "444:8895",
+      "444:8930",
+      "444:8939",
+      "444:9162",
+      "444:9164",
+      "444:9166",
+      "444:9327",
+      "444:9329",
+      "444:9158",
+      "444:8940",
+      "444:9471",
+      "444:9472",
+      "444:9507",
+      "444:9516",
+      "444:9739",
+      "444:9741",
+      "444:9743",
+      "444:9904",
+      "444:9906",
+      "444:9735",
+      "444:9517",
+      "444:10048",
+      "444:10049",
+      "444:10084",
+      "444:10093"
+    ],
+    "removedNodeIds": [
+      "442:6982",
+      "442:6983",
+      "442:6984",
+      "442:6986",
+      "442:6988",
+      "442:6990",
+      "442:6991",
+      "442:6992",
+      "442:6993",
+      "I442:6993;441:6721",
+      "I442:6993;441:6722",
+      "I442:6993;441:6723",
+      "I442:6993;441:6724",
+      "I442:6993;441:6725",
+      "I442:6993;441:6726",
+      "I442:6993;441:6727",
+      "I442:6993;441:6727;6:16",
+      "I442:6993;441:6727;6:17",
+      "I442:6993;441:6727;6:18",
+      "I442:6993;441:6727;6:19",
+      "I442:6993;441:6728",
+      "I442:6993;441:6729",
+      "I442:6993;441:6730",
+      "I442:6993;441:6730;6:21",
+      "I442:6993;441:6730;6:22",
+      "I442:6993;441:6730;6:23",
+      "I442:6993;441:6730;6:24",
+      "I442:6993;441:6730;6:25",
+      "I442:6993;441:6730;6:26",
+      "I442:6993;441:6731",
+      "I442:6993;441:6732",
+      "I442:6993;441:6733",
+      "I442:6993;441:6733;6:28",
+      "I442:6993;441:6733;6:29",
+      "I442:6993;441:6733;6:30",
+      "I442:6993;441:6733;6:31",
+      "I442:6993;441:6733;6:32",
+      "I442:6993;441:6734",
+      "I442:6993;441:6735",
+      "I442:6993;441:6736",
+      "I442:6993;441:6736;6:34",
+      "I442:6993;441:6736;6:35",
+      "I442:6993;441:6736;6:36",
+      "I442:6993;441:6736;6:37",
+      "I442:6993;441:6737",
+      "I442:6993;441:6738",
+      "I442:6993;441:6739",
+      "I442:6993;441:6740",
+      "I442:6993;441:6741",
+      "I442:6993;441:6742",
+      "I442:6993;441:6743",
+      "I442:6993;441:6744",
+      "I442:6993;441:6745",
+      "I442:6993;441:6746",
+      "I442:6993;441:6747",
+      "I442:6993;441:6748",
+      "I442:6993;441:6749",
+      "I442:6993;441:6750",
+      "I442:6993;441:6751",
+      "I442:6993;441:6752",
+      "I442:6993;441:6753",
+      "I442:6993;441:6754",
+      "I442:6993;441:6755",
+      "I442:6993;441:6756",
+      "I442:6993;441:6757",
+      "I442:6993;441:6758",
+      "I442:6993;441:6759",
+      "I442:6993;441:6760",
+      "I442:6993;441:6761",
+      "I442:6993;441:6762",
+      "I442:6993;441:6763",
+      "I442:6993;441:6764",
+      "I442:6993;441:6765",
+      "I442:6993;441:6766",
+      "I442:6993;441:6767",
+      "I442:6993;441:6768",
+      "I442:6993;441:6769",
+      "I442:6993;441:6770",
+      "I442:6993;441:6771",
+      "I442:6993;441:6772",
+      "I442:6993;441:6773",
+      "I442:6993;441:6774",
+      "I442:6993;441:6775",
+      "I442:6993;441:6776",
+      "I442:6993;441:6777",
+      "I442:6993;441:6778",
+      "I442:6993;441:6779",
+      "I442:6993;441:6780",
+      "I442:6993;441:6781",
+      "I442:6993;441:6782",
+      "I442:6993;441:6783",
+      "I442:6993;441:6784",
+      "I442:6993;441:6785",
+      "I442:6993;441:6786",
+      "I442:6993;441:6787",
+      "I442:6993;441:6788",
+      "I442:6993;441:6789",
+      "I442:6993;441:6790",
+      "I442:6993;441:6791",
+      "I442:6993;441:6792",
+      "I442:6993;441:6793",
+      "I442:6993;441:6794",
+      "I442:6993;441:6795",
+      "I442:6993;441:6796",
+      "I442:6993;441:6797",
+      "I442:6993;441:6798",
+      "I442:6993;441:6799",
+      "I442:6993;441:6800",
+      "I442:6993;441:6801",
+      "I442:6993;441:6802",
+      "I442:6993;441:6803",
+      "I442:6993;441:6804",
+      "I442:6993;441:6805",
+      "I442:6993;441:6806",
+      "I442:6993;441:6807",
+      "I442:6993;441:6808",
+      "I442:6993;441:6809",
+      "I442:6993;441:6810",
+      "I442:6993;441:6811",
+      "I442:6993;441:6812",
+      "I442:6993;441:6813",
+      "I442:6993;441:6814",
+      "I442:6993;441:6815",
+      "I442:6993;441:6816",
+      "I442:6993;441:6817",
+      "I442:6993;441:6818",
+      "I442:6993;441:6819",
+      "I442:6993;441:6821",
+      "I442:6993;441:6822",
+      "I442:6993;441:6823",
+      "I442:6993;441:6824",
+      "I442:6993;441:6825",
+      "I442:6993;441:6826",
+      "I442:6993;441:6827",
+      "I442:6993;441:6828",
+      "I442:6993;441:6829",
+      "I442:6993;441:6854",
+      "I442:6993;441:6855",
+      "I442:6993;441:6856",
+      "I442:6993;441:6857",
+      "I442:6993;441:6858",
+      "I442:6993;441:6859",
+      "I442:6993;441:6860",
+      "I442:6993;441:6861",
+      "I442:6993;441:6862",
+      "I442:6993;441:6863",
+      "I442:6993;441:6864",
+      "I442:6993;441:6865",
+      "I442:6993;441:6866",
+      "I442:6993;441:6867",
+      "I442:6993;441:6868",
+      "I442:6993;441:6869",
+      "I442:6993;441:6870",
+      "I442:6993;441:6871",
+      "I442:6993;441:6872",
+      "I442:6993;441:6873",
+      "I442:6993;441:6874",
+      "I442:6993;441:6875",
+      "I442:6993;441:6876",
+      "I442:6993;441:6877",
+      "442:7147",
+      "442:7148",
+      "442:7149",
+      "442:7150",
+      "442:7152",
+      "444:7418",
+      "444:7419",
+      "444:7420",
+      "444:7422",
+      "444:7424",
+      "444:7426",
+      "444:7427",
+      "444:7428",
+      "444:7429",
+      "I444:7429;441:6721",
+      "I444:7429;441:6722",
+      "I444:7429;441:6723",
+      "I444:7429;441:6724",
+      "I444:7429;441:6725",
+      "I444:7429;441:6726",
+      "I444:7429;441:6727",
+      "I444:7429;441:6727;6:16",
+      "I444:7429;441:6727;6:17",
+      "I444:7429;441:6727;6:18",
+      "I444:7429;441:6727;6:19",
+      "I444:7429;441:6728",
+      "I444:7429;441:6729",
+      "I444:7429;441:6730",
+      "I444:7429;441:6730;6:21",
+      "I444:7429;441:6730;6:22",
+      "I444:7429;441:6730;6:23",
+      "I444:7429;441:6730;6:24",
+      "I444:7429;441:6730;6:25",
+      "I444:7429;441:6730;6:26",
+      "I444:7429;441:6731",
+      "I444:7429;441:6732",
+      "I444:7429;441:6733",
+      "I444:7429;441:6733;6:28",
+      "I444:7429;441:6733;6:29",
+      "I444:7429;441:6733;6:30",
+      "I444:7429;441:6733;6:31",
+      "I444:7429;441:6733;6:32",
+      "I444:7429;441:6734",
+      "I444:7429;441:6735",
+      "I444:7429;441:6736",
+      "I444:7429;441:6736;6:34",
+      "I444:7429;441:6736;6:35",
+      "I444:7429;441:6736;6:36",
+      "I444:7429;441:6736;6:37",
+      "I444:7429;441:6737",
+      "I444:7429;441:6738",
+      "I444:7429;441:6739",
+      "I444:7429;441:6740",
+      "I444:7429;441:6741",
+      "I444:7429;441:6742",
+      "I444:7429;441:6743",
+      "I444:7429;441:6744",
+      "I444:7429;441:6745",
+      "I444:7429;441:6746",
+      "I444:7429;441:6747",
+      "I444:7429;441:6748",
+      "I444:7429;441:6749",
+      "I444:7429;441:6750",
+      "I444:7429;441:6751",
+      "I444:7429;441:6752",
+      "I444:7429;441:6753",
+      "I444:7429;441:6754",
+      "I444:7429;441:6755",
+      "I444:7429;441:6756",
+      "I444:7429;441:6757",
+      "I444:7429;441:6758",
+      "I444:7429;441:6759",
+      "I444:7429;441:6760",
+      "I444:7429;441:6761",
+      "I444:7429;441:6762",
+      "I444:7429;441:6763",
+      "I444:7429;441:6764",
+      "I444:7429;441:6765",
+      "I444:7429;441:6766",
+      "I444:7429;441:6767",
+      "I444:7429;441:6768",
+      "I444:7429;441:6769",
+      "I444:7429;441:6770",
+      "I444:7429;441:6771",
+      "I444:7429;441:6772",
+      "I444:7429;441:6773",
+      "I444:7429;441:6774",
+      "I444:7429;441:6775",
+      "I444:7429;441:6776",
+      "I444:7429;441:6777",
+      "I444:7429;441:6778",
+      "I444:7429;441:6779",
+      "I444:7429;441:6780",
+      "I444:7429;441:6781",
+      "I444:7429;441:6782",
+      "I444:7429;441:6783",
+      "I444:7429;441:6784",
+      "I444:7429;441:6785",
+      "I444:7429;441:6786",
+      "I444:7429;441:6787",
+      "I444:7429;441:6788",
+      "I444:7429;441:6789",
+      "I444:7429;441:6790",
+      "I444:7429;441:6791",
+      "I444:7429;441:6792",
+      "I444:7429;441:6793",
+      "I444:7429;441:6794",
+      "I444:7429;441:6795",
+      "I444:7429;441:6796",
+      "I444:7429;441:6797",
+      "I444:7429;441:6798",
+      "I444:7429;441:6799",
+      "I444:7429;441:6800",
+      "I444:7429;441:6801",
+      "I444:7429;441:6802",
+      "I444:7429;441:6803",
+      "I444:7429;441:6804",
+      "I444:7429;441:6805",
+      "I444:7429;441:6806",
+      "I444:7429;441:6807",
+      "I444:7429;441:6808",
+      "I444:7429;441:6809",
+      "I444:7429;441:6810",
+      "I444:7429;441:6811",
+      "I444:7429;441:6812",
+      "I444:7429;441:6813",
+      "I444:7429;441:6814",
+      "I444:7429;441:6815",
+      "I444:7429;441:6816",
+      "I444:7429;441:6817",
+      "I444:7429;441:6818",
+      "I444:7429;441:6819",
+      "I444:7429;441:6821",
+      "I444:7429;441:6822",
+      "I444:7429;441:6823",
+      "I444:7429;441:6824",
+      "I444:7429;441:6825",
+      "I444:7429;441:6826",
+      "I444:7429;441:6827",
+      "I444:7429;441:6828",
+      "I444:7429;441:6829",
+      "I444:7429;441:6854",
+      "I444:7429;441:6855",
+      "I444:7429;441:6856",
+      "I444:7429;441:6857",
+      "I444:7429;441:6858",
+      "I444:7429;441:6859",
+      "I444:7429;441:6860",
+      "I444:7429;441:6861",
+      "I444:7429;441:6862",
+      "I444:7429;441:6863",
+      "I444:7429;441:6864",
+      "I444:7429;441:6865",
+      "I444:7429;441:6866",
+      "I444:7429;441:6867",
+      "I444:7429;441:6868",
+      "I444:7429;441:6869",
+      "I444:7429;441:6870",
+      "I444:7429;441:6871",
+      "I444:7429;441:6872",
+      "I444:7429;441:6873",
+      "I444:7429;441:6874",
+      "I444:7429;441:6875",
+      "I444:7429;441:6876",
+      "I444:7429;441:6877",
+      "444:7583",
+      "444:7584",
+      "444:7585",
+      "444:7586",
+      "444:7588",
+      "444:8002",
+      "444:8003",
+      "444:8004",
+      "444:8006",
+      "444:8008",
+      "444:8010",
+      "444:8011",
+      "444:8012",
+      "444:8013",
+      "I444:8013;441:6721",
+      "I444:8013;441:6722",
+      "I444:8013;441:6723",
+      "I444:8013;441:6724",
+      "I444:8013;441:6725",
+      "I444:8013;441:6726",
+      "I444:8013;441:6727",
+      "I444:8013;441:6727;6:16",
+      "I444:8013;441:6727;6:17",
+      "I444:8013;441:6727;6:18",
+      "I444:8013;441:6727;6:19",
+      "I444:8013;441:6728",
+      "I444:8013;441:6729",
+      "I444:8013;441:6730",
+      "I444:8013;441:6730;6:21",
+      "I444:8013;441:6730;6:22",
+      "I444:8013;441:6730;6:23",
+      "I444:8013;441:6730;6:24",
+      "I444:8013;441:6730;6:25",
+      "I444:8013;441:6730;6:26",
+      "I444:8013;441:6731",
+      "I444:8013;441:6732",
+      "I444:8013;441:6733",
+      "I444:8013;441:6733;6:28",
+      "I444:8013;441:6733;6:29",
+      "I444:8013;441:6733;6:30",
+      "I444:8013;441:6733;6:31",
+      "I444:8013;441:6733;6:32",
+      "I444:8013;441:6734",
+      "I444:8013;441:6735",
+      "I444:8013;441:6736",
+      "I444:8013;441:6736;6:34",
+      "I444:8013;441:6736;6:35",
+      "I444:8013;441:6736;6:36",
+      "I444:8013;441:6736;6:37",
+      "I444:8013;441:6737",
+      "I444:8013;441:6738",
+      "I444:8013;441:6739",
+      "I444:8013;441:6740",
+      "I444:8013;441:6741",
+      "I444:8013;441:6742",
+      "I444:8013;441:6743",
+      "I444:8013;441:6744",
+      "I444:8013;441:6745",
+      "I444:8013;441:6746",
+      "I444:8013;441:6747",
+      "I444:8013;441:6748",
+      "I444:8013;441:6749",
+      "I444:8013;441:6750",
+      "I444:8013;441:6751",
+      "I444:8013;441:6752",
+      "I444:8013;441:6753",
+      "I444:8013;441:6754",
+      "I444:8013;441:6755",
+      "I444:8013;441:6756",
+      "I444:8013;441:6757",
+      "I444:8013;441:6758",
+      "I444:8013;441:6759",
+      "I444:8013;441:6760",
+      "I444:8013;441:6761",
+      "I444:8013;441:6762",
+      "I444:8013;441:6763",
+      "I444:8013;441:6764",
+      "I444:8013;441:6765",
+      "I444:8013;441:6766",
+      "I444:8013;441:6767",
+      "I444:8013;441:6768",
+      "I444:8013;441:6769",
+      "I444:8013;441:6770",
+      "I444:8013;441:6771",
+      "I444:8013;441:6772",
+      "I444:8013;441:6773",
+      "I444:8013;441:6774",
+      "I444:8013;441:6775",
+      "I444:8013;441:6776",
+      "I444:8013;441:6777",
+      "I444:8013;441:6778",
+      "I444:8013;441:6779",
+      "I444:8013;441:6780",
+      "I444:8013;441:6781",
+      "I444:8013;441:6782",
+      "I444:8013;441:6783",
+      "I444:8013;441:6784",
+      "I444:8013;441:6785",
+      "I444:8013;441:6786",
+      "I444:8013;441:6787",
+      "I444:8013;441:6788",
+      "I444:8013;441:6789",
+      "I444:8013;441:6790",
+      "I444:8013;441:6791",
+      "I444:8013;441:6792",
+      "I444:8013;441:6793",
+      "I444:8013;441:6794",
+      "I444:8013;441:6795",
+      "I444:8013;441:6796",
+      "I444:8013;441:6797",
+      "I444:8013;441:6798",
+      "I444:8013;441:6799",
+      "I444:8013;441:6800",
+      "I444:8013;441:6801",
+      "I444:8013;441:6802",
+      "I444:8013;441:6803",
+      "I444:8013;441:6804",
+      "I444:8013;441:6805",
+      "I444:8013;441:6806",
+      "I444:8013;441:6807",
+      "I444:8013;441:6808",
+      "I444:8013;441:6809",
+      "I444:8013;441:6810",
+      "I444:8013;441:6811",
+      "I444:8013;441:6812",
+      "I444:8013;441:6813",
+      "I444:8013;441:6814",
+      "I444:8013;441:6815",
+      "I444:8013;441:6816",
+      "I444:8013;441:6817",
+      "I444:8013;441:6818",
+      "I444:8013;441:6819",
+      "I444:8013;441:6821",
+      "I444:8013;441:6822",
+      "I444:8013;441:6823",
+      "I444:8013;441:6824",
+      "I444:8013;441:6825",
+      "I444:8013;441:6826",
+      "I444:8013;441:6827",
+      "I444:8013;441:6828",
+      "I444:8013;441:6829",
+      "I444:8013;441:6854",
+      "I444:8013;441:6855",
+      "I444:8013;441:6856",
+      "I444:8013;441:6857",
+      "I444:8013;441:6858",
+      "I444:8013;441:6859",
+      "I444:8013;441:6860",
+      "I444:8013;441:6861",
+      "I444:8013;441:6862",
+      "I444:8013;441:6863",
+      "I444:8013;441:6864",
+      "I444:8013;441:6865",
+      "I444:8013;441:6866",
+      "I444:8013;441:6867",
+      "I444:8013;441:6868",
+      "I444:8013;441:6869",
+      "I444:8013;441:6870",
+      "I444:8013;441:6871",
+      "I444:8013;441:6872",
+      "I444:8013;441:6873",
+      "I444:8013;441:6874",
+      "I444:8013;441:6875",
+      "I444:8013;441:6876",
+      "I444:8013;441:6877",
+      "444:8167",
+      "444:8168",
+      "444:8169",
+      "444:8170",
+      "444:8172",
+      "444:8582",
+      "444:8583",
+      "444:8584",
+      "444:8586",
+      "444:8588",
+      "444:8590",
+      "444:8591",
+      "444:8592",
+      "I444:8592;441:6721",
+      "I444:8592;441:6722",
+      "I444:8592;441:6723",
+      "I444:8592;441:6724",
+      "I444:8592;441:6725",
+      "I444:8592;441:6726",
+      "I444:8592;441:6727",
+      "I444:8592;441:6727;6:16",
+      "I444:8592;441:6727;6:17",
+      "I444:8592;441:6727;6:18",
+      "I444:8592;441:6727;6:19",
+      "I444:8592;441:6728",
+      "I444:8592;441:6729",
+      "I444:8592;441:6730",
+      "I444:8592;441:6730;6:21",
+      "I444:8592;441:6730;6:22",
+      "I444:8592;441:6730;6:23",
+      "I444:8592;441:6730;6:24",
+      "I444:8592;441:6730;6:25",
+      "I444:8592;441:6730;6:26",
+      "I444:8592;441:6731",
+      "I444:8592;441:6732",
+      "I444:8592;441:6733",
+      "I444:8592;441:6733;6:28",
+      "I444:8592;441:6733;6:29",
+      "I444:8592;441:6733;6:30",
+      "I444:8592;441:6733;6:31",
+      "I444:8592;441:6733;6:32",
+      "I444:8592;441:6734",
+      "I444:8592;441:6735",
+      "I444:8592;441:6736",
+      "I444:8592;441:6736;6:34",
+      "I444:8592;441:6736;6:35",
+      "I444:8592;441:6736;6:36",
+      "I444:8592;441:6736;6:37",
+      "I444:8592;441:6737",
+      "I444:8592;441:6738",
+      "I444:8592;441:6739",
+      "I444:8592;441:6740",
+      "I444:8592;441:6741",
+      "I444:8592;441:6742",
+      "I444:8592;441:6743",
+      "I444:8592;441:6744",
+      "I444:8592;441:6745",
+      "I444:8592;441:6746",
+      "I444:8592;441:6747",
+      "I444:8592;441:6748",
+      "I444:8592;441:6749",
+      "I444:8592;441:6750",
+      "I444:8592;441:6751",
+      "I444:8592;441:6752",
+      "I444:8592;441:6753",
+      "I444:8592;441:6754",
+      "I444:8592;441:6755",
+      "I444:8592;441:6756",
+      "I444:8592;441:6757",
+      "I444:8592;441:6758",
+      "I444:8592;441:6759",
+      "I444:8592;441:6760",
+      "I444:8592;441:6761",
+      "I444:8592;441:6762",
+      "I444:8592;441:6763",
+      "I444:8592;441:6764",
+      "I444:8592;441:6765",
+      "I444:8592;441:6766",
+      "I444:8592;441:6767",
+      "I444:8592;441:6768",
+      "I444:8592;441:6769",
+      "I444:8592;441:6770",
+      "I444:8592;441:6771",
+      "I444:8592;441:6772",
+      "I444:8592;441:6773",
+      "I444:8592;441:6774",
+      "I444:8592;441:6775",
+      "I444:8592;441:6776",
+      "I444:8592;441:6777",
+      "I444:8592;441:6778",
+      "I444:8592;441:6779",
+      "I444:8592;441:6780",
+      "I444:8592;441:6781",
+      "I444:8592;441:6782",
+      "I444:8592;441:6783",
+      "I444:8592;441:6784",
+      "I444:8592;441:6785",
+      "I444:8592;441:6786",
+      "I444:8592;441:6787",
+      "I444:8592;441:6788",
+      "I444:8592;441:6789",
+      "I444:8592;441:6790",
+      "I444:8592;441:6791",
+      "I444:8592;441:6792",
+      "I444:8592;441:6793",
+      "I444:8592;441:6794",
+      "I444:8592;441:6795",
+      "I444:8592;441:6796",
+      "I444:8592;441:6797",
+      "I444:8592;441:6798",
+      "I444:8592;441:6799",
+      "I444:8592;441:6800",
+      "I444:8592;441:6801",
+      "I444:8592;441:6802",
+      "I444:8592;441:6803",
+      "I444:8592;441:6804",
+      "I444:8592;441:6805",
+      "I444:8592;441:6806",
+      "I444:8592;441:6807",
+      "I444:8592;441:6808",
+      "I444:8592;441:6809",
+      "I444:8592;441:6810",
+      "I444:8592;441:6811",
+      "I444:8592;441:6812",
+      "I444:8592;441:6813",
+      "I444:8592;441:6814",
+      "I444:8592;441:6815",
+      "I444:8592;441:6816",
+      "I444:8592;441:6817",
+      "I444:8592;441:6818",
+      "I444:8592;441:6819",
+      "I444:8592;441:6821",
+      "I444:8592;441:6822",
+      "I444:8592;441:6823",
+      "I444:8592;441:6824",
+      "I444:8592;441:6825",
+      "I444:8592;441:6826",
+      "I444:8592;441:6827",
+      "I444:8592;441:6828",
+      "I444:8592;441:6829",
+      "I444:8592;441:6854",
+      "I444:8592;441:6855",
+      "I444:8592;441:6856",
+      "I444:8592;441:6857",
+      "I444:8592;441:6858",
+      "I444:8592;441:6859",
+      "I444:8592;441:6860",
+      "I444:8592;441:6861",
+      "I444:8592;441:6862",
+      "I444:8592;441:6863",
+      "I444:8592;441:6864",
+      "I444:8592;441:6865",
+      "I444:8592;441:6866",
+      "I444:8592;441:6867",
+      "I444:8592;441:6868",
+      "I444:8592;441:6869",
+      "I444:8592;441:6870",
+      "I444:8592;441:6871",
+      "I444:8592;441:6872",
+      "I444:8592;441:6873",
+      "I444:8592;441:6874",
+      "I444:8592;441:6875",
+      "I444:8592;441:6876",
+      "I444:8592;441:6877",
+      "444:8746",
+      "444:8747",
+      "444:8748",
+      "444:8749",
+      "444:8751",
+      "444:9159",
+      "444:9160",
+      "444:9161",
+      "444:9163",
+      "444:9165",
+      "444:9167",
+      "444:9168",
+      "444:9169",
+      "I444:9169;441:6721",
+      "I444:9169;441:6722",
+      "I444:9169;441:6723",
+      "I444:9169;441:6724",
+      "I444:9169;441:6725",
+      "I444:9169;441:6726",
+      "I444:9169;441:6727",
+      "I444:9169;441:6727;6:16",
+      "I444:9169;441:6727;6:17",
+      "I444:9169;441:6727;6:18",
+      "I444:9169;441:6727;6:19",
+      "I444:9169;441:6728",
+      "I444:9169;441:6729",
+      "I444:9169;441:6730",
+      "I444:9169;441:6730;6:21",
+      "I444:9169;441:6730;6:22",
+      "I444:9169;441:6730;6:23",
+      "I444:9169;441:6730;6:24",
+      "I444:9169;441:6730;6:25",
+      "I444:9169;441:6730;6:26",
+      "I444:9169;441:6731",
+      "I444:9169;441:6732",
+      "I444:9169;441:6733",
+      "I444:9169;441:6733;6:28",
+      "I444:9169;441:6733;6:29",
+      "I444:9169;441:6733;6:30",
+      "I444:9169;441:6733;6:31",
+      "I444:9169;441:6733;6:32",
+      "I444:9169;441:6734",
+      "I444:9169;441:6735",
+      "I444:9169;441:6736",
+      "I444:9169;441:6736;6:34",
+      "I444:9169;441:6736;6:35",
+      "I444:9169;441:6736;6:36",
+      "I444:9169;441:6736;6:37",
+      "I444:9169;441:6737",
+      "I444:9169;441:6738",
+      "I444:9169;441:6739",
+      "I444:9169;441:6740",
+      "I444:9169;441:6741",
+      "I444:9169;441:6742",
+      "I444:9169;441:6743",
+      "I444:9169;441:6744",
+      "I444:9169;441:6745",
+      "I444:9169;441:6746",
+      "I444:9169;441:6747",
+      "I444:9169;441:6748",
+      "I444:9169;441:6749",
+      "I444:9169;441:6750",
+      "I444:9169;441:6751",
+      "I444:9169;441:6752",
+      "I444:9169;441:6753",
+      "I444:9169;441:6754",
+      "I444:9169;441:6755",
+      "I444:9169;441:6756",
+      "I444:9169;441:6757",
+      "I444:9169;441:6758",
+      "I444:9169;441:6759",
+      "I444:9169;441:6760",
+      "I444:9169;441:6761",
+      "I444:9169;441:6762",
+      "I444:9169;441:6763",
+      "I444:9169;441:6764",
+      "I444:9169;441:6765",
+      "I444:9169;441:6766",
+      "I444:9169;441:6767",
+      "I444:9169;441:6768",
+      "I444:9169;441:6769",
+      "I444:9169;441:6770",
+      "I444:9169;441:6771",
+      "I444:9169;441:6772",
+      "I444:9169;441:6773",
+      "I444:9169;441:6774",
+      "I444:9169;441:6775",
+      "I444:9169;441:6776",
+      "I444:9169;441:6777",
+      "I444:9169;441:6778",
+      "I444:9169;441:6779",
+      "I444:9169;441:6780",
+      "I444:9169;441:6781",
+      "I444:9169;441:6782",
+      "I444:9169;441:6783",
+      "I444:9169;441:6784",
+      "I444:9169;441:6785",
+      "I444:9169;441:6786",
+      "I444:9169;441:6787",
+      "I444:9169;441:6788",
+      "I444:9169;441:6789",
+      "I444:9169;441:6790",
+      "I444:9169;441:6791",
+      "I444:9169;441:6792",
+      "I444:9169;441:6793",
+      "I444:9169;441:6794",
+      "I444:9169;441:6795",
+      "I444:9169;441:6796",
+      "I444:9169;441:6797",
+      "I444:9169;441:6798",
+      "I444:9169;441:6799",
+      "I444:9169;441:6800",
+      "I444:9169;441:6801",
+      "I444:9169;441:6802",
+      "I444:9169;441:6803",
+      "I444:9169;441:6804",
+      "I444:9169;441:6805",
+      "I444:9169;441:6806",
+      "I444:9169;441:6807",
+      "I444:9169;441:6808",
+      "I444:9169;441:6809",
+      "I444:9169;441:6810",
+      "I444:9169;441:6811",
+      "I444:9169;441:6812",
+      "I444:9169;441:6813",
+      "I444:9169;441:6814",
+      "I444:9169;441:6815",
+      "I444:9169;441:6816",
+      "I444:9169;441:6817",
+      "I444:9169;441:6818",
+      "I444:9169;441:6819",
+      "I444:9169;441:6821",
+      "I444:9169;441:6822",
+      "I444:9169;441:6823",
+      "I444:9169;441:6824",
+      "I444:9169;441:6825",
+      "I444:9169;441:6826",
+      "I444:9169;441:6827",
+      "I444:9169;441:6828",
+      "I444:9169;441:6829",
+      "I444:9169;441:6854",
+      "I444:9169;441:6855",
+      "I444:9169;441:6856",
+      "I444:9169;441:6857",
+      "I444:9169;441:6858",
+      "I444:9169;441:6859",
+      "I444:9169;441:6860",
+      "I444:9169;441:6861",
+      "I444:9169;441:6862",
+      "I444:9169;441:6863",
+      "I444:9169;441:6864",
+      "I444:9169;441:6865",
+      "I444:9169;441:6866",
+      "I444:9169;441:6867",
+      "I444:9169;441:6868",
+      "I444:9169;441:6869",
+      "I444:9169;441:6870",
+      "I444:9169;441:6871",
+      "I444:9169;441:6872",
+      "I444:9169;441:6873",
+      "I444:9169;441:6874",
+      "I444:9169;441:6875",
+      "I444:9169;441:6876",
+      "I444:9169;441:6877",
+      "444:9323",
+      "444:9324",
+      "444:9325",
+      "444:9326",
+      "444:9328",
+      "444:9736",
+      "444:9737",
+      "444:9738",
+      "444:9740",
+      "444:9742",
+      "444:9744",
+      "444:9745",
+      "444:9746",
+      "I444:9746;441:6721",
+      "I444:9746;441:6722",
+      "I444:9746;441:6723",
+      "I444:9746;441:6724",
+      "I444:9746;441:6725",
+      "I444:9746;441:6726",
+      "I444:9746;441:6727",
+      "I444:9746;441:6727;6:16",
+      "I444:9746;441:6727;6:17",
+      "I444:9746;441:6727;6:18",
+      "I444:9746;441:6727;6:19",
+      "I444:9746;441:6728",
+      "I444:9746;441:6729",
+      "I444:9746;441:6730",
+      "I444:9746;441:6730;6:21",
+      "I444:9746;441:6730;6:22",
+      "I444:9746;441:6730;6:23",
+      "I444:9746;441:6730;6:24",
+      "I444:9746;441:6730;6:25",
+      "I444:9746;441:6730;6:26",
+      "I444:9746;441:6731",
+      "I444:9746;441:6732",
+      "I444:9746;441:6733",
+      "I444:9746;441:6733;6:28",
+      "I444:9746;441:6733;6:29",
+      "I444:9746;441:6733;6:30",
+      "I444:9746;441:6733;6:31",
+      "I444:9746;441:6733;6:32",
+      "I444:9746;441:6734",
+      "I444:9746;441:6735",
+      "I444:9746;441:6736",
+      "I444:9746;441:6736;6:34",
+      "I444:9746;441:6736;6:35",
+      "I444:9746;441:6736;6:36",
+      "I444:9746;441:6736;6:37",
+      "I444:9746;441:6737",
+      "I444:9746;441:6738",
+      "I444:9746;441:6739",
+      "I444:9746;441:6740",
+      "I444:9746;441:6741",
+      "I444:9746;441:6742",
+      "I444:9746;441:6743",
+      "I444:9746;441:6744",
+      "I444:9746;441:6745",
+      "I444:9746;441:6746",
+      "I444:9746;441:6747",
+      "I444:9746;441:6748",
+      "I444:9746;441:6749",
+      "I444:9746;441:6750",
+      "I444:9746;441:6751",
+      "I444:9746;441:6752",
+      "I444:9746;441:6753",
+      "I444:9746;441:6754",
+      "I444:9746;441:6755",
+      "I444:9746;441:6756",
+      "I444:9746;441:6757",
+      "I444:9746;441:6758",
+      "I444:9746;441:6759",
+      "I444:9746;441:6760",
+      "I444:9746;441:6761",
+      "I444:9746;441:6762",
+      "I444:9746;441:6763",
+      "I444:9746;441:6764",
+      "I444:9746;441:6765",
+      "I444:9746;441:6766",
+      "I444:9746;441:6767",
+      "I444:9746;441:6768",
+      "I444:9746;441:6769",
+      "I444:9746;441:6770",
+      "I444:9746;441:6771",
+      "I444:9746;441:6772",
+      "I444:9746;441:6773",
+      "I444:9746;441:6774",
+      "I444:9746;441:6775",
+      "I444:9746;441:6776",
+      "I444:9746;441:6777",
+      "I444:9746;441:6778",
+      "I444:9746;441:6779",
+      "I444:9746;441:6780",
+      "I444:9746;441:6781",
+      "I444:9746;441:6782",
+      "I444:9746;441:6783",
+      "I444:9746;441:6784",
+      "I444:9746;441:6785",
+      "I444:9746;441:6786",
+      "I444:9746;441:6787",
+      "I444:9746;441:6788",
+      "I444:9746;441:6789",
+      "I444:9746;441:6790",
+      "I444:9746;441:6791",
+      "I444:9746;441:6792",
+      "I444:9746;441:6793",
+      "I444:9746;441:6794",
+      "I444:9746;441:6795",
+      "I444:9746;441:6796",
+      "I444:9746;441:6797",
+      "I444:9746;441:6798",
+      "I444:9746;441:6799",
+      "I444:9746;441:6800",
+      "I444:9746;441:6801",
+      "I444:9746;441:6802",
+      "I444:9746;441:6803",
+      "I444:9746;441:6804",
+      "I444:9746;441:6805",
+      "I444:9746;441:6806",
+      "I444:9746;441:6807",
+      "I444:9746;441:6808",
+      "I444:9746;441:6809",
+      "I444:9746;441:6810",
+      "I444:9746;441:6811",
+      "I444:9746;441:6812",
+      "I444:9746;441:6813",
+      "I444:9746;441:6814",
+      "I444:9746;441:6815",
+      "I444:9746;441:6816",
+      "I444:9746;441:6817",
+      "I444:9746;441:6818",
+      "I444:9746;441:6819",
+      "I444:9746;441:6821",
+      "I444:9746;441:6822",
+      "I444:9746;441:6823",
+      "I444:9746;441:6824",
+      "I444:9746;441:6825",
+      "I444:9746;441:6826",
+      "I444:9746;441:6827",
+      "I444:9746;441:6828",
+      "I444:9746;441:6829",
+      "I444:9746;441:6854",
+      "I444:9746;441:6855",
+      "I444:9746;441:6856",
+      "I444:9746;441:6857",
+      "I444:9746;441:6858",
+      "I444:9746;441:6859",
+      "I444:9746;441:6860",
+      "I444:9746;441:6861",
+      "I444:9746;441:6862",
+      "I444:9746;441:6863",
+      "I444:9746;441:6864",
+      "I444:9746;441:6865",
+      "I444:9746;441:6866",
+      "I444:9746;441:6867",
+      "I444:9746;441:6868",
+      "I444:9746;441:6869",
+      "I444:9746;441:6870",
+      "I444:9746;441:6871",
+      "I444:9746;441:6872",
+      "I444:9746;441:6873",
+      "I444:9746;441:6874",
+      "I444:9746;441:6875",
+      "I444:9746;441:6876",
+      "I444:9746;441:6877",
+      "444:9900",
+      "444:9901",
+      "444:9902",
+      "444:9903",
+      "444:9905"
+    ],
+    "summaries": [
+      {
+        "id": "442:6759",
+        "demoId": "442:6981",
+        "oldHeight": 999.015625,
+        "newHeight": 1890.4375,
+        "delta": 891.421875,
+        "rootHeight": 5131.953125,
+        "newWrapId": "605:11058"
+      },
+      {
+        "id": "444:7195",
+        "demoId": "444:7417",
+        "oldHeight": 1016.375,
+        "newHeight": 1925.15625,
+        "delta": 908.78125,
+        "rootHeight": 5162.421875,
+        "newWrapId": "605:11092"
+      },
+      {
+        "id": "444:7779",
+        "demoId": "444:8001",
+        "oldHeight": 1016.375,
+        "newHeight": 1925.15625,
+        "delta": 908.78125,
+        "rootHeight": 5258.09375,
+        "newWrapId": "605:11126"
+      },
+      {
+        "id": "444:8363",
+        "demoId": "444:8581",
+        "oldHeight": 546.625,
+        "newHeight": 1462.015625,
+        "delta": 915.390625,
+        "rootHeight": 4542.5625,
+        "newWrapId": "605:11160"
+      },
+      {
+        "id": "444:8940",
+        "demoId": "444:9158",
+        "oldHeight": 570.640625,
+        "newHeight": 1445.234375,
+        "delta": 874.59375,
+        "rootHeight": 4431.890625,
+        "newWrapId": "605:11191"
+      },
+      {
+        "id": "444:9517",
+        "demoId": "444:9735",
+        "oldHeight": 609.828125,
+        "newHeight": 1484.421875,
+        "delta": 874.59375,
+        "rootHeight": 4587.359375,
+        "newWrapId": "605:11222"
+      }
+    ]
+  },
+  "fix": {
+    "mutatedNodeIds": [
+      "605:11059",
+      "605:11060",
+      "442:6987",
+      "605:11063",
+      "442:6989",
+      "605:11075",
+      "605:11076",
+      "605:11077",
+      "605:11080",
+      "605:11079",
+      "442:7151",
+      "442:7153",
+      "605:11071",
+      "605:11089",
+      "605:11088",
+      "605:11093",
+      "605:11094",
+      "444:7423",
+      "605:11097",
+      "444:7425",
+      "605:11109",
+      "605:11110",
+      "605:11111",
+      "605:11114",
+      "605:11113",
+      "444:7587",
+      "444:7589",
+      "605:11105",
+      "605:11123",
+      "605:11122",
+      "605:11127",
+      "605:11128",
+      "444:8007",
+      "605:11131",
+      "444:8009",
+      "605:11143",
+      "605:11144",
+      "605:11145",
+      "605:11148",
+      "605:11147",
+      "444:8171",
+      "444:8173",
+      "605:11139",
+      "605:11157",
+      "605:11156",
+      "444:8750",
+      "444:8752",
+      "605:11189",
+      "605:11188",
+      "444:9327",
+      "444:9329",
+      "605:11203",
+      "605:11220",
+      "605:11219",
+      "444:9904",
+      "444:9906",
+      "605:11251",
+      "605:11250"
+    ],
+    "removedNodeIds": [
+      "605:11062",
+      "605:11078",
+      "605:11072",
+      "605:11096",
+      "605:11112",
+      "605:11106",
+      "605:11130",
+      "605:11146",
+      "605:11140",
+      "605:11204"
+    ],
+    "result": [
+      {
+        "id": "442:6759",
+        "titles": [
+          {
+            "id": "442:6987",
+            "text": "Desktop demo",
+            "w": 337,
+            "h": 64
+          },
+          {
+            "id": "442:6989",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "w": 184,
+            "h": 45
+          },
+          {
+            "id": "605:11077",
+            "text": "Android demo",
+            "w": 339,
+            "h": 64
+          },
+          {
+            "id": "605:11079",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "w": 184,
+            "h": 45
+          }
+        ]
+      },
+      {
+        "id": "444:7195",
+        "titles": [
+          {
+            "id": "444:7423",
+            "text": "电脑版演示",
+            "w": 310,
+            "h": 81
+          },
+          {
+            "id": "444:7425",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "w": 102,
+            "h": 45
+          },
+          {
+            "id": "605:11111",
+            "text": "安卓版本演示",
+            "w": 372,
+            "h": 81
+          },
+          {
+            "id": "605:11113",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "w": 102,
+            "h": 45
+          }
+        ]
+      },
+      {
+        "id": "444:7779",
+        "titles": [
+          {
+            "id": "444:8007",
+            "text": "PC版デモ",
+            "w": 269,
+            "h": 81
+          },
+          {
+            "id": "444:8009",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "w": 145,
+            "h": 45
+          },
+          {
+            "id": "605:11145",
+            "text": "Android版デモ",
+            "w": 435,
+            "h": 81
+          },
+          {
+            "id": "605:11147",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "w": 145,
+            "h": 45
+          }
+        ]
+      },
+      {
+        "id": "444:8363",
+        "titles": [
+          {
+            "id": "444:8587",
+            "text": "Desktop demo",
+            "w": 350,
+            "h": 40.796875
+          },
+          {
+            "id": "444:8589",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "w": 350,
+            "h": 44.1875
+          },
+          {
+            "id": "605:11178",
+            "text": "Android demo",
+            "w": 350,
+            "h": 40.796875
+          },
+          {
+            "id": "605:11180",
+            "text": "59 seconds · English voice\nEnglish and Chinese subtitles.",
+            "w": 350,
+            "h": 44.1875
+          }
+        ]
+      },
+      {
+        "id": "444:8940",
+        "titles": [
+          {
+            "id": "444:9164",
+            "text": "电脑版演示",
+            "w": 350,
+            "h": 52
+          },
+          {
+            "id": "444:9166",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "w": 350,
+            "h": 44.1875
+          },
+          {
+            "id": "605:11209",
+            "text": "安卓版本演示",
+            "w": 350,
+            "h": 52
+          },
+          {
+            "id": "605:11211",
+            "text": "59 秒 · 英文配音\n中英双语字幕。",
+            "w": 350,
+            "h": 44.1875
+          }
+        ]
+      },
+      {
+        "id": "444:9517",
+        "titles": [
+          {
+            "id": "444:9741",
+            "text": "PC版デモ",
+            "w": 350,
+            "h": 52
+          },
+          {
+            "id": "444:9743",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "w": 350,
+            "h": 44.1875
+          },
+          {
+            "id": "605:11240",
+            "text": "Android版デモ",
+            "w": 350,
+            "h": 52
+          },
+          {
+            "id": "605:11242",
+            "text": "59秒 · 英語ナレーション\n英語・中国語字幕。",
+            "w": 350,
+            "h": 44.1875
+          }
+        ]
+      }
+    ]
+  },
+  "posterProvenance": [
+    {
+      "path": "about/assets/desktop-demo-2026-11.png",
+      "sha256": "178894c8031050c2cc9572801692072b7682139aea3029d6153f10ad0da2d9ad",
+      "imageHash": "7f72b5877f40399afdf4c61e283ddcba29252005"
+    },
+    {
+      "path": "about/assets/android-demo-1.4.3-build10.png",
+      "sha256": "c4e09567e76269eb8e79bcd48df5b7bf8c132057daec50e53e301c7ad12ea3c3",
+      "imageHash": "e17e89c230eb674efb01d9543f8db2239498f36d"
+    }
+  ]
+}
