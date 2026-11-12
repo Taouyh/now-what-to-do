@@ -1,0 +1,268 @@
+{
+  "public_media": [
+    {
+      "file": "desktop-demo-2026-11.mp4",
+      "bytes": 16995446,
+      "sha256": "54912ca9aad19dd8865b40aa212d032127144f8edc83d559998d01c9cf1d151f"
+    },
+    {
+      "file": "android-demo-1.4.3-build10.mp4",
+      "bytes": 15120639,
+      "sha256": "47ac10a30b55b6cca82b8f52ba7f91b62321a4c1961bf939d9a086b0714c371d"
+    },
+    {
+      "file": "desktop-demo-2026-11.png",
+      "bytes": 1272823,
+      "sha256": "178894c8031050c2cc9572801692072b7682139aea3029d6153f10ad0da2d9ad"
+    },
+    {
+      "file": "android-demo-1.4.3-build10.png",
+      "bytes": 1267540,
+      "sha256": "c4e09567e76269eb8e79bcd48df5b7bf8c132057daec50e53e301c7ad12ea3c3"
+    }
+  ],
+  "public_playback": {
+    "result": "PASS",
+    "release": {
+      "version": "1.4.1",
+      "commit": "4e3295d90bf0daa4b4d76617b2bb7f70bbfc20fa"
+    },
+    "videos": [
+      {
+        "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.mp4",
+        "width": 1920,
+        "height": 1080,
+        "duration": 59,
+        "started": 0.761033,
+        "time": 40.360048,
+        "paused": false,
+        "error": null,
+        "poster": {
+          "url": "https://taouyh.github.io/now-what-to-do/about/assets/desktop-demo-2026-11.png",
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      {
+        "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.mp4",
+        "width": 1080,
+        "height": 1920,
+        "duration": 59,
+        "started": 0.762012,
+        "time": 40.360043,
+        "paused": false,
+        "error": null,
+        "poster": {
+          "url": "https://taouyh.github.io/now-what-to-do/about/assets/android-demo-1.4.3-build10.png",
+          "width": 1080,
+          "height": 1920
+        }
+      }
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "lang": "en",
+        "boxes": [
+          {
+            "width": 1200,
+            "height": 675
+          },
+          {
+            "width": 360,
+            "height": 640
+          }
+        ]
+      },
+      {
+        "width": 1440,
+        "lang": "zh-CN",
+        "boxes": [
+          {
+            "width": 1200,
+            "height": 675
+          },
+          {
+            "width": 360,
+            "height": 640
+          }
+        ]
+      },
+      {
+        "width": 1440,
+        "lang": "ja",
+        "boxes": [
+          {
+            "width": 1200,
+            "height": 675
+          },
+          {
+            "width": 360,
+            "height": 640
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "lang": "en",
+        "boxes": [
+          {
+            "width": 350,
+            "height": 196.875
+          },
+          {
+            "width": 350,
+            "height": 622.21875
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "lang": "zh-CN",
+        "boxes": [
+          {
+            "width": 350,
+            "height": 196.875
+          },
+          {
+            "width": 350,
+            "height": 622.21875
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "lang": "ja",
+        "boxes": [
+          {
+            "width": 350,
+            "height": 196.875
+          },
+          {
+            "width": 350,
+            "height": 622.21875
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "lang": "en",
+        "boxes": [
+          {
+            "width": 280,
+            "height": 157.5
+          },
+          {
+            "width": 280,
+            "height": 497.765625
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "lang": "zh-CN",
+        "boxes": [
+          {
+            "width": 280,
+            "height": 157.5
+          },
+          {
+            "width": 280,
+            "height": 497.765625
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "lang": "ja",
+        "boxes": [
+          {
+            "width": 280,
+            "height": 157.5
+          },
+          {
+            "width": 280,
+            "height": 497.765625
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  "native_release_and_readmes": {
+    "release": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3",
+    "tag": "v1.4.3",
+    "assets": [
+      {
+        "name": "Now-What-1.4.3-Android-build10.apk",
+        "bytes": 12106044,
+        "sha256": "eb678bbe9e59be849342f6769873845c07315a1d51a2f9d6e11cba8b869f9a89",
+        "url": "https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Android-build10.apk"
+      },
+      {
+        "name": "Now-What-1.4.3-Windows-x64-Setup.exe",
+        "bytes": 13910587,
+        "sha256": "82f3579826badaa578b8a241019f4002f2b2b27525b6dbe28e1a735807232b6c",
+        "url": "https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Windows-x64-Setup.exe"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "bytes": 206,
+        "sha256": "d619387d2c2b83fb7822c1ce9e9202864c6f661b766103b6d2fe03ca5a19e8cf",
+        "url": "https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/SHA256SUMS.txt"
+      }
+    ],
+    "readmes": [
+      {
+        "file": "README.md",
+        "matches_git_blob": true
+      },
+      {
+        "file": "README.zh-CN.md",
+        "matches_git_blob": true
+      },
+      {
+        "file": "README.ja.md",
+        "matches_git_blob": true
+      }
+    ]
+  },
+  "final_public_copy": {
+    "release": {
+      "version": "1.4.1",
+      "commit": "8fb8e6dcd0140fb9ec96977ad085e73e2555a531"
+    },
+    "checks": [
+      {
+        "width": 1440,
+        "lang": "en",
+        "result": "PASS"
+      },
+      {
+        "width": 1440,
+        "lang": "zh-CN",
+        "result": "PASS"
+      },
+      {
+        "width": 1440,
+        "lang": "ja",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "lang": "en",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "lang": "zh-CN",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "lang": "ja",
+        "result": "PASS"
+      }
+    ]
+  }
+}
