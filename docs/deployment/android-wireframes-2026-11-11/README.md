@@ -15,27 +15,31 @@ Verified Figma account handle `3966592487` before project access. Session `efb45
 
 ## Proposed layout
 
-**Now/home (added and revised 2026-11-12).** The latest feedback is that geometric centering makes the task/action group look too low against the uniform background. Keep time and current conditions in the top utility row; place the group slightly above the remaining area's geometric center, with Start primary and Change directly underneath. Move the whole group without altering its internal spacing, control sizes, or background. Reserve two lines for the task name. Existing next-step text participates in the group's layout. On small screens or with larger text, reduce free space before permitting content scrolling; never hide the primary controls. The review includes 360×800 default, 320×640 compact, and 360×800 long-title/next-step states. These are reference sizes, not measured OPPO viewports.
+**Now/home (added and revised 2026-11-12).** The latest user correction is to raise only the task name. Start, Change, time, current conditions and existing next-step text must remain at their original positions. The earlier whole-group movement has been reverted. Keep the two-line task-name reservation and existing control sizes; the space between the name and the following content increases, while the Start-to-Change gap stays unchanged. The review includes 360×800 default, 320×640 compact, and 360×800 long-title/next-step states. These are reference sizes, not measured OPPO viewports.
 
-The home extension reuses the prior wireframe shell, navigation, gray variables and existing Start/Change/capsule components. Its original session was `420dc164-465c-4c9e-b4ab-79a89fd3bdf4`. It contains 55 editable text nodes, 47 frames, 20 instances, 8 vectors and one local reusable action-group component, with no image-filled nodes. Text families are Noto Sans SC and Noto Serif SC. `home-figma-audit.json` preserves the original creation audit; the latest positions below supersede its original bounds. `add-home-wireframes.js` reproduces the updated design-only extension. The earlier `wireframes.png` remains the November 11 snapshot; `home-wireframes.png` now shows the optical-center correction.
+The home extension reuses the prior wireframe shell, navigation, gray variables and existing Start/Change/capsule components. Its original session was `420dc164-465c-4c9e-b4ab-79a89fd3bdf4`; the original creation contained 55 editable text nodes, 47 frames, 20 instances, 8 vectors and one local reusable action-group component, with no image-filled nodes. The title-only revision adds three independently positioned editable text nodes. Text families remain Noto Sans SC and Noto Serif SC. `home-figma-audit.json` preserves the creation audit; `home-title-position-audit.json` records the current geometry. `add-home-wireframes.js` reproduces the updated design-only extension. The earlier `wireframes.png` remains the November 11 snapshot; `home-wireframes.png` now shows the title-only correction.
 
-### Home optical-center correction — November 12
+### Home title-only correction — November 12
 
-Account `3966592487` was verified with whoami before access. Session: `735a8f94-63e8-41e8-9176-5f8f0b2b6240`. Only the three home focus-area containers and six explanatory text nodes changed. No task, calendar, editor, or approved visual frame was changed.
+Account `3966592487` was verified with whoami before access. Session: `735a8f94-63e8-41e8-9176-5f8f0b2b6240`. Changes are confined to the three home draft states and explanatory text. No task, calendar, editor, or approved visual frame was changed.
 
-| Reference state | Live group top before | Move up | Final group top | Preserved group height | Final bottom |
+| Reference state | Original title top | Name moves up | Final title top | Start Y before = after | Change Y before = after |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Default 360×800 | 364 px | 48 px | 316 px | 222 px | 538 px |
-| Compact 320×640 | 287 px | 28 px | 259 px | 216 px | 475 px |
-| Long title + next step 360×800 | 346.5 px | 48 px | 298.5 px | 257 px | 555.5 px |
+| Default 360×800 | 364 px | 32 px | 332 px | 460 px | 536 px |
+| Compact 320×640 | 287 px | 20 px | 267 px | 383 px | 459 px |
+| Long title + next step 360×800 | 346.5 px | 28 px | 318.5 px | 483.5 px | 559.5 px |
 
-Coordinates are relative to the phone frame. The live default group's 222 px height differed from the original 216 px audit and was deliberately preserved. All three keep the 76 px two-line name reservation, 20 px inter-item spacing, 240×56 Start control and 160×44 Change control. Time/conditions stay at y=130 with height 44 px. No card fill or border was added to the action groups.
+Coordinates above are relative to the phone frame. The original group top/height values are restored to 364/222, 287/216 and 346.5/257 px. The live default group's 222 px height differed from the original 216 px audit and is preserved. All three keep the 76 px two-line name reservation, 240×56 Start control and 160×44 Change control. The two buttons retain their 20 px gap. Time/conditions stay at y=130 with height 44 px; the long-state next-step text stays at y=442.5. No card fill or border was added.
 
-The flexible focus area keeps center alignment with 96 px additional bottom padding on the 800 px references and 56 px on the compact reference. This shifts the group up by half that padding while retaining auto-layout. The reproduction script interpolates the offset from 28 to 48 px across these reference heights; this is a wireframe layout rule, not implemented responsive code. Before/after geometry and unchanged internal layout are recorded in `home-optical-center-audit.json`. `raise-home-wireframes.js` is an idempotent correction for the existing nodes and does not recreate them.
+AbsoluteBoundingBox Y checks also match exactly: default Start 932→932 and Change 1008→1008; compact 855→855 and 931→931; long state 955.5→955.5 and 1031.5→1031.5. The next-step text remains 914.5→914.5. These compare with the live measurements at the beginning of this task, before the now-reverted group movement.
+
+Figma does not allow overriding child auto-layout positioning inside these instances. The three existing instance title layers are therefore hidden while their original 76 px title + 20 px gap are preserved as flow space. Three editable title text layers sit independently in the surrounding focus areas; button components and existing next-step text retain their positions. Only the name-to-following-content gap changes (52/40/48 px in the three states). This is a static draft arrangement, not an application implementation.
+
+`adjust-home-title.js` is the idempotent correction for the existing nodes. The original `home-optical-center-audit.json` is marked superseded, and the whole-group correction script was replaced. Current bounds, title IDs and absolute button-position evidence are in `home-title-position-audit.json`.
 
 The updated 1676×1226 screenshot was inspected: all three phone states show complete task titles, next-step text and controls within the viewport, with clear separation below the fixed utilities. No physical-device, browser interaction or user acceptance is claimed. The updated screenshot is `docs/deployment/android-wireframes-2026-11-11/home-wireframes.png`.
 
-This home layout still awaits user approval before visual or code changes. The optical-center correction was handed off to the existing Figma design chat, as requested. No application code, installer, APK or published site was changed; this handoff requires no additional chat.
+This home layout still awaits user approval before visual or code changes. The correction was handed off to the existing Figma design chat, as requested. No application code, installer, APK or published site was changed; this handoff requires no additional chat.
 
 **Tasks.** Keep the app brand and four navigation tabs. Give the task page the remaining usable viewport. Center a short set of activities within the main content area; align each name, pin and Start control vertically. Keep Previous/Next in a stable bottom area, clear of the system inset. More activities use true pagination; the examples show six rows at 360×800 and four at 320×640. Actual capacity must use available height, font size and safe insets. Preserve pinning, dragging, editing and starting. Do not add a visible task page counter or “任务·续页”. Keep the current page/anchor when dismissing the editor.
 
