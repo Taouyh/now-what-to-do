@@ -1,0 +1,54 @@
+[
+  {
+    "file": "D:\\code\\now-what-to-do\\dist\\native-review-1.4.3-2026-11-12\\final\\windows\\webview2-unpacked\\Now What.exe",
+    "iconResources": 9,
+    "exactPngSizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      128,
+      256
+    ],
+    "expectedPngSizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      128,
+      256
+    ]
+  },
+  {
+    "file": "D:\\code\\now-what-to-do\\dist\\native-review-1.4.3-2026-11-12\\final\\windows\\Now-What-1.4.3-Windows-x64-Setup.exe",
+    "iconResources": 9,
+    "exactPngSizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      128,
+      256
+    ],
+    "expectedPngSizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      128,
+      256
+    ]
+  }
+]

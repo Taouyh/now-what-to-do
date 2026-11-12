@@ -1,0 +1,71 @@
+
+Running 20 tests using 1 worker
+
+(node:26432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 360x752 (2.4s)
+  x   2 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (7.0s)
+(node:14236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 800x360 (2.5s)
+  ok  4 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 360x752 (2.5s)
+  ok  5 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 320x592 (2.2s)
+  ok  6 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 800x360 (2.7s)
+  ok  7 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 360x752 (2.4s)
+  ok  8 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 320x592 (2.2s)
+  ok  9 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 800x360 (2.7s)
+  ok 10 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 360x752 (2.3s)
+  ok 11 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 320x592 (2.2s)
+  ok 12 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 800x360 (2.6s)
+  ok 13 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 360x752 (2.6s)
+  ok 14 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 320x592 (2.4s)
+  ok 15 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 800x360 (2.8s)
+  ok 16 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 360x752 (2.5s)
+  ok 17 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 320x592 (2.4s)
+  ok 18 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 800x360 (2.8s)
+  ok 19 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:29:5 › production timer hidden/resume, timely one chord and no replay (1.3s)
+  ok 20 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:37:5 › exact Android cold notification script waits for ready and returns current round (982ms)
+
+
+  1) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\independent-results\independent-matrix-zh-CN-light-320x592\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\independent-results\independent-matrix-zh-CN-light-320x592\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\independent-results\independent-matrix-zh-CN-light-320x592\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\independent-results\independent-matrix-zh-CN-light-320x592\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+  19 passed (54.5s)

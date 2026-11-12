@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'.',testMatch:'independent.spec.ts',timeout:30000,workers:3,reporter:[['list']],outputDir:'../../../../test-artifacts/native-143/independent-results',use:{baseURL:'http://127.0.0.1:18767',channel:'msedge',screenshot:'only-on-failure',trace:'retain-on-failure'},webServer:{command:'node scripts/serve-web.cjs',cwd:'../../../..',port:18767,env:{PORT:'18767'},reuseExistingServer:false}});

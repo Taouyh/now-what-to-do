@@ -1,0 +1,30 @@
+
+Running 23 tests using 1 worker
+
+(node:9504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 360x752 (4.1s)
+  ok  2 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (3.2s)
+  ok  3 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 800x360 (3.8s)
+  ok  4 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 360x752 (3.1s)
+  ok  5 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 320x592 (2.8s)
+  ok  6 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN dark 800x360 (3.3s)
+  ok  7 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 360x752 (2.9s)
+  ok  8 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 320x592 (2.4s)
+  ok  9 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en light 800x360 (3.1s)
+  ok 10 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 360x752 (3.0s)
+  ok 11 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 320x592 (2.5s)
+  ok 12 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix en dark 800x360 (3.0s)
+  ok 13 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 360x752 (3.0s)
+  ok 14 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 320x592 (3.0s)
+  ok 15 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja light 800x360 (3.5s)
+  ok 16 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 360x752 (3.2s)
+  ok 17 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 320x592 (2.9s)
+  ok 18 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix ja dark 800x360 (3.2s)
+  ok 19 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:29:5 › production timer hidden/resume, timely one chord and no replay (1.5s)
+  ok 20 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:37:5 › exact Android cold notification script waits for ready and returns current round (1.2s)
+  ok 21 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:42:5 › mobile pointer drag persists and keeps edit/start separate (1.7s)
+  ok 22 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.3s)
+  ok 23 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:58:5 › design geometry and local static assets (3.2s)
+
+  23 passed (1.1m)

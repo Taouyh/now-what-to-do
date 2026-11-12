@@ -1,0 +1,217 @@
+[
+  {
+    "width": 360,
+    "height": 752,
+    "long": false,
+    "bounds": {
+      ".home-controls": {
+        "x": 25,
+        "y": 105,
+        "w": 310,
+        "h": 44
+      },
+      "#recommendedTaskName": {
+        "x": 25,
+        "y": 310,
+        "w": 310,
+        "h": 76
+      },
+      "#start": {
+        "x": 60,
+        "y": 438,
+        "w": 240,
+        "h": 56
+      },
+      "#random": {
+        "x": 100,
+        "y": 514,
+        "w": 160,
+        "h": 44
+      },
+      ".recommendation-step": null
+    },
+    "visibleAssets": [
+      {
+        "src": "assets/nav-home.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-tasks.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-calendar.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-settings.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/play.svg",
+        "loaded": true,
+        "width": 28,
+        "height": 28
+      },
+      {
+        "src": "assets/refresh.svg",
+        "loaded": true,
+        "width": 24,
+        "height": 24
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 592,
+    "long": false,
+    "bounds": {
+      ".home-controls": {
+        "x": 25,
+        "y": 105,
+        "w": 270,
+        "h": 44
+      },
+      "#recommendedTaskName": {
+        "x": 25,
+        "y": 242,
+        "w": 270,
+        "h": 76
+      },
+      "#start": {
+        "x": 40,
+        "y": 358,
+        "w": 240,
+        "h": 56
+      },
+      "#random": {
+        "x": 80,
+        "y": 434,
+        "w": 160,
+        "h": 44
+      },
+      ".recommendation-step": null
+    },
+    "visibleAssets": [
+      {
+        "src": "assets/nav-home.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-tasks.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-calendar.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-settings.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/play.svg",
+        "loaded": true,
+        "width": 28,
+        "height": 28
+      },
+      {
+        "src": "assets/refresh.svg",
+        "loaded": true,
+        "width": 24,
+        "height": 24
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "height": 752,
+    "long": true,
+    "bounds": {
+      ".home-controls": {
+        "x": 25,
+        "y": 105,
+        "w": 310,
+        "h": 44
+      },
+      "#recommendedTaskName": {
+        "x": 25,
+        "y": 293.5,
+        "w": 310,
+        "h": 76
+      },
+      "#start": {
+        "x": 60,
+        "y": 458.5,
+        "w": 240,
+        "h": 56
+      },
+      "#random": {
+        "x": 100,
+        "y": 534.5,
+        "w": 160,
+        "h": 44
+      },
+      ".recommendation-step": {
+        "x": 25,
+        "y": 417.5,
+        "w": 310,
+        "h": 21
+      }
+    },
+    "visibleAssets": [
+      {
+        "src": "assets/nav-home.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-tasks.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-calendar.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/nav-settings.svg",
+        "loaded": true,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "assets/play.svg",
+        "loaded": true,
+        "width": 28,
+        "height": 28
+      },
+      {
+        "src": "assets/refresh.svg",
+        "loaded": true,
+        "width": 24,
+        "height": 24
+      }
+    ]
+  }
+]
