@@ -2,8 +2,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist/web');
+const version = require('../package.json').version;
 const source = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const html = source.replace('<script type="module" src="/src/main.ts"></script>', '<!-- native-bridge --><script src="app.js"></script>');
+const html = source.replace('<script type="module" src="/src/main.ts"></script>', `<!-- native-bridge --><script src="app.js?v=${version}"></script>`);
 fs.writeFileSync(path.join(output, 'index.html'), html);
 fs.cpSync(path.join(root, 'public/assets'), path.join(output, 'assets'), { recursive: true });
 // Keep original design PNGs in source, but ship only their compact WebP derivatives.
