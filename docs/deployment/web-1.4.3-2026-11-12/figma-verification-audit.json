@@ -1,0 +1,426 @@
+{
+  "date": "2026-11-12",
+  "checkedOutSource": "f0b04148d26107bbddaaf72d2684dc78a3698cc4",
+  "finalSource": "aeae00f2001442b8a27d8126eebd1f765b2b545e",
+  "finalDelta": "Favicon and 1.4.3 CSS/JS cache keys only; reviewed via git show; no runtime/layout delta",
+  "runtimeAssetReference": "900cc3a",
+  "runtimeAssetDiffPaths": [
+    "src",
+    "public/assets",
+    "packaging",
+    "package.json"
+  ],
+  "runtimeAssetDiffExitCode": 0,
+  "accountHandle": "3966592487",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "pageId": "49:243",
+  "sessionId": "532e384d-7401-478d-a1d6-a8f5859ac5a2",
+  "figmaMutations": [],
+  "figma": [
+    {
+      "id": "457:9433",
+      "name": "1.4.2 FINAL / web / zh-CN / 1600 / Automatic sound · 3fd4968",
+      "type": "FRAME",
+      "width": 1600,
+      "height": 1000,
+      "footerTexts": [
+        {
+          "id": "I474:9832;474:9779",
+          "name": "数据不同步",
+          "text": "数据不同步",
+          "x": 196.0625,
+          "y": 583.515625,
+          "w": 60,
+          "h": 20
+        }
+      ],
+      "footerInstances": [
+        {
+          "id": "474:9832",
+          "name": "settings-footer / automatic sound",
+          "mainComponentId": "474:9772"
+        }
+      ],
+      "vectorCount": 43,
+      "imageNodes": 6
+    },
+    {
+      "id": "457:9791",
+      "name": "1.4.2 FINAL / windows / en / 1600 / Automatic sound · 3fd4968",
+      "type": "FRAME",
+      "width": 1600,
+      "height": 1000,
+      "footerTexts": [
+        {
+          "id": "I474:9840;474:9787",
+          "name": "No data sync",
+          "text": "No data sync",
+          "x": 196.0625,
+          "y": 583.515625,
+          "w": 75,
+          "h": 20
+        }
+      ],
+      "footerInstances": [
+        {
+          "id": "474:9840",
+          "name": "settings-footer / automatic sound",
+          "mainComponentId": "474:9780"
+        }
+      ],
+      "vectorCount": 43,
+      "imageNodes": 6
+    },
+    {
+      "id": "474:9772",
+      "name": "1.4.2 FINAL / Automatic sound footer / web-zh / 3fd4968",
+      "type": "COMPONENT",
+      "width": 530.0625,
+      "height": 35.1875,
+      "footerTexts": [
+        {
+          "id": "474:9779",
+          "name": "数据不同步",
+          "text": "数据不同步",
+          "x": 0,
+          "y": 7.59375,
+          "w": 60,
+          "h": 20
+        }
+      ],
+      "footerInstances": [],
+      "vectorCount": 0,
+      "imageNodes": 0
+    },
+    {
+      "id": "474:9780",
+      "name": "1.4.2 FINAL / Automatic sound footer / windows-en / 3fd4968",
+      "type": "COMPONENT",
+      "width": 530.0625,
+      "height": 35.1875,
+      "footerTexts": [
+        {
+          "id": "474:9787",
+          "name": "No data sync",
+          "text": "No data sync",
+          "x": 0,
+          "y": 7.59375,
+          "w": 75,
+          "h": 20
+        }
+      ],
+      "footerInstances": [],
+      "vectorCount": 0,
+      "imageNodes": 0
+    },
+    {
+      "id": "595:10936",
+      "name": "App icon / Book / Windows",
+      "type": "COMPONENT",
+      "width": 512,
+      "height": 512,
+      "footerTexts": [],
+      "footerInstances": [],
+      "vectorCount": 14,
+      "imageNodes": 0
+    },
+    {
+      "id": "595:10979",
+      "name": "App icon / Book / Review 2026-11-12",
+      "type": "FRAME",
+      "width": 955,
+      "height": 826,
+      "footerTexts": [],
+      "footerInstances": [],
+      "vectorCount": 135,
+      "imageNodes": 0
+    }
+  ],
+  "responsiveFigma": [
+    {
+      "id": "574:10223",
+      "name": "12 默认主页 · 360×800",
+      "w": 360,
+      "h": 800,
+      "controls": [
+        {
+          "id": "I574:10234;574:10285",
+          "name": "Start / primary",
+          "x": 61,
+          "y": 460,
+          "w": 240,
+          "h": 56
+        },
+        {
+          "id": "I574:10234;574:10286",
+          "name": "Change / secondary",
+          "x": 101,
+          "y": 536,
+          "w": 160,
+          "h": 44
+        }
+      ]
+    },
+    {
+      "id": "574:10241",
+      "name": "13 小屏主页 · 320×640",
+      "w": 320,
+      "h": 640,
+      "controls": [
+        {
+          "id": "I574:10252;574:10285",
+          "name": "Start / primary",
+          "x": 41,
+          "y": 383,
+          "w": 240,
+          "h": 56
+        },
+        {
+          "id": "I574:10252;574:10286",
+          "name": "Change / secondary",
+          "x": 81,
+          "y": 459,
+          "w": 160,
+          "h": 44
+        }
+      ]
+    }
+  ],
+  "browser": {
+    "sourceCommit": "f0b04148d26107bbddaaf72d2684dc78a3698cc4",
+    "results": [
+      {
+        "platform": "web",
+        "lang": "zh-CN",
+        "width": 1600,
+        "height": 1000,
+        "soundDOM": 0,
+        "vibrationVisible": false,
+        "preferencesVisible": false,
+        "errors": [],
+        "footer": {
+          "text": "数据不同步",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 611.109375,
+            "left": 196.0625
+          }
+        },
+        "note": {
+          "x": 196.0625,
+          "y": 583.921875,
+          "width": 60,
+          "height": 19.1875,
+          "top": 583.921875,
+          "right": 256.0625,
+          "bottom": 603.109375,
+          "left": 196.0625
+        },
+        "overflow": false,
+        "bodyClass": "book-app",
+        "htmlClass": "",
+        "visibleLabels": []
+      },
+      {
+        "platform": "windows",
+        "lang": "en",
+        "width": 1600,
+        "height": 1000,
+        "soundDOM": 0,
+        "vibrationVisible": false,
+        "preferencesVisible": false,
+        "errors": [],
+        "footer": {
+          "text": "No data sync",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 35.1875,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 611.109375,
+            "left": 196.0625
+          }
+        },
+        "note": {
+          "x": 196.0625,
+          "y": 583.921875,
+          "width": 75.21875,
+          "height": 19.1875,
+          "top": 583.921875,
+          "right": 271.28125,
+          "bottom": 603.109375,
+          "left": 196.0625
+        },
+        "overflow": false,
+        "bodyClass": "book-app",
+        "htmlClass": "",
+        "visibleLabels": []
+      },
+      {
+        "platform": "web",
+        "lang": "en",
+        "width": 390,
+        "height": 844,
+        "soundDOM": 0,
+        "vibrationVisible": false,
+        "preferencesVisible": false,
+        "errors": [],
+        "footer": {
+          "text": "No data sync",
+          "rect": {
+            "x": 40,
+            "y": 450,
+            "width": 310,
+            "height": 35.1875,
+            "top": 450,
+            "right": 350,
+            "bottom": 485.1875,
+            "left": 40
+          }
+        },
+        "note": {
+          "x": 40,
+          "y": 458,
+          "width": 75.21875,
+          "height": 19.1875,
+          "top": 458,
+          "right": 115.21875,
+          "bottom": 477.1875,
+          "left": 40
+        },
+        "overflow": false,
+        "bodyClass": "book-app",
+        "htmlClass": "",
+        "visibleLabels": []
+      }
+    ],
+    "icon": {
+      "naturalWidth": 128,
+      "naturalHeight": 128,
+      "width": 88,
+      "height": 88
+    }
+  },
+  "touchBrowser": [
+    {
+      "width": 320,
+      "height": 592,
+      "home": {
+        "mobile": true,
+        "nativeBridge": false,
+        "start": {
+          "x": 40,
+          "y": 358,
+          "width": 240,
+          "height": 56,
+          "top": 358,
+          "right": 280,
+          "bottom": 414,
+          "left": 40
+        },
+        "change": {
+          "x": 80,
+          "y": 434,
+          "width": 160,
+          "height": 44,
+          "top": 434,
+          "right": 240,
+          "bottom": 478,
+          "left": 80
+        },
+        "overflow": false
+      },
+      "settings": {
+        "text": "数据不同步",
+        "footer": {
+          "x": 29,
+          "y": 321,
+          "width": 262,
+          "height": 39.1875,
+          "top": 321,
+          "right": 291,
+          "bottom": 360.1875,
+          "left": 29
+        },
+        "import": {
+          "x": 186.203125,
+          "y": 480.1875,
+          "width": 104.796875,
+          "height": 44,
+          "top": 480.1875,
+          "right": 291,
+          "bottom": 524.1875,
+          "left": 186.203125
+        },
+        "overflow": false
+      }
+    },
+    {
+      "width": 360,
+      "height": 752,
+      "home": {
+        "mobile": true,
+        "nativeBridge": false,
+        "start": {
+          "x": 60,
+          "y": 438,
+          "width": 240,
+          "height": 56,
+          "top": 438,
+          "right": 300,
+          "bottom": 494,
+          "left": 60
+        },
+        "change": {
+          "x": 100,
+          "y": 514,
+          "width": 160,
+          "height": 44,
+          "top": 514,
+          "right": 260,
+          "bottom": 558,
+          "left": 100
+        },
+        "overflow": false
+      },
+      "settings": {
+        "text": "数据不同步",
+        "footer": {
+          "x": 29,
+          "y": 321,
+          "width": 302,
+          "height": 39.1875,
+          "top": 321,
+          "right": 331,
+          "bottom": 360.1875,
+          "left": 29
+        },
+        "import": {
+          "x": 210.203125,
+          "y": 480.1875,
+          "width": 120.796875,
+          "height": 44,
+          "top": 480.1875,
+          "right": 331,
+          "bottom": 524.1875,
+          "left": 210.203125
+        },
+        "overflow": false
+      }
+    }
+  ],
+  "hashes": {
+    "packaging/icon.png": "8C8B0AFB49877E2CD8016383AA178CF24F72315881D5A2E1D66E08142CE2A042",
+    "packaging/icons/icon-128.png": "1E725B45FBDB1E98EDBE40629307810A656780C5BE5B2403A7386F42331F2B36",
+    "dist/web/app.js": "285491ADCB0FBB4A3E014185BE67021FDDF998D4A9A0B9EAD08C3C12992AAA95",
+    "dist/web/style.css": "0104A74057E6E65F739005137C7EB88E98797B1DA484737D55FE8B8A064E5EF6"
+  },
+  "result": "PASS: existing mappings reused; no Figma edits needed"
+}
