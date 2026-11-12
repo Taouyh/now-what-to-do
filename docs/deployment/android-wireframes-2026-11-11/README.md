@@ -1,4 +1,6 @@
-# Android layout review — awaiting approval
+# Android layout review — visual design authorized
+
+**November 12 status:** the user requested visual design from these revised wireframes. This authorizes the next visual-design step, superseding the earlier awaiting-wireframe-review notes below. [Visual delivery](../android-visuals-2026-11-12/README.md) preserves this board as the layout reference. Application implementation and a new APK have not been authorized by that request.
 
 2026-11-11, Asia/Shanghai. **Draft wireframes only.** The user requires wireframe approval before Android visual design, code changes or a new APK. No application source was changed in this task. Windows packaging is delivered separately in `../windows-review-2026-11-11/RELEASE.md`.
 
