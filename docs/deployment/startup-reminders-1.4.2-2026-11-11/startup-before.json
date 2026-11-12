@@ -1,0 +1,576 @@
+[
+  {
+    "mobile": false,
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1148
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1148
+      }
+    ],
+    "resources": [
+      {
+        "name": "theme-assets.css",
+        "bytes": 492,
+        "end": 528.6000000000931
+      },
+      {
+        "name": "style.css?v=1.4.0",
+        "bytes": 79560,
+        "end": 759
+      },
+      {
+        "name": "app.js",
+        "bytes": 118377,
+        "end": 927.4000000003725
+      },
+      {
+        "name": "fonts.css",
+        "bytes": 407,
+        "end": 621.8000000002794
+      },
+      {
+        "name": "index.css",
+        "bytes": 102301,
+        "end": 1081.7000000001863
+      },
+      {
+        "name": "index.css",
+        "bytes": 101998,
+        "end": 1066.2000000001863
+      },
+      {
+        "name": "index.css",
+        "bytes": 2840,
+        "end": 729.1000000000931
+      },
+      {
+        "name": "edge-left-2.svg",
+        "bytes": 893,
+        "end": 1406.9000000003725
+      },
+      {
+        "name": "edge-right-2.svg",
+        "bytes": 884,
+        "end": 1407.3000000002794
+      },
+      {
+        "name": "edge-left-1.svg",
+        "bytes": 893,
+        "end": 1405.6000000000931
+      },
+      {
+        "name": "edge-right-1.svg",
+        "bytes": 884,
+        "end": 1406.1000000000931
+      },
+      {
+        "name": "paper-left.webp",
+        "bytes": 1884342,
+        "end": 8734.100000000093
+      },
+      {
+        "name": "spine-left.svg",
+        "bytes": 1265,
+        "end": 1406.5
+      },
+      {
+        "name": "corner-left.svg",
+        "bytes": 939,
+        "end": 2590.600000000093
+      },
+      {
+        "name": "paper-right.webp",
+        "bytes": 1883814,
+        "end": 9135.700000000186
+      },
+      {
+        "name": "spine-right.svg",
+        "bytes": 1250,
+        "end": 2822.8000000002794
+      },
+      {
+        "name": "corner-right.svg",
+        "bytes": 939,
+        "end": 2932
+      },
+      {
+        "name": "nav-home.svg",
+        "bytes": 956,
+        "end": 3414
+      },
+      {
+        "name": "nav-tasks.svg",
+        "bytes": 1779,
+        "end": 2790.600000000093
+      },
+      {
+        "name": "nav-calendar.svg",
+        "bytes": 1287,
+        "end": 3506.3000000002794
+      },
+      {
+        "name": "nav-settings.svg",
+        "bytes": 1241,
+        "end": 3504.3000000002794
+      },
+      {
+        "name": "plant-4.svg",
+        "bytes": 1046,
+        "end": 2931.4000000003725
+      },
+      {
+        "name": "plant-5.svg",
+        "bytes": 940,
+        "end": 2685.3000000002794
+      },
+      {
+        "name": "plant-6.svg",
+        "bytes": 940,
+        "end": 3118.3000000002794
+      },
+      {
+        "name": "plant-7.svg",
+        "bytes": 940,
+        "end": 3319.100000000093
+      },
+      {
+        "name": "plant-8.svg",
+        "bytes": 940,
+        "end": 3212.3000000002794
+      },
+      {
+        "name": "plant-9.svg",
+        "bytes": 940,
+        "end": 3210.3000000002794
+      },
+      {
+        "name": "plant-10.svg",
+        "bytes": 940,
+        "end": 3027.3000000002794
+      },
+      {
+        "name": "plant-11.svg",
+        "bytes": 940,
+        "end": 3412.3000000002794
+      },
+      {
+        "name": "plant-12.svg",
+        "bytes": 940,
+        "end": 3120.2000000001863
+      },
+      {
+        "name": "plant-13.svg",
+        "bytes": 940,
+        "end": 3318.7000000001863
+      },
+      {
+        "name": "plant-14.svg",
+        "bytes": 940,
+        "end": 2729.2000000001863
+      },
+      {
+        "name": "plant-15.svg",
+        "bytes": 1387,
+        "end": 3024.8000000002794
+      },
+      {
+        "name": "refresh.svg",
+        "bytes": 1029,
+        "end": 3689.5
+      },
+      {
+        "name": "scroll-icon-1.svg",
+        "bytes": 942,
+        "end": 3690.4000000003725
+      },
+      {
+        "name": "scroll-icon-2.svg",
+        "bytes": 1306,
+        "end": 3704.8000000002794
+      },
+      {
+        "name": "scroll-icon-3.svg",
+        "bytes": 1088,
+        "end": 3797.9000000003725
+      },
+      {
+        "name": "scroll-icon-4.svg",
+        "bytes": 851,
+        "end": 3798.2000000001863
+      },
+      {
+        "name": "environment.webp",
+        "bytes": 1037450,
+        "end": 7174.300000000279
+      },
+      {
+        "name": "noto-serif-sc-118-wght-normal.woff2",
+        "bytes": 58524,
+        "end": 1927.4000000003725
+      },
+      {
+        "name": "task-paper.webp",
+        "bytes": 119286,
+        "end": 3612.2000000001863
+      },
+      {
+        "name": "eb-garamond-latin-wght-normal.woff2",
+        "bytes": 44636,
+        "end": 1849.8000000002794
+      },
+      {
+        "name": "noto-sans-sc-118-wght-normal.woff2",
+        "bytes": 46292,
+        "end": 1864.6000000000931
+      },
+      {
+        "name": "noto-serif-sc-119-wght-normal.woff2",
+        "bytes": 105264,
+        "end": 2267
+      },
+      {
+        "name": "noto-serif-sc-117-wght-normal.woff2",
+        "bytes": 66956,
+        "end": 1989.6000000000931
+      },
+      {
+        "name": "noto-serif-sc-116-wght-normal.woff2",
+        "bytes": 67604,
+        "end": 2435.9000000003725
+      },
+      {
+        "name": "noto-serif-sc-115-wght-normal.woff2",
+        "bytes": 72808,
+        "end": 2483.5
+      },
+      {
+        "name": "noto-sans-sc-113-wght-normal.woff2",
+        "bytes": 58728,
+        "end": 2452
+      },
+      {
+        "name": "noto-sans-sc-119-wght-normal.woff2",
+        "bytes": 76624,
+        "end": 2620.7000000001863
+      },
+      {
+        "name": "noto-sans-sc-117-wght-normal.woff2",
+        "bytes": 52528,
+        "end": 2682.600000000093
+      },
+      {
+        "name": "noto-sans-sc-116-wght-normal.woff2",
+        "bytes": 53096,
+        "end": 2821.600000000093
+      },
+      {
+        "name": "noto-sans-sc-115-wght-normal.woff2",
+        "bytes": 56564,
+        "end": 2852.600000000093
+      },
+      {
+        "name": "favicon.ico",
+        "bytes": 769,
+        "end": 3598
+      },
+      {
+        "name": "favicon.ico",
+        "bytes": 769,
+        "end": 3600
+      }
+    ],
+    "longTasks": [
+      {
+        "start": 1191.3000000002794,
+        "duration": 120
+      }
+    ],
+    "marks": []
+  },
+  {
+    "mobile": true,
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 892
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 892
+      }
+    ],
+    "resources": [
+      {
+        "name": "theme-assets.css",
+        "bytes": 492,
+        "end": 283.20000000018626
+      },
+      {
+        "name": "style.css?v=1.4.0",
+        "bytes": 79560,
+        "end": 501.29999999981374
+      },
+      {
+        "name": "app.js",
+        "bytes": 118377,
+        "end": 671.2999999998137
+      },
+      {
+        "name": "fonts.css",
+        "bytes": 407,
+        "end": 376.5
+      },
+      {
+        "name": "index.css",
+        "bytes": 102301,
+        "end": 826.2999999998137
+      },
+      {
+        "name": "index.css",
+        "bytes": 101998,
+        "end": 825.7999999998137
+      },
+      {
+        "name": "index.css",
+        "bytes": 2840,
+        "end": 486.39999999990687
+      },
+      {
+        "name": "edge-left-2.svg",
+        "bytes": 893,
+        "end": 1107.3999999999069
+      },
+      {
+        "name": "edge-right-2.svg",
+        "bytes": 884,
+        "end": 1107.7999999998137
+      },
+      {
+        "name": "edge-left-1.svg",
+        "bytes": 893,
+        "end": 1108
+      },
+      {
+        "name": "edge-right-1.svg",
+        "bytes": 884,
+        "end": 1110.1000000000931
+      },
+      {
+        "name": "paper-left.webp",
+        "bytes": 1884342,
+        "end": 10298.700000000186
+      },
+      {
+        "name": "spine-left.svg",
+        "bytes": 1265,
+        "end": 1117.5
+      },
+      {
+        "name": "corner-left.svg",
+        "bytes": 939,
+        "end": 2587.399999999907
+      },
+      {
+        "name": "paper-right.webp",
+        "bytes": 1883814,
+        "end": 10665.299999999814
+      },
+      {
+        "name": "spine-right.svg",
+        "bytes": 1250,
+        "end": 2694.100000000093
+      },
+      {
+        "name": "corner-right.svg",
+        "bytes": 939,
+        "end": 2802.899999999907
+      },
+      {
+        "name": "nav-home.svg",
+        "bytes": 956,
+        "end": 2417.2000000001863
+      },
+      {
+        "name": "nav-tasks.svg",
+        "bytes": 1779,
+        "end": 2523.7999999998137
+      },
+      {
+        "name": "nav-calendar.svg",
+        "bytes": 1287,
+        "end": 2494.7000000001863
+      },
+      {
+        "name": "nav-settings.svg",
+        "bytes": 1241,
+        "end": 2277.100000000093
+      },
+      {
+        "name": "plant-4.svg",
+        "bytes": 1046,
+        "end": 2896.7000000001863
+      },
+      {
+        "name": "plant-5.svg",
+        "bytes": 940,
+        "end": 2988.7000000001863
+      },
+      {
+        "name": "plant-6.svg",
+        "bytes": 940,
+        "end": 3079.899999999907
+      },
+      {
+        "name": "plant-7.svg",
+        "bytes": 940,
+        "end": 3080.899999999907
+      },
+      {
+        "name": "plant-8.svg",
+        "bytes": 940,
+        "end": 3188.399999999907
+      },
+      {
+        "name": "plant-9.svg",
+        "bytes": 940,
+        "end": 3188.2000000001863
+      },
+      {
+        "name": "plant-10.svg",
+        "bytes": 940,
+        "end": 3295.600000000093
+      },
+      {
+        "name": "plant-11.svg",
+        "bytes": 940,
+        "end": 3295.7999999998137
+      },
+      {
+        "name": "plant-12.svg",
+        "bytes": 940,
+        "end": 3403.600000000093
+      },
+      {
+        "name": "plant-13.svg",
+        "bytes": 940,
+        "end": 3403.7999999998137
+      },
+      {
+        "name": "plant-14.svg",
+        "bytes": 940,
+        "end": 3496.600000000093
+      },
+      {
+        "name": "plant-15.svg",
+        "bytes": 1387,
+        "end": 3498.5
+      },
+      {
+        "name": "refresh.svg",
+        "bytes": 1029,
+        "end": 3590.899999999907
+      },
+      {
+        "name": "scroll-icon-1.svg",
+        "bytes": 942,
+        "end": 3592.899999999907
+      },
+      {
+        "name": "scroll-icon-2.svg",
+        "bytes": 1306,
+        "end": 3684.7999999998137
+      },
+      {
+        "name": "scroll-icon-3.svg",
+        "bytes": 1088,
+        "end": 3686.7999999998137
+      },
+      {
+        "name": "scroll-icon-4.svg",
+        "bytes": 851,
+        "end": 3791.7999999998137
+      },
+      {
+        "name": "environment.webp",
+        "bytes": 1037450,
+        "end": 8054.200000000186
+      },
+      {
+        "name": "scroll-paper.webp",
+        "bytes": 1457604,
+        "end": 9772.5
+      },
+      {
+        "name": "noto-serif-sc-118-wght-normal.woff2",
+        "bytes": 58524,
+        "end": 1644.3999999999069
+      },
+      {
+        "name": "noto-sans-sc-latin-wght-normal.woff2",
+        "bytes": 25180,
+        "end": 1397.8999999999069
+      },
+      {
+        "name": "noto-serif-sc-117-wght-normal.woff2",
+        "bytes": 66956,
+        "end": 1702.8999999999069
+      },
+      {
+        "name": "noto-serif-sc-116-wght-normal.woff2",
+        "bytes": 67604,
+        "end": 1709.6000000000931
+      },
+      {
+        "name": "task-paper.webp",
+        "bytes": 119286,
+        "end": 2972.600000000093
+      },
+      {
+        "name": "noto-serif-sc-119-wght-normal.woff2",
+        "bytes": 105264,
+        "end": 1968.7999999998137
+      },
+      {
+        "name": "noto-sans-sc-118-wght-normal.woff2",
+        "bytes": 46292,
+        "end": 1798.7000000001863
+      },
+      {
+        "name": "noto-sans-sc-113-wght-normal.woff2",
+        "bytes": 58728,
+        "end": 2154.600000000093
+      },
+      {
+        "name": "noto-sans-sc-119-wght-normal.woff2",
+        "bytes": 76624,
+        "end": 2323.7999999998137
+      },
+      {
+        "name": "noto-sans-sc-117-wght-normal.woff2",
+        "bytes": 52528,
+        "end": 2184.899999999907
+      },
+      {
+        "name": "noto-sans-sc-116-wght-normal.woff2",
+        "bytes": 53096,
+        "end": 2262.899999999907
+      },
+      {
+        "name": "noto-sans-sc-115-wght-normal.woff2",
+        "bytes": 56564,
+        "end": 2400.600000000093
+      }
+    ],
+    "longTasks": [
+      {
+        "start": 927.5,
+        "duration": 92
+      }
+    ],
+    "marks": []
+  }
+]

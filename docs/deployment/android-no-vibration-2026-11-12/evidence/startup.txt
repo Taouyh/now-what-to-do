@@ -1,0 +1,14 @@
+
+Running 3 tests using 3 workers
+
+(node:33636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 tests\e2e\startup-reminders.spec.ts:25:5 › sound setting is absent and import remains visible on small dark screens (1.5s)
+  ok 2 tests\e2e\startup-reminders.spec.ts:3:5 › cold first view is revealed as an assembled book; missing textures cannot trap startup (2.1s)
+  ok 1 tests\e2e\startup-reminders.spec.ts:13:5 › timer arrival, silent reopen and preferences keep one current session (2.7s)
+
+  3 passed (5.2s)

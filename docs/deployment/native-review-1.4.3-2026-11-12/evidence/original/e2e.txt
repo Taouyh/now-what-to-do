@@ -1,0 +1,252 @@
+
+> now-what-to-do@1.4.3 test:e2e
+> playwright test
+
+
+Running 109 tests using 3 workers
+
+(node:936) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   1 tests\e2e\android-visuals.spec.ts:17:7 › Android visual flow 320x592 en (3.5s)
+  ok   2 tests\e2e\android-visuals.spec.ts:17:7 › Android visual flow 360x752 zh-CN (3.7s)
+  ok   3 tests\e2e\android-visuals.spec.ts:17:7 › Android visual flow 390x796 ja (4.2s)
+  ok   4 tests\e2e\book.spec.ts:18:5 › empty library, real first activity, pause, navigation, finish and continuation (2.8s)
+  ok   6 tests\e2e\book.spec.ts:54:5 › calendar groups by identity, five groups and four records per page (2.3s)
+  ok   5 tests\e2e\book.spec.ts:37:5 › task groups, cancelled drafts, validation, unchanged save and deletion clamp (3.9s)
+  ok   7 tests\e2e\book.spec.ts:65:5 › recovery uses saved task snapshot and direct discard creates no record (1.6s)
+  ok   8 tests\e2e\book.spec.ts:74:5 › local assets, languages, theme, keyboard escape, and narrow-screen controls (2.1s)
+  ok   9 tests\e2e\book.spec.ts:92:5 › long focus descriptions stay inside the book and dark controls remain legible (1.7s)
+  ok  10 tests\e2e\book.spec.ts:113:5 › damaged source remains exportable and book controls stay inert (1.6s)
+  ok  11 tests\e2e\book.spec.ts:125:5 › narrow task pages can scroll with a real wheel to reach pagination (876ms)
+  ok  12 tests\e2e\book.spec.ts:134:5 › a second tab cannot mutate a running session and the lock releases on close (2.3s)
+  ok  13 tests\e2e\book.spec.ts:146:5 › file-origin fallback protects the old window when another tab writes (3.0s)
+  ok  14 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1531x715 zh-CN (3.3s)
+  ok  15 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1480x715 zh-CN (3.1s)
+  ok  16 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1236x715 zh-CN (2.9s)
+  ok  18 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1024x768 zh-CN (2.6s)
+  ok  19 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 820x600 zh-CN (2.2s)
+  ok  17 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1920x1080 zh-CN (5.1s)
+  ok  21 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 390x844 zh-CN (2.0s)
+  ok  20 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 800x600 zh-CN (2.4s)
+  ok  22 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 320x568 zh-CN (1.8s)
+  ok  23 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 812x375 zh-CN (2.4s)
+  ok  24 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1531x715 en (3.3s)
+  ok  25 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1480x715 en (3.3s)
+  ok  26 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1236x715 en (2.8s)
+  ok  28 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1024x768 en (2.8s)
+  ok  29 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 820x600 en (2.2s)
+  ok  27 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1920x1080 en (5.1s)
+  ok  30 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 800x600 en (2.5s)
+  ok  31 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 390x844 en (1.9s)
+  ok  32 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 320x568 en (1.8s)
+  ok  33 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 812x375 en (2.4s)
+  ok  34 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1531x715 ja (3.4s)
+  ok  35 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1480x715 ja (3.2s)
+  ok  36 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1236x715 ja (3.0s)
+  ok  38 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1024x768 ja (2.9s)
+  ok  39 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 820x600 ja (2.5s)
+  ok  37 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 1920x1080 ja (5.2s)
+  ok  41 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 390x844 ja (2.0s)
+  ok  40 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 800x600 ja (2.6s)
+  ok  42 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 320x568 ja (1.9s)
+  ok  43 tests\e2e\calendar-layout.spec.ts:5:7 › calendar labels stay readable at 812x375 ja (2.5s)
+  ok  44 tests\e2e\continuation-label.spec.ts:13:5 › continuation names the completed activity and saves only its description (2.4s)
+  x   45 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 1531px zh-CN light and cancel preserves data (6.4s)
+(node:15268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   46 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 390px en dark and cancel preserves data (6.1s)
+  x   47 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 320px ja light and cancel preserves data (6.2s)
+(node:11612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  48 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on enter (2.1s)
+  ok  49 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on close (2.4s)
+  ok  50 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on escape (2.4s)
+  ok  51 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on summary (1.7s)
+  ok  52 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on outside (2.0s)
+  ok  53 tests\e2e\feedback-controls.spec.ts:19:7 › blank custom time defaults to ten on navigation (2.3s)
+  ok  54 tests\e2e\feedback-controls.spec.ts:35:5 › ordered presets, persisted twenty, valid custom and nonempty invalid input (2.8s)
+  ok  56 tests\e2e\feedback-controls.spec.ts:51:7 › feedback controls stay intact at 390px (5.4s)
+  ok  57 tests\e2e\feedback-controls.spec.ts:51:7 › feedback controls stay intact at 320px (5.1s)
+  ok  55 tests\e2e\feedback-controls.spec.ts:51:7 › feedback controls stay intact at 1531px (7.9s)
+  ok  58 tests\e2e\feedback-controls.spec.ts:106:5 › calendar primary empty action and minute-only ranges preserve precise records (2.0s)
+  ok  60 tests\e2e\independent-continuation.spec.ts:49:5 › independent narrow English short label and action access (1.5s)
+  ok  59 tests\e2e\independent-continuation.spec.ts:15:5 › independent short desktop clear cancel close and empty save preserve original identity (3.6s)
+  ok  61 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 1531 zh-CN (9.9s)
+  ok  62 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 1531 en (9.6s)
+  ok  63 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 1531 ja (9.6s)
+  ok  64 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 390 zh-CN (6.5s)
+  ok  65 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 390 en (6.8s)
+  ok  66 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 390 ja (6.7s)
+  ok  67 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 320 zh-CN (6.8s)
+  ok  68 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 320 en (6.8s)
+  ok  69 tests\e2e\independent-feedback.spec.ts:24:7 › independent tooltip clipping 320 ja (6.7s)
+  ok  71 tests\e2e\independent-feedback.spec.ts:90:59 › independent blank fallback storage failure enter (2.0s)
+  ok  70 tests\e2e\independent-feedback.spec.ts:68:5 › independent invalid values never silently default and boundaries stay session-only (3.6s)
+  ok  72 tests\e2e\independent-feedback.spec.ts:90:59 › independent blank fallback storage failure escape (2.1s)
+  ok  73 tests\e2e\independent-feedback.spec.ts:90:59 › independent blank fallback storage failure navigation (2.2s)
+  ok  74 tests\e2e\independent-feedback.spec.ts:111:5 › independent paused timer survives navigation and settings then next session uses fallback (2.6s)
+  ok  75 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via enter (2.6s)
+  ok  76 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via close (2.5s)
+  ok  77 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via escape (2.6s)
+  ok  78 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via summary (2.6s)
+  ok  79 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via outside (2.5s)
+  ok  80 tests\e2e\independent-feedback.spec.ts:126:7 › independent genuinely empty prior-valid draft exits via navigation (2.6s)
+  ok  82 tests\e2e\independent-feedback.spec.ts:162:5 › independent precise record presentation export and old-five to twenty import (2.2s)
+  ok  81 tests\e2e\independent-feedback.spec.ts:141:5 › independent home hover actually darkens both themes and calendar action returns home (3.9s)
+  ok  83 tests\e2e\interaction-refinement.spec.ts:9:44 › automatic custom time and text conditions (light) (3.1s)
+  ok  85 tests\e2e\interaction-refinement.spec.ts:41:54 › four calendar records fit at 1531 (2.6s)
+  ok  84 tests\e2e\interaction-refinement.spec.ts:9:44 › automatic custom time and text conditions (dark) (2.9s)
+  ok  86 tests\e2e\interaction-refinement.spec.ts:41:54 › four calendar records fit at 1024 (2.0s)
+  ok  88 tests\e2e\interaction-refinement.spec.ts:41:54 › four calendar records fit at 390 (1.4s)
+  ok  87 tests\e2e\interaction-refinement.spec.ts:41:54 › four calendar records fit at 810 (1.9s)
+  ok  89 tests\e2e\interaction-refinement.spec.ts:41:54 › four calendar records fit at 320 (1.2s)
+  ok  90 tests\e2e\mobile-book.spec.ts:23:7 › phone true pagination and visible import 320x568 en (1.5s)
+  ok  91 tests\e2e\mobile-book.spec.ts:23:7 › phone true pagination and visible import 360x640 zh-CN (1.6s)
+  ok  92 tests\e2e\mobile-book.spec.ts:23:7 › phone true pagination and visible import 390x844 ja (1.7s)
+  ok  93 tests\e2e\mobile-book.spec.ts:23:7 › phone true pagination and visible import 800x360 en (2.0s)
+  ok  94 tests\e2e\mobile-book.spec.ts:51:5 › phone resize preserves position; adding and deleting uses the current page capacity (1.6s)
+  ok  95 tests\e2e\mobile-book.spec.ts:69:5 › phone editor actions remain reachable when the viewport contracts (1.7s)
+  ok  96 tests\e2e\mobile-book.spec.ts:96:7 › completion capsules preserve save/cancel mobile=true dark=true (1.7s)
+  ok  97 tests\e2e\mobile-book.spec.ts:96:7 › completion capsules preserve save/cancel mobile=true dark=false (1.7s)
+  ok  98 tests\e2e\mobile-book.spec.ts:96:7 › completion capsules preserve save/cancel mobile=false dark=true (2.1s)
+  ok 100 tests\e2e\mobile-entry.spec.ts:4:7 › mobile empty entry and contracted add header zh-CN (1.6s)
+  ok 101 tests\e2e\mobile-entry.spec.ts:4:7 › mobile empty entry and contracted add header en (1.4s)
+  ok  99 tests\e2e\mobile-book.spec.ts:96:7 › completion capsules preserve save/cancel mobile=false dark=false (2.3s)
+  ok 102 tests\e2e\mobile-entry.spec.ts:4:7 › mobile empty entry and contracted add header ja (1.5s)
+  ok 103 tests\e2e\startup-reminders.spec.ts:3:5 › cold first view is revealed as an assembled book; missing textures cannot trap startup (1.6s)
+  ok 105 tests\e2e\startup-reminders.spec.ts:25:5 › sound setting is absent and import remains visible on small dark screens (838ms)
+  ok 104 tests\e2e\startup-reminders.spec.ts:13:5 › timer arrival, silent reopen and preferences keep one current session (2.9s)
+  ok 106 tests\e2e\task-pin.spec.ts:3:51 › web pin pagination and open descriptions zh-CN (3.2s)
+  ok 107 tests\e2e\task-pin.spec.ts:3:51 › web pin pagination and open descriptions en (3.1s)
+  ok 108 tests\e2e\task-pin.spec.ts:3:51 › web pin pagination and open descriptions ja (3.0s)
+  ok 109 tests\e2e\task-reorder.spec.ts:22:5 › pointer reorders across columns and pages; reload, cancel, pins and keyboard remain coherent (4.4s)
+
+
+  1) tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 1531px zh-CN light and cancel preserves data
+
+    Error: expect(locator).toHaveCSS(expected) failed
+
+    Locator:  locator('.continuation-trigger')
+    Expected: "1px"
+    Received: "0px"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCSS" locator('.continuation-trigger') with timeout 5000ms
+      - waiting for locator('.continuation-trigger')
+        14 × locator resolved to <button type="button" class="paper-slip continuation-trigger" aria-label="为「读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考」记录下次起点">…</button>
+           - unexpected value "0px"
+
+
+      33 |     const trigger = page.locator('.continuation-trigger');
+      34 |     expect(await trigger.getAttribute('aria-label')).toContain(name);
+    > 35 |     await expect(trigger).toHaveCSS('border-right-width', '1px');
+         |                           ^
+      36 |     await expect(trigger.locator('.continuation-target')).toHaveCSS('text-overflow', 'ellipsis');
+      37 |     const box = await trigger.boundingBox(); expect(box!.height).toBeGreaterThanOrEqual(44);
+      38 |     expect(box!.x).toBeGreaterThanOrEqual(0); expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\tests\e2e\continuation-label.spec.ts:35:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-718f2-t-and-cancel-preserves-data\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\continuation-label-continu-718f2-t-and-cancel-preserves-data\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-718f2-t-and-cancel-preserves-data\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\continuation-label-continu-718f2-t-and-cancel-preserves-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 390px en dark and cancel preserves data
+
+    Error: expect(locator).toHaveCSS(expected) failed
+
+    Locator:  locator('.continuation-trigger')
+    Expected: "1px"
+    Received: "0px"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCSS" locator('.continuation-trigger') with timeout 5000ms
+      - waiting for locator('.continuation-trigger')
+        14 × locator resolved to <button type="button" class="paper-slip continuation-trigger" aria-label="Note where to resume 读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考">…</button>
+           - unexpected value "0px"
+
+
+      33 |     const trigger = page.locator('.continuation-trigger');
+      34 |     expect(await trigger.getAttribute('aria-label')).toContain(name);
+    > 35 |     await expect(trigger).toHaveCSS('border-right-width', '1px');
+         |                           ^
+      36 |     await expect(trigger.locator('.continuation-target')).toHaveCSS('text-overflow', 'ellipsis');
+      37 |     const box = await trigger.boundingBox(); expect(box!.height).toBeGreaterThanOrEqual(44);
+      38 |     expect(box!.x).toBeGreaterThanOrEqual(0); expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\tests\e2e\continuation-label.spec.ts:35:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-b12cb-k-and-cancel-preserves-data\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\continuation-label-continu-b12cb-k-and-cancel-preserves-data\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-b12cb-k-and-cancel-preserves-data\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\continuation-label-continu-b12cb-k-and-cancel-preserves-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 320px ja light and cancel preserves data
+
+    Error: expect(locator).toHaveCSS(expected) failed
+
+    Locator:  locator('.continuation-trigger')
+    Expected: "1px"
+    Received: "0px"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCSS" locator('.continuation-trigger') with timeout 5000ms
+      - waiting for locator('.continuation-trigger')
+        14 × locator resolved to <button type="button" class="paper-slip continuation-trigger" aria-label="「读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考读书与思考」の次の開始点をメモ">…</button>
+           - unexpected value "0px"
+
+
+      33 |     const trigger = page.locator('.continuation-trigger');
+      34 |     expect(await trigger.getAttribute('aria-label')).toContain(name);
+    > 35 |     await expect(trigger).toHaveCSS('border-right-width', '1px');
+         |                           ^
+      36 |     await expect(trigger.locator('.continuation-target')).toHaveCSS('text-overflow', 'ellipsis');
+      37 |     const box = await trigger.boundingBox(); expect(box!.height).toBeGreaterThanOrEqual(44);
+      38 |     expect(box!.x).toBeGreaterThanOrEqual(0); expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\tests\e2e\continuation-label.spec.ts:35:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-bea49-t-and-cancel-preserves-data\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\continuation-label-continu-bea49-t-and-cancel-preserves-data\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\continuation-label-continu-bea49-t-and-cancel-preserves-data\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\continuation-label-continu-bea49-t-and-cancel-preserves-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 1531px zh-CN light and cancel preserves data
+    tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 390px en dark and cancel preserves data
+    tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 320px ja light and cancel preserves data
+  106 passed (2.0m)

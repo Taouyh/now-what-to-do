@@ -1,0 +1,182 @@
+
+Running 5 tests using 3 workers
+
+(node:9384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (7.9s)
+  x  1 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (8.0s)
+  x  2 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (8.1s)
+(node:24644) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (2.7s)
+  x  4 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (7.4s)
+
+
+  1) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat2\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat2\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat3\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat3\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat3\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat3\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+  1 passed (18.9s)

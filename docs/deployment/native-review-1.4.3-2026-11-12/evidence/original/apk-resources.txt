@@ -1,0 +1,33 @@
+Binary APK
+Package name=io.github.taouyh.nowwhat id=7f
+  type drawable id=01 entryCount=5
+    resource 0x7f010000 drawable/app_icon
+      () (file) res/drawable/app_icon.xml type=XML
+      (anydpi-v26) (file) res/drawable-anydpi-v26/app_icon.xml type=XML
+      (anydpi-v33) (file) res/drawable-anydpi-v33/app_icon.xml type=XML
+    resource 0x7f010001 drawable/app_icon_background
+      () (file) res/drawable/app_icon_background.xml type=XML
+    resource 0x7f010002 drawable/app_icon_foreground
+      () (file) res/drawable/app_icon_foreground.xml type=XML
+    resource 0x7f010003 drawable/app_icon_monochrome
+      () (file) res/drawable/app_icon_monochrome.xml type=XML
+    resource 0x7f010004 drawable/ic_stat_nowwhat
+      () (file) res/drawable/ic_stat_nowwhat.xml type=XML
+  type string id=02 entryCount=2
+    resource 0x7f020000 string/app_name
+      () "Now What"
+    resource 0x7f020001 string/save_failed
+      () "Could not save the backup. Please try again."
+      (ja) "バックアップを保存できませんでした。もう一度お試しください。"
+      (zh-rCN) "备份保存失败，请重试。"
+  type style id=03 entryCount=1
+    resource 0x7f030000 style/AppTheme
+      () (style) size=8 parent=0x01030241
+        0x01010054=#ff23140c
+        0x010102dd=true
+        0x010103ac="sans"
+        0x01010435=#ff895332
+        0x01010451=#ff23140c
+        0x01010452=#ff23140c
+        0x010104e0=false
+        0x0101056c=false

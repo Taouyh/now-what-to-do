@@ -54,6 +54,7 @@ static void reply(const std::wstring& id,bool saved,bool failed) {
     result.Insert(L"saved",JsonValue::CreateBooleanValue(saved));result.Insert(L"failed",JsonValue::CreateBooleanValue(failed));
     web->PostWebMessageAsJson(result.Stringify().c_str());
 }
+#include "reminder.h"
 static void exportBackup(ICoreWebView2WebMessageReceivedEventArgs* args) {
     LPWSTR address=nullptr;args->get_Source(&address);bool allowed=address&&trusted(address);CoTaskMemFree(address);if(!allowed)return;
     std::wstring id;
@@ -61,7 +62,9 @@ static void exportBackup(ICoreWebView2WebMessageReceivedEventArgs* args) {
         LPWSTR raw=nullptr;winrt::check_hresult(args->get_WebMessageAsJson(&raw));
         std::wstring message=raw;CoTaskMemFree(raw);
         if(message.size()>34*1024*1024)throw std::runtime_error("Message too large");
-        auto request=JsonObject::Parse(message);id=request.GetNamedString(L"id");
+        auto request=JsonObject::Parse(message);
+        if(request.GetNamedString(L"kind")==L"reminder:sync"||request.GetNamedString(L"kind")==L"reminder:settings"){reminderMessage(request);return;}
+        id=request.GetNamedString(L"id");
         if(id.empty()||id.size()>32)throw std::runtime_error("Invalid request ID");
         if(request.GetNamedString(L"kind")!=L"backup:save")throw std::runtime_error("Invalid message");
         std::wstring name(request.GetNamedString(L"name"));
@@ -126,7 +129,9 @@ static HRESULT configure() {
 }
 static LRESULT CALLBACK procedure(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam) {
     switch(message){
+        case WM_APP+41: if(web)web->ExecuteScript(L"window.nativeTimerLifecycle?.('notification')",nullptr);return 0;
         case WM_CLOSE:
+            reminderBackground=true;reminderUpdate();
             if(closing)return 0;
             if(web){
                 closing=true;SetTimer(hwnd,closeCheckpointTimer,1500,nullptr);
@@ -140,6 +145,7 @@ static LRESULT CALLBACK procedure(HWND hwnd,UINT message,WPARAM wParam,LPARAM lP
         case WM_TIMER:
             if(wParam==closeCheckpointTimer){KillTimer(hwnd,closeCheckpointTimer);DestroyWindow(hwnd);return 0;}break;
         case WM_POWERBROADCAST:
+            if(wParam==PBT_APMSUSPEND){reminderBackground=true;reminderUpdate();}
             if(web&&wParam==PBT_APMSUSPEND)web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('sleep')",nullptr);
             if(web&&(wParam==PBT_APMRESUMEAUTOMATIC||wParam==PBT_APMRESUMESUSPEND))web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('resume')",nullptr);
             return TRUE;
@@ -147,7 +153,9 @@ static LRESULT CALLBACK procedure(HWND hwnd,UINT message,WPARAM wParam,LPARAM lP
             if(web&&wParam)web->ExecuteScript(L"typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('close')",nullptr);
             return 0;
         case WM_SIZE: if(controller){RECT bounds;GetClientRect(hwnd,&bounds);controller->put_Bounds(bounds);memoryTarget(wParam==SIZE_MINIMIZED);}return 0;
-        case WM_ACTIVATE: memoryTarget(LOWORD(wParam)==WA_INACTIVE);return 0;
+        case WM_ACTIVATE:
+            reminderBackground=LOWORD(wParam)==WA_INACTIVE;memoryTarget(reminderBackground);reminderUpdate();
+            if(web)web->ExecuteScript(reminderBackground?L"window.nativeTimerLifecycle?.('background')":L"window.nativeTimerLifecycle?.('resume')",nullptr);return 0;
         case WM_DPICHANGED: {auto bounds=reinterpret_cast<RECT*>(lParam);SetWindowPos(hwnd,nullptr,bounds->left,bounds->top,bounds->right-bounds->left,bounds->bottom-bounds->top,SWP_NOZORDER|SWP_NOACTIVATE);return 0;}
         case WM_GETMINMAXINFO: {auto info=reinterpret_cast<MINMAXINFO*>(lParam);info->ptMinTrackSize={360,480};return 0;}
         case WM_DESTROY: if(controller)controller->Close();web.Reset();controller.Reset();environment.Reset();PostQuitMessage(0);return 0;
@@ -164,8 +172,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR commandLine,int) {
     // A profile may have only one application window; separate synthetic profiles can run in parallel.
     std::wstring lockName=L"Local\\NowWhat-WebView2-"+std::to_wstring(std::hash<std::wstring>{}(profile.wstring()));
     HANDLE lock=CreateMutexW(nullptr,TRUE,lockName.c_str());if(!lock)return 1;
-    if(GetLastError()==ERROR_ALREADY_EXISTS){HWND previous=FindWindowW(L"NowWhatWebView2",L"Now What");if(previous){ShowWindow(previous,SW_RESTORE);SetForegroundWindow(previous);}CloseHandle(lock);return 0;}
-    winrt::init_apartment(winrt::apartment_type::single_threaded);
+    if(GetLastError()==ERROR_ALREADY_EXISTS){HWND previous=FindWindowW(L"NowWhatWebView2",L"Now What");if(previous){ShowWindow(previous,SW_RESTORE);SetForegroundWindow(previous);if(std::wstring(commandLine).find(L"nowwhat://timer")!=std::wstring::npos)PostMessageW(previous,WM_APP+41,0,0);}CloseHandle(lock);return 0;}
+    winrt::init_apartment(winrt::apartment_type::single_threaded);reminderRegister();reminderCancel();
     auto setDpi=reinterpret_cast<BOOL(WINAPI*)(DPI_AWARENESS_CONTEXT)>(GetProcAddress(GetModuleHandleW(L"user32.dll"),"SetProcessDpiAwarenessContext"));
     if(setDpi)setDpi(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);else SetProcessDPIAware();
     WNDCLASSEXW cls={sizeof(cls)};cls.lpfnWndProc=procedure;cls.hInstance=instance;cls.lpszClassName=L"NowWhatWebView2";

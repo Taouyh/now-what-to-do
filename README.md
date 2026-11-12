@@ -1,6 +1,6 @@
 <p align="center"><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a></p>
 
-<p align="center"><img src="packaging/icon.png" width="88" height="88" alt="Now What icon"></p>
+<p align="center"><img src="packaging/icons/icon-128.png" width="88" height="88" alt="Now What icon"></p>
 <h1 align="center">Now What</h1>
 <h3 align="center">A little time. A page of your own.</h3>
 
@@ -19,7 +19,7 @@
 
 <a id="features"></a>
 
-**New in 1.4.1:** pin favorite activities and drag to reorder within pinned or unpinned groups. Task pagination fits the available space, descriptions open by default, and mobile layouts and shared controls are refined.
+**New in 1.4.3:** faster first load, the new book icon and automatic round reminders. The timer follows the original deadline across backgrounding; missed alerts are not replayed.
 ## Features
 
 **New in 1.4: a book for your time.** A warm paper interface, bookmark navigation, a two-page activity library and a journal of your sessions.
@@ -29,7 +29,7 @@
 - **Swap without repeats.** Activities you skip stay out of this round. Look again or choose for yourself when none feels right.
 - **Fit the moment.** Say whether you can use a computer, listen, speak or might be interrupted. All conditions start unchecked; your choices are remembered.
 - **Use the time you have.** Choose 10, 15, 20, 30, 60 minutes or your own duration. On desktop, hover over time or conditions to open the menu; move away from the panel to close it. On mobile, tap.
-- **Pick up where you stopped.** Time stops at the end of a round until you choose Continue. Reopening waits for you to resume; a long break keeps the previous time as a separate session.
+- **Pick up where you stopped.** A running round keeps its original deadline in the background. Return before it ends to continue; after the deadline, choose Continue or Finish and record. Paused rounds stay paused.
 - **See your day.** Review your sessions in the book-style Journal. Open an activity to see its recorded sessions.
 - **Make it yours.** Light and dark themes. English, Chinese and Japanese. Windows, Android and web.
 
@@ -66,7 +66,7 @@ Free. No account. Installed apps work offline and start in English; change the l
 
 
 
-[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [What's new in 1.4.1](docs/releases/v1.4.1.md)
+[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [What's new in 1.4.3](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
 
 <a id="privacy"></a>
 ## Privacy

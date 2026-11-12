@@ -20,11 +20,14 @@ Research delivery: `docs/research/market-2026-11-01/REPORT.md`.
 Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.
 Design delivery: `docs/design/free-time-start-2026-11-01/V13-ITERATION.md`.
-Latest verified promotional design sync: `docs/deployment/promo-videos-2026-11-12/FIGMA-SYNC.md`; earlier reports remain in their delivery directories.
-Current publication: `docs/deployment/promo-videos-2026-11-12/RELEASE.md`. Native Release v1.4.3 contains accepted Windows 1.4.3 and Android build 10; source tag is 900cc3a. The user authorized these installer uploads on 2026-11-12. Master retains web application 1.4.1 with updated demos and download links; no native application branch was merged. Physical Android notification and upgrade acceptance remain pending.
+Latest verified design mapping: `docs/deployment/native-review-1.4.3-2026-11-12/FIGMA-VERIFICATION.md`; earlier reports remain historical.
+Current native publication: v1.4.3, accepted Windows 1.4.3 and Android build 10; see `docs/deployment/promo-videos-2026-11-12/RELEASE.md`. Earlier local-only gates are historical. The user also authorized updating and pushing web 1.4.3 and the README book icon on 2026-11-12; current web delivery: `docs/deployment/web-1.4.3-2026-11-12/IMPLEMENTATION.md`.
+Windows 1.4.3 was accepted by the user. Android build 10 removes the vibration settings control: `docs/deployment/android-no-vibration-2026-11-12/IMPLEMENTATION.md`; this supersedes earlier requirements to display that control while retaining saved reminder-data compatibility.
+Current timer correction: `docs/deployment/always-sound-2026-11-11/IMPLEMENTATION.md`. No Sound option: always request one timely sound, ignore old mute preferences, never replay missed alerts. Automatic reminders have no activation button; screen-off keeps running to the deadline. Android build 10 removes the vibration control while preserving saved reminder data. Physical OS/device notification and upgrade acceptance remain pending.
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.
 Release introduction design sync: `docs/deployment/promo-videos-2026-11-12/FIGMA-SYNC.md`.
 Use Figma account `3966592487` for this project. Verify the active account before accessing project designs in each Figma session.
+For future design work, hand off to the existing `NowWhat | Figma UI 设计稿` chat or open a new worktree chat. The user allowed the 2026-11-12 home wireframe update in this chat as an exception.
 After interface or interaction changes are finalized, open a separate GPT chat in a new worktree to synchronize the affected Figma pages or components with the verified implementation.
 Framework: `docs/technology/book-c-2026-11-05/FRAMEWORK.md`.
 Technical delivery: `docs/technical/book-c-2026-11-05/TECHNICAL.md`; workflow: `WORKFLOW.md`; independent-window testing: `TEST-HANDOFF.md` in the same directory.

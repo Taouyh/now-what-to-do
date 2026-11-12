@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-12",
+  "accountHandle": "3966592487",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "pageId": "49:243",
+  "sessionId": "e9cf2053-acd5-4d4c-a60c-3f71035c4263",
+  "createdNodeIds": [],
+  "mutatedFooterMasterIds": ["474:9788", "474:9799", "474:9810", "474:9821"],
+  "removedNodeIds": ["474:9789", "474:9795", "474:9796", "474:9797", "474:9800", "474:9806", "474:9807", "474:9808", "474:9811", "474:9817", "474:9818", "474:9819", "474:9822", "474:9828", "474:9829", "474:9830"],
+  "linkedInstanceIds": ["474:9898", "474:9848", "474:9912", "474:9859", "474:9926", "474:9940"],
+  "protectedRoots": ["457:10154", "457:10398", "474:9870", "474:9772", "474:9780", "574:10204", "595:10979"],
+  "outsideTargetedInteriorsGeometryTextReactionsUnchangedDuringRemoval": true,
+  "footers": [
+    {"id":"474:9788","w":296,"h":39.1875,"children":[{"id":"474:9798","text":"数据不同步","x":0,"y":9.59375,"w":60,"h":20}]},
+    {"id":"474:9799","w":256,"h":39.1875,"children":[{"id":"474:9809","text":"No data sync","x":0,"y":9.59375,"w":75,"h":20}]},
+    {"id":"474:9810","w":256,"h":39.1875,"children":[{"id":"474:9820","text":"数据不同步","x":0,"y":9.59375,"w":60,"h":20}]},
+    {"id":"474:9821","w":256,"h":39.1875,"children":[{"id":"474:9831","text":"データ同期なし","x":0,"y":9.59375,"w":84,"h":20}]}
+  ],
+  "annotationCorrection": {
+    "id": "474:9872",
+    "before": "到点自动播放一次声音，无声音开关；仅 Android 保留振动开关（默认关闭）。数据不同步。",
+    "after": "到点自动播放一次声音，无声音开关；Android 已移除振动开关（build10）。数据不同步。",
+    "x":32,"y":91,"height":26,"beforeWidth":659,"afterWidth":648
+  },
+  "visuallyReviewedFinalScreenshots": ["figma-final-zh.png", "figma-final-en.png", "figma-final-variants.png"]
+}

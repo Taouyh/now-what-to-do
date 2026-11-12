@@ -1,12 +1,27 @@
 import { mountBook } from './ui/book';
 import './ui/styles/book.css';
+import './ui/styles/mobile-book.css';
 
 async function start() {
   const { runtime } = await import('virtual:runtime');
   mountBook(runtime);
+  // Decode the assembled book before revealing it, not one texture at a time.
+  // A failed/offline resource cannot leave the application trapped behind a loader.
+  const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp', ...(document.body.classList.contains('mobile-book') ? ['android-task-paper.png'] : [])].map(name => {
+    const image = new Image(); image.src = `assets/${name}`; return image.decode();
+  });
+  let timeout: ReturnType<typeof setTimeout>;
+  await Promise.race([
+    Promise.allSettled([...Array.from(document.querySelectorAll<HTMLImageElement>('#book img'), image => image.decode()), ...backgrounds, document.fonts.ready]),
+    new Promise<void>(resolve => { timeout = setTimeout(resolve, 2500); }),
+  ]);
+  clearTimeout(timeout!);
+  document.documentElement.dataset.appReady = 'true';
+  performance.mark('nowwhat-ready');
 }
 
 function showUnavailable(failed = false) {
+  document.documentElement.dataset.appReady = 'true';
   const chinese = navigator.language.startsWith('zh'), japanese = navigator.language.startsWith('ja');
   const heading = document.createElement('h1');
   heading.textContent = failed ? (chinese ? '暂时无法打开' : japanese ? '開けませんでした' : 'Unable to open') : (chinese ? '已在另一个窗口打开' : japanese ? '別のウィンドウで開いています' : 'Already open in another window');

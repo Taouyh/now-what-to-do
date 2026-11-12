@@ -2,10 +2,21 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5f0"><title>现在做什么</title>
+<style>
+html{background:#f1dfb6}html:not([data-app-ready]) body>header,html:not([data-app-ready]) body>main,html:not([data-app-ready]) #book{visibility:hidden}
+#startupStatus{position:fixed;inset:0;display:grid;place-content:center;gap:12px;text-align:center;background:#f1dfb6;color:#452a1a;font:18px/1.5 system-ui,sans-serif;z-index:9999}#startupStatus strong{font:32px Georgia,serif}html[data-app-ready] #startupStatus{display:none}
+</style>
+<link rel="preload" as="image" href="assets/environment.webp">
+<link rel="preload" as="image" href="assets/paper-left.webp">
+<link rel="preload" as="image" href="assets/paper-right.webp">
+<link rel="preload" as="image" href="assets/scroll-paper.webp">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/theme-assets.css">
-<link rel="stylesheet" href="style.css?v=1.4.0">
+<link rel="stylesheet" href="style.css?v=1.4.2">
 </head>
 <body>
+<div id="startupStatus" role="status"><strong>Now What</strong><span>Loading… / 正在打开 / 読み込み中</span></div>
+<noscript><style>#startupStatus{display:none}</style><p>Enable JavaScript to open Now What. 请启用 JavaScript。JavaScript を有効にしてください。</p></noscript>
 <header>
 <a class="brand" href="#home" aria-label="现在做什么，返回开始" data-i18n-aria-label="现在做什么，返回开始"><span data-i18n="现在做什么">现在做什么</span></a>
 <nav class="icon-nav" aria-label="主导航" data-i18n-aria-label="主导航">
@@ -35,6 +46,7 @@
 <div id="dataPanel" class="settings-surface" role="group" aria-label="外观与数据管理" data-i18n-aria-label="外观与数据管理">
 <div class="settings-row language-row"><span><span data-i18n="语言">语言</span></span><div id="languageOptions" class="language-options" role="group" aria-label="语言" data-i18n-aria-label="语言"><button type="button" data-language="zh-CN" lang="zh-CN" aria-pressed="false">简体中文</button><button type="button" data-language="en" lang="en" aria-pressed="false">English</button><button type="button" data-language="ja" lang="ja" aria-pressed="false">日本語</button></div></div>
 <div class="settings-row"><span><span data-i18n="外观">外观</span></span><div class="theme-options" role="group" aria-label="外观" data-i18n-aria-label="外观"><button type="button" id="lightTheme" aria-pressed="true"><span data-i18n="浅色">浅色</span></button><button type="button" id="theme" aria-pressed="false"><span data-i18n="深色">深色</span></button></div></div>
+<div id="reminderPreferences" class="reminder-preferences"><label id="reminderVibrationRow"><span data-i18n="振动">振动</span><input id="reminderVibration" type="checkbox"></label></div>
 <div class="settings-row"><div><span data-i18n="备份数据">备份数据</span></div><button type="button" class="secondary" id="export"><span data-i18n="导出">导出</span></button></div>
 <div class="settings-row"><div><span data-i18n="恢复备份">恢复备份</span></div><button type="button" class="secondary" id="import"><span data-i18n="导入">导入</span></button></div>
 </div><p class="settings-note"><span data-i18n="数据不同步">数据不同步</span></p>

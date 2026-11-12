@@ -1,0 +1,1 @@
+{"status":"PASS","profile":"C:\\Users\\fengcai\\.codex\\worktrees\\3e31\\now-what-to-do\\test-artifacts\\book-native-JebdwI","webview":"157.0.4341.46","checks":["isolated profile and unchanged origin","native default language","book DOM","real native file export","pause and close","reopen recovery","single completion"]}

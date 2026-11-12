@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-12",
+  "adaptiveCanvas": 108,
+  "safeCircleRadius": 33,
+  "sampledMaxArtworkRadius": 32.31730996564834,
+  "icoSizes": [
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64,
+    128,
+    256
+  ],
+  "files": [
+    {
+      "file": "packaging/icon.png",
+      "sha256": "8c8b0afb49877e2cd8016383aa178cf24f72315881d5a2e1d66e08142ce2a042"
+    },
+    {
+      "file": "packaging/icon.ico",
+      "sha256": "92020c4dab3b1d77e2f3107aaaa60adbcbe9ef07cdda10ec45b62acc99cd945c"
+    },
+    {
+      "file": "packaging/icon.svg",
+      "sha256": "ab22eab0134827b336cd4b1ba34dd7229576494fd6f60869c296a5824d3ef0e9"
+    },
+    {
+      "file": "android/res/drawable/app_icon.xml",
+      "sha256": "208f8a2a675d2acdc6a9982e6ecc5c6b05f71b5bcb34eb23ea8f39ef8b37edec"
+    },
+    {
+      "file": "android/res/drawable-anydpi-v26/app_icon.xml",
+      "sha256": "c1a2583301c82fa3970c0c259cbc501a7dbe45b9d245eb2b423ebb20488c05df"
+    },
+    {
+      "file": "android/res/drawable-anydpi-v33/app_icon.xml",
+      "sha256": "43dad334f905953f0feae61fef9b17d76922effe6500b013b479a0b426f11bdb"
+    }
+  ],
+  "limitations": "SVG mask previews and resource compile/link only; no physical launcher or notification display acceptance."
+}

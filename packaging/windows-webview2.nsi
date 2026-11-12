@@ -54,6 +54,9 @@ Section "Now What"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\NowWhat-WebView2" "Publisher" "Taouyh"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\NowWhat-WebView2" "UninstallString" '"$INSTDIR\Uninstall.exe"'
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\NowWhat-WebView2" "DisplayIcon" "$INSTDIR\Now What.exe"
+  WriteRegStr HKCU "Software\Classes\nowwhat" "" "URL:Now What timer"
+  WriteRegStr HKCU "Software\Classes\nowwhat" "URL Protocol" ""
+  WriteRegStr HKCU "Software\Classes\nowwhat\shell\open\command" "" '"$INSTDIR\Now What.exe" "%1"'
   CreateShortcut "$DESKTOP\Now What.lnk" "$INSTDIR\Now What.exe"
   CreateShortcut "$SMPROGRAMS\Now What.lnk" "$INSTDIR\Now What.exe"
   ${EndIf}
@@ -74,6 +77,7 @@ Section "Uninstall"
   ${If} $9 != "1"
   Delete "$DESKTOP\Now What.lnk"
   Delete "$SMPROGRAMS\Now What.lnk"
+  DeleteRegKey HKCU "Software\Classes\nowwhat"
   DeleteRegKey HKCU "Software\NowWhat-WebView2"
   DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\NowWhat-WebView2"
   ${EndIf}

@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-12",
+  "account": "3966592487",
+  "sessionId": "b75d31e2-bf64-4ad0-b99d-fe0c0b04933a",
+  "status": "Revised wireframes awaiting user review before visual design",
+  "validation": "Three affected section screenshots inspected. Static wireframes only; no runtime or device performance claim.",
+  "createdNodeIds": [],
+  "mutatedNodeIds": [
+    "497:9846",
+    "497:9920",
+    "497:10036",
+    "497:10110",
+    "497:10196",
+    "497:10236",
+    "497:10282",
+    "497:10317",
+    "497:9822",
+    "497:9894",
+    "497:10084",
+    "497:10211",
+    "497:10259",
+    "497:10292",
+    "497:10340",
+    "497:10409",
+    "497:10411",
+    "497:10413",
+    "497:10415",
+    "497:9799",
+    "497:9821",
+    "497:10232",
+    "497:10313"
+  ],
+  "before": [
+    {
+      "id": "497:9846",
+      "align": "CENTER",
+      "childY": [
+        127,
+        211,
+        295
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:9920",
+      "align": "CENTER",
+      "childY": [
+        25,
+        101,
+        177,
+        253,
+        329,
+        405
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10036",
+      "align": "CENTER",
+      "childY": [
+        127,
+        211,
+        295
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10110",
+      "align": "CENTER",
+      "childY": [
+        21,
+        97,
+        173,
+        249
+      ],
+      "pagerY": 443
+    },
+    {
+      "id": "497:10196",
+      "align": "CENTER",
+      "childY": [
+        123,
+        207,
+        291
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10236",
+      "align": "CENTER",
+      "childY": [
+        49,
+        141,
+        233,
+        325
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10282",
+      "align": "CENTER",
+      "childY": [
+        199.5
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10317",
+      "align": "CENTER",
+      "childY": [
+        9,
+        81,
+        153,
+        225
+      ],
+      "pagerY": 443
+    }
+  ],
+  "lists": [
+    {
+      "id": "497:9846",
+      "align": "MIN",
+      "y": 93,
+      "height": 494,
+      "rows": [
+        {
+          "id": "497:9847",
+          "y": 0,
+          "height": 72
+        },
+        {
+          "id": "497:9861",
+          "y": 84,
+          "height": 72
+        },
+        {
+          "id": "497:9875",
+          "y": 168,
+          "height": 72
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:9920",
+      "align": "MIN",
+      "y": 93,
+      "height": 494,
+      "rows": [
+        {
+          "id": "497:9921",
+          "y": 0,
+          "height": 64
+        },
+        {
+          "id": "497:9935",
+          "y": 76,
+          "height": 64
+        },
+        {
+          "id": "497:9949",
+          "y": 152,
+          "height": 64
+        },
+        {
+          "id": "497:9963",
+          "y": 228,
+          "height": 64
+        },
+        {
+          "id": "497:9977",
+          "y": 304,
+          "height": 64
+        },
+        {
+          "id": "497:9991",
+          "y": 380,
+          "height": 64
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10036",
+      "align": "MIN",
+      "y": 93,
+      "height": 494,
+      "rows": [
+        {
+          "id": "497:10037",
+          "y": 0,
+          "height": 72
+        },
+        {
+          "id": "497:10051",
+          "y": 84,
+          "height": 72
+        },
+        {
+          "id": "497:10065",
+          "y": 168,
+          "height": 72
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10110",
+      "align": "MIN",
+      "y": 93,
+      "height": 334,
+      "rows": [
+        {
+          "id": "497:10111",
+          "y": 0,
+          "height": 64
+        },
+        {
+          "id": "497:10125",
+          "y": 76,
+          "height": 64
+        },
+        {
+          "id": "497:10139",
+          "y": 152,
+          "height": 64
+        },
+        {
+          "id": "497:10153",
+          "y": 228,
+          "height": 64
+        }
+      ],
+      "pagerY": 443
+    },
+    {
+      "id": "497:10196",
+      "align": "MIN",
+      "y": 101,
+      "height": 486,
+      "rows": [
+        {
+          "id": "502:10038",
+          "y": 0,
+          "height": 72
+        },
+        {
+          "id": "502:10041",
+          "y": 84,
+          "height": 72
+        },
+        {
+          "id": "502:10044",
+          "y": 168,
+          "height": 72
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10236",
+      "align": "MIN",
+      "y": 129,
+      "height": 458,
+      "rows": [
+        {
+          "id": "502:10048",
+          "y": 0,
+          "height": 84
+        },
+        {
+          "id": "502:10053",
+          "y": 92,
+          "height": 84
+        },
+        {
+          "id": "502:10058",
+          "y": 184,
+          "height": 84
+        },
+        {
+          "id": "502:10063",
+          "y": 276,
+          "height": 84
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10282",
+      "align": "MIN",
+      "y": 101,
+      "height": 426,
+      "rows": [
+        {
+          "id": "497:10283",
+          "y": 0,
+          "height": 27
+        }
+      ],
+      "pagerY": 603
+    },
+    {
+      "id": "497:10317",
+      "align": "MIN",
+      "y": 129,
+      "height": 298,
+      "rows": [
+        {
+          "id": "502:10068",
+          "y": 0,
+          "height": 64
+        },
+        {
+          "id": "502:10073",
+          "y": 72,
+          "height": 64
+        },
+        {
+          "id": "502:10078",
+          "y": 144,
+          "height": 64
+        },
+        {
+          "id": "502:10083",
+          "y": 216,
+          "height": 64
+        }
+      ],
+      "pagerY": 443
+    }
+  ],
+  "counts": {
+    "TEXT": 286,
+    "FRAME": 272,
+    "COMPONENT": 5,
+    "INSTANCE": 137,
+    "VECTOR": 76
+  },
+  "imageNodes": [],
+  "badFonts": [],
+  "oldReturnLabels": [],
+  "scope": "Only existing Android draft board; home layouts, visual designs, application code and APK untouched. User review required before visual design."
+}

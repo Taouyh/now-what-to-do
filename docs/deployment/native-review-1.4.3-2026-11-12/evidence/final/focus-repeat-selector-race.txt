@@ -1,0 +1,69 @@
+
+Running 10 tests using 3 workers
+
+(node:26708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (5.5s)
+  ok  2 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (5.5s)
+  ok  3 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (5.5s)
+  ok  5 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.7s)
+  ok  4 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.7s)
+  ok  6 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.7s)
+(node:35076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (3.2s)
+  ok  9 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.1s)
+  x   8 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592 (7.7s)
+(node:25708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (1.2s)
+
+
+  1) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-5"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-5"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-5"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-5" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      24 |  await page.locator('[data-page=today]').click();await page.locator('#directory-next').click();const group=await page.locator('.calendar-group').first().getAttribute('data-group-id');await page.locator('.calendar-group').first().click();
+      25 |  const bounds=()=>page.locator('.record-row').evaluateAll(rows=>rows.map(r=>{const x=r.getBoundingClientRect();return [x.x,x.y,x.width,x.height]}));const before=await bounds();await page.locator('.record-toggle').first().click();expect(await bounds()).toEqual(before);await expect(page.locator('#calendarBack')).toBeInViewport();await expect(page.locator('#records-next')).toBeInViewport();await page.screenshot({path:info.outputPath('calendar-detail.png')});
+    > 26 |  expect(await page.evaluate(()=>(window as any).nativeNavigateBack())).toBe(true);await expect(page.locator(`[data-group-id="${group}"]`)).toBeFocused();
+         |                                                                                                                                            ^
+      27 |  await page.locator('[data-page=settings]').click();await expect(page.locator('#reminderSound')).toHaveCount(0);await expect(page.locator('#reminderVibrationRow')).toBeVisible();expect(errors).toEqual([]);await context.close();
+      28 | });}
+      29 | test('production timer hidden/resume, timely one chord and no replay',async({page})=>{
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:26:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143-final\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat4\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143-final\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat4\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143-final\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat4\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143-final\focus-repeat\independent-matrix-zh-CN-light-320x592-repeat4\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:7:5 › matrix zh-CN light 320x592
+  9 passed (20.5s)

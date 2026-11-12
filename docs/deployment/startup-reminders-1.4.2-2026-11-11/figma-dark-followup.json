@@ -1,0 +1,2334 @@
+{
+  "date": "2026-11-11",
+  "fixedSource": "de59c5a920d7b13e4e07fdb1c524e5dd093970a7",
+  "initialSyncCommit": "b29cf7c87ee261740a0e6439b87daaa80fdde060",
+  "scope": "Dark reminder background and summary hover only",
+  "account": "3966592487",
+  "sessionId": "3b134865-5f68-416e-a288-c11d8e904ab2",
+  "sourceBuild": "Full git archive of fixed source under .cache/figma-reminders/de59-source; npm run build:web passed; isolated port 8900",
+  "source": [
+    {
+      "key": "dark-zh-320",
+      "width": 320,
+      "height": 568,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "color": "rgb(241, 223, 182)",
+      "background": "rgb(80, 61, 44)",
+      "contrast": 7.809781076893987,
+      "rect": {
+        "x": 32,
+        "y": 201.625,
+        "width": 249.59375,
+        "height": 128.375,
+        "top": 201.625,
+        "right": 281.59375,
+        "bottom": 330,
+        "left": 32
+      },
+      "visible": true,
+      "texts": [
+        {
+          "text": "声音",
+          "rect": {
+            "x": 49,
+            "y": 218.625,
+            "width": 215.59375,
+            "height": 40,
+            "top": 218.625,
+            "right": 264.59375,
+            "bottom": 258.625,
+            "left": 49
+          }
+        },
+        {
+          "text": "到点只提醒一次，不会自动继续。",
+          "rect": {
+            "x": 49,
+            "y": 266.625,
+            "width": 215.59375,
+            "height": 19.1875,
+            "top": 266.625,
+            "right": 264.59375,
+            "bottom": 285.8125,
+            "left": 49
+          }
+        },
+        {
+          "text": "网页关闭后不发送系统通知。",
+          "rect": {
+            "x": 49,
+            "y": 293.8125,
+            "width": 215.59375,
+            "height": 19.1875,
+            "top": 293.8125,
+            "right": 264.59375,
+            "bottom": 313,
+            "left": 49
+          }
+        }
+      ],
+      "hover": {
+        "background": "rgba(177, 138, 80, 0.2)",
+        "color": "rgb(241, 223, 182)",
+        "rect": {
+          "x": 32,
+          "y": 330,
+          "width": 90,
+          "height": 36.390625,
+          "top": 330,
+          "right": 122,
+          "bottom": 366.390625,
+          "left": 32
+        }
+      }
+    },
+    {
+      "key": "dark-ja-390",
+      "width": 390,
+      "height": 844,
+      "lang": "ja",
+      "theme": "dark",
+      "native": true,
+      "color": "rgb(241, 223, 182)",
+      "background": "rgb(80, 61, 44)",
+      "contrast": 7.809781076893987,
+      "rect": {
+        "x": 32,
+        "y": 106.4375,
+        "width": 300,
+        "height": 223.5625,
+        "top": 106.4375,
+        "right": 332,
+        "bottom": 330,
+        "left": 32
+      },
+      "visible": true,
+      "texts": [
+        {
+          "text": "サウンド",
+          "rect": {
+            "x": 49,
+            "y": 123.4375,
+            "width": 266,
+            "height": 40,
+            "top": 123.4375,
+            "right": 315,
+            "bottom": 163.4375,
+            "left": 49
+          }
+        },
+        {
+          "text": "振動",
+          "rect": {
+            "x": 49,
+            "y": 163.4375,
+            "width": 266,
+            "height": 40,
+            "top": 163.4375,
+            "right": 315,
+            "bottom": 203.4375,
+            "left": 49
+          }
+        },
+        {
+          "text": "システム通知設定",
+          "rect": {
+            "x": 49,
+            "y": 203.4375,
+            "width": 123.3125,
+            "height": 36,
+            "top": 203.4375,
+            "right": 172.3125,
+            "bottom": 239.4375,
+            "left": 49
+          }
+        },
+        {
+          "text": "通知は一度だけ。自動延長はしません。",
+          "rect": {
+            "x": 49,
+            "y": 247.4375,
+            "width": 266,
+            "height": 19.1875,
+            "top": 247.4375,
+            "right": 315,
+            "bottom": 266.625,
+            "left": 49
+          }
+        },
+        {
+          "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+          "rect": {
+            "x": 49,
+            "y": 274.625,
+            "width": 266,
+            "height": 38.375,
+            "top": 274.625,
+            "right": 315,
+            "bottom": 313,
+            "left": 49
+          }
+        }
+      ],
+      "hover": {
+        "background": "rgba(177, 138, 80, 0.2)",
+        "color": "rgb(241, 223, 182)",
+        "rect": {
+          "x": 32,
+          "y": 330,
+          "width": 104,
+          "height": 36.390625,
+          "top": 330,
+          "right": 136,
+          "bottom": 366.390625,
+          "left": 32
+        }
+      }
+    },
+    {
+      "key": "dark-ja-320",
+      "width": 320,
+      "height": 568,
+      "lang": "ja",
+      "theme": "dark",
+      "native": true,
+      "color": "rgb(241, 223, 182)",
+      "background": "rgb(80, 61, 44)",
+      "contrast": 7.809781076893987,
+      "rect": {
+        "x": 32,
+        "y": 87.25,
+        "width": 249.59375,
+        "height": 242.75,
+        "top": 87.25,
+        "right": 281.59375,
+        "bottom": 330,
+        "left": 32
+      },
+      "visible": true,
+      "texts": [
+        {
+          "text": "サウンド",
+          "rect": {
+            "x": 49,
+            "y": 104.25,
+            "width": 215.59375,
+            "height": 40,
+            "top": 104.25,
+            "right": 264.59375,
+            "bottom": 144.25,
+            "left": 49
+          }
+        },
+        {
+          "text": "振動",
+          "rect": {
+            "x": 49,
+            "y": 144.25,
+            "width": 215.59375,
+            "height": 40,
+            "top": 144.25,
+            "right": 264.59375,
+            "bottom": 184.25,
+            "left": 49
+          }
+        },
+        {
+          "text": "システム通知設定",
+          "rect": {
+            "x": 49,
+            "y": 184.25,
+            "width": 123.3125,
+            "height": 36,
+            "top": 184.25,
+            "right": 172.3125,
+            "bottom": 220.25,
+            "left": 49
+          }
+        },
+        {
+          "text": "通知は一度だけ。自動延長はしません。",
+          "rect": {
+            "x": 49,
+            "y": 228.25,
+            "width": 215.59375,
+            "height": 19.1875,
+            "top": 228.25,
+            "right": 264.59375,
+            "bottom": 247.4375,
+            "left": 49
+          }
+        },
+        {
+          "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+          "rect": {
+            "x": 49,
+            "y": 255.4375,
+            "width": 215.59375,
+            "height": 57.5625,
+            "top": 255.4375,
+            "right": 264.59375,
+            "bottom": 313,
+            "left": 49
+          }
+        }
+      ],
+      "hover": {
+        "background": "rgba(177, 138, 80, 0.2)",
+        "color": "rgb(241, 223, 182)",
+        "rect": {
+          "x": 32,
+          "y": 330,
+          "width": 104,
+          "height": 36.390625,
+          "top": 330,
+          "right": 136,
+          "bottom": 366.390625,
+          "left": 32
+        }
+      }
+    },
+    {
+      "key": "light-zh-hover",
+      "width": 360,
+      "height": 640,
+      "lang": "zh-CN",
+      "theme": "light",
+      "color": "rgb(69, 42, 26)",
+      "background": "rgb(241, 223, 182)",
+      "contrast": 9.987034768774185,
+      "rect": {
+        "x": 32,
+        "y": 201.625,
+        "width": 280.796875,
+        "height": 128.375,
+        "top": 201.625,
+        "right": 312.796875,
+        "bottom": 330,
+        "left": 32
+      },
+      "visible": true,
+      "texts": [
+        {
+          "text": "声音",
+          "rect": {
+            "x": 49,
+            "y": 218.625,
+            "width": 246.796875,
+            "height": 40,
+            "top": 218.625,
+            "right": 295.796875,
+            "bottom": 258.625,
+            "left": 49
+          }
+        },
+        {
+          "text": "到点只提醒一次，不会自动继续。",
+          "rect": {
+            "x": 49,
+            "y": 266.625,
+            "width": 246.796875,
+            "height": 19.1875,
+            "top": 266.625,
+            "right": 295.796875,
+            "bottom": 285.8125,
+            "left": 49
+          }
+        },
+        {
+          "text": "网页关闭后不发送系统通知。",
+          "rect": {
+            "x": 49,
+            "y": 293.8125,
+            "width": 246.796875,
+            "height": 19.1875,
+            "top": 293.8125,
+            "right": 295.796875,
+            "bottom": 313,
+            "left": 49
+          }
+        }
+      ],
+      "hover": {
+        "background": "rgba(177, 138, 80, 0.2)",
+        "color": "rgb(69, 42, 26)",
+        "rect": {
+          "x": 32,
+          "y": 330,
+          "width": 90,
+          "height": 36.390625,
+          "top": 330,
+          "right": 122,
+          "bottom": 366.390625,
+          "left": 32
+        }
+      }
+    }
+  ],
+  "figmaWrite": {
+    "mutatedNodeIds": [
+      "458:9708",
+      "458:9713",
+      "458:9716",
+      "458:9718",
+      "458:9720",
+      "458:9706",
+      "458:9714",
+      "458:9872",
+      "458:9883",
+      "458:9884",
+      "458:9886"
+    ],
+    "createdNodeIds": [
+      "463:9740",
+      "463:9741",
+      "463:9742",
+      "463:9743",
+      "463:9744",
+      "463:9745",
+      "463:9746",
+      "463:9747",
+      "463:9748",
+      "463:9749",
+      "463:9750",
+      "463:9751",
+      "463:9752",
+      "463:9753",
+      "463:9754",
+      "463:9755",
+      "463:9756",
+      "463:9757",
+      "463:9758",
+      "463:9759",
+      "I463:9759;458:9707",
+      "I463:9759;458:9708",
+      "I463:9759;458:9709",
+      "I463:9759;458:9710",
+      "I463:9759;458:9711",
+      "I463:9759;458:9712",
+      "I463:9759;458:9713",
+      "I463:9759;458:9714",
+      "I463:9759;458:9715",
+      "I463:9759;458:9716",
+      "I463:9759;458:9717",
+      "I463:9759;458:9718",
+      "I463:9759;458:9719",
+      "I463:9759;458:9720",
+      "463:9774",
+      "I463:9774;463:9741",
+      "I463:9774;463:9742",
+      "I463:9774;463:9743",
+      "I463:9774;463:9744",
+      "I463:9774;463:9745",
+      "I463:9774;463:9746",
+      "I463:9774;463:9747",
+      "I463:9774;463:9748",
+      "I463:9774;463:9749",
+      "I463:9774;463:9750",
+      "I463:9774;463:9751",
+      "I463:9774;463:9752",
+      "I463:9774;463:9753",
+      "I463:9774;463:9754",
+      "463:9789",
+      "463:9790",
+      "463:9791",
+      "463:9792",
+      "463:9793",
+      "463:9794",
+      "463:9795",
+      "463:9796",
+      "463:9797",
+      "463:9798",
+      "463:9799",
+      "I463:9799;463:9791",
+      "463:9801",
+      "I463:9801;463:9793",
+      "463:9803",
+      "463:9804",
+      "I463:9804;463:9791",
+      "463:9806",
+      "I463:9806;463:9793"
+    ],
+    "panel": "458:9706",
+    "narrow": "463:9740",
+    "board": "463:9755",
+    "hoverMasters": [
+      {
+        "id": "463:9790",
+        "source": "457:9421"
+      },
+      {
+        "id": "463:9792",
+        "source": "457:9777"
+      },
+      {
+        "id": "463:9794",
+        "source": "457:10137"
+      },
+      {
+        "id": "463:9796",
+        "source": "457:10381"
+      }
+    ],
+    "panelBounds": [
+      {
+        "id": "458:9706",
+        "w": 300,
+        "h": 223.5625,
+        "children": [
+          {
+            "id": "458:9707",
+            "w": 266,
+            "h": 40,
+            "y": 18
+          },
+          {
+            "id": "458:9712",
+            "w": 266,
+            "h": 40,
+            "y": 58
+          },
+          {
+            "id": "458:9715",
+            "w": 266,
+            "h": 36,
+            "y": 98
+          },
+          {
+            "id": "458:9717",
+            "w": 266,
+            "h": 27.1875,
+            "y": 134
+          },
+          {
+            "id": "458:9719",
+            "w": 266,
+            "h": 46.375,
+            "y": 161.1875
+          }
+        ]
+      },
+      {
+        "id": "463:9740",
+        "w": 249.59375,
+        "h": 242.75,
+        "children": [
+          {
+            "id": "463:9741",
+            "w": 215.59375,
+            "h": 40,
+            "y": 18
+          },
+          {
+            "id": "463:9746",
+            "w": 215.59375,
+            "h": 40,
+            "y": 58
+          },
+          {
+            "id": "463:9749",
+            "w": 215.59375,
+            "h": 36,
+            "y": 98
+          },
+          {
+            "id": "463:9751",
+            "w": 215.59375,
+            "h": 28,
+            "y": 134
+          },
+          {
+            "id": "463:9753",
+            "w": 215.59375,
+            "h": 66,
+            "y": 162
+          }
+        ]
+      }
+    ]
+  },
+  "finalAudit": {
+    "mutatedNodeIds": [
+      "463:9790",
+      "463:9792",
+      "463:9794",
+      "463:9796"
+    ],
+    "originalCount": 144,
+    "originalChanges": [],
+    "results": [
+      {
+        "id": "458:9706",
+        "name": "1.4.2 / Android JA approximate / Dark corrected · de59c5a",
+        "width": 300,
+        "height": 223.5625,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.3137255012989044,
+              "g": 0.239215686917305,
+              "b": 0.1725490242242813
+            },
+            "boundVariables": {}
+          }
+        ],
+        "counts": {
+          "FRAME": 8,
+          "TEXT": 5,
+          "VECTOR": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "458:9708",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "サウンド",
+            "w": 230,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "458:9713",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "振動",
+            "w": 230,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "458:9716",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "システム通知設定",
+            "w": 254,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "458:9718",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "通知は一度だけ。自動延長はしません。",
+            "w": 266,
+            "h": 20,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "458:9720",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+            "w": 266,
+            "h": 39,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          }
+        ],
+        "descendantCount": 14
+      },
+      {
+        "id": "463:9740",
+        "name": "1.4.2 / Android JA approximate / Dark 320 · de59c5a",
+        "width": 249.59375,
+        "height": 242.75,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.3137255012989044,
+              "g": 0.239215686917305,
+              "b": 0.1725490242242813
+            },
+            "boundVariables": {}
+          }
+        ],
+        "counts": {
+          "FRAME": 8,
+          "TEXT": 5,
+          "VECTOR": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9742",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "サウンド",
+            "w": 179.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9747",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "振動",
+            "w": 179.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9750",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "システム通知設定",
+            "w": 203.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9752",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "通知は一度だけ。自動延長はしません。",
+            "w": 215.59375,
+            "h": 20,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9754",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+            "w": 215.59375,
+            "h": 58,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          }
+        ],
+        "descendantCount": 14
+      },
+      {
+        "id": "463:9755",
+        "name": "1.4.2 / Dark correction & summary hover / de59c5a",
+        "width": 1100,
+        "height": 634.53125,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.9686274528503418,
+              "g": 0.9490196108818054,
+              "b": 0.9098039269447327
+            },
+            "boundVariables": {}
+          }
+        ],
+        "counts": {
+          "TEXT": 17,
+          "FRAME": 19,
+          "INSTANCE": 6,
+          "VECTOR": 2
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9756",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "暗色提醒与悬停修复 · de59c5a",
+            "w": 1036,
+            "h": 39,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9757",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "文字 #f1dfb6 / 面板 #503d2c · 对比度 7.81:1 · 两个原生面板分别来自 390 与 320 像素视口。",
+            "w": 1036,
+            "h": 26,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9759;458:9708",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "サウンド",
+            "w": 230,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9759;458:9713",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "振動",
+            "w": 230,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9759;458:9716",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "システム通知設定",
+            "w": 254,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9759;458:9718",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "通知は一度だけ。自動延長はしません。",
+            "w": 266,
+            "h": 20,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9759;458:9720",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+            "w": 266,
+            "h": 39,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9774;463:9742",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "サウンド",
+            "w": 179.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9774;463:9747",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "振動",
+            "w": 179.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9774;463:9750",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "システム通知設定",
+            "w": 203.59375,
+            "h": 23,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9774;463:9752",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "通知は一度だけ。自動延長はしません。",
+            "w": 215.59375,
+            "h": 20,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9774;463:9754",
+            "font": {
+              "family": "Noto Sans JP",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+            "w": 215.59375,
+            "h": 58,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "463:9789",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点提醒入口：默认透明；悬停 #b18a50 / 20% opacity。下方展示浅色与深色背景上的悬停状态。",
+            "w": 1036,
+            "h": 26,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9799;463:9791",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点提醒",
+            "w": 58,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "I463:9801;463:9793",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "text": "Timer reminders",
+            "w": 111.703125,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "I463:9804;463:9791",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点提醒",
+            "w": 58,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          },
+          {
+            "id": "I463:9806;463:9793",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "text": "Timer reminders",
+            "w": 111.703125,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.9450980424880981,
+                  "g": 0.8745098114013672,
+                  "b": 0.7137255072593689
+                },
+                "boundVariables": {}
+              }
+            ]
+          }
+        ],
+        "descendantCount": 44
+      },
+      {
+        "id": "458:9870",
+        "name": "1.4.2 / Startup & reminders / Interaction notes and acceptance boundary",
+        "width": 1500,
+        "height": 1104,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.9686274528503418,
+              "g": 0.9490196108818054,
+              "b": 0.9098039269447327
+            },
+            "boundVariables": {}
+          }
+        ],
+        "counts": {
+          "TEXT": 16
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "458:9871",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "1.4.2 · 启动与到点提醒",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9872",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "初始界面源 9e6f6bb · 暗色面板与悬停修复 de59c5a · 2026-11-11 · 保留历史设计",
+            "w": 1436,
+            "h": 26,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9873",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "设置 footer → 向上展开",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9874",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "声音默认开启；振动默认关闭且仅 Android 显示。Web 不提供系统通知设置按钮，也不显示振动。关闭网页后不发送系统通知。展开层覆盖上方设置，不推开下方内容。收起/展开可通过新页面内的到点提醒入口切换。",
+            "w": 1436,
+            "h": 52,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9875",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "原生系统通知与权限",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9876",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "系统通知设置打开系统权限入口。通用提示：通知受系统权限与免打扰设置影响。未授权：系统通知未开启。非准时闹钟：锁屏提醒可能延迟；可在系统设置允许准时提醒。OS 权限页不在 Figma 中模拟。",
+            "w": 1436,
+            "h": 52,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9877",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点后停在本轮",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9878",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "显示「时间到了」，保留「继续」「结束并记录」与「等待期间不计时」。到点只提醒一次，不自动延长，不宣布任务完成。只有明确操作才继续或记录；通知点击回到当前会话。后台、锁屏、关闭或跨夜后重新打开不自动延长；错过的提示静默消费。",
+            "w": 1436,
+            "h": 52,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9879",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "通知文案 · 三语言",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9880",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "ZH：这一轮时间到了\n继续，或结束并记录。\nEN：Time is up for this round\nContinue, or finish and record.\nJA：今回の時間になりました\n続ける、または終了して記録。",
+            "w": 1436,
+            "h": 156,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9881",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "启动 → 整页显示",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9882",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "启动统一显示 Now What 与 Loading… / 正在打开 / 読み込み中。预载并解码主要装饰后整页显示；挂载后的 2.5 秒上限避免缺图卡住。不是固定时长动画，也不承诺每台设备瞬时打开。",
+            "w": 1436,
+            "h": 26,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9883",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "已解决 · 深色提醒对比度与悬停",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9884",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "de59c5a 将暗色面板背景改为 #503d2c，文字仍为 #f1dfb6；实测对比度 7.81:1。summary:hover 改为 #b18a5033（20% 不透明度）。320×568 与 390×844 临时 Android 浏览器上下文中，面板均完整位于视口内。原失败截图保留在同步报告中，当前 JA 面板已更新。平台字体替代限制仍在。",
+            "w": 1436,
+            "h": 52,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9885",
+            "font": {
+              "family": "Noto Serif SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "验证边界",
+            "w": 1436,
+            "h": 34,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "458:9886",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "初次核对使用独立 :8899；本次修复从 de59c5a 完整源归档构建，独立 :8900 与全新临时 Edge 上下文，合成数据。原生桥仅用于呈现平台专属控件，不证明 OS 通知投递。未验证真实 Android、原生升级、参与者或全量 B/C 点击。字体替代保持此前说明。",
+            "w": 1436,
+            "h": 52,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "descendantCount": 16
+      },
+      {
+        "id": "463:9790",
+        "name": "1.4.2 / Reminder summary / zh-CN / 1600 / Hover · de59c5a",
+        "width": 90,
+        "height": 36.390625,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ],
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9791",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点提醒",
+            "w": 58,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "descendantCount": 1
+      },
+      {
+        "id": "463:9792",
+        "name": "1.4.2 / Reminder summary / en / 1600 / Hover · de59c5a",
+        "width": 143.703125,
+        "height": 36.390625,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ],
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9793",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "text": "Timer reminders",
+            "w": 111.703125,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "descendantCount": 1
+      },
+      {
+        "id": "463:9794",
+        "name": "1.4.2 / Reminder summary / zh-CN / 360 / Hover · de59c5a",
+        "width": 90,
+        "height": 36.390625,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ],
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9795",
+            "font": {
+              "family": "Noto Sans SC",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "text": "到点提醒",
+            "w": 58,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "descendantCount": 1
+      },
+      {
+        "id": "463:9796",
+        "name": "1.4.2 / Reminder summary / en / 320 / Hover · de59c5a",
+        "width": 143.703125,
+        "height": 36.390625,
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ],
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "texts": [
+          {
+            "id": "463:9797",
+            "font": {
+              "family": "Inter",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400,
+                "slnt": 0
+              }
+            },
+            "text": "Timer reminders",
+            "w": 111.703125,
+            "h": 22.399999618530273,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                  "r": 0.2705882489681244,
+                  "g": 0.16470588743686676,
+                  "b": 0.10196078568696976
+                },
+                "boundVariables": {
+                  "color": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:6:3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "descendantCount": 1
+      }
+    ]
+  },
+  "finalHoverReadback": {
+    "mutatedNodeIds": [
+      "463:9790",
+      "463:9792",
+      "463:9794",
+      "463:9796"
+    ],
+    "rows": [
+      {
+        "id": "463:9790",
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "463:9792",
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "463:9794",
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "463:9796",
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.20000000298023224,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.6941176652908325,
+              "g": 0.5411764979362488,
+              "b": 0.3137255012989044
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6:7"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "screenshotHashes": [
+    {
+      "name": "de59-dark-ja-320-hover.png",
+      "Hash": "4461D3A51153D6BAD86E1D8D2514BBC9A7CB655A90293FD9A1AA4629A607453C"
+    },
+    {
+      "name": "de59-dark-ja-320.png",
+      "Hash": "1A2F72D30E7BD53C62BC6FCA821C25BCBCCF56DF42D5148EA7E069863D046223"
+    },
+    {
+      "name": "de59-dark-ja-390-hover.png",
+      "Hash": "9B124E6E24A4454FB13EB44E1413C17DCF3429996C540FE74152CC2A93A38148"
+    },
+    {
+      "name": "de59-dark-ja-390.png",
+      "Hash": "68CE0FD4883485EE41B31BC68055A961702DA3EDD110149049E6CD2C037F3860"
+    },
+    {
+      "name": "de59-dark-zh-320-hover.png",
+      "Hash": "5766123FF4A24F564D12D6E91916F31DED80F7861DBE109AF816AD7C3CB6FA69"
+    },
+    {
+      "name": "de59-dark-zh-320.png",
+      "Hash": "3108A4CFAE76C101E38ACD4115C5F1C2F8F78542453E3A38C778ED7ECA6F1750"
+    },
+    {
+      "name": "de59-figma-458-9870.png",
+      "Hash": "17CD8454B41D4C264AC63F0ACA23E60FA527E020796C2649523CB74AECE70248"
+    },
+    {
+      "name": "de59-figma-463-9755.png",
+      "Hash": "82ACE5CE7DFE4A3BAC9027AA78FB877AD5F8F9987C217717D62E136152AF467D"
+    },
+    {
+      "name": "de59-figma-board-final.png",
+      "Hash": "AEF4875F51868A14393DA18748084E187FC8902E094AD1DA8269C78D31834F00"
+    },
+    {
+      "name": "de59-light-zh-hover-hover.png",
+      "Hash": "37BC820E17F7080691F4E22B9B5881E87FC2B5E8BE5FF84141F55E9EB9F8B7DD"
+    },
+    {
+      "name": "de59-light-zh-hover.png",
+      "Hash": "093AEA212C0F6E77C134EF9B3C9EFFFD715FCD76B89E4D2B03FC5F0917BED9BA"
+    }
+  ],
+  "status": "Resolved dark contrast defect; no native delivery or exact platform-font acceptance implied"
+}

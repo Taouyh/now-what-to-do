@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-12",
+  "account": "3966592487",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "sessionId": "735a8f94-63e8-41e8-9176-5f8f0b2b6240",
+  "status": "Superseded by home-title-position-audit.json; whole-group movement reverted",
+  "mutatedNodeIds": [
+    "516:10191",
+    "516:10240",
+    "516:10289",
+    "516:10139",
+    "516:10203",
+    "516:10252",
+    "516:10301",
+    "516:10304",
+    "516:10154"
+  ],
+  "sectionId": "516:10138",
+  "states": [
+    {
+      "screen": "516:10157",
+      "group": "516:10192",
+      "screenSize": [
+        360,
+        800
+      ],
+      "before": {
+        "x": 25,
+        "y": 364,
+        "width": 312,
+        "height": 222
+      },
+      "after": {
+        "x": 25,
+        "y": 316,
+        "width": 312,
+        "height": 222
+      },
+      "movedUp": 48,
+      "offsetAboveAreaCenter": 48,
+      "areaPaddingBottom": 96,
+      "internalLayoutPreserved": true,
+      "utility": {
+        "x": 25,
+        "y": 130,
+        "width": 312,
+        "height": 44
+      }
+    },
+    {
+      "screen": "516:10206",
+      "group": "516:10241",
+      "screenSize": [
+        320,
+        640
+      ],
+      "before": {
+        "x": 25,
+        "y": 287,
+        "width": 272,
+        "height": 216
+      },
+      "after": {
+        "x": 25,
+        "y": 259,
+        "width": 272,
+        "height": 216
+      },
+      "movedUp": 28,
+      "offsetAboveAreaCenter": 28,
+      "areaPaddingBottom": 56,
+      "internalLayoutPreserved": true,
+      "utility": {
+        "x": 25,
+        "y": 130,
+        "width": 272,
+        "height": 44
+      }
+    },
+    {
+      "screen": "516:10255",
+      "group": "516:10290",
+      "screenSize": [
+        360,
+        800
+      ],
+      "before": {
+        "x": 25,
+        "y": 346.5,
+        "width": 312,
+        "height": 257
+      },
+      "after": {
+        "x": 25,
+        "y": 298.5,
+        "width": 312,
+        "height": 257
+      },
+      "movedUp": 48,
+      "offsetAboveAreaCenter": 48,
+      "areaPaddingBottom": 96,
+      "internalLayoutPreserved": true,
+      "utility": {
+        "x": 25,
+        "y": 130,
+        "width": 312,
+        "height": 44
+      }
+    }
+  ]
+}

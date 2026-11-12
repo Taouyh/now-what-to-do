@@ -1,6 +1,6 @@
 <p align="center"><a href="README.md">English</a> · <a href="README.zh-CN.md">简体中文</a> · <strong>日本語</strong></p>
 
-<p align="center"><img src="packaging/icon.png" width="88" height="88" alt="Now What アイコン"></p>
+<p align="center"><img src="packaging/icons/icon-128.png" width="88" height="88" alt="Now What アイコン"></p>
 <h1 align="center">Now What</h1>
 <h3 align="center">少しの時間で、ひとつはじめよう。</h3>
 
@@ -19,7 +19,7 @@
 
 <a id="features"></a>
 
-**1.4.1 の更新：**活動のピン留めとドラッグによる並べ替えに対応（各グループ内）。一覧はページ送りで表示し、活動の説明は初期状態で開きます。モバイル表示とボタンも改善しました。
+**1.4.3 の更新：**初回表示を高速化し、新しい本のアイコンと自動リマインダーを追加。バックグラウンドでも元の終了時刻を保ち、過去の通知は再生しません。
 ## できること
 
 - **迷ったら、ひとつ。** 読書、絵、語学などを登録。提案から選んだり、別の候補や自分の一覧から選べます。
@@ -27,7 +27,7 @@
 - **変えた候補は、今回は出さない。** しっくりこなければ次へ。候補がなくなったら、もう一度見るか自分で選べます。
 - **今の状況に合わせる。** パソコンを使える、音を聞ける、声を出せる、中断されるかもしれない。最初はすべて未選択で、その後の選択は保存されます。
 - **空いた時間で。** 10・15・20・30・60分、または好きな時間を設定。パソコンでは時間や条件にマウスを重ねると開き、パネルから離すと閉じます。スマホではタップで操作します。
-- **戻って、続きを。** 時間が来たら停止し、「続ける」で延長。開き直すと再開待ちになり、長い休止後は前回の時間を別に記録します。
+- **戻って、続きを。** 実行中のタイマーはバックグラウンドでも元の終了時刻を保ちます。終了後は「続ける」か「終了して記録」を選択。一時停止中のタイマーは停止したままです。
 - **今日を振り返る。** 同じ活動の記録をまとめ、回数と合計時間を表示。各回の記録を開いて確認できます。
 - **好みに合わせて。** ライト・ダークテーマ、英語・中国語・日本語。Windows・Android・ブラウザに対応。
 
@@ -64,7 +64,7 @@
 
 
 
-[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.1 の更新内容](docs/releases/v1.4.1.md)
+[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.3 の更新内容](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
 
 <a id="privacy"></a>
 ## データとプライバシー

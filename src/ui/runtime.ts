@@ -8,6 +8,7 @@ export interface BookView {
   onPage(id: string): void;
   onTimer(): void;
   onEditor(): void;
+  onEditorClose(): void;
 }
 
 export interface Runtime {

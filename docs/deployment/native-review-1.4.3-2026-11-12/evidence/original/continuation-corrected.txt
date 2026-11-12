@@ -1,0 +1,15 @@
+
+Running 4 tests using 3 workers
+
+(node:26176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17760) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 390px en dark and cancel preserves data (2.5s)
+  ok 1 tests\e2e\continuation-label.spec.ts:13:5 › continuation names the completed activity and saves only its description (3.4s)
+  ok 2 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 1531px zh-CN light and cancel preserves data (3.7s)
+  ok 4 tests\e2e\continuation-label.spec.ts:30:7 › continuation fits 320px ja light and cancel preserves data (1.5s)
+
+  4 passed (5.7s)

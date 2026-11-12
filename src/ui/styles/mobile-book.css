@@ -1,0 +1,124 @@
+/* Android/touch single-page book. Reference: Figma 574:10204, November 12. */
+.home-focus { display: contents; }
+.mobile-requirement-label { display: none; }
+.book-app.mobile-book { height: var(--mobile-layout-height,100dvh); padding: 0 12px; background-attachment: scroll; }
+.mobile-book .book-header { flex-basis: 40px; height: 40px; padding: 0 4px; display: flex; align-items: center; }
+.mobile-book .book { margin: 48px 0 0; border: 1px solid var(--gold); border-radius: 12px; box-shadow: 0 4px 8px #1a0a0359,0 1px 0 #703c25,inset 3px 0 8px #80572921; }
+.mobile-book .bookmarks { top: -49px; height: 48px; gap: 4px; align-items: start; }
+.mobile-book .bookmarks button,.mobile-book .bookmarks button.active { flex: 1; min-width: 0; height: 44px; min-height: 44px; padding: 0 2px; align-items: center; border: 1px solid #f1dcad; border-radius: 6px; background: #b18a50; font: 13px/20px 'Noto Sans SC Variable',sans-serif; box-shadow: none; }
+.mobile-book .bookmarks button.active { background: linear-gradient(#f8ebc9,#d6b783); box-shadow: 0 2px 3px #1409041f; }
+.mobile-book .bookmarks button:focus-visible { outline: none; filter: brightness(.9); }
+.mobile-book .book h1,.mobile-book .book h2 { font-size: 24px; line-height: 36px; }
+.mobile-book .book .book-pager { display: flex; justify-content: space-between; gap: 8px; height: 44px; min-height: 44px; margin: 0; }
+.mobile-book .book .book-pager button { flex: 0 1 112px; width: 112px; height: 44px; min-height: 44px; font-size: 14px; }
+.mobile-book .book .book-pager .page-count:not(.sr-only) { font-size: 12px; color: var(--muted-ink); align-self: center; }
+
+/* The title moves independently; the action pair remains centered in the focus area. */
+.mobile-book .book .home-workspace { margin: 0; width: 100%; height: 100%; padding: 16px 12px; display: flex; flex-direction: column; gap: 16px; }
+.mobile-book .book .home-controls { position: static; flex: none; height: 44px; margin: 0; gap: 12px; flex-wrap: nowrap; }
+.mobile-book .book .condition-picker { min-width: 0; }
+.mobile-book .book .condition-picker>summary { width: 132px; min-width: 0; max-width: 100%; min-height: 44px; height: 44px; font-size: 14px; }
+.mobile-book .home-focus { flex: 1; min-height: min-content; display: flex; flex-direction: column; justify-content: center; align-items: stretch; }
+.mobile-book .book .rec { display: flex; flex-direction: column; align-items: center; gap: 20px; flex: none; width: 100%; margin: 0; }
+.mobile-book .book .rec h2 { display: flex; align-items: center; justify-content: center; height: 76px; min-height: 76px; width: 100%; margin: 0; max-height: none; overflow-y: auto; font-size: 28px; line-height: 38px; font-weight: 500; transform: translateY(-32px); }
+.mobile-book .book .rec #start { order: 2; flex: none; width: min(240px,100%); height: 56px; min-height: 56px; border-width: 2px; border-radius: 10px; font-size: 22px; gap: 20px; }
+.mobile-book .book .rec .recommendation-step { order: 1; margin: 0; width: 100%; max-height: 84px; overflow-y: auto; font: 14px/21px 'Noto Sans SC Variable',sans-serif; }
+.mobile-book .book .rec.has-next-step h2 { transform: translateY(-28px); }
+.mobile-book .book .home-entries { flex: none; margin: 20px 0 0; }
+.mobile-book .book .home-entries #random { width: 160px; height: 44px; min-height: 44px; padding: 0; justify-content: center; gap: 14px; font-size: 21px; }
+.mobile-book .book .completion-feedback { flex: none; margin: 0; }
+.mobile-book .book .completion-feedback:empty { display: none; }
+.mobile-book .book #home { overflow-y: auto; }
+.mobile-book .book .home-workspace:has(.continuation-form) .home-focus { padding-top: 28px; }
+.mobile-book .book .condition-panel { position: absolute; top: 12px !important; left: 12px !important; width: calc(100% - 24px) !important; max-height: calc(100% - 24px) !important; z-index: 8; }
+
+/* True pagination: short and last pages use exactly the same top anchor. */
+.mobile-book .book #taskList { padding: 16px 12px; gap: 16px; }
+.mobile-book .mobile-task-heading { height: 60px; }
+.mobile-book .mobile-task-heading .column-heading { height: 36px; }
+.mobile-book .book .small-action { width: 80px; min-height: 44px; height: 44px; border-radius: 8px; font-size: 14px; }
+.mobile-book .mobile-task-items { --task-page-row-height: 64; gap: 12px; justify-content: flex-start; overflow: hidden; }
+.mobile-book .book .mobile-task-items .task-strip { flex: 0 0 64px; min-height: 64px; height: 64px; }
+.mobile-book .book .mobile-task-items.few-tasks .task-strip { flex-basis: 72px; min-height: 72px; height: 72px; }
+.mobile-book .task-strip { gap: 4px; padding: 0 4px; border: 1px solid var(--gold); border-radius: 7px; background: var(--mobile-task-paper) center/100% 100% no-repeat; filter: drop-shadow(0 3px 1.5px #2b170a29); }
+.mobile-book .task-strip::after { width: 7px; right: 1px; top: 2px; height: calc(100% - 4px); border-radius: 3px; }
+.mobile-book .book .task-edit { padding: 0; }
+.mobile-book .task-number { display: none; }
+.mobile-book .book .task-title { font-size: 16px; line-height: 24px; }
+.mobile-book .book .task-drag-handle { min-height: 44px; height: 44px; padding: 0; }
+.mobile-book .book .task-pin { flex-basis: 44px; width: 44px; height: 44px; padding: 12px; border-radius: 18px; background: #f1dcad; opacity: .55; }
+.mobile-book .book .task-pin[aria-pressed=true] { opacity: 1; background: #d6b783; }
+.mobile-book .book .task-play { margin: 0; width: 44px; height: 44px; padding: 12px; }
+
+/* Calendar directory and detail occupy the same page, never two stacked pages. */
+.mobile-book .book #todayBox { position: absolute; inset: 0; }
+.mobile-book .book .page#today { overflow: hidden; }
+.mobile-book .book .mobile-calendar-column { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 16px 12px; gap: 0; }
+.mobile-book .mobile-calendar-column .book-caption { margin: 4px 0 16px; font-size: 13px; line-height: 20px; }
+.mobile-book .calendar-directory { --calendar-row-height: 72; display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 12px; padding: 0; margin: 0; overflow: hidden; scrollbar-gutter: auto; }
+.mobile-book .book .calendar-group { flex: 0 0 72px; min-height: 72px; height: 72px; padding: 0 16px; justify-content: space-between; }
+.mobile-book .calendar-group>span.user-text { white-space: normal; max-height: 52px; font-size: 17px; line-height: 26px; }
+.mobile-book .calendar-group .calendar-arrow { flex: none; font: 24px/36px 'Noto Sans SC Variable',sans-serif; color: var(--muted-ink); }
+.mobile-book .book .calendar-back { flex: none; align-self: flex-start; width: 112px; min-height: 44px; height: 44px; margin: 0 0 8px; border-radius: 22px; font-size: 14px; background: linear-gradient(#f8ebc9,#d6b783); }
+.mobile-book .calendar-records { --calendar-row-height: 80; flex: 1; display: flex; flex-direction: column; gap: 12px; min-height: 0; padding: 0; margin: 0; overflow: hidden; }
+.mobile-book .record-row { position: relative; flex: 0 0 80px; min-height: 80px; border: 0; border-bottom: 1px solid var(--gold); border-radius: 0; background: transparent; padding: 0; }
+.mobile-book .book .record-toggle { height: 100%; min-height: 44px; align-items: flex-start; padding: 8px 12px; font: 15px/23px 'Noto Sans SC Variable',sans-serif; }
+.mobile-book .book .record-toggle:focus-visible { outline: none; color: #895332; }
+.mobile-book .record-detail { position: absolute; top: 36px; left: 12px; right: 12px; font-size: 11px; line-height: 17px; margin: 0; max-height: 34px; overflow-y: auto; }
+.mobile-book .mobile-calendar-column>.book-pager { margin-top: 16px; }
+.mobile-book .book .calendar-start { flex: none; align-self: center; width: 144px; height: 44px; margin: 16px 0 0; padding: 7px 12px; border-radius: 22px; background: linear-gradient(#f8ebc9,#d6b783); color: var(--ink); font-size: 14px; box-shadow: 0 2px 3px #1409041f; }
+.mobile-book .calendar-directory .empty-copy { margin: 4px 0 0; }
+
+/* Full-height editor: only the form scrolls; IME and panel close concurrently. */
+.mobile-book .book #modal { top: var(--editor-top,0px); height: var(--editor-height,100dvh); bottom: auto; background: linear-gradient(#170d0842,#170d0842),var(--environment) center/cover; transition: opacity 100ms ease-out,display 100ms allow-discrete; }
+.mobile-book .book #modal .dialog,.mobile-book .book #modal.hide .dialog { top: 0; left: 12px; width: calc(100% - 24px); height: calc(100% - 12px); max-height: none; min-height: 0; padding: 12px; border: 1px solid var(--gold); border-radius: 12px; animation: none; transition: none; transform: none; }
+.mobile-book .book .dialog::before,.mobile-book .book .dialog::after { display: none; }
+.mobile-book .book .activity-dialog-header { flex: none; display: flex; height: 44px; min-height: 44px; margin: 0 0 12px; }
+.mobile-book .book #modalTitle { background: none; border: 0; color: var(--ink); text-align: left; padding: 0; font-size: 22px; line-height: 33px; }
+.mobile-book .book #close { flex: 0 0 44px; width: 44px; height: 44px; padding: 0; font-size: 27px; }
+.mobile-book .book #form { display: flex; flex-direction: column; gap: 12px; }
+.mobile-book .book .activity-form-body { padding: 0; }
+.mobile-book .activity-form-body>label[for=name] { position: static; width: auto; height: auto; clip-path: none; overflow: visible; display: block; margin-bottom: 10px; color: var(--muted-ink); font-size: 13px; line-height: 20px; }
+.mobile-book .book .dialog .paper-input { height: 48px; min-height: 48px; background: var(--input); border: 1px solid var(--gold); border-radius: 8px; filter: none; box-shadow: inset 0 1px 3px #45291a1a; }
+.mobile-book .book .dialog .paper-input::after { display: none; }
+.mobile-book .book .dialog #name { padding: 10px 12px; font: 16px/24px 'Noto Sans SC Variable',sans-serif; }
+.mobile-book .book .field-error:empty { display: none; }
+.mobile-book .book .requirements-options { margin: 10px 0 0; }
+.mobile-book .book .requirements-options>summary { min-height: 20px; padding: 0; font-size: 13px; line-height: 20px; }
+.mobile-book .book .activity-requirements { padding: 10px 0; gap: 8px; }
+.mobile-book .book .checkbox-label { width: 58px; height: 44px; border-radius: 8px; background: linear-gradient(#f8ebc9,#d6b783); }
+.mobile-book .book .checkbox-label img { display: none; }
+.mobile-book .book .checkbox-label span.mobile-requirement-label { display: block; position: static; width: auto; height: auto; clip-path: none; overflow: visible; font-size: 13px; line-height: 20px; }
+.mobile-book .book .checkbox-label:has(input:checked) { color: #f1dcad; background: #895332; box-shadow: none; }
+.mobile-book .book .checkbox-label:has(input:focus-visible) { outline: none; filter: brightness(.9); }
+.mobile-book .book .activity-extras { margin-top: 0; }
+.mobile-book .book .description-options>summary { min-height: 21px; padding: 0; font-size: 14px; line-height: 21px; text-align: center; color: var(--ink); }
+.mobile-book .book #desc { min-height: 72px; max-height: 120px; border-radius: 8px; font-size: 14px; line-height: 21px; }
+.mobile-book .book .activity-dialog-footer { position: static; display: flex; flex-direction: row; gap: 12px; height: 44px; margin: 0; }
+.mobile-book .book .activity-dialog-footer button { flex: 1; min-width: 0; height: 44px; min-height: 44px; font-size: 14px; }
+.mobile-book .book #saveActivity,.mobile-book .book #deleteActivity { border-radius: 8px; }
+.mobile-book .book #cancelActivity { background: linear-gradient(#f8ebc9,#d6b783); color: var(--ink); border: 1px solid #a88554cc; border-radius: 22px; box-shadow: 0 2px 3px #1409041f; }
+html[data-theme=dark] .mobile-book .task-strip { background-image: linear-gradient(#38291ed9,#38291ed9),var(--mobile-task-paper); }
+html[data-theme=dark] .mobile-book .book :is(.calendar-start,.calendar-back,#cancelActivity) { background: #503d2c; color: var(--ink); }
+html[data-theme=dark] .mobile-book .book .checkbox-label { background: #503d2c; }
+html[data-theme=dark] .mobile-book .book .checkbox-label:has(input:checked) { background: #895332; }
+@media(max-height:650px) {
+  .mobile-book .book .rec h2 { transform: translateY(-20px); }
+  .mobile-book .book .mobile-task-items.few-tasks .task-strip { flex-basis: 64px; min-height: 64px; height: 64px; }
+  .mobile-book .calendar-directory { --calendar-row-height: 64; }
+  .mobile-book .book .calendar-group { flex-basis: 64px; min-height: 64px; height: 64px; }
+  .mobile-book .calendar-records { --calendar-row-height: 64; gap: 8px; }
+  .mobile-book .record-row { flex-basis: 64px; min-height: 64px; }
+  .mobile-book .book .record-toggle { padding: 4px 12px; }
+  .mobile-book .record-detail { top: 28px; max-height: 34px; }
+}
+@media(orientation:landscape) and (max-height:450px) {
+  .mobile-book .book #taskList,.mobile-book .book .mobile-calendar-column { padding: 8px 12px; gap: 8px; }
+  .mobile-book .mobile-task-heading { height: 50px; }
+  .mobile-book .book .mobile-task-items .task-strip,.mobile-book .book .mobile-task-items.few-tasks .task-strip { flex-basis: 52px; height: 52px; min-height: 52px; }
+  .mobile-book .mobile-task-items { --task-page-row-height: 52; gap: 8px; }
+  .mobile-book .book .home-workspace { min-height: 350px; }
+  .mobile-book .mobile-calendar-column .book-caption { margin-bottom: 8px; }
+  .mobile-book .book .calendar-back { height: 36px; min-height: 36px; margin-bottom: 0; }
+  .mobile-book .mobile-calendar-column>.book-pager { margin-top: 8px; }
+}

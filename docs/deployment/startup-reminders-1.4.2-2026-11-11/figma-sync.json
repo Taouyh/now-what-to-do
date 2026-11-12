@@ -1,0 +1,3615 @@
+{
+  "date": "2026-11-11",
+  "timezone": "Asia/Shanghai",
+  "fixedCommit": "9e6f6bb02c4b11c93a0b376c53ce0b34030c4744",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "pageId": "49:243",
+  "sessionId": "fcd3b971-0e7d-4f71-9488-ec7e21392065",
+  "accountHandle": "3966592487",
+  "scope": "Bounded code-to-design sync; known dark source defect; no native delivery acceptance",
+  "historicalBaseline": [
+    {
+      "id": "49:244",
+      "name": "B / 现在做 · 1600×1000",
+      "hash": "3092058e"
+    },
+    {
+      "id": "49:360",
+      "name": "B / Navigation / Bookmarks",
+      "hash": "8e237c74"
+    },
+    {
+      "id": "49:515",
+      "name": "B / Control / 开始",
+      "hash": "a0d9bf42"
+    },
+    {
+      "id": "49:539",
+      "name": "B / Control / 时间",
+      "hash": "4f391073"
+    },
+    {
+      "id": "49:563",
+      "name": "B / Control / 条件",
+      "hash": "4b98a8ae"
+    },
+    {
+      "id": "49:587",
+      "name": "B / Control / 换一件",
+      "hash": "99c09d2b"
+    },
+    {
+      "id": "49:611",
+      "name": "B / Control / 自己选",
+      "hash": "aee734f8"
+    },
+    {
+      "id": "51:363",
+      "name": "B / 状态总览 · 四种书签与主要控件",
+      "hash": "8d20991d"
+    },
+    {
+      "id": "51:567",
+      "name": "交付说明 / B 版",
+      "hash": "f995923d"
+    },
+    {
+      "id": "61:542",
+      "name": "B / Memo / 时间选项",
+      "hash": "b68f9e00"
+    },
+    {
+      "id": "61:544",
+      "name": "B / Memo / 条件勾选行",
+      "hash": "e79a8ffa"
+    },
+    {
+      "id": "61:550",
+      "name": "B / 时间便签 · 展开",
+      "hash": "fc6667c0"
+    },
+    {
+      "id": "61:700",
+      "name": "B / 条件便签 · 展开",
+      "hash": "31bed1cb"
+    },
+    {
+      "id": "62:3087",
+      "name": "B / 时间便签 · 向上卷起",
+      "hash": "85b0a888"
+    },
+    {
+      "id": "62:3281",
+      "name": "B / 时间便签 · 收回入口",
+      "hash": "5c22e0ad"
+    },
+    {
+      "id": "62:3475",
+      "name": "B / 条件便签 · 向上卷起",
+      "hash": "9c8885ce"
+    },
+    {
+      "id": "62:3675",
+      "name": "B / 条件便签 · 收回入口",
+      "hash": "b8add74a"
+    },
+    {
+      "id": "62:3879",
+      "name": "B / 时间便签 · 自定义输入",
+      "hash": "de15badc"
+    },
+    {
+      "id": "62:4079",
+      "name": "B / 时间便签 · 自定义 40 分钟示例",
+      "hash": "c2df6de5"
+    },
+    {
+      "id": "71:1035",
+      "name": "B / Focus / Actions",
+      "hash": "b9c1c780"
+    },
+    {
+      "id": "71:1045",
+      "name": "B / 专注书页 · 进行中",
+      "hash": "620a8cb5"
+    },
+    {
+      "id": "71:1219",
+      "name": "B / 专注书页 · 已暂停",
+      "hash": "87988fcc"
+    },
+    {
+      "id": "71:1338",
+      "name": "B / 专注书页 · 活动说明",
+      "hash": "25fecd25"
+    },
+    {
+      "id": "71:1419",
+      "name": "B / 专注书页 · 暂停与说明",
+      "hash": "38f8a2c8"
+    },
+    {
+      "id": "71:1566",
+      "name": "B / 专注书页 · 时间到了",
+      "hash": "f83806a7"
+    },
+    {
+      "id": "71:1685",
+      "name": "B / 专注结束 · 回到推荐并记录",
+      "hash": "80279ce7"
+    },
+    {
+      "id": "75:1198",
+      "name": "B / 专注操作 · 三态总览",
+      "hash": "3ba480aa"
+    },
+    {
+      "id": "87:1236",
+      "name": "B / Task / 纸条任务",
+      "hash": "e67e2301"
+    },
+    {
+      "id": "87:1306",
+      "name": "B / Task / 需求图标",
+      "hash": "a5c3e9d0"
+    },
+    {
+      "id": "87:1320",
+      "name": "B / Task / 添加",
+      "hash": "6d4642dc"
+    },
+    {
+      "id": "87:1321",
+      "name": "B / 任务书页 · 列表与添加",
+      "hash": "c0846202"
+    },
+    {
+      "id": "87:1603",
+      "name": "B / 任务书页 · 填写练字",
+      "hash": "1d075035"
+    },
+    {
+      "id": "87:1815",
+      "name": "B / 任务书页 · 名称为空",
+      "hash": "af430aa"
+    },
+    {
+      "id": "87:2027",
+      "name": "B / 任务书页 · 已添加",
+      "hash": "232aa9f0"
+    },
+    {
+      "id": "93:1678",
+      "name": "B / 任务控件 · 悬停与返回专注",
+      "hash": "96c6ad75"
+    },
+    {
+      "id": "104:1811",
+      "name": "B / Task / 行内图标操作",
+      "hash": "28a29cad"
+    },
+    {
+      "id": "104:2220",
+      "name": "B / Task / 修改需求",
+      "hash": "4ce331af"
+    },
+    {
+      "id": "104:2223",
+      "name": "B / 任务修改 · 直接编辑",
+      "hash": "8587693d"
+    },
+    {
+      "id": "104:2585",
+      "name": "B / 任务修改 · 草稿编辑",
+      "hash": "a0e929a2"
+    },
+    {
+      "id": "104:2921",
+      "name": "B / 任务修改 · 名称错误",
+      "hash": "4e25c893"
+    },
+    {
+      "id": "104:3257",
+      "name": "B / 任务修改 · 删除确认",
+      "hash": "66796c01"
+    },
+    {
+      "id": "104:3592",
+      "name": "B / 任务修改 · 卷起",
+      "hash": "3af8d9c7"
+    },
+    {
+      "id": "104:3924",
+      "name": "B / 任务修改 · 收回",
+      "hash": "8520c414"
+    },
+    {
+      "id": "104:4256",
+      "name": "B / 任务清空 · 返回现在做",
+      "hash": "5773a3b4"
+    },
+    {
+      "id": "111:3035",
+      "name": "B / 书页操作 / 纸签与皮革",
+      "hash": "44399982"
+    },
+    {
+      "id": "111:3036",
+      "name": "B / 日历书页 · 今天",
+      "hash": "635a51e3"
+    },
+    {
+      "id": "111:3329",
+      "name": "B / 日历书页 · 读书记录",
+      "hash": "57632990"
+    },
+    {
+      "id": "111:3634",
+      "name": "B / 日历书页 · 第一次记录",
+      "hash": "59d3e680"
+    },
+    {
+      "id": "111:3940",
+      "name": "B / 日历书页 · 第二次记录",
+      "hash": "341ac1e9"
+    },
+    {
+      "id": "111:4246",
+      "name": "B / 日历书页 · 画画记录",
+      "hash": "3f4d6263"
+    },
+    {
+      "id": "111:4545",
+      "name": "B / 日历书页 · 暂无记录",
+      "hash": "27ed1c01"
+    },
+    {
+      "id": "111:4832",
+      "name": "B / 设置书页 · zh · light",
+      "hash": "4c3452f4"
+    },
+    {
+      "id": "111:5147",
+      "name": "B / 设置书页 · zh · dark",
+      "hash": "16e4c0e4"
+    },
+    {
+      "id": "111:5493",
+      "name": "B / 设置书页 · en · light",
+      "hash": "de2812c0"
+    },
+    {
+      "id": "111:5808",
+      "name": "B / 设置书页 · en · dark",
+      "hash": "97be5eb"
+    },
+    {
+      "id": "111:6154",
+      "name": "B / 设置书页 · ja · light",
+      "hash": "ca94b855"
+    },
+    {
+      "id": "111:6469",
+      "name": "B / 设置书页 · ja · dark",
+      "hash": "cd10e628"
+    },
+    {
+      "id": "111:6815",
+      "name": "B / 设置便签 · import",
+      "hash": "26acb252"
+    },
+    {
+      "id": "111:7032",
+      "name": "B / 设置便签 · export",
+      "hash": "f94a18a"
+    },
+    {
+      "id": "111:7226",
+      "name": "B / 设置便签 · restored",
+      "hash": "4c5c3b03"
+    },
+    {
+      "id": "114:3620",
+      "name": "B / 设置原型覆盖层 · import",
+      "hash": "d24a5e13"
+    },
+    {
+      "id": "114:3651",
+      "name": "B / 设置原型覆盖层 · export",
+      "hash": "4a897e60"
+    },
+    {
+      "id": "114:3679",
+      "name": "B / 设置原型覆盖层 · restored",
+      "hash": "e47ed6bc"
+    },
+    {
+      "id": "151:3405",
+      "name": "C / 任务书册 · 1—2 页",
+      "hash": "4e7b6b38"
+    },
+    {
+      "id": "151:3813",
+      "name": "C / 任务书册 · 3—4 页",
+      "hash": "ed608797"
+    },
+    {
+      "id": "151:4148",
+      "name": "C / 编辑任务卷轴",
+      "hash": "ad8913da"
+    },
+    {
+      "id": "151:4235",
+      "name": "C / 添加任务卷轴",
+      "hash": "8d0e6183"
+    },
+    {
+      "id": "151:4308",
+      "name": "C / 删除任务确认",
+      "hash": "ed91d809"
+    },
+    {
+      "id": "151:4354",
+      "name": "C / 日历书册 · 目录1",
+      "hash": "487288b4"
+    },
+    {
+      "id": "151:4661",
+      "name": "C / 日历书册 · 目录2",
+      "hash": "1c473c08"
+    },
+    {
+      "id": "151:4958",
+      "name": "C / 日历书册 · 读书明细",
+      "hash": "28f66da8"
+    },
+    {
+      "id": "151:5298",
+      "name": "C / 日历书册 · 画画明细",
+      "hash": "8090236f"
+    },
+    {
+      "id": "151:5612",
+      "name": "C / 日历书册 · 练习英语听力明细",
+      "hash": "6725b3ec"
+    },
+    {
+      "id": "151:5926",
+      "name": "C / 日历书册 · 散步明细",
+      "hash": "14639872"
+    },
+    {
+      "id": "151:6240",
+      "name": "C / 日历书册 · 练字明细",
+      "hash": "c917af84"
+    },
+    {
+      "id": "151:6554",
+      "name": "C / 日历书册 · 整理书桌明细",
+      "hash": "72cce1e9"
+    },
+    {
+      "id": "151:6858",
+      "name": "C / 日历书册 · 练习吉他明细",
+      "hash": "37a1d280"
+    },
+    {
+      "id": "151:7162",
+      "name": "C / 日历书册 · 学习摄影明细",
+      "hash": "9bf4bf88"
+    },
+    {
+      "id": "151:7466",
+      "name": "C / 日历书册 · 读书明细2",
+      "hash": "9c0a9520"
+    },
+    {
+      "id": "198:3966",
+      "name": "C / 任务卷轴 · 卷起",
+      "hash": "bcab097f"
+    },
+    {
+      "id": "198:4039",
+      "name": "C / 任务卷轴 · 收回",
+      "hash": "f211ecee"
+    },
+    {
+      "id": "203:4267",
+      "name": "B / 专注恢复 · 等待确认",
+      "hash": "3e8ba5f8"
+    },
+    {
+      "id": "203:4383",
+      "name": "B / 放弃本次 · 不记录",
+      "hash": "1ac377ac"
+    },
+    {
+      "id": "205:4085",
+      "name": "验收 / B 续做反馈 · 展开说明",
+      "hash": "600a76b5"
+    },
+    {
+      "id": "205:4260",
+      "name": "验收 / C 任务空书页",
+      "hash": "fb1a9ecb"
+    },
+    {
+      "id": "234:4153",
+      "name": "C / 编辑卷轴 · 连续展开起点",
+      "hash": "b5ed99d3"
+    },
+    {
+      "id": "234:4227",
+      "name": "C / 添加卷轴 · 连续展开起点",
+      "hash": "608f1c6f"
+    },
+    {
+      "id": "268:4276",
+      "name": "同步说明 / 2026-11-06 · 已验收反馈",
+      "hash": "df962c84"
+    },
+    {
+      "id": "270:4257",
+      "name": "C / 日历书册 · 暂无记录",
+      "hash": "3af43573"
+    },
+    {
+      "id": "296:4291",
+      "name": "B / Settings / Capsule · light",
+      "hash": "53bb7812"
+    },
+    {
+      "id": "296:4310",
+      "name": "B / Settings / Capsule · dark",
+      "hash": "8290d69c"
+    },
+    {
+      "id": "299:4291",
+      "name": "同步状态 / 2026-11-06 · 11项交互精简",
+      "hash": "e7808d0b"
+    },
+    {
+      "id": "313:4315",
+      "name": "B/C / 名称纸条背景 · 2026-11-06",
+      "hash": "f19b892b"
+    },
+    {
+      "id": "317:4311",
+      "name": "同步状态 / 2026-11-06 · 新六项纸条与时间胶囊",
+      "hash": "b6a29ee3"
+    },
+    {
+      "id": "342:4359",
+      "name": "C / Compact navigation / Capsule · 2026-11-06",
+      "hash": "bd648e0c"
+    },
+    {
+      "id": "346:4343",
+      "name": "同步状态 / 2026-11-06 · Compact navigation",
+      "hash": "44c5c26d"
+    },
+    {
+      "id": "360:4380",
+      "name": "About / Book edition 1.4 / English",
+      "hash": "45a7b6dc"
+    },
+    {
+      "id": "366:4399",
+      "name": "Introduction 1.4 / Editable source components",
+      "hash": "6536cf4b"
+    },
+    {
+      "id": "367:4469",
+      "name": "Introduction / Book edition 1.4 / English / Desktop 1440",
+      "hash": "44f798ba"
+    },
+    {
+      "id": "367:5014",
+      "name": "Introduction / Book edition 1.4 / English / Mobile 390",
+      "hash": "82e5d633"
+    },
+    {
+      "id": "367:5561",
+      "name": "Introduction / Installation disclosure / expanded content",
+      "hash": "6c592a01"
+    },
+    {
+      "id": "374:5361",
+      "name": "Android / Mobile fit · ca728cd · 2026-11-08",
+      "hash": "d66e2217"
+    },
+    {
+      "id": "376:5829",
+      "name": "C / Android tasks · 1 / 360×640",
+      "hash": "d546f514"
+    },
+    {
+      "id": "376:5950",
+      "name": "C / Android tasks · 2 / 360×640",
+      "hash": "4aa3306c"
+    },
+    {
+      "id": "376:6073",
+      "name": "B / Android settings · 360×640",
+      "hash": "77f523e4"
+    },
+    {
+      "id": "376:6142",
+      "name": "B / Android settings · 800×360",
+      "hash": "ba977d35"
+    },
+    {
+      "id": "376:6211",
+      "name": "B / Android completion edit · 360×640",
+      "hash": "9fa3a35a"
+    },
+    {
+      "id": "379:5620",
+      "name": "C / Android task editor · 800×360",
+      "hash": "e75b23f5"
+    },
+    {
+      "id": "392:5701",
+      "name": "B / Android empty library · 360×800 · 296b906",
+      "hash": "5a1a4b7f"
+    },
+    {
+      "id": "392:5748",
+      "name": "C / Android empty calendar · 360×800 · 296b906",
+      "hash": "8f87d602"
+    },
+    {
+      "id": "393:5746",
+      "name": "C / Android add activity · 360×800 · normal · 296b906",
+      "hash": "847b034c"
+    },
+    {
+      "id": "393:5930",
+      "name": "C / Android add activity · 360×360 · contracted viewport example · 296b906",
+      "hash": "a36b56d8"
+    },
+    {
+      "id": "395:5852",
+      "name": "Android entry sync / 296b906 · scope and verification boundary",
+      "hash": "655aa1e4"
+    },
+    {
+      "id": "406:6114",
+      "name": "Web / Task pin · 6ef3a60",
+      "hash": "36cc7a6f"
+    },
+    {
+      "id": "408:5894",
+      "name": "Web / Changed controls · zh en ja × Light Dark · 6ef3a60",
+      "hash": "120e033a"
+    },
+    {
+      "id": "408:5897",
+      "name": "Web / Task row · Light",
+      "hash": "bb31cbe7"
+    },
+    {
+      "id": "408:5913",
+      "name": "Web / Task row · Dark",
+      "hash": "584c8754"
+    },
+    {
+      "id": "408:6136",
+      "name": "Web / 置顶画画 · 排序示例 · 6ef3a60",
+      "hash": "3b3cb52a"
+    },
+    {
+      "id": "408:6441",
+      "name": "Web / 完成 · 纸条式下次起点 · 6ef3a60",
+      "hash": "e367488c"
+    },
+    {
+      "id": "422:6274",
+      "name": "Web / Controls only · zh en ja × light dark · b8b8878",
+      "hash": "43e8db91"
+    },
+    {
+      "id": "427:6303",
+      "name": "Web / Import boundary only · 1531×715 · 43c0d1f",
+      "hash": "f69d6431"
+    },
+    {
+      "id": "434:6301",
+      "name": "Web / Drag grip · Light · debf26c",
+      "hash": "c6b3bb52"
+    },
+    {
+      "id": "434:6304",
+      "name": "Web / Drag grip · Dark · debf26c",
+      "hash": "497e30af"
+    },
+    {
+      "id": "435:6377",
+      "name": "Web / Drag ordering · bounded states · debf26c",
+      "hash": "398a90b7"
+    },
+    {
+      "id": "441:6719",
+      "name": "Introduction 1.4.1 / Scoped editable preview masters",
+      "hash": "f79ceabb"
+    },
+    {
+      "id": "442:6757",
+      "name": "Introduction 1.4.1 / Navigation control",
+      "hash": "9037ef80"
+    },
+    {
+      "id": "442:6759",
+      "name": "Introduction / 1.4.1 / en / 1440 / Default",
+      "hash": "4fab499a"
+    },
+    {
+      "id": "444:7195",
+      "name": "Introduction / 1.4.1 / zh-CN / 1440 / Default",
+      "hash": "713ff677"
+    },
+    {
+      "id": "444:7779",
+      "name": "Introduction / 1.4.1 / ja / 1440 / Default",
+      "hash": "1733e0a8"
+    },
+    {
+      "id": "444:8363",
+      "name": "Introduction / 1.4.1 / en / 390 / Default",
+      "hash": "82e4146f"
+    },
+    {
+      "id": "444:8940",
+      "name": "Introduction / 1.4.1 / zh-CN / 390 / Default",
+      "hash": "4038b94a"
+    },
+    {
+      "id": "444:9517",
+      "name": "Introduction / 1.4.1 / ja / 390 / Default",
+      "hash": "e4a01a20"
+    },
+    {
+      "id": "445:9385",
+      "name": "Introduction 1.4.1 / EN / 1440 / language menu open",
+      "hash": "e4fcccd1"
+    },
+    {
+      "id": "445:9411",
+      "name": "Introduction 1.4.1 / ZH / 1440 / language menu open",
+      "hash": "640ea371"
+    },
+    {
+      "id": "445:9437",
+      "name": "Introduction 1.4.1 / JA / 1440 / language menu open",
+      "hash": "1fb16c68"
+    },
+    {
+      "id": "445:9463",
+      "name": "Introduction 1.4.1 / EN / 390 / language menu open",
+      "hash": "45dc98b1"
+    },
+    {
+      "id": "445:9488",
+      "name": "Introduction 1.4.1 / ZH / 390 / language menu open",
+      "hash": "38403dce"
+    },
+    {
+      "id": "445:9513",
+      "name": "Introduction 1.4.1 / JA / 390 / language menu open",
+      "hash": "168e15be"
+    },
+    {
+      "id": "447:9421",
+      "name": "Introduction 1.4.1 / Installation expanded / EN / 512",
+      "hash": "8aab51a6"
+    },
+    {
+      "id": "447:9427",
+      "name": "Introduction 1.4.1 / Installation expanded / ZH / 512",
+      "hash": "8b8f81a6"
+    },
+    {
+      "id": "447:9433",
+      "name": "Introduction 1.4.1 / Installation expanded / JA / 512",
+      "hash": "35a10b66"
+    },
+    {
+      "id": "447:9439",
+      "name": "Introduction 1.4.1 / Installation expanded / EN / 350",
+      "hash": "be816598"
+    },
+    {
+      "id": "447:9445",
+      "name": "Introduction 1.4.1 / Installation expanded / ZH / 350",
+      "hash": "e20f83f8"
+    },
+    {
+      "id": "447:9451",
+      "name": "Introduction 1.4.1 / Installation expanded / JA / 350",
+      "hash": "ab97e1cc"
+    }
+  ],
+  "verification": {
+    "originalCount": 144,
+    "originalChanges": [],
+    "results": [
+      {
+        "id": "457:9433",
+        "name": "1.4.2 / web / zh-CN / 1600 / Settings closed",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 123,
+        "counts": {
+          "RECTANGLE": 7,
+          "FRAME": 28,
+          "TEXT": 24,
+          "INSTANCE": 13,
+          "GROUP": 8,
+          "VECTOR": 43
+        },
+        "images": [
+          {
+            "id": "I457:9438;49:401",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9438;49:404",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9438;49:407",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9438;49:410",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 132,
+            "height": 84
+          },
+          {
+            "id": "457:9457",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          },
+          {
+            "id": "457:9458",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "EB Garamond",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:9583",
+            "name": "1.4.2 / Reminder summary / zh-CN / 1600",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:9600",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:9600",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": []
+      },
+      {
+        "id": "457:9600",
+        "name": "1.4.2 / web / zh-CN / 1600 / Reminders open",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 133,
+        "counts": {
+          "RECTANGLE": 7,
+          "FRAME": 33,
+          "TEXT": 27,
+          "INSTANCE": 14,
+          "GROUP": 8,
+          "VECTOR": 44
+        },
+        "images": [
+          {
+            "id": "I457:9605;49:401",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9605;49:404",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9605;49:407",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9605;49:410",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 132,
+            "height": 84
+          },
+          {
+            "id": "457:9624",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          },
+          {
+            "id": "457:9625",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "EB Garamond",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:9750",
+            "name": "1.4.2 / Reminder summary / zh-CN / 1600",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:9433",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:9433",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "id": "457:9767",
+            "x": 196.0625,
+            "y": 455.546875,
+            "width": 300,
+            "height": 128.375
+          }
+        ]
+      },
+      {
+        "id": "457:9791",
+        "name": "1.4.2 / windows / en / 1600 / Settings closed",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 123,
+        "counts": {
+          "RECTANGLE": 7,
+          "FRAME": 28,
+          "TEXT": 24,
+          "INSTANCE": 13,
+          "GROUP": 8,
+          "VECTOR": 43
+        },
+        "images": [
+          {
+            "id": "I457:9796;49:401",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9796;49:404",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9796;49:407",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9796;49:410",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 132,
+            "height": 84
+          },
+          {
+            "id": "457:9815",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          },
+          {
+            "id": "457:9816",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "EB Garamond",
+          "Inter",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:9941",
+            "name": "1.4.2 / Reminder summary / en / 1600",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:9958",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:9958",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": []
+      },
+      {
+        "id": "457:9958",
+        "name": "1.4.2 / windows / en / 1600 / Reminders open",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 135,
+        "counts": {
+          "RECTANGLE": 7,
+          "FRAME": 34,
+          "TEXT": 28,
+          "INSTANCE": 14,
+          "GROUP": 8,
+          "VECTOR": 44
+        },
+        "images": [
+          {
+            "id": "I457:9963;49:401",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9963;49:404",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9963;49:407",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I457:9963;49:410",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 132,
+            "height": 84
+          },
+          {
+            "id": "457:9982",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          },
+          {
+            "id": "457:9983",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "EB Garamond",
+          "Inter",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:10108",
+            "name": "1.4.2 / Reminder summary / en / 1600",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:9791",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:9791",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "id": "457:10125",
+            "x": 196.0625,
+            "y": 400.359375,
+            "width": 300,
+            "height": 183.5625
+          }
+        ]
+      },
+      {
+        "id": "457:10154",
+        "name": "1.4.2 / android / zh-CN / 360 / Settings closed",
+        "width": 360,
+        "height": 640,
+        "descendantCount": 71,
+        "counts": {
+          "FRAME": 21,
+          "TEXT": 20,
+          "INSTANCE": 12,
+          "GROUP": 4,
+          "VECTOR": 11,
+          "RECTANGLE": 3
+        },
+        "images": [
+          {
+            "id": "457:10158",
+            "name": "book / viewport fit",
+            "type": "FRAME",
+            "width": 340,
+            "height": 546
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:10246",
+            "name": "1.4.2 / Reminder summary / zh-CN / 360",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:10260",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:10260",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": []
+      },
+      {
+        "id": "457:10260",
+        "name": "1.4.2 / android / zh-CN / 360 / Reminders open",
+        "width": 360,
+        "height": 640,
+        "descendantCount": 86,
+        "counts": {
+          "FRAME": 29,
+          "TEXT": 25,
+          "INSTANCE": 13,
+          "GROUP": 4,
+          "VECTOR": 12,
+          "RECTANGLE": 3
+        },
+        "images": [
+          {
+            "id": "457:10264",
+            "name": "book / viewport fit",
+            "type": "FRAME",
+            "width": 340,
+            "height": 546
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "Noto Sans SC"
+        ],
+        "actions": [
+          {
+            "id": "457:10352",
+            "name": "1.4.2 / Reminder summary / zh-CN / 360",
+            "reactions": [
+              {
+                "action": {
+                  "type": "NODE",
+                  "destinationId": "457:10154",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                },
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "457:10154",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "trigger": {
+                  "type": "ON_CLICK"
+                }
+              }
+            ]
+          }
+        ],
+        "panels": [
+          {
+            "id": "457:10366",
+            "x": 32,
+            "y": 125.625,
+            "width": 280.796875,
+            "height": 204.375
+          }
+        ]
+      },
+      {
+        "id": "457:10398",
+        "name": "1.4.2 / android / en / 320 / Reminders open",
+        "width": 320,
+        "height": 568,
+        "descendantCount": 86,
+        "counts": {
+          "FRAME": 29,
+          "TEXT": 25,
+          "INSTANCE": 13,
+          "GROUP": 4,
+          "VECTOR": 12,
+          "RECTANGLE": 3
+        },
+        "images": [
+          {
+            "id": "457:10402",
+            "name": "book / viewport fit",
+            "type": "FRAME",
+            "width": 300,
+            "height": 474
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "Inter"
+        ],
+        "actions": [],
+        "panels": [
+          {
+            "id": "457:10504",
+            "x": 32,
+            "y": 106.4375,
+            "width": 249.59375,
+            "height": 223.5625
+          }
+        ]
+      },
+      {
+        "id": "457:9421",
+        "name": "1.4.2 / Reminder summary / zh-CN / 1600",
+        "width": 90,
+        "height": 36.390625,
+        "descendantCount": 1,
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "fonts": [
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:9423",
+        "name": "1.4.2 / Reminder panel / web / zh-CN / default",
+        "width": 300,
+        "height": 128.375,
+        "descendantCount": 9,
+        "counts": {
+          "FRAME": 5,
+          "TEXT": 3,
+          "VECTOR": 1
+        },
+        "images": [],
+        "fonts": [
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:9777",
+        "name": "1.4.2 / Reminder summary / en / 1600",
+        "width": 143.703125,
+        "height": 36.390625,
+        "descendantCount": 1,
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "fonts": [
+          "Inter"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:9779",
+        "name": "1.4.2 / Reminder panel / windows / en / default",
+        "width": 300,
+        "height": 183.5625,
+        "descendantCount": 11,
+        "counts": {
+          "FRAME": 6,
+          "TEXT": 4,
+          "VECTOR": 1
+        },
+        "images": [],
+        "fonts": [
+          "Inter"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:10137",
+        "name": "1.4.2 / Reminder summary / zh-CN / 360",
+        "width": 90,
+        "height": 36.390625,
+        "descendantCount": 1,
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "fonts": [
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:10139",
+        "name": "1.4.2 / Reminder panel / android / zh-CN / default",
+        "width": 280.796875,
+        "height": 204.375,
+        "descendantCount": 14,
+        "counts": {
+          "FRAME": 8,
+          "TEXT": 5,
+          "VECTOR": 1
+        },
+        "images": [],
+        "fonts": [
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:10381",
+        "name": "1.4.2 / Reminder summary / en / 320",
+        "width": 143.703125,
+        "height": 36.390625,
+        "descendantCount": 1,
+        "counts": {
+          "TEXT": 1
+        },
+        "images": [],
+        "fonts": [
+          "Inter"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "457:10383",
+        "name": "1.4.2 / Reminder panel / android / en / notifications-off",
+        "width": 249.59375,
+        "height": 223.5625,
+        "descendantCount": 14,
+        "counts": {
+          "FRAME": 8,
+          "TEXT": 5,
+          "VECTOR": 1
+        },
+        "images": [],
+        "fonts": [
+          "Inter"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "458:9721",
+        "name": "1.4.2 / Startup / 1600 / assembled reveal",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 2,
+        "counts": {
+          "TEXT": 2
+        },
+        "images": [],
+        "fonts": [
+          "EB Garamond",
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "458:9724",
+        "name": "1.4.2 / Startup / 390 / assembled reveal",
+        "width": 390,
+        "height": 844,
+        "descendantCount": 2,
+        "counts": {
+          "TEXT": 2
+        },
+        "images": [],
+        "fonts": [
+          "EB Garamond",
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "458:9727",
+        "name": "1.4.2 / Round time-up / explicit Continue or End and save",
+        "width": 1600,
+        "height": 1000,
+        "descendantCount": 107,
+        "counts": {
+          "RECTANGLE": 5,
+          "FRAME": 26,
+          "TEXT": 18,
+          "INSTANCE": 7,
+          "GROUP": 8,
+          "VECTOR": 43
+        },
+        "images": [
+          {
+            "id": "I458:9732;49:362",
+            "name": "书签 / 现在做",
+            "type": "FRAME",
+            "width": 132,
+            "height": 84
+          },
+          {
+            "id": "I458:9732;49:365",
+            "name": "书签 / 任务",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I458:9732;49:368",
+            "name": "书签 / 日历",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "I458:9732;49:371",
+            "name": "书签 / 设置",
+            "type": "FRAME",
+            "width": 132,
+            "height": 72
+          },
+          {
+            "id": "458:9751",
+            "name": "左页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          },
+          {
+            "id": "458:9752",
+            "name": "右页 / 可编辑轮廓与纸张填充",
+            "type": "VECTOR",
+            "width": 676,
+            "height": 704.7008056640625
+          }
+        ],
+        "fonts": [
+          "Noto Serif SC",
+          "EB Garamond",
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "458:9870",
+        "name": "1.4.2 / Startup & reminders / Interaction notes and acceptance boundary",
+        "width": 1500,
+        "height": 1130,
+        "descendantCount": 16,
+        "counts": {
+          "TEXT": 16
+        },
+        "images": [],
+        "fonts": [
+          "Noto Serif SC",
+          "Noto Sans SC"
+        ],
+        "actions": [],
+        "panels": []
+      },
+      {
+        "id": "458:9706",
+        "name": "1.4.2 / Android JA approximate / SOURCE DEFECT — unreadable dark text",
+        "width": 300,
+        "height": 223.5625,
+        "descendantCount": 14,
+        "counts": {
+          "FRAME": 8,
+          "TEXT": 5,
+          "VECTOR": 1
+        },
+        "images": [],
+        "fonts": [
+          "Noto Sans JP"
+        ],
+        "actions": [],
+        "panels": []
+      }
+    ]
+  },
+  "roots": [
+    {
+      "key": "web-zh",
+      "open": false,
+      "id": "457:9433",
+      "summary": "457:9583"
+    },
+    {
+      "key": "web-zh",
+      "open": true,
+      "id": "457:9600",
+      "summary": "457:9750"
+    },
+    {
+      "key": "windows-en",
+      "open": false,
+      "id": "457:9791",
+      "summary": "457:9941"
+    },
+    {
+      "key": "windows-en",
+      "open": true,
+      "id": "457:9958",
+      "summary": "457:10108"
+    },
+    {
+      "key": "android-zh",
+      "open": false,
+      "id": "457:10154",
+      "summary": "457:10246"
+    },
+    {
+      "key": "android-zh",
+      "open": true,
+      "id": "457:10260",
+      "summary": "457:10352"
+    },
+    {
+      "key": "android-en-off",
+      "open": true,
+      "id": "457:10398",
+      "summary": "457:10490"
+    }
+  ],
+  "masters": [
+    {
+      "id": "457:9421",
+      "name": "1.4.2 / Reminder summary / zh-CN / 1600",
+      "w": 90,
+      "h": 36.390625
+    },
+    {
+      "id": "457:9423",
+      "name": "1.4.2 / Reminder panel / web / zh-CN / default",
+      "w": 300,
+      "h": 128.375
+    },
+    {
+      "id": "457:9777",
+      "name": "1.4.2 / Reminder summary / en / 1600",
+      "w": 143.703125,
+      "h": 36.390625
+    },
+    {
+      "id": "457:9779",
+      "name": "1.4.2 / Reminder panel / windows / en / default",
+      "w": 300,
+      "h": 183.5625
+    },
+    {
+      "id": "457:10137",
+      "name": "1.4.2 / Reminder summary / zh-CN / 360",
+      "w": 90,
+      "h": 36.390625
+    },
+    {
+      "id": "457:10139",
+      "name": "1.4.2 / Reminder panel / android / zh-CN / default",
+      "w": 280.796875,
+      "h": 204.375
+    },
+    {
+      "id": "457:10381",
+      "name": "1.4.2 / Reminder summary / en / 320",
+      "w": 143.703125,
+      "h": 36.390625
+    },
+    {
+      "id": "457:10383",
+      "name": "1.4.2 / Reminder panel / android / en / notifications-off",
+      "w": 249.59375,
+      "h": 223.5625
+    }
+  ],
+  "extra": {
+    "startup": [
+      "458:9721",
+      "458:9724"
+    ],
+    "timer": "458:9727",
+    "notes": "458:9870",
+    "defectPanel": "458:9706"
+  },
+  "createdNodeLog": [
+    "457:9421",
+    "457:9422",
+    "457:9423",
+    "457:9424",
+    "457:9425",
+    "457:9426",
+    "457:9427",
+    "457:9428",
+    "457:9429",
+    "457:9430",
+    "457:9431",
+    "457:9432",
+    "457:9433",
+    "457:9434",
+    "457:9435",
+    "457:9436",
+    "457:9437",
+    "457:9438",
+    "457:9439",
+    "457:9440",
+    "457:9441",
+    "457:9442",
+    "457:9443",
+    "457:9444",
+    "457:9445",
+    "457:9446",
+    "457:9447",
+    "457:9448",
+    "457:9449",
+    "457:9450",
+    "457:9451",
+    "457:9452",
+    "457:9453",
+    "457:9454",
+    "457:9455",
+    "457:9456",
+    "457:9457",
+    "457:9458",
+    "457:9459",
+    "457:9460",
+    "457:9461",
+    "457:9462",
+    "457:9463",
+    "457:9464",
+    "457:9465",
+    "457:9466",
+    "457:9467",
+    "457:9468",
+    "457:9469",
+    "457:9470",
+    "457:9471",
+    "457:9472",
+    "457:9473",
+    "457:9474",
+    "457:9475",
+    "457:9476",
+    "457:9477",
+    "457:9478",
+    "457:9479",
+    "457:9480",
+    "457:9481",
+    "457:9482",
+    "457:9483",
+    "457:9484",
+    "457:9485",
+    "457:9486",
+    "457:9487",
+    "457:9488",
+    "457:9489",
+    "457:9490",
+    "457:9491",
+    "457:9492",
+    "457:9493",
+    "457:9494",
+    "457:9495",
+    "457:9496",
+    "457:9497",
+    "457:9498",
+    "457:9499",
+    "457:9500",
+    "457:9501",
+    "457:9502",
+    "457:9503",
+    "457:9504",
+    "457:9505",
+    "457:9506",
+    "457:9507",
+    "457:9508",
+    "457:9509",
+    "457:9510",
+    "457:9511",
+    "457:9512",
+    "457:9513",
+    "457:9514",
+    "457:9515",
+    "457:9516",
+    "457:9517",
+    "457:9518",
+    "457:9519",
+    "457:9520",
+    "457:9521",
+    "457:9522",
+    "457:9561",
+    "457:9562",
+    "457:9563",
+    "457:9564",
+    "457:9565",
+    "457:9566",
+    "457:9567",
+    "I457:9567;296:4299",
+    "457:9569",
+    "I457:9569;296:4293",
+    "457:9571",
+    "I457:9571;296:4293",
+    "457:9573",
+    "457:9574",
+    "457:9575",
+    "457:9576",
+    "457:9577",
+    "I457:9577;296:4299",
+    "457:9579",
+    "I457:9579;296:4293",
+    "457:9581",
+    "457:9582",
+    "457:9583",
+    "I457:9583;457:9422",
+    "457:9585",
+    "457:9586",
+    "457:9587",
+    "457:9588",
+    "457:9589",
+    "457:9590",
+    "457:9591",
+    "457:9592",
+    "I457:9592;296:4293",
+    "457:9594",
+    "457:9595",
+    "457:9596",
+    "457:9597",
+    "457:9598",
+    "I457:9598;296:4293",
+    "457:9600",
+    "457:9601",
+    "457:9602",
+    "457:9603",
+    "457:9604",
+    "457:9605",
+    "457:9606",
+    "457:9607",
+    "457:9608",
+    "457:9609",
+    "457:9610",
+    "457:9611",
+    "457:9612",
+    "457:9613",
+    "457:9614",
+    "457:9615",
+    "457:9616",
+    "457:9617",
+    "457:9618",
+    "457:9619",
+    "457:9620",
+    "457:9621",
+    "457:9622",
+    "457:9623",
+    "457:9624",
+    "457:9625",
+    "457:9626",
+    "457:9627",
+    "457:9628",
+    "457:9629",
+    "457:9630",
+    "457:9631",
+    "457:9632",
+    "457:9633",
+    "457:9634",
+    "457:9635",
+    "457:9636",
+    "457:9637",
+    "457:9638",
+    "457:9639",
+    "457:9640",
+    "457:9641",
+    "457:9642",
+    "457:9643",
+    "457:9644",
+    "457:9645",
+    "457:9646",
+    "457:9647",
+    "457:9648",
+    "457:9649",
+    "457:9650",
+    "457:9651",
+    "457:9652",
+    "457:9653",
+    "457:9654",
+    "457:9655",
+    "457:9656",
+    "457:9657",
+    "457:9658",
+    "457:9659",
+    "457:9660",
+    "457:9661",
+    "457:9662",
+    "457:9663",
+    "457:9664",
+    "457:9665",
+    "457:9666",
+    "457:9667",
+    "457:9668",
+    "457:9669",
+    "457:9670",
+    "457:9671",
+    "457:9672",
+    "457:9673",
+    "457:9674",
+    "457:9675",
+    "457:9676",
+    "457:9677",
+    "457:9678",
+    "457:9679",
+    "457:9680",
+    "457:9681",
+    "457:9682",
+    "457:9683",
+    "457:9684",
+    "457:9685",
+    "457:9686",
+    "457:9687",
+    "457:9688",
+    "457:9689",
+    "457:9728",
+    "457:9729",
+    "457:9730",
+    "457:9731",
+    "457:9732",
+    "457:9733",
+    "457:9734",
+    "I457:9734;296:4299",
+    "457:9736",
+    "I457:9736;296:4293",
+    "457:9738",
+    "I457:9738;296:4293",
+    "457:9740",
+    "457:9741",
+    "457:9742",
+    "457:9743",
+    "457:9744",
+    "I457:9744;296:4299",
+    "457:9746",
+    "I457:9746;296:4293",
+    "457:9748",
+    "457:9749",
+    "457:9750",
+    "I457:9750;457:9422",
+    "457:9752",
+    "457:9753",
+    "457:9754",
+    "457:9755",
+    "457:9756",
+    "457:9757",
+    "457:9758",
+    "457:9759",
+    "I457:9759;296:4293",
+    "457:9761",
+    "457:9762",
+    "457:9763",
+    "457:9764",
+    "457:9765",
+    "I457:9765;296:4293",
+    "457:9767",
+    "I457:9767;457:9424",
+    "I457:9767;457:9425",
+    "I457:9767;457:9426",
+    "I457:9767;457:9427",
+    "I457:9767;457:9428",
+    "I457:9767;457:9429",
+    "I457:9767;457:9430",
+    "I457:9767;457:9431",
+    "I457:9767;457:9432",
+    "457:9777",
+    "457:9778",
+    "457:9779",
+    "457:9780",
+    "457:9781",
+    "457:9782",
+    "457:9783",
+    "457:9784",
+    "457:9785",
+    "457:9786",
+    "457:9787",
+    "457:9788",
+    "457:9789",
+    "457:9790",
+    "457:9791",
+    "457:9792",
+    "457:9793",
+    "457:9794",
+    "457:9795",
+    "457:9796",
+    "457:9797",
+    "457:9798",
+    "457:9799",
+    "457:9800",
+    "457:9801",
+    "457:9802",
+    "457:9803",
+    "457:9804",
+    "457:9805",
+    "457:9806",
+    "457:9807",
+    "457:9808",
+    "457:9809",
+    "457:9810",
+    "457:9811",
+    "457:9812",
+    "457:9813",
+    "457:9814",
+    "457:9815",
+    "457:9816",
+    "457:9817",
+    "457:9818",
+    "457:9819",
+    "457:9820",
+    "457:9821",
+    "457:9822",
+    "457:9823",
+    "457:9824",
+    "457:9825",
+    "457:9826",
+    "457:9827",
+    "457:9828",
+    "457:9829",
+    "457:9830",
+    "457:9831",
+    "457:9832",
+    "457:9833",
+    "457:9834",
+    "457:9835",
+    "457:9836",
+    "457:9837",
+    "457:9838",
+    "457:9839",
+    "457:9840",
+    "457:9841",
+    "457:9842",
+    "457:9843",
+    "457:9844",
+    "457:9845",
+    "457:9846",
+    "457:9847",
+    "457:9848",
+    "457:9849",
+    "457:9850",
+    "457:9851",
+    "457:9852",
+    "457:9853",
+    "457:9854",
+    "457:9855",
+    "457:9856",
+    "457:9857",
+    "457:9858",
+    "457:9859",
+    "457:9860",
+    "457:9861",
+    "457:9862",
+    "457:9863",
+    "457:9864",
+    "457:9865",
+    "457:9866",
+    "457:9867",
+    "457:9868",
+    "457:9869",
+    "457:9870",
+    "457:9871",
+    "457:9872",
+    "457:9873",
+    "457:9874",
+    "457:9875",
+    "457:9876",
+    "457:9877",
+    "457:9878",
+    "457:9879",
+    "457:9880",
+    "457:9919",
+    "457:9920",
+    "457:9921",
+    "457:9922",
+    "457:9923",
+    "457:9924",
+    "457:9925",
+    "I457:9925;296:4293",
+    "457:9927",
+    "I457:9927;296:4299",
+    "457:9929",
+    "I457:9929;296:4293",
+    "457:9931",
+    "457:9932",
+    "457:9933",
+    "457:9934",
+    "457:9935",
+    "I457:9935;296:4299",
+    "457:9937",
+    "I457:9937;296:4293",
+    "457:9939",
+    "457:9940",
+    "457:9941",
+    "I457:9941;457:9778",
+    "457:9943",
+    "457:9944",
+    "457:9945",
+    "457:9946",
+    "457:9947",
+    "457:9948",
+    "457:9949",
+    "457:9950",
+    "I457:9950;296:4293",
+    "457:9952",
+    "457:9953",
+    "457:9954",
+    "457:9955",
+    "457:9956",
+    "I457:9956;296:4293",
+    "457:9958",
+    "457:9959",
+    "457:9960",
+    "457:9961",
+    "457:9962",
+    "457:9963",
+    "457:9964",
+    "457:9965",
+    "457:9966",
+    "457:9967",
+    "457:9968",
+    "457:9969",
+    "457:9970",
+    "457:9971",
+    "457:9972",
+    "457:9973",
+    "457:9974",
+    "457:9975",
+    "457:9976",
+    "457:9977",
+    "457:9978",
+    "457:9979",
+    "457:9980",
+    "457:9981",
+    "457:9982",
+    "457:9983",
+    "457:9984",
+    "457:9985",
+    "457:9986",
+    "457:9987",
+    "457:9988",
+    "457:9989",
+    "457:9990",
+    "457:9991",
+    "457:9992",
+    "457:9993",
+    "457:9994",
+    "457:9995",
+    "457:9996",
+    "457:9997",
+    "457:9998",
+    "457:9999",
+    "457:10000",
+    "457:10001",
+    "457:10002",
+    "457:10003",
+    "457:10004",
+    "457:10005",
+    "457:10006",
+    "457:10007",
+    "457:10008",
+    "457:10009",
+    "457:10010",
+    "457:10011",
+    "457:10012",
+    "457:10013",
+    "457:10014",
+    "457:10015",
+    "457:10016",
+    "457:10017",
+    "457:10018",
+    "457:10019",
+    "457:10020",
+    "457:10021",
+    "457:10022",
+    "457:10023",
+    "457:10024",
+    "457:10025",
+    "457:10026",
+    "457:10027",
+    "457:10028",
+    "457:10029",
+    "457:10030",
+    "457:10031",
+    "457:10032",
+    "457:10033",
+    "457:10034",
+    "457:10035",
+    "457:10036",
+    "457:10037",
+    "457:10038",
+    "457:10039",
+    "457:10040",
+    "457:10041",
+    "457:10042",
+    "457:10043",
+    "457:10044",
+    "457:10045",
+    "457:10046",
+    "457:10047",
+    "457:10086",
+    "457:10087",
+    "457:10088",
+    "457:10089",
+    "457:10090",
+    "457:10091",
+    "457:10092",
+    "I457:10092;296:4293",
+    "457:10094",
+    "I457:10094;296:4299",
+    "457:10096",
+    "I457:10096;296:4293",
+    "457:10098",
+    "457:10099",
+    "457:10100",
+    "457:10101",
+    "457:10102",
+    "I457:10102;296:4299",
+    "457:10104",
+    "I457:10104;296:4293",
+    "457:10106",
+    "457:10107",
+    "457:10108",
+    "I457:10108;457:9778",
+    "457:10110",
+    "457:10111",
+    "457:10112",
+    "457:10113",
+    "457:10114",
+    "457:10115",
+    "457:10116",
+    "457:10117",
+    "I457:10117;296:4293",
+    "457:10119",
+    "457:10120",
+    "457:10121",
+    "457:10122",
+    "457:10123",
+    "I457:10123;296:4293",
+    "457:10125",
+    "I457:10125;457:9780",
+    "I457:10125;457:9781",
+    "I457:10125;457:9782",
+    "I457:10125;457:9783",
+    "I457:10125;457:9784",
+    "I457:10125;457:9785",
+    "I457:10125;457:9786",
+    "I457:10125;457:9787",
+    "I457:10125;457:9788",
+    "I457:10125;457:9789",
+    "I457:10125;457:9790",
+    "457:10137",
+    "457:10138",
+    "457:10139",
+    "457:10140",
+    "457:10141",
+    "457:10142",
+    "457:10143",
+    "457:10144",
+    "457:10145",
+    "457:10146",
+    "457:10147",
+    "457:10148",
+    "457:10149",
+    "457:10150",
+    "457:10151",
+    "457:10152",
+    "457:10153",
+    "457:10154",
+    "457:10155",
+    "457:10156",
+    "457:10157",
+    "457:10158",
+    "457:10159",
+    "457:10160",
+    "457:10161",
+    "457:10162",
+    "457:10163",
+    "457:10164",
+    "457:10165",
+    "457:10166",
+    "457:10167",
+    "457:10168",
+    "457:10169",
+    "457:10170",
+    "457:10171",
+    "457:10172",
+    "457:10173",
+    "457:10174",
+    "457:10175",
+    "457:10176",
+    "457:10177",
+    "457:10178",
+    "457:10179",
+    "457:10180",
+    "457:10181",
+    "457:10182",
+    "457:10183",
+    "457:10184",
+    "457:10185",
+    "457:10186",
+    "457:10187",
+    "457:10188",
+    "457:10189",
+    "457:10190",
+    "457:10191",
+    "457:10192",
+    "457:10193",
+    "457:10194",
+    "457:10195",
+    "457:10196",
+    "457:10197",
+    "457:10198",
+    "457:10225",
+    "457:10226",
+    "457:10227",
+    "457:10228",
+    "457:10229",
+    "457:10230",
+    "I457:10230;296:4299",
+    "457:10232",
+    "I457:10232;296:4293",
+    "457:10234",
+    "I457:10234;296:4293",
+    "457:10236",
+    "457:10237",
+    "457:10238",
+    "457:10239",
+    "457:10240",
+    "I457:10240;296:4299",
+    "457:10242",
+    "I457:10242;296:4293",
+    "457:10244",
+    "457:10245",
+    "457:10246",
+    "I457:10246;457:10138",
+    "457:10248",
+    "457:10249",
+    "457:10250",
+    "457:10251",
+    "457:10252",
+    "457:10253",
+    "I457:10253;296:4293",
+    "457:10255",
+    "457:10256",
+    "457:10257",
+    "457:10258",
+    "I457:10258;296:4293",
+    "457:10260",
+    "457:10261",
+    "457:10262",
+    "457:10263",
+    "457:10264",
+    "457:10265",
+    "457:10266",
+    "457:10267",
+    "457:10268",
+    "457:10269",
+    "457:10270",
+    "457:10271",
+    "457:10272",
+    "457:10273",
+    "457:10274",
+    "457:10275",
+    "457:10276",
+    "457:10277",
+    "457:10278",
+    "457:10279",
+    "457:10280",
+    "457:10281",
+    "457:10282",
+    "457:10283",
+    "457:10284",
+    "457:10285",
+    "457:10286",
+    "457:10287",
+    "457:10288",
+    "457:10289",
+    "457:10290",
+    "457:10291",
+    "457:10292",
+    "457:10293",
+    "457:10294",
+    "457:10295",
+    "457:10296",
+    "457:10297",
+    "457:10298",
+    "457:10299",
+    "457:10300",
+    "457:10301",
+    "457:10302",
+    "457:10303",
+    "457:10304",
+    "457:10331",
+    "457:10332",
+    "457:10333",
+    "457:10334",
+    "457:10335",
+    "457:10336",
+    "I457:10336;296:4299",
+    "457:10338",
+    "I457:10338;296:4293",
+    "457:10340",
+    "I457:10340;296:4293",
+    "457:10342",
+    "457:10343",
+    "457:10344",
+    "457:10345",
+    "457:10346",
+    "I457:10346;296:4299",
+    "457:10348",
+    "I457:10348;296:4293",
+    "457:10350",
+    "457:10351",
+    "457:10352",
+    "I457:10352;457:10138",
+    "457:10354",
+    "457:10355",
+    "457:10356",
+    "457:10357",
+    "457:10358",
+    "457:10359",
+    "I457:10359;296:4293",
+    "457:10361",
+    "457:10362",
+    "457:10363",
+    "457:10364",
+    "I457:10364;296:4293",
+    "457:10366",
+    "I457:10366;457:10140",
+    "I457:10366;457:10141",
+    "I457:10366;457:10142",
+    "I457:10366;457:10143",
+    "I457:10366;457:10144",
+    "I457:10366;457:10145",
+    "I457:10366;457:10146",
+    "I457:10366;457:10147",
+    "I457:10366;457:10148",
+    "I457:10366;457:10149",
+    "I457:10366;457:10150",
+    "I457:10366;457:10151",
+    "I457:10366;457:10152",
+    "I457:10366;457:10153",
+    "457:10381",
+    "457:10382",
+    "457:10383",
+    "457:10384",
+    "457:10385",
+    "457:10386",
+    "457:10387",
+    "457:10388",
+    "457:10389",
+    "457:10390",
+    "457:10391",
+    "457:10392",
+    "457:10393",
+    "457:10394",
+    "457:10395",
+    "457:10396",
+    "457:10397",
+    "457:10398",
+    "457:10399",
+    "457:10400",
+    "457:10401",
+    "457:10402",
+    "457:10403",
+    "457:10404",
+    "457:10405",
+    "457:10406",
+    "457:10407",
+    "457:10408",
+    "457:10409",
+    "457:10410",
+    "457:10411",
+    "457:10412",
+    "457:10413",
+    "457:10414",
+    "457:10415",
+    "457:10416",
+    "457:10417",
+    "457:10418",
+    "457:10419",
+    "457:10420",
+    "457:10421",
+    "457:10422",
+    "457:10423",
+    "457:10424",
+    "457:10425",
+    "457:10426",
+    "457:10427",
+    "457:10428",
+    "457:10429",
+    "457:10430",
+    "457:10431",
+    "457:10432",
+    "457:10433",
+    "457:10434",
+    "457:10435",
+    "457:10436",
+    "457:10437",
+    "457:10438",
+    "457:10439",
+    "457:10440",
+    "457:10441",
+    "457:10442",
+    "457:10469",
+    "457:10470",
+    "457:10471",
+    "457:10472",
+    "457:10473",
+    "457:10474",
+    "I457:10474;296:4293",
+    "457:10476",
+    "I457:10476;296:4299",
+    "457:10478",
+    "I457:10478;296:4293",
+    "457:10480",
+    "457:10481",
+    "457:10482",
+    "457:10483",
+    "457:10484",
+    "I457:10484;296:4299",
+    "457:10486",
+    "I457:10486;296:4293",
+    "457:10488",
+    "457:10489",
+    "457:10490",
+    "I457:10490;457:10382",
+    "457:10492",
+    "457:10493",
+    "457:10494",
+    "457:10495",
+    "457:10496",
+    "457:10497",
+    "I457:10497;296:4293",
+    "457:10499",
+    "457:10500",
+    "457:10501",
+    "457:10502",
+    "I457:10502;296:4293",
+    "457:10504",
+    "I457:10504;457:10384",
+    "I457:10504;457:10385",
+    "I457:10504;457:10386",
+    "I457:10504;457:10387",
+    "I457:10504;457:10388",
+    "I457:10504;457:10389",
+    "I457:10504;457:10390",
+    "I457:10504;457:10391",
+    "I457:10504;457:10392",
+    "I457:10504;457:10393",
+    "I457:10504;457:10394",
+    "I457:10504;457:10395",
+    "I457:10504;457:10396",
+    "I457:10504;457:10397",
+    "458:9706",
+    "458:9707",
+    "458:9708",
+    "458:9709",
+    "458:9710",
+    "458:9711",
+    "458:9712",
+    "458:9713",
+    "458:9714",
+    "458:9715",
+    "458:9716",
+    "458:9717",
+    "458:9718",
+    "458:9719",
+    "458:9720",
+    "458:9721",
+    "458:9722",
+    "458:9723",
+    "458:9724",
+    "458:9725",
+    "458:9726",
+    "458:9727",
+    "458:9728",
+    "458:9729",
+    "458:9730",
+    "458:9731",
+    "458:9732",
+    "458:9733",
+    "458:9734",
+    "458:9735",
+    "458:9736",
+    "458:9737",
+    "458:9738",
+    "458:9739",
+    "458:9740",
+    "458:9741",
+    "458:9742",
+    "458:9743",
+    "458:9744",
+    "458:9745",
+    "458:9746",
+    "458:9747",
+    "458:9748",
+    "458:9749",
+    "458:9750",
+    "458:9751",
+    "458:9752",
+    "458:9753",
+    "458:9754",
+    "458:9755",
+    "458:9756",
+    "458:9757",
+    "458:9758",
+    "458:9759",
+    "458:9760",
+    "458:9761",
+    "458:9762",
+    "458:9763",
+    "458:9764",
+    "458:9765",
+    "458:9766",
+    "458:9767",
+    "458:9768",
+    "458:9769",
+    "458:9770",
+    "458:9771",
+    "458:9772",
+    "458:9773",
+    "458:9774",
+    "458:9775",
+    "458:9776",
+    "458:9777",
+    "458:9778",
+    "458:9779",
+    "458:9780",
+    "458:9781",
+    "458:9782",
+    "458:9783",
+    "458:9784",
+    "458:9785",
+    "458:9786",
+    "458:9787",
+    "458:9788",
+    "458:9789",
+    "458:9790",
+    "458:9791",
+    "458:9792",
+    "458:9793",
+    "458:9794",
+    "458:9795",
+    "458:9796",
+    "458:9797",
+    "458:9798",
+    "458:9799",
+    "458:9800",
+    "458:9801",
+    "458:9802",
+    "458:9803",
+    "458:9804",
+    "458:9805",
+    "458:9806",
+    "458:9807",
+    "458:9808",
+    "458:9843",
+    "458:9844",
+    "458:9845",
+    "458:9846",
+    "458:9847",
+    "458:9848",
+    "458:9849",
+    "458:9850",
+    "458:9851",
+    "458:9852",
+    "458:9853",
+    "458:9854",
+    "458:9855",
+    "458:9856",
+    "458:9857",
+    "458:9858",
+    "458:9859",
+    "458:9860",
+    "458:9861",
+    "458:9862",
+    "458:9863",
+    "I458:9863;74:1214",
+    "458:9866",
+    "I458:9866;75:1187",
+    "458:9868",
+    "458:9869",
+    "458:9870",
+    "458:9871",
+    "458:9872",
+    "458:9873",
+    "458:9874",
+    "458:9875",
+    "458:9876",
+    "458:9877",
+    "458:9878",
+    "458:9879",
+    "458:9880",
+    "458:9881",
+    "458:9882",
+    "458:9883",
+    "458:9884",
+    "458:9885",
+    "458:9886"
+  ],
+  "sourceMeasurements": [
+    {
+      "key": "web-zh",
+      "platform": "web",
+      "language": "zh-CN",
+      "theme": "light",
+      "width": 1600,
+      "height": 1000,
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "到点提醒\n声音\n\n到点只提醒一次，不会自动继续。\n\n网页关闭后不发送系统通知。\n\n数据不同步",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 52.390625,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 628.3125,
+            "left": 196.0625
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#reminderSettings summary",
+          "text": "到点提醒",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 90,
+            "height": 36.390625,
+            "top": 583.921875,
+            "right": 286.0625,
+            "bottom": 620.3125,
+            "left": 196.0625
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(228, 210, 171)",
+          "display": "list-item"
+        },
+        {
+          "selector": ".reminder-panel",
+          "text": "声音\n\n到点只提醒一次，不会自动继续。\n\n网页关闭后不发送系统通知。",
+          "rect": {
+            "x": 196.0625,
+            "y": 455.546875,
+            "width": 300,
+            "height": 128.375,
+            "top": 455.546875,
+            "right": 496.0625,
+            "bottom": 583.921875,
+            "left": 196.0625
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(241, 223, 182)",
+          "display": "block"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "声音",
+          "rect": {
+            "x": 213.0625,
+            "y": 472.546875,
+            "width": 266,
+            "height": 40,
+            "top": 472.546875,
+            "right": 479.0625,
+            "bottom": 512.546875,
+            "left": 213.0625
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "振动",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "none"
+        },
+        {
+          "selector": "#enableNotifications",
+          "text": "系统通知设置",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "none"
+        },
+        {
+          "selector": "#reminderPermissionStatus",
+          "text": "网页关闭后不发送系统通知。",
+          "rect": {
+            "x": 213.0625,
+            "y": 547.734375,
+            "width": 266,
+            "height": 19.1875,
+            "top": 547.734375,
+            "right": 479.0625,
+            "bottom": 566.921875,
+            "left": 213.0625
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "block"
+        }
+      ]
+    },
+    {
+      "key": "time-up",
+      "theme": "light",
+      "elements": []
+    },
+    {
+      "key": "windows-en",
+      "platform": "windows",
+      "language": "en",
+      "theme": "light",
+      "width": 1600,
+      "height": 1000,
+      "scrollWidth": 1600,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "Timer reminders\nSound\nNotification settings\n\nOne reminder. No automatic continuation.\n\nSystem permissions and Do Not Disturb apply.\n\nNo data sync",
+          "rect": {
+            "x": 196.0625,
+            "y": 575.921875,
+            "width": 530.0625,
+            "height": 52.390625,
+            "top": 575.921875,
+            "right": 726.125,
+            "bottom": 628.3125,
+            "left": 196.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#reminderSettings summary",
+          "text": "Timer reminders",
+          "rect": {
+            "x": 196.0625,
+            "y": 583.921875,
+            "width": 143.703125,
+            "height": 36.390625,
+            "top": 583.921875,
+            "right": 339.765625,
+            "bottom": 620.3125,
+            "left": 196.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(228, 210, 171)",
+          "display": "list-item"
+        },
+        {
+          "selector": ".reminder-panel",
+          "text": "Sound\nNotification settings\n\nOne reminder. No automatic continuation.\n\nSystem permissions and Do Not Disturb apply.",
+          "rect": {
+            "x": 196.0625,
+            "y": 400.359375,
+            "width": 300,
+            "height": 183.5625,
+            "top": 400.359375,
+            "right": 496.0625,
+            "bottom": 583.921875,
+            "left": 196.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(241, 223, 182)",
+          "display": "block"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "Sound",
+          "rect": {
+            "x": 213.0625,
+            "y": 417.359375,
+            "width": 266,
+            "height": 40,
+            "top": 417.359375,
+            "right": 479.0625,
+            "bottom": 457.359375,
+            "left": 213.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "Vibration",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "none"
+        },
+        {
+          "selector": "#enableNotifications",
+          "text": "Notification settings",
+          "rect": {
+            "x": 213.0625,
+            "y": 457.359375,
+            "width": 147.828125,
+            "height": 36,
+            "top": 457.359375,
+            "right": 360.890625,
+            "bottom": 493.359375,
+            "left": 213.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "inline-block"
+        },
+        {
+          "selector": "#reminderPermissionStatus",
+          "text": "System permissions and Do Not Disturb apply.",
+          "rect": {
+            "x": 213.0625,
+            "y": 528.546875,
+            "width": 266,
+            "height": 38.375,
+            "top": 528.546875,
+            "right": 479.0625,
+            "bottom": 566.921875,
+            "left": 213.0625
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "block"
+        }
+      ]
+    },
+    {
+      "key": "android-zh",
+      "platform": "android",
+      "language": "zh-CN",
+      "theme": "light",
+      "width": 360,
+      "height": 640,
+      "scrollWidth": 360,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "到点提醒\n声音\n振动\n系统通知设置\n\n到点只提醒一次，不会自动继续。\n\n通知受系统权限与免打扰设置影响。\n\n数据不同步",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 296,
+            "height": 52.390625,
+            "top": 322,
+            "right": 328,
+            "bottom": 374.390625,
+            "left": 32
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#reminderSettings summary",
+          "text": "到点提醒",
+          "rect": {
+            "x": 32,
+            "y": 330,
+            "width": 90,
+            "height": 36.390625,
+            "top": 330,
+            "right": 122,
+            "bottom": 366.390625,
+            "left": 32
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(228, 210, 171)",
+          "display": "list-item"
+        },
+        {
+          "selector": ".reminder-panel",
+          "text": "声音\n振动\n系统通知设置\n\n到点只提醒一次，不会自动继续。\n\n通知受系统权限与免打扰设置影响。",
+          "rect": {
+            "x": 32,
+            "y": 125.625,
+            "width": 280.796875,
+            "height": 204.375,
+            "top": 125.625,
+            "right": 312.796875,
+            "bottom": 330,
+            "left": 32
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(241, 223, 182)",
+          "display": "block"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "声音",
+          "rect": {
+            "x": 49,
+            "y": 142.625,
+            "width": 246.796875,
+            "height": 40,
+            "top": 142.625,
+            "right": 295.796875,
+            "bottom": 182.625,
+            "left": 49
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "振动",
+          "rect": {
+            "x": 49,
+            "y": 182.625,
+            "width": 246.796875,
+            "height": 40,
+            "top": 182.625,
+            "right": 295.796875,
+            "bottom": 222.625,
+            "left": 49
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#enableNotifications",
+          "text": "系统通知设置",
+          "rect": {
+            "x": 49,
+            "y": 222.625,
+            "width": 96,
+            "height": 36,
+            "top": 222.625,
+            "right": 145,
+            "bottom": 258.625,
+            "left": 49
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "inline-block"
+        },
+        {
+          "selector": "#reminderPermissionStatus",
+          "text": "通知受系统权限与免打扰设置影响。",
+          "rect": {
+            "x": 49,
+            "y": 293.8125,
+            "width": 246.796875,
+            "height": 19.1875,
+            "top": 293.8125,
+            "right": 295.796875,
+            "bottom": 313,
+            "left": 49
+          },
+          "font": "\"Noto Sans SC Variable\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "block"
+        }
+      ]
+    },
+    {
+      "key": "android-ja-dark",
+      "platform": "android",
+      "language": "ja",
+      "theme": "dark",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "時間の通知\nサウンド\n振動\nシステム通知設定\n\n通知は一度だけ。自動延長はしません。\n\nロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。\n\nデータ同期なし",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 326,
+            "height": 52.390625,
+            "top": 322,
+            "right": 358,
+            "bottom": 374.390625,
+            "left": 32
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#reminderSettings summary",
+          "text": "時間の通知",
+          "rect": {
+            "x": 32,
+            "y": 330,
+            "width": 104,
+            "height": 36.390625,
+            "top": 330,
+            "right": 136,
+            "bottom": 366.390625,
+            "left": 32
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgb(228, 210, 171)",
+          "display": "list-item"
+        },
+        {
+          "selector": ".reminder-panel",
+          "text": "サウンド\n振動\nシステム通知設定\n\n通知は一度だけ。自動延長はしません。\n\nロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+          "rect": {
+            "x": 32,
+            "y": 106.4375,
+            "width": 300,
+            "height": 223.5625,
+            "top": 106.4375,
+            "right": 332,
+            "bottom": 330,
+            "left": 32
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgb(241, 223, 182)",
+          "display": "block"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "サウンド",
+          "rect": {
+            "x": 49,
+            "y": 123.4375,
+            "width": 266,
+            "height": 40,
+            "top": 123.4375,
+            "right": 315,
+            "bottom": 163.4375,
+            "left": 49
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "振動",
+          "rect": {
+            "x": 49,
+            "y": 163.4375,
+            "width": 266,
+            "height": 40,
+            "top": 163.4375,
+            "right": 315,
+            "bottom": 203.4375,
+            "left": 49
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#enableNotifications",
+          "text": "システム通知設定",
+          "rect": {
+            "x": 49,
+            "y": 203.4375,
+            "width": 123.3125,
+            "height": 36,
+            "top": 203.4375,
+            "right": 172.3125,
+            "bottom": 239.4375,
+            "left": 49
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "inline-block"
+        },
+        {
+          "selector": "#reminderPermissionStatus",
+          "text": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。",
+          "rect": {
+            "x": 49,
+            "y": 274.625,
+            "width": 266,
+            "height": 38.375,
+            "top": 274.625,
+            "right": 315,
+            "bottom": 313,
+            "left": 49
+          },
+          "font": "\"Yu Gothic\", \"Hiragino Kaku Gothic ProN\", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(241, 223, 182)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "block"
+        }
+      ]
+    },
+    {
+      "key": "android-en-off",
+      "platform": "android",
+      "language": "en",
+      "theme": "light",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "elements": [
+        {
+          "selector": ".settings-footer",
+          "text": "Timer reminders\nSound\nVibration\nNotification settings\n\nOne reminder. No automatic continuation.\n\nSystem notifications are off.\n\nNo data sync",
+          "rect": {
+            "x": 32,
+            "y": 322,
+            "width": 256,
+            "height": 52.390625,
+            "top": 322,
+            "right": 288,
+            "bottom": 374.390625,
+            "left": 32
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#reminderSettings summary",
+          "text": "Timer reminders",
+          "rect": {
+            "x": 32,
+            "y": 330,
+            "width": 143.703125,
+            "height": 36.390625,
+            "top": 330,
+            "right": 175.703125,
+            "bottom": 366.390625,
+            "left": 32
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(228, 210, 171)",
+          "display": "list-item"
+        },
+        {
+          "selector": ".reminder-panel",
+          "text": "Sound\nVibration\nNotification settings\n\nOne reminder. No automatic continuation.\n\nSystem notifications are off.",
+          "rect": {
+            "x": 32,
+            "y": 106.4375,
+            "width": 249.59375,
+            "height": 223.5625,
+            "top": 106.4375,
+            "right": 281.59375,
+            "bottom": 330,
+            "left": 32
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgb(241, 223, 182)",
+          "display": "block"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "Sound",
+          "rect": {
+            "x": 49,
+            "y": 123.4375,
+            "width": 215.59375,
+            "height": 40,
+            "top": 123.4375,
+            "right": 264.59375,
+            "bottom": 163.4375,
+            "left": 49
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": ".reminder-panel label",
+          "text": "Vibration",
+          "rect": {
+            "x": 49,
+            "y": 163.4375,
+            "width": 215.59375,
+            "height": 40,
+            "top": 163.4375,
+            "right": 264.59375,
+            "bottom": 203.4375,
+            "left": 49
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "flex"
+        },
+        {
+          "selector": "#enableNotifications",
+          "text": "Notification settings",
+          "rect": {
+            "x": 49,
+            "y": 203.4375,
+            "width": 147.828125,
+            "height": 36,
+            "top": 203.4375,
+            "right": 196.828125,
+            "bottom": 239.4375,
+            "left": 49
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "inline-block"
+        },
+        {
+          "selector": "#reminderPermissionStatus",
+          "text": "System notifications are off.",
+          "rect": {
+            "x": 49,
+            "y": 293.8125,
+            "width": 215.59375,
+            "height": 19.1875,
+            "top": 293.8125,
+            "right": 264.59375,
+            "bottom": 313,
+            "left": 49
+          },
+          "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+          "color": "rgb(69, 42, 26)",
+          "background": "rgba(0, 0, 0, 0)",
+          "display": "block"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "android-en-off-closed.png",
+      "Hash": "D3E48919B516DAEC44B285EC8249F44600AD6AACA3A6D34E34805077E5AEF960"
+    },
+    {
+      "name": "android-en-off-open.png",
+      "Hash": "53E2C01B07367E2B7B9E44FEE98A85B5D01210FE6248A2EFF7DD566EE8CA8DBC"
+    },
+    {
+      "name": "android-ja-dark-closed.png",
+      "Hash": "2B7AC1855434B97277C2CB323D1315907DC6615B0DBABE1B206190480401C2C1"
+    },
+    {
+      "name": "android-ja-dark-open.png",
+      "Hash": "B2268306047DA33A6BAE44B434157A0BDF87EB7F65E533A16282BA8527E318FC"
+    },
+    {
+      "name": "android-zh-closed.png",
+      "Hash": "BF3AE30F1F900CC80BDBE28E26F39FF866D2C1C3E0B78F9AC6765A4BD97B2B67"
+    },
+    {
+      "name": "android-zh-open.png",
+      "Hash": "4FF41EC8F948268F637F2A75CD3B7AECF74FFF0D689CBF1E10940E7B5C495C19"
+    },
+    {
+      "name": "figma-457-10154.png",
+      "Hash": "7B9BE4E4651FC111A0EE13D10223FAF9373A97AB81BB5915698E2590142F8675"
+    },
+    {
+      "name": "figma-457-10398.png",
+      "Hash": "C6724772BF5283CA1191ACDF4280F4B618D7407D82B264193337FA6C3DAEC246"
+    },
+    {
+      "name": "figma-457-9433.png",
+      "Hash": "341E908267FDC58E7FC7029B608D37238B68A609930E0238C94AA76C62A0CD17"
+    },
+    {
+      "name": "figma-457-9958.png",
+      "Hash": "F342F8CA05B912424022EA83CDA82ABE3977C720113629642F9DDD47D39D0B2E"
+    },
+    {
+      "name": "figma-458-9706.png",
+      "Hash": "BC49B2D4F0E3EE426C7C6A6E182E487AE62DF55F5C7C38158EC2A14AE979A62E"
+    },
+    {
+      "name": "figma-458-9724.png",
+      "Hash": "865A1C981D8035784D33EAD84C772E2F117A9577BA08948E020E23E0BD2769D3"
+    },
+    {
+      "name": "figma-458-9727.png",
+      "Hash": "2E20EA2B25C2CB2A72BEACB81201BE45277B3768F597008776E41E668A64FE35"
+    },
+    {
+      "name": "figma-458-9870.png",
+      "Hash": "308CA135E6FC1F1AB98C711D008CC8F4FBEB109BBF005463002B01F2277E501D"
+    },
+    {
+      "name": "figma-web.png",
+      "Hash": "86F490E758C20D62845FD51F9CE8091179240288C2AFD4250246102BB4CDC05D"
+    },
+    {
+      "name": "final-457-10398.png",
+      "Hash": "F6EB45035B5479ACE75B225BDB3057234B7B9341A7B1E5DDDD16B87FDAC65E15"
+    },
+    {
+      "name": "final-457-9958.png",
+      "Hash": "B3DDB4FE3DB6DBE688D761D3D438BBC1BD17D852DAE48E94A77418653FFA2211"
+    },
+    {
+      "name": "final-458-9870.png",
+      "Hash": "534C3F30788598DA04ED635CA9E98C52C5120F944F37BADE75C1721D73848671"
+    },
+    {
+      "name": "startup.png",
+      "Hash": "5BC09210FD98E2174634F953D44BA41F42470E0FEBE06B1ECFFE1CF54DE6B61D"
+    },
+    {
+      "name": "time-up.png",
+      "Hash": "0B409B50999AEAF2A55CD043FC6B3465F498187484E5D28388302D35CC4CC32B"
+    },
+    {
+      "name": "web-zh-closed.png",
+      "Hash": "8839B8982E07C966866E14E8A9D67F17B8D93D2399A1AA383AE1A3CF37D4500C"
+    },
+    {
+      "name": "web-zh-open.png",
+      "Hash": "EBA02C69F629C1A100BE9B2E3D34B36895FE86F1A91A0F213A084393E0064D62"
+    },
+    {
+      "name": "windows-en-closed.png",
+      "Hash": "BD331B96D6E8EE4A5E11F16312495D5590C0AFB2C53D9AA35988C81F277FB90A"
+    },
+    {
+      "name": "windows-en-open.png",
+      "Hash": "75B81A96CB12C0DD0D33B52030123856EB959BFBEE9C7EDBA7DCC67674942891"
+    }
+  ],
+  "captureWorkflow": {
+    "status": "not submitted",
+    "captureId": "ba0fb89c-97e8-4bb0-94e5-76d2cbfa6fa8",
+    "reason": "Automatic review rejected local capture-script injection and browser launch with 'blocked by policy'; continued with semantic reconstruction and local reference screenshots."
+  },
+  "fontExceptions": {
+    "englishBody": "Inter substitutes system-ui / Segoe UI",
+    "japaneseBody": "Noto Sans JP substitutes Yu Gothic system stack",
+    "startupTitle": "EB Garamond substitutes unavailable Georgia",
+    "startupBody": "Noto Sans SC substitutes system-ui multilingual fallback"
+  },
+  "rootImageInventory": [
+    {
+      "id": "457:9433",
+      "name": "1.4.2 / web / zh-CN / 1600 / Settings closed",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "457:9600",
+      "name": "1.4.2 / web / zh-CN / 1600 / Reminders open",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "457:9791",
+      "name": "1.4.2 / windows / en / 1600 / Settings closed",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "457:9958",
+      "name": "1.4.2 / windows / en / 1600 / Reminders open",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "457:10154",
+      "name": "1.4.2 / android / zh-CN / 360 / Settings closed",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 360,
+      "height": 640
+    },
+    {
+      "id": "457:10260",
+      "name": "1.4.2 / android / zh-CN / 360 / Reminders open",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 360,
+      "height": 640
+    },
+    {
+      "id": "457:10398",
+      "name": "1.4.2 / android / en / 320 / Reminders open",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 320,
+      "height": 568
+    },
+    {
+      "id": "458:9721",
+      "name": "1.4.2 / Startup / 1600 / assembled reveal",
+      "placeholder": false,
+      "rootImageFills": [],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "458:9724",
+      "name": "1.4.2 / Startup / 390 / assembled reveal",
+      "placeholder": false,
+      "rootImageFills": [],
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "458:9727",
+      "name": "1.4.2 / Round time-up / explicit Continue or End and save",
+      "placeholder": false,
+      "rootImageFills": [
+        {
+          "imageHash": "07cec13ce42dfaf0e01e873641261fda85f78fb7",
+          "scaleMode": "FILL"
+        }
+      ],
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "458:9870",
+      "name": "1.4.2 / Startup & reminders / Interaction notes and acceptance boundary",
+      "placeholder": false,
+      "rootImageFills": [],
+      "width": 1500,
+      "height": 1130
+    }
+  ]
+}

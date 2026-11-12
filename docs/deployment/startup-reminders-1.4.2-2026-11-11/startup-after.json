@@ -1,0 +1,563 @@
+[
+  {
+    "mobile": false,
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1552
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1552
+      }
+    ],
+    "resources": [
+      {
+        "name": "environment.webp",
+        "bytes": 25614,
+        "end": 435.29999999981374
+      },
+      {
+        "name": "paper-left.webp",
+        "bytes": 142676,
+        "end": 1244.199999999255
+      },
+      {
+        "name": "paper-right.webp",
+        "bytes": 138442,
+        "end": 1290.5999999996275
+      },
+      {
+        "name": "scroll-paper.webp",
+        "bytes": 151196,
+        "end": 1383.699999999255
+      },
+      {
+        "name": "fonts.css",
+        "bytes": 212274,
+        "end": 1414.699999999255
+      },
+      {
+        "name": "theme-assets.css",
+        "bytes": 463,
+        "end": 249.5
+      },
+      {
+        "name": "style.css?v=1.4.2",
+        "bytes": 79560,
+        "end": 841
+      },
+      {
+        "name": "app.js",
+        "bytes": 118833,
+        "end": 1120.0999999996275
+      },
+      {
+        "name": "noto-serif-sc-118-wght-normal.woff2",
+        "bytes": 58524,
+        "end": 2205.899999999441
+      },
+      {
+        "name": "task-paper.webp",
+        "bytes": 6484,
+        "end": 1845
+      },
+      {
+        "name": "eb-garamond-latin-wght-normal.woff2",
+        "bytes": 44636,
+        "end": 2159.0999999996275
+      },
+      {
+        "name": "noto-sans-sc-118-wght-normal.woff2",
+        "bytes": 46292,
+        "end": 2169.199999999255
+      },
+      {
+        "name": "noto-serif-sc-119-wght-normal.woff2",
+        "bytes": 105264,
+        "end": 2548.2999999998137
+      },
+      {
+        "name": "noto-serif-sc-117-wght-normal.woff2",
+        "bytes": 66956,
+        "end": 2314.2999999998137
+      },
+      {
+        "name": "noto-serif-sc-116-wght-normal.woff2",
+        "bytes": 67604,
+        "end": 2408.199999999255
+      },
+      {
+        "name": "noto-serif-sc-115-wght-normal.woff2",
+        "bytes": 72808,
+        "end": 2762.5999999996275
+      },
+      {
+        "name": "noto-sans-sc-113-wght-normal.woff2",
+        "bytes": 58728,
+        "end": 2673
+      },
+      {
+        "name": "noto-sans-sc-119-wght-normal.woff2",
+        "bytes": 76624,
+        "end": 2812.7999999998137
+      },
+      {
+        "name": "noto-sans-sc-117-wght-normal.woff2",
+        "bytes": 52528,
+        "end": 2765.199999999255
+      },
+      {
+        "name": "noto-sans-sc-116-wght-normal.woff2",
+        "bytes": 53096,
+        "end": 2827.7999999998137
+      },
+      {
+        "name": "noto-sans-sc-115-wght-normal.woff2",
+        "bytes": 56564,
+        "end": 2858.2999999998137
+      },
+      {
+        "name": "edge-left-2.svg",
+        "bytes": 893,
+        "end": 3042.699999999255
+      },
+      {
+        "name": "edge-right-2.svg",
+        "bytes": 884,
+        "end": 3104.5
+      },
+      {
+        "name": "edge-left-1.svg",
+        "bytes": 893,
+        "end": 3005.2999999998137
+      },
+      {
+        "name": "edge-right-1.svg",
+        "bytes": 884,
+        "end": 3150.899999999441
+      },
+      {
+        "name": "spine-left.svg",
+        "bytes": 1265,
+        "end": 3154
+      },
+      {
+        "name": "corner-left.svg",
+        "bytes": 939,
+        "end": 2966.899999999441
+      },
+      {
+        "name": "spine-right.svg",
+        "bytes": 1250,
+        "end": 2905.399999999441
+      },
+      {
+        "name": "corner-right.svg",
+        "bytes": 939,
+        "end": 2935.5999999996275
+      },
+      {
+        "name": "nav-home.svg",
+        "bytes": 956,
+        "end": 3253.7999999998137
+      },
+      {
+        "name": "nav-tasks.svg",
+        "bytes": 1779,
+        "end": 2967.7999999998137
+      },
+      {
+        "name": "nav-calendar.svg",
+        "bytes": 1287,
+        "end": 2863.699999999255
+      },
+      {
+        "name": "nav-settings.svg",
+        "bytes": 1241,
+        "end": 2968.2999999998137
+      },
+      {
+        "name": "plant-4.svg",
+        "bytes": 1046,
+        "end": 3058.5
+      },
+      {
+        "name": "plant-5.svg",
+        "bytes": 940,
+        "end": 3253.699999999255
+      },
+      {
+        "name": "plant-6.svg",
+        "bytes": 940,
+        "end": 3157.0999999996275
+      },
+      {
+        "name": "plant-7.svg",
+        "bytes": 940,
+        "end": 3253.5
+      },
+      {
+        "name": "plant-8.svg",
+        "bytes": 940,
+        "end": 3213.2999999998137
+      },
+      {
+        "name": "plant-9.svg",
+        "bytes": 940,
+        "end": 2862
+      },
+      {
+        "name": "plant-10.svg",
+        "bytes": 940,
+        "end": 3152
+      },
+      {
+        "name": "plant-11.svg",
+        "bytes": 940,
+        "end": 3059.5
+      },
+      {
+        "name": "plant-12.svg",
+        "bytes": 940,
+        "end": 2967.399999999441
+      },
+      {
+        "name": "plant-13.svg",
+        "bytes": 940,
+        "end": 3059
+      },
+      {
+        "name": "plant-14.svg",
+        "bytes": 940,
+        "end": 3060.7999999998137
+      },
+      {
+        "name": "plant-15.svg",
+        "bytes": 1387,
+        "end": 3155.199999999255
+      },
+      {
+        "name": "refresh.svg",
+        "bytes": 1029,
+        "end": 3254
+      },
+      {
+        "name": "scroll-icon-1.svg",
+        "bytes": 942,
+        "end": 3254.199999999255
+      },
+      {
+        "name": "scroll-icon-2.svg",
+        "bytes": 1306,
+        "end": 3321.0999999996275
+      },
+      {
+        "name": "scroll-icon-3.svg",
+        "bytes": 1088,
+        "end": 3368.0999999996275
+      },
+      {
+        "name": "scroll-icon-4.svg",
+        "bytes": 851,
+        "end": 3368.2999999998137
+      },
+      {
+        "name": "favicon.ico",
+        "bytes": 769,
+        "end": 2763.5999999996275
+      },
+      {
+        "name": "favicon.ico",
+        "bytes": 769,
+        "end": 2860.399999999441
+      }
+    ],
+    "longTasks": [
+      {
+        "start": 1608.0999999996275,
+        "duration": 278
+      }
+    ],
+    "ready": "true",
+    "marks": [
+      {
+        "name": "nowwhat-ready",
+        "time": 3381.5999999996275
+      }
+    ]
+  },
+  {
+    "mobile": true,
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1520
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1520
+      }
+    ],
+    "resources": [
+      {
+        "name": "environment.webp",
+        "bytes": 25614,
+        "end": 410.79999999981374
+      },
+      {
+        "name": "paper-left.webp",
+        "bytes": 142676,
+        "end": 1228.5999999996275
+      },
+      {
+        "name": "paper-right.webp",
+        "bytes": 138442,
+        "end": 1274.3999999994412
+      },
+      {
+        "name": "scroll-paper.webp",
+        "bytes": 151196,
+        "end": 1367.5
+      },
+      {
+        "name": "fonts.css",
+        "bytes": 212274,
+        "end": 1399.3999999994412
+      },
+      {
+        "name": "theme-assets.css",
+        "bytes": 463,
+        "end": 240.70000000018626
+      },
+      {
+        "name": "style.css?v=1.4.2",
+        "bytes": 79560,
+        "end": 826.2000000001863
+      },
+      {
+        "name": "app.js",
+        "bytes": 118833,
+        "end": 1089.0999999996275
+      },
+      {
+        "name": "noto-serif-sc-118-wght-normal.woff2",
+        "bytes": 58524,
+        "end": 2034
+      },
+      {
+        "name": "noto-sans-sc-latin-wght-normal.woff2",
+        "bytes": 25180,
+        "end": 1971.5999999996275
+      },
+      {
+        "name": "noto-serif-sc-117-wght-normal.woff2",
+        "bytes": 66956,
+        "end": 2264.7000000001863
+      },
+      {
+        "name": "noto-serif-sc-116-wght-normal.woff2",
+        "bytes": 67604,
+        "end": 2280
+      },
+      {
+        "name": "task-paper.webp",
+        "bytes": 6484,
+        "end": 1848.7000000001863
+      },
+      {
+        "name": "noto-serif-sc-119-wght-normal.woff2",
+        "bytes": 105264,
+        "end": 2513.399999999441
+      },
+      {
+        "name": "noto-sans-sc-118-wght-normal.woff2",
+        "bytes": 46292,
+        "end": 2280.7999999998137
+      },
+      {
+        "name": "noto-sans-sc-113-wght-normal.woff2",
+        "bytes": 58728,
+        "end": 2452.399999999441
+      },
+      {
+        "name": "noto-sans-sc-119-wght-normal.woff2",
+        "bytes": 76624,
+        "end": 2606.899999999441
+      },
+      {
+        "name": "noto-sans-sc-117-wght-normal.woff2",
+        "bytes": 52528,
+        "end": 2669
+      },
+      {
+        "name": "noto-sans-sc-116-wght-normal.woff2",
+        "bytes": 53096,
+        "end": 2674.899999999441
+      },
+      {
+        "name": "noto-sans-sc-115-wght-normal.woff2",
+        "bytes": 56564,
+        "end": 2684.2999999998137
+      },
+      {
+        "name": "edge-left-2.svg",
+        "bytes": 893,
+        "end": 2703.899999999441
+      },
+      {
+        "name": "edge-right-2.svg",
+        "bytes": 884,
+        "end": 2761.899999999441
+      },
+      {
+        "name": "edge-left-1.svg",
+        "bytes": 893,
+        "end": 2763.899999999441
+      },
+      {
+        "name": "edge-right-1.svg",
+        "bytes": 884,
+        "end": 2765.7000000001863
+      },
+      {
+        "name": "spine-left.svg",
+        "bytes": 1265,
+        "end": 2767.5999999996275
+      },
+      {
+        "name": "corner-left.svg",
+        "bytes": 939,
+        "end": 2808.399999999441
+      },
+      {
+        "name": "spine-right.svg",
+        "bytes": 1250,
+        "end": 2808.7999999998137
+      },
+      {
+        "name": "corner-right.svg",
+        "bytes": 939,
+        "end": 2871.5
+      },
+      {
+        "name": "nav-home.svg",
+        "bytes": 956,
+        "end": 2701.5
+      },
+      {
+        "name": "nav-tasks.svg",
+        "bytes": 1779,
+        "end": 2560.399999999441
+      },
+      {
+        "name": "nav-calendar.svg",
+        "bytes": 1287,
+        "end": 2607.5999999996275
+      },
+      {
+        "name": "nav-settings.svg",
+        "bytes": 1241,
+        "end": 2653.2999999998137
+      },
+      {
+        "name": "plant-4.svg",
+        "bytes": 1046,
+        "end": 2871.5999999996275
+      },
+      {
+        "name": "plant-5.svg",
+        "bytes": 940,
+        "end": 2871.7000000001863
+      },
+      {
+        "name": "plant-6.svg",
+        "bytes": 940,
+        "end": 2871.2999999998137
+      },
+      {
+        "name": "plant-7.svg",
+        "bytes": 940,
+        "end": 2917.5
+      },
+      {
+        "name": "plant-8.svg",
+        "bytes": 940,
+        "end": 2917.2000000001863
+      },
+      {
+        "name": "plant-9.svg",
+        "bytes": 940,
+        "end": 2979.2999999998137
+      },
+      {
+        "name": "plant-10.svg",
+        "bytes": 940,
+        "end": 2979.5
+      },
+      {
+        "name": "plant-11.svg",
+        "bytes": 940,
+        "end": 2979.5999999996275
+      },
+      {
+        "name": "plant-12.svg",
+        "bytes": 940,
+        "end": 2979.2000000001863
+      },
+      {
+        "name": "plant-13.svg",
+        "bytes": 940,
+        "end": 3025.899999999441
+      },
+      {
+        "name": "plant-14.svg",
+        "bytes": 940,
+        "end": 3026.0999999996275
+      },
+      {
+        "name": "plant-15.svg",
+        "bytes": 1387,
+        "end": 3089.5
+      },
+      {
+        "name": "refresh.svg",
+        "bytes": 1029,
+        "end": 3089
+      },
+      {
+        "name": "scroll-icon-1.svg",
+        "bytes": 942,
+        "end": 3089.2000000001863
+      },
+      {
+        "name": "scroll-icon-2.svg",
+        "bytes": 1306,
+        "end": 3089.5999999996275
+      },
+      {
+        "name": "scroll-icon-3.svg",
+        "bytes": 1088,
+        "end": 3133.5
+      },
+      {
+        "name": "scroll-icon-4.svg",
+        "bytes": 851,
+        "end": 3133.7999999998137
+      }
+    ],
+    "longTasks": [
+      {
+        "start": 1565.8999999994412,
+        "duration": 198
+      }
+    ],
+    "ready": "true",
+    "marks": [
+      {
+        "name": "nowwhat-ready",
+        "time": 3142.5
+      }
+    ]
+  }
+]

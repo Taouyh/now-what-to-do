@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "7165e14d15cd76a6c782dbbf9f7c83c266c45366",
+  "version": "1.4.2",
+  "artifacts": [
+    {
+      "path": "dist/native-preview-1.4.2/windows/Now-What-1.4.2-Windows-x64-Setup.exe",
+      "bytes": 13714096,
+      "sha256": "F061759C9137DF8136FB2A352693737F52BC6F807131FE7719636ECF3E042987"
+    },
+    {
+      "path": "dist/native-preview-1.4.2/android/Now-What-1.4.2-Android.apk",
+      "bytes": 11958018,
+      "sha256": "8A863BCA10AE659A30A40DA1B1285073E723312597B1A7665DEF5D2582223A7F"
+    }
+  ]
+}

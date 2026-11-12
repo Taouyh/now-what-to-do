@@ -1,0 +1,50 @@
+
+Running 2 tests using 1 worker
+
+(node:25556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:42:5 › mobile pointer drag persists and keeps edit/start separate (1.4s)
+  x  2 docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release (5.7s)
+
+
+  1) docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-group-id="ind-0"]')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('[data-group-id="ind-0"]') with timeout 5000ms
+      - waiting for locator('[data-group-id="ind-0"]')
+        14 × locator resolved to <button type="button" aria-pressed="false" data-group-id="ind-0" class="calendar-group task-strip">…</button>
+           - unexpected value "inactive"
+
+
+      54 |  const result=await page.evaluate(()=>{document.querySelector<HTMLButtonElement>('[data-page=today]')!.click();document.querySelector<HTMLButtonElement>('.calendar-group')!.click();(window as any).nativeNavigateBack();return{focused:(document.activeElement as HTMLElement).dataset.groupId,hash:location.hash}});expect(result.focused).toBeTruthy();
+      55 |  await page.clock.runFor(250);await page.screenshot({path:info.outputPath('focus-after-release.png')});await info.attach('focus.json',{body:JSON.stringify({before:result,after:await page.evaluate(()=>({tag:document.activeElement?.tagName,group:(document.activeElement as HTMLElement).dataset.groupId,hash:location.hash,groups:[...document.querySelectorAll<HTMLElement>('.calendar-group')].map(e=>e.dataset.groupId)}))}),contentType:'application/json'});
+    > 56 |  await expect(page.locator(`[data-group-id="${result.focused}"]`)).toBeFocused();await context.close();
+         |                                                                    ^
+      57 | });
+      58 |
+        at C:\Users\fengcai\.codex\worktrees\3e31\now-what-to-do\docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:56:68
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-artifacts\native-143\focused-results\independent-calendar-retur-1aa2a-ing-editor-viewport-release\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-artifacts\native-143\focused-results\independent-calendar-retur-1aa2a-ing-editor-viewport-release\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-artifacts\native-143\focused-results\independent-calendar-retur-1aa2a-ing-editor-viewport-release\trace.zip
+    Usage:
+
+        npx playwright show-trace test-artifacts\native-143\focused-results\independent-calendar-retur-1aa2a-ing-editor-viewport-release\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    docs\deployment\native-review-1.4.3-2026-11-12\evidence\independent.spec.ts:51:5 › calendar return focus survives pending editor viewport release
+  1 passed (8.9s)

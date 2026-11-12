@@ -1,0 +1,9 @@
+# Always-on round sound correction
+
+User correction on 2026-11-11 supersedes the sound-toggle requirement in the earlier 1.4.2 candidate: remove the Sound setting and request one sound automatically at a foreground deadline. Existing `preferences.reminders.sound:false`, including imported backups, is ignored without deleting other saved data. Shared web/native reminder payloads always request sound. Android vibration remains independently configurable as previously requested.
+
+The web/Windows footer returns to its no-sync note without an empty sound control. Android retains only vibration. Reminder consumption, no repeat/no automatic extension, no extra accrued waiting time and screen-off continuation are unchanged. Reopening an already expired round remains silent rather than replaying a missed alert. Browser autoplay, device volume, notification permission and Do Not Disturb remain authoritative; the app does not bypass them.
+
+Validation: 153 Node regressions pass, including old muted preferences producing the one foreground chord and native payload requesting sound. The focused production browser suite verifies no sound control, time-up state, no replay and small-screen import visibility. Separate worktree verification/design synchronization follows in `VERIFICATION.md`.
+
+Local only. No push, merge or publication. Revised native review builds use `dist/native-preview-1.4.2-sound/` so the previous candidate hashes remain valid historical evidence. Both builds succeeded from `3fd496890e9bf03e94a651ec396b5967c993401a`; exact files/hashes are in [artifacts.json](artifacts.json). This is still an unpublished 1.4.2 candidate; Android versionCode remains 8. Real OS notification/device/upgrade acceptance from the earlier report remains pending. The native host implementation is unchanged; this rebuild embeds the corrected shared UI/runtime.

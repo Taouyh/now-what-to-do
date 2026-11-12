@@ -1,0 +1,101 @@
+[
+  {
+    "platform": "web",
+    "soundDOM": 0,
+    "vibrationVisible": false,
+    "oldMutedImportPreserved": true,
+    "foregroundNotes": 3,
+    "nativeSound": "not applicable",
+    "backgroundResumeNotes": 0,
+    "reloadNotes": 0,
+    "footer": {
+      "text": "数据不同步",
+      "rect": {
+        "x": 196.0625,
+        "y": 575.921875,
+        "width": 530.0625,
+        "height": 35.1875,
+        "top": 575.921875,
+        "right": 726.125,
+        "bottom": 611.109375,
+        "left": 196.0625
+      },
+      "note": {
+        "x": 196.0625,
+        "y": 583.921875,
+        "width": 60,
+        "height": 19.1875,
+        "top": 583.921875,
+        "right": 256.0625,
+        "bottom": 603.109375,
+        "left": 196.0625
+      }
+    }
+  },
+  {
+    "platform": "windows",
+    "soundDOM": 0,
+    "vibrationVisible": false,
+    "oldMutedImportPreserved": true,
+    "foregroundNotes": 3,
+    "nativeSound": true,
+    "backgroundResumeNotes": 0,
+    "reloadNotes": 0,
+    "footer": {
+      "text": "数据不同步",
+      "rect": {
+        "x": 196.0625,
+        "y": 575.921875,
+        "width": 530.0625,
+        "height": 35.1875,
+        "top": 575.921875,
+        "right": 726.125,
+        "bottom": 611.109375,
+        "left": 196.0625
+      },
+      "note": {
+        "x": 196.0625,
+        "y": 583.921875,
+        "width": 60,
+        "height": 19.1875,
+        "top": 583.921875,
+        "right": 256.0625,
+        "bottom": 603.109375,
+        "left": 196.0625
+      }
+    }
+  },
+  {
+    "platform": "android",
+    "soundDOM": 0,
+    "vibrationVisible": true,
+    "oldMutedImportPreserved": true,
+    "foregroundNotes": 3,
+    "nativeSound": true,
+    "backgroundResumeNotes": 0,
+    "reloadNotes": 0,
+    "footer": {
+      "text": "振动\n\n数据不同步",
+      "rect": {
+        "x": 32,
+        "y": 322,
+        "width": 256,
+        "height": 39.1875,
+        "top": 322,
+        "right": 288,
+        "bottom": 361.1875,
+        "left": 32
+      },
+      "note": {
+        "x": 228,
+        "y": 330,
+        "width": 60,
+        "height": 19.1875,
+        "top": 330,
+        "right": 288,
+        "bottom": 349.1875,
+        "left": 228
+      }
+    }
+  }
+]

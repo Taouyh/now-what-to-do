@@ -1,0 +1,158 @@
+[
+  {
+    "language": "zh-CN",
+    "theme": "light",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "数据不同步",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  },
+  {
+    "language": "zh-CN",
+    "theme": "dark",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "数据不同步",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  },
+  {
+    "language": "en",
+    "theme": "light",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "No data sync",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  },
+  {
+    "language": "en",
+    "theme": "dark",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "No data sync",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  },
+  {
+    "language": "ja",
+    "theme": "light",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "データ同期なし",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  },
+  {
+    "language": "ja",
+    "theme": "dark",
+    "viewport": "320x568",
+    "actualApkAdapter": true,
+    "noSound": true,
+    "noVibration": true,
+    "noEmptyPreferencesBlock": true,
+    "importChooserReachable": true,
+    "geometry": {
+      "footerText": "データ同期なし",
+      "visibleChildren": [
+        "settings-note"
+      ],
+      "footerHeight": 39.1875,
+      "noteHeight": 19.1875,
+      "noteMargin": 20,
+      "overflow": false
+    },
+    "savedLegacyPreferencesPreserved": true,
+    "deadlinePayload": {
+      "sound": true,
+      "vibration": true
+    },
+    "pageErrors": []
+  }
+]

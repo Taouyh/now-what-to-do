@@ -52,6 +52,7 @@ function validateData(x){
   }
   if(x.preferences!==undefined&&!object(x.preferences)||x.version===2&&!object(x.preferences))throw Error(tr('偏好数据无效。'));
   let p=x.preferences||{};
+  if(p.reminders!==undefined&&(!object(p.reminders)||['sound','vibration'].some(k=>typeof p.reminders[k]!=='boolean')))throw Error(tr('提醒偏好无效。'));
   if(p.taskOrder!==undefined&&(!Array.isArray(p.taskOrder)||p.taskOrder.some(id=>typeof id!=='string'||!id)||new Set(p.taskOrder).size!==p.taskOrder.length))throw Error(tr('任务排序数据无效。'));
   if(p.language!==undefined&&!SUPPORTED_LANGUAGES.includes(p.language))throw Error(tr('语言设置无效。'));
   if(p.time!==undefined&&![5,10,15,20,30,60].includes(Number(p.time))||p.env!==undefined&&!['quiet','noisy','class'].includes(p.env)||p.computerReady!==undefined&&typeof p.computerReady!=='boolean'||x.version===2&&(p.time===undefined||p.conditions===undefined&&p.env===undefined))throw Error(tr('时间或旧环境偏好无效。'));
@@ -137,6 +138,7 @@ function syncRuntimePreferences({restoreConditions=false}={}){
   $('theme').setAttribute('aria-pressed',String(d.theme==='dark'));
   $('lightTheme').setAttribute('aria-pressed',String(d.theme==='light'));
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content',d.theme==='dark'?'#1e201c':'#f7f5f0');
+  syncReminderSettings();
   syncHomeControls();
 }
 function save(candidate=d){
@@ -381,22 +383,46 @@ const TIMER_CHECKPOINT_MS=5000,TIMER_LONG_PAUSE_MS=60*60*1000,TIMER_UNOBSERVED_M
 let timerTick=null,timerAudio=null,timerPauseWatch=null,timerBackgroundAt=0,timerFrozen=null,timerCleanupId=null;
 let timerView='full';
 function createTimerState(t,plannedMs,now=Date.now()){
-  return{timerVersion:2,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:JSON.parse(JSON.stringify(t)),taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
+  return{timerVersion:2,reminderVersion:1,completionId:'c'+now+Math.random().toString(36).slice(2),taskId:t.id,task:JSON.parse(JSON.stringify(t)),taskName:t.name,goalId:t.goalId,goalName:gn(t.goalId)?.name||'',plannedDurationMs:plannedMs,durationMs:plannedMs,extensionDurationMs:0,elapsed:0,lastStarted:now,startedAt:now,checkpointAt:now,paused:false,finished:false,soundPlayed:false,pausedDurationMs:0,pauseStartedAt:0};
 }
 function startTimer(t){
   if(timerState()){showFullTimer();return}
   if(!t||d.tasks.some(x=>x.id===t.id&&x.enabled===false))return;
   if(!selectionReady()){page('home');$('timePicker').open=true;$('customMinutes').focus({preventScroll:true});notify(tr('请先选择本次可用时间。'));return}
   primeTimerAudio();if(!setTimerState(createTimerState(t,time*60000)))return;
+  requestAutomaticReminderPermission();
   completionFeedback = null;
   clearTimeout(timerPauseWatch);timerView='full';renderTimer();startTimerLoop();
 }
+function requestAutomaticReminderPermission(){try{window.nativeApp?.requestReminders?.()}catch{}}
+// Sound is always requested. Ignore the former mute preference in old backups.
+function reminderPreferences(){return {vibration:false,...d.preferences.reminders,sound:true}}
+function syncNativeReminder(x,background=!!document.hidden||!!timerBackgroundAt){
+  if(!window.nativeApp?.syncReminder)return;
+  const live=x&&x.reminderVersion===1&&!x.paused&&!x.recoveryReason;
+  const payload=live&&(!x.finished||background&&!x.reminderConsumed)?{key:x.completionId+':'+x.durationMs,at:x.finished?x.timeUpAt:x.lastStarted+Math.max(0,x.durationMs-x.elapsed),title:tr('这一轮时间到了'),body:tr('继续，或结束并记录。'),...reminderPreferences(),background}:null;
+  try{window.nativeApp.syncReminder(payload)}catch(e){console.warn('Reminder bridge unavailable',e)}
+}
+function syncReminderSettings(){
+  const prefs=reminderPreferences();
+  if($('reminderVibration'))$('reminderVibration').checked=prefs.vibration;
+  if($('reminderVibrationRow'))$('reminderVibrationRow').classList.toggle('hide',!window.nativeApp?.supportsVibration);
+  if($('reminderPreferences'))$('reminderPreferences').classList.toggle('hide',!window.nativeApp?.supportsVibration);
+
+}
+function setReminderPreference(key,value){
+  if(key!=='vibration'||typeof value!=='boolean')return false;
+  d.preferences={...d.preferences,reminders:{...reminderPreferences(),[key]:value}};
+  if(!save())return false;syncReminderSettings();syncNativeReminder(timerState());return true;
+}
 function primeTimerAudio(){try{if(!timerAudio)timerAudio=new (window.AudioContext||window.webkitAudioContext)();if(timerAudio.state==='suspended')timerAudio.resume()}catch(e){timerAudio=null}}
-function playTimeUpSound(x){if(!x||x.soundPlayed)return;x.soundPlayed=true;if(!setTimerState(x))return;try{primeTimerAudio();if(!timerAudio)return;let now=timerAudio.currentTime+0.03,gain=timerAudio.createGain();gain.gain.setValueAtTime(0.0001,now);gain.gain.linearRampToValueAtTime(0.075,now+0.18);gain.gain.exponentialRampToValueAtTime(0.0001,now+2.2);gain.connect(timerAudio.destination);[523.25,659.25,783.99].forEach((freq,i)=>{let osc=timerAudio.createOscillator();osc.type='sine';osc.frequency.value=freq;osc.connect(gain);osc.start(now+i*0.28);osc.stop(now+i*0.28+1.8)});setTimeout(()=>gain.disconnect(),2600)}catch(e){}}
+function playTimeUpSound(x, audible=true){if(!x||x.soundPlayed)return;x.soundPlayed=true;if(!setTimerState(x)||!audible||document.hidden||!reminderPreferences().sound)return;try{primeTimerAudio();if(!timerAudio)return;let now=timerAudio.currentTime+0.03,gain=timerAudio.createGain();gain.gain.setValueAtTime(0.0001,now);gain.gain.linearRampToValueAtTime(0.075,now+0.18);gain.gain.exponentialRampToValueAtTime(0.0001,now+2.2);gain.connect(timerAudio.destination);[523.25,659.25,783.99].forEach((freq,i)=>{let osc=timerAudio.createOscillator();osc.type='sine';osc.frequency.value=freq;osc.connect(gain);osc.start(now+i*0.28);osc.stop(now+i*0.28+1.8)});setTimeout(()=>gain.disconnect(),2600)}catch(e){}}
 function validateTimer(x){
   if(!x||typeof x!=='object'||Array.isArray(x)||typeof x.taskId!=='string'||!x.taskId||!Number.isFinite(x.durationMs)||x.durationMs<=0||!Number.isFinite(x.elapsed)||x.elapsed<0||!Number.isFinite(x.lastStarted)||x.lastStarted<0||typeof x.paused!=='boolean'||typeof x.finished!=='boolean')throw Error(tr('进行中的计时数据无效'));
   if(x.task!==undefined&&(!x.task||typeof x.task!=='object'||typeof x.task.name!=='string'))throw Error(tr('计时任务快照无效'));
   if(x.timerVersion!==undefined&&x.timerVersion!==2)throw Error(tr('进行中的计时数据无效'));
+  if(x.reminderVersion!==undefined&&x.reminderVersion!==1)throw Error(tr('进行中的计时数据无效'));
+  if(x.reminderConsumed!==undefined&&typeof x.reminderConsumed!=='boolean')throw Error(tr('进行中的计时数据无效'));
   for(const key of ['checkpointAt','stoppedAt','timeUpAt'])if(x[key]!==undefined&&(!Number.isFinite(x[key])||x[key]<0))throw Error(tr('进行中的计时数据无效'));
   if(x.recoveryReason!==undefined&&!['reopen','long','interrupted','legacy'].includes(x.recoveryReason))throw Error(tr('进行中的计时数据无效'));
   for(const key of ['resumeAsNew','needsElapsedConfirmation'])if(x[key]!==undefined&&typeof x[key]!=='boolean')throw Error(tr('进行中的计时数据无效'));
@@ -410,9 +436,10 @@ function timerState(){
 }
 function setTimerState(x){
   if(storageBlocked)return false;
-  try{if(x)localStorage.setItem('activeTimer',JSON.stringify(x));else localStorage.removeItem('activeTimer');timerFrozen=null;clearStorageFailure('activeTimer');return true}
+  try{if(x)localStorage.setItem('activeTimer',JSON.stringify(x));else localStorage.removeItem('activeTimer');timerFrozen=null;clearStorageFailure('activeTimer');syncNativeReminder(x);return true}
   catch(e){
     stopTimerLoop();clearTimeout(timerPauseWatch);
+    syncNativeReminder(null);
     if(x&&!timerFrozen){try{const prior=JSON.parse(localStorage.getItem('activeTimer'));if(prior&&!prior.paused&&!prior.finished){timerFrozen={...prior,paused:true,lastStarted:0,recoveryReason:'interrupted',stoppedAt:prior.checkpointAt??prior.lastStarted,pauseStartedAt:Date.now()}}}catch{}}
     storageFailure('activeTimer',e);return false;
   }
@@ -426,6 +453,7 @@ function remainingMs(x,now=Date.now()){return Math.max(0,x.durationMs-elapsedMs(
 function formatClock(ms){let n=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(n/60),s=n%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function timerTask(x){return x&&(x.task||d.tasks.find(t=>t.id===x.taskId))}
 function longTimerPause(x,now=Date.now()){
+  if(x.finished)return false;
   const reference=x.recoveryReason?x.stoppedAt:x.finished?x.timeUpAt:x.paused?x.pauseStartedAt:null;
   return Number.isFinite(reference)&&reference>0&&now-reference>=TIMER_LONG_PAUSE_MS;
 }
@@ -434,7 +462,7 @@ function unobservedTimerGap(x,now=Date.now()){
   return x.timerVersion===2&&(gap<0||gap>(timerBackgroundAt?TIMER_LONG_PAUSE_MS:TIMER_UNOBSERVED_MS));
 }
 function watchPausedTimer(x){
-  clearTimeout(timerPauseWatch);if(!x||x.recoveryReason||(!x.paused&&!x.finished))return;
+  clearTimeout(timerPauseWatch);if(!x||x.finished||x.recoveryReason||!x.paused)return;
   const reference=x.finished?x.timeUpAt:x.pauseStartedAt;if(!Number.isFinite(reference)||reference<=0)return;
   timerPauseWatch=setTimeout(()=>{const current=timerState();if(current?.completionId===x.completionId&&longTimerPause(current)){suspendTimer('long',Date.now(),false);renderTimer()}},Math.max(0,reference+TIMER_LONG_PAUSE_MS-Date.now()));
 }
@@ -463,11 +491,12 @@ function suspendTimer(reason='reopen',now=Date.now(),trustCurrent=true){
 function advanceTimerIfNeeded(x,now=Date.now()){
   if(!x||x.paused||x.finished||x.recoveryReason||timerState()?.completionId!==x.completionId)return false;
   if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){setTimerState(null);return false}
-  if(unobservedTimerGap(x,now)){suspendTimer('interrupted',now,false);return true}
+  if(x.reminderVersion!==1&&unobservedTimerGap(x,now)){suspendTimer('interrupted',now,false);return true}
   if(elapsedMs(x,now)<x.durationMs)return false;
   x.timeUpAt=x.lastStarted+Math.max(0,x.durationMs-x.elapsed);x.elapsed=x.durationMs;x.lastStarted=0;x.finished=true;x.checkpointAt=x.timeUpAt;
+  x.reminderConsumed=!document.hidden&&!timerBackgroundAt;
   if(!setTimerState(x))return false;
-  stopTimerLoop();watchPausedTimer(x);playTimeUpSound(x);return true;
+  stopTimerLoop();playTimeUpSound(x,now-x.timeUpAt<1500&&!timerBackgroundAt);return true;
 }
 function checkpointTimer(force=false,now=Date.now()){
   const x=timerState();if(!x||x.paused||x.finished||x.recoveryReason)return true;
@@ -544,6 +573,7 @@ function resumeRecoveredTimer(){
   if(longTimerPause(x))x.resumeAsNew=true;
   x=confirmRecoveryElapsed(x);if(!x)return false;
   if(recoveryUsesNewSession(x))return finishTimer(x.completionId,{restart:true,confirmedState:x});
+  requestAutomaticReminderPermission();x.reminderVersion=1;
   const now=Date.now();delete x.recoveryReason;x.paused=false;x.pauseStartedAt=0;x.lastStarted=now;x.checkpointAt=now;
   if(x.elapsed>=x.durationMs){x.finished=true;x.timeUpAt=x.stoppedAt;if(!setTimerState(x))return false;extendTimer();return true}
   x.finished=false;if(!setTimerState(x))return false;primeTimerAudio();renderTimer();startTimerLoop();return true;
@@ -587,7 +617,8 @@ function resumeTimer(){
   let x=timerState();if(!x||x.finished||!x.paused||x.recoveryReason)return;
   const now=Date.now();if(longTimerPause(x,now)){suspendTimer('long',now,false);renderTimer();return}
   if(x.pauseStartedAt>0)x.pausedDurationMs=(x.pausedDurationMs||0)+Math.max(0,now-x.pauseStartedAt);
-  x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;x.checkpointAt=now;if(!setTimerState(x))return;
+  x.reminderVersion=1;x.pauseStartedAt=0;x.paused=false;x.lastStarted=now;x.checkpointAt=now;if(!setTimerState(x))return;
+  requestAutomaticReminderPermission();
   clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function closeConfirm(){pendingImport=null;$('confirmAbandon').classList.add('hide');$('confirmAbandon').onclick=null;$('confirmLayer').classList.add('hide');syncDialogState();restoreDialogFocus('confirmLayer')}
@@ -642,7 +673,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
   if(restart){
     const plannedMs=selectionReady()?time*60000:plannedDurationMs(x);
     if(!setTimerState(createTimerState(nextTask,plannedMs))){renderTimer();return false}
-    cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
+    requestAutomaticReminderPermission();cur=nextTask;timerView='full';primeTimerAudio();renderTimer();startTimerLoop();page('home');return true;
   }
   timerCleanupId=x.completionId;
   if(!setTimerState(null)){renderTimer();return false}
@@ -658,8 +689,8 @@ function extendTimer(){
   let x=timerState();if(!x||!x.finished||x.recoveryReason)return;
   if(longTimerPause(x)){suspendTimer('long',Date.now(),false);renderTimer();return}
   const now=Date.now(),extensionMs=extensionStepMs(x);x.plannedDurationMs=plannedDurationMs(x);x.extensionDurationMs=(x.extensionDurationMs||0)+extensionMs;x.durationMs=x.plannedDurationMs+x.extensionDurationMs;
-  x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
-  if(!setTimerState(x))return;clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
+  x.reminderVersion=1;x.reminderConsumed=false;x.finished=false;x.paused=false;x.soundPlayed=false;x.lastStarted=now;x.pauseStartedAt=0;x.checkpointAt=now;delete x.timeUpAt;
+  if(!setTimerState(x))return;requestAutomaticReminderPermission();clearTimeout(timerPauseWatch);renderTimer();startTimerLoop();
 }
 function notify(message,duration=3200){let n=$('appNotice');if(!n){n=document.createElement('div');n.id='appNotice';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;background:var(--t);color:var(--s);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px #0003;max-width:calc(100% - 32px)';document.body.append(n)}n.textContent=message;n.classList.remove('hide','time-error-notice');clearTimeout(n.timer);n.timer=setTimeout(()=>n.classList.add('hide'),duration)}
 function closeContinuation() {
@@ -693,12 +724,12 @@ function applyImport(){
   // A single Storage write commits the whole main document. Do not touch activeTimer.
   if(!save(candidate))return;
   try{
-    d=candidate;completionFeedback=null;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences({restoreConditions:true});page('home');closeConfirm();notify(tr('备份数据已导入。'));
+    d=candidate;completionFeedback=null;recommendationSkipped.clear();nextStepEditor=null;syncRuntimePreferences({restoreConditions:true});page('home');closeConfirm();notify(tr('备份数据已导入。'));syncNativeReminder(timerState());
   }catch(e){
     d=previousData;dataSnapshot=previousSnapshot;
     try{
       if(previousRaw===null)localStorage.removeItem('whatToDoData');else localStorage.setItem('whatToDoData',previousRaw);originalMain=previousRaw;
-      syncRuntimePreferences();closeConfirm();page(previousPage);notify(tr('导入未完成，已恢复导入前的数据。'));
+      syncRuntimePreferences();closeConfirm();page(previousPage);notify(tr('导入未完成，已恢复导入前的数据。'));syncNativeReminder(timerState());
     }catch(rollbackError){
       originalMain=previousRaw;
       protectData(tr('导入后的界面同步失败，恢复操作也遇到错误。已停止后续写入；请导出原始主数据并重新加载检查。'));
@@ -766,17 +797,23 @@ function restoreTimer(){
   const x=timerState();if(!x)return;
   if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
   if(d.completed.some(c=>(c.completionId||c.recordId)===x.completionId)){timerCleanupId=x.completionId;if(!setTimerState(null))renderTimer();else timerCleanupId=null;return}
-  if(x.timerVersion===2&&x.finished&&!x.recoveryReason&&!longTimerPause(x)){renderTimer();watchPausedTimer(x);return}
+  if(x.timerVersion===2&&x.finished&&!x.recoveryReason){x.reminderConsumed=true;x.soundPlayed=true;setTimerState(x);renderTimer();return}
+  if(x.reminderVersion===1&&!x.paused&&!x.recoveryReason){timerBackgroundAt=Date.now();checkpointTimer(true);timerBackgroundAt=0;const current=timerState();if(current?.finished){current.reminderConsumed=true;setTimerState(current)}else startTimerLoop();syncNativeReminder(timerState());renderTimer();return}
   suspendTimer('reopen',Date.now(),false);renderTimer();
 }
 function nativeTimerLifecycle(event){
   if(storageBlocked)return false;
+  if(['background','sleep'].includes(event)){const active=timerState();if(active?.timerVersion===2&&active.reminderVersion!==1&&!active.paused&&!active.finished&&!active.recoveryReason&&!unobservedTimerGap(active)){active.reminderVersion=1;if(!setTimerState(active))return false}}
+  if(['close','sleep'].includes(event)&&timerState()?.reminderVersion===1){timerBackgroundAt=Date.now();const result=checkpointTimer(true);syncNativeReminder(timerState(),true);return result}
+  if(event==='notification'){nativeTimerLifecycle('resume');page('home');showFullTimer();return true}
   if(event==='close'||event==='sleep'){const result=suspendTimer(event==='sleep'?'interrupted':'reopen');renderTimer();return result}
-  if(event==='background'){const result=checkpointTimer(true);timerBackgroundAt=Date.now();return result}
+  if(event==='background'){timerBackgroundAt=Date.now();const result=checkpointTimer(true);syncNativeReminder(timerState(),true);return result}
   if(event==='checkpoint')return checkpointTimer(true);
   if(event==='resume'){
+    // A visibility/native-resume callback is reconciliation, never a new alert.
+    timerBackgroundAt=timerBackgroundAt||Date.now();
     const x=timerState();if(x&&!x.recoveryReason){if(longTimerPause(x))suspendTimer('long',Date.now(),false);else checkpointTimer(true)}
-    timerBackgroundAt=0;renderTimer();return true;
+    timerBackgroundAt=0;const current=timerState();if(current?.finished){current.reminderConsumed=true;current.soundPlayed=true;setTimerState(current)}syncReminderSettings();syncNativeReminder(timerState());renderTimer();return true;
   }
   return false;
 }
@@ -1010,7 +1047,10 @@ function resizeActivityDescription(){
   input.style.height='auto';input.style.height=Math.max(44,input.scrollHeight+2)+'px';
 }
 function syncDescriptionToggle(){$('descriptionToggle').textContent=$('activityOptions').open?tr('活动说明'):$('desc').value?tr('查看说明'):tr('＋ 添加说明')}
-function closeActivity(){$('modal').classList.add('hide');syncDialogState();restoreDialogFocus('modal')}
+function closeActivity(){
+  if(!$('modal').classList.contains('hide'))bookView?.onEditorClose();
+  $('modal').classList.add('hide');syncDialogState();restoreDialogFocus('modal');
+}
 
 $('desc').oninput=()=>{resizeActivityDescription();syncDescriptionToggle()};
 $('activityOptions').addEventListener('toggle',()=>{syncDescriptionToggle();resizeActivityDescription()});
@@ -1117,3 +1157,6 @@ function setLanguage(nextLanguage){
 }
 document.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
 $('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();conditions=emptyConditions();syncHomeControls();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
+
+$('reminderVibration')?.addEventListener('change',e=>setReminderPreference('vibration',e.target.checked));
+

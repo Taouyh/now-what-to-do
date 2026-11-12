@@ -1,0 +1,19 @@
+{
+  "bytes": 12106044,
+  "sha256": "eb678bbe9e59be849342f6769873845c07315a1d51a2f9d6e11cba8b869f9a89",
+  "zipEntries": 286,
+  "changedEntries": [
+    "AndroidManifest.xml",
+    "assets/native-android.js",
+    "META-INF/NOWWHAT.SF",
+    "META-INF/NOWWHAT.RSA",
+    "META-INF/MANIFEST.MF"
+  ],
+  "unchangedEntries": 281,
+  "unchangedWebAssets": 272,
+  "adapterMatchesFixedSourceAfterLineEndingNormalization": true,
+  "adapterSHA256": "86d302e649ea33d17d3a01150d0ab70447c19d86d0f4501460d8b5a70edf3ff8",
+  "appJsSHA256": "285491adcb0fbb4a3e014185be67021fddf998d4a9a0b9ead08c3c12992aaa95",
+  "styleSHA256": "0104a74057e6e65f739005137c7eb88e98797b1da484737d55fe8b8a064e5ef6",
+  "dexSHA256": "5b8f499c384a1bafd1b9fc1595fa6003775024de5b5ba7bafb95ef212f58ac8d"
+}

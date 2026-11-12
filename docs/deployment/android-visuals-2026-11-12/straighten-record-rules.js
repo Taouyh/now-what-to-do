@@ -1,0 +1,1 @@
+await figma.setCurrentPageAsync(await figma.getNodeByIdAsync('49:243')); const ids=['574:10556','574:10426','574:10427','574:10428','574:10429','574:10472','574:10473','574:10474','574:10475'];for(const id of ids){const n=await figma.getNodeByIdAsync(id);n.cornerRadius=0;}return{mutatedNodeIds:ids,cornerRadius:0,reason:'Straight bottom rules without curved corner remnants'};

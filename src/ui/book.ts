@@ -1,6 +1,7 @@
 import { BookPages } from './pages';
 import type { Runtime } from './runtime';
 import { byId, element, image, button } from './dom';
+import { MobileViewport } from './mobile-viewport';
 
 function translated(tag: 'h1' | 'h2' | 'p' | 'span', text: string, className = '') {
   const node = element(tag, className, text);
@@ -11,12 +12,14 @@ function translated(tag: 'h1' | 'h2' | 'p' | 'span', text: string, className = '
 export function mountBook(app: Runtime) {
   document.body.classList.add('book-app');
   const pages = new BookPages(app);
+  const viewport = new MobileViewport(() => { pages.reflowTasks(); pages.renderToday(); });
+  pages.isViewportFrozen = () => viewport.frozen;
   const compactViewport = matchMedia('(max-width:800px), (max-height:550px)');
   const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
   document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
   compactViewport.addEventListener('change', () => {
     document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
-    pages.reflowTasks();
+    if (!viewport.frozen) { pages.reflowTasks(); pages.renderToday(); }
   });
   const book = element('div', 'book');
   book.id = 'book';
@@ -92,6 +95,9 @@ export function mountBook(app: Runtime) {
   const change = byId('random');
   change.replaceChildren(image('refresh.svg'), translated('span', '换一件'));
   byId('home').append(byId('browse'));
+  const homeFocus = element('div', 'home-focus');
+  byId('rec').before(homeFocus);
+  homeFocus.append(byId('rec'), entries);
   const feedback = element('div', 'completion-feedback');
   feedback.id = 'completionFeedback';
   byId('homeWorkspace').append(feedback);
@@ -116,7 +122,9 @@ export function mountBook(app: Runtime) {
   settingsRight.append(translated('h2', '备份与恢复'));
   const settingsRows = [...document.querySelectorAll('#dataPanel .settings-row')];
   settingsRows.forEach((row, index) => (index < 2 ? settingsLeft : settingsRight).append(row));
-  settingsLeft.append(document.querySelector('.settings-note')!);
+  const settingsFooter = element('div', 'settings-footer');
+  settingsFooter.append(byId('reminderPreferences'), document.querySelector('.settings-note')!);
+  settingsLeft.append(settingsFooter);
   byId('dataPanel').replaceChildren(settingsLeft, settingsRight);
   byId('settings').append(byId('dataPanel'));
 
@@ -148,6 +156,10 @@ export function mountBook(app: Runtime) {
     // The original label already supplies the accessible checkbox name.
     tip.setAttribute('aria-hidden', 'true');
     label.append(tip);
+    const shortKey = ['电脑', '音频', '出声', '不中断'][index];
+    const short = translated('span', shortKey, 'mobile-requirement-label');
+    short.setAttribute('aria-hidden', 'true');
+    label.append(short);
   }
   for (const id of ['timePicker', 'conditionsPicker']) {
     const details = byId<HTMLDetailsElement>(id);
@@ -203,13 +215,32 @@ export function mountBook(app: Runtime) {
       book.classList.toggle('has-focus', !byId('timer').classList.contains('hide'));
     },
     onEditor() {
+      viewport.begin();
       byId<HTMLDetailsElement>('requirementsOptions').open = true;
       byId<HTMLDetailsElement>('activityOptions').open = true;
       byId('activityError').textContent = '';
       byId('name').setAttribute('aria-invalid', 'false');
       remove.hidden = !byId<HTMLInputElement>('tid').value;
     },
+    onEditorClose() { viewport.close(); },
   });
+  window.addEventListener('nowwhat-back', event => {
+    if (document.body.classList.contains('mobile-book') && location.hash === '#today' && pages.selectedTask) {
+      event.preventDefault(); pages.returnToDirectory();
+    }
+  });
+  // Native hosts call this stable bridge instead of depending on bundled locals.
+  (window as Window & { nativeNavigateBack?: () => boolean }).nativeNavigateBack = () => {
+    if (!byId('confirmLayer').classList.contains('hide') || !byId('modal').classList.contains('hide') ||
+        byId<HTMLDetailsElement>('timePicker').open || byId<HTMLDetailsElement>('conditionsPicker').open ||
+        !byId('librarySearch').classList.contains('hide')) {
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      return true;
+    }
+    if (!window.dispatchEvent(new Event('nowwhat-back', { cancelable: true }))) return true;
+    if (location.hash !== '#home') { app.page('home'); return true; }
+    return false;
+  };
   app.page(previousPage);
   if (app.blocked) { book.inert = true; byId('retryDataLoad').focus(); }
   // Newly mounted labels participate in the same language dictionary.

@@ -32,7 +32,10 @@ for (const [width, language, theme] of [[1531, 'zh-CN', 'light'], [390, 'en', 'd
     const name = await finishFirst(page, language, true, theme);
     const trigger = page.locator('.continuation-trigger');
     expect(await trigger.getAttribute('aria-label')).toContain(name);
-    await expect(trigger).toHaveCSS('border-right-width', '1px');
+    // The approved paper-slip contour replaced the rectangular border on Nov 9.
+    await expect(trigger).toHaveClass(/paper-slip/);
+    await expect(trigger).toHaveCSS('border-right-width', '0px');
+    expect(await trigger.evaluate(el => getComputedStyle(el).backgroundImage)).not.toBe('none');
     await expect(trigger.locator('.continuation-target')).toHaveCSS('text-overflow', 'ellipsis');
     const box = await trigger.boundingBox(); expect(box!.height).toBeGreaterThanOrEqual(44);
     expect(box!.x).toBeGreaterThanOrEqual(0); expect(box!.x + box!.width).toBeLessThanOrEqual(width);

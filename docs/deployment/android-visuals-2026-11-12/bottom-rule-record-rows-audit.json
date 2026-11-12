@@ -1,0 +1,286 @@
+{
+  "mutatedNodeIds": [
+    "574:10556",
+    "574:10426",
+    "574:10427",
+    "574:10428",
+    "574:10429",
+    "574:10472",
+    "574:10473",
+    "574:10474",
+    "574:10475"
+  ],
+  "after": [
+    {
+      "id": "574:10556",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 336,
+      "y": 0,
+      "w": 312,
+      "h": 84
+    },
+    {
+      "id": "574:10426",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 0,
+      "w": 312,
+      "h": 84
+    },
+    {
+      "id": "574:10427",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 92,
+      "w": 312,
+      "h": 84
+    },
+    {
+      "id": "574:10428",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 184,
+      "w": 312,
+      "h": 84
+    },
+    {
+      "id": "574:10429",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 276,
+      "w": 312,
+      "h": 84
+    },
+    {
+      "id": "574:10472",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 0,
+      "w": 272,
+      "h": 64
+    },
+    {
+      "id": "574:10473",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 72,
+      "w": 272,
+      "h": 64
+    },
+    {
+      "id": "574:10474",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 144,
+      "w": 272,
+      "h": 64
+    },
+    {
+      "id": "574:10475",
+      "strokes": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.6941176652908325,
+            "g": 0.5411764979362488,
+            "b": 0.3137255012989044
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:6:7"
+            }
+          }
+        }
+      ],
+      "top": 0,
+      "bottom": 1,
+      "left": 0,
+      "right": 0,
+      "x": 0,
+      "y": 216,
+      "w": 272,
+      "h": 64
+    }
+  ],
+  "scope": "Restore original brass stroke on bottom edge only; transparent backgrounds and geometry preserved"
+}

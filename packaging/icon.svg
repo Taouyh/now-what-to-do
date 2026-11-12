@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path id="Leather-tile" fill="#703C25" fill-rule="evenodd" d="M112 16 H400 Q496 16 496 112 V400 Q496 496 400 496 H112 Q16 496 16 400 V112 Q16 16 112 16 Z"/>
+<path id="Tile-lower-shade" fill="#542D1E" fill-rule="evenodd" d="M16 336 Q256 406 496 336 V400 Q496 496 400 496 H112 Q16 496 16 400 Z"/>
+<path id="Inset-brass" fill="#B18A50" fill-rule="evenodd" d="M112 38 H400 Q474 38 474 112 V400 Q474 474 400 474 H112 Q38 474 38 400 V112 Q38 38 112 38 Z M112 42 Q42 42 42 112 V400 Q42 470 112 470 H400 Q470 470 470 400 V112 Q470 42 400 42 Z"/>
+<path id="Cover-shadow" fill="#452A1A" fill-rule="evenodd" d="M76 172 Q76 160 90 159 Q182 151 256 179 Q330 151 422 159 Q436 160 436 172 L436 354 Q436 366 424 367 Q330 359 256 385 Q182 359 88 367 Q76 366 76 354 Z"/>
+<path id="Leather-binding" fill="#B18A50" fill-rule="evenodd" d="M76 160 Q76 148 90 147 Q182 139 256 167 Q330 139 422 147 Q436 148 436 160 L436 342 Q436 354 424 355 Q330 347 256 373 Q182 347 88 355 Q76 354 76 342 Z"/>
+<path id="Page-block" fill="#D6BD87" fill-rule="evenodd" d="M86 158 Q174 145 256 177 Q338 145 426 158 L426 342 Q337 331 256 361 Q175 331 86 342 Z"/>
+<path id="Left-page" fill="#F0DFB7" fill-rule="evenodd" d="M88 151 Q176 140 250 172 L250 347 Q175 318 88 331 Z"/>
+<path id="Right-page" fill="#FFF0CF" fill-rule="evenodd" d="M262 172 Q336 140 424 151 L424 331 Q337 318 262 347 Z"/>
+<path id="Left-page-light" fill="#F8EACC" fill-rule="evenodd" d="M88 151 Q176 140 250 172 L250 187 Q175 157 88 168 Z"/>
+<path id="Spine" fill="#703C25" fill-rule="evenodd" d="M250 172 L256 175 L262 172 L262 347 L256 352 L250 347 Z"/>
+<path id="Bookmark" fill="#703C25" fill-rule="evenodd" d="M367 147 L391 146 L391 205 L379 196 L367 205 Z"/>
+<path id="First-line" fill="#B18A50" fill-rule="evenodd" d="M119 213 Q164 209 211 222 L211 232 Q164 219 119 223 Z"/>
+<path id="Second-line" fill="#B18A50" fill-rule="evenodd" d="M119 247 Q153 245 185 252 L185 262 Q153 255 119 257 Z"/>
+<path id="Start" fill="#703C25" fill-rule="evenodd" d="M316 222 L316 285 Q316 289 320 287 L365 257 Q369 254 365 251 L320 220 Q316 218 316 222 Z"/></svg>

@@ -1,6 +1,6 @@
 <p align="center"><a href="README.md">English</a> · <strong>简体中文</strong> · <a href="README.ja.md">日本語</a></p>
 
-<p align="center"><img src="packaging/icon.png" width="88" height="88" alt="Now What 图标"></p>
+<p align="center"><img src="packaging/icons/icon-128.png" width="88" height="88" alt="Now What 图标"></p>
 <h1 align="center">Now What</h1>
 <h3 align="center">有点空闲，现在就开始。</h3>
 
@@ -19,7 +19,7 @@
 
 <a id="features"></a>
 
-**1.4.1 更新：**任务可置顶，也可拖拽排序（置顶与未置顶任务各自排序）；任务列表按页展示。活动说明默认展开，手机布局与按钮样式同步优化。
+**1.4.3 更新：**首屏加载更快，换上新版书籍图标，到点自动提醒。计时切到后台后仍按原截止时间运行，不补播错过的提醒。
 ## 有哪些功能
 
 - **少纠结，先做一件。** 写下读书、画画、学语言等想做的事；接受推荐、换一件，或者自己选。
@@ -27,7 +27,7 @@
 - **换过的，本轮不再推。** 不想做就换一件；都没感觉时，可以重新看看，或者自己选。
 - **按当下条件选。** 能用电脑、听音频、出声，或者可能被打断，都可以告诉它。默认全部不勾选，选过会记住。
 - **有几分钟，就做几分钟。** 每次选 10、15、20、30、60 分钟或自定义。电脑上鼠标移到时间或条件入口就能展开，移出弹框自动收起；手机轻点操作。
-- **回来接着做。** 到点停止，点击继续才追加。关闭后保留进度，重开先等你确认；暂停很久时，上次用时单独保留。
+- **回来接着做。** 运行中的计时切到后台后仍按原截止时间运行；到点后可以继续，或结束并记录。手动暂停的计时保持暂停。
 - **一眼回看今天。** 同一活动的多次记录放在一起，次数和总用时一目了然。打开后可查看每次记录。
 - **按自己的习惯用。** 浅色、深色，中文、英语、日语；Windows、安卓、网页都能用。
 
@@ -64,7 +64,7 @@
 
 
 
-[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.1 更新说明](docs/releases/v1.4.1.md)
+[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.3 更新说明](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
 
 <a id="privacy"></a>
 ## 数据与隐私
