@@ -1,0 +1,122 @@
+{
+  "web143-live-files": {
+    "release": {
+      "version": "1.4.3",
+      "commit": "77ae6a6a4897298ecc0ac16b67b637dfab06b3ae"
+    },
+    "files": [
+      {
+        "file": "app.js",
+        "bytes": 127225,
+        "sha256": "285491adcb0fbb4a3e014185be67021fddf998d4a9a0b9ead08c3c12992aaa95",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "style.css",
+        "bytes": 91593,
+        "sha256": "0104a74057e6e65f739005137c7eb88e98797b1da484737d55fe8b8a064e5ef6",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "packaging/icon.png",
+        "bytes": 18999,
+        "sha256": "8c8b0afb49877e2cd8016383aa178cf24f72315881d5a2e1d66e08142ce2a042",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "index.html",
+        "bytes": 16879,
+        "sha256": "ca8e86e1d6300f756f1772003d6d18fdd7c086d00c8d151827b1fd71ff9d9018",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "about/index.html",
+        "bytes": 7108,
+        "sha256": "202f6c0c012024f3ed6085c3d902b233158b18d93b5c43e9140b00ec326cdf1c",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "about/about.js",
+        "bytes": 11041,
+        "sha256": "0464b21690290f82f4fbb455c04b0d6840cbefe256fd94532baddbe94a2307cd",
+        "matches_reviewed_build": true
+      },
+      {
+        "file": "about/about.css",
+        "bytes": 7411,
+        "sha256": "b886e023744f0fd1e7bd23f262315280d6642bb9c381047962811767a6048ea8",
+        "matches_reviewed_build": true
+      }
+    ]
+  },
+  "web143-live-browser": [
+    {
+      "mobile": false,
+      "icon": {
+        "url": "https://taouyh.github.io/now-what-to-do/packaging/icon.png?v=1.4.3",
+        "width": 512,
+        "height": 512
+      },
+      "tasks": 1,
+      "records": 2,
+      "oldDataRetained": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "mobile": true,
+      "icon": {
+        "url": "https://taouyh.github.io/now-what-to-do/packaging/icon.png?v=1.4.3",
+        "width": 512,
+        "height": 512
+      },
+      "tasks": 1,
+      "records": 2,
+      "oldDataRetained": true,
+      "errors": [],
+      "failed": []
+    }
+  ],
+  "web143-github-readmes": [
+    {
+      "file": "README.md",
+      "bytes": 6934,
+      "sha256": "96c34a50a69ea2e2db7f4ba0a5a845bc375cfef5711fbbe5c79e9a33d0830f5b",
+      "matches_git_blob": true
+    },
+    {
+      "file": "README.zh-CN.md",
+      "bytes": 6448,
+      "sha256": "ec1713b296620f62c0a1b15b7a4ac013a82b4df208378e4047e0bde68a760860",
+      "matches_git_blob": true
+    },
+    {
+      "file": "README.ja.md",
+      "bytes": 7399,
+      "sha256": "c69ee4aa34e772fdc69b027ce95ed93764a56ec4cca42227c67cb9e6c58e611d",
+      "matches_git_blob": true
+    },
+    {
+      "file": "packaging/icons/icon-128.png",
+      "bytes": 4159,
+      "sha256": "1e725b45fbdb1e98edbe40629307810a656780c5be5b2403a7386f42331f2b36",
+      "matches_git_blob": true
+    }
+  ],
+  "github-readme-icon": {
+    "src": "https://github.com/Taouyh/now-what-to-do/raw/master/packaging/icons/icon-128.png",
+    "width": 128,
+    "height": 128,
+    "displayWidth": 88,
+    "displayHeight": 88
+  },
+  "web143-release-note": {
+    "url": "https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3",
+    "web_manifest": {
+      "version": "1.4.3",
+      "commit": "77ae6a6a4897298ecc0ac16b67b637dfab06b3ae"
+    },
+    "assets_unchanged": true,
+    "statement": "The web app is also updated to 1.4.3, with faster first loading, the new book icon and the current timer behavior."
+  }
+}
