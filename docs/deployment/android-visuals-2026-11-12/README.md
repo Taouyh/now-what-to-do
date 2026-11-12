@@ -20,7 +20,7 @@ Cloned the wireframe board into a separate visual board, including its five loca
 
 Tasks retain top alignment in short/full/last-page states, true pagination structure, drag/pin/start targets and fixed bottom pagers. Calendar keeps Today and records as separate views, top-aligned entries, reserved record-detail space, and “返回”. Home preserves the three independently raised title positions and the original Start/Change/time/condition/next-step coordinates.
 
-November 12 follow-up: the record-detail row background is now transparent. Removed the yellow fill from the local session-row master and all eight normal/compact instances; retained text, brass borders and geometry. Updated `calendar.png` was visually inspected. `transparent-record-rows.js` and its audit record this final override after the initial styling scripts; the original audit remains historical.
+November 12 follow-up: record-detail rows now have transparent backgrounds and no outer borders. Removed the yellow fill and solid border from the local session-row master and all eight normal/compact instances; retained text and geometry. Updated `calendar.png` was visually inspected. Run `transparent-record-rows.js` then `borderless-record-rows.js` after the initial styling scripts; their audits record these final overrides. Earlier audits remain historical.
 
 The activity editor keeps its fixed heading/close target and actions above the keyboard, expanded description, and scrollable form body. The accompanying motion note specifies concurrent blur and IME dismissal with a 0–120 ms opacity-only fade, no vertical squash or delayed second slide, stable background until viewport settling, and page/task-anchor preservation. The keyboard remains a labeled system placeholder.
 
