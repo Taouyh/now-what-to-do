@@ -1,7 +1,8 @@
 // Only the packaged Android page includes this adapter; browser behavior is unchanged.
 (()=>{
   const pending=new Map();let serial=0;
-  window.nativeApp=Object.freeze({defaultLanguage:'en',productName:'Now What',supportsVibration:true,dismissKeyboard:()=>NowWhatAndroid.dismissKeyboard(),syncReminder:p=>NowWhatAndroid.syncReminder(JSON.stringify(p)),reminderStatus:()=>NowWhatAndroid.reminderStatus(),requestReminders:()=>NowWhatAndroid.requestReminders(),exportText:(content,name)=>new Promise((resolve,reject)=>{
+  // Do not expose a vibration setting; retain compatibility with saved reminder data.
+  window.nativeApp=Object.freeze({defaultLanguage:'en',productName:'Now What',dismissKeyboard:()=>NowWhatAndroid.dismissKeyboard(),syncReminder:p=>NowWhatAndroid.syncReminder(JSON.stringify(p)),reminderStatus:()=>NowWhatAndroid.reminderStatus(),requestReminders:()=>NowWhatAndroid.requestReminders(),exportText:(content,name)=>new Promise((resolve,reject)=>{
     const id=String(++serial);pending.set(id,{resolve,reject});
     try{NowWhatAndroid.exportText(id,content,name)}catch(error){pending.delete(id);reject(error)}
   })});
