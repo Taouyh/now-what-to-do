@@ -18,7 +18,7 @@ function text(parent,value,size=14,width,key='ink'){const n=track(figma.createTe
 function pill(parent,label,w){const n=track(pillSource.createInstance());parent.appendChild(n);n.resize(w,44);n.name=label;fill(n,'field');n.strokes=[paint('border')];n.effects=[];const t=n.findAllWithCriteria({types:['TEXT']})[0];t.characters=label;t.fontSize=14;fill(t,'ink');return n;}
 function gray(n,key){fill(n,key);n.effects=[];for(const c of n.findAll(()=>true)){if(c.type==='TEXT')fill(c,'ink');if(c.type==='VECTOR'){if(Array.isArray(c.fills)&&c.fills.length)fill(c,'ink');if(Array.isArray(c.strokes)&&c.strokes.length)c.strokes=[paint('ink')];}}}
 const section=frame(board,'00 / Now / balanced mobile home · 2026-11-12',1676,100);board.insertChild(4,section);section.primaryAxisSizingMode='AUTO';section.itemSpacing=20;
-text(section,'现在做 · 将主要操作放到页面中部',26);
+text(section,'现在做 · 主要操作位于视觉中心略偏上',26);
 text(section,'新增安卓线框 · 2026-11-12 · 待确认，尚未修改视觉稿和代码',14,undefined,'muted');
 const row=frame(section,'Home review states',1676,100,'HORIZONTAL');row.primaryAxisSizingMode='AUTO';row.counterAxisSizingMode='AUTO';row.itemSpacing=28;
 const masters=frame(section,'Home action group / local reusable component',1676,100,'HORIZONTAL');masters.counterAxisSizingMode='AUTO';masters.itemSpacing=32;
@@ -30,7 +30,7 @@ const nextKey=core.addComponentProperty('Next step','TEXT',next.characters);cons
 const start=track(startSource.createInstance());core.appendChild(start);start.resize(240,56);start.name='Start / primary';gray(start,'selected');start.strokes=[paint('border')];start.cornerRadius=8;
 const startLabel=start.findAllWithCriteria({types:['TEXT']})[0];startLabel.fontSize=22;
 const change=track(changeSource.createInstance());core.appendChild(change);change.name='Change / secondary';gray(change,'paper');change.resize(160,44);
-const note=text(masters,'主操作组：名称 → 开始 → 换一件。\n名称预留两行高度，短标题与长标题切换时按钮不跳动。\n已有“下次起点”显示在名称下方，整组重新居中。',14,660,'muted');
+const note=text(masters,'主操作组：名称 → 开始 → 换一件。\n名称预留两行高度，保留现有按钮尺寸和 20px 组内间距。\n已有“下次起点”仍在名称下方，整组按视觉中心略偏上定位。',14,660,'muted');
 const screens=[];
 function make(label,w,h,name,hasStep=false){
  const column=frame(row,label,w,100);column.itemSpacing=12;column.primaryAxisSizingMode='AUTO';text(column,label,17,w);
@@ -40,9 +40,13 @@ function make(label,w,h,name,hasStep=false){
  const nav=screen.children.find(n=>n.name==='Navigation');for(const tab of nav.children)fill(tab,tab.name==='Tab / 现在做'?'selected':'field');
  const controls=frame(book,'Time and conditions / top utility row',w-48,44,'HORIZONTAL');controls.primaryAxisAlignItems='CENTER';controls.itemSpacing=12;
  pill(controls,'10 分钟',Math.min(132,(w-60)/2));pill(controls,'当前条件',Math.min(132,(w-60)/2));
- const area=frame(book,'Flexible focus area / vertically centered',w-48,100);area.layoutSizingVertical='FILL';area.primaryAxisAlignItems='CENTER';area.counterAxisAlignItems='CENTER';
+ const area=frame(book,'Flexible focus area / optical center above midpoint',w-48,100);area.layoutSizingVertical='FILL';area.primaryAxisAlignItems='CENTER';area.counterAxisAlignItems='CENTER';
+ // Extra bottom padding moves the centered group upward without changing its internals.
+ const opticalOffset=Math.max(0,Math.min(48,28+(h-640)/8));area.paddingBottom=opticalOffset*2;
  const content=track(core.createInstance());area.appendChild(content);content.setProperties({[taskKey]:name,[hasNext]:hasStep});content.resize(w-48,content.height);content.layoutSizingVertical='HUG';
- text(column,hasStep?'长名称与已有起点同时出现时，优先压缩上下留白，保持完整可读与按钮间距。':h<700?'小屏仍整体居中，按钮保持触控尺寸；根据可用高度缩减留白，不固定写死顶部距离。':'时间与条件留在顶部；任务名称、开始和换一件作为一组，移到页面中部偏下，平衡上下留白。',13,w,'muted');
+ // Preserve the user's live 222px default-group override, read before the optical correction.
+ if(w===360&&h===800&&!hasStep){content.layoutSizingVertical='FIXED';content.resize(w-48,222);}
+ text(column,hasStep?'长名称与已有起点整体上移 48px；名称仍预留两行，保留完整说明和按钮间距，不增加卡片背景。':h<700?'小屏整体上移 28px，保留触控尺寸与组内间距；留白随可用高度缩减，视觉中心略偏上。':'时间与条件留在顶部；任务名称、开始和换一件整体上移 48px，位于视觉中心略偏上。保留组内间距与同色背景。',13,w,'muted');
  screens.push({id:screen.id,name:label,width:w,height:h,focusGroupId:content.id});return screen;
 }
 make('12 默认主页 · 360×800',360,800,'读书');
@@ -50,7 +54,7 @@ make('13 小屏主页 · 320×640',320,640,'学习日语');
 make('14 长名称与已有起点 · 360×800',360,800,'学习日语并整理\n今天的新单词',true);
 const notes=frame(row,'Layout decisions pending approval',440,600);notes.paddingTop=44;notes.paddingLeft=20;notes.paddingRight=20;notes.itemSpacing=20;fill(notes,'paper');
 text(notes,'布局确认重点',22);
-text(notes,'顶部：时间、当前条件\n中部：任务名称、开始、换一件\n底部：保留适量呼吸空间',17,400);
+text(notes,'顶部：时间、当前条件\n视觉中心略偏上：任务名称、开始、换一件\n底部：保留适量呼吸空间',17,400);
 text(notes,'“开始”保持主要操作的视觉权重，\n“换一件”紧随其后，避免分散。',15,400,'muted');
 text(notes,'换任务时位置稳定。\n存在下次起点或更大字体时，先减少留白；内容超过可用高度后允许阅读区滚动。\n完成反馈出现时重新分配中部空间，不能把操作推出屏幕。',15,400,'muted');
 text(notes,'灰阶仅表示层级。确认后沿用原有旧书视觉，调整排版；本轮不改运行中的网页、Windows 或 Android。',15,400,'muted');
