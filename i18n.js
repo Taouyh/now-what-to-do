@@ -1,5 +1,10 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+"共 {count} 项":{"en":"{count} activities","ja":"{count} 件"},
+"电脑":{"en":"PC","ja":"PC"},
+"音频":{"en":"Audio","ja":"音声"},
+"出声":{"en":"Speak","ja":"発声"},
+"不中断":{"en":"Focus","ja":"集中"},
 "系统通知未开启。":{"en": "System notifications are off.", "ja": "システム通知がオフです。"},
 "锁屏提醒可能延迟；可在系统设置允许准时提醒。":{"en": "Lock-screen reminders may be delayed. Allow exact alarms in system settings.", "ja": "ロック中の通知が遅れる場合があります。システム設定で正確なアラームを許可できます。"},
 "通知受系统权限与免打扰设置影响。":{"en": "System permissions and Do Not Disturb apply.", "ja": "通知はシステムの権限と集中モード設定に従います。"},

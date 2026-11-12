@@ -1,12 +1,13 @@
 import { mountBook } from './ui/book';
 import './ui/styles/book.css';
+import './ui/styles/mobile-book.css';
 
 async function start() {
   const { runtime } = await import('virtual:runtime');
   mountBook(runtime);
   // Decode the assembled book before revealing it, not one texture at a time.
   // A failed/offline resource cannot leave the application trapped behind a loader.
-  const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp'].map(name => {
+  const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp', ...(document.body.classList.contains('mobile-book') ? ['android-task-paper.png'] : [])].map(name => {
     const image = new Image(); image.src = `assets/${name}`; return image.decode();
   });
   let timeout: ReturnType<typeof setTimeout>;

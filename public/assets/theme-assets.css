@@ -1,5 +1,6 @@
 :root {
   --environment: url('./assets/environment.webp');
   --task-paper: url('./assets/task-paper.webp');
+  --mobile-task-paper: url('./assets/android-task-paper.png');
   --scroll-paper: url('./assets/scroll-paper.webp');
 }

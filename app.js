@@ -1047,7 +1047,10 @@ function resizeActivityDescription(){
   input.style.height='auto';input.style.height=Math.max(44,input.scrollHeight+2)+'px';
 }
 function syncDescriptionToggle(){$('descriptionToggle').textContent=$('activityOptions').open?tr('活动说明'):$('desc').value?tr('查看说明'):tr('＋ 添加说明')}
-function closeActivity(){$('modal').classList.add('hide');syncDialogState();restoreDialogFocus('modal')}
+function closeActivity(){
+  if(!$('modal').classList.contains('hide'))bookView?.onEditorClose();
+  $('modal').classList.add('hide');syncDialogState();restoreDialogFocus('modal');
+}
 
 $('desc').oninput=()=>{resizeActivityDescription();syncDescriptionToggle()};
 $('activityOptions').addEventListener('toggle',()=>{syncDescriptionToggle();resizeActivityDescription()});

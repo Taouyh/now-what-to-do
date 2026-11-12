@@ -68,7 +68,7 @@ public final class TimerReminder extends BroadcastReceiver {
             Intent open=new Intent(c,MainActivity.class).setAction("io.github.taouyh.nowwhat.TIMER").addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
             PendingIntent content=PendingIntent.getActivity(c,ID,open,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
             Notification.Builder builder=Build.VERSION.SDK_INT>=26?new Notification.Builder(c,channel):new Notification.Builder(c);
-            builder.setSmallIcon(android.R.drawable.ic_lock_idle_alarm).setContentTitle(p.getString("title")).setContentText(p.getString("body"))
+            builder.setSmallIcon(R.drawable.ic_stat_nowwhat).setContentTitle(p.getString("title")).setContentText(p.getString("body"))
                 .setContentIntent(content).setAutoCancel(true).setOnlyAlertOnce(true).setVisibility(Notification.VISIBILITY_PRIVATE).setCategory(Notification.CATEGORY_REMINDER);
             if(Build.VERSION.SDK_INT<26){builder.setSound(sound?Settings.System.DEFAULT_NOTIFICATION_URI:null);if(vibration)builder.setVibrate(new long[]{0,200});}
             manager.notify(ID,builder.build());

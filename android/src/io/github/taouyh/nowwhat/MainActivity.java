@@ -25,7 +25,7 @@ public final class MainActivity extends Activity {
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         FrameLayout root = new FrameLayout(this);
-        root.setBackgroundColor(Color.rgb(247,245,240));
+        root.setBackgroundColor(Color.rgb(35,20,12));
         web = new WebView(this);
         root.addView(web, new FrameLayout.LayoutParams(-1,-1));
         setContentView(root);
@@ -73,6 +73,10 @@ public final class MainActivity extends Activity {
     }
     private WebResourceResponse errorResponse(){return new WebResourceResponse("text/plain","UTF-8",404,"Not Found",Collections.emptyMap(),new ByteArrayInputStream(new byte[0]));}
     public final class BackupBridge {
+        @JavascriptInterface public void dismissKeyboard(){runOnUiThread(()->{
+            android.view.inputmethod.InputMethodManager keyboard=(android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            if(keyboard!=null)keyboard.hideSoftInputFromWindow(web.getWindowToken(),0);
+        });}
         @JavascriptInterface public void syncReminder(String payload){runOnUiThread(()->TimerReminder.sync(MainActivity.this,payload));}
         @JavascriptInterface public String reminderStatus(){return TimerReminder.status(MainActivity.this);}
         @JavascriptInterface public void requestReminders(){runOnUiThread(()->{
@@ -83,11 +87,11 @@ public final class MainActivity extends Activity {
         });}
         @JavascriptInterface public void setTheme(String theme){
             runOnUiThread(()->{
-                boolean dark="dark".equals(theme);int color=dark?Color.rgb(30,32,28):Color.rgb(247,245,240);
+                int color=Color.rgb(35,20,12);
                 ((View)web.getParent()).setBackgroundColor(color);getWindow().setStatusBarColor(color);getWindow().setNavigationBarColor(color);
                 int flags=getWindow().getDecorView().getSystemUiVisibility();
-                flags=dark?flags&~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR:flags|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-                if(Build.VERSION.SDK_INT>=26)flags=dark?flags&~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR:flags|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+                flags=flags&~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                if(Build.VERSION.SDK_INT>=26)flags=flags&~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
                 getWindow().getDecorView().setSystemUiVisibility(flags);
             });
         }
@@ -116,7 +120,7 @@ public final class MainActivity extends Activity {
         }
     }
     @Override public void onBackPressed(){
-        web.evaluateJavascript("(function(){if(typeof page!=='function')return 'background';if(!$('confirmLayer').classList.contains('hide')||!$('modal').classList.contains('hide')||$('timePicker').open||$('conditionsPicker').open||!$('librarySearch').classList.contains('hide')){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));}else if(location.hash!=='#home'){page('home');}else{return 'background';}return 'handled';})()",value->{if("\"background\"".equals(value))moveTaskToBack(true);});
+        web.evaluateJavascript("typeof window.nativeNavigateBack==='function' && window.nativeNavigateBack()",value->{if(!"true".equals(value))moveTaskToBack(true);});
     }
     @Override protected void onPause(){
         resumed=false;
@@ -127,7 +131,7 @@ public final class MainActivity extends Activity {
     }
     @Override protected void onStop(){if(web!=null)web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('checkpoint')",null);super.onStop();}
     @Override protected void onResume(){super.onResume();resumed=true;TimerReminder.refresh(this);if(web!=null){web.onResume();web.evaluateJavascript("typeof nativeTimerLifecycle==='function' ? nativeTimerLifecycle('resume') : document.dispatchEvent(new Event('visibilitychange'))",null);}}
-    private void openTimer(){if(web!=null)web.evaluateJavascript("typeof nativeTimerLifecycle==='function' && nativeTimerLifecycle('notification')",null);}
+    private void openTimer(){if(web!=null)web.evaluateJavascript("(function(){if(typeof nativeTimerLifecycle==='function'){nativeTimerLifecycle('notification');return;}const ready=new MutationObserver(()=>{if(document.documentElement.dataset.appReady==='true'){ready.disconnect();if(typeof nativeTimerLifecycle==='function')nativeTimerLifecycle('notification');}});ready.observe(document.documentElement,{attributes:true,attributeFilter:['data-app-ready']});})()",null);}
     @Override protected void onNewIntent(Intent intent){super.onNewIntent(intent);setIntent(intent);if("io.github.taouyh.nowwhat.TIMER".equals(intent.getAction()))openTimer();}
     @Override protected void onDestroy(){if(fileCallback!=null)fileCallback.onReceiveValue(null);web.removeJavascriptInterface("NowWhatAndroid");web.destroy();super.onDestroy();}
 }

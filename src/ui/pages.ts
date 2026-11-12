@@ -9,6 +9,10 @@ export class BookPages {
   taskAnchorId: string | null = null;
   mobileTaskPageSize = 4;
   taskResizeObserver: ResizeObserver | undefined;
+  calendarResizeObserver: ResizeObserver | undefined;
+  mobileDirectoryPageSize = 5;
+  mobileRecordPageSize = 4;
+  isViewportFrozen = () => false;
   taskFocusAfterSave: string | null = null;
   directoryPage = 0;
   recordPage = 0;
@@ -43,7 +47,8 @@ export class BookPages {
     const next = button(tr('下一页'), () => change(page + 1), 'paper-button');
     next.id = `${id}-next`;
     next.disabled = !total || page + 1 >= total;
-    navigation.append(previous, element('span', id === 'tasks' ? 'page-count sr-only' : 'page-count', total ? `${page + 1} / ${total}` : '—'), next);
+    const hideCount = id === 'tasks' || (document.body.classList.contains('mobile-book') && total > 0);
+    navigation.append(previous, element('span', hideCount ? 'page-count sr-only' : 'page-count', total ? `${page + 1} / ${total}` : '—'), next);
     return navigation;
   }
 
@@ -64,6 +69,7 @@ export class BookPages {
       content.replaceChildren(name, start);
       // Existing user-provided next steps remain readable after the layout change.
       if (current.nextStep) content.append(element('p', 'recommendation-step user-text', current.nextStep));
+      content.classList.toggle('has-next-step', !!current.nextStep);
     }
     byId('browse').textContent = tr('自己选');
     const feedback = byId('completionFeedback');
@@ -173,10 +179,12 @@ export class BookPages {
       const mobileHeading = element('div', 'mobile-task-heading');
       const title = element('div', 'column-heading');
       title.append(left.querySelector('h1')!, heading.querySelector('button')!);
-      mobileHeading.append(title, left.querySelector('.book-caption')!);
+      mobileHeading.append(title, element('p', 'book-caption', app.tr('共 {count} 项', { count: tasks.length })));
       first.classList.add('mobile-task-items');
+      first.classList.toggle('few-tasks', tasks.length <= 3);
       byId('taskList').replaceChildren(mobileHeading, first, footer);
       this.taskResizeObserver = new ResizeObserver(() => {
+        if (this.isViewportFrozen()) return;
         // Measure the space between the heading and pager, rather than clipping a long list.
         const height = first.getBoundingClientRect().height;
         if (!height || !document.body.classList.contains('mobile-book')) return;
@@ -208,12 +216,21 @@ export class BookPages {
     this.expandedRecord = null;
   }
 
+  returnToDirectory() {
+    const selected = this.selectedTask;
+    this.selectedTask = null;
+    this.clearRecordSelection();
+    this.renderToday();
+    if (selected) document.querySelector<HTMLButtonElement>(`[data-group-id="${CSS.escape(selected)}"]`)?.focus({ preventScroll: true });
+  }
+
   renderToday() {
     const { app } = this;
     const { tr } = app;
+    const mobile = document.body.classList.contains('mobile-book');
     const records = app.recordsForLocalDay();
     const groups = app.todayRecordGroups(records);
-    const directory = paginate(groups, this.directoryPage, 5);
+    const directory = paginate(groups, this.directoryPage, mobile ? this.mobileDirectoryPageSize : 5);
     this.directoryPage = directory.page;
     if (!directory.items.some(group => group.taskId === this.selectedTask)) this.selectedTask = null;
     const selected = groups.find(group => group.taskId === this.selectedTask);
@@ -229,11 +246,13 @@ export class BookPages {
         this.recordPage = 0;
         this.clearRecordSelection();
         this.renderToday();
-        document.querySelector<HTMLButtonElement>(`[data-group-id="${CSS.escape(group.taskId)}"]`)?.focus();
+        if (mobile) byId('calendarBack').focus({ preventScroll: true });
+        else document.querySelector<HTMLButtonElement>(`[data-group-id="${CSS.escape(group.taskId)}"]`)?.focus();
       }, 'calendar-group task-strip');
       row.dataset.groupId = group.taskId;
       row.setAttribute('aria-pressed', String(group.taskId === this.selectedTask));
       row.append(element('span', 'user-text', name));
+      if (mobile) { const arrow = element('span', 'calendar-arrow', '›'); arrow.setAttribute('aria-hidden', 'true'); row.append(arrow); }
       list.append(row);
     }
     if (!groups.length) list.append(element('p', 'empty-copy', tr('今天还没开始。')), button(tr('去开始'), () => app.page('home'), 'primary calendar-start'));
@@ -250,8 +269,13 @@ export class BookPages {
       const name = selected.records[0].taskName || tr('已删除任务');
       const heading = element('h2', 'user-text', name);
       heading.tabIndex = 0;
+      if (mobile) {
+        const back = button(tr('返回'), () => this.returnToDirectory(), 'paper-button calendar-back');
+        back.id = 'calendarBack';
+        right.append(back);
+      }
       right.append(heading, element('p', 'book-caption', tr('{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
-      const page = paginate(selected.records, this.recordPage, 4);
+      const page = paginate(selected.records, this.recordPage, mobile ? this.mobileRecordPageSize : 4);
       this.recordPage = page.page;
       const rows = element('div', 'calendar-records');
       page.items.forEach((record, index) => {
@@ -290,6 +314,33 @@ export class BookPages {
         this.focusPager('records', next > page.page);
       }, 'records'));
     }
-    byId('todayBox').replaceChildren(left, right);
+    this.calendarResizeObserver?.disconnect();
+    if (!mobile) { byId('todayBox').replaceChildren(left, right); return; }
+    const column = selected ? right : left;
+    column.classList.add('mobile-calendar-column');
+    const content = column.querySelector<HTMLElement>('.calendar-directory,.calendar-records')!;
+    const emptyStart = content.querySelector('.calendar-start');
+    if (emptyStart) column.insertBefore(emptyStart, column.querySelector('.book-pager'));
+    byId('todayBox').replaceChildren(column);
+    this.calendarResizeObserver = new ResizeObserver(() => {
+      if (this.isViewportFrozen() || !content.getBoundingClientRect().height) return;
+      const rowHeight = parseFloat(getComputedStyle(content).getPropertyValue('--calendar-row-height')) || 72;
+      const gap = parseFloat(getComputedStyle(content).rowGap) || 0;
+      const max = selected ? 4 : 5;
+      const size = Math.max(1, Math.min(max, Math.floor((content.getBoundingClientRect().height + gap) / (rowHeight + gap))));
+      if (selected) {
+        if (size === this.mobileRecordPageSize) return;
+        const anchor = this.recordPage * this.mobileRecordPageSize;
+        this.mobileRecordPageSize = size;
+        this.recordPage = Math.floor(anchor / size);
+      } else {
+        if (size === this.mobileDirectoryPageSize) return;
+        const anchor = this.directoryPage * this.mobileDirectoryPageSize;
+        this.mobileDirectoryPageSize = size;
+        this.directoryPage = Math.floor(anchor / size);
+      }
+      this.renderToday();
+    });
+    this.calendarResizeObserver.observe(content);
   }
 }
