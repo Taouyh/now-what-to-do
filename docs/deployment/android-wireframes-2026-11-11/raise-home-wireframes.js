@@ -23,4 +23,3 @@ if(after.y<utilityBefore.y+utilityBefore.height||after.y+after.height>s.height)t
 states.push({screen:sid,group:gid,screenSize:[s.width,s.height],before,after,movedUp:before.y-after.y,offsetAboveAreaCenter:shift,areaPaddingBottom:area.paddingBottom,internalLayoutPreserved:true,utility:utilityBefore});}
 for(const [id,value]of Object.entries(annotations)){const t=figma.getNodeById(id);t.characters=value;changed.push(id);}
 return{mutatedNodeIds:changed,sectionId:section.id,states};
-
