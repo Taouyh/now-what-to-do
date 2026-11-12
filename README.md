@@ -38,8 +38,8 @@
 
 | Platform | Get it | Requirements |
 | --- | --- | --- |
-| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Windows-x64-Setup.exe) · 18.6 MiB | Windows 10 / 11, 64-bit |
-| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.1/Now-What-1.4.1-Android.apk) · 18.2 MiB | Android 7.0+ |
+| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11, 64-bit |
+| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Android-build10.apk) · 11.5 MiB | Android 7.0+ |
 | Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install |
 
 Free. No account. Installed apps work offline and start in English; change the language in **Settings**. The web app starts with your browser language.
