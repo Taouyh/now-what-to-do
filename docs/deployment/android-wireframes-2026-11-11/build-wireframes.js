@@ -79,22 +79,22 @@ function note(wrap,value,w){text(wrap,value,13,'muted',w);}
 function task(parent,key,label,names,{w=360,h=800,total=names.length,prev=false,next=false}={}) {
  const o=screen(parent,key,label,w,h);const heading=frame(o.book,'Task heading',o.w,60);heading.itemSpacing=4;
  const hrow=frame(heading,'Title and add',o.w,36,'HORIZONTAL');hrow.primaryAxisAlignItems='SPACE_BETWEEN';hrow.counterAxisAlignItems='CENTER';text(hrow,'任务',24);refs[key+'Add']=pill(hrow,'添加',80);text(heading,`共 ${total} 项`,13,'muted');
- const list=frame(o.book,'Task list / centered short set',o.w,100);list.layoutSizingVertical='FILL';list.primaryAxisAlignItems='CENTER';list.itemSpacing=12;
+ const list=frame(o.book,'Task list / top aligned / true pagination',o.w,100);list.layoutSizingVertical='FILL';list.primaryAxisAlignItems='MIN';list.itemSpacing=12;
  for(const name of names){const i=track(row.createInstance());list.appendChild(i);i.setProperties({[titleProp]:name});i.resize(o.w,names.length>3?64:72);}
  footer(o.book,o.w,prev,next,key);return o;
 }
 const g1=group('01 / Tasks / sparse, full and compact');
-const t1=task(g1,'tasksSparse','01 任务少时 · 内容居中',['读书','学习日语','整理书桌']);note(t1.wrap,'少量任务整体移到中部；名称、置顶和开始垂直居中。翻页区始终靠下，不跟着列表上移。',360);
+const t1=task(g1,'tasksSparse','01 任务少时 · 顶部排列',['读书','学习日语','整理书桌']);note(t1.wrap,'任务无论多少，都从内容区顶部依次排列；名称、置顶与开始在行内对齐。保持真分页，翻页区固定在底部。',360);
 const t2=task(g1,'tasksFull','02 任务较多 · 真分页',['读书','学习日语','整理书桌','散步','画画','练习吉他'],{total:9,next:true});note(t2.wrap,'按可用高度分配本页容量；示例一页 6 项。保留拖拽排序、置顶、开始；不整页无限下滑。',360);
-const t3=task(g1,'tasksNext','03 后一页 · 保持相同位置',['学习摄影','练字','运动'],{total:9,prev:true});note(t3.wrap,'上一页与下一页同尺寸，页码仅供读屏。切换和关闭弹窗后保留当前页及任务位置。',360);
+const t3=task(g1,'tasksNext','03 后一页 · 保持相同位置',['学习摄影','练字','运动'],{total:9,prev:true});note(t3.wrap,'后一页也从顶部排列，剩余空白留在列表下方。切换和关闭弹窗后保留当前页及任务位置。',360);
 const t4=task(g1,'tasksCompact','04 小屏 · 320×640',['读书','学习日语','整理书桌','散步'],{w:320,h:640,total:9,next:true});note(t4.wrap,'小屏示例一页 4 项。行高保持可点按，优先减少本页项数，而不是压缩文字和按钮。',320);
 const g2=group('02 / Calendar / directory then detail');
 function calendar(parent,key,label,w=360,h=800,mode='directory'){
  const o=screen(parent,key,label,w,h,'日历');
  const heading=frame(o.book,'Today or selected activity',o.w,mode==='detail'?96:68);heading.itemSpacing=4;
- if(mode==='detail'){refs[key+'Back']=pill(heading,'返回今天',108);text(heading,'读书',24);text(heading,'今天 · 4 次 · 38 分钟',13,'muted');}
+ if(mode==='detail'){refs[key+'Back']=pill(heading,'返回',108);text(heading,'读书',24);text(heading,'今天 · 4 次 · 38 分钟',13,'muted');}
  else {text(heading,'今天 · 11月11日',24);text(heading,mode==='empty'?'还没有记录':'共 6 次 · 58 分钟',13,'muted');}
- const body=frame(o.book,'Main calendar content',o.w,100);body.layoutSizingVertical='FILL';body.itemSpacing=12;body.primaryAxisAlignItems='CENTER';
+ const body=frame(o.book,'Main calendar content',o.w,100);body.layoutSizingVertical='FILL';body.itemSpacing=12;body.primaryAxisAlignItems='MIN';
  if(mode==='directory'){
   for(const name of ['读书','学习日语','散步']){const r=frame(body,'Activity / '+name,o.w,72,'HORIZONTAL');fill(r,'field');r.cornerRadius=8;r.strokes=[paint('border')];r.paddingLeft=16;r.paddingRight=16;r.primaryAxisAlignItems='SPACE_BETWEEN';r.counterAxisAlignItems='CENTER';text(r,name,17);text(r,'›',24,'muted');if(name==='读书')refs.calendarRead=r;}
  } else if(mode==='detail'){
@@ -108,10 +108,10 @@ function calendar(parent,key,label,w=360,h=800,mode='directory'){
  if(mode==='empty'){const c=frame(o.book,'Empty action above pager',o.w,44);c.counterAxisAlignItems='CENTER';refs.emptyStart=pill(c,'去开始',144);}
  footer(o.book,o.w,false,mode==='detail',key);return o;
 }
-const c1=calendar(g2,'calendarDirectory','05 日历 · 今天的活动');note(c1.wrap,'先看今天的汇总与活动目录。点击活动进入单独的明细页，不再上下堆叠“今天”和“记录明细”。',360);
-const c2=calendar(g2,'calendarDetail','06 活动明细 · 全页查看',360,800,'detail');note(c2.wrap,'四条记录完整可见；点击记录显示计划等信息，预留行内空间，宽度与翻页区不移动。返回保持目录位置。',360);
-const c3=calendar(g2,'calendarEmpty','07 日历空状态',360,800,'empty');note(c3.wrap,'“去开始”居中，放在底部翻页区上方。上下文清楚，不重复显示一块空的“记录明细”。',360);
-const c4=calendar(g2,'calendarCompact','08 明细小屏 · 320×640',320,640,'detail');note(c4.wrap,'小屏仍保留四条记录和翻页；详情行预留高度。长名称换行，进一步不足时减少分页容量。',320);
+const c1=calendar(g2,'calendarDirectory','05 日历 · 今天的活动');note(c1.wrap,'先看今天的汇总与活动目录，活动从顶部依次排列。点击活动进入单独的记录明细页。',360);
+const c2=calendar(g2,'calendarDetail','06 活动明细 · 全页查看',360,800,'detail');note(c2.wrap,'记录从顶部依次排列，不足一页也不居中。预留行内详情空间；点击“返回”回到原目录位置。',360);
+const c3=calendar(g2,'calendarEmpty','07 日历空状态',360,800,'empty');note(c3.wrap,'空状态说明置于内容区顶部；“去开始”仍在底部翻页区上方水平居中，不叠加空的记录明细。',360);
+const c4=calendar(g2,'calendarCompact','08 明细小屏 · 320×640',320,640,'detail');note(c4.wrap,'小屏记录同样从顶部排列。保留行内详情空间与底部翻页；空间不足时减少本页容量。',320);
 const g3=group('03 / Add activity / keyboard and close');
 function editor(parent,key,label,w,h,keyboard){
  const wrap=frame(parent,label,w,100);wrap.itemSpacing=12;wrap.primaryAxisSizingMode='AUTO';text(wrap,label,17,'ink',w);
@@ -130,7 +130,7 @@ function editor(parent,key,label,w,h,keyboard){
 const e1=editor(g3,'editorNormal','09 添加活动 · 键盘未显示',360,800,0);note(e1.wrap,'标题、叉号、底部操作固定；活动说明默认展开。弹层内不重复显示应用名。',360);
 const e2=editor(g3,'editorKeyboard','10 添加活动 · 输入法展开',360,800,280);note(e2.wrap,'仅表单中间区域可滚动；叉号和添加／取消保持完整可见，不被键盘或输入框遮挡。',360);
 const notes=frame(g3,'Close behavior proposal',700,700);notes.paddingTop=40;notes.paddingLeft=24;notes.paddingRight=24;notes.itemSpacing=20;fill(notes,'paper');
-text(notes,'11 关闭交互 · 待确认',24);
+text(notes,'11 关闭交互 · 本轮修订',24);
 text(notes,'点击 × 或取消',20);text(notes,'立即取消输入焦点，同时请求收起键盘。\n弹层采用约 120 ms 的短淡出，不纵向压扁、不向下卷走。',16,'ink',640);
 text(notes,'回到原任务页',20);text(notes,'键盘退场期间保持背景布局稳定；恢复可用高度后统一计算分页。\n不重置当前页，不移动已显示任务，不出现第二段慢滑动。',16,'ink',640);
 text(notes,'验证边界',20);text(notes,'线框只表示交互目标，不模拟 ColorOS 输入法的真实动画。\n确认后再改视觉与代码，用 OPPO Reno 10 Pro 5G 实测：\n键盘开／关、连续添加关闭、少任务／多任务、横竖屏和返回键。',15,'muted',640);
