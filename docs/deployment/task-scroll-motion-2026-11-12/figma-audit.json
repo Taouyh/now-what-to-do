@@ -1,0 +1,560 @@
+{
+  "date": "2026-11-12",
+  "scope": "Figma prototype only; no application code, Android implementation, build or publication.",
+  "fileKey": "EUoXZR1hDJUUPVAtrDxpE5",
+  "account": "3966592487",
+  "sessionId": "276fc0d1-2fb4-4197-b5af-2673dfbca0b1",
+  "request": "Task editing and add-task opening/closing should feel like current conditions and less choppy.",
+  "reference": {
+    "openingMs": 220,
+    "closingMs": 240,
+    "easing": "EASE_OUT"
+  },
+  "change": "Keep scroll width 580 and origin fixed; replace 180×44 diagonal expansion with an 80px vertical paper/roller reveal plus root opacity. Preserve text, fields and expanded layouts. Existing close/save/delete/pagination actions were not rewritten.",
+  "validation": {
+    "geometry": "Read back and asserted fixed width/origin, 80px height delta and both roller core positions.",
+    "staticScreenshots": "Expanded edit/add overlays visually inspected; text and controls intact. Variable-bound example values are canvas defaults, not an exercised Add flow.",
+    "runtime": "Not verified. In-app browser inventory and prototype tab opening timed out. No FPS or device-smoothness claim.",
+    "limits": "Original 10ms opening handoff and 10ms final-close handoff retained. Existing conditional validation and data writes preserved."
+  },
+  "mutation": {
+    "createdNodeIds": [],
+    "mutatedNodeIds": [
+      "234:4155",
+      "234:4156",
+      "234:4166",
+      "234:4186",
+      "234:4188",
+      "234:4191",
+      "234:4192",
+      "234:4193",
+      "234:4194",
+      "234:4229",
+      "234:4230",
+      "234:4240",
+      "234:4260",
+      "234:4262",
+      "234:4265",
+      "234:4266",
+      "234:4267",
+      "234:4268",
+      "198:4041",
+      "198:4042",
+      "198:4052",
+      "198:4072",
+      "198:4074",
+      "198:4077",
+      "198:4078",
+      "198:4079",
+      "198:4080",
+      "234:4153",
+      "234:4227"
+    ],
+    "before": [
+      {
+        "id": "234:4155",
+        "nodes": [
+          {
+            "id": "234:4155",
+            "name": "便签 / 卷轴",
+            "x": 1260,
+            "y": 246.25,
+            "w": 180,
+            "h": 44,
+            "opacity": 0,
+            "clips": false
+          },
+          {
+            "id": "234:4156",
+            "name": "便签 / 内容窗",
+            "x": 0,
+            "y": 1.3642420526593924e-12,
+            "w": 180,
+            "h": 24,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "234:4186",
+            "name": "便签 / 皮革标题签",
+            "x": 150,
+            "y": -15.99853515625,
+            "w": 280,
+            "h": 68,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4188",
+            "name": "关闭便签",
+            "x": 512.0001220703125,
+            "y": 59.00146484375,
+            "w": 44,
+            "h": 44,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4191",
+            "name": "纸卷 / 卷边",
+            "x": -7.9998779296875,
+            "y": 10,
+            "w": 196,
+            "h": 30,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "234:4194",
+            "name": "卷轴 / 突出按键",
+            "x": 535.999755859375,
+            "y": 190,
+            "w": 120,
+            "h": 160,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4192",
+            "name": "卷芯",
+            "x": 0.9998779296875,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          },
+          {
+            "id": "234:4193",
+            "name": "卷芯",
+            "x": 580.0001220703125,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          }
+        ]
+      },
+      {
+        "id": "234:4229",
+        "nodes": [
+          {
+            "id": "234:4229",
+            "name": "便签 / 卷轴",
+            "x": 1260,
+            "y": 246.25,
+            "w": 180,
+            "h": 44,
+            "opacity": 0,
+            "clips": false
+          },
+          {
+            "id": "234:4230",
+            "name": "便签 / 内容窗",
+            "x": 0,
+            "y": 1.3642420526593924e-12,
+            "w": 180,
+            "h": 24,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "234:4260",
+            "name": "便签 / 皮革标题签",
+            "x": 150,
+            "y": -15.99853515625,
+            "w": 280,
+            "h": 68,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4262",
+            "name": "关闭便签",
+            "x": 512.0001220703125,
+            "y": 59.00146484375,
+            "w": 44,
+            "h": 44,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4265",
+            "name": "纸卷 / 卷边",
+            "x": -7.9998779296875,
+            "y": 10,
+            "w": 196,
+            "h": 30,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "234:4268",
+            "name": "卷轴 / 突出按键",
+            "x": 535.999755859375,
+            "y": 190,
+            "w": 120,
+            "h": 160,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "234:4266",
+            "name": "卷芯",
+            "x": 0.9998779296875,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          },
+          {
+            "id": "234:4267",
+            "name": "卷芯",
+            "x": 580.0001220703125,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          }
+        ]
+      },
+      {
+        "id": "198:4041",
+        "nodes": [
+          {
+            "id": "198:4041",
+            "name": "便签 / 卷轴",
+            "x": 1260,
+            "y": 246.25,
+            "w": 180,
+            "h": 44,
+            "opacity": 0,
+            "clips": false
+          },
+          {
+            "id": "198:4042",
+            "name": "便签 / 内容窗",
+            "x": 0,
+            "y": 1.3642420526593924e-12,
+            "w": 180,
+            "h": 24,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "198:4072",
+            "name": "便签 / 皮革标题签",
+            "x": 150,
+            "y": -15.99853515625,
+            "w": 280,
+            "h": 68,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "198:4074",
+            "name": "关闭便签",
+            "x": 512.0001220703125,
+            "y": 59.00146484375,
+            "w": 44,
+            "h": 44,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "198:4077",
+            "name": "纸卷 / 卷边",
+            "x": -7.9998779296875,
+            "y": 10,
+            "w": 196,
+            "h": 30,
+            "opacity": 1,
+            "clips": true
+          },
+          {
+            "id": "198:4080",
+            "name": "卷轴 / 突出按键",
+            "x": 535.999755859375,
+            "y": 190,
+            "w": 120,
+            "h": 160,
+            "opacity": 0,
+            "clips": true
+          },
+          {
+            "id": "198:4078",
+            "name": "卷芯",
+            "x": 0.9998779296875,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          },
+          {
+            "id": "198:4079",
+            "name": "卷芯",
+            "x": 580.0001220703125,
+            "y": 5,
+            "w": 14,
+            "h": 20,
+            "opacity": 1
+          }
+        ]
+      }
+    ],
+    "after": [
+      {
+        "id": "234:4155",
+        "x": 850,
+        "y": 141.99951171875,
+        "w": 580,
+        "h": 594,
+        "opacity": 0,
+        "paper": [
+          {
+            "id": "234:4156",
+            "x": 0,
+            "y": 0,
+            "w": 580,
+            "h": 570
+          },
+          {
+            "id": "234:4191",
+            "x": -8.000030517578125,
+            "y": 554.0009765625,
+            "w": 596,
+            "h": 30
+          }
+        ]
+      },
+      {
+        "id": "234:4229",
+        "x": 850,
+        "y": 141.99951171875,
+        "w": 580,
+        "h": 594,
+        "opacity": 0,
+        "paper": [
+          {
+            "id": "234:4230",
+            "x": 0,
+            "y": 0,
+            "w": 580,
+            "h": 570
+          },
+          {
+            "id": "234:4265",
+            "x": -7.9998779296875,
+            "y": 554.0009765625,
+            "w": 596,
+            "h": 30
+          }
+        ]
+      },
+      {
+        "id": "198:4041",
+        "x": 850,
+        "y": 141.99951171875,
+        "w": 580,
+        "h": 594,
+        "opacity": 0,
+        "paper": [
+          {
+            "id": "198:4042",
+            "x": -9.094947017729282e-13,
+            "y": 0,
+            "w": 580,
+            "h": 570
+          },
+          {
+            "id": "198:4077",
+            "x": -7.9998779296875,
+            "y": 554.0009765625,
+            "w": 596,
+            "h": 30
+          }
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "234:4153",
+        "before": {
+          "type": "SMART_ANIMATE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.23999999463558197
+        }
+      },
+      {
+        "id": "234:4227",
+        "before": {
+          "type": "SMART_ANIMATE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.23999999463558197
+        }
+      }
+    ],
+    "closing": "Existing single 240ms SMART_ANIMATE EASE_OUT to 198:4039 retained; conditional save/delete/page restoration untouched",
+    "scope": "Figma prototype only; expanded designs and application code unchanged"
+  },
+  "finalReadback": {
+    "geometry": [
+      {
+        "id": "234:4155",
+        "expanded": "151:4164",
+        "x": 850,
+        "y": 141.99951171875,
+        "width": 580,
+        "heightFrom": 594,
+        "heightTo": 674,
+        "paperWidth": 580,
+        "rollerCoreX": [
+          1,
+          580
+        ]
+      },
+      {
+        "id": "234:4229",
+        "expanded": "151:4237",
+        "x": 850,
+        "y": 141.99951171875,
+        "width": 580,
+        "heightFrom": 594,
+        "heightTo": 674,
+        "paperWidth": 580,
+        "rollerCoreX": [
+          1,
+          580
+        ]
+      },
+      {
+        "id": "198:4041",
+        "expanded": "151:4237",
+        "x": 850,
+        "y": 141.99951171875,
+        "width": 580,
+        "heightFrom": 594,
+        "heightTo": 674,
+        "paperWidth": 580,
+        "rollerCoreX": [
+          1,
+          580
+        ]
+      }
+    ],
+    "timing": [
+      {
+        "id": "234:4153",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "151:4148",
+              "navigation": "SWAP",
+              "transition": {
+                "type": "SMART_ANIMATE",
+                "easing": {
+                  "type": "EASE_OUT"
+                },
+                "duration": 0.2199999988079071
+              },
+              "resetVideoPosition": false,
+              "resetScrollPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "151:4148",
+                "navigation": "SWAP",
+                "transition": {
+                  "type": "SMART_ANIMATE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.2199999988079071
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "AFTER_TIMEOUT",
+              "timeout": 0.009999999776482582
+            }
+          }
+        ]
+      },
+      {
+        "id": "234:4227",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "151:4235",
+              "navigation": "SWAP",
+              "transition": {
+                "type": "SMART_ANIMATE",
+                "easing": {
+                  "type": "EASE_OUT"
+                },
+                "duration": 0.2199999988079071
+              },
+              "resetVideoPosition": false,
+              "resetScrollPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "151:4235",
+                "navigation": "SWAP",
+                "transition": {
+                  "type": "SMART_ANIMATE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.2199999988079071
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "AFTER_TIMEOUT",
+              "timeout": 0.009999999776482582
+            }
+          }
+        ]
+      }
+    ],
+    "viewports": [
+      {
+        "id": "151:3405",
+        "w": 1600,
+        "h": 1000
+      },
+      {
+        "id": "151:3813",
+        "w": 1600,
+        "h": 1000
+      },
+      {
+        "id": "151:4148",
+        "w": 1600,
+        "h": 1000
+      },
+      {
+        "id": "151:4235",
+        "w": 1600,
+        "h": 1000
+      },
+      {
+        "id": "198:4039",
+        "w": 1600,
+        "h": 1000
+      }
+    ]
+  }
+}
