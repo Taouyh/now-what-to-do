@@ -52,3 +52,49 @@ for (const [width, language, theme] of [[1531, 'zh-CN', 'light'], [390, 'en', 'd
     expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).tasks[0].description)).toBe('第 12 页');
   });
 }
+
+for (const dismissal of ['outside click', 'timeout']) {
+  test('dismissed completion note stays closed across navigation after ' + dismissal, async ({ page }) => {
+    await finishFirst(page);
+    const note = page.locator('.continuation-trigger');
+    await expect(note).toContainText('读书');
+    if (dismissal === 'outside click') {
+      await note.click();
+      await page.locator('#continuationInput').fill('第 14 页');
+      await page.locator('[data-page="today"]').click();
+    } else {
+      await page.mouse.move(0, 0);
+      await expect(note).toBeHidden({ timeout: 9000 });
+      await page.locator('[data-page="settings"]').click();
+    }
+    await page.locator('[data-page="home"]').click();
+    await expect(page.locator('#recommendedTaskName')).toHaveText('散步');
+    await expect(note).toBeHidden();
+
+    // A new session has its own invitation, even for the same completed activity.
+    await page.locator('[data-page="tasks"]').click();
+    await page.locator('.task-play').first().click();
+    await page.locator('#earlyTimer').click();
+    await expect(note).toHaveText(dismissal === 'outside click' ? '读书：第 14 页' : '读书：第 12 页');
+    const history = await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).completed);
+    expect(history).toHaveLength(2);
+  });
+}
+
+test('a sole activity keeps its saved note closed on returning home', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('#quickName').fill('阅读');
+  await page.locator('#addFirstTask').click();
+  await page.locator('#start').click();
+  await page.locator('#earlyTimer').click();
+  await page.locator('.continuation-trigger').click();
+  await page.locator('#continuationInput').fill('从下一章开始');
+  await page.locator('#continuationInput').press('Enter');
+  await page.locator('[data-page="tasks"]').click();
+  await page.locator('[data-page="home"]').click();
+  await expect(page.locator('#recommendedTaskName')).toHaveText('阅读');
+  await expect(page.locator('.continuation-trigger')).toBeHidden();
+  await page.locator('#start').click();
+  await page.locator('#earlyTimer').click();
+  await expect(page.locator('.continuation-trigger')).toHaveText('阅读：从下一章开始');
+});

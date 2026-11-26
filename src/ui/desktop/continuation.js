@@ -29,10 +29,15 @@ export function mountContinuation(runtime, saveNote) {
     if (draft && (!active || recommendationChanged || newCompletion)) saveDraft();
 
     recommendationId = currentId;
-    lastCompletion = completion;
-    if (!active || recommendationChanged) {
+    if (active) lastCompletion = completion;
+    if (recommendationChanged) {
       completedId = undefined;
       dismissed = false;
+    }
+    // Leaving the page retires the completion prompt for this recommendation.
+    if (!active && completedId) {
+      completedId = undefined;
+      dismissed = true;
     }
     if (active && newCompletion) {
       completedId = completion.taskId;
