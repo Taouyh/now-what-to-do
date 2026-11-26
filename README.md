@@ -38,13 +38,11 @@
 
 | Platform | Get it | Requirements |
 | --- | --- | --- |
-| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11, 64-bit |
-| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Android-build10.apk) · 11.5 MiB | Android 7.0+ |
+| Windows | [Download installer](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11, 64-bit |
+| Android | [Download APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Android-build11.apk) · 11.6 MiB | Android 7.0+ |
 | Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install |
 
 Free. No account. Installed apps work offline and start in English; change the language in **Settings**. The web app starts with your browser language.
-
-The latest desktop controls are available in the online app. The downloads above remain the released Windows 1.4.3 and Android 1.4.3 build 10 installers.
 
 **Updating:** an unfinished older timer may ask you to confirm the time you actually spent. Your existing completed records stay intact.
 
@@ -68,7 +66,7 @@ The latest desktop controls are available in the online app. The downloads above
 
 
 
-[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [What's new in 1.4.3](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
+[Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [What's new in 1.4.4](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.4)
 
 <a id="privacy"></a>
 ## Privacy

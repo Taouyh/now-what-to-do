@@ -36,13 +36,11 @@
 
 | 平台 | 入口 | 使用要求 |
 | --- | --- | --- |
-| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11，64 位 |
-| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Android-build10.apk) · 11.5 MiB | Android 7.0 及以上 |
+| Windows | [下载安装包](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11，64 位 |
+| 安卓 | [下载 APK](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Android-build11.apk) · 11.6 MiB | Android 7.0 及以上 |
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。
-
-本次桌面交互更新已上线网页版。上方下载仍为已发布的 Windows 1.4.3 和 Android 1.4.3 build 10 安装包。
 
 **更新版本：**旧版未结束的计时如果缺少保存进度，会请你确认实际用时，已有完成记录保持原样。
 
@@ -66,7 +64,7 @@
 
 
 
-[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.3 更新说明](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
+[电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.4 更新说明](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.4)
 
 <a id="privacy"></a>
 ## 数据与隐私

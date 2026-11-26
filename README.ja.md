@@ -36,13 +36,11 @@
 
 | 環境 | 入手先 | 必要なもの |
 | --- | --- | --- |
-| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11、64ビット |
-| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.3/Now-What-1.4.3-Android-build10.apk) · 11.5 MiB | Android 7.0以降 |
+| Windows | [インストーラー](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Windows-x64-Setup.exe) · 13.3 MiB | Windows 10 / 11、64ビット |
+| Android | [APK をダウンロード](https://github.com/Taouyh/now-what-to-do/releases/download/v1.4.4/Now-What-1.4.4-Android-build11.apk) · 11.6 MiB | Android 7.0以降 |
 | Web | [ブラウザで開く](https://taouyh.github.io/now-what-to-do/) | インストール不要 |
 
 無料、登録不要。インストール版はオフラインで使え、初回は英語です。**設定**で言語を変更できます。Web版はブラウザの言語に合わせて起動します。
-
-今回のデスクトップ操作の更新はWeb版で利用できます。上記のダウンロードは公開済みの Windows 1.4.3 と Android 1.4.3 build 10 です。
 
 **更新について：**旧版の未終了タイマーは、保存済みの進み具合がなければ実際に使った時間を確認します。既存の終了済み記録は保持されます。
 
@@ -66,7 +64,7 @@
 
 
 
-[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.3 の更新内容](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3)
+[PC版デモ](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android版デモ](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [1.4.4 の更新内容](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.4)
 
 <a id="privacy"></a>
 ## データとプライバシー

@@ -12,19 +12,19 @@ const copy=[
 ['.actions .primary','Open in browser ↗','打开网页版 ↗','ブラウザで開く ↗'],
 ['.actions .secondary','Watch the demo ↓','观看演示 ↓','デモを見る ↓'],
 ['.hero > .small','Free. No account. Your data stays on this device.','免费，无需注册。数据保存在当前设备。','無料、登録不要。データはこの端末に保存。'],
-['figcaption','A familiar place for a small first step.','一个熟悉的地方，迈出小小的第一步。','小さな一歩のための、なじみの場所。'],
+["figcaption", "The desktop web app with a 15-minute reading session ready to start.", "桌面网页版已选好读书活动，点「开始」就能读 15 分钟。", "デスクトップWeb版で読書を選んだ画面。「開始」で15分の読書を始められます。"],
 ['.steps-section .eyebrow','HOW IT WORKS','怎么开始','使い方'],
 ['#steps-title','From a free moment<br>to a first step.','从一点空闲，<br>到第一小步。','空いた時間から、<br>最初の一歩へ。'],
 ['.steps article:nth-child(1) h3','Keep your ideas.','记下想做的事。','やりたいことを残す。'],
 ['.steps article:nth-child(1) p','Add an activity and a small next step. Pin favorites and drag the grip to put tasks in your own order.','添加活动和下一小步。常做的任务可以置顶，也可以拖动把手调整顺序。','活動と次の一歩を追加。よく使う活動をピン留めし、ハンドルをドラッグして並べ替えられます。'],
 ['.steps article:nth-child(2) h3','Find what fits.','选一件合适的。','今できることを選ぶ。'],
-['.steps article:nth-child(2) p','Choose your time and current conditions. Start a suggestion, try another, or choose for yourself.','选好时间和当前条件。接受推荐、换一件，或者自己选。','時間と今の条件を設定。提案を始めても、別の活動を選んでも大丈夫。'],
+[".steps article:nth-child(2) p", "On desktop, enter 5–180 minutes. Open Focus conditions to mark what you cannot do or whether you might be interrupted, then choose an activity.", "在电脑上输入 5–180 分钟，点「专注条件」标出不方便做的事，或选择「可能被打断」，再选一件合适的活动。", "デスクトップでは空き時間を5〜180分で入力。「集中条件」で今できないことや中断の可能性を選び、活動を決めます。"],
 ['.steps article:nth-child(3) h3','Start, then remember.','开始，也记下来。','始めて、記録する。'],
-['.steps article:nth-child(3) p','Focus, pause when you need to, and end to save your time. Leave a note for next time.','专注一会儿，需要时暂停，结束后记录用时。留下一句，下次接着做。','集中し、必要なら一休み。終了すると時間が記録され、次回のメモを残せます。'],
+[".steps article:nth-child(3) p", "End the session to record your time. On desktop, click the note below the next suggestion to edit where to resume. Press Enter or click outside to save.", "结束活动后即可记录用时。在电脑上，点击推荐下方的便签写下下次从哪继续，按回车或点击便签外即可保存。", "活動を終了すると時間が記録されます。デスクトップではおすすめの下のメモをクリックし、次に始めるところを編集できます。Enterキーかメモの外側のクリックで保存します。"],
 ['.demo-section .eyebrow','A WALK THROUGH THE APP','跟着演示走一遍','アプリをひとめぐり'],
 ['#demo-title','Desktop demo','电脑版演示','PC版デモ'],
 ['#android-demo-title','Android demo','安卓版本演示','Android版デモ'],
-['.demo-details','59 seconds · English voice<br>English and Chinese subtitles.','59 秒 · 英文配音<br>中英双语字幕。','59秒 · 英語ナレーション<br>英語・中国語字幕。'],
+[".demo-details", "Earlier interface · 59 seconds<br>English narration with English and Chinese subtitles.", "此前版本演示 · 59 秒<br>英文配音，中英双语字幕。", "旧バージョンのデモ · 59秒<br>英語音声、英語・中国語字幕付き。"],
 ['#desktop-demo video a','Download the desktop demo','下载电脑版演示','PC版デモをダウンロード'],
 ['#android-demo video a','Download the Android demo','下载安卓版本演示','Android版デモをダウンロード'],
 ['.video-caption span','Add → Pin & reorder → Focus → Journal → Settings','添加 → 置顶与排序 → 专注 → 日历 → 设置','追加 → ピン留め・並べ替え → 集中 → 記録 → 設定'],
@@ -33,11 +33,11 @@ const copy=[
 ['#journal-title','Your time,<br>in a journal.','你的时间，<br>在手账里。','あなたの時間を、<br>手帳に。'],
 ['.journal p:not(.eyebrow):not(.small)','See what you made time for. Open an activity, review your sessions, and pick up where you left off.','看看今天为哪些事留出了时间。打开活动，回顾记录，下次从这里继续。','何に時間を使えたかを振り返る。活動を開いて記録を見たら、また続きから。'],
 ['.journal .small','Light and dark themes. English, Chinese and Japanese.<br>Export a backup in Settings to keep a copy.','浅色与深色主题，支持中英日。<br>可以在设置中导出备份。','ライト・ダークテーマ、英語・中国語・日本語に対応。<br>設定からバックアップを書き出せます。'],
-['.download-section .eyebrow','TAKE IT WITH YOU · 1.4.3','随身带上 · 1.4.3','いつも手元に · 1.4.3'],
+['.download-section .eyebrow','TAKE IT WITH YOU · 1.4.4','随身带上 · 1.4.4','いつも手元に · 1.4.4'],
 ['#download-title','Make room for<br><em>one small thing.</em>','留一点时间，<br><em>做一件小事。</em>','小さなことを一つ、<br><em>始める余白を。</em>'],
 ['.text-link','Or open it in your browser ↗','也可以直接打开网页版 ↗','ブラウザで開くこともできます ↗'],
-['.download:nth-child(1) small','Windows 10 / 11 · 64-bit · 1.4.3','Windows 10 / 11 · 64 位 · 1.4.3','Windows 10 / 11 · 64ビット · 1.4.3'],
-['.download:nth-child(2) small','Android 7.0+ · APK · 1.4.3','Android 7.0 及以上 · APK · 1.4.3','Android 7.0以降 · APK · 1.4.3'],
+['.download:nth-child(1) small','Windows 10 / 11 · 64-bit · 1.4.4','Windows 10 / 11 · 64 位 · 1.4.4','Windows 10 / 11 · 64ビット · 1.4.4'],
+['.download:nth-child(2) small','Android 7.0+ · APK · 1.4.4','Android 7.0 及以上 · APK · 1.4.4','Android 7.0以降 · APK · 1.4.4'],
 ['.download > span:last-child','GitHub Releases ↗','前往 GitHub Release ↗','GitHub Releases へ ↗'],
 ['.downloads > .small','Installed apps work offline. Windows shares the system WebView2 runtime; first setup needs internet if it is missing.','安装版可离线使用。Windows 使用系统 WebView2；缺少运行时时，首次安装需联网。','インストール版はオフラインで使えます。Windows はシステムの WebView2 を使い、未導入時の初回セットアップには接続が必要です。'],
 ['.downloads summary','Installation and updates','安装与更新','インストールと更新'],
@@ -60,7 +60,9 @@ function select(i){
  document.getElementById('languageCurrent').textContent=names[i];
  const label=['Language','语言','言語'][i];trigger.setAttribute('aria-label',label+': '+names[i]);options.setAttribute('aria-label',label);
  document.querySelector('nav').setAttribute('aria-label',['Main navigation','主导航','メインナビゲーション'][i]);
- document.querySelector('.hero-image img').alt=['Now What 1.4.1: choose time and conditions, then start.','Now What 1.4.1：选好时间与条件，开始活动。','Now What 1.4.1：時間と条件を選んで活動を始める。'][i];
+ document.querySelector('.hero-image img').src = '../docs/images/web-home-2026-11-26-' + languages[i] + '.jpg';
+ document.querySelector('.journal img').src = 'assets/journal-1.4.4-' + languages[i] + '.jpg';
+ document.querySelector('.hero-image img').alt=['Now What: choose time and conditions, then start.','Now What：选好时间与条件，开始活动。','Now What：時間と条件を選んで活動を始める。'][i];
  document.querySelector('.journal img').alt=['Activity sessions and time spent in the Journal.','手账日历展示活动记录和投入时间。','記録画面に活動と所要時間が表示される。'][i];
  document.querySelector('#desktop-demo video').setAttribute('aria-label',['Desktop demo, 59 seconds','电脑版演示，59 秒','PC版デモ、59秒'][i]);
  document.querySelector('#android-demo video').setAttribute('aria-label',['Android demo, 59 seconds','安卓版本演示，59 秒','Android版デモ、59秒'][i]);
