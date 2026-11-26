@@ -11,22 +11,22 @@
   <a href="https://github.com/Taouyh/now-what-to-do/releases"><img src="https://img.shields.io/github/downloads/Taouyh/now-what-to-do/total?color=5b6650" alt="下载量"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b6650" alt="MIT 许可"></a>
 </p>
-<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">在线体验</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">宣传页</a></p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">体验最新网页版</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">宣传页</a></p>
 
-<p align="center"><img src="about/assets/book-home.webp" width="820" alt="选好十分钟，直接开始读书。"></p>
+<p align="center"><img src="docs/images/web-home-2026-11-26-zh-CN.jpg" width="820" alt="当前桌面网页版：直接输入分钟数、选择专注条件，在首页编辑下次起点。"></p>
 
 <p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/#demo">电脑版演示</a> · <a href="https://taouyh.github.io/now-what-to-do/about/#android-demo">安卓版本演示</a></p>
 
 <a id="features"></a>
 
-**1.4.3 更新：**首屏加载更快，换上新版书籍图标，到点自动提醒。计时切到后台后仍按原截止时间运行，不补播错过的提醒。
+**网页版更新 · 11 月 26 日：**直接输入可用分钟数，用图标选择专注条件，在首页编辑下次起点。[立即体验](https://taouyh.github.io/now-what-to-do/)。
 ## 有哪些功能
 
 - **少纠结，先做一件。** 写下读书、画画、学语言等想做的事；接受推荐、换一件，或者自己选。
-- **看清下一小步。** 可以选填「翻到上次的位置，先读一页」这样一句话，直接显示在推荐卡片上。
+- **看清下一小步。** 可以写下「从第 5 章继续」这样一句话。桌面网页版点击推荐下方的便签即可编辑，按 Enter 或点击外部保存。
 - **换过的，本轮不再推。** 不想做就换一件；都没感觉时，可以重新看看，或者自己选。
-- **按当下条件选。** 能用电脑、听音频、出声，或者可能被打断，都可以告诉它。默认全部不勾选，选过会记住。
-- **有几分钟，就做几分钟。** 每次选 10、15、20、30、60 分钟或自定义。电脑上鼠标移到时间或条件入口就能展开，移出弹框自动收起；手机轻点操作。
+- **按当下条件选。** 桌面网页版点击「专注条件」，用图标选择不方便用电脑、不方便听音频、不方便出声，或可能随时被打断。悬停图标可看说明，选择会记住。
+- **有几分钟，就做几分钟。** 桌面网页版点击分钟数，直接输入 **5–180** 的整数，作为本轮时长；手机上轻点选择预设或自定义时长。
 - **回来接着做。** 运行中的计时切到后台后仍按原截止时间运行；到点后可以继续，或结束并记录。手动暂停的计时保持暂停。
 - **一眼回看今天。** 同一活动的多次记录放在一起，次数和总用时一目了然。打开后可查看每次记录。
 - **按自己的习惯用。** 浅色、深色，中文、英语、日语；Windows、安卓、网页都能用。
@@ -41,6 +41,8 @@
 | 网页 | [直接打开](https://taouyh.github.io/now-what-to-do/) | 不用安装 |
 
 免费，不用注册。安装版可离线使用，第一次打开为英语，在**设置**里可切换中文；网页版默认跟随浏览器语言。
+
+本次桌面交互更新已上线网页版。上方下载仍为已发布的 Windows 1.4.3 和 Android 1.4.3 build 10 安装包。
 
 **更新版本：**旧版未结束的计时如果缺少保存进度，会请你确认实际用时，已有完成记录保持原样。
 
@@ -59,7 +61,7 @@
 ## 怎么用
 
 1. **写下想做的事。** 一个名字就够，比如「读书」。
-2. **看看现在有多少时间。** 需要时再调整当前条件。
+2. **看看现在有多少时间。** 桌面网页版直接输入 5–180 分钟，再点击「专注条件」选择当前不方便做的事。
 3. **点「开始」。** 做完点「结束」，这次用时会自动记下来。
 
 
@@ -87,4 +89,4 @@
 
 [电脑版演示](https://taouyh.github.io/now-what-to-do/about/#demo) · [安卓版本演示](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [可编辑的 Figma 宣传页](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-两段演示均为 59 秒，配有英文旁白、中英双语字幕、轻柔音乐和点击音。
+两段演示均为 59 秒，配有英文旁白、中英双语字幕、轻柔音乐和点击音。视频展示此前界面，当前网页版请以上方截图和在线体验为准。

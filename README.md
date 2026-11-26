@@ -11,24 +11,24 @@
   <a href="https://github.com/Taouyh/now-what-to-do/releases"><img src="https://img.shields.io/github/downloads/Taouyh/now-what-to-do/total?color=5b6650" alt="Downloads"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b6650" alt="MIT License"></a>
 </p>
-<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">Try it online</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">Website</a></p>
+<p align="center"><a href="https://taouyh.github.io/now-what-to-do/">Try the latest web app</a> · <a href="https://taouyh.github.io/now-what-to-do/about/">Website</a></p>
 
-<p align="center"><img src="about/assets/book-home.webp" width="820" alt="Now What 1.4 book interface: time, conditions and one activity to start."></p>
+<p align="center"><img src="docs/images/web-home-2026-11-26-en.jpg" width="820" alt="Current desktop web app: editable minutes, focus conditions and an inline next-step note."></p>
 
 <p align="center"><a href="https://taouyh.github.io/now-what-to-do/about/#demo">Desktop demo</a> · <a href="https://taouyh.github.io/now-what-to-do/about/#android-demo">Android demo</a></p>
 
 <a id="features"></a>
 
-**New in 1.4.3:** faster first load, the new book icon and automatic round reminders. The timer follows the original deadline across backgrounding; missed alerts are not replayed.
+**Web update · November 26:** type your available minutes directly, choose focus conditions with icons, and edit your next-step note on the home page. [Try it now](https://taouyh.github.io/now-what-to-do/).
 ## Features
 
 **New in 1.4: a book for your time.** A warm paper interface, bookmark navigation, a two-page activity library and a journal of your sessions.
 
 - **Pick one and begin.** Add reading, drawing or anything else you want to do. Accept a suggestion, try another or choose for yourself.
-- **Know the next step.** Add an optional line such as “Open where I left off and read one page.” It appears right on the recommendation.
+- **Know the next step.** Add a note such as “Continue from chapter 5.” In the desktop web app, click the note below the recommendation to edit it; press Enter or click outside to save.
 - **Swap without repeats.** Activities you skip stay out of this round. Look again or choose for yourself when none feels right.
-- **Fit the moment.** Say whether you can use a computer, listen, speak or might be interrupted. All conditions start unchecked; your choices are remembered.
-- **Use the time you have.** Choose 10, 15, 20, 30, 60 minutes or your own duration. On desktop, hover over time or conditions to open the menu; move away from the panel to close it. On mobile, tap.
+- **Fit the moment.** In the desktop web app, click **Focus conditions** and mark anything you cannot do right now (use a computer, listen or speak), plus whether you may be interrupted. Hover over an icon to read its label. Your choices are remembered.
+- **Use the time you have.** On desktop web, click the minutes and enter a whole number from **5 to 180** for this round. On mobile, tap to choose a preset or custom duration.
 - **Pick up where you stopped.** A running round keeps its original deadline in the background. Return before it ends to continue; after the deadline, choose Continue or Finish and record. Paused rounds stay paused.
 - **See your day.** Review your sessions in the book-style Journal. Open an activity to see its recorded sessions.
 - **Make it yours.** Light and dark themes. English, Chinese and Japanese. Windows, Android and web.
@@ -43,6 +43,8 @@
 | Web | [Open in browser](https://taouyh.github.io/now-what-to-do/) | Nothing to install |
 
 Free. No account. Installed apps work offline and start in English; change the language in **Settings**. The web app starts with your browser language.
+
+The latest desktop controls are available in the online app. The downloads above remain the released Windows 1.4.3 and Android 1.4.3 build 10 installers.
 
 **Updating:** an unfinished older timer may ask you to confirm the time you actually spent. Your existing completed records stay intact.
 
@@ -61,7 +63,7 @@ Free. No account. Installed apps work offline and start in English; change the l
 ## Quick start
 
 1. **Add something you want to do.** A name, such as “Read a book,” is enough.
-2. **Choose the time you have.** Adjust your current conditions if needed.
+2. **Choose the time you have.** On desktop web, enter 5–180 minutes and click **Focus conditions** to adjust your current restrictions.
 3. **Press Start.** When you're done, press End to save your time.
 
 
@@ -89,5 +91,5 @@ Version 1.4 is the book edition. GitHub Pages builds `master` and publishes the 
 
 [Desktop demo](https://taouyh.github.io/now-what-to-do/about/#demo) · [Android demo](https://taouyh.github.io/now-what-to-do/about/#android-demo) · [Editable Figma poster](https://www.figma.com/design/EUoXZR1hDJUUPVAtrDxpE5?node-id=367-4469)
 
-Both demos are 59 seconds, with English narration, English and Chinese subtitles, soft music and click sounds.
+Both demos are 59 seconds, with English narration, English and Chinese subtitles, soft music and click sounds. They show the earlier interface; the screenshot above shows the current web app.
 
