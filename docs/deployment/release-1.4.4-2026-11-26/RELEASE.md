@@ -14,3 +14,9 @@ Before updating, export a backup in Settings. Install over the existing 1.4.x ap
 - On desktop and mobile browser widths, switching among all three languages loaded both matching screenshots and the updated feature copy without horizontal overflow.
 
 The release includes SHA256SUMS.txt. The previous [1.4.3 release](https://github.com/Taouyh/now-what-to-do/releases/tag/v1.4.3) is available for reference. For Android upgrade issues, retain the device data and apply a corrected higher build. The site can be restored with a revert commit.
+
+## Publication
+
+[GitHub Pages deployment](https://github.com/Taouyh/now-what-to-do/actions/runs/45823945978) succeeded for commit 8ddb303abfdcc4afa6c6a8ea8f960bb0558446f2. The public release.json reported 1.4.4 and that commit. All six language/viewport checks passed against the public introduction page.
+
+GitHub marked v1.4.4 as the latest published release. Both public installer downloads matched the local SHA256SUMS.txt and the GitHub asset digests.

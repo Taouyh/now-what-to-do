@@ -21,7 +21,7 @@ Prototype draft: `docs/prototype/free-time-start-2026-11-01/README.md`.
 Product delivery: `docs/product/book-c-2026-11-04/PRD.md`; interactions: `docs/product/book-c-2026-11-04/INTERACTIONS.md`.
 Design delivery: `docs/design/free-time-start-2026-11-01/V13-ITERATION.md`.
 Latest verified web design mapping: `docs/deployment/web-1.4.3-2026-11-12/FIGMA-VERIFICATION.md`; native mapping: `docs/deployment/native-review-1.4.3-2026-11-12/FIGMA-VERIFICATION.md`. Earlier reports remain historical.
-Current publication: web and Windows 1.4.4, Android 1.4.4 build 11. See . Previous acceptance and verification reports are historical.
+Current publication: web and Windows 1.4.4, Android 1.4.4 build 11. See docs/deployment/release-1.4.4-2026-11-26/RELEASE.md. Previous acceptance and verification reports are historical.
 Windows 1.4.3 was accepted by the user. Android build 10 removes the vibration settings control: `docs/deployment/android-no-vibration-2026-11-12/IMPLEMENTATION.md`; this supersedes earlier requirements to display that control while retaining saved reminder-data compatibility.
 Current timer correction: `docs/deployment/always-sound-2026-11-11/IMPLEMENTATION.md`. No Sound option: always request one timely sound, ignore old mute preferences, never replay missed alerts. Automatic reminders have no activation button; screen-off keeps running to the deadline. Android build 10 removes the vibration control while preserving saved reminder data. Physical OS/device notification and upgrade acceptance remain pending.
 Web source and verified design: `docs/deployment/web-drag-2026-11-09/IMPLEMENTATION.md`.
