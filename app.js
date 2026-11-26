@@ -306,6 +306,17 @@ function revealRecommendation(){
 }
 function recommendAndReveal(){if(cur&&d.tasks.filter(ok).length<2)return;if(cur)recommendationSkipped.add(cur.id);nextStepEditor=null;random();revealRecommendation()}
 function restartRecommendations(){recommendationSkipped.clear();nextStepEditor=null;random()}
+function openHomeConditions() {
+  const trigger = $('focusConditionsTrigger');
+  if (trigger) {
+    if (trigger.getAttribute('aria-expanded') !== 'true') trigger.click();
+    trigger.focus({preventScroll:true});
+    return;
+  }
+  $('timePicker').open=false;
+  $('conditionsPicker').open=true;
+  document.querySelector('#conditionsPicker > summary')?.focus();
+}
 function random(options = {}) {
   updateRecommendation(options);
   bookView?.renderHome();
@@ -333,7 +344,7 @@ function updateRecommendation({keepCurrent=false,avoidId=null}={}){
     if(available.length){
       content.append(textElement('h2',tr('这轮先到这里')),textElement('p',tr('暂时没有想做的，也没关系。')),
         actionButton(tr('自己选一件'),()=>page('tasks'),'primary'),actionButton(tr('重新看看'),restartRecommendations,'quiet-link'));
-    }else{b.replaceChildren(textElement('p',tr('没有符合当前条件的活动。')),actionButton(tr('调整条件'),()=>{$('timePicker').open=false;$('conditionsPicker').open=true;document.querySelector('#conditionsPicker > summary')?.focus()},'primary'));b.classList.remove('hide');return}
+    }else{b.replaceChildren(textElement('p',tr('没有符合当前条件的活动。')),actionButton(tr('调整条件'),openHomeConditions,'primary'));b.classList.remove('hide');return}
     b.replaceChildren(content);b.classList.remove('hide');return;
   }
   if(nextStepEditor&&nextStepEditor.taskId!==cur.id)nextStepEditor=null;

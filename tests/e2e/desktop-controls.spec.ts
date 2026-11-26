@@ -25,6 +25,13 @@ for (const [language, conditions, restricted, required] of [
   const restriction = page.getByRole('button', { name: restricted, exact: true });
   await restriction.click();
   await expect(page.locator('#start')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  const trigger = page.getByRole('button', { name: conditions, exact: true });
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await page.locator('#rec button').click();
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(restriction).toBeVisible();
   await restriction.click();
   await page.keyboard.press('Escape');
   await expect(page.locator('#start')).toBeVisible();

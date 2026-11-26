@@ -59,6 +59,7 @@ export function mountRestrictionOptions(toolbar, { initial = [], onChange, tr, l
 
 export function mountFocusConditions(root, options) {
   const trigger = document.createElement('button');
+  trigger.id = 'focusConditionsTrigger';
   trigger.type = 'button';
   trigger.className = 'inline-control-pill focus-conditions-trigger';
   trigger.dataset.i18n = '专注条件';
