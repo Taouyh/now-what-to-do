@@ -52,6 +52,8 @@ export class BookPages {
     return navigation;
   }
 
+  renderDesktopNote?: () => void;
+
   renderHome() {
     const app = this.app;
     const { tr, current } = app;
@@ -72,6 +74,7 @@ export class BookPages {
       content.classList.toggle('has-next-step', !!current.nextStep);
     }
     byId('browse').textContent = tr('自己选');
+    if (this.renderDesktopNote) { this.renderDesktopNote(); return; }
     const feedback = byId('completionFeedback');
     feedback.replaceChildren();
     const completed = app.feedback;
@@ -143,7 +146,16 @@ export class BookPages {
     pin.setAttribute('aria-label', app.tr(task.pinned ? '取消置顶：{name}' : '置顶：{name}', { name: task.name }));
     pin.setAttribute('aria-pressed', String(task.pinned === true));
     row.classList.toggle('is-pinned', task.pinned === true);
-    row.append(this.reorder.handle(task), edit, pin, start);
+    row.append(this.reorder.handle(task), edit);
+    if (document.documentElement.hasAttribute('data-desktop-controls')) {
+      for (const action of [start, pin]) {
+        const tip = element('span', 'desktop-task-action-tip', action.title);
+        tip.setAttribute('aria-hidden', 'true');
+        action.removeAttribute('title');
+        action.append(tip);
+        row.append(action);
+      }
+    } else row.append(pin, start);
     return row;
   }
 
@@ -284,13 +296,26 @@ export class BookPages {
         back.id = 'calendarBack';
         right.append(back);
       }
-      right.append(heading, element('p', 'book-caption', tr('{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
+      const desktop = document.documentElement.hasAttribute('data-desktop-controls');
+      right.classList.toggle('desktop-calendar-detail', desktop);
+      right.append(heading, element('p', 'book-caption', tr(desktop ? '{count} 次 · 共 {duration}' : '{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
       const page = paginate(selected.records, this.recordPage, mobile ? this.mobileRecordPageSize : 4);
       this.recordPage = page.page;
       const rows = element('div', 'calendar-records');
+      if (desktop) {
+        rows.setAttribute('role', 'list');
+        rows.setAttribute('aria-label', tr('记录明细'));
+      }
       page.items.forEach((record, index) => {
         const id = record.recordId || record.completionId || `${record.taskId}-${page.start + index}`;
         const row = element('div', 'record-row');
+        if (desktop) {
+          row.classList.add('desktop-calendar-entry');
+          row.setAttribute('role', 'listitem');
+          row.append(element('span', '', app.recordCompactTimeRange(record).split('–', 1)[0]), element('span', '', app.formatDuration(app.recordDurationMs(record))));
+          rows.append(row);
+          return;
+        }
         const toggle = button('', () => {
           const wasOpen = this.expandedRecord === id;
           this.clearRecordSelection();

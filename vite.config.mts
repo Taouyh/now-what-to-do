@@ -15,7 +15,7 @@ export const runtime = {
   timerState, finishTimer, discardTimer, pauseTimer, resumeTimer, extendTimer,
   formatDuration, formatClock, recordDurationMs, recordsForLocalDay, todayRecordGroups,
   recordCompactTimeRange, plannedDurationMs, activityRequirements, selectionReady, settleEmptyCustomTime,
-  selectHomeCondition, syncHomeControls, renderTimer, tasks, today, save,
+  setAvailableMinutes, saveTaskNote, selectHomeCondition, syncHomeControls, renderTimer, tasks, today, save,
   notify, saveContinuation, closeContinuation,
   connect(view) { bookView = view; random({keepCurrent:true}); tasks(); today(); renderTimer(); },
 };`;

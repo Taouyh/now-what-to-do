@@ -1,5 +1,13 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+"{count} 次 · 共 {duration}":{"en":"{count} sessions · {duration} total","ja":"{count} 回 · 合計 {duration}"},
+"专注条件": {"en": "Focus conditions", "ja": "集中条件"},
+"请选择专注条件": {"en": "Choose focus conditions", "ja": "集中条件を選択"},
+"不方便使用电脑": {"en": "Cannot use a computer", "ja": "パソコンが使えない"},
+"不方便听音频": {"en": "Cannot listen to audio", "ja": "音声を聴けない"},
+"不方便出声": {"en": "Cannot speak aloud", "ja": "声を出せない"},
+"请输入 5–180 的整数": {"en": "Enter a whole number from 5 to 180", "ja": "5〜180 の整数を入力してください"},
+
 "共 {count} 项":{"en":"{count} activities","ja":"{count} 件"},
 "电脑":{"en":"PC","ja":"PC"},
 "音频":{"en":"Audio","ja":"音声"},

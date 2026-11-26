@@ -25,7 +25,12 @@ const LEGACY_ACTIVITY_CATEGORIES=['study','work','life','exercise','other'];
 let activityMenuContext=null;
 let recommendationMenuContext=null,nextStepEditor=null;
 const recommendationSkipped=new Set(),menuCloseTimers=new Map();
-function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:defaultLanguage,conditions:{computer:false,audio:false,speech:false,interrupted:false}},theme:'light'}}
+const desktopControls = document.documentElement?.hasAttribute?.('data-desktop-controls');
+function initialConditions(){
+  return desktopControls
+    ? { computer:true, audio:true, speech:true, interrupted:false } : emptyConditions();
+}
+function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:defaultLanguage,conditions:initialConditions()},theme:'light'}}
 
 // Keep the v2 keys and unknown user fields. Never seed examples during migration.
 function validateData(x){
@@ -189,6 +194,15 @@ function persistPreferences(){
   const changed=Number(d.preferences.time)!==Number(savedTime)||CONDITION_KEYS.some(k=>currentConditions(d.preferences)[k]!==conditions[k]);
   if(changed){d.preferences={...d.preferences,time:savedTime,conditions:{...conditions}};if(!save())return false;recommendationSkipped.clear()}
   syncHomeControls();random({keepCurrent:true});return true;
+}
+function setAvailableMinutes(minutes){
+  if(!Number.isInteger(minutes)||minutes<5||minutes>180)return;
+  customTime=true;
+  customTimeDraft=String(minutes);
+  time=minutes;
+  timeChosen=true;
+  syncHomeControls();
+  random({keepCurrent:true});
 }
 function selectHomeCondition(key,value){
   const previous={timeChosen,customTime,conditions:{...conditions}};
@@ -664,7 +678,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
       pausedDurationMs:pausedMs,extensionDurationMs:extensionMs,extensionDuration:extensionMs/60000};
     if(x.legacyTimerSnapshot)record.timerRecoveryOriginal=x.legacyTimerSnapshot;
     d.completed.push(record);
-    if (!restart) d.preferences = { ...d.preferences, conditions: emptyConditions() };
+    if (!restart && !desktopControls) d.preferences = { ...d.preferences, conditions: initialConditions() };
     if(!save())return false;
   }
   stopTimerLoop();clearTimeout(timerPauseWatch);
@@ -678,7 +692,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
   timerCleanupId=x.completionId;
   if(!setTimerState(null)){renderTimer();return false}
   timerCleanupId=null;
-  conditions = emptyConditions();
+  if (!desktopControls) conditions = emptyConditions();
   syncHomeControls();
   completionFeedback = { taskId: x.taskId, taskName: record.taskName, editing: false, draft: '' };
   cur=null;recommendationSkipped.clear();nextStepEditor=null;renderTimer();page('home',{avoidActivityId:x.taskId});
@@ -705,12 +719,7 @@ function saveContinuation(value) {
     closeContinuation();
     return false;
   }
-  const description = value.trim();
-  if ((task.description || '') !== description) {
-    const candidate = { ...d, tasks: d.tasks.map(item => item.id === task.id ? { ...item, description } : item) };
-    if (!save(candidate)) return false;
-    d = candidate;
-  }
+  if (!saveTaskNote(task.id, value)) return false;
   closeContinuation();
   random({ keepCurrent: true });
   return true;
@@ -772,6 +781,21 @@ function toggleTaskPin(id){
   const candidate={...d,tasks:d.tasks.map(item=>item.id===id?{...item,pinned:item.pinned!==true}:item)};
   if(!save(candidate))return false;
   d=candidate;
+  return true;
+}
+function saveTaskNote(taskId, value) {
+  const task = d.tasks.find(item => item.id === taskId);
+  if (!task) {
+    notify(tr('这项活动已不存在，请重新选择。'));
+    return false;
+  }
+  const description = value.trim();
+  if ((task.description || '') === description) return true;
+  const updated = { ...task, description };
+  const candidate = { ...d, tasks: d.tasks.map(item => item.id === taskId ? updated : item) };
+  if (!save(candidate)) return false;
+  d = candidate;
+  if (cur?.id === taskId) cur = updated;
   return true;
 }
 function saveActivity({id='',name,requirements={computer:false,audio:false,speech:false,uninterrupted:false},description=''}){
@@ -1156,7 +1180,11 @@ function setLanguage(nextLanguage){
   notify(tr('语言已切换。'));
 }
 document.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
-$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();syncRuntimePreferences();conditions=emptyConditions();syncHomeControls();if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
+$('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();
+syncRuntimePreferences();
+conditions = desktopControls ? currentConditions(d.preferences) : emptyConditions();
+syncHomeControls();
+if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
 
 $('reminderVibration')?.addEventListener('change',e=>setReminderPreference('vibration',e.target.checked));
 

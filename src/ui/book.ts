@@ -15,7 +15,7 @@ export function mountBook(app: Runtime) {
   const viewport = new MobileViewport(() => { pages.reflowTasks(); pages.renderToday(); });
   pages.isViewportFrozen = () => viewport.frozen;
   const compactViewport = matchMedia('(max-width:800px), (max-height:550px)');
-  const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
+  const mobileDevice = !document.documentElement.hasAttribute('data-desktop-controls');
   document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
   compactViewport.addEventListener('change', () => {
     document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);

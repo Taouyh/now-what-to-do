@@ -46,6 +46,8 @@ export interface Runtime {
   selectionReady(): boolean;
   settleEmptyCustomTime(): boolean;
   selectHomeCondition(key: string, value: boolean | string | number): void;
+  setAvailableMinutes(minutes: number): void;
+  saveTaskNote(taskId: string, value: string): boolean;
   syncHomeControls(): void;
   renderTimer(): void;
   tasks(): void;

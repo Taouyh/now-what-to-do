@@ -101,6 +101,15 @@ for (const mobile of [true, false]) for (const dark of [true, false]) {
     await page.locator('.task-play').first().click(); await page.locator('#earlyTimer').click();
     await page.locator('.continuation-trigger').click(); await page.locator('#continuationInput').fill('未保存的草稿');
     await page.mouse.move(0, 0); await page.locator('#continuationInput').focus();
+    if (!mobile) {
+      await page.locator('#continuationInput').press('Escape');
+      await page.locator('.continuation-trigger').click();
+      await page.locator('#continuationInput').fill('下一次从这里继续');
+      await page.locator('#continuationInput').press('Enter');
+      expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).tasks[0].description)).toBe('下一次从这里继续');
+      await context.close();
+      return;
+    }
     const styles = await page.locator('.feedback-actions button').evaluateAll(buttons => buttons.map(button => {
       const s = getComputedStyle(button), r = button.getBoundingClientRect();
       return { background: s.backgroundImage, color: s.color, border: s.border, radius: s.borderRadius, width: r.width, height: r.height };

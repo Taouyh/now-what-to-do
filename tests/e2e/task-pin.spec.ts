@@ -20,12 +20,7 @@ for (const language of ['zh-CN', 'en', 'ja']) test(`web pin pagination and open 
   await expect(page.locator('[data-task-id="pin-11"] .task-pin')).toBeFocused();
   await page.locator('[data-task-id="pin-11"] .task-edit').click();
   await expect(page.locator('#activityOptions')).toHaveAttribute('open', '');
-  await expect(page.locator('#descriptionToggle')).toHaveCSS('text-align', 'center');
-  expect(await page.locator('#descriptionToggle').evaluate(el => {
-    const range = document.createRange(); range.selectNodeContents(el);
-    const text = range.getBoundingClientRect(), parent = el.parentElement!.getBoundingClientRect();
-    return Math.abs(text.x + text.width / 2 - parent.x - parent.width / 2);
-  })).toBeLessThan(1);
+  await expect(page.locator('#descriptionToggle')).toHaveCSS('text-align', 'left');
   await page.locator('#cancelActivity').click();
   await page.locator('[data-task-id="pin-11"] .task-play').click();
   await expect(page.locator('#timerDescription')).toHaveAttribute('open', '');
@@ -39,7 +34,7 @@ for (const language of ['zh-CN', 'en', 'ja']) test(`web pin pagination and open 
   await expect(page.locator('.continuation-trigger')).toHaveCSS('border-radius', '0px');
   await page.locator('.continuation-trigger').click();
   await page.locator('#continuationInput').fill('Continue here');
-  await page.locator('.feedback-actions button').first().click();
+  await page.locator('#continuationInput').press('Enter');
   await page.locator('[data-page="tasks"]').click();
   await page.locator('.task-play').first().click();
   await expect(page.locator('#timerDescription')).toHaveAttribute('open', '');

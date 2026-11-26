@@ -24,10 +24,10 @@ test('empty library, real first activity, pause, navigation, finish and continua
   await page.locator('#pauseTimer').click(); await expect(page.locator('#pauseTimer')).toHaveText('继续');
   await nav(page, 'tasks'); await expect(page.locator('#floatingTimer')).toBeVisible();
   await page.locator('.task-play').click(); await expect(page.locator('#timerName')).toHaveText('读书');
-  await page.locator('#earlyTimer').click(); await expect(page.locator('#completionFeedback')).toContainText('已记录');
-  await page.getByRole('button', { name: '为「读书」记录下次起点', exact: true }).click();
+  await page.locator('#earlyTimer').click(); await expect(page.locator('#completionFeedback')).toContainText('读书');
+  await page.locator('.continuation-trigger').click();
   await page.locator('#continuationInput').fill('从第 12 页继续');
-  await page.locator('.continuation-form').getByRole('button', { name: '保存', exact: true }).click();
+  await page.locator('#continuationInput').press('Enter');
   expect((await main(page)).tasks[0].description).toBe('从第 12 页继续');
   expect((await main(page)).completed).toHaveLength(1);
   await page.reload(); expect((await main(page)).completed).toHaveLength(1);
@@ -56,10 +56,10 @@ test('calendar groups by identity, five groups and four records per page', async
   value.completed = Array.from({ length: 10 }, (_, i) => ({ recordId: `r${i}`, completionId: `r${i}`, taskId: `t${i < 5 ? 0 : i - 4}`, taskName: '同名历史快照', startedAt: now - 600000 + i * 1000, endedAt: now - 599000 + i * 1000, completedAt: new Date(now).toISOString(), actualDurationMs: 1000, plannedDuration: 15, pausedDurationMs: 0, extensionDurationMs: 0 }));
   await seed(page, value); await nav(page, 'today');
   await expect(page.locator('.calendar-group')).toHaveCount(5); await page.locator('.calendar-group').first().click();
-  await expect(page.locator('.record-toggle')).toHaveCount(4); await page.locator('.record-toggle').first().click();
-  await expect(page.locator('.record-detail')).toHaveCount(1);
-  await page.locator('#records-next').click(); await expect(page.locator('.record-toggle')).toHaveCount(1); await expect(page.locator('.record-detail')).toHaveCount(0);
-  await page.locator('#directory-next').click(); await expect(page.locator('.calendar-group')).toHaveCount(1); await expect(page.locator('.record-toggle')).toHaveCount(0);
+  await expect(page.locator('.desktop-calendar-entry')).toHaveCount(4); await page.locator('.desktop-calendar-entry').first().click();
+  await expect(page.locator('.record-detail')).toHaveCount(0);
+  await page.locator('#records-next').click(); await expect(page.locator('.desktop-calendar-entry')).toHaveCount(1); await expect(page.locator('.record-detail')).toHaveCount(0);
+  await page.locator('#directory-next').click(); await expect(page.locator('.calendar-group')).toHaveCount(1); await expect(page.locator('.desktop-calendar-entry')).toHaveCount(0);
 });
 
 test('recovery uses saved task snapshot and direct discard creates no record', async ({ page }) => {
@@ -73,8 +73,8 @@ test('recovery uses saved task snapshot and direct discard creates no record', a
 
 test('local assets, languages, theme, keyboard escape, and narrow-screen controls', async ({ page }) => {
   const failures: string[] = []; page.on('response', r => { if (r.status() >= 400) failures.push(r.url()); });
-  await seed(page); await page.locator('#conditionsPicker > summary').click(); await expect(page.locator('#audioReady')).not.toBeChecked();
-  await page.keyboard.press('Escape'); await expect(page.locator('#conditionsPicker')).not.toHaveAttribute('open', '');
+  await seed(page); await page.locator('.focus-conditions-trigger').click(); await expect(page.getByRole('button', {name:'不方便听音频', exact:true})).toHaveAttribute('aria-pressed', 'false');
+  await page.keyboard.press('Escape'); await expect(page.locator('.focus-conditions-trigger')).toHaveAttribute('aria-expanded', 'false');
   await nav(page, 'settings'); await page.locator('[data-language="en"]').click();
   await expect(page.locator('.bookmarks [data-page="tasks"]')).toContainText('Tasks');
   await page.locator('#theme').click(); await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');

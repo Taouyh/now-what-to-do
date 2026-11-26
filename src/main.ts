@@ -2,9 +2,14 @@ import { mountBook } from './ui/book';
 import './ui/styles/book.css';
 import './ui/styles/mobile-book.css';
 
+import { mountDesktop } from './ui/desktop/controls.js';
+
 async function start() {
+  const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
+  document.documentElement.toggleAttribute('data-desktop-controls', !mobileDevice);
   const { runtime } = await import('virtual:runtime');
-  mountBook(runtime);
+  const pages = mountBook(runtime);
+  if (!mobileDevice && !runtime.blocked) mountDesktop(runtime, pages);
   // Decode the assembled book before revealing it, not one texture at a time.
   // A failed/offline resource cannot leave the application trapped behind a loader.
   const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp', ...(document.body.classList.contains('mobile-book') ? ['android-task-paper.png'] : [])].map(name => {
