@@ -517,3 +517,14 @@ html[data-theme=dark] .book .focus-restrictions {
 html[data-theme=dark] .book .desktop-task-editor .description-field {
   background-image: linear-gradient(#38291ed9,#38291ed9), var(--task-paper);
 }
+
+/* Anchor the hint to the icon group when a narrow editor cannot fit it beside the icon. */
+@media (max-width: 390px) {
+  .desktop-task-conditions .focus-restriction { position: static; }
+  .desktop-task-conditions .focus-restriction-tip {
+    left: 0;
+    top: calc(100% - 12px);
+    max-width: 100%;
+    white-space: normal;
+  }
+}

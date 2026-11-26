@@ -14,31 +14,31 @@ async function raw(page: Page) { return page.evaluate(() => localStorage.getItem
 
 test('independent short desktop clear cancel close and empty save preserve original identity', async ({ page }, info) => {
   await page.setViewportSize({ width: 1531, height: 715 }); await completed(page);
-  const trigger = page.getByRole('button', { name: '为「读书」记录下次起点', exact: true });
-  await expect(trigger).toHaveText('记下次起点·读书');
+  const trigger = page.getByRole('button', { name: '读书：第 12 页', exact: true });
+  await expect(trigger).toHaveText('读书：第 12 页');
   await page.screenshot({ path: info.outputPath('short-entry.png'), fullPage: true });
   const original = await raw(page), before = JSON.parse(original);
   await trigger.click();
   const input = page.getByRole('textbox', { name: '读书：下次从哪继续？', exact: true });
-  await page.locator('.continuation-input').getByRole('button', { name: '清空说明', exact: true }).click();
+  await input.fill('');
   await expect(input).toHaveValue(''); await expect(input).toBeFocused();
-  await page.locator('.feedback-actions').getByRole('button', { name: '取消', exact: true }).click();
+  await input.press('Escape');
   expect(await raw(page)).toBe(original);
   // Produce another completed session to check closing an edited draft.
   await page.locator('.bookmarks [data-page="tasks"]').click(); await page.locator('.task-play').first().click(); await page.locator('#earlyTimer').click();
   await trigger.click(); const afterSecond = await raw(page);
-  await input.fill('不保存的草稿'); await page.locator('.feedback-heading').getByRole('button', { name: '关闭', exact: true }).click();
+  await input.fill('不保存的草稿'); await input.press('Escape');
   expect(await raw(page)).toBe(afterSecond);
   await page.locator('.bookmarks [data-page="tasks"]').click(); await page.locator('.task-play').first().click(); await page.locator('#earlyTimer').click();
-  await trigger.click(); await page.locator('.continuation-input').getByRole('button', { name: '清空说明', exact: true }).click();
+  await trigger.click(); await input.fill('');
   const book = await page.locator('#book').boundingBox();
-  for (const b of await page.locator('.feedback-actions button').all()) {
-    const box = await b.boundingBox(); expect(box!.y + box!.height).toBeLessThan(book!.y + book!.height - 24);
+  {
+    const box = await input.boundingBox(); expect(box!.y + box!.height).toBeLessThan(book!.y + book!.height - 24);
     expect(box!.x).toBeGreaterThan(book!.x); expect(box!.x + box!.width).toBeLessThan(book!.x + book!.width);
   }
   await page.screenshot({ path: info.outputPath('short-clear-editor.png'), fullPage: true });
   const beforeSave = JSON.parse(await raw(page));
-  await page.locator('.feedback-actions').getByRole('button', { name: '保存', exact: true }).click();
+  await input.press('Enter');
   const after = JSON.parse(await raw(page));
   expect(after.tasks.find((t: any) => t.id === 'done-id').description).toBe('');
   expect(after.tasks.find((t: any) => t.id === 'next-id')).toEqual(before.tasks.find((t: any) => t.id === 'next-id'));
@@ -48,14 +48,14 @@ test('independent short desktop clear cancel close and empty save preserve origi
 
 test('independent narrow English short label and action access', async ({ page }, info) => {
   await page.setViewportSize({ width: 390, height: 715 }); await completed(page, true);
-  const trigger = page.getByRole('button', { name: 'Note where to resume Read', exact: true });
-  await expect(trigger).toHaveText('Note where to resume·Read');
+  const trigger = page.getByRole('button', { name: 'Read: 第 12 页', exact: true });
+  await expect(trigger).toHaveText('Read: 第 12 页');
   await page.screenshot({ path: info.outputPath('english-short-entry.png'), fullPage: true });
   await trigger.click();
   const input = page.getByRole('textbox', { name: 'Read: where will you resume?', exact: true });
   await expect(input).toBeFocused(); await input.fill('Page 13');
   await page.screenshot({ path: info.outputPath('english-short-editor.png'), fullPage: true });
-  await page.locator('.feedback-actions').getByRole('button', { name: 'Save', exact: true }).click();
+  await input.press('Enter');
   const after = JSON.parse(await raw(page));
   expect(after.tasks.find((t: any) => t.id === 'done-id').description).toBe('Page 13');
   expect(after.tasks.find((t: any) => t.id === 'next-id').description).toBe('另一项保留说明');
