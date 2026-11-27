@@ -735,7 +735,21 @@ function saveContinuation(value) {
   random({ keepCurrent: true });
   return true;
 }
-function validateImport(x){return migrateData(x)}
+function taskNameKey(name){return name.trim().normalize('NFC').toLowerCase()}
+function hasDuplicateTaskName(name,id){
+  const key=taskNameKey(name);
+  return d.tasks.some(task=>task.id!==id&&taskNameKey(task.name)===key);
+}
+function validateImport(x){
+  const candidate=migrateData(x);
+  const names=new Set();
+  for(const task of candidate.tasks){
+    const key=taskNameKey(task.name);
+    if(names.has(key))throw Error(tr('任务名称重复'));
+    names.add(key);
+  }
+  return candidate;
+}
 function applyImport(){
   if(storageBlocked||!pendingImport)return;
   let candidate,previousRaw,previousData=d,previousSnapshot=dataSnapshot,previousPage=location.hash.slice(1)||'home';
@@ -809,9 +823,29 @@ function saveTaskNote(taskId, value) {
   if (cur?.id === taskId) cur = updated;
   return true;
 }
-function saveActivity({id='',name,requirements={computer:false,audio:false,speech:false,uninterrupted:false},description=''}){
+function showTaskNameError(field,message){
+  const error=field===$('name')?$('activityError'):null;
+  if(error&&error.textContent!==message)error.textContent=message;
+  field.setAttribute('aria-invalid',String(!!message));
+  return error;
+}
+function checkEditorName(){
+  const field=$('name');
+  showTaskNameError(field,hasDuplicateTaskName(field.value,$('tid').value)?tr('任务名称重复'):'');
+}
+$('name').addEventListener('input',e=>{if(!e.isComposing)checkEditorName()});
+$('name').addEventListener('compositionend',checkEditorName);
+function saveActivity({id='',name,requirements={computer:false,audio:false,speech:false,uninterrupted:false},description=''},nameField=$('name')){
   name=name.trim();
-  if(!name||!requirements||REQUIREMENT_KEYS.some(k=>typeof requirements[k]!=='boolean')){const error=$('activityError');if(error)error.textContent=tr('请填写活动名称并检查需要的条件。');$('name').setAttribute('aria-invalid','true');$('name').focus();notify(tr('请填写活动名称并检查需要的条件。'));return false}
+  let message='';
+  if(!name||!requirements||REQUIREMENT_KEYS.some(k=>typeof requirements[k]!=='boolean'))message=tr('请填写活动名称并检查需要的条件。');
+  else if(hasDuplicateTaskName(name,id))message=tr('任务名称重复');
+  if(message){
+    if(!showTaskNameError(nameField,message))notify(message);
+    nameField.focus();
+    return false;
+  }
+  showTaskNameError(nameField,'');
   let old=d.tasks.find(t=>t.id===id),now=new Date().toISOString();
   if(id&&!old){notify(tr('这项活动已不存在，请重新选择。'));return false}
   if (old && old.name === name && (old.description || '') === description.trim() && REQUIREMENT_KEYS.every(key => activityRequirements(old)[key] === requirements[key])) {
@@ -827,7 +861,7 @@ function saveActivity({id='',name,requirements={computer:false,audio:false,speec
   random({keepCurrent:true});notify(tr('活动已保存。'));return true;
 }
 $('form').addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();saveActivity({id:$('tid').value,name:$('name').value,requirements:{computer:$('computer').checked,audio:$('requiresAudio').checked,speech:$('requiresSpeech').checked,uninterrupted:$('requiresUninterrupted').checked},description:$('desc').value})},true);
-$('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivity({name:$('quickName').value})){$('quickName').value='';$('start')?.focus({preventScroll:true})}});
+$('quickAddForm').addEventListener('submit',e=>{e.preventDefault();if(saveActivity({name:$('quickName').value},$('quickName'))){$('quickName').value='';$('start')?.focus({preventScroll:true})}});
 function restoreTimer(){
   const x=timerState();if(!x)return;
   if(!timerTask(x)){protectData(tr('活动计时关联的任务信息缺失。原始计时已保留，请导出计时原文后检查。'));return}
@@ -1075,7 +1109,7 @@ function newTask(){
   $('saveActivity').textContent=tr('添加');
   $('activityOptions').open=true;syncDescriptionToggle();syncDialogState();bookView?.onEditor();$('name').focus();
 }
-function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=true;syncDescriptionToggle();bookView?.onEditor()}
+function edit(t){newTask();$('modalTitle').textContent=tr('编辑活动');$('saveActivity').textContent=tr('保存');$('tid').value=t.id;$('name').value=t.name;const r=activityRequirements(t);$('computer').checked=r.computer;$('requiresAudio').checked=r.audio;$('requiresSpeech').checked=r.speech;$('requiresUninterrupted').checked=r.uninterrupted;$('requirementsOptions').open=REQUIREMENT_KEYS.some(k=>r[k]);$('desc').value=t.description||'';$('activityOptions').open=true;syncDescriptionToggle();bookView?.onEditor();checkEditorName()}
 function delTask(id){openConfirm('delete',id)}
 function resizeActivityDescription(){
   const input=$('desc');if(!input.getClientRects?.().length)return;

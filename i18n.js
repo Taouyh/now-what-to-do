@@ -1,5 +1,6 @@
 // Explicit UI messages. Activity names, notes and backup contents are never translated.
 const MESSAGES={
+"任务名称重复":{"en":"Task name already exists","ja":"タスク名が重複しています"},
 "{count} 次 · 共 {duration}":{"en":"{count} sessions · {duration} total","ja":"{count} 回 · 合計 {duration}"},
 "专注条件": {"en": "Focus conditions", "ja": "集中条件"},
 "请选择专注条件": {"en": "Choose focus conditions", "ja": "集中条件を選択"},
