@@ -147,7 +147,7 @@ export class BookPages {
     pin.setAttribute('aria-pressed', String(task.pinned === true));
     row.classList.toggle('is-pinned', task.pinned === true);
     row.append(this.reorder.handle(task), edit);
-    if (document.documentElement.hasAttribute('data-desktop-controls')) {
+    if (document.documentElement.hasAttribute('data-web-controls')) {
       for (const action of [start, pin]) {
         const tip = element('span', 'desktop-task-action-tip', action.title);
         tip.setAttribute('aria-hidden', 'true');
@@ -191,7 +191,9 @@ export class BookPages {
       const mobileHeading = element('div', 'mobile-task-heading');
       const title = element('div', 'column-heading');
       title.append(left.querySelector('h1')!, heading.querySelector('button')!);
-      mobileHeading.append(title, element('p', 'book-caption', app.tr('共 {count} 项', { count: tasks.length })));
+      mobileHeading.append(title, document.documentElement.hasAttribute('data-web-controls')
+        ? left.querySelector('.book-caption')!
+        : element('p', 'book-caption', app.tr('共 {count} 项', { count: tasks.length })));
       first.classList.add('mobile-task-items');
       first.classList.toggle('few-tasks', group.items.length <= 3);
       byId('taskList').replaceChildren(mobileHeading, first, footer);
@@ -296,7 +298,7 @@ export class BookPages {
         back.id = 'calendarBack';
         right.append(back);
       }
-      const desktop = document.documentElement.hasAttribute('data-desktop-controls');
+      const desktop = document.documentElement.hasAttribute('data-web-controls');
       right.classList.toggle('desktop-calendar-detail', desktop);
       right.append(heading, element('p', 'book-caption', tr(desktop ? '{count} 次 · 共 {duration}' : '{count} 次 · {duration}', { count: selected.records.length, duration: app.formatDuration(selected.totalMs) })));
       const page = paginate(selected.records, this.recordPage, mobile ? this.mobileRecordPageSize : 4);

@@ -2,17 +2,18 @@ import { mountBook } from './ui/book';
 import './ui/styles/book.css';
 import './ui/styles/mobile-book.css';
 
-import { mountDesktop } from './ui/desktop/controls.js';
+import { mountWebControls } from './ui/desktop/controls.js';
 
 async function start() {
-  const mobileDevice = !/Windows/i.test(navigator.userAgent) && (/Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches);
-  document.documentElement.toggleAttribute('data-desktop-controls', !mobileDevice);
+  // Only the installed Android shell uses the native edition's controls.
+  const useWebControls = !('NowWhatAndroid' in window);
+  document.documentElement.toggleAttribute('data-web-controls', useWebControls);
   const { runtime } = await import('virtual:runtime');
   const pages = mountBook(runtime);
-  if (!mobileDevice && !runtime.blocked) mountDesktop(runtime, pages);
+  if (useWebControls && !runtime.blocked) mountWebControls(runtime, pages);
   // Decode the assembled book before revealing it, not one texture at a time.
   // A failed/offline resource cannot leave the application trapped behind a loader.
-  const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp', ...(document.body.classList.contains('mobile-book') ? ['android-task-paper.png'] : [])].map(name => {
+  const backgrounds = ['environment.webp', 'scroll-paper.webp', 'task-paper.webp', ...(!useWebControls && document.body.classList.contains('mobile-book') ? ['android-task-paper.png'] : [])].map(name => {
     const image = new Image(); image.src = `assets/${name}`; return image.decode();
   });
   let timeout: ReturnType<typeof setTimeout>;

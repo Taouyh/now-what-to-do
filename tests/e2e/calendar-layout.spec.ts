@@ -14,7 +14,9 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
     await page.goto('/');
     await page.locator('.bookmarks [data-page="today"]').click();
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.locator('.calendar-group')).toHaveCount(5);
+    const compact = width <= 600;
+    if (compact) await expect(page.locator('.mobile-calendar-column')).toBeVisible();
+    else await expect(page.locator('.calendar-group')).toHaveCount(5);
     const inspect = async () => {
       const metrics = await page.locator('.calendar-group').evaluateAll(rows => rows.map(row => {
         const title = row.querySelector('span')!;
@@ -33,6 +35,7 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
     await inspect();
     await expect(page.locator('.calendar-column.book-right h2')).toHaveText('读书');
     await page.screenshot({ path: testInfo.outputPath('calendar-initial.png'), fullPage: true });
+    if (compact) await page.locator('#calendarBack').click();
     const directory = page.locator('.calendar-directory');
     if (await directory.evaluate(el => el.scrollHeight > el.clientHeight + 1)) {
       await directory.hover(); await page.mouse.wheel(0, 1000);
@@ -40,9 +43,11 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
       const bounds = await page.evaluate(() => ({ list: document.querySelector('.calendar-directory')!.getBoundingClientRect().bottom, pager: document.querySelector('#directory-next')!.getBoundingClientRect().top }));
       expect(bounds.list).toBeLessThanOrEqual(bounds.pager);
     }
-    await page.locator('.calendar-group').last().scrollIntoViewIfNeeded();
+    const longRow = page.locator('.calendar-group').filter({ hasText: names[4] });
+    if (!await longRow.count()) await page.locator('#directory-next').click();
+    await longRow.scrollIntoViewIfNeeded();
     await page.screenshot({ path: testInfo.outputPath('calendar.png'), fullPage: true });
-    await page.locator('.calendar-group').last().click();
+    await longRow.click();
     const fullName = page.locator('.calendar-column.book-right h2');
     await expect(fullName).toHaveText(names[4]);
     const rightBounds = await page.evaluate(() => {
@@ -57,9 +62,9 @@ for (const language of ['zh-CN', 'en', 'ja']) for (const [width, height] of size
     await expect.poll(() => fullName.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
     await expect.poll(() => fullName.evaluate(el => el.scrollHeight - el.clientHeight - el.scrollTop)).toBeLessThanOrEqual(1);
     await page.screenshot({ path: testInfo.outputPath('calendar-long-name.png'), fullPage: true });
-    await page.locator('#directory-next').click();
-    await expect(page.locator('.calendar-group')).toHaveCount(1);
-    await expect(page.locator('.calendar-group > span')).toHaveText('第六项活动');
+    if (compact) await page.locator('#calendarBack').click();
+    if (await page.locator('#directory-next').isEnabled()) await page.locator('#directory-next').click();
+    await expect(page.locator('.calendar-group .user-text').last()).toHaveText('第六项活动');
     await inspect();
   });
 }

@@ -95,6 +95,7 @@ test('phone editor actions remain reachable when the viewport contracts', async 
 for (const mobile of [true, false]) for (const dark of [true, false]) {
   test(`completion capsules preserve save/cancel mobile=${mobile} dark=${dark}`, async ({ browser }) => {
     const context = await browser.newContext(mobile ? { viewport: { width: 360, height: 640 }, userAgent: android, hasTouch: true } : { viewport: { width: 1531, height: 715 } });
+    if (mobile) await context.addInitScript(() => Object.defineProperty(window, 'NowWhatAndroid', { value: {} }));
     const page = await context.newPage(); await seed(page);
     if (dark) { await nav(page, 'settings'); await page.locator('#theme').click(); }
     await nav(page, 'tasks');
@@ -124,6 +125,62 @@ for (const mobile of [true, false]) for (const dark of [true, false]) {
     await page.locator('.continuation-trigger').click(); await page.locator('#continuationInput').fill('下一次从这里继续');
     await page.locator('.feedback-actions button').first().click();
     expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).tasks[0].description)).toBe('下一次从这里继续');
+    await context.close();
+  });
+}
+
+for (const [device, width, userAgent] of [
+  ['Android browser', 320, android],
+  ['iPhone browser', 390, 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1'],
+] as const) {
+  test(`${device} uses the web controls throughout a touch session`, async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width, height: 700 }, userAgent, hasTouch: true, isMobile: true });
+    const page = await context.newPage();
+    await seed(page);
+    const tab = (route: string) => page.locator(`[data-page="${route}"]`).tap();
+    await tab('tasks');
+    const first = page.locator('.task-strip').first();
+    await expect(first.locator('.task-number')).toBeVisible();
+    await expect(first.locator('.task-play + .task-pin')).toBeVisible();
+    await page.locator('.small-action').tap();
+    await page.locator('#name').fill(tasks[0].name);
+    await page.locator('#saveActivity').tap();
+    await expect(page.locator('#activityError')).toHaveText('任务名称重复');
+    await page.locator('#cancelActivity').tap();
+    await first.locator('.task-edit').tap();
+    await page.locator('#modal .focus-restriction').first().tap();
+    await page.locator('#saveActivity').tap();
+    await tab('home');
+    const minutes = page.locator('.inline-control-time input');
+    await page.locator('.inline-control-time').tap();
+    await expect(minutes).toBeFocused();
+    await minutes.fill('26');
+    const trigger = page.locator('#focusConditionsTrigger');
+    await trigger.tap();
+    const options = page.locator('.inline-control-frame .focus-restriction');
+    await expect(options).toHaveCount(4);
+    for (const option of await options.all()) {
+      const wasPressed = await option.getAttribute('aria-pressed');
+      await option.tap();
+      await expect(option).not.toHaveAttribute('aria-pressed', wasPressed!);
+      const rect = await option.boundingBox();
+      expect(rect!.x).toBeGreaterThanOrEqual(0);
+      expect(rect!.x + rect!.width).toBeLessThanOrEqual(width);
+    }
+    await trigger.tap();
+    await page.locator('#start').tap();
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('activeTimer')!).durationMs)).toBe(26 * 60000);
+    await page.locator('#earlyTimer').tap();
+    await page.locator('.desktop-note-slip button').tap();
+    await page.locator('#continuationInput').fill('下次从第三章开始');
+    await tab('today');
+    await page.locator('.calendar-group').tap();
+    await expect(page.locator('.desktop-calendar-entry')).toHaveCount(1);
+    await expect(page.locator('.desktop-calendar-entry span').first()).toHaveText(/^\d{1,2}:\d{2}$/);
+    await page.locator('#calendarBack').tap();
+    await tab('home');
+    await expect(page.locator('.desktop-note-slip')).toHaveCount(0);
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).tasks.some((t: {description?: string}) => t.description === '下次从第三章开始'))).toBe(true);
     await context.close();
   });
 }

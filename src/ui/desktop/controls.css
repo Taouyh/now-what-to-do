@@ -232,7 +232,7 @@
 }
 
 .focus-restriction:hover .focus-restriction-tip,
-.focus-restrictions:not(:has(.focus-restriction:hover)) .focus-restriction:focus-visible .focus-restriction-tip {
+.focus-restriction:focus-visible .focus-restriction-tip {
   visibility: visible;
 }
 
@@ -527,4 +527,32 @@ html[data-theme=dark] .book .desktop-task-editor .description-field {
     max-width: 100%;
     white-space: normal;
   }
+}
+
+/* The compact web edition keeps the web controls, with room for fingertips. */
+html[data-web-controls] .mobile-book { --mobile-task-paper: var(--task-paper); }
+.mobile-book .book .desktop-task-list .task-strip { border: 0; }
+.mobile-book .book .inline-control-frame { min-width: 0; }
+.mobile-book .book .inline-control-frame > .focus-restrictions {
+  inset-inline: auto 0;
+}
+.mobile-book .book .focus-restrictions {
+  --restriction-size: 44px;
+  --restriction-gap: 6px;
+}
+.mobile-book .book #taskList.desktop-task-list .task-number { display: inline; }
+.mobile-book .book #taskList.desktop-task-list :is(.task-pin, .task-play) {
+  flex-basis: 44px;
+  width: 44px;
+  height: 44px;
+  opacity: 1;
+  margin-right: 2px;
+}
+.mobile-book .book .desktop-task-editor .paper-input {
+  background: var(--task-paper) center / 100% 100% no-repeat;
+  border: 0;
+  box-shadow: none;
+}
+html[data-theme=dark] .mobile-book .book .desktop-task-editor .paper-input {
+  background-image: linear-gradient(#38291ed9,#38291ed9),var(--task-paper);
 }

@@ -122,13 +122,14 @@ test('damaged source remains exportable and book controls stay inert', async ({ 
   expect(file.suggestedFilename()).toBe('what-to-do-original.txt');
 });
 
-test('narrow task pages can scroll with a real wheel to reach pagination', async ({ page }) => {
+test('narrow task pages keep the pager in view and continue the item numbering', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 }); await seed(page, data(21)); await nav(page, 'tasks');
-  await page.mouse.move(250, 600); await page.mouse.wheel(0, 1000);
-  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(0);
+  const pageSize = await page.locator('.mobile-task-items .task-strip').count();
+  expect(pageSize).toBeGreaterThan(0);
+  expect(await page.evaluate(() => scrollY)).toBe(0);
   const next = await page.locator('#tasks-next').boundingBox();
   expect(next!.y).toBeLessThan(844);
-  await page.locator('#tasks-next').click(); await expect(page.locator('.task-number').first()).toHaveText('11');
+  await page.locator('#tasks-next').click(); await expect(page.locator('.task-number').first()).toHaveText(String(pageSize + 1).padStart(2, '0'));
 });
 
 test('a second tab cannot mutate a running session and the lock releases on close', async ({ page, context }) => {

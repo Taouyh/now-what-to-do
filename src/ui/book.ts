@@ -14,11 +14,10 @@ export function mountBook(app: Runtime) {
   const pages = new BookPages(app);
   const viewport = new MobileViewport(() => { pages.reflowTasks(); pages.renderToday(); });
   pages.isViewportFrozen = () => viewport.frozen;
-  const compactViewport = matchMedia('(max-width:800px), (max-height:550px)');
-  const mobileDevice = !document.documentElement.hasAttribute('data-desktop-controls');
-  document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
+  const compactViewport = matchMedia('(max-width:600px), (max-width:800px) and (pointer:coarse), (max-height:550px) and (pointer:coarse)');
+  document.body.classList.toggle('mobile-book', compactViewport.matches);
   compactViewport.addEventListener('change', () => {
-    document.body.classList.toggle('mobile-book', mobileDevice && compactViewport.matches);
+    document.body.classList.toggle('mobile-book', compactViewport.matches);
     if (!viewport.frozen) { pages.reflowTasks(); pages.renderToday(); }
   });
   const book = element('div', 'book');

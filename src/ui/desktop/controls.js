@@ -131,7 +131,8 @@ function mountTime(runtime) {
     }
   }, { capture: true });
   new MutationObserver(() => {
-    if (input !== document.activeElement && runtime.minutes != null) {
+    // Refreshing conditions must not replace minutes that are still being typed or debounced.
+    if (!pill.hasAttribute('data-editing') && input !== document.activeElement && runtime.minutes != null) {
       input.value = String(runtime.minutes);
       sizeEntry();
     }
@@ -140,7 +141,7 @@ function mountTime(runtime) {
 
 }
 
-export function mountDesktop(runtime, pages) {
+export function mountWebControls(runtime, pages) {
   mountTime(runtime);
   document.querySelector('#random > img')?.remove();
   document.querySelector('.bookmarks').classList.add('text-bookmarks');

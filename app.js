@@ -25,9 +25,9 @@ const LEGACY_ACTIVITY_CATEGORIES=['study','work','life','exercise','other'];
 let activityMenuContext=null;
 let recommendationMenuContext=null,nextStepEditor=null;
 const recommendationSkipped=new Set(),menuCloseTimers=new Map();
-const desktopControls = document.documentElement?.hasAttribute?.('data-desktop-controls');
+const webControls = document.documentElement?.hasAttribute?.('data-web-controls');
 function initialConditions(){
-  return desktopControls
+  return webControls
     ? { computer:true, audio:true, speech:true, interrupted:false } : emptyConditions();
 }
 function freshData(){return{version:2,goals:[],tasks:[],completed:[],preferences:{time:15,language:defaultLanguage,conditions:initialConditions()},theme:'light'}}
@@ -689,7 +689,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
       pausedDurationMs:pausedMs,extensionDurationMs:extensionMs,extensionDuration:extensionMs/60000};
     if(x.legacyTimerSnapshot)record.timerRecoveryOriginal=x.legacyTimerSnapshot;
     d.completed.push(record);
-    if (!restart && !desktopControls) d.preferences = { ...d.preferences, conditions: initialConditions() };
+    if (!restart && !webControls) d.preferences = { ...d.preferences, conditions: initialConditions() };
     if(!save())return false;
   }
   stopTimerLoop();clearTimeout(timerPauseWatch);
@@ -703,7 +703,7 @@ function finishTimer(expectedCompletionId,{restart=false,confirmedState=null}={}
   timerCleanupId=x.completionId;
   if(!setTimerState(null)){renderTimer();return false}
   timerCleanupId=null;
-  if (!desktopControls) conditions = emptyConditions();
+  if (!webControls) conditions = emptyConditions();
   syncHomeControls();
   completionFeedback = { taskId: x.taskId, taskName: record.taskName, editing: false, draft: '' };
   cur=null;recommendationSkipped.clear();nextStepEditor=null;renderTimer();page('home',{avoidActivityId:x.taskId});
@@ -1227,7 +1227,7 @@ function setLanguage(nextLanguage){
 document.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
 $('export').onclick=()=>{if(!storageBlocked)downloadText(JSON.stringify(d,null,2),'what-to-do-backup.json')};$('import').onclick=()=>$('file').click();
 syncRuntimePreferences();
-conditions = desktopControls ? currentConditions(d.preferences) : emptyConditions();
+conditions = webControls ? currentConditions(d.preferences) : emptyConditions();
 syncHomeControls();
 if(!storageBlocked){restoreTimer();page(location.hash.slice(1)||'home')}else protectData($('dataRecoveryMessage').textContent);
 

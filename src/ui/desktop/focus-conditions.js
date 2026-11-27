@@ -102,8 +102,16 @@ export function mountFocusConditions(root, options) {
   }
 
   trigger.addEventListener('click', () => setOpen(toolbar.hidden));
-  root.addEventListener('pointerenter', () => { pointerInside = true; clearTimeout(timer); });
-  root.addEventListener('pointerleave', () => { pointerInside = false; scheduleClose(); });
+  root.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'touch') return;
+    pointerInside = true;
+    clearTimeout(timer);
+  });
+  root.addEventListener('pointerleave', event => {
+    if (event.pointerType === 'touch') return;
+    pointerInside = false;
+    scheduleClose();
+  });
   root.addEventListener('focusin', () => clearTimeout(timer));
   root.addEventListener('focusout', event => {
     if (!root.contains(event.relatedTarget)) scheduleClose();

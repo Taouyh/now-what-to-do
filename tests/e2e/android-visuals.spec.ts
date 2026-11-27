@@ -4,6 +4,7 @@ const android = 'Mozilla/5.0 (Linux; Android 14; OPPO Reno10 Pro) AppleWebKit/53
 const tasks = Array.from({length: 9}, (_, i) => ({id: `visual-${i}`, name: ['读书','学习日语','整理书桌','散步','画画','练字','运动','学习摄影','听音乐'][i], requirements: {}}));
 async function seed(page: Page, language: string) {
   await page.addInitScript(({tasks,language}) => {
+    Object.defineProperty(window, 'NowWhatAndroid', { value: {} });
     const now = Date.now();
     localStorage.setItem('whatToDoData', JSON.stringify({version:2,goals:[],tasks,
       completed: tasks.flatMap((task,i) => Array.from({length:i ? 1 : 9},(_,j)=>({recordId:`r-${i}-${j}`, completionId:`r-${i}-${j}`,taskId:task.id,taskName:task.name,startedAt:now-600000,endedAt:now,completedAt:new Date(now).toISOString(),actualDurationMs:600000,plannedDuration:10,pausedDurationMs:0,extensionDurationMs:0}))),

@@ -16,6 +16,9 @@ async function custom(page: Page) {
 async function savedTime(page: Page) { return page.evaluate(() => JSON.parse(localStorage.getItem('whatToDoData')!).preferences.time); }
 
 test.describe('Android time picker', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => Object.defineProperty(window, 'NowWhatAndroid', { value: {} }));
+  });
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true,
     userAgent: 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36' });
   for (const exit of ['enter', 'close', 'escape', 'summary', 'outside', 'navigation']) {

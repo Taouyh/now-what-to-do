@@ -66,6 +66,9 @@ for (const width of [1531, 390, 320]) for (const language of ['zh-CN', 'en', 'ja
 }
 
 test.describe('Android time picker', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => Object.defineProperty(window, 'NowWhatAndroid', { value: {} }));
+  });
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true,
     userAgent: 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36' });
   test('independent invalid values never silently default and boundaries stay session-only', async ({ page }) => {
